@@ -1,0 +1,3 @@
+# Keep this folder empty in git; logs will be written here
+*
+!.gitignore

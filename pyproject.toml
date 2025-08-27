@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "changeont"
+version = "0.0.1"
+description = "Change Ontology (CO) - Rung 1 toy harness"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["core*", "baselines*", "benchmarks*", "experiments*", "evaluation*"]

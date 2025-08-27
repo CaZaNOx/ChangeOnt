@@ -1,0 +1,33 @@
+benchmark:
+  name: renewal_codebook
+
+env:
+  A: 6
+  L_win: 8
+  p_ren: 0.06
+  p_merge: 0.20
+  p_split: 0.12
+  p_noise: 0.02
+  p_adv: 0.0
+  T_max: 600
+  k: 12
+  p_loop: 0.85          # NEW
+  p_loop_marker: 0.40   # NEW       # <— NEW: enable sticky loops
+  # p_loop_marker: 0.50  # optional: boost stickiness at marker visits
+episodes: 60          # give RM gauge time to learn
+
+seed: 1729
+
+agents:
+  - name: FSM
+    kind: baseline_fsm
+  - name: HAQ
+    kind: haq
+
+logging:
+  out_dir: outputs
+  stem: toy_ren_haq_vs_fsm
+
+metrics:
+  delta_align: 6
+  slope_window: 100

@@ -1,67 +1,30 @@
-# FND0 — Immediate Datum (ID)
+# Immediate Datum → eventlets → paths
 
-**Claim (ID):** What is immediately given is **change**: a *felt contrast*, not a static object nor an external clock.
-We formalize the minimal observation as an **eventlet**.
+**Immediate Datum (ID).** What is minimally given to an observer is *contrast*: something-not-like-something. No global time or labels are assumed; only locally detectable differences.
 
 ## Eventlets
-
-- An **eventlet** `e` is the smallest contrast detectable by an observer `A` under a sensitivity threshold `θ_A`.
-- Notation: `e = ⟦Δ⟧_A`, where `Δ` is a just-noticeable difference (JND) in the observer’s channel.
-- **No global time**: eventlets are not time-stamped; they are *ordered only by composition*.
-
-### Observer dependence
-- Sensitivity `θ_A` and resolution define which contrasts exist for `A`. Different observers induce different eventlet algebras.
-- Invariance under **coarsening**: increasing `θ_A` can only merge eventlets; it cannot create finer ones.
+An **eventlet** is a minimal, observer-fixed contrast:
+- $e := \langle \Delta^+, \Delta^- \rangle$ with thresholds from the observer’s own discrimination.
+- No absolute time index is smuggled; order is induced by arrival of contrasts.
 
 ## Paths
+A **path** is a finite sequence of eventlets $(e_0,\dots,e_n)$ with **base cost** $\delta(e_i\!\to e_{i+1}) \in \mathbb{R}_{\ge 0}$. $\delta$ encodes local prediction/effort or mismatch (e.g., Hamming on tokens, or negative log-likelihood from a simple local predictor). $\delta$ is **time-invariant**; non-stationarity enters only via gauge warping (later).
 
-A **path** `π = e₁ ∘ e₂ ∘ … ∘ e_k` is a composable sequence of eventlets.
-Composition `∘` is associative; the empty path `ε` is the neutral element.
+We define path concatenation $\pi\cdot\pi'$ and additive base cost
+$$
+\delta(\pi\cdot\pi') = \delta(\pi) + \delta(\pi') \quad\text{(monoid law)}.
+$$
 
-### Base cost δ
+## Bends and tolerance
+A **bend** $B_\tau$ deforms a path within tolerance $\tau$ (bounded edits, permutations, small insert/delete) while preserving re-identification at the observer’s scale. “Same identity” is the **reflexive, symmetric, transitive closure** of “within τ-bend”.
 
-We assign a **base cost** `δ(e)` to each eventlet (e.g., predictive effort or local discrepancy), and extend to paths by:
+Denote $u \sim_\tau v$ if $v$ is reachable from $u$ by finitely many τ-bends; this is an equivalence relation.
 
-- `δ(ε) = 0`
-- `δ(π ∘ e) = δ(π) + δ(e)`  (additivity over composition)
+## Quotient
+The **quotient graph** $Q=\mathcal{E}/\sim_\tau$ maps eventlets to equivalence classes $[u]$. An edge $[u]\!\to\![v]$ exists iff the underlying representatives have been observed in succession (no topology edits are ever added by the agent). The **edge cost** on $Q$ is the **infimum-lift** of the perceived cost (see `CO_MATH.md`):
+$$
+c_Q([u]\!\to\![v]) = \inf_{u'\in[u],\, v'\in[v]}\; c_G(u'\!\to\! v').
+$$
 
-`δ` is a pseudo-length: distinct eventlets may share cost; different paths may have equal accumulated cost.
-
-## Bends and tolerance τ
-
-Two paths `π, π'` are **τ-bend equivalent** if one can be deformed into the other via a finite sequence of *local rewrites* (“bends”)
-whose cumulative cost does not exceed `τ`. This induces a **tolerance relation**.
-
-- Generate a relation `~_τ` from bend moves and declare the **equivalence closure** (reflexive, symmetric, transitive).
-- **Identity = re-identifiability under τ**: the “same” arises as a class under tolerated bends.
-
-## Quotient Q
-
-Let `Q = Paths / ~_τ`. Elements `[π] ∈ Q` are *equivalence classes* of paths. Edges in `Q` are **observed transitions** between classes.
-The **infimum-lift** defines edge costs on classes:
-
-c_Q([u]→[v]) = inf_{u'∈[u], v'∈[v]} c(u'→v')
-
-
-(See CO_MATH for well-definedness conditions.)
-
-## Gauge G (Robbins–Monro)
-
-A **gauge** `G` is an attention-like potential updated via Robbins–Monro SA with two signals:
-- `PE` = prediction error (misfit on recent class-conditional emission)
-- `EU` = advantage of staying in current loop vs leaving
-
-Update (clipped to [0,1]):
-
-G_{t+1}(u) = clip( G_t(u) + α_t ( λ·PE_t(u) − β·EU_t(u) − ρ·G_t(u) ) )
-
-
-with step-size `α_t = (t+c)^−γ`, `γ ∈ (0.5, 1)`, leak `ρ>0`.
-
-## Headers (collapse, density, meta-flip, complex turn)
-
-Headers *schedule* behavior but **never change topology** nor base cost `δ`. Collapse recognizes classical regimes (low entropy/variance).
-Density measures branching vs revisitation to choose exploration mode; meta-flip flips depth↔breadth; complex turn makes smooth policy rotations.
-
-**Bottom line:** From ID alone we derive eventlets→paths→bends→quotient→gauge. Classical behavior is a **limit** (not the base).
-
+## Gauge (intuition)
+The **gauge** $G_t(\cdot)\in[0,1]$ is an observer potential that **warps perceived costs** based on local surprise and loop value, without changing topology. It evolves by a Robbins–Monro schedule on a slower time-scale than mixing.

@@ -1,19 +1,15 @@
-# ROADMAP — Rungs & Next Steps
+# Roadmap (rungs)
 
-## Rung 1 (this repo)
+**Rung 1 (theory complete, harness ready)**
+- Finalize docs in this batch
+- Unit tests for math & headers
+- Renewal toy run HAQ vs FSM (parity fixture) — execution later
 
-- Freeze philosophy, math, logic, spec a–i, headers, guardrails, falsifiers.
-- Implement renewal/codebook + drifting bandit + small maze.
-- Produce JSONLs & plots; meet acceptance bands.
+**Rung 2 (three families, ablations)**
+- Drifting bandit: HAQ vs UCB/Thompson
+- Grid maze: HAQ vs BFS/shortest path under perturbations
+- Ablations: (a) only; (a)+(e); (a)+(e)+(f); full headers
 
-## Rung 2
-
-- Add real-data tasks where CO is plausibly advantageous (market microstructure regimes; nonstationary recommendation; adaptive routing).
-- Stronger baselines (well-tuned RNNs/Transformers) under budget parity.
-
-## Rung 3
-
-- Public prereg & replication pack; blind external reruns.
-- Adversarial test suite; ablations; mis-spec stress.
-
-**Ongoing:** Extend CO-math (quantale proofs), CO-logic sequent calculus, attractor-layer catalog.
+**Rung 3 (external data & adversarial)**
+- 1–2 small real datasets with nonstationarity
+- Explicit adversarial tasks where CO should *not* help; parity or graceful degrade

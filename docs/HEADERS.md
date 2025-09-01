@@ -1,22 +1,16 @@
-# HEADERS — Collapse, Density, Meta-Flip, Complex Turn
+# Headers (regime detectors & schedulers)
 
 ## Collapse-to-classical
+- Condition: $H(y\mid [x])\le 0.10$ bits and variance ratio ≤5% over W=200.
+- Action: freeze gauge/merges; use a cheap classical solver; continue monitoring and auto un-freeze when breach persists twice.
 
-- Compute class-conditional entropy `H(y|class)` and variance ratio of perceived costs over W=200.
-- **Collapse** if `H ≤ 0.10 bits` and `var ≤ 5%` for the full window; **freeze** gauge warping and flips; **un-collapse** when either bound is violated twice consecutively.
-- Purpose: recognize stabilized regimes; use cheap solver while continuing to monitor.
+## Density of change
+- Breadth $b$: normalized out-degree on Q over last 200 steps.
+- Depth $d$: 1 − revisit ratio; optionally cross-check with loop occupancy or mean return time. If $b\ge 0.60$ and $b\ge 1.5\,d$: loosen τ (explore). If $d\ge 0.60$ and $d\ge 1.5\,b$: tighten τ (exploit). Else mix.
 
-## Density header
+## Depth↔Breadth meta-flip
+- EMA on $(b-d)$ with β=0.9; trigger if $|Δ|\ge 0.20$; hysteresis 0.10; min-hold 15; cooldown 20; ≤1 flip/50 steps.
 
-- Schedules exploration mode using **breadth** vs **depth** measured on Q.
-- **Safety clause**: require agreement between revisitation and mean-return-time depth proxies within 10%; otherwise, no switch.
+## Complex turn (continuous steering)
+- Maintain a vector $z$ in the breadth–depth plane; update with step η=0.25 and momentum 0.80; snap angle to $\{0, \pi/2, \pi, 3\pi/2\}$ minimizing short-horizon regret (H=20); clip $\|z\|\le 1$.
 
-## Meta-flip (depth↔breadth)
-
-- See SPEC: EMA, hysteresis, cooldown, flip budget.
-
-## Complex turn (smooth rotation)
-
-- Smoothly rotate scheduling weights on the breadth–depth plane using bounded momentum to avoid thrash.
-
-**Note:** Headers *schedule*; they never alter δ or topology.

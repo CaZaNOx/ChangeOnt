@@ -1,13 +1,11 @@
-# CO_RECURSION_PROTOCOL — How to extend without drift
+# CO Recursion Protocol (how we evolve the spec safely)
 
-When adding/changing anything:
-
-1. **Chain mapping:** Show ID→eventlets→paths→δ→bends→τ→equivalence→Q→gauge→decision for your change.
-2. **No oracles:** Explicitly certify no plant internals are read.
-3. **Equivalence closure:** Identity arises from τ-equivalence; use infimum-lift; pass congruence test.
-4. **Two-time-scale:** Document step-size schedule and mixing assumptions; include drift guard + sample floor.
-5. **Anti-thrash:** Hysteresis/cooldowns or curvature control; bounded-regret fallback if mis-specified.
-6. **Falsifier shelf:** At least one decisive falsifier per mechanism; preregister constants and pass/fail gates.
-7. **Budget parity:** Match resources; count quotient bookkeeping.
-8. **Stress finitude knobs:** Prove qualitative invariants persist under 0.5×/2× caps.
-9. **Traceability:** Update the traceability table (Spec ID → File/Line → Test → Metric).
+When proposing a change or new mechanism:
+1) **Map to the chain**: ID → eventlets → paths → δ → bends(τ) → equivalence → quotient Q → gauge → decision. Show the link.
+2) **No oracles**: affirm none are introduced (list signals used).
+3) **Equivalence & congruence**: prove merges respect τ-congruence; edges use infimum-lift.
+4) **Two-time-scale**: show RM step size vs. mixing; add drift guard & sample floor.
+5) **Anti-thrash**: hysteresis/cooldown bounds; a fallback that gives bounded regret if mis-specified.
+6) **Falsifier shelf**: add at least one decisive pass/fail test with thresholds; preregister constants.
+7) **Budget parity**: define fair matched baselines and account for quotient bookkeeping.
+8) **Stress finitude knobs**: vary caps (0.5×, 2×) and show qualitative invariants persist.

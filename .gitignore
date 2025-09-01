@@ -1,29 +1,24 @@
 # Python
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
-*.so
-
-# Virtual env
+*.egg-info/
 .venv/
 venv/
+.env
+.ipynb_checkpoints/
+*.pkl
+*.npz
+*.npy
 
-# Build / dist
-build/
-dist/
-*.egg-info/
-
-# IDE / editor
+# IDE
 .vscode/
 .idea/
 
-# Data & outputs
-outputs/
-data/*.tmp
-data/*.cache
-*.proposed
-*.diff
+# Data/outputs
+data/*
+!data/README.md
+outputs/*
+!outputs/README.md
 
 # OS
 .DS_Store

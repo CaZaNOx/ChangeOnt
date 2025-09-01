@@ -1,0 +1,45 @@
+k: renewal_codebook  
+episodes: 3  
+seed: 1729
+
+renewal:  
+A: 6  
+L_win: 8  
+p_ren: 0.08  
+p_merge: 0.25  
+p_split: 0.15  
+p_noise: 0.02  
+p_adv: 0.0  
+T_max: 400  
+k: 12
+
+agents:  
+haq:  
+beta_eu: 0.0 # ablate EU (for quick sensitivity check)  
+fsm:  
+k_cap: 24
+
+logging:  
+out_dir: outputs/toy_ren_ablate_a  
+delta_align: 6  
+window: 100
+
+
+---
+
+
+# Same env, for ablation-style runs (e.g., turning off gauge later)
+
+task: renewal  
+agent: fsm # placeholder until ablation flags are supported  
+episodes: 5  
+seed: 1730
+
+env:  
+A: 6  
+p_ren: 0.08  
+p_merge: 0.25  
+p_split: 0.15  
+p_noise: 0.02  
+T_max: 600  
+k: 12

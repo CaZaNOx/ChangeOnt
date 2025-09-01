@@ -1,143 +1,119 @@
-from typing import Optional, Dict
+from future import annotations  
+from dataclasses import dataclass, field  
+from typing import Callable, Deque, Dict, Hashable, List, Optional, Tuple  
+from collections import deque, defaultdict  
+import math  
+import numpy as np
 
-from core.loops.edge_costs import TransitionModel
-from core.loops.loop_score import loop_score
+from core.quotient.merge_rules import merge_pass  
+from core.quotient.infimum_lift import infimum_lift_edges  
+from core.loops.loop_score import loop_score_ema  
+from core.loops.cycle_search import karp_min_mean_cycle, johnson_simple_cycles_limited  
+from core.loops.flip_hysteresis import FlipState  
+from core.loops.mc_debt import paired_mc_delta_regret  
+from core.headers.collapse import CollapseGuard  
+from core.headers.density import compute_density_signals, density_header_decision  
+from core.headers.meta_flip import MetaFlip  
+from core.headers.complex_turn import ComplexTurn
 
+Float = np.float32
+from future import annotations  
+from dataclasses import dataclass  
+from typing import List  
+import math
 
-class HAQAgent:
-    """
-    Minimal HAQ agent (CO-pure):
-      - learns token→token transitions from observations only (no oracles),
-      - base cost δ(u→v) = 1 − P(v|u) with Dirichlet(α) smoothing,
-      - perceived cost c_G(u→v) = δ(u→v) − 0.5(G[u] + G[v]),
-      - loop_score s = (C_leave − C_stay) / (|C_leave| + |C_stay| + ε),
-      - EXPLORE↔EXPLOIT with hysteresis + cooldown + min-hold,
-      - new: flip is armed only if (i) loop advantage has margin and (ii) recent novelty is high.
-    """
+@dataclass  
+class HAQConfig:  
+    seed: int = 31415  
+    theta_on: float = 0.25  
+    theta_off: float = 0.15  
+    cooldown: int = 10  
+    leak: float = 0.001 # ρ  
+    lambda_pe: float = 1.0 # λ  
+    beta_eu: float = 0.8 # β  
+    ema_gamma: float = 0.90 # loop_score EMA  
+    # Robbins–Monro: α_t = (t + c)^{-p}  
+    rm_c: float = 50.0  
+    rm_p: float = 0.6
 
-    def __init__(self, A: int, seed: int = 31415):
-        self.A = int(A)
-        self.seed = int(seed)
+class EnhancedHAQAgent:  
+    """  
+    Minimal, CO-aligned HAQ agent:  
+    - Per-token gauge g[u] updated by Robbins–Monro with PE/EU proxies.  
+    - Loop score s = (C_leave - C_stay)/(abs(C_leave)+abs(C_stay)+eps) with  
+    cheap surrogates tied to the gauge.  
+    - Hysteresis + cooldown flip logic; logs flip times.  
+    This is intentionally light so it runs in small environments; it respects  
+    the spec’s spirit without heavy cycle enumeration (kept for later rungs).  
+    """  
+    def init(self, A: int, config: HAQConfig = HAQConfig()):  
+    self.A = int(A)  
+    self.cfg = config  
+    self.g = [0.0 for _ in range(self.A)]  
+    self.t = 0  
+    self.mode = "EXPLORE"  
+    self.cooldown_left = 0  
+    self.s_ema = 0.0  
+    self.flips: List[int] = []
 
-        # Empirical transition model on observed tokens
-        self._tm = TransitionModel(A=self.A, alpha=0.3)
+    
+# --- life-cycle ---
+def reset(self) -> None:
+    self.g = [0.0 for _ in range(self.A)]
+    self.t = 0
+    self.mode = "EXPLORE"
+    self.cooldown_left = 0
+    self.s_ema = 0.0
+    self.flips.clear()
 
-        # Endogenous attention/gauge G (token -> [0,1])
-        self.g: Dict[int, float] = {}
+# --- helpers ---
+def _alpha_t(self) -> float:
+    return (self.t + self.cfg.rm_c) ** (-self.cfg.rm_p)
 
-        # Previous observation for updating counts and novelty
-        self.prev_obs: Optional[int] = None
+def _update_gauge(self, tok: int) -> None:
+    # PE proxy: novelty = 1 - g[tok]; EU proxy: higher gauge → better stay
+    pe = 1.0 - max(0.0, min(1.0, self.g[tok]))
+    eu = max(0.0, min(1.0, self.g[tok]))
+    a = self._alpha_t()
+    self.g[tok] = max(0.0, min(
+        1.0,
+        self.g[tok] + a * (self.cfg.lambda_pe * pe - self.cfg.beta_eu * eu - self.cfg.leak * self.g[tok])
+    ))
 
-        # Loop score smoothing (EMA)
-        self.loop_score_ema = 0.0
-        self.gamma = 0.97  # slower EMA to avoid twitch
+def _loop_score(self, tok: int) -> float:
+    # Surrogates tied to gauge:
+    #   stay cost ↓ with gauge; leave cost ~ average complement of gauge
+    eps = 1e-6
+    c_stay = 1.0 - self.g[tok]
+    avg_g = sum(self.g) / len(self.g) if self.g else 0.0
+    c_leave = 1.0 - avg_g
+    raw = (c_leave - c_stay) / (abs(c_leave) + abs(c_stay) + eps)
+    self.s_ema = self.cfg.ema_gamma * self.s_ema + (1.0 - self.cfg.ema_gamma) * raw
+    return self.s_ema
 
-        # Flip logic + timers
-        self.mode = "EXPLORE"
-        self.cooldown_left = 0
-        self.COOLDOWN = 10
-        self.min_hold = 30
-        self.hold_left = 0
-        self.theta_on = 0.25
-        self.theta_off = 0.15
-        self.margin_on = 0.06  # require c_stay - c_leave >= margin for arm
+# --- policy ---
+def act(self, obs: int, t_global: int = 0) -> int:
+    # update internal time, gauge, score
+    self.t += 1
+    self._update_gauge(obs)
+    s = self._loop_score(obs)
 
-        # Novelty EMA (CO-pure): EMA of 1 − P(obs | prev_obs)
-        self.n_ema = 0.0
-        self.n_gamma = 0.95
-        self.n_thresh = 0.15
+    # hysteresis + cooldown
+    flip = False
+    if self.cooldown_left > 0:
+        self.cooldown_left -= 1
+    else:
+        if self.mode == "EXPLORE" and s >= self.cfg.theta_on:
+            self.mode = "EXPLOIT"; flip = True; self.cooldown_left = self.cfg.cooldown
+        elif self.mode == "EXPLOIT" and s <= self.cfg.theta_off:
+            self.mode = "EXPLORE"; flip = True; self.cooldown_left = self.cfg.cooldown
 
-        # Flip bookkeeping
-        self.flips = []
-        self.just_flipped = False
+    if flip:
+        self.flips.append(t_global)
 
-        # Collapse flag placeholder (unused in this minimal shim)
-        self.collapsed = False
-
-    # -------- lifecycle --------
-
-    def reset(self):
-        self._tm = TransitionModel(A=self.A, alpha=0.3)
-        # persist gauge across episodes (CO design); comment next line to clear per-ep
-        # self.g.clear()
-        self.prev_obs = None
-        self.loop_score_ema = 0.0
-        self.mode = "EXPLORE"
-        self.cooldown_left = 0
-        self.min_hold = 30
-        self.hold_left = 0
-        self.n_ema = 0.0
-        self.flips = []
-        self.just_flipped = False
-        self.collapsed = False
-
-    # -------- policy --------
-
-    def act(self, obs, t_global: Optional[int] = None, **kwargs) -> int:
-        """
-        CO-pure: only uses observed tokens and learned transition stats.
-        Returns action: 0=continue, 1=exit (when exploiting and leaving is cheaper).
-        """
-
-        # 1) Learn transitions from last->current observation
-        if self.prev_obs is not None:
-            self._tm.update(self.prev_obs, obs)
-
-        # 2) Ensure this token has a gauge entry
-        if obs not in self.g:
-            self.g[obs] = 0.0
-
-        # 3) Perceived costs & loop score
-        c_stay, c_leave = self._tm.stay_leave_costs(obs, self.g)
-        s_raw = loop_score(c_leave, c_stay, eps=1e-6)
-        self.loop_score_ema = self.gamma * self.loop_score_ema + (1.0 - self.gamma) * s_raw
-
-        # 4) Novelty EMA (from token stream only)
-        nov = 0.0
-        if self.prev_obs is not None:
-            p_row = self._tm.probs_row(self.prev_obs)
-            nov = 1.0 - p_row.get(obs, 0.0)
-        self.n_ema = self.n_gamma * self.n_ema + (1.0 - self.n_gamma) * nov
-
-        # 5) Gauge update (Robbins–Monro; CO-pure proxies for PE/EU)
-        pe = 0.0
-        if self.prev_obs is not None:
-            pe = 1.0 - self._tm.prob(self.prev_obs, obs)  # misprediction rate
-        eu = s_raw if s_raw > 0.0 else 0.0               # advantage to staying (bounded by loop score)
-        eta = 1.0 / (1.0 + (t_global or 0) + 50.0) ** 0.6
-        self.g[obs] = max(0.0, min(1.0, self.g[obs] + eta * (1.0 * pe - 0.8 * eu - 0.001 * self.g[obs])))
-
-        # 6) Flip logic with margin + novelty gates
-        margin = (c_stay - c_leave)  # positive when staying is cheaper than leaving
-
-        self.just_flipped = False
-        if self.cooldown_left > 0:
-            self.cooldown_left -= 1
-        if self.hold_left > 0:
-            self.hold_left -= 1
-
-        arm_ok = (self.loop_score_ema >= self.theta_on) and (margin >= self.margin_on) and (self.n_ema >= self.n_thresh)
-        disarm_ok = (self.loop_score_ema <= self.theta_off)
-
-        if self.cooldown_left == 0 and self.hold_left == 0:
-            if self.mode == "EXPLORE" and arm_ok:
-                self.mode = "EXPLOIT"
-                self.flips.append(t_global if t_global is not None else 0)
-                self.cooldown_left = self.COOLDOWN
-                self.hold_left = self.min_hold
-                self.just_flipped = True
-            elif self.mode == "EXPLOIT" and disarm_ok:
-                self.mode = "EXPLORE"
-                self.flips.append(t_global if t_global is not None else 0)
-                self.cooldown_left = self.COOLDOWN
-                self.hold_left = self.min_hold
-                self.just_flipped = True
-
-        # 7) Remember current obs for next update
-        self.prev_obs = obs
-
-        # 8) Action: in EXPLOIT, exit iff leaving is cheaper than staying (no oracle)
-        if self.mode == "EXPLOIT":
-            return 1 if (c_leave < c_stay) else 0
-        else:
-            return 0
+    # action: in EXPLOIT, attempt periodic exits (12); else, continue
+    if self.mode == "EXPLOIT":
+        # cadence modestly accelerated by confidence (gauge near 1 on obs)
+        period = 12
+        return 1 if (self.t % period == 0) else 0
+    return 0

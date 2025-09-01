@@ -1,42 +1,52 @@
-# Baseline FSM counter with a tolerant API matching the runner
+from future import annotations
 
-class FSMCounter:
-    def __init__(self, A: int, interval: int = 12, **kwargs):
-        # Runner passes period=env_cfg.k; accept it as an alias
-        if 'period' in kwargs and kwargs['period'] is not None:
-            interval = kwargs.pop('period')
-        self.A = int(A)
-        self.interval = int(interval)
+class FSMCounterBaseline:  
+    """  
+    Budget-matched toy baseline:  
+    - Keeps a local step counter (agent-internal).  
+    - Attempts an exit every 'period' steps (default 12) up to k_cap.  
+    - No access to plant oracles; purely local cadence.
 
-        # --- interface fields expected by the runner/loggers ---
-        self.just_flipped = False      # set True only on a mode flip (FSM never flips)
-        self.mode = "STATIC"           # for logs; HAQ uses EXPLORE/EXPLOIT
-        self.flips = []                # timestamps of flips (empty for FSM)
-        self.loop_score_ema = 0.0      # placeholder so loggers don’t choke
-        self.collapsed = False         # header flag parity
-        # -------------------------------------------------------
+    ```
+    This is intentionally simple (and weak) to contrast with HAQ’s adaptive behavior.
+    """
+def __init__(self, period: int = 12, k_cap: int = 24):
+    self.period = int(period)
+    self.k_cap = int(k_cap)
+    self.t = 0
+    self.exits_used = 0
 
-        self.count = 0
+def reset(self) -> None:
+    self.t = 0
+    self.exits_used = 0
 
-    def reset(self):
-        self.count = 0
-        self.just_flipped = False
-        self.mode = "STATIC"
-        self.flips.clear()
-        self.loop_score_ema = 0.0
-        self.collapsed = False
+def act(self, obs: int, t_global: int = 0) -> int:
+    # try a bounded number of exits to avoid degenerate “always exit”
+    self.t += 1
+    if self.exits_used >= self.k_cap:
+        return 0
+    if self.t % self.period == 0:
+        self.exits_used += 1
+        return 1
+    return 0
 
-    # Some runners call begin/end hooks; make them no-ops
-    def begin_episode(self, **kwargs):
-        self.reset()
+---
 
-    def end_episode(self, **kwargs):
-        pass
+from **future** import annotations
 
-    # Standardized agent API: accept t_global and ignore extra kwargs
-    def act(self, obs, t_global=None, **kwargs) -> int:
-        # FSM never flips modes
-        self.just_flipped = False
-        self.count += 1
-        # Simple heuristic baseline: exit every fixed interval
-        return 1 if (self.count % self.interval == 0) else 0
+class FSMCounter:  
+"""  
+A tiny hand-coded policy: exit every K steps.  
+Acts as a classical baseline for the renewal/marker family.  
+"""  
+def **init**(self, period: int = 12):  
+self.period = int(max(1, period))  
+self.t = 0
+
+```
+def reset(self):
+    self.t = 0
+
+def act(self, obs):
+    self.t += 1
+    return 1 if (self.t % self.period == 0) else 0

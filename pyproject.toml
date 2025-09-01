@@ -4,11 +4,37 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "changeont"
-version = "0.0.1"
-description = "Change Ontology (CO) - Rung 1 toy harness"
+version = "0.1.0"
+description = "Change Ontology (CO) — minimal runnable harness"
 readme = "README.md"
 requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26",
+  "PyYAML>=6.0.1",
+  "matplotlib>=3.8",
+]
+license = { text = "MIT" }
+authors = [{ name = "ChangeOnt Contributors" }]
+keywords = ["change-ontology", "nonstationarity", "quotient", "gauge", "falsifiability"]
+
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+
+# We keep runtime deps in requirements.txt for dev ergonomics.
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["core*", "baselines*", "benchmarks*", "experiments*", "evaluation*"]
+include = ["core*", "benchmarks*", "experiments*", "evaluation*", "baselines*", "tests*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
+
+[tool.flake8]
+max-line-length = 100
+extend-ignore = ["E203", "W503"]
+

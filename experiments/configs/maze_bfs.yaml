@@ -1,0 +1,12 @@
+# Small grid maze with greedy baseline
+
+task: maze  
+agent: bfs_greedy # supported by the runner  
+episodes: 2
+
+env:  
+W: 7  
+H: 7  
+start: [0, 0]  
+goal: [6, 6]  
+walls: [] # optional: list of [x,y] coordinates

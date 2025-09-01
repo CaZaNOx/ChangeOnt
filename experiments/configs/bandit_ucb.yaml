@@ -1,0 +1,14 @@
+# Drifting K-armed bandit (nonstationary)
+
+task: bandit  
+agent: ucb # supported by the runner  
+episodes: 3  
+seed: 7
+
+env:  
+K: 5  
+T: 500  
+drift_amp: 0.35  
+drift_period: 100  
+base: 0.4  
+noise: 0.03

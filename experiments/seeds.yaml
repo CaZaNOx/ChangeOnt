@@ -1,0 +1,13 @@
+base_seed: 1729  
+haq_seed: 31415  
+lstm_seed: 27182  
+trf_seed: 16180
+
+
+
+# Shared seeds for reproducibility (runners can choose one)
+
+base: 1729  
+renewal: 1729  
+bandit: 7  
+maze: 11

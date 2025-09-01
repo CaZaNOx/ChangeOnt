@@ -1,0 +1,41 @@
+{  
+"$schema": "[https://json-schema.org/draft/2020-12/schema](https://json-schema.org/draft/2020-12/schema)",  
+"title": "ExperimentConfig",  
+"type": "object",  
+"properties": {  
+"task": { "type": "string", "enum": ["renewal_codebook"] },  
+"episodes": { "type": "integer", "minimum": 1 },  
+"seed": { "type": "integer" },  
+"renewal": {  
+"type": "object",  
+"properties": {  
+"A": { "type": "integer", "minimum": 2 },  
+"L_win": { "type": "integer", "minimum": 1 },  
+"p_ren": { "type": "number" },  
+"p_merge": { "type": "number" },  
+"p_split": { "type": "number" },  
+"p_noise": { "type": "number" },  
+"p_adv": { "type": "number" },  
+"T_max": { "type": "integer", "minimum": 10 },  
+"k": { "type": "integer", "minimum": 1 }  
+},  
+"required": ["A","L_win","p_ren","p_merge","p_split","p_noise","p_adv","T_max","k"]  
+},  
+"agents": {  
+"type": "object",  
+"properties": {  
+"haq": { "type": "object" },  
+"fsm": { "type": "object" }  
+}  
+},  
+"logging": {  
+"type": "object",  
+"properties": {  
+"out_dir": { "type": "string" },  
+"delta_align": { "type": "integer", "minimum": 0 },  
+"window": { "type": "integer", "minimum": 1 }  
+}  
+}  
+},  
+"required": ["task", "episodes", "seed", "renewal", "logging"]  
+}

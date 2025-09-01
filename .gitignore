@@ -1,7 +1,30 @@
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual env
 .venv/
-.env/
-outputs/*
-!outputs/.gitignore
+venv/
+
+# Build / dist
+build/
+dist/
 *.egg-info/
+
+# IDE / editor
+.vscode/
+.idea/
+
+# Data & outputs
+outputs/
+data/*.tmp
+data/*.cache
+*.proposed
+*.diff
+
+# OS
+.DS_Store
+Thumbs.db

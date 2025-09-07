@@ -46,7 +46,7 @@ self.rng = random.Random(cfg.seed)
 self.t = 0  
 self.phases = [self.rng.random() * cfg.drift_period for _ in range(cfg.K)]
 
-```
+
 def reset(self) -> Tuple[int, float, bool, Dict[str, Any]]:
     self.t = 0
     return 0, 0.0, False, {}

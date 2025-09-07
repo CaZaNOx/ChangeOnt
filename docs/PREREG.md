@@ -1,21 +1,36 @@
-# Preregistration: falsifiers & thresholds
+# PREREG — Kernel v0.2.0 Constants
 
-**HAQ / (a):** On the renewal / counting-gate family: phase-flip sharpness ≥ 0.85; FDR_windowed ≤ 0.20; AUReg ≤ baseline − 0.10 (absolute). Fail if any gate is missed.
+Purpose
+Freeze operational constants for reproducibility and fair baselines.
 
-**Spawn / (b):** Spawn accepted only if ΔBIC ≤ −10 and AUReg gain ≥ 0.05; otherwise falsified.
+Gauge (HAQ)
+• alpha exponent (alpha0): 0.6
+• t0 (burn-in offset): 50
+• leak ρ: 1e−3
+• clip range: [0, 1]
+• lambda_pe: 1.0
+• beta_eu: 1.0
 
-**κ / (c):** Δκ ≥ +0.10 without AUReg loss; else falsified.
+Collapse Header
+• window W: 200
+• entropy_bits_thresh: 0.10
+• var_rel_thresh: 0.05
+• unfreeze_violations: 2
 
-**Edge-of-chaos / (d):** Keep diversity in [0.25, 0.35]; median band error ≤ 0.10; else falsified.
+Flip (LoopEMA + Hysteresis)
+• EMA beta: 0.9
+• theta_on: 0.25
+• theta_off: 0.15
+• cooldown_steps: 10
 
-**Potential / (e):** Turning on warp reduces time-to-stable-loop ≥ 25% on CA/maze; else falsified.
+Quotient Closure (example defaults)
+• tau_merge (illustrative): 0.20
+• padding weight w_pad: 0.25
 
-**LLN / (f):** Drift guard satisfied for 3 windows; frequencies stabilize; else falsified.
+Evaluation
+• invariance epsilon: 1e−9 (deterministic fixtures)
+• seeds: prefer fixed set {1729, 1737, 19937} for audits
 
-**Density header / (g):** Must not worsen AUReg by > 0.02 in classical regime; else falsified.
-
-**Meta-flip / (h):** Reduce median escape-time after hole by ≥ 30% without >5% thrash; else falsified.
-
-**Complex turn / (i):** Beat straight EMA steering by ≥ 0.03 AUReg on mixed regimes; else falsified.
-
-**Collapse header:** Mis-spec (false rigidity/flexibility) must not cause unbounded regret (bounded-regret fallback).
+Notes
+Changing Kernel constants requires updating this file and the CHANGELOG.
+Extensions must specify their own prereg blocks before promotion.

@@ -1,127 +1,138 @@
-from future import annotations
-from typing import Dict, Hashable, Iterable, List, Tuple
+# core/quotient/equivalence.py
+from __future__ import annotations
 
-class Equivalence:
-    '''
-    Reflexive–symmetric–transitive closure via union–find (disjoint sets).
-    Provides:
-    - add(x)
-    - union(x, y)
-    - classes(): list of sets (each an equivalence class)
-    - representative(x): canonical rep of x
-    - relabel(mapping): remap underlying element ids (used after merges)
-    '''
-def init(self) -> None:
-    self.parent: Dict[Hashable, Hashable] = {}
-    self.rank: Dict[Hashable, int] = {}
+from dataclasses import dataclass
+from typing import Any, Callable, Dict, Iterable, List, Optional, Tuple
+import hashlib
+import json
 
-def add(self, x: Hashable) -> None:
-    if x not in self.parent:
-        self.parent[x] = x
-        self.rank[x] = 0
+Hash = str
+NodeId = Any  # hashable
+ClassId = Any  # hashable
 
-def find(self, x: Hashable) -> Hashable:
-    # path compression
-    px = self.parent.get(x, None)
-    if px is None:
-        self.add(x)
-        return x
-    if px != x:
-        self.parent[x] = self.find(px)
-    return self.parent[x]
+def _stable_hash_bytes(obj: Any) -> bytes:
+    """Deterministic content hash independent of Python id()."""
+    # Use a canonical JSON representation
+    s = json.dumps(obj, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(s.encode("utf-8")).digest()
 
-def union(self, a: Hashable, b: Hashable) -> None:
-    ra, rb = self.find(a), self.find(b)
-    if ra == rb:
-        return
-    # union by rank
-    if self.rank[ra] < self.rank[rb]:
-        self.parent[ra] = rb
-    elif self.rank[rb] < self.rank[ra]:
-        self.parent[rb] = ra
-    else:
-        self.parent[rb] = ra
-        self.rank[ra] += 1
+def stable_hash(obj: Any) -> Hash:
+    return hashlib.sha256(_stable_hash_bytes(obj)).hexdigest()
 
-def classes(self) -> List[Tuple[Hashable, ...]]:
-    bins: Dict[Hashable, List[Hashable]] = {}
-    for x in list(self.parent.keys()):
-        r = self.find(x)
-        bins.setdefault(r, []).append(x)
-    return [tuple(v) for v in bins.values()]
+@dataclass(frozen=True)
+class CandidatePair:
+    u: NodeId
+    v: NodeId
+    dist: float
+    header_hash: Hash
 
-def representative(self, x: Hashable) -> Hashable:
-    return self.find(x)
+class UnionFind:
+    """
+    Name-free union-find with deterministic tie-break based on content hashes.
+    Tracks 'witness' edges chosen for merges.
+    """
+    def __init__(self, items: Iterable[NodeId], signature_fn: Callable[[NodeId], Any]):
+        self.parent: Dict[NodeId, NodeId] = {}
+        self.rank: Dict[NodeId, int] = {}
+        self.sig_fn = signature_fn
+        self.sig_hash: Dict[NodeId, Hash] = {}
+        self.witness_log: List[Dict[str, Any]] = []
 
-def relabel(self, mapping: Dict[Hashable, Hashable]) -> None:
-    # allow callers to rename primitive ids (e.g., after environment merges)
-    new_parent: Dict[Hashable, Hashable] = {}
-    new_rank: Dict[Hashable, int] = {}
-    for k, v in self.parent.items():
-        nk = mapping.get(k, k)
-        nv = mapping.get(v, v)
-        new_parent[nk] = nv
-        new_rank.setdefault(nk, self.rank.get(k, 0))
-    self.parent = new_parent
-    self.rank = new_rank
+        for x in items:
+            self.parent[x] = x
+            self.rank[x] = 0
+            self.sig_hash[x] = stable_hash(self.sig_fn(x))
 
+    def find(self, x: NodeId) -> NodeId:
+        # path compression
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
 
-    from future import annotations  
-from typing import Dict, Hashable, Iterable, Tuple, List
+    def _tie_break(self, a: NodeId, b: NodeId) -> NodeId:
+        """Return the preferred representative (deterministic)."""
+        ha, hb = self.sig_hash[a], self.sig_hash[b]
+        if ha < hb:
+            return a
+        if hb < ha:
+            return b
+        # absolute tie (extremely rare) -> fall back to lex order of repr()
+        return a if repr(a) <= repr(b) else b
 
-class UnionFind:  
-"""  
-Simple union–find (disjoint set) with path compression.  
-Keys are eventlet identifiers (Hashable).  
-"""  
-def **init**(self) -> None:  
-self.parent: Dict[Hashable, Hashable] = {}  
-self.rank: Dict[Hashable, int] = {}
+    def union(self, a: NodeId, b: NodeId, witness: Optional[Dict[str, Any]] = None) -> NodeId:
+        ra, rb = self.find(a), self.find(b)
+        if ra == rb:
+            return ra
+        # union by rank, but keep deterministic chosen representative
+        keep = self._tie_break(ra, rb)
+        drop = rb if keep == ra else ra
 
-```
-def find(self, x: Hashable) -> Hashable:
-    if x not in self.parent:
-        self.parent[x] = x
-        self.rank[x] = 0
-        return x
-    # path compression
-    if self.parent[x] != x:
-        self.parent[x] = self.find(self.parent[x])
-    return self.parent[x]
+        # rank update
+        if self.rank[ra] == self.rank[rb]:
+            if keep == ra:
+                self.rank[ra] += 1
+            else:
+                self.rank[rb] += 1
 
-def union(self, a: Hashable, b: Hashable) -> Hashable:
-    ra, rb = self.find(a), self.find(b)
-    if ra == rb:
-        return ra
-    # union by rank
-    if self.rank[ra] < self.rank[rb]:
-        ra, rb = rb, ra
-    self.parent[rb] = ra
-    if self.rank[ra] == self.rank[rb]:
-        self.rank[ra] += 1
-    return ra
-```
+        # attach 'drop' under 'keep'
+        self.parent[drop] = keep
 
-def equivalence_classes(pairs: Iterable[Tuple[Hashable, Hashable]]) -> Dict[Hashable, Hashable]:  
-"""  
-Build equivalence classes from a stream of 'must-merge' pairs (generated by the τ-bend rule).  
-Returns a map 'rep[x] = representative' for every seen element x.  
-"""  
-uf = UnionFind()  
-for a, b in pairs:  
-uf.union(a, b)  
-# normalize representatives  
-reps: Dict[Hashable, Hashable] = {}  
-for x in list(uf.parent.keys()):  
-reps[x] = uf.find(x)  
-return reps
+        if witness is not None:
+            self.witness_log.append({
+                "chosen": True,
+                "keep": keep,
+                "drop": drop,
+                **witness,
+            })
+        return keep
 
-def relabel_to_classes(items: Iterable[Hashable], reps: Dict[Hashable, Hashable]) -> Dict[Hashable, Hashable]:  
-"""  
-Relabel a set of items to their class representatives, using 'reps' map.  
-Unseen items become singleton classes.  
-"""  
-out: Dict[Hashable, Hashable] = {}  
-for x in items:  
-out[x] = reps.get(x, x)  
-return out
+    def classes(self) -> Dict[NodeId, List[NodeId]]:
+        out: Dict[NodeId, List[NodeId]] = {}
+        for x in self.parent.keys():
+            r = self.find(x)
+            out.setdefault(r, []).append(x)
+        return out
+
+def deterministic_merge_pass(
+    items: Iterable[NodeId],
+    distance_fn: Callable[[NodeId, NodeId], float],
+    header_agree_fn: Callable[[NodeId, NodeId], bool],
+    signature_fn: Callable[[NodeId], Any],
+    tau: float,
+    seed: int = 1729,
+) -> Tuple[UnionFind, List[CandidatePair]]:
+    """
+    Compute a deterministic set of merges under (distance <= tau) and header agreement.
+    Returns the union-find and the ordered candidate list we considered (for audit).
+    """
+    items_list = list(items)
+    # Build candidate list
+    cands: List[CandidatePair] = []
+    for i in range(len(items_list)):
+        for j in range(i + 1, len(items_list)):
+            u, v = items_list[i], items_list[j]
+            if not header_agree_fn(u, v):
+                continue
+            d = distance_fn(u, v)
+            if d <= tau:
+                hdr_obj = {"hdr_u": signature_fn(u), "hdr_v": signature_fn(v)}
+                cands.append(CandidatePair(u=u, v=v, dist=d, header_hash=stable_hash(hdr_obj)))
+
+    # Deterministic order: (dist ↑, freshness? we don't have timestamps here, then tie on stable hashes)
+    cands.sort(key=lambda cp: (cp.dist, stable_hash(cp.u), stable_hash(cp.v)))
+
+    uf = UnionFind(items_list, signature_fn)
+    # Merge in order; we do NOT split during a pass
+    for cp in cands:
+        ru, rv = uf.find(cp.u), uf.find(cp.v)
+        if ru == rv:
+            continue
+        # Optionally, a "congruence check" hook could go here; keep simple for kernel
+        uf.union(ru, rv, witness={
+            "seed": seed,
+            "pair": [cp.u, cp.v],
+            "dist": cp.dist,
+            "tau": tau,
+            "header_hash": cp.header_hash,
+        })
+    return uf, cands

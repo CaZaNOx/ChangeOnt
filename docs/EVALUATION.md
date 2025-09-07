@@ -1,16 +1,41 @@
-# Evaluation: metrics & reporting
+# EVALUATION — Kernel v0.2.0
 
-**Per-step JSONL**: time t, class, edges_out with perceived costs, loop score raw/EMA, mode, flip, gauge snapshot hash.
+Purpose
+Define name-free metrics, invariance checks, and compute ledger fields used to evaluate CO.
 
-**Per-episode JSONL**: flips, FDR_windowed (Δ=6), AUReg_window vs baseline, Theil–Sen slope_window, LLN_stable flag, quot_vol_idx.
+Core Metrics (name-free)
+• AUReg (Area Under Regret): lower is better; computed over episodes/windows.
+• FDR_windowed (False Discovery Rate within window): lower is better.
+• Slope (trend) via robust Theil–Sen on per-window regret.
 
-**Metrics**:
-- AUReg_window: renewal-weighted area under cumulative regret improvement.
-- Theil–Sen slope_window: robust slope of cumulative regret vs time.
-- FDR_windowed (Δ): fraction of flips within ±Δ of event times.
-- Volatility: 1 − Jaccard(Q_{t−W}, Q_t), W=200.
-- LLN stability: volatility ≤ 0.10 for 3 windows and per-class visits ≥ 50.
+ID-Permutation Invariance Procedure
+Goal: verify metrics do not depend on class IDs (names).
+Procedure
+1) Run an experiment and save metrics.jsonl.
+2) Apply a random permutation π to class IDs in the saved records (do not rerun the model).
+3) Recompute metrics on the permuted records.
+4) Report absolute deltas; assert max delta ≤ ε (e.g., 1e−9 for deterministic fixtures).
+Report Schema (JSON)
+    {
+      "metric": "AUReg",
+      "delta": 2.1e-10,
+      "threshold": 1e-9,
+      "pass": true
+    }
+Tooling
+evaluation/invariance_test.py provides a minimal harness (dummy AUReg for the toy);
+replace with evaluation/metrics functions as they mature.
 
-**Budget parity**: report precision, FLOPs/step, params, memory bits (including quotient tables), context window.
+Compute Ledger (accuracy-per-compute discipline)
+For each run log:
+• flops_per_step (approximate),
+• memory_bits,
+• precision (e.g., 32),
+• context (tokens or steps),
+• edit_costs (if available),
+• accuracy_per_compute summary (optional downstream aggregation).
 
-**Plots**: (1) cumulative regret with flip markers, (2) volatility over time, (3) entropy/variance for collapse gate, (4) AUReg bar vs matched baselines.
+Outputs
+• metrics.jsonl — per-step or per-episode metrics.
+• budget.csv — per-step compute ledger rows.
+• merge_witness.jsonl — deterministic closure audit trail (from quotient merge pass).

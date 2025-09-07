@@ -1,67 +1,117 @@
-# CO Math (formal core)
+# CO_MATH — Kernel v0.2.0
 
-This file fixes the symbols, equations, and minimal lemmas needed by the code. See `SYMBOLS.md` for a glossary.
+This file defines the mathematical core required by the CO Kernel:
+(K-1) detectability and closure on observations,
+(K-2) infimum-lift with witness consistency,
+(K-5) logic pointer (tables live in CO_LOGIC.md).
+Everything is name-free and assumes effective finiteness.
 
-## 1. Base objects
-- Eventlets set $\mathcal{E}$; paths are finite sequences in $\mathcal{E}^*$.
-- Base edge cost $\delta:\mathcal{E}\times\mathcal{E}\to\mathbb{R}_{\ge 0}$, *time-invariant*.
-- Path cost: $\delta(\pi=e_0\!\to\!\dots\!\to\!e_n) := \sum_{i=0}^{n-1}\delta(e_i\!\to\!e_{i+1})$ (monoid).
+Effective Finiteness (EF)
+• Class cap N ≤ N_max (e.g., 64).
+• Per-class window length W (bounded).
+• Observed edge set E is finite.
+• Header signals are computed on finite windows.
+• No splits during a closure pass; splits happen between passes.
 
-## 2. Bends and equivalence
-For tolerance $\tau\ge 0$, define a primitive relation $R_\tau$ (“within τ-bend”) on $\mathcal{E}$. Let $\sim_\tau$ be the **equivalence closure** of $R_\tau$ (reflexive, symmetric, transitive). We write $[u]$ for the class of $u$.
+––––––––––––––––––––––––––––––––––––––––
 
-**Lemma 2.1 (Equivalence).** $\sim_\tau$ is an equivalence relation (by closure construction).  
-**Lemma 2.2 (Congruence gate).** If for all edges $u\!\to\!v$ and representatives $u'\!\in\![u], v'\!\in\![v]$ the perceived costs differ by at most $\tau$ (τ-congruence), then infimum-lift below is well-defined and monotone.
+SpecCard CO.K1.Identity.Rtau@v0.2 — Detectability & Bend Relation
 
-## 3. Quotient graph and infimum-lift
-Quotient $Q=(V,E)$ with $V=\mathcal{E}/\sim_\tau$ and 
-$$
-([u],[v])\in E \;\;\text{iff}\;\; \exists u'\in[u], v'\in[v] : (u'\!\to\!v') \text{ observed}.
-$$
+Universe
+Recent traces of representatives u, v are sequences x_{1:L}(u), x_{1:L}(v) with L ≤ W.
+When lengths differ, pad with a special symbol ⌀.
 
-Let $G_t:\mathcal{E}\to[0,1]$ be a gauge. Define **perceived** edge cost on representatives:
-$$
-c_G(u\!\to\!v) := \max\!\Big(0,\;\delta(u\!\to\!v) - \tfrac{1}{2}\big(G_t(u)+G_t(v)\big)\Big).
-$$
+Gauge Weights
+A bounded sequence {w_t} ⊂ [0,1] comes from the gauge (see core/gauge/haq.py).
+Let w_pad ∈ [0,1] weight padding-comparisons.
 
-Define the **infimum-lift** on the quotient:
-$$
-c_Q([u]\!\to\![v]) := \inf_{u'\in[u],\, v'\in[v]} c_G(u'\!\to\!v').
-$$
+Warped Bend Distance
+d^g_τ(u, v) := (1/L) * Σ_{t=1..L} ω_t * Δ(x_t(u), x_t(v)),
+with ω_t = w_t when both tokens present, else w_pad,
+and Δ(a, b) = 1 if a≠b else 0 (Hamming; any monotone symbol metric may be substituted).
 
-**Lemma 3.1 (Well-defined).** If τ-congruence holds (Lemma 2.2), the infimum exists and is independent of representative choice; $c_Q$ is lower-semicontinuous under merges.
+Header Agreement
+HeaderAgree(u, v) is true iff binding headers match over aligned windows:
+• same collapse state,
+• same density mode (if used),
+• same window alignment (start/end indices).
 
-## 4. Gauge update (Robbins–Monro)
-For each class (or node) $x$ at step $t$:
-$$
-G_{t+1}(x) \;=\; \mathrm{clip}_{[0,1]}\!\left(G_t(x) \;+\; \alpha_t\big(\lambda\,\mathrm{PE}_t(x) \;-\; \beta\,\mathrm{EU}_t(x)\big) \;-\; \rho\,G_t(x)\right)
-$$
-with step size $\alpha_t = (t+50)^{-0.6}$, leak $\rho=10^{-3}$, weights $\lambda=1.0,\beta=0.8$, where:
-- $\mathrm{PE}_t(x)$: 1 − predictive confidence for current observation under $x$ (Dirichlet-smoothed counts).
-- $\mathrm{EU}_t(x)$: normalized “loop advantage” proxy (see §6).
+Relation and Tolerance
+R_τ(u, v) :⇔ d^g_τ(u, v) ≤ τ  and  HeaderAgree(u, v).
 
-**Lemma 4.1 (Two-time-scale).** If $\sum_t \alpha_t = \infty$, $\sum_t \alpha_t^2 < \infty$, and mixing on $Q$ is faster than the RM schedule (drift guard below), then empirical frequencies on $Q$ converge (weak LLN on quotients).
+Notes
+R_τ is reflexive and symmetric but not necessarily transitive (local weights may break triangle inequality).
+We therefore take equivalence closure.
 
-## 5. Collapse-to-classical header
-Over a rolling window $W=200$, compute:
-- conditional entropy $H(y\mid [x]) \le 0.10$ bits,
-- variance ratio $\mathrm{var}(c_G)/(\lvert \mathbb{E}[c_G]\rvert+10^{-6}) \le 0.05$.
+Code Reference
+core/quotient/equivalence.py uses distance_fn and header_agree_fn consistent with this definition.
 
-If both hold, **freeze** the gauge/merges (no topology edits anyway) and use a simple classical solver; auto **un-freeze** when either bound is breached twice consecutively.
+––––––––––––––––––––––––––––––––––––––––
 
-## 6. Loop score, flips, and debt
-Let $C_{\text{stay}}$ = min-mean cycle cost through current class (Karp≤24; fallback Johnson≤32/256; early-stop after 64 non-improving).  
-Let $C_{\text{leave}}$ = cheapest outward hop after within-loop travel (myopic surrogate defined on $Q$ only).  
-Define loop score:
-$$
-s_t \;=\; \frac{C_{\text{leave}} - C_{\text{stay}}}{\lvert C_{\text{leave}}\rvert + \lvert C_{\text{stay}}\rvert + 10^{-6}},
-\quad s^{(\mathrm{EMA})} \leftarrow 0.9\, s^{(\mathrm{EMA})} + 0.1\, s_t.
-$$
-Flip thresholds $\theta_{\text{on}}=0.25$, $\theta_{\text{off}}=0.15$ with cooldown 10. Execute a flip only if Monte-Carlo flip-debt (H=40, n=8 paired) predicts $\Delta\mathrm{Reg}\ge 0.05$.
+SpecCard CO.K1.Identity.Closure@v0.2 — Equivalence & Deterministic Closure
 
-## 7. Drift guard and LLN-stability
-Let $Q_t$ be quotient snapshots; define volatility $V_t = 1 - \mathrm{Jaccard}(Q_{t-W}, Q_t)$ with $W=200$.  
-**LLN-stable** when $V_t \le 0.10$ for 3 consecutive windows **and** per-class visit count ≥ 50.
+Equivalence
+≈ is the reflexive–symmetric–transitive closure of R_τ.
 
-## 8. CO numbers (interval/range)
-A CO number is an interval $[a,b]$ with $a\le b$; collapse map $\kappa([a,b])=\frac{a+b}{2}$ when header deems the regime classical. Addition/multiplication are Minkowski-style; uncertainty propagates. This generalizes classical $\mathbb{R}$ as the degenerate case $a=b$.
+Deterministic Union-Find
+Each representative’s content signature s(x) is hashed to a stable content hash h(x).
+On merge, the retained root is the lexicographically smallest content hash (tie on repr),
+making closure order-deterministic within a pass.
+
+Witness Log (Mandatory)
+Each accepted merge logs a line such as:
+    {"pair":[u,v],"dist":0.1875,"tau":0.20,"header_hash":"...","keep":u,"drop":v,"seed":1729}
+
+Termination (EF)
+With k classes at pass start, at most k−1 unions occur.
+No splits inside a pass ⇒ closure halts.
+
+Name-Free Invariance
+Evaluation metrics must not depend on class IDs.
+See evaluation/invariance_test.py.
+
+Code Reference
+core/quotient/equivalence.py (UnionFind and deterministic_merge_pass).
+
+––––––––––––––––––––––––––––––––––––––––
+
+SpecCard CO.K2.Lift.Witness@v0.2 — Infimum-Lift on the Quotient
+
+Perceived Base Cost
+Observed edges u→v carry nonnegative perceived costs c(u→v)
+(plant δ warped by gauge; clipped at 0). Kernel does not fix δ or warp; only c ≥ 0.
+
+Lifted Edge Cost (Attained under EF)
+c_Q([x]→[y]) := inf_{u∈[x], v∈[y]} c(u→v).
+Under EF the infimum is a minimum attained by a witness pair (u*, v*).
+We store the witness.
+
+Witness-Consistent Path/Cycle (Guard)
+A lifted cycle [C0, C1, …, Ck−1, C0] has a defined cost only if the stored witnesses chain:
+v_i* = u_{i+1}* for all i modulo k.
+If chaining fails, the cycle cost is undefined (rejected).
+This forbids “Frankenstein” minima stitched from incompatible representatives.
+
+Monotonicity under Merges
+Enlarging [x] or [y] cannot increase c_Q([x]→[y]) (minimum over a superset weakly decreases).
+
+Reach Preservation
+Any realized base path x0→x1→…→xm induces a lifted path [x0]→…→[xm], with
+Σ_i c_Q([x_i]→[x_{i+1}]) ≤ Σ_i c(x_i→x_{i+1}).
+
+Why the Guard is Needed (Counterexample)
+Without witness chaining, picking per-edge minima from different representatives
+can fabricate a spurious low-cost cycle not realizable in the base graph.
+
+Code Reference
+core/quotient/infimum_lift.py (LiftedGraph with lifted_edge_cost and witness_consistent_cycle_cost).
+
+Micro-Example
+See tests/test_lift.py for a 3-class cycle where chaining fails until an additional base edge is added.
+
+––––––––––––––––––––––––––––––––––––––––
+
+Appendix: Logic Pointer (K-5)
+CO uses strong Kleene 3-valued logic (⊤, ⊥, ?) on the quotient.
+Truth tables and modal clauses live in docs/CO_LOGIC.md and are tested in tests/test_logic.py.
+Classical logic is the collapse case when headers freeze identity.

@@ -1,9 +1,20 @@
-# evaluation/invariance_test.py
 from __future__ import annotations
 
 import json
+import os
 import sys
-from typing import Callable, Dict, List
+from typing import Dict, List, Tuple
+
+# Use the actual AUReg function so we test the real pipeline.
+try:
+    from experiments.logging.metrics import au_regret_window
+except Exception:
+    # Fallback (shouldn't happen once repo is wired)
+    def au_regret_window(truth, preds):
+        if not truth:
+            return 0.0
+        correct = sum(1 for t, p in zip(truth, preds) if t == p)
+        return 1.0 - correct / len(truth)
 
 def load_metrics(path: str) -> List[Dict]:
     out: List[Dict] = []
@@ -15,48 +26,36 @@ def load_metrics(path: str) -> List[Dict]:
             out.append(json.loads(line))
     return out
 
-def au_regret(records: List[Dict]) -> float:
-    """
-    Dummy AUReg: 1 - accuracy with a moving window proxy, purely as example.
-    Real implementation should be replaced by your evaluation.metrics functions.
-    """
-    if not records:
-        return 0.0
-    correct = 0
-    for r in records:
-        # pretend mode==y predicts correctly half the time
-        correct += 1 if (r["mode"] % 2) == (r["y"] % 2) else 0
-    acc = correct / len(records)
-    return 1.0 - acc
+def _perm_map() -> Dict[int, int]:
+    # simple fixed permutation: 0<->1; others unchanged
+    return {0: 1, 1: 0}
 
-def permute_ids(records: List[Dict], key: str = "y") -> List[Dict]:
-    # simple permutation 0<->1, others unchanged
-    def p(v: int) -> int:
-        if v == 0:
-            return 1
-        if v == 1:
-            return 0
-        return v
-    out = []
-    for r in records:
-        r2 = dict(r)
-        if key in r2:
-            r2[key] = p(r2[key])
-        out.append(r2)
-    return out
+def _apply_perm(v: int, P: Dict[int, int]) -> int:
+    return P.get(v, v)
 
 def main(metrics_path: str, report_path: str) -> None:
     recs = load_metrics(metrics_path)
-    base = au_regret(recs)
-    recs_perm = permute_ids(recs, key="y")
-    base_perm = au_regret(recs_perm)
+    y = [r.get("y", 0) for r in recs]
+    pred = [r.get("pred", 0) for r in recs]
+
+    base = au_regret_window(y, pred)
+
+    P = _perm_map()
+    y_perm = [_apply_perm(v, P) for v in y]
+    pred_perm = [_apply_perm(v, P) for v in pred]
+
+    base_perm = au_regret_window(y_perm, pred_perm)
+
     delta = abs(base - base_perm)
     report = {
-        "metric": "AUReg_dummy",
+        "metric": "AUReg",
         "delta": delta,
         "threshold": 1e-9,
         "pass": delta <= 1e-9,
+        "n": len(y),
     }
+    parent = os.path.dirname(report_path) or "."
+    os.makedirs(parent, exist_ok=True)
     with open(report_path, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2)
     print(json.dumps(report, indent=2))

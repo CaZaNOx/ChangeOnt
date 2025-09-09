@@ -1,15 +1,19 @@
-from future import annotations  
-import os, json  
-from typing import Any, Dict
+from __future__ import annotations
+import os, json
+from typing import Any, Dict, Iterable, Optional, TextIO
 
-class JSONLWriter:  
-    def init(self, path: str):  
-        os.makedirs(os.path.dirname(path), exist_ok=True)  
-        self._f = open(path, "w", encoding="utf-8")
-
+class JSONLWriter:
+    """Simple JSONL writer with directory creation and context manager support."""
+    def __init__(self, path: str):
+        os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+        self._f: TextIO = open(path, "w", encoding="utf-8")
 
     def write(self, row: Dict[str, Any]) -> None:
         self._f.write(json.dumps(row) + "\n")
+
+    def writemany(self, rows: Iterable[Dict[str, Any]]) -> None:
+        for r in rows:
+            self.write(r)
 
     def close(self) -> None:
         try:
@@ -17,30 +21,8 @@ class JSONLWriter:
         except Exception:
             pass
 
+    def __enter__(self) -> "JSONLWriter":
+        return self
 
-----
-
-from **future** import annotations  
-import json  
-import os  
-from typing import Any, Dict
-
-class JSONLWriter:  
-"""  
-Simple JSONL writer with two streams: steps and episodes.  
-"""  
-def **init**(self, steps_path: str, episodes_path: str):  
-os.makedirs(os.path.dirname(steps_path), exist_ok=True)  
-self.f_steps = open(steps_path, "w", encoding="utf-8")  
-self.f_eps = open(episodes_path, "w", encoding="utf-8")
-
-```
-def write_step(self, rec: Dict[str, Any]) -> None:
-    self.f_steps.write(json.dumps(rec) + "\n")
-
-def write_episode(self, rec: Dict[str, Any]) -> None:
-    self.f_eps.write(json.dumps(rec) + "\n")
-
-def close(self) -> None:
-    self.f_steps.close()
-    self.f_eps.close()
+    def __exit__(self, exc_type, exc, tb) -> None:
+        self.close()

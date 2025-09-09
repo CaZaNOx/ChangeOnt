@@ -1,8 +1,7 @@
-# core/headers/collapse.py
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Deque, Iterable, Optional, Tuple
+from typing import Deque, Iterable, Tuple
 from collections import deque
 import math
 
@@ -11,7 +10,7 @@ class CollapseConfig:
     window: int = 200
     entropy_bits_thresh: float = 0.10
     var_rel_thresh: float = 0.05  # relative to mean
-    unfreeze_violations: int = 2  # requires consecutive violations to unfreeze
+    unfreeze_violations: int = 2  # consecutive violations to unfreeze
 
 class CollapseHeader:
     """
@@ -47,17 +46,15 @@ class CollapseHeader:
 
     def update(self, class_ids: Iterable[int]) -> Tuple[bool, float, float]:
         """
-        Provide the latest class assignment for samples in the window (or just append one).
+        Append latest class IDs and recompute freeze state.
         Returns (is_frozen, entropy_bits, var_rel).
         """
         for cid in class_ids:
             self._y_window.append(cid)
 
         if len(self._y_window) < self.cfg.window:
-            # insufficient data to make a decision
-            return self._frozen, 1.0, 1.0
+            return self._frozen, 1.0, 1.0  # not enough data yet
 
-        # compute class counts over window
         counts = {}
         for cid in self._y_window:
             counts[cid] = counts.get(cid, 0) + 1
@@ -69,7 +66,6 @@ class CollapseHeader:
             self._frozen = True
             self._violations = 0
         else:
-            # violation
             if self._frozen:
                 self._violations += 1
                 if self._violations >= self.cfg.unfreeze_violations:
@@ -77,8 +73,14 @@ class CollapseHeader:
                     self._violations = 0
             else:
                 self._violations = 0
+
         return self._frozen, ent_bits, var_rel
 
     @property
     def frozen(self) -> bool:
         return self._frozen
+
+# Backward-compat alias for older code
+CollapseGuard = CollapseHeader
+
+__all__ = ["CollapseHeader", "CollapseConfig", "CollapseGuard"]

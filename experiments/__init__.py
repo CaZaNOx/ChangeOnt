@@ -1,1 +1,1 @@
-# Experiment glue (parsers, runners)
+# experiments package

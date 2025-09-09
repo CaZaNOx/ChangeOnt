@@ -1,4 +1,4 @@
-# ChangeOnt (CO): A Change-First Ontology for Learning & Control
+# ChangeOnt (CO): A Change-First Ontology for Learning & Control 
 
 ChangeOnt is a research codebase and set of papers exploring **Change Ontology (CO)** — a first-principles framework that treats *change* (not static objects) as the primitive. From the **Immediate Datum** (what is minimally given to an observer), CO derives:
 

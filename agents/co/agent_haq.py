@@ -7,9 +7,9 @@ import numpy as np
 
 from core.quotient.merge_rules import merge_pass  
 from core.quotient.infimum_lift import infimum_lift_edges  
-from core.loops.loop_score import loop_score_ema  
+from core.loops.loop_measure import loop_score_ema  
 from core.loops.cycle_search import karp_min_mean_cycle, johnson_simple_cycles_limited  
-from core.loops.flip_hysteresis import FlipState  
+from core.loops.hysteresis_math import FlipState  
 from core.loops.mc_debt import paired_mc_delta_regret  
 from core.headers.collapse import CollapseGuard  
 from core.headers.density import compute_density_signals, density_header_decision  
@@ -47,14 +47,14 @@ class EnhancedHAQAgent:
     the spec’s spirit without heavy cycle enumeration (kept for later rungs).  
     """  
     def init(self, A: int, config: HAQConfig = HAQConfig()):  
-    self.A = int(A)  
-    self.cfg = config  
-    self.g = [0.0 for _ in range(self.A)]  
-    self.t = 0  
-    self.mode = "EXPLORE"  
-    self.cooldown_left = 0  
-    self.s_ema = 0.0  
-    self.flips: List[int] = []
+        self.A = int(A)  
+        self.cfg = config  
+        self.g = [0.0 for _ in range(self.A)]  
+        self.t = 0  
+        self.mode = "EXPLORE"  
+        self.cooldown_left = 0  
+        self.s_ema = 0.0  
+        self.flips: List[int] = []
 
     
 # --- life-cycle ---

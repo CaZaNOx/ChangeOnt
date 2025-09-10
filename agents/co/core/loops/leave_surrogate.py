@@ -1,7 +1,7 @@
 from **future** import annotations  
 from typing import Dict, Hashable, List, Tuple, Optional
 
-from core.loops.cycle_search import find_min_mean_cycle, MinMeanCycleResult
+from agents.co.core.loops.cycle_search import find_min_mean_cycle, MinMeanCycleResult
 
 Node = Hashable  
 Adj = Dict[Node, List[Tuple[Node, float]]]

@@ -1,4 +1,4 @@
-from future import annotations
+from __future__ import annotations
 from typing import Deque, Dict, Hashable, Iterable, List, Tuple
 from collections import deque
 

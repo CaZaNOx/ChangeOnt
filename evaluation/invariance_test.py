@@ -7,7 +7,7 @@ from typing import Dict, List, Tuple
 
 # Use the actual AUReg function so we test the real pipeline.
 try:
-    from experiments.logging.metrics import au_regret_window
+    from evaluation.metrics.au_regret import au_regret_window
 except Exception:
     # Fallback (shouldn't happen once repo is wired)
     def au_regret_window(truth, preds):

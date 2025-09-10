@@ -1,8 +1,8 @@
 # tests/test_headers.py
 from __future__ import annotations
 
-from core.headers.meta_flip import HysteresisFlip, FlipConfig
-from core.headers.collapse import CollapseHeader, CollapseConfig
+from agents.co.core.headers.meta_flip import HysteresisFlip, FlipConfig
+from agents.co.core.headers.collapse import CollapseHeader, CollapseConfig
 
 def test_hysteresis_cooldown_bounds():
     cfg = FlipConfig(beta=0.5, theta_on=0.6, theta_off=0.4, cooldown_steps=5)

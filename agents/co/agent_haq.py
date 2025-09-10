@@ -1,23 +1,23 @@
-from future import annotations  
+from __future__ import annotations  
 from dataclasses import dataclass, field  
 from typing import Callable, Deque, Dict, Hashable, List, Optional, Tuple  
 from collections import deque, defaultdict  
 import math  
 import numpy as np
 
-from core.quotient.merge_rules import merge_pass  
-from core.quotient.infimum_lift import infimum_lift_edges  
-from core.loops.loop_measure import loop_score_ema  
-from core.loops.cycle_search import karp_min_mean_cycle, johnson_simple_cycles_limited  
-from core.loops.hysteresis_math import FlipState  
-from core.loops.mc_debt import paired_mc_delta_regret  
-from core.headers.collapse import CollapseGuard  
-from core.headers.density import compute_density_signals, density_header_decision  
-from core.headers.meta_flip import MetaFlip  
-from core.headers.complex_turn import ComplexTurn
+from agents.co.core.quotient.merge_rules import merge_pass  
+from agents.co.core.quotient.infimum_lift import infimum_lift_edges  
+from agents.co.core.loops.loop_measure import loop_score_ema  
+from agents.co.core.loops.cycle_search import karp_min_mean_cycle, johnson_simple_cycles_limited  
+from agents.co.core.loops.hysteresis_math import FlipState  
+from agents.co.core.loops.mc_debt import paired_mc_delta_regret  
+from agents.co.core.headers.collapse import CollapseGuard  
+from agents.co.core.headers.density import compute_density_signals, density_header_decision  
+from agents.co.core.headers.meta_flip import MetaFlip  
+from agents.co.core.headers.complex_turn import ComplexTurn
 
 Float = np.float32
-from future import annotations  
+from __future__ import annotations  
 from dataclasses import dataclass  
 from typing import List  
 import math

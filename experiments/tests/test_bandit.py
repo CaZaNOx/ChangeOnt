@@ -1,4 +1,4 @@
-from future import annotations  
+from __future__ import annotations  
 from experiments.bandit import DriftingBandit, BanditCfg
 
 def test_drifting_bandit_bounds():  

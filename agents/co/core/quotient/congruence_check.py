@@ -1,4 +1,4 @@
-from future import annotations
+from __future__ import annotations
 from typing import Callable, Dict, Hashable, Iterable, Tuple
 
 def tau_congruence_ok(

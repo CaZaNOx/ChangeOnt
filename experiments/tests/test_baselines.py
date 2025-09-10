@@ -1,4 +1,4 @@
-from future import annotations  
+from __future__ import annotations  
 from agents.stoa.common.fsm import FSMCounter  
 from agents.stoa.common.lstm import LSTM1  
 from agents.stoa.common.transformer_lite import TransformerLite

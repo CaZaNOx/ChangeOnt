@@ -1,6 +1,6 @@
 # FILE: tests/test_gauge.py
 import numpy as np
-from core.gauge import Gauge
+from agents.co.core.gauge import Gauge
 
 def test_gauge_update_in_bounds():
     g = Gauge(n_classes=5)

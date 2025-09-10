@@ -1,4 +1,4 @@
-from future import annotations
+from __future__ import annotations
 
 def count_params(shapes) -> int:  
     """  

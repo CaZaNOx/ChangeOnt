@@ -1,4 +1,4 @@
-from future import annotations  
+from __future__ import annotations  
 from experiments.grid_maze import GridMaze, MazeCfg
 
 def test_grid_maze_goal_reachable():  

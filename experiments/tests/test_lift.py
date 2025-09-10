@@ -1,7 +1,7 @@
 # tests/test_lift.py
 from __future__ import annotations
 
-from core.quotient.infimum_lift import LiftedGraph, BaseEdge
+from agents.co.core.quotient.infimum_lift import LiftedGraph, BaseEdge
 
 def test_witness_consistent_cycle():
     # classes: A={a1,a2}, B={b1}, C={c1}

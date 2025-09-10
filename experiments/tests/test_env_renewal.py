@@ -13,7 +13,7 @@ def test_env_basic():
 
 
 
-from future import annotations  
+from __future__ import annotations  
 from experiments.env import CodebookRenewalEnvW, RenCfg  
 from agents.stoa.common.fsm import FSMCounter
 

@@ -6,9 +6,9 @@ from dataclasses import dataclass
 from typing import Dict
 from pathlib import Path
 
-from core.gauge.haq import Gauge, GaugeConfig
-from core.headers.collapse import CollapseHeader, CollapseConfig
-from core.headers.meta_flip import HysteresisFlip, FlipConfig
+from agents.co.core.gauge.haq import Gauge, GaugeConfig
+from agents.co.core.headers.collapse import CollapseHeader, CollapseConfig
+from agents.co.core.headers.meta_flip import HysteresisFlip, FlipConfig
 from experiments.logging import JSONLWriter
 
 @dataclass

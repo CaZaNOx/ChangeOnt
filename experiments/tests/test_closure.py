@@ -1,7 +1,7 @@
 # tests/test_closure.py
 from __future__ import annotations
 
-from core.quotient.equivalence import deterministic_merge_pass, stable_hash
+from agents.co.core.quotient.equivalence import deterministic_merge_pass, stable_hash
 
 def test_deterministic_merge_pass():
     items = [{"id": i, "val": i % 3} for i in range(6)]

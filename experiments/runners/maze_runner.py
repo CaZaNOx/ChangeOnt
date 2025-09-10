@@ -1,7 +1,7 @@
-from future import annotations  
+from __future__ import annotations  
 from typing import Dict, Any, List
 
-from experiments.grid_maze import GridMaze, MazeCfg
+from environments.maze1.grid_maze import GridMaze, MazeConfig
 
 def run_maze(cfg: Dict[str, Any],  
     agent_name: str = "bfs_greedy",  
@@ -11,7 +11,7 @@ def run_maze(cfg: Dict[str, Any],
     Deterministic maze runner.  
     'bfs_greedy': simple greedy to goal (Manhattan steps).  
     """  
-    mcfg = MazeCfg(  
+    mcfg = MazeConfig(  
     W=cfg.get("W", 7), H=cfg.get("H",7),  
     start=tuple(cfg.get("start",(0,0))),  
     goal=tuple(cfg.get("goal",(6,6))),  

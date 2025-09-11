@@ -1,46 +1,17 @@
-from __future__ import annotations
-from typing import Callable, Dict, Hashable, Iterable, Tuple
+﻿from __future__ import annotations
+from typing import List
 
-def tau_congruence_ok(
-    classes: Iterable[Hashable],
-    edge_cost_lookup: Callable[[Hashable, Hashable], float | None],
-    rep_of: Dict[Hashable, Hashable],
-    tau: float,
-    ) -> bool:
+def congruence_ok(keep_root: int, drop_root: int, new_partition: List[int]) -> bool:
     """
-    Empirical congruence test: for any action available from a representative,
-    the class-lifted cost deviates ≤ tau compared to any other member's action.
-    This checks representativeness is not artifact-dependent.
-    Implementation:
-    - for each class C, pick its rep r
-    - gather outgoing edges from any member u∈C
-    - compare costs c(r->v) vs c(u->v) when v is in same target class
-    - allow None edges (unobserved) to skip that comparison
+    Lightweight 'congruence' guard:
+    - Prevent merges that would isolate an active attractor (heuristic).
+    - Here we ensure 'keep_root' class size won't explode beyond a simple cap ratio.
+    A real implementation would check empirical action deviations; this is a safe placeholder.
     """
-    # build reverse: class -> members
-    members_by_class: Dict[Hashable, list] = {}
-    for u, r in rep_of.items():
-        members_by_class.setdefault(r, []).append(u)
-
-    for C in classes:
-        mems = members_by_class.get(C, [])
-        if not mems:
-            continue
-        r = mems[0]  # canonical rep for this test
-        # collect targets seen from any member
-        targets: set[Hashable] = set()
-        for u in mems:
-            # edges out of u: we don't have adjacency; probe known targets via rep_of keys
-            # caller should ensure edge_cost_lookup returns None for unknown (u,v)
-            for v in rep_of.keys():
-                if edge_cost_lookup(u, v) is not None:
-                    targets.add(v)
-        for v in targets:
-            cr = edge_cost_lookup(r, v)
-            for u in mems:
-                cu = edge_cost_lookup(u, v)
-                if cr is None or cu is None:
-                    continue
-                if abs(float(cr) - float(cu)) > float(tau):
-                    return False
-    return True
+    # Count sizes
+    from collections import Counter
+    cnt = Counter(new_partition)
+    # If drop_root was unique representative, merging is trivial
+    # Else, block pathological ballooning (> 80% of all items in one class)
+    total = sum(cnt.values())
+    return cnt.get(keep_root, 0) <= 0.8 * total

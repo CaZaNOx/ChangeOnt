@@ -1,29 +1,72 @@
-# core/gauge/haq.py
-from __future__ import annotations
-
+﻿from __future__ import annotations
 from dataclasses import dataclass
+from typing import Optional, Dict, Any
+
+try:
+    # Prefer project schedule if present
+    from agents.co.core.rm import alpha_t as _alpha_t  # type: ignore
+except Exception:  # pragma: no cover
+    _alpha_t = None  # fallback below
+
 
 @dataclass
-class GaugeConfig:
-    alpha0: float = 0.6   # step exponent: alpha_t = (t + t0)^-alpha0
-    t0: float = 50.0
-    leak: float = 1e-3    # ρ
-    clip_min: float = 0.0
-    clip_max: float = 1.0
-    lambda_pe: float = 1.0
-    beta_eu: float = 1.0
+class HAQState:
+    """Minimal state for HAQ gauge updates."""
+    t: int = 0
+    weights: float = 0.0  # aggregate attention weight (0..1)
+    leak: float = 1e-3    # leakage toward 0
 
-class Gauge:
+
+def _default_alpha(t: int) -> float:
+    # Conservative Robbins–Monro-ish fallback
+    return (t + 50) ** -0.6
+
+
+def alpha_for_step(t: int) -> float:
+    if _alpha_t is not None:
+        try:
+            return float(_alpha_t(t))
+        except Exception:
+            pass
+    return _default_alpha(t)
+
+
+def clamp01(x: float) -> float:
+    return 0.0 if x < 0.0 else 1.0 if x > 1.0 else x
+
+
+def update_haq(
+    state: HAQState,
+    perceived_error: float,
+    expected_utility: float,
+    *,
+    leak: Optional[float] = None,
+    extras: Optional[Dict[str, Any]] = None,
+) -> HAQState:
     """
-    Simple Robbins–Monro + leak update: g_{t+1} = clip(g_t + α_t*(λ*PE - β*EU) - ρ*g_t).
+    Cost-only gauge adaptation (does not touch topology).
+
+    - Updates 'weights' as a contraction toward a target formed from (1 - PE) and EU.
+    - Applies small leak toward 0 to avoid saturation.
+    - NEVER changes edge sets or merges classes. That remains the job of headers/quotient.
     """
-    def __init__(self, cfg: GaugeConfig):
-        self.cfg = cfg
-        self.t = 0
-        self.g = 0.5  # start mid
-    def step(self, pe: float, eu: float) -> float:
-        self.t += 1
-        alpha_t = (self.t + self.cfg.t0) ** (-self.cfg.alpha0)
-        delta = alpha_t * (self.cfg.lambda_pe * pe - self.cfg.beta_eu * eu) - self.cfg.leak * self.g
-        self.g = max(self.cfg.clip_min, min(self.cfg.clip_max, self.g + delta))
-        return self.g
+    state.t += 1
+    a = alpha_for_step(state.t)
+    lk = state.leak if leak is None else float(leak)
+
+    pe = clamp01(perceived_error)
+    eu = clamp01(expected_utility)
+
+    # Simple, bounded target: higher when EU high and PE low.
+    target = clamp01(0.5 * (1.0 - pe) + 0.5 * eu)
+
+    # Robbins–Monro style update with leak
+    w = state.weights * (1.0 - a) + a * target
+    w = (1.0 - lk) * w
+
+    state.weights = clamp01(w)
+    if extras is not None:
+        extras["alpha"] = a
+        extras["target"] = target
+        extras["leak_used"] = lk
+    return state

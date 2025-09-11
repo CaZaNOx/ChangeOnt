@@ -1,4 +1,4 @@
-from __future__ import annotations  
+﻿from __future__ import annotations  
 from dataclasses import dataclass, field  
 from typing import Callable, Deque, Dict, Hashable, List, Optional, Tuple  
 from collections import deque, defaultdict  
@@ -28,23 +28,23 @@ class HAQConfig:
     theta_on: float = 0.25  
     theta_off: float = 0.15  
     cooldown: int = 10  
-    leak: float = 0.001 # ρ  
-    lambda_pe: float = 1.0 # λ  
-    beta_eu: float = 0.8 # β  
+    leak: float = 0.001 # Ï  
+    lambda_pe: float = 1.0 # Î»  
+    beta_eu: float = 0.8 # Î²  
     ema_gamma: float = 0.90 # loop_score EMA  
-    # Robbins–Monro: α_t = (t + c)^{-p}  
+    # Robbinsâ€“Monro: Î±_t = (t + c)^{-p}  
     rm_c: float = 50.0  
     rm_p: float = 0.6
 
 class EnhancedHAQAgent:  
     """  
     Minimal, CO-aligned HAQ agent:  
-    - Per-token gauge g[u] updated by Robbins–Monro with PE/EU proxies.  
+    - Per-token gauge g[u] updated by Robbinsâ€“Monro with PE/EU proxies.  
     - Loop score s = (C_leave - C_stay)/(abs(C_leave)+abs(C_stay)+eps) with  
     cheap surrogates tied to the gauge.  
     - Hysteresis + cooldown flip logic; logs flip times.  
     This is intentionally light so it runs in small environments; it respects  
-    the spec’s spirit without heavy cycle enumeration (kept for later rungs).  
+    the specâ€™s spirit without heavy cycle enumeration (kept for later rungs).  
     """  
     def init(self, A: int, config: HAQConfig = HAQConfig()):  
         self.A = int(A)  
@@ -71,7 +71,7 @@ def _alpha_t(self) -> float:
     return (self.t + self.cfg.rm_c) ** (-self.cfg.rm_p)
 
 def _update_gauge(self, tok: int) -> None:
-    # PE proxy: novelty = 1 - g[tok]; EU proxy: higher gauge → better stay
+    # PE proxy: novelty = 1 - g[tok]; EU proxy: higher gauge â†’ better stay
     pe = 1.0 - max(0.0, min(1.0, self.g[tok]))
     eu = max(0.0, min(1.0, self.g[tok]))
     a = self._alpha_t()
@@ -82,7 +82,7 @@ def _update_gauge(self, tok: int) -> None:
 
 def _loop_score(self, tok: int) -> float:
     # Surrogates tied to gauge:
-    #   stay cost ↓ with gauge; leave cost ~ average complement of gauge
+    #   stay cost â†“ with gauge; leave cost ~ average complement of gauge
     eps = 1e-6
     c_stay = 1.0 - self.g[tok]
     avg_g = sum(self.g) / len(self.g) if self.g else 0.0

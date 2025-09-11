@@ -1,4 +1,4 @@
-# tests/test_closure.py
+﻿# tests/test_closure.py
 from __future__ import annotations
 
 from agents.co.core.quotient.equivalence import deterministic_merge_pass, stable_hash

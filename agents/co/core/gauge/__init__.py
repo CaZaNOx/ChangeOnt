@@ -1,2 +1,2 @@
-from .haq import Gauge, GaugeConfig
+﻿from .haq import Gauge, GaugeConfig
 __all__ = ["Gauge", "GaugeConfig"]

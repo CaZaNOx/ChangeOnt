@@ -1,4 +1,4 @@
-# PURPOSE: Safely populate only empty/whitespace-only files from payloads.
+﻿# PURPOSE: Safely populate only empty/whitespace-only files from payloads.
 #          For non-empty targets, write <file>.proposed and <file>.diff
 # USAGE:   python tools/populate_repo.py --dry-run  (preview)
 #          python tools/populate_repo.py            (apply)

@@ -1,48 +1,58 @@
-# FILE: core/loops/loop_score.py
-import numpy as np
+﻿from __future__ import annotations
+from typing import Sequence, Iterable, Tuple
+import math
 
-def loop_score(cost_leave: float, cost_stay: float, eps: float = 1e-6) -> np.float32:
-    """(C_leave - C_stay) / (|C_leave|+|C_stay|+eps)"""
-    num = np.float32(cost_leave) - np.float32(cost_stay)
-    den = np.abs(np.float32(cost_leave)) + np.abs(np.float32(cost_stay)) + np.float32(eps)
-    return np.float32(num / den)
+def ema(prev: float, x: float, beta: float) -> float:
+    return beta * prev + (1 - beta) * x
 
-class EMA:
-    def __init__(self, beta: float = 0.90):
-        self.beta = np.float32(beta)
-        self.val = np.float32(0.0)
-        self.initialized = False
+def normalize(x: float, eps: float = 1e-9) -> float:
+    return max(0.0, min(1.0, x / (x + 1.0 + eps)))
 
-    def update(self, x: float) -> np.float32:
-        x = np.float32(x)
-        if not self.initialized:
-            self.val = x
-            self.initialized = True
-        else:
-            self.val = self.beta * self.val + (1.0 - self.beta) * x
-        return self.val
+def loopiness_from_costs(
+    cycle_costs: Sequence[float],
+    *,
+    beta: float = 0.9,
+) -> float:
+    """
+    Cheap loopiness surrogate from a stream of cycle-cost estimates.
+    Lower costs over time increase 'loopiness'; smoothed via EMA; squashed to [0,1].
+    """
+    if not cycle_costs:
+        return 0.0
+    s = 0.0
+    for c in cycle_costs:
+        s = ema(s, -float(c), beta)  # cheaper cycles -> larger negative costs -> larger s
+    return normalize(max(0.0, s))
 
-
-from **future** import annotations
-
-class LoopScoreEMA:  
-"""  
-Loop-score with EMA smoothing as specified:  
-s_raw = (C_leave - C_stay) / (|C_leave| + |C_stay| + eps)  
-s_ema <- gamma*s_ema + (1-gamma)*s_raw  
-"""  
-def **init**(self, gamma: float = 0.90, eps: float = 1e-6):  
-self.gamma = float(gamma)  
-self.eps = float(eps)  
-self._ema = 0.0
-
-```
-@property
-def value(self) -> float:
-    return self._ema
-
-def update(self, C_leave: float, C_stay: float) -> float:
-    denom = abs(C_leave) + abs(C_stay) + self.eps
-    s_raw = (C_leave - C_stay) / denom
-    self._ema = self.gamma * self._ema + (1.0 - self.gamma) * float(s_raw)
-    return self._ema
+def min_mean_cycle_karp(weights: Sequence[Sequence[float]]) -> Tuple[float, int]:
+    """
+    Karp's algorithm for minimum mean cycle in a weighted directed graph.
+    weights[i][j] is cost of edge i->j (math.inf if absent).
+    Returns (mu*, argmin_node). math.inf if no cycles.
+    """
+    n = len(weights)
+    if n == 0:
+        return math.inf, -1
+    dp = [[math.inf] * n for _ in range(n + 1)]
+    for v in range(n):
+        dp[0][v] = 0.0
+    for k in range(1, n + 1):
+        for v in range(n):
+            best = math.inf
+            row = dp[k - 1]
+            for u in range(n):
+                w = weights[u][v]
+                if math.isfinite(w) and math.isfinite(row[u]):
+                    best = min(best, row[u] + w)
+            dp[k][v] = best
+    mu_best = math.inf
+    arg = -1
+    for v in range(n):
+        numer = -math.inf
+        for k in range(n):
+            if math.isfinite(dp[n][v]) and math.isfinite(dp[k][v]):
+                numer = max(numer, (dp[n][v] - dp[k][v]) / (n - k))
+        if numer < mu_best:
+            mu_best = numer
+            arg = v
+    return mu_best, arg

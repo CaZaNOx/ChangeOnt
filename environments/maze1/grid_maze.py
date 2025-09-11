@@ -1,4 +1,4 @@
-from __future__ import annotations  
+﻿from __future__ import annotations  
 from dataclasses import dataclass  
 from typing import Tuple
 
@@ -38,7 +38,7 @@ class BanditCfg:
 class DriftingBandit:  
     """  
     K-armed bandit with nonstationary Bernoulli means:  
-    p_t(a) = base + drift_amp * sin(2π (t + phase_a)/period) + noise  
+    p_t(a) = base + drift_amp * sin(2Ï€ (t + phase_a)/period) + noise  
     """  
     def __init__(self, cfg: BanditCfg):  
         self.cfg = cfg  

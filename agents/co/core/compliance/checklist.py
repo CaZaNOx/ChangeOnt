@@ -1,4 +1,4 @@
-from **future** import annotations  
+﻿from __future__ import annotations  
 from typing import Dict, Any, List, Optional
 
 from agents.co.core.compliance.anti_oracle import AntiOracle  
@@ -16,7 +16,6 @@ Lightweight pre-run checklist. Returns dict with 'ok': bool and 'issues': [str].
 """  
 issues: List[str] = []
 
-```
 # Seeds present
 for k in ("base", "per_episode_base", "agent_init"):
     if k not in seeds:

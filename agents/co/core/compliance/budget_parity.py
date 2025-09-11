@@ -1,4 +1,4 @@
-from **future** import annotations  
+﻿from __future__ import annotations  
 from typing import Dict, Optional
 
 _DTYPE_BITS = {  
@@ -25,7 +25,6 @@ self.flops_accum = 0.0
 self.steps = 0  
 self.context_cap = context_cap
 
-```
 # ---- memory accounting ---------------------------------------------------
 @staticmethod
 def _bits(n_elems: int, dtype: str) -> int:

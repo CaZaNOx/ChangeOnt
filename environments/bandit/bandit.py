@@ -1,4 +1,4 @@
-from __future__ import annotations  
+﻿from __future__ import annotations  
 from dataclasses import dataclass  
 from typing import List  
 import random
@@ -45,9 +45,8 @@ class NonStationaryBandit:
         return None, reward, self.done, {}
     
 
-    ----
 
-    from **future** import annotations  
+    from __future__ import annotations  
 import math  
 import random  
 from dataclasses import dataclass  
@@ -66,7 +65,7 @@ seed:int=1729
 class DriftingBandit:  
 """  
 K-armed bandit with nonstationary Bernoulli means:  
-p_t(a) = base + drift_amp * sin(2π (t + phase_a)/period) + noise  
+p_t(a) = base + drift_amp * sin(2Ï€ (t + phase_a)/period) + noise  
 """  
 def **init**(self, cfg: BanditCfg):  
 self.cfg = cfg  
@@ -74,7 +73,6 @@ self.rng = random.Random(cfg.seed)
 self.t = 0  
 self.phases = [self.rng.random() * cfg.drift_period for _ in range(cfg.K)]
 
-```
 def reset(self) -> Tuple[int, float, bool, Dict[str, Any]]:
     self.t = 0
     return 0, 0.0, False, {}

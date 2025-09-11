@@ -1,4 +1,4 @@
-from __future__ import annotations  
+﻿from __future__ import annotations  
 from dataclasses import dataclass  
 from typing import Dict, List, Optional, Tuple  
 import random
@@ -132,9 +132,8 @@ class CodebookRenewalEnvW:
     def event_times(self) -> List[int]:
         return list(self._event_times)
     
-    ----
 
-    from **future** import annotations  
+    from __future__ import annotations  
 import random  
 from dataclasses import dataclass  
 from typing import Optional, Tuple, Dict, Any
@@ -155,7 +154,6 @@ self.cfg = cfg
 self.rng = random.Random(cfg.seed)  
 self.reset()
 
-```
 def reset(self) -> Tuple[int, float, bool, Dict[str, Any]]:
     self.t = 0
     self.latents = list(range(self.cfg.A))

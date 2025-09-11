@@ -1,4 +1,4 @@
-from **future** import annotations
+﻿from __future__ import annotations
 
 class AntiOracle:  
 """  
@@ -13,7 +13,6 @@ self.read_plant_time = False
 self.read_renewal_flag = False  
 self.read_hidden_counters = False
 
-```
 def ok(self) -> bool:
     return not (self.read_plant_time or self.read_renewal_flag or self.read_hidden_counters)
 

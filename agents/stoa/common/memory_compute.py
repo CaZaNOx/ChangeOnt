@@ -1,20 +1,25 @@
-from __future__ import annotations
+﻿from __future__ import annotations
+from dataclasses import dataclass
 
-def count_params(shapes) -> int:  
-    """  
-    shapes: iterable of tensor shapes (tuples); returns total scalar params.  
-    """  
-    total = 0  
-    for shp in shapes:  
-        n = 1  
-        for d in shp: n *= int(d)  
-        total += n  
-        return total
+@dataclass
+class ComputeStats:
+    flops_per_step: float = 0.0
+    params: int = 0
+    precision: str = "fp32"
+    memory_bits: int = 0
+    context_len: int = 0
 
-def approx_flops_per_step(d_model: int, d_ff: int, ctx: int, layers: int = 2) -> int:  
-    """  
-    Very rough FLOPs/step for tiny transformer-like block.  
-    """  
-    attn = layers * (2 * d_model * d_model * ctx) # QK + PV  
-    ff = layers * (d_model * d_ff + d_ff * d_model)  
-    return int(attn + ff)
+def rough_stats_for(agent) -> ComputeStats:
+    """
+    Very rough, dependency-free compute stats for baselines.
+    You can replace with precise accounting later.
+    """
+    params = int(getattr(agent, "num_params", 0))
+    ctx = int(getattr(agent, "n_arms", 0))
+    return ComputeStats(
+        flops_per_step=0.0,  # unknown here; runners can override
+        params=params,
+        precision="fp32",
+        memory_bits=0,
+        context_len=ctx,
+    )

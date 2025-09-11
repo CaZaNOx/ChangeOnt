@@ -1,2 +1,2 @@
-# FILE: tests/__init__.py
+﻿# FILE: tests/__init__.py
 # Tests package.

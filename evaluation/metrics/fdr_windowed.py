@@ -1,9 +1,9 @@
-# FILE: evaluation/metrics/fdr_windowed.py
+﻿# FILE: evaluation/metrics/fdr_windowed.py
 from typing import List
 
 def fdr_windowed(flip_times: List[int], event_times: List[int], delta: int = 6) -> float:
     """
-    Fraction of flips that lie within ±delta of any event time.
+    Fraction of flips that lie within Â±delta of any event time.
     (We often log the complement 'false discovery rate' in prose; here we return alignment rate.)
     """
     if not flip_times:

@@ -1,75 +1,67 @@
-from __future__ import annotations  
-import numpy as np
-
-class TransformerLite:  
-    """  
-    Tiny 2-layer token-mixer with fixed weights (eval-only).  
-    Context window 64; 2 heads; d_model=64; d_ff=128. Linear probe on last token.  
-    """  
-    def init(self, A: int, W_ctx: int = 64, d: int = 64, d_ff: int = 128, heads: int = 2, seed: int = 16180):  
-        self.A = int(A); self.W = int(W_ctx); self.d = int(d)  
-        self.d_ff = int(d_ff); self.h = int(heads)  
-        self.rng = np.random.default_rng(seed)  
-    def ortho(shape):  
-        a = self.rng.standard_normal(shape).astype(np.float32)  
-        # Gram-Schmidt-ish  
-        q, _ = np.linalg.qr(a)  
-        return q.astype(np.float32)  
-        # token embed  
-        self.E = ortho((A, d))  
-        # attn params (shared for simplicity)  
-        self.Wq = ortho((d, d)); self.Wk = ortho((d, d)); self.Wv = ortho((d, d))  
-        self.Wo = ortho((d, d))  
-        # FF  
-        self.W1 = ortho((d, d_ff)); self.b1 = np.zeros((d_ff,), dtype=np.float32)  
-        self.W2 = ortho((d_ff, d)); self.b2 = np.zeros((d,), dtype=np.float32)  
-        # head  
-        self.Whead = ortho((d, 1)); self.bhead = np.zeros((1,), dtype=np.float32)  
-        # cache  
-        self.buf = np.zeros((self.W, d), dtype=np.float32)  
-        self.ptr = 0  
-        self.len = 0
+﻿from __future__ import annotations
+from dataclasses import dataclass, field
+from typing import Dict, Tuple, Optional
 
 
-    def reset(self):
-        self.buf[:] = 0.0; self.ptr = 0; self.len = 0
+@dataclass
+class TransformerLite:
+    """
+    Zero-dependency, toy 'transformer-like' memory: an n-gram table with decay.
+    Not a real transformer; good enough for a cheap baseline stub.
+    """
+    order: int = 2
+    decay: float = 0.98
+    table: Dict[Tuple[int, ...], float] = field(default_factory=dict)
 
-    def _attn(self, X):
-        Q = X @ self.Wq; K = X @ self.Wk; V = X @ self.Wv
-        S = (Q @ K.T) / np.sqrt(self.d).astype(np.float32)
-        # causal mask
-        M = np.tril(np.ones_like(S), 0)
-        S = S - 1e9*(1.0 - M)
-        P = np.exp(S - S.max(axis=-1, keepdims=True))
-        P = P / np.maximum(1e-6, P.sum(axis=-1, keepdims=True))
-        H = P @ V
-        return H @ self.Wo
+    def update(self, context: Tuple[int, ...], reward: float) -> None:
+        if not context:
+            return
+        self.table[context] = self.table.get(context, 0.0) * self.decay + reward
 
-    def _ff(self, X):
-        H = np.maximum(0.0, X @ self.W1 + self.b1)
-        return H @ self.W2 + self.b2
+    def score(self, context: Tuple[int, ...]) -> float:
+        return self.table.get(context, 0.0)
 
-    def act(self, obs: int, t_global=None) -> int:
-        e = self.E[obs % self.A]
-        self.buf[self.ptr] = e
-        self.ptr = (self.ptr + 1) % self.W
-        self.len = min(self.W, self.len + 1)
-        # build sequence in time order
-        if self.len < self.W:
-            X = self.buf[:self.len]
+
+@dataclass
+class TransformerLiteAgent:
+    """
+    Very small context model that prefers arms with best n-gram score.
+    """
+    order: int = 2
+    memory: TransformerLite = field(init=False)
+    last_arm: Optional[int] = None
+    n_arms: int = 0
+    ctx: Tuple[int, ...] = field(default_factory=tuple)
+
+    def __post_init__(self) -> None:
+        self.memory = TransformerLite(order=self.order)
+
+    def reset(self, env_or_n: int | object) -> None:
+        if isinstance(env_or_n, int):
+            self.n_arms = env_or_n
         else:
-            X = np.vstack([self.buf[self.ptr:], self.buf[:self.ptr]])
-        # layer 1
-        H1 = self._attn(X)
-        X1 = X + H1
-        F1 = self._ff(X1)
-        X2 = X1 + F1
-        # layer 2
-        H2 = self._attn(X2)
-        X3 = X2 + H2
-        F2 = self._ff(X3)
-        X4 = X3 + F2
-        # probe last token
-        h = X4[-1]
-        p = 1.0/(1.0+np.exp(-(h @ self.Whead + self.bhead)))[0]
-        return 1 if p > 0.5 else 0
+            self.n_arms = int(getattr(env_or_n, "n_arms", 0))
+        self.memory = TransformerLite(order=self.order)
+        self.ctx = tuple()
+        self.last_arm = None
+
+    def act(self) -> int:
+        # Score each arm given current context and pick the best
+        best, best_s = 0, float("-inf")
+        for i in range(max(1, self.n_arms)):
+            s = self.memory.score(self._next_ctx(i))
+            if s > best_s:
+                best_s = s
+                best = i
+        self.last_arm = best
+        self.ctx = self._next_ctx(best)
+        return best
+
+    def observe(self, reward: float) -> None:
+        self.memory.update(self.ctx, float(reward))
+
+    def _next_ctx(self, new_arm: int) -> Tuple[int, ...]:
+        ctx = self.ctx + (new_arm,)
+        if len(ctx) > self.order:
+            ctx = ctx[-self.order:]
+        return ctx

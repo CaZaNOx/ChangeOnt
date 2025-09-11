@@ -1,4 +1,4 @@
-# FILE: evaluation/metrics/volatility.py
+﻿# FILE: evaluation/metrics/volatility.py
 from typing import Sequence
 import numpy as np
 

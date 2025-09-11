@@ -1,4 +1,4 @@
-# FILE: evaluation/metrics/lln_stability.py
+﻿# FILE: evaluation/metrics/lln_stability.py
 from typing import Sequence, Tuple
 import numpy as np
 from .volatility import jaccard_volatility
@@ -6,7 +6,7 @@ from .volatility import jaccard_volatility
 def lln_stable(seq: Sequence[int], W: int = 200, drift_thresh: float = 0.10, consecutive: int = 3, floor: int = 50) -> Tuple[bool, int]:
     """
     LLN-stability flag:
-      - Volatility ≤ drift_thresh for 'consecutive' windows,
+      - Volatility â‰¤ drift_thresh for 'consecutive' windows,
       - and each observed symbol appears at least 'floor' times overall.
     Returns (stable: bool, windows_checked: int).
     """

@@ -1,11 +1,11 @@
-from collections import defaultdict
+﻿from collections import defaultdict
 
 
 class TransitionModel:
     """
-    Empirical token→token transition model with symmetric Dirichlet smoothing.
+    Empirical tokenâ†’token transition model with symmetric Dirichlet smoothing.
     Provides:
-      - update(u, v): increment count for u→v
+      - update(u, v): increment count for uâ†’v
       - probs_row(u): dict v -> P(v|u)
       - prob(u, v): scalar P(v|u)
       - stay_leave_costs(u, gauge): perceived costs (c_stay, c_leave) under current gauge
@@ -44,8 +44,8 @@ class TransitionModel:
 
     def stay_leave_costs(self, u: int, gauge: dict):
         """
-        Base cost δ(u→v) = 1 − P(v|u).
-        Perceived cost c_G(u→v) = δ(u→v) − 0.5*(G[u] + G[v]).
+        Base cost Î´(uâ†’v) = 1 âˆ’ P(v|u).
+        Perceived cost c_G(uâ†’v) = Î´(uâ†’v) âˆ’ 0.5*(G[u] + G[v]).
         Return (c_stay, c_leave) where 'leave' is the MIN over v != u.
         """
         G_u = float(gauge.get(u, 0.0))

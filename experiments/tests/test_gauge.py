@@ -1,4 +1,4 @@
-# FILE: tests/test_gauge.py
+﻿# FILE: tests/test_gauge.py
 import numpy as np
 from agents.co.core.gauge import Gauge
 

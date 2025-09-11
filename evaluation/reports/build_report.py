@@ -1,4 +1,4 @@
-from __future__ import annotations  
+﻿from __future__ import annotations  
 import argparse  
 import json  
 from pathlib import Path  
@@ -19,7 +19,6 @@ def build_report(run_dir: Path, out_md: Path) -> None:
     config_resolved.yaml (optional)  
     agent_spec.json (optional)
 
-    ```
     Produces:
     out_md (markdown)
     figures under run_dir/figures/
@@ -44,7 +43,7 @@ def build_report(run_dir: Path, out_md: Path) -> None:
     if step_logs:
         step_fig = figures_dir / "episode0_flips_events.png"
         try:
-            plot_flips_and_events(step_logs[0], step_fig, title="Episode 0 — flips & events")
+            plot_flips_and_events(step_logs[0], step_fig, title="Episode 0 â€” flips & events")
         except Exception as e:
             step_fig = None  # keep report generation robust
 
@@ -67,7 +66,7 @@ def build_report(run_dir: Path, out_md: Path) -> None:
 
     # Build Markdown
     md = []
-    md.append("# CO-core: Renewal Toy — Report")
+    md.append("# CO-core: Renewal Toy â€” Report")
     md.append("")
     md.append(f"_Run directory_: `{run_dir}`")
     md.append("")
@@ -77,14 +76,14 @@ def build_report(run_dir: Path, out_md: Path) -> None:
     md.append("")
     md.append("## Aggregates")
     md.append("")
-    md.append(f"- flips/ep: **{agg['flips_mean']:.2f} ± {agg['flips_iqr']:.2f}**")
-    md.append(f"- FDR_windowed: **{agg['fdr_mean']:.3f} ± {agg['fdr_iqr']:.3f}**")
-    md.append(f"- slope_window: **{agg['slope_mean']:.4f} ± {agg['slope_iqr']:.4f}**")
-    md.append(f"- AUReg_window: **{agg['au_mean']:.4f} ± {agg['au_iqr']:.4f}**")
+    md.append(f"- flips/ep: **{agg['flips_mean']:.2f} Â± {agg['flips_iqr']:.2f}**")
+    md.append(f"- FDR_windowed: **{agg['fdr_mean']:.3f} Â± {agg['fdr_iqr']:.3f}**")
+    md.append(f"- slope_window: **{agg['slope_mean']:.4f} Â± {agg['slope_iqr']:.4f}**")
+    md.append(f"- AUReg_window: **{agg['au_mean']:.4f} Â± {agg['au_iqr']:.4f}**")
     md.append(f"- episodes: **{agg['n_episodes']}**")
     md.append("")
     if step_fig and step_fig.exists():
-        md.append("## Episode 0 — flips & events")
+        md.append("## Episode 0 â€” flips & events")
         md.append(f"![episode0]({step_fig.relative_to(run_dir).as_posix()})")
         md.append("")
     if agg_fig and agg_fig.exists():

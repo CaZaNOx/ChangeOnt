@@ -1,4 +1,4 @@
-# tests/test_headers.py
+﻿# tests/test_headers.py
 from __future__ import annotations
 
 from agents.co.core.headers.meta_flip import HysteresisFlip, FlipConfig

@@ -1,4 +1,4 @@
-# tests/test_lift.py
+﻿# tests/test_lift.py
 from __future__ import annotations
 
 from agents.co.core.quotient.infimum_lift import LiftedGraph, BaseEdge

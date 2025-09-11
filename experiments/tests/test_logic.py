@@ -1,4 +1,4 @@
-# tests/test_logic.py
+﻿# tests/test_logic.py
 from __future__ import annotations
 
 def kleene_neg(x: str) -> str:

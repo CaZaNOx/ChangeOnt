@@ -1,5 +1,5 @@
-﻿from csv import writer
-from __future__ import annotations  
+﻿from __future__ import annotations  
+from csv import writer
 import math  
 from typing import Dict, Any, List
 

@@ -6,11 +6,11 @@ import math
 import numpy as np
 
 from agents.co.core.quotient.merge_rules import merge_pass  
-from agents.co.core.quotient.infimum_lift import infimum_lift_edges  
+from agents.co.core.quotient.infimum_lift import lift_edge_cost, cycle_cost_with_witness  
 from agents.co.core.loops.loop_measure import loop_score_ema  
 from agents.co.core.loops.cycle_search import karp_min_mean_cycle, johnson_simple_cycles_limited  
 from agents.co.core.loops.hysteresis_math import FlipState  
-from agents.co.core.loops.mc_debt import paired_mc_delta_regret  
+from agents.co.core.loops.mc_depth import paired_mc_delta_regret  
 from agents.co.core.headers.collapse import CollapseGuard  
 from agents.co.core.headers.density import compute_density_signals, density_header_decision  
 from agents.co.core.headers.meta_flip import MetaFlip  

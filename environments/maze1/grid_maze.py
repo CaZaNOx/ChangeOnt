@@ -1,65 +1,42 @@
-﻿from __future__ import annotations  
-from dataclasses import dataclass  
-from typing import Tuple
+﻿from __future__ import annotations
+from dataclasses import dataclass
+from typing import List, Tuple, Optional
 
-@dataclass  
-class MazeConfig:  
-    width: int = 7  
-    height: int = 7  
-    seed: int = 7
+Grid = List[List[str]]  # 'S','G','.' (free), '#'(wall)
 
-class GridMaze:  
-    """  
-    Placeholder maze (not wired into experiments yet).  
-    """  
-    def init(self, cfg: MazeConfig):  
-        self.cfg = cfg  
-        self.t = 0
+@dataclass
+class GridSpec:
+    grid: Grid
+    start: Tuple[int, int]
+    goal: Tuple[int, int]
 
+    @classmethod
+    def from_grid(cls, grid: Grid) -> "GridSpec":
+        sr = sc = gr = gc = -1
+        for r, row in enumerate(grid):
+            for c, ch in enumerate(row):
+                if ch == "S":
+                    sr, sc = r, c
+                elif ch == "G":
+                    gr, gc = r, c
+        if sr < 0 or gr < 0:
+            raise ValueError("GridSpec: grid must contain 'S' and 'G'")
+        return cls(grid=grid, start=(sr, sc), goal=(gr, gc))
 
-        
+    @classmethod
+    def tiny_default(cls) -> "GridSpec":
+        # 5x7 toy
+        rows = [
+            list("S..#..."),
+            list("..##..G"),
+            list("..#...."),
+            list("..#...."),
+            list("......."),
+        ]
+        return cls.from_grid(rows)
 
-from __future__ import annotations  
-import math  
-import random  
-from dataclasses import dataclass  
-from typing import Tuple, Dict, Any
+    def in_bounds(self, r: int, c: int) -> bool:
+        return 0 <= r < len(self.grid) and 0 <= c < len(self.grid[0])
 
-@dataclass  
-class BanditCfg:  
-    K:int=5  
-    T:int=1000  
-    drift_amp: float = 0.4 # amplitude of sinusoidal drift  
-    drift_period: float = 200 # steps per cycle  
-    base: float = 0.4  
-    noise: float = 0.05  
-    seed:int=1729
-
-class DriftingBandit:  
-    """  
-    K-armed bandit with nonstationary Bernoulli means:  
-    p_t(a) = base + drift_amp * sin(2Ï€ (t + phase_a)/period) + noise  
-    """  
-    def __init__(self, cfg: BanditCfg):  
-        self.cfg = cfg  
-        self.rng = random.Random(cfg.seed)  
-        self.t = 0  
-        self.phases = [self.rng.random() * cfg.drift_period for _ in range(cfg.K)]
-
-
-    def reset(self) -> Tuple[int, float, bool, Dict[str, Any]]:
-        self.t = 0
-        return 0, 0.0, False, {}
-
-    def step(self, action: int) -> Tuple[int, float, bool, Dict[str, Any]]:
-        self.t += 1
-        a = max(0, min(self.cfg.K - 1, int(action)))
-        p = self._p(a, self.t)
-        reward = 1.0 if self.rng.random() < p else 0.0
-        done = (self.t >= self.cfg.T)
-        return 0, reward, done, {"p": p, "a": a}
-
-    def _p(self, a: int, t: int) -> float:
-        s = math.sin(2.0 * math.pi * (t + self.phases[a]) / self.cfg.drift_period)
-        p = self.cfg.base + self.cfg.drift_amp * s + self.rng.uniform(-self.cfg.noise, self.cfg.noise)
-        return float(min(0.99, max(0.01, p)))
+    def passable(self, r: int, c: int) -> bool:
+        return self.in_bounds(r, c) and self.grid[r][c] != "#"

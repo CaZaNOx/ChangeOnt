@@ -1,98 +1,75 @@
 ﻿from __future__ import annotations
-from dataclasses import dataclass, field
-from typing import Tuple, Optional, Dict, Any
-import os
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Optional, Tuple, List
+import yaml  # type: ignore
 
-from .grid_maze import GridSpec
-from .small_maze import small_spec
-
-DIRS = {"UP": (-1, 0), "DOWN": (1, 0), "LEFT": (0, -1), "RIGHT": (0, 1)}
-Action = str
+from environments.maze1.grid_maze import GridMaze  # assumes you already have this
 
 
 @dataclass
+class MazeSpec:
+    width: int
+    height: int
+    seed: int = 0
+
+
 class GridMazeEnv:
     """
-    Deterministic grid maze.
-
-    Exposed for agents:
-      - .start: (r, c)
-      - .goal: (r, c)
-      - .pos:  (r, c)
-      - .passable(r,c) -> bool
-      - .is_done() -> bool
-      - .reset(seed: Optional[int]) -> tuple[int,int]
-      - .step(action: str) -> (obs=(r,c), reward: float, done: bool, info: dict)
-
-    Notes:
-      * No external dependencies; if a YAML spec is provided but PyYAML is missing,
-        we fall back to a small built-in grid.
+    Deterministic grid maze. Rewards:
+      -1 per step, 0 at goal. Episode ends upon reaching goal.
+    Actions: 'UP','DOWN','LEFT','RIGHT'
     """
-    spec_path: Optional[str] = None
-    step_cost: float = -1.0
-    goal_reward: float = 10.0
+    ACTIONS = ("UP", "DOWN", "LEFT", "RIGHT")
+    DELTA = {"UP": (-1, 0), "DOWN": (1, 0), "LEFT": (0, -1), "RIGHT": (0, 1)}
 
-    spec: GridSpec = field(init=False)
-    start: Tuple[int, int] = field(init=False)
-    goal: Tuple[int, int] = field(init=False)
-    pos: Tuple[int, int] = field(init=False)
-    _done: bool = field(default=False, init=False)
-
-    def __post_init__(self) -> None:
-        self.spec = self._load_spec(self.spec_path)
-        self.start = self.spec.start
-        self.goal = self.spec.goal
+    def __init__(self, spec_path: Optional[str] = None, spec: Optional[MazeSpec] = None):
+        if spec_path:
+            data = yaml.safe_load(Path(spec_path).read_text(encoding="utf-8")) or {}
+            p = data.get("params", {})
+            self.spec = MazeSpec(width=int(p.get("width", 5)),
+                                 height=int(p.get("height", 5)),
+                                 seed=int(p.get("seed", 0)))
+        elif spec:
+            self.spec = spec
+        else:
+            self.spec = MazeSpec(width=5, height=5, seed=0)
+        self.maze = GridMaze(self.spec.width, self.spec.height, seed=self.spec.seed)
+        self.start = self.maze.start
+        self.goal = self.maze.goal
         self.pos = self.start
         self._done = False
 
-    def _load_spec(self, path: Optional[str]) -> GridSpec:
-        if path is None:
-            return small_spec()
-        if not os.path.exists(path):
-            # File missing: fall back to default tiny grid
-            return small_spec()
-        # Try to parse a very small YAML subset if available
-        try:
-            import yaml  # type: ignore
-            with open(path, "r", encoding="utf-8") as f:
-                data = yaml.safe_load(f)
-            grid = data.get("grid")
-            if not grid:
-                return small_spec()
-            # Ensure rows are lists of single-char strings
-            rows = [list(str(row)) if isinstance(row, str) else list(row) for row in grid]
-            return GridSpec.from_grid(rows)
-        except Exception:
-            # Graceful fallback if PyYAML missing or parse fails
-            return small_spec()
-
-    # --- public API ---
-
-    def passable(self, r: int, c: int) -> bool:
-        return self.spec.passable(r, c)
-
-    def is_done(self) -> bool:
-        return self._done
-
-    def reset(self, seed: Optional[int] = None) -> Tuple[int, int]:
-        # deterministic; seed currently unused (no stochasticity)
+    def reset(self, seed: Optional[int] = None):
+        if seed is not None:
+            self.maze = GridMaze(self.spec.width, self.spec.height, seed=seed)
+        else:
+            self.maze = GridMaze(self.spec.width, self.spec.height, seed=self.spec.seed)
+        self.start = self.maze.start
+        self.goal = self.maze.goal
         self.pos = self.start
         self._done = False
         return self.pos
 
-    def step(self, action: Action) -> Tuple[Tuple[int, int], float, bool, Dict[str, Any]]:
-        if self._done:
-            # No-op once done; keep returning terminal state
-            return self.pos, 0.0, True, {"terminal": True}
+    # used by BFS in runner
+    def passable(self, r: int, c: int) -> bool:
+        return self.maze.in_bounds(r, c) and not self.maze.is_wall(r, c)
 
-        dr, dc = DIRS.get(action, (0, 0))
-        r, c = self.pos
-        nr, nc = r + dr, c + dc
-        if self.passable(nr, nc):
-            self.pos = (nr, nc)
-        reward = self.step_cost
-        if self.pos == self.goal:
-            self._done = True
-            reward += self.goal_reward
-        info: Dict[str, Any] = {}
-        return self.pos, reward, self._done, info
+    def step(self, action: str):
+        if self._done:
+            return self.pos, 0.0, True, {}
+        if action not in self.ACTIONS:
+            raise ValueError(f"invalid action {action}")
+
+        dr, dc = self.DELTA[action]
+        nr, nc = self.pos[0] + dr, self.pos[1] + dc
+
+        # illegal moves: stay in place but still pay step cost (so BFS optimality maps to minimal steps)
+        if not self.passable(nr, nc):
+            nr, nc = self.pos
+
+        self.pos = (nr, nc)
+        done = (self.pos == self.goal)
+        reward = 0.0 if done else -1.0
+        self._done = done
+        return self.pos, reward, done, {}

@@ -1,35 +1,17 @@
-﻿# FILE: evaluation/metrics/lln_stability.py
-from typing import Sequence, Tuple
-import numpy as np
-from .volatility import jaccard_volatility
+﻿from __future__ import annotations
+from typing import Iterable, Tuple
 
-def lln_stable(seq: Sequence[int], W: int = 200, drift_thresh: float = 0.10, consecutive: int = 3, floor: int = 50) -> Tuple[bool, int]:
+def jaccard(a: set, b: set) -> float:
+    if not a and not b:
+        return 1.0
+    return len(a & b) / float(len(a | b))
+
+def lln_stability(windows: Iterable[Tuple[set, set]], threshold: float = 0.9) -> bool:
     """
-    LLN-stability flag:
-      - Volatility â‰¤ drift_thresh for 'consecutive' windows,
-      - and each observed symbol appears at least 'floor' times overall.
-    Returns (stable: bool, windows_checked: int).
+    windows: iterable of pairs (S_t, S_{t+1}), sets of observed transitions in successive windows.
+    Returns True if all successive Jaccard similarities >= threshold.
     """
-    n = len(seq)
-    if n < W * (consecutive + 1):
-        return (False, 0)
-
-    # Sliding check of volatility
-    ok_count = 0
-    windows_checked = 0
-    for i in range(consecutive):
-        end = n - i * W
-        start = end - 2 * W
-        if start < 0: break
-        v = jaccard_volatility(seq[start:end], W=W)
-        windows_checked += 1
-        if v <= drift_thresh:
-            ok_count += 1
-
-    # Sample floor
-    counts = {}
-    for s in seq:
-        counts[s] = counts.get(s, 0) + 1
-    floor_ok = all(c >= floor for c in counts.values()) if counts else False
-
-    return (ok_count >= consecutive and floor_ok, windows_checked)
+    for (s1, s2) in windows:
+        if jaccard(s1, s2) < threshold:
+            return False
+    return True

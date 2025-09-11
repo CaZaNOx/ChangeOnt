@@ -1,41 +1,101 @@
 ﻿from __future__ import annotations
 import json
 from pathlib import Path
-from typing import List, Dict, Optional
+from typing import Optional, Iterable, Dict, Any
 
 import matplotlib.pyplot as plt
 
-def _load_jsonl(path: Path) -> List[Dict]:
-    if not path.exists():
-        raise FileNotFoundError(path)
-    out = []
-    with open(path, "r", encoding="utf-8") as f:
+
+def _read_metrics(path: Path) -> Iterable[Dict[str, Any]]:
+    with path.open("r", encoding="utf-8") as f:
         for line in f:
             line = line.strip()
             if not line:
                 continue
-            out.append(json.loads(line))
-    return out
+            try:
+                yield json.loads(line)
+            except json.JSONDecodeError:
+                continue
 
-def plot_flips_and_events(step_log: Path, out_png: Path, title: Optional[str] = None) -> None:
-    records = _load_jsonl(step_log)
-    steps = [r.get("step", i) for i, r in enumerate(records)]
-    ys    = [r.get("y", 0) for r in records]
-    modes = [r.get("mode", 0) for r in records]
-    ema   = [r.get("loop_score", 0.0) for r in records]
-    collapse = [r.get("collapse", 0) for r in records]
 
-    fig = plt.figure()
-    ax = plt.gca()
-    ax.plot(steps, ys, label="env class y")
-    ax.plot(steps, modes, label="mode (0/1)")
-    ax.plot(steps, ema, label="loop_score/EMA")
-    ax.plot(steps, collapse, label="collapse (0/1)")
-    ax.set_xlabel("step")
-    ax.set_ylabel("value")
+def quick_plot(step_log: Path, out_png: Path, title: Optional[str] = None) -> None:
+    """
+    Minimal, generic plotter.
+    - If it sees 'metric' == 'cumulative_regret' → line plot over t.
+    - If it sees 'metric' == 'episode_steps' → bar/line over episode index.
+    - Otherwise: plot first numeric series it can find.
+    """
+    step_log = Path(step_log)
+    out_png = Path(out_png)
+    series_regret_t = []
+    series_regret_v = []
+    series_steps_ep = []
+    series_steps_v = []
+
+    fallback_t = []
+    fallback_v = None
+
+    for rec in _read_metrics(step_log):
+        if rec.get("metric") == "cumulative_regret":
+            series_regret_t.append(rec.get("t"))
+            series_regret_v.append(rec.get("value"))
+        elif rec.get("metric") == "episode_steps":
+            series_steps_ep.append(rec.get("episode"))
+            series_steps_v.append(rec.get("value"))
+        else:
+            # fallback: first numeric metric
+            if fallback_v is None:
+                # try to pick a numeric key other than t/episode/metric
+                for k, v in rec.items():
+                    if k in ("t", "episode", "metric", "name"):
+                        continue
+                    if isinstance(v, (int, float)):
+                        if "t" in rec:
+                            fallback_t.append(rec["t"])
+                        elif "episode" in rec:
+                            fallback_t.append(rec["episode"])
+                        else:
+                            fallback_t.append(len(fallback_t) + 1)
+                        fallback_v = [] if fallback_v is None else fallback_v
+                        fallback_v.append(v)
+                        break
+            else:
+                if "t" in rec:
+                    fallback_t.append(rec["t"])
+                elif "episode" in rec:
+                    fallback_t.append(rec["episode"])
+                else:
+                    fallback_t.append(len(fallback_t) + 1)
+                # append last numeric value seen
+                num = None
+                for k, v in rec.items():
+                    if isinstance(v, (int, float)):
+                        num = v
+                if num is not None:
+                    fallback_v.append(num)
+
+    plt.figure()
+    plotted = False
+    if series_regret_t and series_regret_v:
+        plt.plot(series_regret_t, series_regret_v)
+        plt.xlabel("t")
+        plt.ylabel("cumulative regret")
+        plotted = True
+    if series_steps_ep and series_steps_v:
+        if plotted:
+            plt.figure()
+        plt.plot(series_steps_ep, series_steps_v)
+        plt.xlabel("episode")
+        plt.ylabel("steps")
+        plotted = True
+    if not plotted and fallback_v:
+        plt.plot(fallback_t, fallback_v)
+        plt.xlabel("index")
+        plt.ylabel("value")
+        plotted = True
     if title:
-        ax.set_title(title)
-    ax.legend()
+        plt.title(title)
     out_png.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(out_png)
-    plt.close(fig)
+    plt.tight_layout()
+    plt.savefig(out_png)
+    plt.close()

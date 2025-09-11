@@ -1,5 +1,10 @@
 # EVALUATION — Kernel v0.2.0
 
+
+- Regret is pseudo-regret computed from known arm means (not sample means). This isolates algorithmic behavior; it is standard for synthetic bandit fixtures.
+- The “UCB growth test” asserts R(10k)/R(5k) ≈ log(10k)/log(5k) ±10%.
+
+
 Purpose
 Define name-free metrics, invariance checks, and compute ledger fields used to evaluate CO.
 

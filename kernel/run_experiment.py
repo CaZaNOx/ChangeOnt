@@ -1,17 +1,28 @@
 ﻿from __future__ import annotations
-import argparse, json
-from experiments.runners.renewal_runner import RunnerConfig, run
+import argparse
+import subprocess
+from pathlib import Path
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--steps", type=int, default=500)
-    ap.add_argument("--seed", type=int, default=1729)
-    ap.add_argument("--phase-len", type=int, default=50)
-    ap.add_argument("--out-dir", type=str, default="outputs")
-    args = ap.parse_args()
-    cfg = RunnerConfig(steps=args.steps, seed=args.seed, phase_len=args.phase_len, out_dir=args.out_dir)
-    paths = run(cfg)
-    print(json.dumps(paths, indent=2))
+def main() -> None:
+    ap = argparse.ArgumentParser(description="Thin dispatcher to specific runners")
+    ap.add_argument("--runner", type=str, required=True, choices=["bandit", "maze"])
+    ap.add_argument("--config", type=str, default=None, help="YAML/JSON config file for the runner")
+    ap.add_argument("--out", type=str, default=None, help="output directory override")
+    args, unknown = ap.parse_known_args()
+
+    cmd = ["python", "-m"]
+    if args.runner == "bandit":
+        cmd += ["experiments.runners.bandit_runner"]
+    elif args.runner == "maze":
+        cmd += ["experiments.runners.maze_runner"]
+    if args.config:
+        cmd += ["--config", args.config]
+    if args.out:
+        cmd += ["--out", args.out]
+    cmd += unknown  # allow passing runner-specific flags
+
+    Path("outputs").mkdir(exist_ok=True)
+    subprocess.run(cmd, check=True)
 
 if __name__ == "__main__":
     main()

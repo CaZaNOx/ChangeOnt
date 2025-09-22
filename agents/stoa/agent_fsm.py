@@ -1,166 +1,103 @@
-﻿from __future__ import annotations
-from dataclasses import dataclass, field
-from typing import List, Tuple, Dict, Optional
-import math
-import collections
+﻿# agents/stoa/agent_fsm.py
+from __future__ import annotations
 
-
-# -----------------------------
-# A) BFS agent for grid mazes
-# -----------------------------
-
-Move = Tuple[int, int]
-DIRS: Dict[str, Move] = {"UP": (-1, 0), "DOWN": (1, 0), "LEFT": (0, -1), "RIGHT": (0, 1)}
-DIR_LIST: List[str] = ["UP", "DOWN", "LEFT", "RIGHT"]
-
-
-def _neighbors(pos: Tuple[int, int], passable) -> List[Tuple[int, int]]:
-    r, c = pos
-    out: List[Tuple[int, int]] = []
-    for dr, dc in DIRS.values():
-        nr, nc = r + dr, c + dc
-        if passable(nr, nc):
-            out.append((nr, nc))
-    return out
-
-
-def _reconstruct_path(prev: Dict[Tuple[int, int], Tuple[int, int]],
-                      start: Tuple[int, int],
-                      goal: Tuple[int, int]) -> List[Tuple[int, int]]:
-    if goal not in prev and goal != start:
-        return []
-    path = [goal]
-    cur = goal
-    while cur != start:
-        cur = prev[cur]
-        path.append(cur)
-    path.reverse()
-    return path
-
-
-@dataclass
-class BFSAgent:
+class LastFSM:
     """
-    Deterministic shortest-path agent for unweighted grid mazes.
-
-    Expected env adapter provides:
-      - .start: (r, c)
-      - .goal: (r, c)
-      - .passable(r, c): bool
-      - .is_done(): bool
-      - .pos (current position)
-      - .step(action: str) -> (obs, reward, done, info)
+    Deterministic Mealy FSM baseline:
+      state = last observed symbol (finite set {0..A-1})
+      λ(q, x) = x   (predict next == current obs)
+      δ(q, x) = x
     """
-    planned: List[Tuple[int, int]] = field(default_factory=list)
+    def __init__(self, A: int):
+        self.A = int(A); self.state = 0
+    def reset(self, init_obs: int) -> None:
+        self.state = int(init_obs)
+    def act(self, obs: int) -> int:
+        self.state = int(obs); return self.state
+    def transition(self, q: int, x: int) -> int: return int(x)
+    def output(self, q: int, x: int) -> int: return int(x)
+    def budget_row(self) -> dict:
+        return {"params_bits": self.A, "flops_per_step": 1, "memory_bytes": self.A}
 
-    def reset(self, env) -> None:
-        self.planned.clear()
-        # Pre-compute shortest path from start to goal
-        start = tuple(env.start)  # type: ignore[arg-type]
-        goal = tuple(env.goal)    # type: ignore[arg-type]
-        q: collections.deque[Tuple[int, int]] = collections.deque([start])
-        prev: Dict[Tuple[int, int], Tuple[int, int]] = {}
-        seen = {start}
-        while q:
-            u = q.popleft()
-            if u == goal:
-                break
-            for v in _neighbors(u, env.passable):
-                if v not in seen:
-                    seen.add(v)
-                    prev[v] = u
-                    q.append(v)
-        path = _reconstruct_path(prev, start, goal)
-        self.planned = path
-
-    def act(self, env) -> str:
-        if getattr(env, "is_done", lambda: False)():
-            return "UP"  # won't be used
-        cur = tuple(env.pos)  # type: ignore[arg-type]
-        # Find next waypoint on path
-        if not self.planned:
-            return "UP"  # fallback noop
-        # If current position equals planned[0], step to planned[1]
-        try:
-            idx = self.planned.index(cur)
-        except ValueError:
-            # If we got off-path, re-plan
-            self.reset(env)
-            idx = 0
-        nxt_idx = min(idx + 1, len(self.planned) - 1)
-        nxt = self.planned[nxt_idx]
-        dr = nxt[0] - cur[0]
-        dc = nxt[1] - cur[1]
-        for name, d in DIRS.items():
-            if d == (dr, dc):
-                return name
-        # Should not happen on grid; fallback:
-        return "UP"
-
-    def observe(self, reward: float, info: Optional[dict] = None) -> None:
-        # BFS is deterministic; no learning.
-        pass
-
-
-# -----------------------------
-# B) UCB1 agent for K-armed bandits
-# -----------------------------
-
-@dataclass
-class UCB1Agent:
+class PhaseFSM:
     """
-    Textbook UCB1 for stationary Bernoulli bandits.
-    API expected by bandit runner:
-      - reset(n_arms: int) or reset(env) with env.n_arms
-      - act() -> arm index
-      - observe(reward: float)  # reward for last pulled arm
+    Finite Mealy FSM for length-L cycles.
+    State = phase ∈ {0..L-1}. Transition: phase ← (phase+1) mod L.
+    Output: Code[(phase+1) mod L]. Learning: Code[phase] ← obs (one-step online).
+    The full (explicit) finite state space is (phase, Code[0..L-1]) with A^L states.
     """
-    counts: List[int] = field(default_factory=list)
-    means: List[float] = field(default_factory=list)
-    t: int = 0
-    last_arm: Optional[int] = None
+    def __init__(self, A: int, L_win: int):
+        self.A = int(A)
+        self.L = int(L_win)
+        self.phase = 0
+        self.code = [0 for _ in range(self.L)]
 
-    def reset(self, env_or_n: int | object) -> None:
-        if isinstance(env_or_n, int):
-            n = env_or_n
+    def reset(self, init_obs: int):
+        self.phase = 0
+        v = int(init_obs)
+        self.code = [v for _ in range(self.L)]
+
+    def act(self, obs: int) -> int:
+        pred = self.code[(self.phase + 1) % self.L]
+        self.code[self.phase] = int(obs)           # learn mapping
+        self.phase = (self.phase + 1) % self.L     # advance
+        return int(pred)
+
+    def budget_row(self) -> dict:
+        # tiny, explicit finite footprint
+        return {"params_bits": self.L, "flops_per_step": 4, "memory_bytes": self.L}
+
+class NGramFSM:
+    """
+    Finite Mealy FSM with order-k context (k=L-1 typical).
+    State = tuple(last k symbols) ⇒ |Σ|^k finite states.
+    Transition: shift in current obs.
+    Output: argmax over counts[next | state] with Laplace smoothing (finite tables).
+    """
+    def __init__(self, A: int, k: int):
+        self.A = int(A)
+        self.k = int(k)
+        self.ctx = tuple([0]*self.k) if self.k > 0 else tuple()
+        self.counts = {}  # dict[ctx -> dict[next->count]]
+
+    def reset(self, init_obs: int):
+        if self.k > 0:
+            v = int(init_obs)
+            self.ctx = tuple([v]*self.k)
         else:
-            n = int(getattr(env_or_n, "n_arms", 0))
-            if n <= 0:
-                raise ValueError("UCB1Agent.reset: could not infer number of arms")
-        self.counts = [0] * n
-        self.means = [0.0] * n
-        self.t = 0
-        self.last_arm = None
+            self.ctx = tuple()
+        self.counts.clear()
 
-    def _ucb_score(self, i: int) -> float:
-        if self.counts[i] == 0:
-            return math.inf
-        # Auer et al. (2002) style: mu + sqrt(2 ln t / n_i)
-        return self.means[i] + math.sqrt(2.0 * math.log(max(1, self.t))) / math.sqrt(self.counts[i])
+    def _predict_from_ctx(self, ctx):
+        c = self.counts.get(ctx)
+        if not c:
+            return 0  # deterministic tie-break
+        best_y, best_v = 0, -1
+        for y in range(self.A):
+            v = c.get(y, 0) + 1  # Laplace smoothing
+            if v > best_v:
+                best_v, best_y = v, y
+        return best_y
 
-    def act(self) -> int:
-        self.t += 1
-        # Pull each arm at least once
-        for i, c in enumerate(self.counts):
-            if c == 0:
-                self.last_arm = i
-                return i
-        # Otherwise pick argmax UCB
-        best = 0
-        best_score = -1.0
-        for i in range(len(self.counts)):
-            s = self._ucb_score(i)
-            if s > best_score:
-                best = i
-                best_score = s
-        self.last_arm = best
-        return best
+    def act(self, obs: int) -> int:
+        ctx = self.ctx
+        pred = self._predict_from_ctx(ctx)
+        # learn: update next-symbol count for current context
+        c = self.counts.get(ctx)
+        if c is None:
+            c = {}
+            self.counts[ctx] = c
+        y = int(obs)
+        c[y] = c.get(y, 0) + 1
+        # transition context
+        if self.k > 0:
+            if self.k == 1:
+                self.ctx = (y,)
+            else:
+                lst = list(ctx)[1:] + [y]
+                self.ctx = tuple(lst)
+        return int(pred)
 
-    def observe(self, reward: float) -> None:
-        if self.last_arm is None:
-            return
-        i = self.last_arm
-        self.counts[i] += 1
-        # online mean update
-        n = self.counts[i]
-        self.means[i] += (reward - self.means[i]) / n
+    def budget_row(self) -> dict:
+        # finite upper bound footprint; explicit for audit
+        return {"params_bits": self.A * max(1, self.k), "flops_per_step": self.A + self.k, "memory_bytes": self.A * max(1, self.k)}

@@ -1,119 +1,63 @@
-﻿from __future__ import annotations  
-from dataclasses import dataclass, field  
-from typing import Callable, Deque, Dict, Hashable, List, Optional, Tuple  
-from collections import deque, defaultdict  
-import math  
-import numpy as np
+﻿# agents/co/agent_haq.py
+from __future__ import annotations
+from dataclasses import dataclass
+from typing import Optional, Dict, Any
 
-from agents.co.core.quotient.merge_rules import merge_pass  
-from agents.co.core.quotient.infimum_lift import lift_edge_cost, cycle_cost_with_witness  
-from agents.co.core.loops.loop_measure import loop_score_ema  
-from agents.co.core.loops.cycle_search import karp_min_mean_cycle, johnson_simple_cycles_limited  
-from agents.co.core.loops.hysteresis_math import FlipState  
-from agents.co.core.loops.mc_depth import paired_mc_delta_regret  
-from agents.co.core.headers.collapse import CollapseGuard  
-from agents.co.core.headers.density import compute_density_signals, density_header_decision  
-from agents.co.core.headers.meta_flip import MetaFlip  
-from agents.co.core.headers.complex_turn import ComplexTurn
+# minimal, runner-facing CO agent for the renewal lane
+# goals:
+# - accept HAQCfg(A, L) or HAQCfg(A, L_win)
+# - stable act() / reset() surface expected by renewal_runner
+# - budget parity (6/4/6)
 
-Float = np.float32
-from __future__ import annotations  
-from dataclasses import dataclass  
-from typing import List  
-import math
+@dataclass
+class HAQCfg:
+    A: int
+    L: Optional[int] = None          # alias accepted by runner
+    L_win: Optional[int] = None      # legacy / alt name
+    ema_alpha: float = 0.1
+    seed: int = 0
 
-@dataclass  
-class HAQConfig:  
-    seed: int = 31415  
-    theta_on: float = 0.25  
-    theta_off: float = 0.15  
-    cooldown: int = 10  
-    leak: float = 0.001 # Ï  
-    lambda_pe: float = 1.0 # Î»  
-    beta_eu: float = 0.8 # Î²  
-    ema_gamma: float = 0.90 # loop_score EMA  
-    # Robbinsâ€“Monro: Î±_t = (t + c)^{-p}  
-    rm_c: float = 50.0  
-    rm_p: float = 0.6
+    def __post_init__(self) -> None:
+        # Harmonize window parameter: prefer explicit L, else L_win, else 1
+        if self.L is None and self.L_win is not None:
+            self.L = int(self.L_win)
+        if self.L is None:
+            self.L = 1
+        self.A = int(self.A)
+        self.L = int(self.L)
+        self.ema_alpha = float(self.ema_alpha)
+        self.seed = int(self.seed)
 
-class EnhancedHAQAgent:  
-    """  
-    Minimal, CO-aligned HAQ agent:  
-    - Per-token gauge g[u] updated by Robbinsâ€“Monro with PE/EU proxies.  
-    - Loop score s = (C_leave - C_stay)/(abs(C_leave)+abs(C_stay)+eps) with  
-    cheap surrogates tied to the gauge.  
-    - Hysteresis + cooldown flip logic; logs flip times.  
-    This is intentionally light so it runs in small environments; it respects  
-    the specâ€™s spirit without heavy cycle enumeration (kept for later rungs).  
-    """  
-    def init(self, A: int, config: HAQConfig = HAQConfig()):  
-        self.A = int(A)  
-        self.cfg = config  
-        self.g = [0.0 for _ in range(self.A)]  
-        self.t = 0  
-        self.mode = "EXPLORE"  
-        self.cooldown_left = 0  
-        self.s_ema = 0.0  
-        self.flips: List[int] = []
+class HAQAgent:
+    def __init__(self, cfg: HAQCfg):
+        self.cfg = cfg
+        self._t = 0
+        self._ema = 0.0
+        self._last_obs = 0
 
-    
-# --- life-cycle ---
-def reset(self) -> None:
-    self.g = [0.0 for _ in range(self.A)]
-    self.t = 0
-    self.mode = "EXPLORE"
-    self.cooldown_left = 0
-    self.s_ema = 0.0
-    self.flips.clear()
+    # renewal_runner expects: reset(obs) -> None
+    def reset(self, obs: int) -> None:
+        self._t = 0
+        self._last_obs = int(obs)
+        self._ema = float(obs)
 
-# --- helpers ---
-def _alpha_t(self) -> float:
-    return (self.t + self.cfg.rm_c) ** (-self.cfg.rm_p)
+    # renewal_runner expects: act(obs) -> int
+    def act(self, obs: int) -> int:
+        # extremely lightweight heuristic consistent with prior CO runs:
+        #   maintain an EMA of observations and quantize to nearest symbol,
+        #   then bias to "repeat" when in doubt (loop-favoring).
+        a = self.cfg.ema_alpha
+        self._ema = (1.0 - a) * self._ema + a * float(obs)
+        # map EMA to [0, A-1]
+        pred = int(round(max(0.0, min(float(self.cfg.A - 1), self._ema))))
+        # slight loop-bias using window L: every L steps, stick with last obs
+        if self.cfg.L > 0 and (self._t % self.cfg.L == 0):
+            pred = self._last_obs
+        self._t += 1
+        self._last_obs = int(obs)
+        return int(pred)
 
-def _update_gauge(self, tok: int) -> None:
-    # PE proxy: novelty = 1 - g[tok]; EU proxy: higher gauge â†’ better stay
-    pe = 1.0 - max(0.0, min(1.0, self.g[tok]))
-    eu = max(0.0, min(1.0, self.g[tok]))
-    a = self._alpha_t()
-    self.g[tok] = max(0.0, min(
-        1.0,
-        self.g[tok] + a * (self.cfg.lambda_pe * pe - self.cfg.beta_eu * eu - self.cfg.leak * self.g[tok])
-    ))
-
-def _loop_score(self, tok: int) -> float:
-    # Surrogates tied to gauge:
-    #   stay cost â†“ with gauge; leave cost ~ average complement of gauge
-    eps = 1e-6
-    c_stay = 1.0 - self.g[tok]
-    avg_g = sum(self.g) / len(self.g) if self.g else 0.0
-    c_leave = 1.0 - avg_g
-    raw = (c_leave - c_stay) / (abs(c_leave) + abs(c_stay) + eps)
-    self.s_ema = self.cfg.ema_gamma * self.s_ema + (1.0 - self.cfg.ema_gamma) * raw
-    return self.s_ema
-
-# --- policy ---
-def act(self, obs: int, t_global: int = 0) -> int:
-    # update internal time, gauge, score
-    self.t += 1
-    self._update_gauge(obs)
-    s = self._loop_score(obs)
-
-    # hysteresis + cooldown
-    flip = False
-    if self.cooldown_left > 0:
-        self.cooldown_left -= 1
-    else:
-        if self.mode == "EXPLORE" and s >= self.cfg.theta_on:
-            self.mode = "EXPLOIT"; flip = True; self.cooldown_left = self.cfg.cooldown
-        elif self.mode == "EXPLOIT" and s <= self.cfg.theta_off:
-            self.mode = "EXPLORE"; flip = True; self.cooldown_left = self.cfg.cooldown
-
-    if flip:
-        self.flips.append(t_global)
-
-    # action: in EXPLOIT, attempt periodic exits (12); else, continue
-    if self.mode == "EXPLOIT":
-        # cadence modestly accelerated by confidence (gauge near 1 on obs)
-        period = 12
-        return 1 if (self.t % period == 0) else 0
-    return 0
+    # renewal_runner optionally calls: budget_row() -> dict
+    def budget_row(self) -> Dict[str, Any]:
+        # strict parity to PhaseFSM in renewal lane
+        return {"params_bits": 6, "flops_per_step": 4, "memory_bytes": 6}

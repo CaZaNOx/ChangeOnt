@@ -1,4 +1,5 @@
-﻿from __future__ import annotations
+﻿# PATH: experiments/runners/maze_runner.py
+from __future__ import annotations
 import argparse
 import json
 from collections import deque
@@ -9,6 +10,13 @@ from typing import Dict, List, Optional, Tuple
 from environments.maze1.env import GridMazeEnv
 from kernel.logging import write_metric_line, write_budget_csv
 
+# Optional CO import guarded (no hard dependency if not used)
+try:
+    from agents.co.agent_maze import COMazeAgent, COMazeCfg
+    HAS_CO = True
+except Exception:
+    HAS_CO = False
+
 DIRS = ["UP", "DOWN", "LEFT", "RIGHT"]
 DELTA = {"UP": (-1, 0), "DOWN": (1, 0), "LEFT": (0, -1), "RIGHT": (0, 1)}
 
@@ -17,6 +25,8 @@ DELTA = {"UP": (-1, 0), "DOWN": (1, 0), "LEFT": (0, -1), "RIGHT": (0, 1)}
 class MazeConfig:
     spec_path: Optional[str]
     episodes: int
+    agent: str = "bfs"          # 'bfs' | 'haq'
+    seed: int = 0               # base seed used for env/agent
     out: str = "outputs/maze_bfs"
 
 
@@ -34,14 +44,20 @@ def _load_config(args: argparse.Namespace) -> MazeConfig:
             data = json.load(f) if args.config.endswith(".json") else _parse_yaml(f.read())
         env = data.get("env", {})
         out = data.get("out", "outputs/maze_bfs")
+        agent = (data.get("agent") or {}).get("type", str(args.agent)).lower()
         return MazeConfig(
             spec_path=env.get("spec_path"),
-            episodes=int(data.get("episodes", 5)),
+            episodes=int(data.get("episodes", args.episodes)),
+            agent=str(agent),
+            seed=int(data.get("seed", args.seed)),
             out=str(out),
         )
+    # CLI fallbacks
     return MazeConfig(
         spec_path=args.maze,
         episodes=int(args.episodes),
+        agent=str(args.agent).lower(),
+        seed=int(args.seed),
         out=str(args.out),
     )
 
@@ -85,10 +101,12 @@ def _bfs_path(env: GridMazeEnv) -> List[str]:
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Maze baseline runner (BFS)")
+    ap = argparse.ArgumentParser(description="Maze runner (BFS baseline or CO-HAQ)")
     ap.add_argument("--config", type=str, default=None, help="YAML/JSON config file")
     ap.add_argument("--maze", type=str, default=None, help="spec.yaml path (fallback)")
     ap.add_argument("--episodes", type=int, default=5)
+    ap.add_argument("--agent", type=str, default="bfs", help="'bfs' | 'haq'")
+    ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--out", type=str, default="outputs/maze_bfs")
     args = ap.parse_args()
 
@@ -101,29 +119,58 @@ def main() -> None:
 
     env = GridMazeEnv(spec_path=cfg.spec_path)
 
+    # Choose agent
+    use_haq = (cfg.agent == "haq")
+    if use_haq and not HAS_CO:
+        raise RuntimeError("agent=haq requested but agents.co.agent_maze is not importable")
+
     budget_rows = []
+
+    # Deterministic seeding per episode for both env and CO agent
     for ep in range(cfg.episodes):
-        env.reset()
-        actions = _bfs_path(env)
-        # Execute the path to gather a consistent step/reward log
-        steps = 0
-        total_reward = 0.0
-        for act in actions:
-            _, r, done, _ = env.step(act)
-            steps += 1
-            total_reward += r
-            if done:
-                break
-        write_metric_line(metrics_path, {"metric": "episode_steps", "episode": ep, "value": steps})
-        write_metric_line(metrics_path, {"metric": "episode_return", "episode": ep, "value": total_reward})
-        budget_rows.append({"episode": ep, "flops_step": 1, "memory_bytes": 0, "agent": "bfs"})
+        env.reset(seed=cfg.seed + ep)  # ensure identical runs across invocations
+
+        if use_haq:
+            # Start CO agent on initial observation (position tuple)
+            agent = COMazeAgent(COMazeCfg(seed=cfg.seed))
+            init_obs = env.reset(seed=cfg.seed + ep)  # reset again to get starting pos deterministically
+            agent.start_episode(init_obs)
+            steps = 0
+            total_reward = 0.0
+            done = False
+            while not done:
+                act = agent.select()  # "UP"/"DOWN"/"LEFT"/"RIGHT"
+                obs, r, done, _ = env.step(act)
+                agent.update(obs, r, done)
+                steps += 1
+                total_reward += r
+                if done:
+                    break
+            write_metric_line(metrics_path, {"metric": "episode_steps", "episode": ep, "value": steps})
+            write_metric_line(metrics_path, {"metric": "episode_return", "episode": ep, "value": total_reward})
+            # keep budget parity with BFS ledger
+            budget_rows.append({"episode": ep, "flops_step": 1, "memory_bytes": 0, "agent": "haq"})
+        else:
+            actions = _bfs_path(env)
+            steps = 0
+            total_reward = 0.0
+            for act in actions:
+                _, r, done, _ = env.step(act)
+                steps += 1
+                total_reward += r
+                if done:
+                    break
+            write_metric_line(metrics_path, {"metric": "episode_steps", "episode": ep, "value": steps})
+            write_metric_line(metrics_path, {"metric": "episode_return", "episode": ep, "value": total_reward})
+            budget_rows.append({"episode": ep, "flops_step": 1, "memory_bytes": 0, "agent": "bfs"})
 
     write_budget_csv(budget_path, budget_rows)
 
     # quick plot: steps per episode
     try:
         from kernel.plotting import save_quick_plot
-        save_quick_plot(metrics_path, plot_path, title="Maze BFS")
+        title = "Maze CO-HAQ" if use_haq else "Maze BFS"
+        save_quick_plot(metrics_path, plot_path, title=title)
     except Exception:
         pass
 

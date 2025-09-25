@@ -2,4 +2,4 @@
 steps: 1000
 mode: phase
 env: { A: 8, L_win: 6, p_ren: 0.02, p_noise: 0.00, T_max: 1000 }
-out_dir: outputs/renewal_fsm_phase
+out_dir: outputs/renewal_fsm_phase_A

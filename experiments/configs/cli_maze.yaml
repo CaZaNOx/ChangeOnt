@@ -1,0 +1,9 @@
+# PATH: experiments/configs/cli_maze.yaml
+seed: 7
+episodes: 5
+out: outputs/maze_cli
+env:
+  spec_path: null   # or set to a YAML path if you have a maze spec
+# agent.type is overridden by CLI; default kept for direct runner use
+agent:
+  type: bfs

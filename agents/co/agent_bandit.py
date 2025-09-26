@@ -1,95 +1,58 @@
 # PATH: agents/co/agent_bandit.py
 from __future__ import annotations
-from dataclasses import dataclass, field
-from typing import List
-from random import Random
-
-from agents.co.core.headers.loop_score import loop_score_ema
-from agents.co.core.headers.density import compute_density_signals
-from agents.co.core.headers.meta_flip import MetaFlip
-from agents.co.core.headers.collapse import CollapseGuard
+from dataclasses import dataclass
+from typing import List, Optional
+import math
+import random
 
 @dataclass
 class COBanditCfg:
     n_arms: int
-    A: int = 8
-    L_hist: int = 128
-    ema_beta: float = 0.9
-    theta_on: float = 0.6
-    theta_off: float = 0.4
-    cooldown: int = 50
     seed: int = 0
+    # optional: smoothing for a simple CO-ish header (loop/ema idea is not needed for bandit baseline)
+    ema_alpha: float = 0.0  # 0.0 => pure sample-mean, deterministic tie-breaks
 
-@dataclass
 class COBanditAgent:
-    cfg: COBanditCfg
-    rng: Random = field(init=False)
-    t: int = field(default=0, init=False)
-    rew_hist: List[int] = field(default_factory=list)
-    score: float = field(default=0.0, init=False)
-    mode_exploit: bool = field(default=False, init=False)
-    dwell: int = field(default=0, init=False)
-    flips: MetaFlip = field(default_factory=MetaFlip)
-    guard: CollapseGuard = field(default_factory=CollapseGuard)
-    counts: List[int] = field(default_factory=list)
-    means: List[float] = field(default_factory=list)
-
-    def __post_init__(self) -> None:
-        self.rng = Random(self.cfg.seed)
-        self.counts = [0] * self.cfg.n_arms
-        self.means = [0.0] * self.cfg.n_arms
-
-    def reset(self) -> None:
-        self.t = 0
-        self.rew_hist.clear()
-        self.score = 0.0
-        self.mode_exploit = False
-        self.dwell = 0
-        self.flips.reset()
-        self.guard.reset()
-        self.counts = [0] * self.cfg.n_arms
-        self.means = [0.0] * self.cfg.n_arms
-
-    def _update_headers(self, r_bin: int) -> None:
-        self.rew_hist.append(r_bin)
-        Hn, dens = compute_density_signals(
-            self.rew_hist[-self.cfg.L_hist :],
-            A=self.cfg.A,
-            L=min(self.cfg.L_hist, len(self.rew_hist)),
-        )
-        raw_cost = 1.0 - dens
-        self.score = loop_score_ema(self.score, [raw_cost], beta=self.cfg.ema_beta)
-        if self.mode_exploit:
-            if self.score <= self.cfg.theta_off and self.dwell <= 0:
-                self.mode_exploit = False
-                self.flips.add(self.t)
-                self.dwell = self.cfg.cooldown
-        else:
-            if self.score >= self.cfg.theta_on and self.dwell <= 0:
-                self.mode_exploit = True
-                self.flips.add(self.t)
-                self.dwell = self.cfg.cooldown
-        if self.dwell > 0:
-            self.dwell -= 1
+    """
+    Deterministic CO adapter for K-armed Bernoulli bandit.
+    - Keeps per-arm estimates with optional EMA.
+    - NO unseeded randomness; deterministic tie-breaks by lowest index.
+    - budget_row aligned with a tiny agent: 6/4/6 like PhaseFSM ledger we use for parity.
+    """
+    def __init__(self, cfg: COBanditCfg):
+        self.cfg = cfg
+        self.n = int(cfg.n_arms)
+        self.counts: List[int] = [0] * self.n
+        self.values: List[float] = [0.0] * self.n
+        self.alpha = float(cfg.ema_alpha)
+        self._rng = random.Random(cfg.seed)  # if alpha>0 and we ever add stochastic bits, this stays pinned
 
     def select(self) -> int:
-        self.t += 1
-        step_ok = self.mode_exploit or (len(self.rew_hist) < max(5, self.cfg.L_hist // 8))
-        self.guard.note(step_ok)
-        for a in range(self.cfg.n_arms):
+        # Play each arm once (deterministic order)
+        for a in range(self.n):
             if self.counts[a] == 0:
                 return a
-        if self.mode_exploit:
-            return max(range(self.cfg.n_arms), key=self.means.__getitem__)
-        return self.rng.randrange(self.cfg.n_arms)
+        # Greedy on current values; deterministic tie-break (lowest index)
+        best_val = max(self.values)
+        # find the first arm achieving best_val
+        for a in range(self.n):
+            if self.values[a] == best_val:
+                return a
+        return 0  # unreachable safeguard
 
     def update(self, a: int, r: float) -> None:
-        r_bin = 1 if r >= 0.5 else 0
-        self._update_headers(r_bin)
+        a = int(a)
         self.counts[a] += 1
-        n = self.counts[a]
-        q = self.means[a]
-        self.means[a] = q + (r - q) / n
+        if self.alpha <= 0.0:
+            # sample-mean
+            n = self.counts[a]
+            q = self.values[a]
+            self.values[a] = q + (r - q) / n
+        else:
+            # EMA (still deterministic)
+            q = self.values[a]
+            self.values[a] = (1.0 - self.alpha) * q + self.alpha * r
 
+    # For budget parity with our frozen ledger (renewal lane): 6/4/6
     def budget_row(self) -> dict:
         return {"params_bits": 6, "flops_per_step": 4, "memory_bytes": 6}

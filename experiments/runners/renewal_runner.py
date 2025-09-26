@@ -16,10 +16,8 @@ try:
 except Exception:  # pragma: no cover
     np = None  # type: ignore
 
-
 # --- ENV (frozen) ---
 from experiments.env import CodebookRenewalEnvW, EnvCfg
-
 
 # --- LOGGING WRITERS (kernel first; local fallbacks kept minimal & compatible) ---
 
@@ -270,8 +268,16 @@ def run(config_path: Optional[str]) -> dict:
         if done:
             break
 
+    # close writer first (flushes file fully)
     try:
         w.close()
+    except Exception:
+        pass
+
+    # now that metrics.jsonl has data, create the quick plot
+    try:
+        from kernel.plotting import save_quick_plot
+        save_quick_plot(metrics_path, out_dir / "quick_plot.png", title=f"Renewal {mode}")
     except Exception:
         pass
 

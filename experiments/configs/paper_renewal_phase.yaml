@@ -1,0 +1,12 @@
+# experiments/configs/paper_renewal_phase.yaml
+# Renewal with windowed hazard; ngram shows limits on long horizons.
+seed: 7
+steps: 1000
+mode: phase      # per-agent override will set phase|ngram|haq
+env:
+  A: 8
+  L_win: 6
+  p_ren: 0.02
+  p_noise: 0.00
+  T_max: 1000
+out_dir: outputs/paper_verify/renewal/_placeholder

@@ -1,0 +1,41 @@
+# Root for all verification artifacts (CSV, plots, reports)
+out_root: outputs/verify
+
+bandit:
+  seeds: [1, 2, 3]
+  agents: [ucb1, epsgreedy]
+  problems:
+    - name: easy
+      probs: [0.1, 0.2, 0.8]
+      horizon: 2000
+      burn_in: 40
+    - name: medium
+      probs: [0.4, 0.45, 0.5]
+      horizon: 4000
+      burn_in: 80
+    - name: hard
+      probs: [0.48, 0.5, 0.52]
+      horizon: 6000
+      burn_in: 120
+  accept:
+    ucb1:
+      prefer_log_r2_margin: 0.20   # mean R^2(log) must exceed mean R^2(linear) by this margin
+    epsgreedy:
+      prefer_linear_r2_margin: 0.20
+
+maze:
+  # We verify BFS optimality + return bookkeeping on simple generated grids.
+  envs:
+    - name: default5
+      width: 5
+      height: 5
+      spec_seed: 0
+      episodes: 5
+
+renewal:
+  seeds: [7, 8, 9]
+  instances:
+    - name: clean
+      steps: 1000
+      env: { A: 8, L_win: 6, p_ren: 0.02, p_noise: 0.00, T_max: 1000 }
+      agents: [last, phase, ngram]

@@ -1,0 +1,34 @@
+bandit:
+  problems:
+    easy:   { probs: [0.1, 0.2, 0.8],  horizon: 2000 }
+    medium: { probs: [0.3, 0.5, 0.6],  horizon: 4000 }
+    hard:   { probs: [0.49, 0.50, 0.51], horizon: 6000 }
+  seeds: [1, 2, 3]
+  agents:
+    - ucb1
+    - epsgreedy
+    - { name: "haq_base",     type: "haq", params: { ema_alpha: 0.10 } }
+    - { name: "haq_fastema",  type: "haq", params: { ema_alpha: 0.30 } }
+    - { name: "haq_slowema",  type: "haq", params: { ema_alpha: 0.03 } }
+
+maze:
+  envs:
+    default5: { episodes: 5 }
+  agents:
+    - bfs
+    - { name: "haq_w4_e01", type: "haq", params: { L_hist: 4, ema_alpha: 0.10 } }
+    - { name: "haq_w8_e03", type: "haq", params: { L_hist: 8, ema_alpha: 0.30 } }
+    - { name: "haq_w8_e01", type: "haq", params: { L_hist: 8, ema_alpha: 0.10 } }
+
+renewal:
+  instances:
+    clean:
+      env: { A: 8, L_win: 6, p_ren: 0.02, p_noise: 0.0, T_max: 1000 }
+      seeds: [7, 8, 9]
+      agents:
+        - last
+        - ngram
+        - phase
+        - { name: "haq_L6_e01",  type: "haq", params: { L: 6,  ema_alpha: 0.10 } }
+        - { name: "haq_L6_e03",  type: "haq", params: { L: 6,  ema_alpha: 0.30 } }
+        - { name: "haq_L10_e01", type: "haq", params: { L: 10, ema_alpha: 0.10 } }

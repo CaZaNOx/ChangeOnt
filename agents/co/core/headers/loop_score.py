@@ -1,7 +1,21 @@
-# PATH: agents/co/core/headers/loop_score.py
+# agents/co/core/headers/loop_score.py
 from __future__ import annotations
-from typing import Sequence
-from agents.co.core.loops.loop_measure import ema, loopiness_from_costs
+from dataclasses import dataclass
 
-def loop_score_ema(prev: float, costs: Sequence[float], *, beta: float=0.9) -> float:
-    return ema(prev, loopiness_from_costs(costs, beta=beta), beta)
+@dataclass
+class LoopEMA:
+    """
+    EMA over a binary 'still looping?' indicator ζ_t.
+    ζ_t can be e.g. 1[a_t == a_{t-1}].
+    """
+    beta: float = 0.20  # smoothing
+    value: float = 0.0  # λ_0
+
+    def push(self, zeta: int | float) -> float:
+        b = float(self.beta)
+        z = 1.0 if float(zeta) > 0.5 else 0.0
+        self.value = (1.0 - b) * self.value + b * z
+        # clip for numerical safety
+        if self.value < 0.0: self.value = 0.0
+        if self.value > 1.0: self.value = 1.0
+        return self.value

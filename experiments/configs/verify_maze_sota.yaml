@@ -1,0 +1,12 @@
+family: maze
+output_root: outputs/verify_maze
+seeds: [7]        # maze is deterministic given spec; seed controls generation if applicable
+episodes: 5
+
+mazes:
+  - id: default5
+    spec_path: null   # use default 5x5
+    expected_shortest_steps: 8
+
+agents:
+  - bfs

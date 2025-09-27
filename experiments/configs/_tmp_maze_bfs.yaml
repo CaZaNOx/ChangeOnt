@@ -1,5 +1,0 @@
-﻿episodes: 5
-agent: { type: bfs }
-seed: 7
-out: outputs/maze_bfs
-env: { spec_path: }

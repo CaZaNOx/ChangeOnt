@@ -1,0 +1,7 @@
+# experiments/configs/paper_maze_bfs.yaml
+# Simple unweighted grids; BFS equals optimal steps.
+seed: 7
+episodes: 5
+env:
+  spec_path:            # leave empty to use default 5x5 spec inside env
+out: outputs/paper_verify/maze/_placeholder     # per-agent subdirs will override this

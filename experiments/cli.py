@@ -1,331 +1,225 @@
-# PATH: experiments/cli.py
+# experiments/cli.py
 from __future__ import annotations
 import argparse
 import json
+import subprocess
+import sys
+import tempfile
 from pathlib import Path
-from typing import List, Dict, Any, Optional
+from typing import Dict, Any, List, Iterable
 
-# Runner entry-points
-from experiments.runners.bandit_runner import main as bandit_main
-from experiments.runners.maze_runner   import main as maze_main
-from experiments.runners.renewal_runner import main as renewal_main
-
-# Shared evaluator (assumed present)
-from experiments.eval import eval_bandit, eval_maze, eval_renewal
-
-
-# ---------------------------
-# Helpers
-# ---------------------------
-
-def _split_agents(arg: str) -> List[str]:
-    return [a.strip().lower() for a in arg.split(",") if a.strip()]
-
-def _ensure_dir(p: Path) -> None:
-    p.mkdir(parents=True, exist_ok=True)
-
-def _task_base_dir(base_out_root: Path, task_slug: str) -> Path:
-    """
-    Respect the configured base output root; place all per-agent runs under <root>/<task>_cli.
-    If base already ends with '<task>_cli', use it directly.
-    """
-    suffix = f"{task_slug}_cli"
-    if base_out_root.name.lower() == suffix.lower():
-        base = base_out_root
-    else:
-        base = base_out_root / suffix
-    _ensure_dir(base)
-    return base
-
-def _read_config_to_dict(path: Optional[Path]) -> Dict[str, Any]:
-    if not path:
-        return {}
+# --- tiny YAML loader ---------------------------------------------------------
+def _load_cfg(path: Path) -> Dict[str, Any]:
     text = path.read_text(encoding="utf-8")
-    # try JSON
-    try:
-        return json.loads(text) or {}
-    except Exception:
-        pass
-    # try YAML
     try:
         import yaml  # type: ignore
-        data = yaml.safe_load(text)
-        return data or {}
+        data = yaml.safe_load(text) or {}
     except Exception:
-        return {}
+        data = json.loads(text)
+    if not isinstance(data, dict):
+        raise ValueError(f"Config must be a mapping at root: {path}")
+    return data
 
-def _write_yaml_or_json(path: Path, data: Dict[str, Any]) -> None:
+# --- safe run of python -m module --------------------------------------------
+def _run_module(mod: str, *args: str) -> None:
+    cmd = [sys.executable, "-m", mod, *args]
+    subprocess.run(cmd, check=True)
+
+# --- helpers to materialize temp runner configs -------------------------------
+def _tmp_write(obj: Dict[str, Any], where: Path) -> Path:
+    where.parent.mkdir(parents=True, exist_ok=True)
+    p = where / "_tmp.yaml"
     try:
         import yaml  # type: ignore
-        path.write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
-        return
+        p.write_text(yaml.safe_dump(obj, sort_keys=False), encoding="utf-8")
     except Exception:
-        pass
-    path.write_text(json.dumps(data, indent=2), encoding="utf-8")
+        p.write_text(json.dumps(obj, indent=2), encoding="utf-8")
+    return p
 
+# --- BANDIT orchestration -----------------------------------------------------
+def _run_bandit_family(suite_root: Path, spec: Dict[str, Any]) -> None:
+    fam_root = suite_root / "bandit"
+    fam_root.mkdir(parents=True, exist_ok=True)
 
-# ---------------------------
-# BANDIT
-# ---------------------------
+    problems = spec.get("problems", {})
+    seeds: List[int] = list(spec.get("seeds", [1]))
+    agents: List[str] = list(spec.get("agents", ["ucb1"]))
 
-def _bandit_base_from(cfg: Dict[str, Any], cli_out: Optional[str]) -> Path:
-    # Config wins if present
-    if "out" in cfg and cfg["out"]:
-        return Path(str(cfg["out"]))
-    # Else CLI fallback (or "outputs")
-    return Path(cli_out or "outputs")
+    for prob_name, prob_cfg in problems.items():
+        prob_dir = fam_root / str(prob_name)
+        prob_dir.mkdir(parents=True, exist_ok=True)
 
-def cmd_bandit(args: argparse.Namespace) -> None:
-    agents = _split_agents(args.agents) if args.agents else ["ucb1"]
-    cfg_path = Path(args.config) if args.config else None
-    cfg_dict = _read_config_to_dict(cfg_path)
+        probs = prob_cfg.get("probs", [0.1, 0.2, 0.8])
+        horizon = int(prob_cfg.get("horizon", 2000))
 
-    # Where to place all per-agent runs
-    base_root = _bandit_base_from(cfg_dict, args.out)
-    base = _task_base_dir(base_root, "bandit")
+        for agent in agents:
+            for seed in seeds:
+                run_dir = prob_dir / f"{agent}_s{seed}"
+                run_dir.mkdir(parents=True, exist_ok=True)
 
-    run_dirs: List[Path] = []
+                # bandit_runner expects:
+                # {
+                #   "env": {"probs":[...], "horizon": int},
+                #   "agent": {"type": "ucb1"|"epsgreedy"|"haq", "params": {...}},
+                #   "seed": int,
+                #   "out": <dir>
+                # }
+                agent_type = agent
+                agent_params: Dict[str, Any] = {}
 
-    for agent in agents:
-        run_dir = base / f"bandit_{agent}"
-        _ensure_dir(run_dir)
+                # map a few friendly aliases to your runner’s types
+                if agent in ("haq_base", "haq_fastema", "haq_slowema"):
+                    agent_type = "haq"
+                    if agent == "haq_fastema":
+                        agent_params["ema_alpha"] = 0.3
+                    elif agent == "haq_slowema":
+                        agent_params["ema_alpha"] = 0.03
+                    else:
+                        agent_params["ema_alpha"] = 0.1
+                elif agent in ("ucb", "ucb1"):
+                    agent_type = "ucb1"
+                elif agent in ("eps", "epsilon_greedy", "epsgreedy"):
+                    agent_type = "epsgreedy"
 
-        if cfg_path:
-            # Respect the config: clone it, only change 'out' and **force the agent type** per run.
-            cfg_copy = dict(cfg_dict)
-            cfg_copy["out"] = run_dir.as_posix()
-            params = {}
-            if isinstance(cfg_dict.get("agent"), dict):
-                params = dict(cfg_dict["agent"].get("params", {}))
-            cfg_copy["agent"] = {"type": agent, "params": params}
-            tmp_cfg = run_dir / f"_auto_{agent}.yaml"
-            _write_yaml_or_json(tmp_cfg, cfg_copy)
-            cli = ["--config", str(tmp_cfg)]
-        else:
-            # No config: supply minimal CLI; still write into agent subfolder
-            cli = ["--agent", agent, "--out", str(run_dir)]
-            if args.horizon is not None:
-                cli += ["--horizon", str(args.horizon)]
-            if args.probs:
-                cli += ["--probs", args.probs]
-            if args.seed is not None:
-                cli += ["--seed", str(args.seed)]
+                cfg = {
+                    "env": {"probs": list(probs), "horizon": int(horizon)},
+                    "agent": {"type": agent_type, "params": agent_params},
+                    "seed": int(seed),
+                    "out": str(run_dir),
+                }
+                tmp_cfg = _tmp_write(cfg, run_dir)
+                _run_module("experiments.runners.bandit_runner", "--config", str(tmp_cfg))
 
-        import sys
-        old = sys.argv
-        try:
-            sys.argv = ["bandit_runner.py"] + cli
-            bandit_main()
-        finally:
-            sys.argv = old
+# --- MAZE orchestration -------------------------------------------------------
+def _run_maze_family(suite_root: Path, spec: Dict[str, Any]) -> None:
+    fam_root = suite_root / "maze"
+    fam_root.mkdir(parents=True, exist_ok=True)
 
-        run_dirs.append(run_dir)
+    envs = spec.get("envs", {})
+    agents: List[str] = list(spec.get("agents", ["bfs"]))
 
-    # Eval bundle
-    eval_dir = base / "eval"
-    _ensure_dir(eval_dir)
-    res = eval_bandit(run_dirs, eval_dir)
+    for env_name, env_cfg in envs.items():
+        env_dir = fam_root / str(env_name)
+        env_dir.mkdir(parents=True, exist_ok=True)
 
-    print(json.dumps({
-        "bandit_runs": [str(p) for p in run_dirs],
-        "eval": {"dir": str(eval_dir), **res}
-    }))
+        episodes = int(env_cfg.get("episodes", 5))
+        spec_path = env_cfg.get("spec_path", None)
 
+        for agent in agents:
+            run_dir = env_dir / agent
+            run_dir.mkdir(parents=True, exist_ok=True)
 
-# ---------------------------
-# MAZE
-# ---------------------------
+            # maze_runner expects either CLI flags or a config:
+            # {
+            #   "env": {"spec_path": "..."},
+            #   "episodes": int,
+            #   "out": <dir>,
+            #   "agent": {"type": "bfs" | "haq", "params": {...}}  # (we added "haq")
+            # }
+            agent_type = agent
+            agent_params: Dict[str, Any] = {}
+            if agent in ("bfs",):
+                agent_type = "bfs"
+            elif agent in ("haq", "haq_maze"):
+                agent_type = "haq"  # HAQ Maze adapter in agents.co.agent_maze
 
-def _maze_base_from(cfg: Dict[str, Any], cli_out: Optional[str]) -> Path:
-    if "out" in cfg and cfg["out"]:
-        return Path(str(cfg["out"]))
-    return Path(cli_out or "outputs")
+            cfg = {
+                "env": {"spec_path": spec_path},
+                "episodes": int(episodes),
+                "out": str(run_dir),
+                "agent": {"type": agent_type, "params": agent_params},
+            }
+            tmp_cfg = _tmp_write(cfg, run_dir)
+            _run_module("experiments.runners.maze_runner", "--config", str(tmp_cfg))
 
-def cmd_maze(args: argparse.Namespace) -> None:
-    agents = _split_agents(args.agents) if args.agents else ["bfs"]
-    cfg_path = Path(args.config) if args.config else None
-    cfg_dict = _read_config_to_dict(cfg_path)
+# --- RENEWAL orchestration ----------------------------------------------------
+def _run_renewal_family(suite_root: Path, spec: Dict[str, Any]) -> None:
+    fam_root = suite_root / "renewal"
+    fam_root.mkdir(parents=True, exist_ok=True)
 
-    base_root = _maze_base_from(cfg_dict, args.out)
-    base = _task_base_dir(base_root, "maze")
+    instances = spec.get("instances", {})
+    for inst_name, inst_cfg in instances.items():
+        inst_dir = fam_root / str(inst_name)
+        inst_dir.mkdir(parents=True, exist_ok=True)
 
-    run_dirs: List[Path] = []
+        env_dict = dict(inst_cfg.get("env", {}))
+        agents: List[str] = list(inst_cfg.get("agents", ["last", "phase", "ngram"]))
+        seeds: List[int] = list(inst_cfg.get("seeds", [7]))
 
-    for agent in agents:
-        if agent not in ("bfs", "haq"):
-            raise SystemExit(f"maze: unknown agent '{agent}'")
-        run_dir = base / f"maze_{agent}"
-        _ensure_dir(run_dir)
+        for agent in agents:
+            for seed in seeds:
+                run_dir = inst_dir / f"{agent}_s{seed}"
+                run_dir.mkdir(parents=True, exist_ok=True)
 
-        if cfg_path:
-            cfg_copy = dict(cfg_dict)
-            cfg_copy["out"] = run_dir.as_posix()
-            # If your maze_runner reads agent from config, set it here:
-            # (If maze_runner ignores agent in config, leave this harmlessly present)
-            cfg_copy["agent"] = {"type": agent}
-            tmp_cfg = run_dir / f"_auto_{agent}.yaml"
-            _write_yaml_or_json(tmp_cfg, cfg_copy)
-            cli = ["--config", str(tmp_cfg)]
-        else:
-            cli = ["--out", str(run_dir)]
-            if args.episodes is not None:
-                cli += ["--episodes", str(args.episodes)]
-            # NOTE: your maze_runner currently hardwires BFS; ensure it reads `agent` from config if you want HAQ here.
+                # renewal_runner config:
+                # {
+                #   "seed": int,
+                #   "steps": int,
+                #   "mode": "last"|"phase"|"ngram"|"haq",
+                #   "env": {...},
+                #   "out_dir": <dir>
+                # }
+                mode = agent
+                steps = int(env_dict.get("T_max", 1000))
+                if agent in ("haq_base", "haq_L6_e01", "haq_L6_e03", "haq_L10_e01"):
+                    mode = "haq"  # HAQ agent inside renewal runner
+                cfg = {
+                    "seed": int(seed),
+                    "steps": steps,
+                    "mode": mode,
+                    "env": env_dict,
+                    "out_dir": str(run_dir),
+                }
+                tmp_cfg = _tmp_write(cfg, run_dir)
+                _run_module("experiments.runners.renewal_runner", "--config", str(tmp_cfg))
 
-        import sys
-        old = sys.argv
-        try:
-            sys.argv = ["maze_runner.py"] + cli
-            maze_main()
-        finally:
-            sys.argv = old
+# --- Plotting hook (always on after runs) -------------------------------------
+def _summarize(suite_root: Path, families: List[str]) -> None:
+    try:
+        from experiments.plotting.main import summarize_families
+        summarize_families(suite_root, families)
+    except Exception as e:
+        print(f"[warn] plotting failed: {e}", file=sys.stderr)
 
-        run_dirs.append(run_dir)
-
-    eval_dir = base / "eval"
-    _ensure_dir(eval_dir)
-    res = eval_maze(run_dirs, eval_dir)
-
-    print(json.dumps({
-        "maze_runs": [str(p) for p in run_dirs],
-        "eval": {"dir": str(eval_dir), **res}
-    }))
-
-
-# ---------------------------
-# RENEWAL
-# ---------------------------
-
-def _renewal_base_from(cfg: Dict[str, Any], cli_out: Optional[str]) -> Path:
-    # Renewal uses out_dir in config
-    if "out_dir" in cfg and cfg["out_dir"]:
-        return Path(str(cfg["out_dir"]))
-    # Some older configs may still use 'out'
-    if "out" in cfg and cfg["out"]:
-        return Path(str(cfg["out"]))
-    return Path(cli_out or "outputs")
-
-def _compose_renewal_cfg(base_cfg: Dict[str, Any], mode: str, out_dir: Path,
-                         steps: Optional[int], seed: Optional[int]) -> Dict[str, Any]:
-    cfg = dict(base_cfg) if base_cfg else {}
-    cfg["mode"] = mode
-    cfg["out_dir"] = out_dir.as_posix()
-    if steps is not None:
-        cfg["steps"] = int(steps)
-    if seed is not None:
-        cfg["seed"] = int(seed)
-    if "env" not in cfg or cfg["env"] is None:
-        cfg["env"] = {"A": 8, "L_win": 6, "p_ren": 0.02, "p_noise": 0.0, "T_max": 1000}
-    return cfg
-
-def cmd_renewal(args: argparse.Namespace) -> None:
-    agents = _split_agents(args.agents) if args.agents else ["phase"]
-    cfg_path = Path(args.config) if args.config else None
-    cfg_dict = _read_config_to_dict(cfg_path)
-
-    base_root = _renewal_base_from(cfg_dict, args.out)
-    base = _task_base_dir(base_root, "renewal")
-
-    run_dirs: List[Path] = []
-
-    for agent in agents:
-        run_dir = base / f"renewal_{agent}"
-        _ensure_dir(run_dir)
-
-        # Always write a per-agent config that only changes mode/out_dir (+ steps/seed if provided)
-        merged = _compose_renewal_cfg(cfg_dict, mode=agent, out_dir=run_dir, steps=args.steps, seed=args.seed)
-        tmp_cfg = run_dir / f"_auto_{agent}.yaml"
-        _write_yaml_or_json(tmp_cfg, merged)
-        cli = ["--config", str(tmp_cfg)]
-
-        import sys
-        old = sys.argv
-        try:
-            sys.argv = ["renewal_runner.py"] + cli
-            renewal_main()
-        finally:
-            sys.argv = old
-
-        run_dirs.append(run_dir)
-
-    eval_dir = base / "eval"
-    _ensure_dir(eval_dir)
-    res = eval_renewal(run_dirs, eval_dir)
-
-    print(json.dumps({
-        "renewal_runs": [str(p) for p in run_dirs],
-        "eval": {"dir": str(eval_dir), **res}
-    }))
-
-
-# ---------------------------
-# Explicit eval subcommand
-# ---------------------------
-
-def cmd_eval(args: argparse.Namespace) -> None:
-    task = args.task.lower()
-    run_dirs = [Path(p) for p in args.runs.split(",") if p.strip()]
-    out_dir = Path(args.out)
-    _ensure_dir(out_dir)
-
-    if task == "bandit":
-        res = eval_bandit(run_dirs, out_dir)
-    elif task == "maze":
-        res = eval_maze(run_dirs, out_dir)
-    elif task == "renewal":
-        res = eval_renewal(run_dirs, out_dir)
-    else:
-        raise SystemExit(f"unknown task: {task}")
-
-    print(json.dumps({"eval": {"dir": str(out_dir), **res}}))
-
-
-# ---------------------------
-# Main
-# ---------------------------
-
+# --- CLI ----------------------------------------------------------------------
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Unified CLI for running agents with config-owned outputs + shared evals")
+    ap = argparse.ArgumentParser(description="Unified runner: bandit/maze/renewal with auto summaries.")
     sub = ap.add_subparsers(dest="cmd", required=True)
 
-    # bandit
-    ap_b = sub.add_parser("bandit")
-    ap_b.add_argument("--agents",  type=str, default="ucb1", help="comma-separated: ucb1,epsgreedy,haq")
-    ap_b.add_argument("--config",  type=str, default=None,    help="JSON/YAML config; its 'out' wins over --out")
-    ap_b.add_argument("--out",     type=str, default="outputs", help="base out if config has no 'out'")
-    ap_b.add_argument("--probs",   type=str, default=None)
-    ap_b.add_argument("--horizon", type=int, default=None)
-    ap_b.add_argument("--seed",    type=int, default=7)
-    ap_b.set_defaults(func=cmd_bandit)
-
-    # maze
-    ap_m = sub.add_parser("maze")
-    ap_m.add_argument("--agents",   type=str, default="bfs",     help="comma-separated: bfs,haq")
-    ap_m.add_argument("--config",   type=str, default=None,      help="JSON/YAML config; its 'out' wins over --out")
-    ap_m.add_argument("--out",      type=str, default="outputs", help="base out if config has no 'out'")
-    ap_m.add_argument("--episodes", type=int, default=None)
-    ap_m.add_argument("--seed",     type=int, default=7)
-    ap_m.set_defaults(func=cmd_maze)
-
-    # renewal
-    ap_r = sub.add_parser("renewal")
-    ap_r.add_argument("--agents", type=str, default="phase",     help="comma-separated: last,phase,ngram,haq")
-    ap_r.add_argument("--config", type=str, default=None,        help="JSON/YAML; its 'out_dir' (or 'out') wins over --out")
-    ap_r.add_argument("--out",    type=str, default="outputs",   help="base out if config has no out_dir/out")
-    ap_r.add_argument("--steps",  type=int, default=None)
-    ap_r.add_argument("--seed",   type=int, default=7)
-    ap_r.set_defaults(func=cmd_renewal)
-
-    # eval
-    ap_e = sub.add_parser("eval")
-    ap_e.add_argument("task", type=str, choices=["bandit","maze","renewal"])
-    ap_e.add_argument("--runs", type=str, required=True, help="comma-separated run dirs")
-    ap_e.add_argument("--out",  type=str, default="outputs/cli_eval")
-    ap_e.set_defaults(func=cmd_eval)
+    runp = sub.add_parser("run", help="run a family or all")
+    runp.add_argument("target", choices=["bandit", "maze", "renewal", "all"])
+    runp.add_argument("--config", type=str, required=True, help="suite config (YAML/JSON)")
+    runp.add_argument("--out-root", type=str, default="outputs/suite", help="output root directory")
 
     args = ap.parse_args()
-    args.func(args)
 
+    if args.cmd == "run":
+        cfg_path = Path(args.config)
+        suite_root = Path(args.out_root)
+        data = _load_cfg(cfg_path)
+
+        families: List[str]
+        if args.target == "all":
+            families = ["bandit", "maze", "renewal"]
+        else:
+            families = [args.target]
+
+        if "bandit" in families:
+            spec = data.get("bandit", {})
+            if spec:
+                _run_bandit_family(suite_root, spec)
+
+        if "maze" in families:
+            spec = data.get("maze", {})
+            if spec:
+                _run_maze_family(suite_root, spec)
+
+        if "renewal" in families:
+            spec = data.get("renewal", {})
+            if spec:
+                _run_renewal_family(suite_root, spec)
+
+        _summarize(suite_root, families)
 
 if __name__ == "__main__":
     main()

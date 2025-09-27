@@ -1,6 +1,0 @@
-env:
-  probs: [0.1, 0.2, 0.8]
-  horizon: 10000
-agent:
-  type: ucb1
-out: outputs/bandit_ucb_gapstress

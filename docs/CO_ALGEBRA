@@ -1,0 +1,82 @@
+# CO Algebra (A–I) — Minimal Spec (v0)
+
+This document fixes naming and knobs so runs are inspectable & reproducible.
+
+## Alphabet
+
+- `A` — action (and observation) alphabet size where applicable (e.g., Renewal).
+- `t` — step index.
+- `r_t` — reward at step t.
+- `a_t` — action at step t.
+- `o_t` — observation at step t.
+
+## Core Elements
+
+### A. HAQ (Heuristic Aggregation of Q-like signals)
+Exposes a **learning rate** gate:
+α_t = α0 · g_B(ρ_t) · g_C(λ_t)
+
+
+- `α0 ∈ (0,1]` (base EMA step)
+- `ρ_t` (density; B below)
+- `λ_t` (loopiness; C below)
+- `g_B, g_C : [0,1] → [0,1]` are monotone gates.
+
+### B. Density ρ (windowed concentration)
+For a window of the last `L` rewards (or events), let `n*_t` be the modal count.
+ρ_t = n*_t / L
+
+
+Interpretation: higher `ρ_t` ⇒ signal is concentrated; updates safer.
+
+### C. Loopiness λ (EMA of “still looping?”)
+Define a binary indicator `ζ_t = 1[a_t = a_{t-1}]` (or any loop detector).
+Then:
+λ_t = (1-β) · λ_{t-1} + β · ζ_t
+
+
+with `β ∈ (0,1]` the smoothing constant.
+
+### D. Meta-flip (sign flip control)
+Flip only when **stable**:
+flip_allowed_t = (ρ_t ≥ τρ) ∧ (λ_t ≤ τλ)
+
+
+
+### E. Quotient / Merge (state compression)
+Allow merges only under stability:
+merge_allowed_t = (ρ_t ≥ τρ)
+
+
+Log `(from, to, mass_before, mass_after, ρ_t)`.
+
+### F. Tie-breaks
+Deterministic preference order (e.g., smallest index).
+
+### G. Normalization
+All gates clipped to `[0,1]`.
+
+### H. Budget
+`params_bits`, `flops_per_step`, `memory_bytes` must be declared and remain stable across reruns.
+
+### I. Determinism
+For fixed seed, the run is bit-for-bit identical (metrics hash).
+
+## Default Knobs (HAQCfg)
+
+- `ema_alpha = 0.10 = α0`
+- `L_hist = 64` (density window)
+- `tau_rho = 0.60 = τρ`
+- `kappa_loop = 0.50` (loop penalty strength)
+- `loop_beta = 0.20 = β`
+- Gating functions:
+  - `g_B(ρ) = clamp((ρ - τρ)/(1 - τρ), 0, 1)`
+  - `g_C(λ) = clamp(1 - κ · λ, 0, 1)` with `κ = kappa_loop`
+
+## Telemetry (per step)
+Runner may log:
+{"metric":"co_heartbeat", "t":t, "rho":ρ_t, "lambda":λ_t, "alpha_t":α_t, "loop_penalty":pen_t}
+
+
+
+This v0 spec is intentionally conservative: it **logs** uncertainty and gates behavior, without introducing stochasticity or extra budget.

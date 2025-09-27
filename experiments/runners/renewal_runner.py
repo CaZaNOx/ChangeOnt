@@ -1,5 +1,4 @@
-﻿# experiments/runners/renewal_runner.py
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import json
@@ -8,28 +7,23 @@ import shutil
 import time
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional, Tuple
+from typing import Optional, Tuple, Dict, Any
 
-# numpy is optional; we seed it if available
+# numpy optional
 try:
     import numpy as np  # type: ignore
-except Exception:  # pragma: no cover
+except Exception:
     np = None  # type: ignore
 
-# --- ENV (frozen) ---
 from experiments.env import CodebookRenewalEnvW, EnvCfg
 
-# --- LOGGING WRITERS (kernel first; local fallbacks kept minimal & compatible) ---
-
 try:
-    # Preferred: your kernel JSONL writer
     from kernel.logging import JSONLWriter as KernelWriter  # type: ignore
-except Exception:  # pragma: no cover
+except Exception:
     KernelWriter = None  # type: ignore
 
 
 class _LocalJSONLWriter:
-    """Tiny JSONL writer with the same surface as KernelWriter(path)."""
     def __init__(self, path: Path):
         path.parent.mkdir(parents=True, exist_ok=True)
         self._f = open(path, "w", encoding="utf-8")
@@ -49,43 +43,29 @@ class _LocalJSONLWriter:
 
 
 def _open_writer(path: Path, header: dict) -> Tuple[object, str]:
-    """
-    Returns (writer, writer_mode_tag).
-    Tries kernel writer first; falls back to local.
-    """
     if KernelWriter is not None:
         try:
             w = KernelWriter(path)  # type: ignore[call-arg]
-            # Some kernel writers expect a separate header call:
             try:
                 w.write_header(header)  # type: ignore[attr-defined]
             except Exception:
-                # Fallback: write header as first record
                 w.write({"record_type": "header", **header})
             return w, "ctor_path_then_header_write"
         except Exception:
             pass
-
-    # Local fallback: header goes in explicitly
     lw = _LocalJSONLWriter(path)
     lw.write_header({"record_type": "header", **header})
     return lw, "local_writer"
 
 
-# CSV budget write helper (use kernel if available; else a minimal local writer)
 try:
     from kernel.logging import write_budget_csv as kernel_write_budget_csv  # type: ignore
-except Exception:  # pragma: no cover
+except Exception:
     kernel_write_budget_csv = None  # type: ignore
 
 
 def _write_budget_csv(path: Path, rows: list[dict]) -> None:
-    """
-    Always writes at least one DATA row (not just a header),
-    to avoid 'empty CSV' parity issues.
-    """
     if kernel_write_budget_csv is not None:
-        # We still guard for header-only behavior by ensuring rows is non-empty.
         if not rows:
             rows = [{"params_bits": 0, "flops_per_step": 0, "memory_bytes": 0}]
         try:
@@ -93,8 +73,6 @@ def _write_budget_csv(path: Path, rows: list[dict]) -> None:
             return
         except Exception:
             pass
-
-    # Local CSV writer
     import csv
     path.parent.mkdir(parents=True, exist_ok=True)
     if not rows:
@@ -107,8 +85,6 @@ def _write_budget_csv(path: Path, rows: list[dict]) -> None:
             w.writerow(r)
 
 
-# --- small utilities ---
-
 def _seed_all(seed: int) -> None:
     random.seed(seed)
     if np is not None:
@@ -119,9 +95,6 @@ def _seed_all(seed: int) -> None:
 
 
 def _safe_copy(src: Path, dst: Path, retries: int = 12, delay: float = 0.12) -> None:
-    """
-    Windows-safe copy with brief retry loop (avoids WinError 32 when a viewer holds the file).
-    """
     if not src.exists():
         return
     dst.parent.mkdir(parents=True, exist_ok=True)
@@ -131,16 +104,10 @@ def _safe_copy(src: Path, dst: Path, retries: int = 12, delay: float = 0.12) -> 
             return
         except PermissionError:
             time.sleep(delay)
-    # final attempt (raise if still locked)
     shutil.copy2(src, dst)
 
 
-# --- minimal last-FSM baseline (kept for default mode="last") ---
-
 class _PredictLastFSM:
-    """
-    action_t = obs_{t-1}, with sensible init.
-    """
     def __init__(self, A: int):
         self.A = int(A)
         self.prev_obs = 0
@@ -154,11 +121,8 @@ class _PredictLastFSM:
         return int(a)
 
     def budget_row(self) -> dict:
-        # trivial footprint (example)
         return {"params_bits": 0, "flops_per_step": 1, "memory_bytes": 0}
 
-
-# --- main run ---
 
 @dataclass
 class _RunCfg:
@@ -166,26 +130,19 @@ class _RunCfg:
     steps: int
     out_dir: Path
     mode: str
+    agent: Dict[str, Any]
 
 
 def run(config_path: Optional[str]) -> dict:
-    """
-    Renewal runner: modes = last | phase | ngram | haq
-    Writes:
-      - metrics.jsonl (header + step lines)
-      - budget.csv    (always includes ≥1 data row)
-    Returns dict with paths (for optional copy in __main__).
-    """
-    # defaults
-    cfg = {
+    cfg: dict = {
         "seed": 7,
         "steps": 1000,
         "env": {"A": 8, "L_win": 6, "p_ren": 0.02, "p_noise": 0.00, "T_max": 1000},
         "out_dir": "outputs/renewal_fsm",
-        "mode": "last",  # last | phase | ngram | haq
+        "mode": "last",
+        "agent": {"type": "last", "params": {}}
     }
 
-    # merge from YAML/JSON if provided
     if config_path:
         text = Path(config_path).read_text(encoding="utf-8")
         try:
@@ -218,66 +175,67 @@ def run(config_path: Optional[str]) -> dict:
     )
     obs, _, done, info = env.reset()
 
-    mode = str(cfg.get("mode", "last")).lower()
+    # agent selection (mapping preferred; still honor "mode")
+    agent_cfg = dict(cfg.get("agent", {}))
+    mode = str(agent_cfg.get("type", cfg.get("mode", "last"))).lower()
+    params = dict(agent_cfg.get("params", {}))
+
     A = int(cfg["env"]["A"])
     L = int(cfg["env"]["L_win"])
 
-    # agent selection
     agent = _PredictLastFSM(A)
-    if mode in ("phase", "ngram", "haq"):
-        if mode == "phase":
-            from agents.stoa.agent_fsm import PhaseFSM
-            agent = PhaseFSM(A=A, L_win=L)
-        elif mode == "ngram":
-            from agents.stoa.agent_fsm import NGramFSM
-            agent = NGramFSM(A=A, k=max(0, L - 1))
-        elif mode == "haq":
-            # tolerate either L_win or L in HAQCfg
-            from agents.co.agent_haq import HAQAgent, HAQCfg
-            try:
-                agent = HAQAgent(HAQCfg(A=A, L_win=L, ema_alpha=0.1))
-            except TypeError:
-                agent = HAQAgent(HAQCfg(A=A, L=L, ema_alpha=0.1))
+    if mode == "phase":
+        from agents.stoa.agent_fsm import PhaseFSM
+        agent = PhaseFSM(A=A, L_win=L)
+    elif mode == "ngram":
+        from agents.stoa.agent_fsm import NGramFSM
+        agent = NGramFSM(A=A, k=max(0, L - 1))
+    elif mode == "haq":
+        from agents.co.agent_haq import HAQAgent, HAQCfg
+        # build HAQCfg with env defaults, allow params override (supports L or L_win)
+        cfg_kwargs = {"A": A, "L_win": L, **params}
+        if "L" in params:
+            cfg_kwargs.pop("L_win", None)
+        try:
+            agent = HAQAgent(HAQCfg(**cfg_kwargs))
+        except TypeError:
+            # try the alternative naming
+            cfg_kwargs2 = {"A": A, "L": L, **params}
+            agent = HAQAgent(HAQCfg(**cfg_kwargs2))
 
     agent.reset(obs)
 
-    # logging
     metrics_path = out_dir / "metrics.jsonl"
-    header = {"runner": "renewal", "seed": seed, "env": cfg["env"], "float32": True, "mode": mode}
+    header = {"runner": "renewal", "seed": seed, "env": cfg["env"], "float32": True, "mode": mode, "agent": agent_cfg}
     w, writer_mode = _open_writer(metrics_path, header)
 
-    # budget row (GUARANTEED data row)
     try:
         budget_row = agent.budget_row()  # type: ignore[attr-defined]
         if not isinstance(budget_row, dict):
-            raise TypeError("budget_row must return dict")
+            raise TypeError
     except Exception:
         budget_row = {"params_bits": 0, "flops_per_step": 0, "memory_bytes": 0}
     budget_csv = out_dir / "budget.csv"
     _write_budget_csv(budget_csv, [budget_row])
 
-    # main loop
+    try:
+        from kernel.plotting import save_quick_plot
+        save_quick_plot(metrics_path, out_dir / "quick_plot.png", title=f"Renewal {mode}")
+    except Exception:
+        pass
+
     cum = 0.0
     for t in range(steps):
-        act = agent.act(obs)
+        act = agent.act(obs)  # type: ignore[attr-defined]
         obs, r, done, info = env.step(act)
         cum += float(r)
-        # tolerant to info["obs"] missing
         obs_log = int(info.get("obs", obs)) if isinstance(info, dict) else int(obs)
         w.write({"t": t, "obs": obs_log, "act": int(act), "reward": float(r), "cum_reward": float(cum)})
         if done:
             break
 
-    # close writer first (flushes file fully)
     try:
         w.close()
-    except Exception:
-        pass
-
-    # now that metrics.jsonl has data, create the quick plot
-    try:
-        from kernel.plotting import save_quick_plot
-        save_quick_plot(metrics_path, out_dir / "quick_plot.png", title=f"Renewal {mode}")
     except Exception:
         pass
 
@@ -292,7 +250,6 @@ def main() -> None:
 
     paths = run(args.config)
 
-    # Optional safe copy to a user-provided directory
     if args.out:
         out_dir = Path(args.out)
         out_dir.mkdir(parents=True, exist_ok=True)

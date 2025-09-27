@@ -1,8 +1,0 @@
-env:
-  probs: [0.1, 0.2, 0.8]
-  horizon: 5000
-agent:
-  type: epsgreedy
-  params:
-    epsilon: 0.1
-out: outputs/bandit_eps_T5000

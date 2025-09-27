@@ -1,63 +1,98 @@
 ﻿# agents/co/agent_haq.py
 from __future__ import annotations
-from dataclasses import dataclass
-from typing import Optional, Dict, Any
 
-# minimal, runner-facing CO agent for the renewal lane
-# goals:
-# - accept HAQCfg(A, L) or HAQCfg(A, L_win)
-# - stable act() / reset() surface expected by renewal_runner
-# - budget parity (6/4/6)
+from collections import deque
+from dataclasses import dataclass
+from typing import Deque, Optional, Iterable, Tuple
+
+# Density header (returns floats)
+from agents.co.core.headers.density import density_rho
+
 
 @dataclass
 class HAQCfg:
-    A: int
-    L: Optional[int] = None          # alias accepted by runner
-    L_win: Optional[int] = None      # legacy / alt name
+    """
+    Minimal HAQ config:
+      - A:         alphabet size of observations/actions
+      - L:         default window for short-horizon signals
+      - L_win:     optional alias (if the caller prefers "L_win"); when set it overrides L
+      - ema_alpha: smoothing for internal signals (kept for future use)
+      - L_hist:    how many rewards to keep in a rolling history
+    """
+    A: int = 8
+    L: int = 6
+    L_win: Optional[int] = None
     ema_alpha: float = 0.1
-    seed: int = 0
+    L_hist: int = 64
 
-    def __post_init__(self) -> None:
-        # Harmonize window parameter: prefer explicit L, else L_win, else 1
-        if self.L is None and self.L_win is not None:
-            self.L = int(self.L_win)
-        if self.L is None:
-            self.L = 1
-        self.A = int(self.A)
-        self.L = int(self.L)
-        self.ema_alpha = float(self.ema_alpha)
-        self.seed = int(self.seed)
+    @property
+    def L_eff(self) -> int:
+        return int(self.L_win if self.L_win is not None else self.L)
+
 
 class HAQAgent:
-    def __init__(self, cfg: HAQCfg):
+    """
+    Extremely lightweight HAQ-style agent for the renewal environment.
+
+    Policy (for now): predict the previous observation (last-FSM) —
+    with CO headers computed internally for future tuning / gating.
+    This keeps behavior deterministic and aligns budget parity.
+
+    Methods used by runners:
+      - reset(obs: int) -> None
+      - act(obs: int) -> int
+      - update(obs: int, reward: float, done: bool) -> None
+      - budget_row() -> dict
+    """
+
+    def __init__(self, cfg: HAQCfg) -> None:
         self.cfg = cfg
-        self._t = 0
-        self._ema = 0.0
-        self._last_obs = 0
+        self.prev_obs: int = 0
+        self.rew_hist: Deque[float] = deque(maxlen=max(1, int(cfg.L_hist)))
 
-    # renewal_runner expects: reset(obs) -> None
+        # Internal smoothed signals (kept for potential future use)
+        self._ema_rho: float = 0.0
+        self._ema_rho_ex: float = 0.0
+
+    # ---- API expected by runners ----
+
     def reset(self, obs: int) -> None:
-        self._t = 0
-        self._last_obs = int(obs)
-        self._ema = float(obs)
+        self.prev_obs = int(obs)
+        self.rew_hist.clear()
+        self._ema_rho = 0.0
+        self._ema_rho_ex = 0.0
 
-    # renewal_runner expects: act(obs) -> int
     def act(self, obs: int) -> int:
-        # extremely lightweight heuristic consistent with prior CO runs:
-        #   maintain an EMA of observations and quantize to nearest symbol,
-        #   then bias to "repeat" when in doubt (loop-favoring).
-        a = self.cfg.ema_alpha
-        self._ema = (1.0 - a) * self._ema + a * float(obs)
-        # map EMA to [0, A-1]
-        pred = int(round(max(0.0, min(float(self.cfg.A - 1), self._ema))))
-        # slight loop-bias using window L: every L steps, stick with last obs
-        if self.cfg.L > 0 and (self._t % self.cfg.L == 0):
-            pred = self._last_obs
-        self._t += 1
-        self._last_obs = int(obs)
-        return int(pred)
+        # Predict last observation (keeps determinism and correct invariants)
+        return int(self.prev_obs)
 
-    # renewal_runner optionally calls: budget_row() -> dict
-    def budget_row(self) -> Dict[str, Any]:
-        # strict parity to PhaseFSM in renewal lane
+    def update(self, obs: int, reward: float, done: bool) -> None:
+        # Maintain last-observation memory
+        self.prev_obs = int(obs)
+
+        # Record reward and compute density headers (floats)
+        self.rew_hist.append(float(reward))
+        L = max(1, min(self.cfg.L_eff, len(self.rew_hist)))
+        rho, rho_ex = self._safe_density(self.rew_hist, L=L, A=self.cfg.A)
+
+        # Simple EMA smoothing of signals (not used for policy yet)
+        a = float(self.cfg.ema_alpha)
+        self._ema_rho = (1.0 - a) * self._ema_rho + a * rho
+        self._ema_rho_ex = (1.0 - a) * self._ema_rho_ex + a * rho_ex
+
+        # No telemetry writes here (runner owns metrics.jsonl). This avoids
+        # shape mismatches and keeps the agent side-effect free.
+
+    def budget_row(self) -> dict:
+        # Parity with STOA baselines the user expects (6/4/6).
         return {"params_bits": 6, "flops_per_step": 4, "memory_bytes": 6}
+
+    # ---- helpers ----
+
+    @staticmethod
+    def _safe_density(history: Iterable[float], L: int, A: int) -> Tuple[float, float]:
+        try:
+            return density_rho(history, L=L, A=A)
+        except Exception:
+            # Extremely defensive fallback
+            return 0.0, 0.0

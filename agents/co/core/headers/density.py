@@ -1,36 +1,50 @@
-# PATH: agents/co/core/headers/density.py
+# agents/co/core/headers/density.py
 from __future__ import annotations
-from typing import List, Tuple
+
+from collections import Counter
+from typing import Iterable, List, Optional, Tuple
 
 
-def compute_density_signals(seq: List[int] | List[float], A: int, L: int) -> Tuple[List[float], List[int]]:
+def _last_window(history: Iterable[int], L: int) -> List[int]:
     """
-    Compute simple categorical densities over the last L items of seq.
-
-    Robustness:
-      - Coerces items to int in [0, A-1] by clamping (so callers can pass raw signals).
-      - O(A + L) time, small constants; safe for tight loops.
-
-    Returns:
-      (dens_smooth, counts)
-        dens_smooth: normalized counts / L (length A, floats)
-        counts:      raw counts per symbol (length A, ints)
+    Return the last L items of history as a list.
+    Works even if history is a deque, generator, etc. (which don't support slicing).
     """
     if L <= 0:
-        return [0.0] * A, [0] * A
+        return []
+    # Convert once, then slice
+    h = list(history)
+    return h[-L:]
 
-    counts = [0] * A
-    for x in seq[-L:]:
-        try:
-            xi = int(x)
-        except Exception:
-            xi = 0
-        if xi < 0:
-            xi = 0
-        elif xi >= A:
-            xi = A - 1
-        counts[xi] += 1
 
-    invL = 1.0 / float(L)
-    dens = [c * invL for c in counts]
-    return dens, counts
+def density_rho(history: Iterable[int], L: int, A: Optional[int] = None) -> Tuple[float, float]:
+    """
+    Simple density signal over a sliding window of length L.
+
+    Returns:
+      rho    : max empirical probability (mode frequency / window size)
+      rho_ex : 'excess' density above uniform baseline (max(p) - 1/A, lower-bounded at 0)
+    """
+    window = _last_window(history, L)
+    n = len(window)
+    if n == 0:
+        return 0.0, 0.0
+
+    counts = Counter(window)
+    p_max = max(counts.values()) / float(n)
+
+    if A is None:
+        # If alphabet size not provided, infer from window (fallback to 1 to avoid div-by-zero)
+        A = max(1, len(counts))
+
+    uniform = 1.0 / float(A)
+    rho = p_max
+    rho_ex = max(0.0, p_max - uniform)
+    return rho, rho_ex
+
+
+def compute_density_signals(history: Iterable[int], A: int, L: int) -> Tuple[float, float]:
+    """
+    Thin wrapper used by agents: consistent call surface.
+    """
+    return density_rho(history, L=L, A=A)

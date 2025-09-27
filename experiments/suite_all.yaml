@@ -1,0 +1,63 @@
+# experiments/configs/suite_all.yaml
+# One-shot configuration to run STOA and CO across bandit, maze, renewal.
+
+out_root: outputs/suite
+
+families:
+  bandit:
+    problems:
+      - name: easy
+        env:
+          probs: [0.1, 0.2, 0.8]
+          horizon: 2000
+        seeds: [1, 2, 3]
+        agents:
+          - { type: ucb1 }
+          - { type: epsgreedy, params: { epsilon: 0.1 } }
+          - { type: haq }   # CO
+      - name: medium
+        env:
+          probs: [0.2, 0.4, 0.6]
+          horizon: 4000
+        seeds: [1, 2, 3]
+        agents:
+          - { type: ucb1 }
+          - { type: epsgreedy, params: { epsilon: 0.1 } }
+          - { type: haq }   # CO
+      - name: hard
+        env:
+          probs: [0.49, 0.5, 0.51]
+          horizon: 6000
+        seeds: [1, 2, 3]
+        agents:
+          - { type: ucb1 }
+          - { type: epsgreedy, params: { epsilon: 0.1 } }
+          - { type: haq }   # CO
+
+  maze:
+    envs:
+      - name: default5
+        env:
+          spec_path: null   # uses the built-in 5x5 default in your env
+        episodes: 5
+        seeds: [7]
+        agents:
+          - { type: bfs }   # STOA
+          - { type: haq }   # CO (will underperform BFS until spatial headers are added)
+
+  renewal:
+    instances:
+      - name: clean
+        env:
+          A: 8
+          L_win: 6
+          p_ren: 0.02
+          p_noise: 0.0
+          T_max: 1000
+        steps: 1000
+        seeds: [7, 8, 9]
+        agents:
+          - { type: last }   # STOA baseline
+          - { type: phase }  # STOA FSM
+          - { type: ngram }  # STOA simple
+          - { type: haq }    # CO

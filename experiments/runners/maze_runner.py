@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Union
 
 from environments.maze1.env import GridMazeEnv
+from agents.stoa.stoa_agent_maze import bfs_path
 from kernel.logging import write_metric_line, write_budget_csv
 
 DIRS = ["UP", "DOWN", "LEFT", "RIGHT"]
@@ -50,44 +51,6 @@ def _load_config(args: argparse.Namespace) -> MazeConfig:
     )
 
 
-def _bfs_path(env: GridMazeEnv) -> List[str]:
-    """Return a shortest action sequence from start to goal using BFS on the grid graph."""
-    start = env.start
-    goal = env.goal
-    from collections import deque
-    q = deque([start])
-    prev: Dict[Tuple[int, int], Tuple[int, int] | None] = {start: None}
-    prev_act: Dict[Tuple[int, int], str | None] = {start: None}
-
-    while q:
-        r, c = q.popleft()
-        if (r, c) == goal:
-            break
-        for act in DIRS:
-            dr, dc = DELTA[act]
-            nr, nc = r + dr, c + dc
-            if not env.passable(nr, nc):
-                continue
-            if (nr, nc) in prev:
-                continue
-            prev[(nr, nc)] = (r, c)
-            prev_act[(nr, nc)] = act
-            q.append((nr, nc))
-
-    # reconstruct
-    if goal not in prev:
-        return []  # no path
-    path_actions: List[str] = []
-    cur = goal
-    while cur != start:
-        act = prev_act[cur]
-        assert act is not None
-        path_actions.append(act)
-        cur = prev[cur]  # type: ignore
-        assert cur is not None
-    path_actions.reverse()
-    return path_actions
-
 
 def main() -> None:
     ap = argparse.ArgumentParser(description="Maze runner (BFS or CO-HAQ)")
@@ -114,7 +77,7 @@ def main() -> None:
     for ep in range(cfg.episodes):
         env.reset()
         if atype == "bfs":
-            actions = _bfs_path(env)
+            actions = bfs_path(env)
             steps = 0
             total_reward = 0.0
             for act in actions:

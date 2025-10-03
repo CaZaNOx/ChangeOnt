@@ -191,7 +191,7 @@ def run(config_path: Optional[str]) -> dict:
         from agents.stoa.agent_fsm import NGramFSM
         agent = NGramFSM(A=A, k=max(0, L - 1))
     elif mode == "haq":
-        from agents.co.agent_haq import HAQAgent, HAQCfg
+        from agents.co.agent_renewal import HAQAgent, HAQCfg
         # build HAQCfg with env defaults, allow params override (supports L or L_win)
         cfg_kwargs = {"A": A, "L_win": L, **params}
         if "L" in params:

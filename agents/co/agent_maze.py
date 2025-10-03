@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from typing import List, Tuple
 
 from agents.co.core.headers.meta_flip import MetaFlip
-from agents.co.core.headers.loop_score import loop_score_ema
+from agents.co.core.headers.loop_score import LoopEMA
 from agents.co.core.headers.density import compute_density_signals
 
 
@@ -91,7 +91,7 @@ class HAQMazeAgent:
             self.rew_hist[-L:], A=self.cfg.A, L=L
         )
         # Loop score smoothing over same history
-        loop_s = loop_score_ema(self.rew_hist[-L:], alpha=self.cfg.ema_alpha)
+        loop_s = LoopEMA(self.rew_hist[-L:], alpha=self.cfg.ema_alpha)
         # Use signals to toggle meta flips lightly (example: flip when loopiness drops)
         if loop_s < 0.25:
             self.flips.flip()

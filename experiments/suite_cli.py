@@ -37,13 +37,6 @@ def _run_module(mod: str, *args: str) -> None:
     subprocess.run(cmd, check=True)
 
 
-def _safe_name(x: Any) -> str:
-    """Turn a dict or value into a compact name-friendly string."""
-    if isinstance(x, dict):
-        return "_".join(f"{k}{v}" for k, v in sorted(x.items()))
-    return str(x)
-
-
 def _write_tmp_yaml(obj: Dict[str, Any], path: Path) -> None:
     _ensure_dir(path.parent)
     path.write_text(yaml.safe_dump(obj, sort_keys=False), encoding="utf-8")
@@ -56,7 +49,7 @@ def _write_tmp_yaml(obj: Dict[str, Any], path: Path) -> None:
 def _suite_bandit(out_root: Path, spec: Dict[str, Any]) -> None:
     problems: List[Dict[str, Any]] = list(spec.get("problems", []))
     for pr in problems:
-        name = str(pr.get("name", "unnamed"))
+        mode= str(pr.get("mode", "unnamed"))
         env = dict(pr.get("env", {}))
         seeds: List[int] = list(pr.get("seeds", [7]))
         agents: List[Any] = list(pr.get("agents", [{"type": "ucb1"}]))
@@ -84,13 +77,13 @@ def _suite_bandit(out_root: Path, spec: Dict[str, Any]) -> None:
                     },
                     "seed": int(seed),
                     # The runner writes directly here; no post-copy.
-                    "out": str(out_root / "bandit" / name / f"{agent_type}_s{seed}"),
+                    "out": str(out_root / "bandit" / mode/ f"{agent_type}_s{seed}"),
                 }
-                tmp = out_root / "tmp" / "bandit" / name / f"{agent_type}_s{seed}.yaml"
+                tmp = out_root / "tmp" / "bandit" / mode/ f"{agent_type}_s{seed}.yaml"
                 _write_tmp_yaml(cfg, tmp)
 
                 # Minimal status line (non-spammy)
-                print(f"[bandit] {name} :: agent={agent_type} seed={seed}")
+                print(f"[bandit] {mode} :: agent={agent_type} seed={seed}")
                 _run_module("experiments.runners.bandit_runner", "--config", str(tmp))
 
 
@@ -101,7 +94,7 @@ def _suite_bandit(out_root: Path, spec: Dict[str, Any]) -> None:
 def _suite_maze(out_root: Path, spec: Dict[str, Any]) -> None:
     envs: List[Dict[str, Any]] = list(spec.get("envs", []))
     for envspec in envs:
-        name = str(envspec.get("name", "default"))
+        mode= str(envspec.get("mode", "default"))
         env_cfg = dict(envspec.get("env", {}))  # e.g., {"spec_path": None}
         episodes = int(envspec.get("episodes", 5))
         seeds: List[int] = list(envspec.get("seeds", [7]))
@@ -125,12 +118,12 @@ def _suite_maze(out_root: Path, spec: Dict[str, Any]) -> None:
                     },
                     "episodes": int(episodes),
                     "seed": int(seed),
-                    "out": str(out_root / "maze" / name / f"{agent_type}_s{seed}"),
+                    "out": str(out_root / "maze" / mode/ f"{agent_type}_s{seed}"),
                 }
-                tmp = out_root / "tmp" / "maze" / name / f"{agent_type}_s{seed}.yaml"
+                tmp = out_root / "tmp" / "maze" / mode/ f"{agent_type}_s{seed}.yaml"
                 _write_tmp_yaml(cfg, tmp)
 
-                print(f"[maze] {name} :: agent={agent_type} seed={seed}")
+                print(f"[maze] {mode} :: agent={agent_type} seed={seed}")
                 # Pass agent on CLI, env via config, and force out to align with cfg.out
                 _run_module(
                     "experiments.runners.maze_runner",
@@ -148,7 +141,7 @@ def _suite_maze(out_root: Path, spec: Dict[str, Any]) -> None:
 def _suite_renewal(out_root: Path, spec: Dict[str, Any]) -> None:
     instances: List[Dict[str, Any]] = list(spec.get("instances", []))
     for inst in instances:
-        name = str(inst.get("name", "inst"))
+        mode= str(inst.get("mode", "inst"))
         env = dict(inst.get("env", {}))  # A, L_win, p_ren, p_noise, T_max
         steps = int(inst.get("steps", env.get("T_max", 1000)))
         seeds: List[int] = list(inst.get("seeds", [7]))
@@ -163,11 +156,11 @@ def _suite_renewal(out_root: Path, spec: Dict[str, Any]) -> None:
                     agent_type = str(agent.get("type", "last")).lower()
                     agent_params = dict(agent.get("params", {}))  # HAQ params currently ignored by runner
 
-                # renewal_runner expects "mode": last | phase | ngram | haq
+                # renewal_runner expects "type": last | phase | ngram | haq
                 cfg = {
                     "seed": int(seed),
                     "steps": int(steps),
-                    "mode": agent_type,  # maps directly
+                    "type": agent_type,  # maps directly
                     "env": {
                         "A": int(env.get("A", 8)),
                         "L_win": int(env.get("L_win", 6)),
@@ -175,12 +168,12 @@ def _suite_renewal(out_root: Path, spec: Dict[str, Any]) -> None:
                         "p_noise": float(env.get("p_noise", 0.0)),
                         "T_max": int(env.get("T_max", steps)),
                     },
-                    "out_dir": str(out_root / "renewal" / name / f"{agent_type}_s{seed}"),
+                    "out_dir": str(out_root / "renewal" / mode/ f"{agent_type}_s{seed}"),
                 }
-                tmp = out_root / "tmp" / "renewal" / name / f"{agent_type}_s{seed}.yaml"
+                tmp = out_root / "tmp" / "renewal" / mode/ f"{agent_type}_s{seed}.yaml"
                 _write_tmp_yaml(cfg, tmp)
 
-                print(f"[renewal] {name} :: agent={agent_type} seed={seed}")
+                print(f"[renewal] {mode} :: agent={agent_type} seed={seed}")
                 _run_module("experiments.runners.renewal_runner", "--config", str(tmp))
 
 
@@ -196,21 +189,21 @@ class SuiteCfg:
 
 def main() -> None:
     ap = argparse.ArgumentParser(description="Run a multi-family suite (STOA + CO) from one YAML.")
-    ap.add_argument("--config", type=str, required=True, help="YAML suite config")
-    args = ap.parse_args()
 
-    cfg_raw = _load_yaml(Path(args.config))
+
+    cfg_raw = _load_yaml(Path("experiments/configs/suite_all.yaml"))
     out_root = Path(cfg_raw.get("out_root", "outputs/suite"))
     _ensure_dir(out_root)
 
     fams = dict(cfg_raw.get("families", {}))
 
-    if "bandit" in fams:
-        _suite_bandit(out_root, dict(fams["bandit"]))
+    
     if "maze" in fams:
         _suite_maze(out_root, dict(fams["maze"]))
     if "renewal" in fams:
         _suite_renewal(out_root, dict(fams["renewal"]))
+    if "bandit" in fams:
+        _suite_bandit(out_root, dict(fams["bandit"]))
 
     print(json.dumps({"suite_out": str(out_root)}))
 

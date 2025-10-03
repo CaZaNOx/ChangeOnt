@@ -1,7 +1,0 @@
-# experiments/configs/paper_bandit_ucb.yaml
-# Paper-mirrored bandit instance: 3-armed Bernoulli with clear gaps.
-seed: 7
-env:
-  probs: [0.1, 0.2, 0.8]
-  horizon: 2000
-out: outputs/paper_verify/bandit/_placeholder   # per-agent subdirs will override this

@@ -1,6 +1,6 @@
 # Maze1 environment specification (freeze after validation)
 name: maze1
 params:
-  width: 5
+  width: 9
   height: 5
   seed: 0

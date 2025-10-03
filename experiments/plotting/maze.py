@@ -7,8 +7,8 @@ from experiments.plotting.util import ensure_dir, write_csv, safe_import_plt
 plt = safe_import_plt()
 
 def summarize_env(env_dir: Path, data: Dict[str, Any]) -> None:
-    eval_dir = env_dir / "eval"
-    ensure_dir(eval_dir)
+    summary_dir = env_dir / "_summary"
+    ensure_dir(summary_dir)
 
     rows: List[Dict[str, Any]] = []
     for agent, d in sorted(data["agents"].items()):
@@ -18,7 +18,7 @@ def summarize_env(env_dir: Path, data: Dict[str, Any]) -> None:
             "episodes": len(d.get("episodes", [])),
             "mean_steps": d.get("mean_steps", ""),
         })
-    write_csv(eval_dir / "summary.csv", rows)
+    write_csv(summary_dir / "summary.csv", rows)
 
     if plt and rows:
         labels = [r["agent"] for r in rows]
@@ -29,17 +29,17 @@ def summarize_env(env_dir: Path, data: Dict[str, Any]) -> None:
         plt.ylabel("mean steps (lower is better)")
         plt.title(f"Maze: {data['env']}")
         plt.tight_layout()
-        plt.savefig(eval_dir / "summary.png", dpi=160)
+        plt.savefig(summary_dir / "summary.png", dpi=160)
         plt.close()
 
 def aggregate_family(maze_root: Path) -> None:
-    eval_dir = maze_root / "eval"
-    ensure_dir(eval_dir)
+    summary_dir = maze_root / "_summary"
+    ensure_dir(summary_dir)
 
     # collect mean_steps per agent per env
     matrix: List[Dict[str, Any]] = []  # rows: env, agent, mean_steps
     for env_dir in sorted(d for d in maze_root.iterdir() if d.is_dir()):
-        s = env_dir / "eval" / "summary.csv"
+        s = env_dir / "_summary" / "summary.csv"
         if not s.exists():
             continue
         lines = s.read_text(encoding="utf-8").splitlines()
@@ -62,7 +62,7 @@ def aggregate_family(maze_root: Path) -> None:
         "family_mean_steps": sum(v)/len(v) if v else float("nan"),
         "n_envs": len(v)
     } for agent, v in sorted(agg.items())]
-    write_csv(eval_dir / "combined_summary.csv", fam_rows)
+    write_csv(summary_dir / "combined_summary.csv", fam_rows)
 
     if plt and fam_rows:
         labels = [r["agent"] for r in fam_rows]
@@ -73,5 +73,5 @@ def aggregate_family(maze_root: Path) -> None:
         plt.ylabel("mean steps (lower is better)")
         plt.title("Maze: aggregated over envs")
         plt.tight_layout()
-        plt.savefig(eval_dir / "combined_summary.png", dpi=160)
+        plt.savefig(summary_dir / "combined_summary.png", dpi=160)
         plt.close()

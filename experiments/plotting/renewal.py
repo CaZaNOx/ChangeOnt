@@ -7,8 +7,8 @@ from experiments.plotting.util import ensure_dir, write_csv, safe_import_plt
 plt = safe_import_plt()
 
 def summarize_instance(inst_dir: Path, data: Dict[str, Any]) -> None:
-    eval_dir = inst_dir / "eval"
-    ensure_dir(eval_dir)
+    summary_dir = inst_dir / "_summary"
+    ensure_dir(summary_dir)
 
     rows: List[Dict[str, Any]] = []
     for agent, d in sorted(data["agents"].items()):
@@ -19,7 +19,7 @@ def summarize_instance(inst_dir: Path, data: Dict[str, Any]) -> None:
             "mean_final_cum_reward": sum(finals)/len(finals) if finals else "",
             "n_runs": len(finals),
         })
-    write_csv(eval_dir / "summary.csv", rows)
+    write_csv(summary_dir / "summary.csv", rows)
 
     if plt:
         plt.figure()
@@ -35,16 +35,16 @@ def summarize_instance(inst_dir: Path, data: Dict[str, Any]) -> None:
         plt.title(f"Renewal: {data['instance']}")
         plt.legend()
         plt.tight_layout()
-        plt.savefig(eval_dir / "summary.png", dpi=160)
+        plt.savefig(summary_dir / "summary.png", dpi=160)
         plt.close()
 
 def aggregate_family(renewal_root: Path) -> None:
-    eval_dir = renewal_root / "eval"
-    ensure_dir(eval_dir)
+    summary_dir = renewal_root / "_summary"
+    ensure_dir(summary_dir)
 
     matrix: List[Dict[str, Any]] = []
     for inst_dir in sorted(d for d in renewal_root.iterdir() if d.is_dir()):
-        s = inst_dir / "eval" / "summary.csv"
+        s = inst_dir / "_summary" / "summary.csv"
         if not s.exists():
             continue
         lines = s.read_text(encoding="utf-8").splitlines()
@@ -66,7 +66,7 @@ def aggregate_family(renewal_root: Path) -> None:
         "family_mean_final_cum_reward": sum(v)/len(v) if v else float("nan"),
         "n_instances": len(v)
     } for agent, v in sorted(agg.items())]
-    write_csv(eval_dir / "combined_summary.csv", fam_rows)
+    write_csv(summary_dir / "combined_summary.csv", fam_rows)
 
     if plt and fam_rows:
         labels = [r["agent"] for r in fam_rows]
@@ -77,5 +77,5 @@ def aggregate_family(renewal_root: Path) -> None:
         plt.ylabel("mean final cumulative reward (higher is better)")
         plt.title("Renewal: aggregated over instances")
         plt.tight_layout()
-        plt.savefig(eval_dir / "combined_summary.png", dpi=160)
+        plt.savefig(summary_dir / "combined_summary.png", dpi=160)
         plt.close()

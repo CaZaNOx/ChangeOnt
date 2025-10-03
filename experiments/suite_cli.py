@@ -41,6 +41,12 @@ def _write_tmp_yaml(obj: Dict[str, Any], path: Path) -> None:
     _ensure_dir(path.parent)
     path.write_text(yaml.safe_dump(obj, sort_keys=False), encoding="utf-8")
 
+def _summarize(suite_root: Path, families: List[str]) -> None:
+    try:
+        from experiments.plotting.main import summarize_families
+        summarize_families(suite_root, families)
+    except Exception as e:
+        print(f"[warn] plotting failed: {e}", file=sys.stderr)
 
 # -------------------
 # Bandit executor
@@ -111,10 +117,16 @@ def _suite_maze(out_root: Path, spec: Dict[str, Any]) -> None:
                     agent_type = str(agent.get("type", "bfs")).lower()
                     agent_params = dict(agent.get("params", {}))  # currently unused; harmless
 
+                env_params = dict(env_cfg.get("params", {})) if isinstance(env_cfg.get("params"), dict) else {}
+                env_params.setdefault("width", 5)
+                env_params.setdefault("height", 5)
+                env_params["seed"] = int(seed)
+
                 cfg = {
                     "env": {
                         # allow null/absent spec_path → internal default 5x5
-                        "spec_path": env_cfg.get("spec_path", None)
+                        "spec_path": env_cfg.get("spec_path", None),
+                        "params": env_params,
                     },
                     "episodes": int(episodes),
                     "seed": int(seed),
@@ -204,6 +216,8 @@ def main() -> None:
         _suite_renewal(out_root, dict(fams["renewal"]))
     if "bandit" in fams:
         _suite_bandit(out_root, dict(fams["bandit"]))
+
+    _summarize(out_root, fams)
 
     print(json.dumps({"suite_out": str(out_root)}))
 

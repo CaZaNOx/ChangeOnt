@@ -15,10 +15,10 @@ try:
 except Exception:
     np = None  # type: ignore
 
-from experiments.env import CodebookRenewalEnvW, EnvCfg
+from environments.renewal.env import CodebookRenewalEnvW, EnvCfg
 
 try:
-    from kernel.logging import JSONLWriter as KernelWriter  # type: ignore
+    from experiments.logging.logging import JSONLWriter as KernelWriter  # type: ignore
 except Exception:
     KernelWriter = None  # type: ignore
 
@@ -59,17 +59,17 @@ def _open_writer(path: Path, header: dict) -> Tuple[object, str]:
 
 
 try:
-    from kernel.logging import write_budget_csv as kernel_write_budget_csv  # type: ignore
+    from experiments.logging.logging import write_metric_line, write_budget_csv
 except Exception:
     kernel_write_budget_csv = None  # type: ignore
 
 
 def _write_budget_csv(path: Path, rows: list[dict]) -> None:
-    if kernel_write_budget_csv is not None:
+    if write_budget_csv is not None:
         if not rows:
             rows = [{"params_bits": 0, "flops_per_step": 0, "memory_bytes": 0}]
         try:
-            kernel_write_budget_csv(path, rows)  # type: ignore[call-arg]
+            write_budget_csv(path, rows)  # type: ignore[call-arg]
             return
         except Exception:
             pass
@@ -219,7 +219,7 @@ def run(config_path: Optional[str]) -> dict:
     _write_budget_csv(budget_csv, [budget_row])
 
     try:
-        from kernel.plotting import save_quick_plot
+        from experiments.plotting.plotting import save_quick_plot
         save_quick_plot(metrics_path, out_dir / "quick_plot.png", title=f"Renewal {mode}")
     except Exception:
         pass

@@ -3,11 +3,11 @@ import argparse
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Union
+from typing import Dict, Optional
 
 from environments.maze1.env import GridMazeEnv
 from agents.stoa.stoa_agent_maze import bfs_path
-from kernel.logging import write_metric_line, write_budget_csv
+from experiments.logging.logging import write_metric_line, write_budget_csv
 
 DIRS = ["UP", "DOWN", "LEFT", "RIGHT"]
 DELTA = {"UP": (-1, 0), "DOWN": (1, 0), "LEFT": (0, -1), "RIGHT": (0, 1)}
@@ -29,27 +29,59 @@ def _parse_yaml(text: str) -> dict:
         return {}
 
 
+def _resolve_spec_path(spec_path: Optional[str], config_path: Optional[str]) -> Optional[str]:
+    if not spec_path:
+        return None
+    p = Path(spec_path)
+
+    # 1) Absolute path as-is if it exists
+    if p.is_absolute() and p.exists():
+        return str(p)
+
+    # 2) Resolve relative to project root (…/ChangeOntCode)
+    project_root = Path(__file__).resolve().parents[2]
+    cand = (project_root / p).resolve()
+    if cand.exists():
+        return str(cand)
+
+    # 3) Resolve relative to the config file directory (tmp YAML location)
+    if config_path:
+        cand = (Path(config_path).parent / p).resolve()
+        if cand.exists():
+            return str(cand)
+
+    # 4) Fallback: return original (may error later with clear path)
+    return str(p)
+
+
 def _load_config(args: argparse.Namespace) -> MazeConfig:
     if args.config:
         with open(args.config, "r", encoding="utf-8") as f:
             data = json.load(f) if args.config.endswith(".json") else _parse_yaml(f.read())
+
         env = data.get("env", {})
         out = data.get("out", "outputs/maze_bfs")
-        agent = data.get("agent", {"type": args.agent.lower(), "params": {}}) if args.agent else data.get("agent", {"type": "bfs", "params": {}})
-        return MazeConfig(
-            spec_path=env.get("spec_path"),
-            episodes=int(data.get("episodes", 5)),
-            out=str(out),
-            agent=agent
+        agent = data.get("agent", {"type": args.agent.lower(), "params": {}}) if args.agent else data.get(
+            "agent", {"type": "bfs", "params": {}}
         )
+        episodes = int(data.get("episodes", 5))
+
+        spec_path = _resolve_spec_path(env.get("spec_path"), args.config)
+
+        return MazeConfig(
+            spec_path=spec_path,
+            episodes=episodes,
+            out=str(out),
+            agent=agent,
+        )
+
     # CLI fallbacks
     return MazeConfig(
         spec_path=args.maze,
         episodes=int(args.episodes),
         out=str(args.out),
-        agent={"type": args.agent.lower(), "params": {}}
+        agent={"type": args.agent.lower(), "params": {}},
     )
-
 
 
 def main() -> None:
@@ -103,18 +135,16 @@ def main() -> None:
             env.reset()
             steps = 0
             total_reward = 0.0
-            # simple greedy with HAQ policy (select action each step)
             done = False
             while not done:
-                act = agent.select()  # agent decides among DIRS internally or via internal policy
+                act = agent.select()
                 if act not in ("UP", "DOWN", "LEFT", "RIGHT"):
-                    # fallback: cycle dirs
                     act = DIRS[steps % 4]
                 _, r, done, _ = env.step(act)
-                agent.update(env.pos, r, done)  # pass obs-like + reward
+                agent.update(env.pos, r, done)
                 steps += 1
                 total_reward += r
-                if steps > 5000:  # safety bail to avoid infinite loop if bug
+                if steps > 5000:
                     break
             write_metric_line(metrics_path, {"metric": "episode_steps", "episode": ep, "value": steps})
             write_metric_line(metrics_path, {"metric": "episode_return", "episode": ep, "value": total_reward})
@@ -124,9 +154,8 @@ def main() -> None:
 
     write_budget_csv(budget_path, budget_rows)
 
-    # quick plot: steps per episode
     try:
-        from kernel.plotting import save_quick_plot
+        from experiments.plotting.plotting import save_quick_plot
         save_quick_plot(metrics_path, plot_path, title=f"Maze {atype.upper()}")
     except Exception:
         pass

@@ -5,7 +5,7 @@ from typing import Dict, Any, List
 import json
 
 try:
-    from kernel.plotting import save_quick_plot  # type: ignore
+    from experiments.plotting.plotting import save_quick_plot
 except Exception:
     save_quick_plot = None  # type: ignore
 

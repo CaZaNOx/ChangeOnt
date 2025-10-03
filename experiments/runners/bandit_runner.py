@@ -8,7 +8,7 @@ from typing import List, Optional
 
 from environments.bandit.bandit import BernoulliBanditEnv
 from agents.stoa.stoa_agent_bandit import UCB1Agent, EpsilonGreedyAgent
-from kernel.logging import write_metric_line, write_budget_csv
+from experiments.logging.logging import write_metric_line, write_budget_csv
 
 
 
@@ -152,7 +152,7 @@ def main() -> None:
     write_budget_csv(budget_path, budget_rows)
 
     try:
-        from kernel.plotting import save_quick_plot
+        from experiments.plotting.plotting import save_quick_plot
         save_quick_plot(metrics_path, plot_path, title=f"Bandit {agent_tag.upper()}")
     except Exception:
         pass

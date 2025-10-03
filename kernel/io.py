@@ -1,3 +1,0 @@
-﻿from pathlib import Path
-def ensure_dir(p): Path(p).mkdir(parents=True, exist_ok=True)
-__all__ = ["ensure_dir"]

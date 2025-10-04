@@ -17,8 +17,7 @@ venv/
 # Data/outputs
 data/*
 !data/README.md
-outputs/*
-!outputs/README.md
+
 
 # OS
 .DS_Store

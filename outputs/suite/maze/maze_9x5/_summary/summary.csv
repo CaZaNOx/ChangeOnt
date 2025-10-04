@@ -1,0 +1,3 @@
+env,agent,episodes,mean_steps
+maze_9x5,astar_s7,5,12.0
+maze_9x5,bfs_s7,5,12.0

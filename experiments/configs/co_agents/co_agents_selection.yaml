@@ -1,0 +1,6 @@
+# experiments/configs/co_agents/co_agents_selection.yaml
+include:
+  - co_haq_base_v1
+  - co_haq_plus_b_v1
+  - co_haq_plus_b_with_h1_v1
+  # add more as you iterate

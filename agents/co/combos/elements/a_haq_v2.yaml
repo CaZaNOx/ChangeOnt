@@ -1,0 +1,14 @@
+# agents/co/combos/elements/a_haq_v2.yaml
+element_id: a_haq
+variant_id: a_haq_v2
+primitives:
+  infimum_lift:
+    params: { window: 48, alpha: 0.7 }
+    weight: 0.6
+  loop_score:
+    params: { max_period: 16 }
+    weight: 0.4
+combine:
+  math_context: classic
+  op: op_classic_plus
+  normalize: unit_interval

@@ -1,0 +1,9 @@
+env:
+  spec_path: null
+  params:
+    width: 5
+    height: 5
+    seed: 7
+episodes: 5
+seed: 7
+out: outputs\suite\maze\default5\astar_s7

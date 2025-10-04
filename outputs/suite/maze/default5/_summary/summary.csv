@@ -1,0 +1,3 @@
+env,agent,episodes,mean_steps
+default5,astar_s7,5,8.0
+default5,bfs_s7,5,8.0

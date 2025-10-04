@@ -1,5 +1,0 @@
-agent,family_mean_final_regret,n_problems
-epsgreedy,31.250000000000007,1
-kl_ucb,11.849999999999998,1
-ts,8.75,1
-ucb1,25.200000000000003,1

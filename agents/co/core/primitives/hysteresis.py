@@ -1,31 +1,40 @@
-﻿from __future__ import annotations
+﻿# agents/co/core/primitives/hysteresis.py
+from __future__ import annotations
 from dataclasses import dataclass
 
 @dataclass
-class FlipState:
-    active: bool = False
-    cooldown: int = 0  # steps remaining before another flip allowed
-
-def hysteresis_step(
-    score: float,
-    st: FlipState,
-    *,
-    theta_on: float = 0.25,
-    theta_off: float = 0.15,
-    min_dwell: int = 10,
-) -> FlipState:
+class HysteresisFilter:
     """
-    Two-threshold hysteresis with cooldown/dwell.
-    - If inactive and score >= theta_on and cooldown == 0 -> activate and set dwell.
-    - If active and score <= theta_off and cooldown == 0 -> deactivate and set dwell.
-    - Otherwise, keep state; cooldown counts down to 0.
+    Exponential smoothing with a threshold: only emit a 'change' if the smoothed
+    value moved enough (>= threshold) since the last commit.
     """
-    s = max(0.0, min(1.0, score))
-    cd = max(0, st.cooldown - 1)
+    alpha: float = 0.2
+    threshold: float = 0.05
+    _smooth: float = 0.0
+    _last_committed: float = 0.0
+    _initialized: bool = False
 
-    if cd == 0:
-        if not st.active and s >= theta_on:
-            return FlipState(active=True, cooldown=min_dwell)
-        if st.active and s <= theta_off:
-            return FlipState(active=False, cooldown=min_dwell)
-    return FlipState(active=st.active, cooldown=cd)
+    def reset(self) -> None:
+        self._smooth = 0.0
+        self._last_committed = 0.0
+        self._initialized = False
+
+    def update(self, x: float) -> float:
+        if not self._initialized:
+            self._smooth = float(x)
+            self._last_committed = float(x)
+            self._initialized = True
+            return self._last_committed
+
+        self._smooth = self.alpha * float(x) + (1.0 - self.alpha) * self._smooth
+        if abs(self._smooth - self._last_committed) >= self.threshold:
+            self._last_committed = self._smooth
+        return self._last_committed
+
+    def score(self) -> float:
+        """Return the current smooth value (useful for introspection)."""
+        return self._smooth
+
+    def __repr__(self) -> str:
+        return (f"HysteresisFilter(alpha={self.alpha}, threshold={self.threshold}, "
+                f"smooth={self._smooth:.4f}, committed={self._last_committed:.4f})")

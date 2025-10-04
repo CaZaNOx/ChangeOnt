@@ -1,20 +1,12 @@
-﻿from __future__ import annotations
-from typing import Any, Callable, Iterable, Dict, List, Tuple
+﻿# agents/co/core/primitives/quotients/equivalence.py
+from __future__ import annotations
+from typing import List
+from ..types import QuotientMapping
 
-def R_tau(
-    u: Dict[str, Any],
-    v: Dict[str, Any],
-    *,
-    tau: float,
-    distance: Callable[[list[int], list[int]], float],
-    header_ok: Callable[[dict, dict], bool],
-) -> bool:
+def trivial_equivalence(num_symbols: int) -> QuotientMapping:
     """
-    Bend-equivalence predicate before closure:
-    - Compare recent token traces via distance; check header agreement.
-    - Not necessarily transitive -> we will take equivalence closure elsewhere.
+    Identity partition: each symbol is its own class (class_id = symbol).
     """
-    if not header_ok(u.get("header", {}), v.get("header", {})):
-        return False
-    d = distance(u.get("trace", []), v.get("trace", []))
-    return d <= tau
+    if num_symbols <= 0:
+        return QuotientMapping(classes=[])
+    return QuotientMapping(classes=list(range(num_symbols)))

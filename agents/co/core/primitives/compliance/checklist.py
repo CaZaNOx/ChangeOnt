@@ -1,8 +1,8 @@
 ﻿from __future__ import annotations  
 from typing import Dict, Any, List, Optional
 
-from agents.co.core.compliance.anti_oracle import AntiOracle  
-from agents.co.core.compliance.budget_parity import BudgetMeter
+from agents.co.core.primitives.compliance.anti_oracle import AntiOracle  
+from agents.co.core.primitives.compliance.budget_parity import BudgetMeter
 
 def run_pre_run_checklist(agent_name: str,  
     seeds: Dict[str, int],  

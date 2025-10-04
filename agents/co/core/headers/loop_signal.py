@@ -5,7 +5,7 @@ from dataclasses import dataclass
 @dataclass
 class LoopEMA:
     """
-    EMA over a binary 'still looping?' indicator ζ_t.
+    Exponential Moving Average (EMA) over a binary 'still looping?' indicator ζ_t.
     ζ_t can be e.g. 1[a_t == a_{t-1}].
     """
     beta: float = 0.20  # smoothing

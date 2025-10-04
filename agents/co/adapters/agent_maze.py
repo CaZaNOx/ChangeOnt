@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from typing import List, Tuple
 
 from agents.co.core.headers.meta_flip import MetaFlip
-from agents.co.core.headers.loop_score import LoopEMA
+from agents.co.core.headers.loop_signal import LoopEMA
 from agents.co.core.headers.density import compute_density_signals
 
 

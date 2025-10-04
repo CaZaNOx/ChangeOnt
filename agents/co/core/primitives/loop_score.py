@@ -1,19 +1,24 @@
-﻿# PATH: agents/co/core/loops/loop_score.py
+﻿# agents/co/core/primitives/loop_score.py
 from __future__ import annotations
-from typing import Sequence
-import math
+from typing import List
+from .loops.finite import find_period
 
-def ema(prev: float, x: float, beta: float) -> float:
-    beta = float(max(0.0, min(1.0, beta)))
-    return beta*float(prev) + (1.0 - beta)*float(x)
-
-def _squash_pos(x: float) -> float:
-    # map (0,∞) → (0,1); lower cost ⇒ higher score
-    return 1.0/(1.0 + max(0.0, x))
-
-def loopiness_from_costs(cycle_costs: Sequence[float], *, beta: float=0.9) -> float:
-    vals = [float(c) for c in cycle_costs if math.isfinite(c)]
-    if not vals:
+def loop_score(sequence: List[int]) -> float:
+    """
+    Heuristic: score ∈ [0,1] measuring how 'loop-like' a sequence is.
+      - Find a candidate period L (if any).
+      - Compare sequence against its L-shifted self; fraction of matches is the score.
+    """
+    if not sequence:
         return 0.0
-    mean = sum(vals)/len(vals)
-    return _squash_pos(mean)
+    L = find_period(sequence)
+    if L <= 0 or L >= len(sequence):
+        return 0.0
+    matches = 0
+    total = len(sequence) - L
+    if total <= 0:
+        return 0.0
+    for i in range(total):
+        if sequence[i] == sequence[i + L]:
+            matches += 1
+    return matches / float(total)

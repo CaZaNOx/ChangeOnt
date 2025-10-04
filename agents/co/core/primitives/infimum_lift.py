@@ -1,6 +1,19 @@
-﻿from __future__ import annotations
-from typing import Dict, Tuple, Iterable, Any
+﻿# agents/co/core/primitives/infimum_lift.py
+from __future__ import annotations
+from typing import Dict, Iterable, Tuple
 import math
+"""
+Infimum-lift (baseline implementation):
+
+Given a raw symbol sequence, this module:
+  1) estimates a nominal period (if any),
+  2) constructs a quotient/partition (currently trivial or classifier-based),
+  3) lifts the sequence into the quotient space,
+  4) returns the mapping and lifted sequence for downstream use.
+
+The goal is to keep this minimal & deterministic; combination layers can swap
+in richer partitioners/classifiers later without changing the call shape.
+"""
 
 def lift_edge_cost(
     classes: Dict[int, Iterable[int]],

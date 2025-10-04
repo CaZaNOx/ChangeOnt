@@ -1,0 +1,11 @@
+env:
+  probs:
+  - 0.1
+  - 0.2
+  - 0.8
+  horizon: 500
+agent:
+  type: ucb1
+  params: {}
+seed: 1
+out: outputs\suite\bandit\easy\ucb1_s1

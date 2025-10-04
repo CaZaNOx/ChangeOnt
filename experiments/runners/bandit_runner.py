@@ -7,9 +7,11 @@ from pathlib import Path
 from typing import List, Optional
 
 from environments.bandit.bandit import BernoulliBanditEnv
-from agents.stoa.stoa_agent_bandit import UCB1Agent, EpsilonGreedyAgent
+from agents.stoa.bandit.stoa_agent_bandit import UCB1Agent, EpsilonGreedyAgent
+from environments.maze1 import env
 from experiments.logging.logging import write_metric_line, write_budget_csv
-
+from agents.stoa.bandit.ts import ThompsonSampling
+from agents.stoa.bandit.k1_ucb import KLUCB
 
 
 
@@ -99,6 +101,11 @@ def main() -> None:
         agent = UCB1Agent(env.n_arms); agent_tag = "ucb1"
     elif cfg.agent in ("epsgreedy", "epsilon_greedy"):
         agent = EpsilonGreedyAgent(env.n_arms, epsilon=cfg.epsilon, seed=cfg.seed); agent_tag = "epsgreedy"
+    elif cfg.agent == "ts":
+        agent = ThompsonSampling(env.n_arms); agent_tag = "ts"
+    elif cfg.agent == "kl_ucb":
+        # no params in current config; use default exploration constant
+        agent = KLUCB(env.n_arms, c=0.0); agent_tag = "kl_ucb"
     elif cfg.agent == "haq":
         if not HAS_CO:
             raise RuntimeError("CO adapter not available: agents.co.agent_bandit")

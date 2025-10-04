@@ -14,16 +14,20 @@ families:
         agents:
           - { type: ucb1 }
           - { type: epsgreedy, params: { epsilon: 0.1 } }
+          - { type: kl_ucb }
+          - { type: ts }
           # - { type: haq }   # CO
-      - mode: medium
-        env:
-          probs: [0.2, 0.4, 0.6]
-          horizon: 1000
-        seeds: [1, 2]
-        agents:
-          - { type: ucb1 }
-          - { type: epsgreedy, params: { epsilon: 0.1 } }
-      #     - { type: haq }   # CO
+      # - mode: medium
+      #   env:
+      #     probs: [0.2, 0.4, 0.6]
+      #     horizon: 1000
+      #   seeds: [1, 2]
+      #   agents:
+      #     - { type: ucb1 }
+      #     - { type: epsgreedy, params: { epsilon: 0.1 } }
+      #     - { type: kl_ucb }
+      #     - { type: ts }
+      # #     - { type: haq }   # CO
       # - mode: hard
       #   env:
       #     probs: [0.49, 0.5, 0.51]
@@ -32,7 +36,9 @@ families:
       #   agents:
       #     - { type: ucb1 }
       #     - { type: epsgreedy, params: { epsilon: 0.1 } }
-      #     - { type: haq }   # CO
+      #     - { type: kl_ucb }
+      #     - { type: ts }
+      #     #- { type: haq }   # CO
 
   maze:
     envs:
@@ -42,7 +48,8 @@ families:
         episodes: 5
         seeds: [7]
         agents:
-          - { type: bfs }   # STOA
+          - { type: bfs }
+          - { type: astar }   # STOA
           # - { type: haq }   # CO (will underperform BFS until spatial headers are added)
       - mode: maze_7x7
         env:
@@ -51,6 +58,7 @@ families:
         seeds: [7]
         agents:
           - { type: bfs }
+          - { type: astar }
 
       - mode: maze_9x5
         env:
@@ -59,33 +67,50 @@ families:
         seeds: [7]
         agents:
           - { type: bfs }
+          - { type: astar }
 
   renewal:
     instances:
+      # 1) Upper bound: no renewals, no noise
+      - mode: upper_bound
+        env: { A: 8, L_win: 6, p_ren: 0.0, p_noise: 0.0, T_max: 1000 }
+        steps: 1000
+        seeds: [7, 8]
+        agents:
+          # - { type: last }
+          # - { type: phase }
+          # - { type: ngram }
+          - { type: vom, params: { max_order: 5 } }
+
+      # 2) Renewals only (harder than upper_bound)
       - mode: clean
-        env:
-          A: 8
-          L_win: 6
-          p_ren: 0.02
-          p_noise: 0.0
-          T_max: 1000
+        env: { A: 8, L_win: 6, p_ren: 0.02, p_noise: 0.0, T_max: 1000 }
         steps: 1000
         seeds: [7, 8]
         agents:
-          - { type: last }   # STOA baseline
-          - { type: phase }  # STOA FSM
-          - { type: ngram }  # STOA simple
-      - mode: p_noise
-        env:
-          A: 8
-          L_win: 6
-          p_ren: 0.0
-          p_noise: 0.02
-          T_max: 1000
+          # - { type: last }
+          # - { type: phase }
+          # - { type: ngram }
+          - { type: vom, params: { max_order: 5 } }
+
+      # 3) Noise only (typically easier than renewals-only for Phase)
+      - mode: noise_only
+        env: { A: 8, L_win: 6, p_ren: 0.0, p_noise: 0.02, T_max: 1000 }
         steps: 1000
         seeds: [7, 8]
         agents:
-          - { type: last }   # STOA baseline
-          - { type: phase }  # STOA FSM
-          - { type: ngram }  # STOA simple
-          # - { type: haq }    # CO
+          # - { type: last }
+          # - { type: phase }
+          # - { type: ngram }
+          - { type: vom, params: { max_order: 5 } }
+
+      # 4) Renewals + noise (hardest)
+      - mode: renewals_plus_noise
+        env: { A: 8, L_win: 6, p_ren: 0.02, p_noise: 0.02, T_max: 1000 }
+        steps: 1000
+        seeds: [7, 8]
+        agents:
+          # - { type: last }
+          # - { type: phase }
+          # - { type: ngram }
+          - { type: vom, params: { max_order: 5 } }

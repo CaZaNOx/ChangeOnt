@@ -6,7 +6,8 @@ from pathlib import Path
 from typing import Dict, Optional
 
 from environments.maze1.env import GridMazeEnv
-from agents.stoa.stoa_agent_maze import bfs_path
+from agents.stoa.maze.stoa_agent_maze import bfs_path
+from agents.stoa.maze.astar_maze import astar_path
 from experiments.logging.logging import write_metric_line, write_budget_csv
 
 DIRS = ["UP", "DOWN", "LEFT", "RIGHT"]
@@ -85,12 +86,12 @@ def _load_config(args: argparse.Namespace) -> MazeConfig:
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Maze runner (BFS or CO-HAQ)")
+    ap = argparse.ArgumentParser(description="Maze runner (BFS / A* / CO-HAQ)")
     ap.add_argument("--config", type=str, default=None, help="YAML/JSON config file")
     ap.add_argument("--maze", type=str, default=None, help="spec.yaml path (fallback)")
     ap.add_argument("--episodes", type=int, default=5)
     ap.add_argument("--out", type=str, default="outputs/maze_bfs")
-    ap.add_argument("--agent", type=str, default="bfs", help="bfs | haq (CLI fallback)")
+    ap.add_argument("--agent", type=str, default="bfs", help="bfs | astar | haq (CLI fallback)")
     args = ap.parse_args()
 
     cfg = _load_config(args)
@@ -108,8 +109,17 @@ def main() -> None:
     budget_rows = []
     for ep in range(cfg.episodes):
         env.reset()
-        if atype == "bfs":
-            actions = bfs_path(env)
+
+        if atype in ("bfs", "astar"):
+            # --- choose pathfinder ---
+            if atype == "bfs":
+                actions = bfs_path(env)
+                agent_tag = "bfs"
+            else:
+                actions = astar_path(env)
+                agent_tag = "astar"
+
+            # --- execute plan + log metrics (shared for bfs/astar) ---
             steps = 0
             total_reward = 0.0
             for act in actions:
@@ -120,7 +130,8 @@ def main() -> None:
                     break
             write_metric_line(metrics_path, {"metric": "episode_steps", "episode": ep, "value": steps})
             write_metric_line(metrics_path, {"metric": "episode_return", "episode": ep, "value": total_reward})
-            budget_rows.append({"episode": ep, "flops_step": 1, "memory_bytes": 0, "agent": "bfs"})
+            budget_rows.append({"episode": ep, "flops_step": 1, "memory_bytes": 0, "agent": agent_tag})
+
         elif atype == "haq":
             # CO agent for maze
             try:
@@ -132,7 +143,6 @@ def main() -> None:
             except Exception:
                 raise RuntimeError("agent=haq requested but agents.co.agent_maze is not importable")
 
-            env.reset()
             steps = 0
             total_reward = 0.0
             done = False

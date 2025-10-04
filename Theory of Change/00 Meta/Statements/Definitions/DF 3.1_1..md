@@ -1,0 +1,1 @@
+Pointer (x⇖y) := where we say y points to x. Where we denote y as Pointer Origin and x as Target.

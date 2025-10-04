@@ -1,0 +1,1 @@
+Tension := Structural reference to difference entailed in change.

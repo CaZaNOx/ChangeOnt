@@ -1,0 +1,1 @@
+Change:= That which enables Arisal(y) of New(y) for atleast one y

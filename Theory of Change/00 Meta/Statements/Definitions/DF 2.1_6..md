@@ -1,0 +1,1 @@
+happening$_{new}$ := arisal of happening y where $\nexists$ happening x such that diff(x,y)$= \emptyset$ 

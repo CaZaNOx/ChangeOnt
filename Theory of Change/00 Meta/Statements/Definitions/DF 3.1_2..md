@@ -1,0 +1,1 @@
+Arisal(x) :=  Change led to x becoming-present 

@@ -1,0 +1,1 @@
+Pointer ⭦(x) := implied difference in a happening. Where x refers to what is pointed to.

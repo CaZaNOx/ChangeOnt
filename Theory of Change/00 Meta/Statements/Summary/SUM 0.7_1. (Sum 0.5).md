@@ -1,0 +1,2 @@
+The fact that this current experience differs from what was before means some change led to/created this difference of experience and that there is change in the current experience.
+#Summary #Chapter0/7

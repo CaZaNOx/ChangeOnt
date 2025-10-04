@@ -1,0 +1,1 @@
+Arising := Change leading to something happening

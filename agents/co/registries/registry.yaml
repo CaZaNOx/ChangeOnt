@@ -9,6 +9,11 @@ primitives:
   hysteresis:
     impl: agents.co.core.primitives.hysteresis:Hysteresis
     defaults: { threshold: 0.5, retain: 0.2 }
+  ema:
+    impl: agents.co.core.primitives.filters.ema:EMA
+    defaults: { alpha: 0.2 }
+  equivalence: agents.co.core.primitives.equivalence:Equivalence
+
   # ...
 
 elements:

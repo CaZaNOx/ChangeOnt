@@ -1,0 +1,7 @@
+For [[DF 1.2_2.]]
+1) Anything in the relevant location of the Tuple is to be understood as what the position in the tuple signifies so ES-Tuple (x,y,z) means x is a Subject, y is a SoE and z is a CoE.
+2) If there is specific topics pointed out or talked about like MoE we can write:	  (x, MoE, z) where MoE expresses any MoE$\subseteq$SoE 
+   and (x, MoE(y),z) expresses a specific MoE called y. If not described differently it is assumed that the remaining structure required for experiencing is filled as general SoE.  
+   This applys to any introduced concept relevant to the Tuple including S, SoE, CoE and any subset thereof. We can therefore state (x,y,z) = (S(x), SoE(y), CoE(z))
+3) Any elements of the tuple (x,y,z) are never really understood as single elements. Instead we understand them as "reasonable sets". 
+   The expression "reasonable sets" tries to express that in change ontology a classical single element doesn't exist trivially. So if we speak of MoE(y) where for example y="Thinking" we don't intend to express that thinking is some minimal element of MoE. Afterall it could be reasoned that thinking might or might not be a complex construct out of other more fundamental elements of SoE. Similarly we don't want to express with using z="This statement" that "This statement" is some minimal content that couldn't in theory be broken up in to more fine grained CoE. Or for x=Subject that some minimal Subject property wise exists that stays exactly the same over different experiences

@@ -1,0 +1,1 @@
+Doubting Subject (DS) := A subject that has MoE(Doubt) regarding all contents. We say ES-Tuple of the DS is (DS, MoE(Doubt), CoE)

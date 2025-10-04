@@ -1,0 +1,1 @@
+C(Now) := Change is present in the now.

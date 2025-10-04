@@ -1,0 +1,2 @@
+> Believe(x) := Is a property of/function on Experience understood as degree to which a subject perceives a CoE(x) to be true for a specific MoE(x).
+> We say that for an Experience E(MoE(x),CoE(y)) the function/property Believe(E) specifies how blurry a CoE(y) is in relation to the MoE(x) applied to generate this specific Experience E regarding the truthfulness of CoE(y)

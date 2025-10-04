@@ -1,0 +1,3 @@
+Of [[FT 0.7_1. (FT 0.3)]]
+If nothing would ever happen a subject becoming aware of it's experience wouldn't happen. It was shown that by Definition a subject requires that it becomes aware of it's experience. Therefore you being aware of this statement requires that you became aware of this statement meaning you becoming aware happened. If someone claims that nothing is happening (without having refuted the prior definitions) they perform a [[DF 0.1_1.|PC]]. 
+#Counterfactual #Chapter0/7

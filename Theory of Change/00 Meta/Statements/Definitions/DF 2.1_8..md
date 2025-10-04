@@ -1,0 +1,1 @@
+Prior := that which lead to the current arisal

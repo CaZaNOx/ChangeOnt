@@ -1,0 +1,2 @@
+From [[CR 1.2_10.]], [[CR 1.2_11.]] [[CR 1.2_12.]] and [[DF 1.2_16.]]
+A DS limited in its ability to hold CoE as true that lead to a SC is not able to doubt certain CoE and can hold certain CoE as being true.

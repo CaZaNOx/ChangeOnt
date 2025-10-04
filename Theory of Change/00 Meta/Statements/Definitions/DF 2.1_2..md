@@ -1,0 +1,1 @@
+Difference := that which tells happenings apart.

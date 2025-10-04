@@ -1,0 +1,2 @@
+From [[CR 3.1_1.]]
+The capability to point outside experience allows the DS to become aware of it's pointing where what is pointed at is not part of it's experience. There's a sense of not this experience.

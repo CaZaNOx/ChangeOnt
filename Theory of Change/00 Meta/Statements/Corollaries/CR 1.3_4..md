@@ -1,0 +1,3 @@
+From [[CR 1.3_3.]] , [[CR 1.2_15.]], [[CR 1.2_12.]], [[SF 1.3_1]], [[CR 1.2_7.]]  and [[DF 1.2_7.]]
+Because Experience E(SoE, CoE) is defined as a grouping of components of the ES-Tuple and we know that the complete ES-Tuple holds for the DS the grouping can't be doubted by the DS without SC since it would require doubting components of the ES-Tuple or doubting that SoE and CoE can be grouped.
+Further the DS can't doubt that there is a specific Experience E$_x$ taking place Now as Now(E$_x$) without SC

@@ -127,16 +127,16 @@ def run(config_path: Optional[str]) -> dict:
         agent = NGramFSM(A=A, k=max(0, L - 1))
     elif mode == "vom":
         agent = VOKT(A=A, max_order=int(params.get("max_order", max(0, L - 1))))
-    elif mode == "haq":
-        from agents.co.agent_renewal import HAQAgent, HAQCfg  # type: ignore
+    elif mode == "co":
+        from agents.co.adapters.renewal_adapter import CORenewalAgent, CORenewalCfg
         cfg_kwargs = {"A": A, "L_win": L, **params}
         if "L" in params:
             cfg_kwargs.pop("L_win", None)
         try:
-            agent = HAQAgent(HAQCfg(**cfg_kwargs))
+            agent = CORenewalAgent(CORenewalCfg(**cfg_kwargs))
         except TypeError:
             cfg_kwargs2 = {"A": A, "L": L, **params}
-            agent = HAQAgent(HAQCfg(**cfg_kwargs2))
+            agent = CORenewalAgent(CORenewalCfg(**cfg_kwargs2))
 
     agent.reset(obs)  # type: ignore[attr-defined]
 

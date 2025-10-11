@@ -1,0 +1,9 @@
+header:
+  name: CS
+  static:
+    family: maze
+elements: []
+wiring:
+  pipeline: []
+env_adapter: maze
+metrics_out: [expansions, path_cost, success, overhead_pct]

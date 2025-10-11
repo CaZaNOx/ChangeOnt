@@ -1,0 +1,24 @@
+header:
+  name: SSI
+  static:
+    family: maze
+    # optional tighter ranges:
+    tau: [0.00, 0.20]
+    eps: [0.00, 0.12]
+    alpha: [0.00, 0.18]
+    gamma: [0.05, 0.03]
+    cooldown: [20, 10]
+elements:
+  - name: EI_change_operators
+    enabled: true
+    params: { k: 4, eps: 0.08, base_metric: edit }
+  - name: EB_ghvc
+    enabled: true
+    params: { gamma: 0.03, cooldown: 10 }
+  - name: EA_haq
+    enabled: true
+    params: { haq_policy: R_gated }
+wiring:
+  pipeline: [EI_change_operators, EB_ghvc, EA_haq]
+env_adapter: maze
+metrics_out: [expansions, path_cost, success, H, SSI_agreement, tau, eps, k, alpha_series]

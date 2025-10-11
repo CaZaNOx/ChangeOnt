@@ -91,7 +91,7 @@ def main() -> None:
     ap.add_argument("--maze", type=str, default=None, help="spec.yaml path (fallback)")
     ap.add_argument("--episodes", type=int, default=5)
     ap.add_argument("--out", type=str, default="outputs/maze_bfs")
-    ap.add_argument("--agent", type=str, default="bfs", help="bfs | astar | haq (CLI fallback)")
+    ap.add_argument("--agent", type=str, default="bfs", help="bfs | astar | co (CLI fallback)")
     args = ap.parse_args()
 
     cfg = _load_config(args)
@@ -132,16 +132,16 @@ def main() -> None:
             write_metric_line(metrics_path, {"metric": "episode_return", "episode": ep, "value": total_reward})
             budget_rows.append({"episode": ep, "flops_step": 1, "memory_bytes": 0, "agent": agent_tag})
 
-        elif atype == "haq":
+        elif atype == "co":
             # CO agent for maze
             try:
-                from agents.co.agent_maze import HAQMazeCfg, HAQMazeAgent  # type: ignore
+                from agents.co.adapters.maze_adapter import COMazeAgent, COMazeCfg
                 try:
-                    agent = HAQMazeAgent(HAQMazeCfg(**aparams))
+                    agent = COMazeAgent(COMazeCfg(**aparams))
                 except Exception:
-                    agent = HAQMazeAgent(HAQMazeCfg())
+                    agent = COMazeAgent(COMazeCfg())
             except Exception:
-                raise RuntimeError("agent=haq requested but agents.co.agent_maze is not importable")
+                raise RuntimeError("agent=co requested but agents.co.agent_maze is not importable")
 
             steps = 0
             total_reward = 0.0
@@ -158,7 +158,7 @@ def main() -> None:
                     break
             write_metric_line(metrics_path, {"metric": "episode_steps", "episode": ep, "value": steps})
             write_metric_line(metrics_path, {"metric": "episode_return", "episode": ep, "value": total_reward})
-            budget_rows.append({"episode": ep, "flops_step": 1, "memory_bytes": 0, "agent": "haq"})
+            budget_rows.append({"episode": ep, "flops_step": 1, "memory_bytes": 0, "agent": "co"})
         else:
             raise ValueError(f"unknown agent: {atype}")
 

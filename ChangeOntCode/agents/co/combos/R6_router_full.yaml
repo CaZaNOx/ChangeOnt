@@ -1,0 +1,39 @@
+header:
+  name: ID
+  static: { family: maze }
+  dynamic:
+    beta: 0.15
+    hysteresis: { enter: 0.55, exit: 0.45 }
+    weights: { V: 0.20, CP: 0.25, H: 0.15, K: 0.20, R: 0.10, MRAI: 0.10 }
+    thresholds: { CS: 0.25, SSI: 0.60 }
+    math_thresholds: { hybrid: 0.35, full_co: 0.60 }
+elements:
+  - name: EF_router_gil
+    enabled: true
+    params:
+      beta: 0.15
+      hysteresis: { enter: 0.55, exit: 0.45 }
+      weights: { V: 0.20, CP: 0.25, H: 0.15, K: 0.20, R: 0.10, MRAI: 0.10 }
+      thresholds: { CS: 0.25, SSI: 0.60 }
+      math_thresholds: { hybrid: 0.35, full_co: 0.60 }
+  - name: EC_identity
+    enabled: true
+  - name: EG_density_precision
+    enabled: true
+    params: { mode: adaptive, r_static: 1 }
+  - name: EI_change_operators
+    enabled: true
+    params: { k: 4, eps: 0.10, base_metric: edit }
+  - name: EB_ghvc
+    enabled: true
+    params: { gamma: 0.03, cooldown: 10 }
+  - name: EH_breadth_depth
+    enabled: true
+    params: { mix_mode: dyn_blend }
+  - name: EA_haq
+    enabled: true
+    params: { haq_policy: R_gated }
+wiring:
+  pipeline: [EF_router_gil, EC_identity, EG_density_precision, EI_change_operators, EB_ghvc, EH_breadth_depth, EA_haq]
+env_adapter: maze
+metrics_out: [dyn, tag, tau, eps, alpha_cap, gamma_eff, cooldown_eff, p_breadth, r_prime, births, k, H]

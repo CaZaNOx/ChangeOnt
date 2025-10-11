@@ -1,43 +1,33 @@
 # agents/co/registries/registry.yaml
-primitives:
-  infimum_lift:
-    impl: agents.co.core.primitives.infimum_lift:InfimumLift
-    defaults: { window: 32, alpha: 0.8, normalize: unit_interval }
-  loop_score:
-    impl: agents.co.core.primitives.loop_score:LoopScore
-    defaults: { max_period: 16, min_strength: 0.0 }
-  hysteresis:
-    impl: agents.co.core.primitives.hysteresis:Hysteresis
-    defaults: { threshold: 0.5, retain: 0.2 }
-  ema:
-    impl: agents.co.core.primitives.filters.ema:EMA
-    defaults: { alpha: 0.2 }
-  equivalence: agents.co.core.primitives.equivalence:Equivalence
-
-  # ...
+headers:
+  CS:  "agents.co.headers.H_CS:HeaderCS"
+  ID:  "agents.co.headers.H_ID:HeaderID"
+  SSI: "agents.co.headers.H_SSI:HeaderSSI"
 
 elements:
-  a_haq:
-    impl: agents.co.core.elements.a_haq:ElementA_HAQ
-  b_transition_memory:
-    impl: agents.co.core.elements.b_transition_memory:ElementB_TM
-  c_stability:
-    impl: agents.co.core.elements.c_stability:ElementC_Stability
-  # ...
+  EA_haq:               "agents.co.core.elements.EA_haq:EA_HAQ"
+  EB_ghvc:              "agents.co.core.elements.EB_ghvc:EB_GHVC"
+  EC_identity:          "agents.co.core.elements.EC_identity:EC_Identity"
+  EI_change_operators:  "agents.co.core.elements.EI_change_operators:EI_ChangeOps"
+  EG_density_precision: "agents.co.core.elements.EG_density_precision:EG_Density"
+  EH_breadth_depth:     "agents.co.core.elements.EH_breadth_depth:EH_BreadthDepth"
+  EF_router_gil:        "agents.co.core.elements.EF_router_gil:EF_Router"
 
-headers:
-  static_bias:
-    impl: agents.co.core.headers.static_bias:HeaderStaticBias
-  dynamicity_detector:
-    impl: agents.co.core.headers.dynamicity_detector:HeaderDynamicity
-  # ...
+adapters:
+  maze:     "agents.co.adapters.maze_adapter:COAgentMaze"
+  bandit:   "agents.co.adapters.bandit_adapter:COAgentBandit"
+  renewal:  "agents.co.adapters.renewal_adapter:COAgentRenewal"
 
-math:
-  classic:
-    plus:    agents.co.core.math.classic_ops:classic_plus
-    times:   agents.co.core.math.classic_ops:classic_times
-    minus:   agents.co.core.math.classic_ops:classic_minus
-  co:
-    plus:    agents.co.core.math.co_ops:co_plus
-    times:   agents.co.core.math.co_ops:co_times
-    or:      agents.co.core.math.co_ops:co_or
+# Optional: these modules are available to elements/headers via imports
+combinators:
+  classic_ops: "agents.co.core.combinators.classic_ops"
+  co_ops:      "agents.co.core.combinators.co_ops"
+
+logic:
+  semiring:    "agents.co.core.logic.co_math_semiring"
+  tri_diag:    "agents.co.core.logic.diagnostic_tri"
+
+primitives:
+  calibrators: "agents.co.core.primitives.calibrators"
+  budget:      "agents.co.core.primitives.budget"
+  identity:    "agents.co.core.primitives.identity"

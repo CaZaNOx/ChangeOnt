@@ -1,0 +1,16 @@
+co_agents:
+  - name: co1
+    headers:
+      loop_signal:
+        alpha: 0.20
+        hysteresis:
+          up_thresh: 0.65
+          down_thresh: 0.45
+
+  - name: co2
+    headers:
+      loop_signal:
+        alpha: 0.05
+        hysteresis:
+          up_thresh: 0.55
+          down_thresh: 0.35

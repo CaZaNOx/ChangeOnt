@@ -17,7 +17,7 @@ from agents.stoa.bandit.k1_ucb import KLUCB
 
 # ---- CO adapter (seeded & deterministic) ----
 try:
-    from agents.co.agent_bandit import COBanditAgent, COBanditCfg
+    from agents.co.adapters.bandit_adapter import COBanditAgent, COBanditCfg
     HAS_CO = True
 except Exception:
     HAS_CO = False
@@ -28,7 +28,7 @@ except Exception:
 class BanditConfig:
     probs: List[float]
     horizon: int
-    agent: str = "ucb1"           # 'ucb1' | 'epsgreedy' | 'haq'
+    agent: str = "ucb1"           # 'ucb1' | 'epsgreedy' | 'co'
     epsilon: float = 0.1          # only for epsgreedy
     seed: int = 0
     out: str = "outputs/bandit_ucb"
@@ -106,10 +106,10 @@ def main() -> None:
     elif cfg.agent == "kl_ucb":
         # no params in current config; use default exploration constant
         agent = KLUCB(env.n_arms, c=0.0); agent_tag = "kl_ucb"
-    elif cfg.agent == "haq":
+    elif cfg.agent == "co":
         if not HAS_CO:
             raise RuntimeError("CO adapter not available: agents.co.agent_bandit")
-        agent = COBanditAgent(COBanditCfg(n_arms=env.n_arms, seed=cfg.seed, ema_alpha=0.0)); agent_tag = "haq"
+        agent = COBanditAgent(COBanditCfg(n_arms=env.n_arms, seed=cfg.seed, ema_alpha=0.0)); agent_tag = "co"
     else:
         raise ValueError(f"unknown agent type: {cfg.agent}")
 

@@ -1,0 +1,43 @@
+# agents/co/registries/registry.yaml
+primitives:
+  infimum_lift:
+    impl: agents.co.core.primitives.infimum_lift:InfimumLift
+    defaults: { window: 32, alpha: 0.8, normalize: unit_interval }
+  loop_score:
+    impl: agents.co.core.primitives.loop_score:LoopScore
+    defaults: { max_period: 16, min_strength: 0.0 }
+  hysteresis:
+    impl: agents.co.core.primitives.hysteresis:Hysteresis
+    defaults: { threshold: 0.5, retain: 0.2 }
+  ema:
+    impl: agents.co.core.primitives.filters.ema:EMA
+    defaults: { alpha: 0.2 }
+  equivalence: agents.co.core.primitives.equivalence:Equivalence
+
+  # ...
+
+elements:
+  a_haq:
+    impl: agents.co.core.elements.a_haq:ElementA_HAQ
+  b_transition_memory:
+    impl: agents.co.core.elements.b_transition_memory:ElementB_TM
+  c_stability:
+    impl: agents.co.core.elements.c_stability:ElementC_Stability
+  # ...
+
+headers:
+  static_bias:
+    impl: agents.co.core.headers.static_bias:HeaderStaticBias
+  dynamicity_detector:
+    impl: agents.co.core.headers.dynamicity_detector:HeaderDynamicity
+  # ...
+
+math:
+  classic:
+    plus:    agents.co.core.math.classic_ops:classic_plus
+    times:   agents.co.core.math.classic_ops:classic_times
+    minus:   agents.co.core.math.classic_ops:classic_minus
+  co:
+    plus:    agents.co.core.math.co_ops:co_plus
+    times:   agents.co.core.math.co_ops:co_times
+    or:      agents.co.core.math.co_ops:co_or

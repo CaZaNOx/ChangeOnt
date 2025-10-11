@@ -44,6 +44,62 @@ from experiments.plotting.main import (
     summarize_suite,
 )
 
+# ---- CO manifest loader / injector ------------------------------------------
+
+def _load_co_manifest(path: str | Path) -> dict:
+    p = Path(path)
+    if not p.exists():
+        return {}
+    with p.open("r", encoding="utf-8") as f:
+        data = yaml.safe_load(f) or {}
+    agents = data.get("co_agents", data.get("variants", []))
+    data["_co_agents_norm"] = agents if isinstance(agents, list) else []
+    return data
+
+def _append_agents(dst_list: list, extra: list) -> list:
+    """Append agents avoiding duplicates by (type, name)."""
+    if not extra:
+        return dst_list
+    out = list(dst_list or [])
+    seen = {(a.get("type"), a.get("name")) for a in out if isinstance(a, dict)}
+    for e in extra:
+        if isinstance(e, dict):
+            key = (e.get("type"), e.get("name"))
+            if key not in seen:
+                out.append(e)
+                seen.add(key)
+    return out
+
+def _inject_co_everywhere(suite_cfg: dict, co_manifest: dict) -> dict:
+    """Append CO agents to every family/mode in suite_cfg."""
+    co_agents = co_manifest.get("_co_agents_norm", [])
+    if not co_agents:
+        return suite_cfg
+    out = dict(suite_cfg)
+    fam = out.get("families", {})
+
+    # Bandit: problems[*].agents
+    b = fam.get("bandit")
+    if b and "problems" in b:
+        for prob in b["problems"]:
+            prob["agents"] = _append_agents(prob.get("agents", []), co_agents)
+
+    # Maze: envs[*].agents
+    m = fam.get("maze")
+    if m and "envs" in m:
+        for env in m["envs"]:
+            env["agents"] = _append_agents(env.get("agents", []), co_agents)
+
+    # Renewal: instances[*].agents
+    r = fam.get("renewal")
+    if r and "instances" in r:
+        for inst in r["instances"]:
+            inst["agents"] = _append_agents(inst.get("agents", []), co_agents)
+
+    return out
+
+
+
 # -------------------
 # Bandit executor
 # -------------------
@@ -208,11 +264,14 @@ class SuiteCfg:
 def main() -> None:
     ap = argparse.ArgumentParser(description="Run a multi-family suite (STOA + CO) from one YAML.")
 
-    cfg_raw = _load_yaml(Path("experiments/configs/suite_all.yaml"))
-    out_root = Path(cfg_raw.get("out_root", "outputs/suite"))
+    suite_cfg = _load_yaml(Path("experiments/configs/suite_all.yaml"))
+    out_root = Path(suite_cfg.get("out_root", "outputs/suite"))
     _ensure_dir(out_root)
 
-    fams = dict(cfg_raw.get("families", {}))
+    fams = dict(suite_cfg.get("families", {}))
+
+    co_manifest = _load_co_manifest("experiments/configs/co_agents/co_agents_selection.yaml")
+    suite_cfg = _inject_co_everywhere(suite_cfg, co_manifest)
 
     if "maze" in fams:
         _suite_maze(out_root, dict(fams["maze"]))

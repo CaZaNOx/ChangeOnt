@@ -1,3 +1,0 @@
-env,agent,episodes,mean_steps
-maze_7x7,astar_s7,5,12.0
-maze_7x7,bfs_s7,5,12.0

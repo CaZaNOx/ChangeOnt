@@ -1,0 +1,25 @@
+name: CO_full
+math_policy: co
+header:
+  type: SSI
+  params: { alpha: 0.2, eps_init: 1.0 }
+elements:
+  - { key: "A", class: "EA_HAQ", params: { } }
+  - { key: "B", class: "EB_GHVC", params: { } }
+  - { key: "C", class: "EC_Identity", params: { } }
+  - { key: "D", class: "ED_GaugeWarp", params: { alpha: 0.1 } }
+  - { key: "E", class: "EE_Compressibility", params: { window: 32 } }
+  - { key: "F", class: "EF_RouterGIL", params: { } }
+  - { key: "G", class: "EG_DensityPrecision", params: { } }
+  - { key: "H", class: "EH_BreadthDepth", params: { } }
+  - { key: "I", class: "EI_ChangeOperators", params: { } }
+primitives:
+  P10: { class: "ChangeOpsCore", params: { k: 4, epsilon: 1.0, mdλ: 0.5 } }
+  P11: { class: "Residuation", params: { } }
+  P12: { class: "ClosureQuotient", params: { epsilon: 1.0 } }
+  P13: { class: "CreativeOptionBirth", params: { mdl_lambda: 1.0, threshold: 2.0, cooldown: 5 } }
+  P14: { class: "DepthBreadthFlip", params: { max_rate: 0.2 } }
+combinators:
+  pipeline: { class: "C_Pipeline", params: { } }
+  gate:     { class: "C_Gate",     params: { prefer: "auto", co_bias: 0.6 } }
+  math:     { class: "C_MathPolicy", params: { policy: "co" } }

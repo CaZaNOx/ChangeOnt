@@ -1,0 +1,14 @@
+name: CO_router
+math_policy: co
+header: { type: SSI, params: { alpha: 0.2, eps_init: 0.5 } }
+elements:
+  - { key: "A", class: "EA_HAQ", params: { } }
+  - { key: "F", class: "EF_RouterGIL", params: { } }
+primitives:
+  P10: { class: "ChangeOpsCore", params: { k: 3, epsilon: 0.5 } }
+  P11: { class: "Residuation", params: { } }
+  P12: { class: "ClosureQuotient", params: { epsilon: 0.5 } }
+combinators:
+  pipeline: { class: "C_Pipeline", params: { } }
+  gate:     { class: "C_Gate",     params: { prefer: "auto", co_bias: 0.7 } }
+  math:     { class: "C_MathPolicy", params: { policy: "co" } }

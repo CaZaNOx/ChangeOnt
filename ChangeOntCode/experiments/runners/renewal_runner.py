@@ -19,6 +19,13 @@ from environments.renewal.env import CodebookRenewalEnvW, EnvCfg
 from agents.stoa.renewal.vo_markov import VOKT
 from experiments.logging.logging import write_metric_line, write_budget_csv
 
+# CO adapter + core builder
+try:
+    from agents.co.adapters.renewal_adapter import COAdapterRenewal
+    from agents.co.integration.core_builder import build_co_core
+    HAS_CO = True
+except Exception:
+    HAS_CO = False
 
 def _seed_all(seed: int) -> None:
     random.seed(seed)
@@ -27,7 +34,6 @@ def _seed_all(seed: int) -> None:
             np.random.seed(seed)  # type: ignore[attr-defined]
         except Exception:
             pass
-
 
 def _safe_copy(src: Path, dst: Path, retries: int = 12, delay: float = 0.12) -> None:
     if not src.exists():
@@ -41,7 +47,6 @@ def _safe_copy(src: Path, dst: Path, retries: int = 12, delay: float = 0.12) -> 
             time.sleep(delay)
     shutil.copy2(src, dst)
 
-
 @dataclass
 class _RunCfg:
     seed: int
@@ -50,7 +55,6 @@ class _RunCfg:
     mode: str
     agent: Dict[str, Any]
     env: Dict[str, Any]
-
 
 def run(config_path: Optional[str]) -> dict:
     cfg: Dict[str, Any] = {
@@ -101,6 +105,8 @@ def run(config_path: Optional[str]) -> dict:
     agent_cfg = dict(cfg.get("agent", {}))
     mode = str(agent_cfg.get("type", cfg.get("type", cfg.get("mode", "last")))).lower()
     params = dict(agent_cfg.get("params", cfg.get("params", {})))
+    aname = agent_cfg.get("name")
+    agent_tag = mode if not aname else f"{mode}:{aname}"
 
     A = int(cfg["env"]["A"])
     L = int(cfg["env"]["L_win"])
@@ -118,7 +124,9 @@ def run(config_path: Optional[str]) -> dict:
         def budget_row(self) -> dict:
             return {"params_bits": 0, "flops_per_step": 1, "memory_bytes": 0}
 
+    # Default agent (simple baseline)
     agent = _PredictLastFSM(A)
+
     if mode == "phase":
         from agents.stoa.renewal.agent_fsm import PhaseFSM
         agent = PhaseFSM(A=A, L_win=L)
@@ -128,63 +136,77 @@ def run(config_path: Optional[str]) -> dict:
     elif mode == "vom":
         agent = VOKT(A=A, max_order=int(params.get("max_order", max(0, L - 1))))
     elif mode == "co":
-        from agents.co.adapters.renewal_adapter import CORenewalAgent, CORenewalCfg
-        cfg_kwargs = {"A": A, "L_win": L, **params}
-        if "L" in params:
-            cfg_kwargs.pop("L_win", None)
-        try:
-            agent = CORenewalAgent(CORenewalCfg(**cfg_kwargs))
-        except TypeError:
-            cfg_kwargs2 = {"A": A, "L": L, **params}
-            agent = CORenewalAgent(CORenewalCfg(**cfg_kwargs2))
+        if not HAS_CO:
+            raise RuntimeError("agent=co requested but agents.co.adapters.renewal_adapter is not importable")
+        core = build_co_core(params)
+        agent = COAdapterRenewal(core=core, name=(aname or "CO_full"))
 
-    agent.reset(obs)  # type: ignore[attr-defined]
-
-    # budget row
+    # budget row (one-time)
     try:
-        budget_row = agent.budget_row()  # type: ignore[attr-defined]
-        if not isinstance(budget_row, dict):
-            raise TypeError
+        # Your adapters don't expose budget; keep a tiny row anyway
+        budget_row = {"params_bits": 0, "flops_per_step": 0, "memory_bytes": 0}
     except Exception:
         budget_row = {"params_bits": 0, "flops_per_step": 0, "memory_bytes": 0}
     write_budget_csv(budget_path, [budget_row])
 
-    # OPTIONAL header (harmless; some tooling reads it)
     write_metric_line(metrics_path, {
         "record_type": "header",
         "runner": "renewal",
         "seed": seed,
         "env": cfg["env"],
         "mode": mode,
-        "agent": {"type": mode, "params": params},
+        "agent": agent_tag,
         "float32": True,
     })
 
-    # --- SINGLE SERIES logging (raw renewal schema) ---
-    # Per-step: one line {'t': t, 'cum_reward': cum}
-    # Final:    one line {'final_cum_reward': cum}
+    # --- single series logging ---
     cum = 0.0
     for t in range(steps):
-        act = agent.act(obs)  # type: ignore[attr-defined]
+        if mode == "co":
+            # Your adapter API
+            sel = None
+            try:
+                sel = agent.select({"obs": obs, "t": t, "A": A})  # type: ignore[attr-defined]
+            except Exception:
+                pass
+            if isinstance(sel, dict) and "action" in sel:
+                act = sel["action"]
+            else:
+                act = 0  # safe default for env.step
+        else:
+            # STOA baselines
+            try:
+                act = agent.act(obs)  # type: ignore[attr-defined]
+            except Exception:
+                act = 0
+
+        if isinstance(act, bool):
+            act = int(act)
+        if not isinstance(act, int):
+            act = 0
+
         obs, r, done, info = env.step(act)
         cum += float(r)
 
-        write_metric_line(metrics_path, {"t": int(t), "cum_reward": float(cum)})
+        if mode == "co":
+            try:
+                agent.update({"observation": obs, "reward": r, "done": done, "action": act})  # type: ignore[attr-defined]
+            except Exception:
+                pass
 
+        write_metric_line(metrics_path, {"t": int(t), "cum_reward": float(cum)})
         if done:
             break
 
     write_metric_line(metrics_path, {"final_cum_reward": float(cum)})
 
-    # quick plot (reads raw just fine); title includes seed
     try:
         from experiments.plotting.plotting import save_quick_plot
-        save_quick_plot(metrics_path, plot_path, title=f"Renewal {mode}_s{seed}")
+        save_quick_plot(metrics_path, plot_path, title=f"Renewal {agent_tag}_s{seed}")
     except Exception:
         pass
 
     return {"metrics": str(metrics_path), "budget": str(budget_path)}
-
 
 def main() -> None:
     ap = argparse.ArgumentParser(description="Renewal FSM/CO runner")
@@ -199,11 +221,13 @@ def main() -> None:
         out_dir.mkdir(parents=True, exist_ok=True)
         src_m = Path(paths["metrics"])
         src_b = Path(paths["budget"])
-        dst_m = out_dir / src_m.name
-        dst_b = out_dir / src_b.name
-        _safe_copy(src_m, dst_m)
-        _safe_copy(src_b, dst_b)
-
+        def _safe_copy_local(src: Path, dst: Path) -> None:
+            try:
+                shutil.copy2(src, dst)
+            except Exception:
+                pass
+        _safe_copy_local(src_m, out_dir / src_m.name)
+        _safe_copy_local(src_b, out_dir / src_b.name)
 
 if __name__ == "__main__":
     main()

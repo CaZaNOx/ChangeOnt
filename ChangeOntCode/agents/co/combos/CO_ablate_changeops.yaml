@@ -1,0 +1,10 @@
+name: CO_ablate_changeops
+math_policy: co
+header: { type: SSI, params: { alpha: 0.2, eps_init: 1.0 } }
+elements:
+  - { key: "A", class: "EA_HAQ", params: { } }
+  - { key: "G", class: "EG_DensityPrecision", params: { } }
+primitives: { }
+combinators:
+  pipeline: { class: "C_Pipeline", params: { } }
+  math:     { class: "C_MathPolicy", params: { policy: "co" } }

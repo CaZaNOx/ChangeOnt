@@ -1,0 +1,10 @@
+name: CO_baseline
+math_policy: classical
+header: { type: CS, params: { } }
+elements:
+  - { key: "A", class: "EA_HAQ", params: { } }
+primitives: { }
+combinators:
+  pipeline: { class: "C_Pipeline", params: { } }
+  gate:     { class: "C_Gate",     params: { prefer: "classical" } }
+  math:     { class: "C_MathPolicy", params: { policy: "classical" } }

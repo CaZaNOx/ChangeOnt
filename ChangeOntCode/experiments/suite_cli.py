@@ -1,8 +1,11 @@
 # experiments/suite_cli.py
 # Wire per-mode, per-family, and suite-level summaries exactly once, in order.
+
 from __future__ import annotations
+
 import argparse
 import json
+import re
 import subprocess
 import sys
 from dataclasses import dataclass
@@ -35,6 +38,12 @@ def _write_tmp_yaml(obj: Dict[str, Any], path: Path) -> None:
     _ensure_dir(path.parent)
     path.write_text(yaml.safe_dump(obj, sort_keys=False), encoding="utf-8")
 
+def _slug(s: str) -> str:
+    s = str(s)
+    s = re.sub(r"\s+", "_", s.strip())
+    s = re.sub(r"[^a-zA-Z0-9_.-]+", "-", s)
+    return s[:80] if len(s) > 80 else s
+
 # Central summary wrappers
 from experiments.plotting.main import (
     summarize_bandit_mode,
@@ -54,24 +63,29 @@ def _load_co_manifest(path: str | Path) -> dict:
         data = yaml.safe_load(f) or {}
     agents = data.get("co_agents", data.get("variants", []))
     data["_co_agents_norm"] = agents if isinstance(agents, list) else []
+    data["_apply_all_families"] = bool(data.get("apply_to_all_families", True))
+    data["_apply_all_modes"] = bool(data.get("apply_to_all_modes", True))
     return data
 
 def _append_agents(dst_list: list, extra: list) -> list:
-    """Append agents avoiding duplicates by (type, name)."""
+    """Append agents, avoiding duplicates by (type, name-or-params-hash)."""
     if not extra:
         return dst_list
     out = list(dst_list or [])
-    seen = {(a.get("type"), a.get("name")) for a in out if isinstance(a, dict)}
+    def _key(d: dict) -> tuple:
+        t = d.get("type")
+        nm = d.get("name")
+        return (t, nm) if nm is not None else (t, json.dumps(d.get("params", {}), sort_keys=True))
+    seen = {_key(a) for a in out if isinstance(a, dict)}
     for e in extra:
         if isinstance(e, dict):
-            key = (e.get("type"), e.get("name"))
-            if key not in seen:
+            if _key(e) not in seen:
                 out.append(e)
-                seen.add(key)
+                seen.add(_key(e))
     return out
 
 def _inject_co_everywhere(suite_cfg: dict, co_manifest: dict) -> dict:
-    """Append CO agents to every family/mode in suite_cfg."""
+    """Append CO agents to every family/mode in suite_cfg (unless user disables)."""
     co_agents = co_manifest.get("_co_agents_norm", [])
     if not co_agents:
         return suite_cfg
@@ -98,8 +112,6 @@ def _inject_co_everywhere(suite_cfg: dict, co_manifest: dict) -> dict:
 
     return out
 
-
-
 # -------------------
 # Bandit executor
 # -------------------
@@ -120,23 +132,27 @@ def _suite_bandit(out_root: Path, spec: Dict[str, Any]) -> None:
                 if isinstance(agent, str):
                     agent_type = agent.lower()
                     agent_params = {}
+                    agent_name = None
                 else:
                     agent_type = str(agent.get("type", "ucb1")).lower()
                     agent_params = dict(agent.get("params", {}))
+                    agent_name = agent.get("name")
+
+                tag = agent_type if not agent_name else f"{agent_type}_{_slug(agent_name)}"
 
                 cfg = {
                     "env": {
                         "probs": list(env.get("probs", [0.1, 0.2, 0.8])),
                         "horizon": int(env.get("horizon", 2000)),
                     },
-                    "agent": {"type": agent_type, "params": agent_params},
+                    "agent": {"type": agent_type, "name": agent_name, "params": agent_params},
                     "seed": int(seed),
-                    "out": str(out_root / "bandit" / mode / f"{agent_type}_s{seed}"),
+                    "out": str(out_root / "bandit" / mode / f"{tag}_s{seed}"),
                 }
-                tmp = out_root / "tmp" / "bandit" / mode / f"{agent_type}_s{seed}.yaml"
+                tmp = out_root / "tmp" / "bandit" / mode / f"{tag}_s{seed}.yaml"
                 _write_tmp_yaml(cfg, tmp)
 
-                print(f"[bandit] {mode} :: agent={agent_type} seed={seed}")
+                print(f"[bandit] {mode} :: agent={tag} seed={seed}")
                 _run_module("experiments.runners.bandit_runner", "--config", str(tmp))
 
         # Per-mode summary (right after mode finishes)
@@ -166,9 +182,13 @@ def _suite_maze(out_root: Path, spec: Dict[str, Any]) -> None:
                 if isinstance(agent, str):
                     agent_type = agent.lower()
                     agent_params = {}
+                    agent_name = None
                 else:
                     agent_type = str(agent.get("type", "bfs")).lower()
                     agent_params = dict(agent.get("params", {}))
+                    agent_name = agent.get("name")
+
+                tag = agent_type if not agent_name else f"{agent_type}_{_slug(agent_name)}"
 
                 env_params = dict(env_cfg.get("params", {})) if isinstance(env_cfg.get("params"), dict) else {}
                 env_params.setdefault("width", 5)
@@ -179,16 +199,17 @@ def _suite_maze(out_root: Path, spec: Dict[str, Any]) -> None:
                     "env": {"spec_path": env_cfg.get("spec_path", None), "params": env_params},
                     "episodes": int(episodes),
                     "seed": int(seed),
-                    "out": str(out_root / "maze" / mode / f"{agent_type}_s{seed}"),
+                    "agent": {"type": agent_type, "name": agent_name, "params": agent_params},
+                    "out": str(out_root / "maze" / mode / f"{tag}_s{seed}"),
                 }
-                tmp = out_root / "tmp" / "maze" / mode / f"{agent_type}_s{seed}.yaml"
+                tmp = out_root / "tmp" / "maze" / mode / f"{tag}_s{seed}.yaml"
                 _write_tmp_yaml(cfg, tmp)
 
-                print(f"[maze] {mode} :: agent={agent_type} seed={seed}")
+                print(f"[maze] {mode} :: agent={tag} seed={seed}")
                 _run_module(
                     "experiments.runners.maze_runner",
                     "--config", str(tmp),
-                    "--agent", agent_type,
+                    "--agent", agent_type,   # CLI fallback ignored when config present
                     "--episodes", str(episodes),
                     "--out", cfg["out"],
                 )
@@ -220,15 +241,20 @@ def _suite_renewal(out_root: Path, spec: Dict[str, Any]) -> None:
                 if isinstance(agent, str):
                     agent_type = agent.lower()
                     agent_params = {}
+                    agent_name = None
                 else:
                     agent_type = str(agent.get("type", "last")).lower()
                     agent_params = dict(agent.get("params", {}))
+                    agent_name = agent.get("name")
+
+                tag = agent_type if not agent_name else f"{agent_type}_{_slug(agent_name)}"
 
                 cfg = {
                     "seed": int(seed),
                     "steps": int(steps),
-                    "agent": {                           # <-- write agent exactly like bandit/maze
+                    "agent": {
                         "type": agent_type,
+                        "name": agent_name,
                         "params": agent_params,
                     },
                     "env": {
@@ -238,12 +264,12 @@ def _suite_renewal(out_root: Path, spec: Dict[str, Any]) -> None:
                         "p_noise": float(env.get("p_noise", 0.0)),
                         "T_max": int(env.get("T_max", steps)),
                     },
-                    "out_dir": str(out_root / "renewal" / mode / f"{agent_type}_s{seed}"),
+                    "out_dir": str(out_root / "renewal" / mode / f"{tag}_s{seed}"),
                 }
-                tmp = out_root / "tmp" / "renewal" / mode / f"{agent_type}_s{seed}.yaml"
+                tmp = out_root / "tmp" / "renewal" / mode / f"{tag}_s{seed}.yaml"
                 _write_tmp_yaml(cfg, tmp)
 
-                print(f"[renewal] {mode} :: agent={agent_type} seed={seed}")
+                print(f"[renewal] {mode} :: agent={tag} seed={seed}")
                 _run_module("experiments.runners.renewal_runner", "--config", str(tmp))
 
         # Per-mode summary
@@ -270,8 +296,10 @@ def main() -> None:
 
     fams = dict(suite_cfg.get("families", {}))
 
+    # Load and inject CO variants everywhere
     co_manifest = _load_co_manifest("experiments/configs/co_agents/co_agents_selection.yaml")
     suite_cfg = _inject_co_everywhere(suite_cfg, co_manifest)
+    fams = dict(suite_cfg.get("families", {}))  # refresh after injection
 
     if "maze" in fams:
         _suite_maze(out_root, dict(fams["maze"]))

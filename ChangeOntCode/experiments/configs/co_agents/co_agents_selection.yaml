@@ -1,3 +1,4 @@
+# experiments/configs/co_agents/co_agents_selection.yaml
 apply_to_all_families: true
 apply_to_all_modes: true
 
@@ -6,13 +7,13 @@ co_agents:
   - type: "co"
     name: "CO_full"
     params:
-      math_policy: "co"     # co | classical | auto
+      math_policy: "co"      # co | classical | auto
       header:
-        mode: "SSI"         # SSI | ID | CS
+        mode: "SSI"          # SSI | ID | CS
       elements:
         haq:        { enabled: true, history_len: 64, ema_alpha: 0.2 }
         ghvc:       { enabled: true, mdl_lambda: 1.0, cooldown: 5, birth_threshold: 2.0 }
-        density:    { enabled: true, rounding: 2 }     # simple precision knob
+        density:    { enabled: true, rounding: 2 }
         change_ops: { enabled: true, k: 4, mdL_select: true }
 
   - type: "co"
@@ -27,7 +28,7 @@ co_agents:
         density:    { enabled: false }
         change_ops: { enabled: false }
 
-  # Add more here; comment out to disable
+  # Add more; comment out to disable
   # - type: "co"
   #   name: "CO_baseline"
   #   params:

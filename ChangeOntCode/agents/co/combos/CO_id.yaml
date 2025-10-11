@@ -1,0 +1,11 @@
+name: CO_id
+math_policy: co
+header: { type: ID, params: { eps: 0.5 } }
+elements:
+  - { key: "A", class: "EA_HAQ", params: { } }
+  - { key: "G", class: "EG_DensityPrecision", params: { } }
+primitives:
+  P10: { class: "ChangeOpsCore", params: { k: 3, epsilon: 0.5 } }
+combinators:
+  pipeline: { class: "C_Pipeline", params: { } }
+  math:     { class: "C_MathPolicy", params: { policy: "co" } }

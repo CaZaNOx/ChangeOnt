@@ -1,9 +1,0 @@
-# agents/co/combos/compositions/co_haq_plus_b_v1.yaml
-agent_id: co_haq_plus_b_v1
-math_context: co
-nodes:
-  a1: { type: element_variant, ref: a_haq_v1 }
-  b1: { type: element_variant, ref: b_transition_memory_v1 }
-edges:
-  - { src: a1, dst: b1, op: op_co_plus, weight: 1.0 }  # A1 (+)_co B1
-headers: []

@@ -1,0 +1,13 @@
+name: CO_ablate_density
+math_policy: co
+header: { type: SSI, params: { alpha: 0.2, eps_init: 1.0 } }
+elements:
+  - { key: "A", class: "EA_HAQ", params: { } }
+  - { key: "I", class: "EI_ChangeOperators", params: { } }
+primitives:
+  P10: { class: "ChangeOpsCore", params: { k: 4, epsilon: 1.0 } }
+  P11: { class: "Residuation", params: { } }
+  P12: { class: "ClosureQuotient", params: { epsilon: 1.0 } }
+combinators:
+  pipeline: { class: "C_Pipeline", params: { } }
+  math:     { class: "C_MathPolicy", params: { policy: "co" } }

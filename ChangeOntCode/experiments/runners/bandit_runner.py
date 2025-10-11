@@ -1,38 +1,33 @@
 ﻿# PATH: experiments/runners/bandit_runner.py
 from __future__ import annotations
+
 import argparse
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 
 from environments.bandit.bandit import BernoulliBanditEnv
 from agents.stoa.bandit.stoa_agent_bandit import UCB1Agent, EpsilonGreedyAgent
-from environments.maze1 import env
 from experiments.logging.logging import write_metric_line, write_budget_csv
 from agents.stoa.bandit.ts import ThompsonSampling
 from agents.stoa.bandit.k1_ucb import KLUCB
 
-
-
-# ---- CO adapter (seeded & deterministic) ----
+# ---- CO adapter (uses your adapter + a small core builder) ----
 try:
-    from agents.co.adapters.bandit_adapter import COBanditAgent, COBanditCfg
+    from agents.co.adapters.bandit_adapter import COAdapterBandit  # your class
+    from agents.co.integration.core_builder import build_co_core
     HAS_CO = True
 except Exception:
     HAS_CO = False
 
-
-# ---- config dataclass ----
 @dataclass
 class BanditConfig:
     probs: List[float]
     horizon: int
-    agent: str = "ucb1"           # 'ucb1' | 'epsgreedy' | 'co'
-    epsilon: float = 0.1          # only for epsgreedy
+    agent: Dict[str, Any]
     seed: int = 0
     out: str = "outputs/bandit_ucb"
-
 
 def _parse_yaml(text: str) -> dict:
     try:
@@ -41,28 +36,24 @@ def _parse_yaml(text: str) -> dict:
     except Exception:
         return {}
 
-
 def _load_config(args: argparse.Namespace) -> BanditConfig:
     if args.config:
         with open(args.config, "r", encoding="utf-8") as f:
             data = json.load(f) if args.config.endswith(".json") else _parse_yaml(f.read())
         env = data.get("env", {})
-        agent = data.get("agent", {})
+        agent = data.get("agent", {"type": args.agent.lower(), "params": {}})
         out = data.get("out", "outputs/bandit_ucb")
         return BanditConfig(
             probs=list(env.get("probs", [0.1, 0.2, 0.8])),
             horizon=int(env.get("horizon", 5000)),
-            agent=str(agent.get("type", data.get("agent", "ucb1"))).lower(),
-            epsilon=float(agent.get("params", {}).get("epsilon", 0.1)),
+            agent=agent if isinstance(agent, dict) else {"type": str(agent).lower(), "params": {}},
             seed=int(data.get("seed", 0)),
             out=str(out),
         )
+    # CLI fallback
     probs = [float(x) for x in args.probs.split(",")] if args.probs else [0.1, 0.2, 0.8]
-    return BanditConfig(
-        probs=probs, horizon=int(args.horizon), agent=args.agent.lower(),
-        epsilon=float(args.epsilon), seed=int(args.seed), out=str(args.out),
-    )
-
+    agent = {"type": args.agent.lower(), "params": {"epsilon": float(args.epsilon)}}
+    return BanditConfig(probs=probs, horizon=int(args.horizon), agent=agent, seed=int(args.seed), out=str(args.out))
 
 def _write_progress(out_dir: Path, t: int) -> None:
     try:
@@ -70,9 +61,8 @@ def _write_progress(out_dir: Path, t: int) -> None:
     except Exception:
         pass
 
-
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Bandit runner (UCB1 / ε-greedy / CO-HAQ)")
+    ap = argparse.ArgumentParser(description="Bandit runner (UCB1 / ε-greedy / KL-UCB / TS / CO)")
     ap.add_argument("--config", type=str, default=None, help="YAML/JSON config file")
     ap.add_argument("--probs", type=str, default=None, help="Comma-separated arm means (fallback if no config)")
     ap.add_argument("--horizon", type=int, default=5000)
@@ -88,32 +78,35 @@ def main() -> None:
     budget_path  = out_dir / "budget.csv"
     plot_path    = out_dir / "quick_plot.png"
 
-    # ---- truncate old files to avoid appends across runs ----
-    if metrics_path.exists():
-        metrics_path.unlink()
-    if budget_path.exists():
-        budget_path.unlink()
+    for p in (metrics_path, budget_path):
+        if p.exists(): p.unlink()
 
     env = BernoulliBanditEnv(cfg.probs, horizon=cfg.horizon)
     env.reset(seed=cfg.seed)
 
-    if cfg.agent == "ucb1":
-        agent = UCB1Agent(env.n_arms); agent_tag = "ucb1"
-    elif cfg.agent in ("epsgreedy", "epsilon_greedy"):
-        agent = EpsilonGreedyAgent(env.n_arms, epsilon=cfg.epsilon, seed=cfg.seed); agent_tag = "epsgreedy"
-    elif cfg.agent == "ts":
-        agent = ThompsonSampling(env.n_arms); agent_tag = "ts"
-    elif cfg.agent == "kl_ucb":
-        # no params in current config; use default exploration constant
-        agent = KLUCB(env.n_arms, c=0.0); agent_tag = "kl_ucb"
-    elif cfg.agent == "co":
-        if not HAS_CO:
-            raise RuntimeError("CO adapter not available: agents.co.agent_bandit")
-        agent = COBanditAgent(COBanditCfg(n_arms=env.n_arms, seed=cfg.seed, ema_alpha=0.0)); agent_tag = "co"
-    else:
-        raise ValueError(f"unknown agent type: {cfg.agent}")
+    agent_dict = dict(cfg.agent)
+    atype = str(agent_dict.get("type", "ucb1")).lower()
+    aparams = dict(agent_dict.get("params", {}))
+    aname = agent_dict.get("name")
+    agent_tag = atype if not aname else f"{atype}:{aname}"
 
-    # ---- header for segmentation & provenance ----
+    if atype == "ucb1":
+        agent = UCB1Agent(env.n_arms)
+    elif atype in ("epsgreedy", "epsilon_greedy"):
+        eps = float(aparams.get("epsilon", 0.1))
+        agent = EpsilonGreedyAgent(env.n_arms, epsilon=eps, seed=cfg.seed)
+    elif atype == "ts":
+        agent = ThompsonSampling(env.n_arms)
+    elif atype == "kl_ucb":
+        agent = KLUCB(env.n_arms, c=float(aparams.get("c", 0.0)))
+    elif atype == "co":
+        if not HAS_CO:
+            raise RuntimeError("CO adapter not available: agents.co.adapters.bandit_adapter")
+        core = build_co_core(aparams)  # passes header/elements/math_policy if your core supports it
+        agent = COAdapterBandit(core=core, name=(aname or "CO"))
+    else:
+        raise ValueError(f"unknown agent type: {atype}")
+
     write_metric_line(metrics_path, {
         "record_type": "header",
         "runner": "bandit",
@@ -132,15 +125,32 @@ def main() -> None:
     HEARTBEAT = 500
 
     while not done:
-        a = agent.select()
+        # Your adapter returns a dict with "action"; support both dict & int
+        sel = None
+        try:
+            sel = agent.select({"t": t, "n_arms": env.n_arms})  # type: ignore[attr-defined]
+        except Exception:
+            pass
+        if isinstance(sel, dict) and "action" in sel:
+            a = int(sel["action"])
+        elif isinstance(sel, int):
+            a = sel
+        else:
+            a = 0  # safe default
+
         _, r, done, info = env.step(a)
-        agent.update(a, r)
+
+        # Your adapter expects a dict on update
+        try:
+            agent.update({"action": a, "reward": r, "done": done})  # type: ignore[attr-defined]
+        except Exception:
+            pass
+
         pulls[a] += 1
         t += 1
 
         inst_pseudo = best_mean - cfg.probs[a]
-        if inst_pseudo < 0.0:
-            inst_pseudo = 0.0
+        if inst_pseudo < 0.0: inst_pseudo = 0.0
         cum_regret += inst_pseudo
 
         write_metric_line(metrics_path, {"metric": "cumulative_regret", "t": t, "value": float(cum_regret)})
@@ -163,7 +173,6 @@ def main() -> None:
         save_quick_plot(metrics_path, plot_path, title=f"Bandit {agent_tag.upper()}")
     except Exception:
         pass
-
 
 if __name__ == "__main__":
     main()

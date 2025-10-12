@@ -2,40 +2,91 @@
 apply_to_all_families: true
 apply_to_all_modes: true
 
-# Each entry becomes one CO run per (family × mode)
 co_agents:
   - type: "co"
     name: "CO_full"
     params:
-      math_policy: "co"      # co | classical | auto
-      header:
-        mode: "SSI"          # SSI | ID | CS
+      math_policy: "co"
+      header: { mode: "SSI" }
       elements:
-        haq:        { enabled: true, history_len: 64, ema_alpha: 0.2 }
-        ghvc:       { enabled: true, mdl_lambda: 1.0, cooldown: 5, birth_threshold: 2.0 }
-        density:    { enabled: true, rounding: 2 }
-        change_ops: { enabled: true, k: 4, mdL_select: true }
+        haq:         { enabled: true,  history_len: 64, ema_alpha: 0.20 }
+        ghvc:        { enabled: true,  mdl_lambda: 1.0, cooldown: 5, birth_threshold: 2.0 }
+        density:     { enabled: true,  rounding: 2 }
+        change_ops:  { enabled: true,  k: 4, mdl_select: true }
+        action_head: { enabled: true,
+                       eps_on_cycle: 0.12,          # bandit: slightly exploratory
+                       ngram_order:  2,             # renewal: 2-gram
+                       greedy_explore_bias: 0.08 }  # maze: mild off-greedy
+
+  - type: "co"
+    name: "CO_mid"
+    params:
+      math_policy: "co"
+      header: { mode: "SSI" }
+      elements:
+        haq:         { enabled: true,  history_len: 64, ema_alpha: 0.20 }
+        ghvc:        { enabled: true,  mdl_lambda: 0.7, cooldown: 5, birth_threshold: 2.0 }  # milder
+        density:     { enabled: false }
+        change_ops:  { enabled: false }
+        action_head: { enabled: true,
+                       eps_on_cycle: 0.06,          # bandit: moderate
+                       ngram_order:  1,             # renewal: 1-gram
+                       greedy_explore_bias: 0.03 }  # maze: tiny exploration
 
   - type: "co"
     name: "CO_router"
     params:
       math_policy: "co"
-      header:
-        mode: "SSI"
+      header: { mode: "SSI" }
       elements:
-        haq:        { enabled: true, history_len: 64, ema_alpha: 0.2 }
-        ghvc:       { enabled: false }
-        density:    { enabled: false }
-        change_ops: { enabled: false }
+        haq:         { enabled: true,  history_len: 64, ema_alpha: 0.20 }
+        ghvc:        { enabled: false }
+        density:     { enabled: false }
+        change_ops:  { enabled: false }
+        action_head: { enabled: true,
+                       eps_on_cycle: 0.02,          # bandit: almost pure exploit
+                       ngram_order:  0,             # renewal: predict-last
+                       greedy_explore_bias: 0.00 }  # maze: purely greedy
 
-  # Add more; comment out to disable
-  # - type: "co"
-  #   name: "CO_baseline"
-  #   params:
-  #     math_policy: "co"
-  #     header: { mode: "CS" }
-  #     elements:
-  #       haq:        { enabled: true, history_len: 64, ema_alpha: 0.2 }
-  #       ghvc:       { enabled: false }
-  #       density:    { enabled: false }
-  #       change_ops: { enabled: false }
+  # Add this third variant to experiments/configs/co_agents/co_agents_selection.yaml
+  - type: "co"
+    name: "CO_full_max"
+    params:
+      math_policy: "co"
+      header: { mode: "SSI" }
+      elements:
+        # Core behavior blocks
+        haq:            { enabled: true,  history_len: 64, ema_alpha: 0.20 }
+        ghvc:           { enabled: true,  mdl_lambda: 1.0, cooldown: 5, birth_threshold: 2.0 }
+        density:        { enabled: true,  rounding: 2 }
+        change_ops:     { enabled: true,  k: 4, mdl_select: true }
+
+        # Extra “legacy”/diagnostic element blocks (from your registry)
+        EC_Identity:        { enabled: true }
+        ED_GaugeWarp:       { enabled: true, alpha: 0.10 }
+        EE_Compressibility: { enabled: true, window: 32 }
+        EH_BreadthDepth:    { enabled: true }
+        # Keep the router available (it won’t override unless your gate chooses it)
+        EF_RouterGIL:       { enabled: true }
+
+        # Always last: problem-facing policy head
+        action_head: {
+          enabled: true,
+          eps_on_cycle: 0.10,       # Bandit exploration
+          ngram_order:  2,          # Renewal 2-gram
+          greedy_explore_bias: 0.08 # Maze off-greedy nudges
+        }
+
+      # Explicit primitive set; elements will use what they need
+      primitives:
+        visit_tracker: {}
+        bandit_stats:  {}
+        ngram_model:   {}
+        P10: { k: 4,   epsilon: 1.0 }      # ChangeOpsCore
+        P11: {}                             # Residuation
+        P12: { epsilon: 1.0 }               # ClosureQuotient
+        P13: { mdl_lambda: 1.0, threshold: 2.0, cooldown: 5 } # CreativeOptionBirth
+        P14: { max_rate: 0.2 }              # DepthBreadthFlip
+
+      combinator:
+        order: []     # keep pipeline natural order as constructed

@@ -1,0 +1,31 @@
+name: CO_mid
+math_policy: co
+
+header:
+  type: SSI
+  params: { alpha: 0.2, eps_init: 0.8 }
+
+elements:
+  - { key: "A", class: "agents.co.core.elements.EA_haq:EA_HAQ", params: { } }
+  - { key: "B", class: "agents.co.core.elements.EB_ghvc:EB_GHVC", params: { mdl_lambda: 0.7, cooldown: 5, birth_threshold: 2.0 } }
+  # mid ablates density/change_ops vs full to be simpler
+  - { key: "C", class: "agents.co.core.elements.EC_identity:EC_Identity", params: { } }
+  - { key: "F", class: "agents.co.core.elements.EF_router_gil:EF_Router", params: { } }
+
+  - { key: "HEAD", class: "agents.co.core.elements.action_head:ActionHead",
+      params: {
+        eps_on_cycle: 0.06,           # bandit: moderate exploration
+        ngram_order:  1,              # renewal: 1-gram
+        greedy_explore_bias: 0.03     # maze: very small exploration
+      } }
+
+primitives:
+  P10: { class: "agents.co.core.primitives.P10_change_ops_core:ChangeOpsCore",
+         params: { k: 3, epsilon: 0.7 } }
+  P11: { class: "agents.co.core.primitives.P11_residuation:Residuation", params: { } }
+  P12: { class: "agents.co.core.primitives.P12_closure_quotient:ClosureQuotient", params: { epsilon: 0.7 } }
+
+combinators:
+  pipeline: { class: "agents.co.core.combinators.C_pipeline:C_Pipeline", params: { } }
+  gate:     { class: "agents.co.core.combinators.C_gate:C_Gate",         params: { prefer: "auto", co_bias: 0.65 } }
+  math:     { class: "agents.co.core.combinators.C_math_policy:C_MathPolicy", params: { policy: "co" } }

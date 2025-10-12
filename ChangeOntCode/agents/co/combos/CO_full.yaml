@@ -1,25 +1,40 @@
 name: CO_full
 math_policy: co
+
 header:
   type: SSI
   params: { alpha: 0.2, eps_init: 1.0 }
+
 elements:
-  - { key: "A", class: "EA_HAQ", params: { } }
-  - { key: "B", class: "EB_GHVC", params: { } }
-  - { key: "C", class: "EC_Identity", params: { } }
-  - { key: "D", class: "ED_GaugeWarp", params: { alpha: 0.1 } }
-  - { key: "E", class: "EE_Compressibility", params: { window: 32 } }
-  - { key: "F", class: "EF_RouterGIL", params: { } }
-  - { key: "G", class: "EG_DensityPrecision", params: { } }
-  - { key: "H", class: "EH_BreadthDepth", params: { } }
-  - { key: "I", class: "EI_ChangeOperators", params: { } }
+  - { key: "A", class: "agents.co.core.elements.EA_haq:EA_HAQ", params: { } }
+  - { key: "B", class: "agents.co.core.elements.EB_ghvc:EB_GHVC", params: { mdl_lambda: 1.0, cooldown: 5, birth_threshold: 2.0 } }
+  - { key: "C", class: "agents.co.core.elements.EC_identity:EC_Identity", params: { } }
+  - { key: "D", class: "agents.co.core.elements.ED_gauge_warp:ED_GaugeWarp", params: { alpha: 0.1 } }
+  - { key: "E", class: "agents.co.core.elements.EE_compressibility:EE_Compressibility", params: { window: 32 } }
+  - { key: "F", class: "agents.co.core.elements.EF_router_gil:EF_Router", params: { } }
+  - { key: "G", class: "agents.co.core.elements.EG_density_precision:EG_Density", params: { rounding: 2 } }
+  - { key: "H", class: "agents.co.core.elements.EH_breadth_depth:EH_BreadthDepth", params: { } }
+  - { key: "I", class: "agents.co.core.elements.EI_change_operators:EI_ChangeOps", params: { k: 4, mdl_select: true } }
+
+  # Action head MUST be last so it can see upstream metrics and output an action.
+  - { key: "HEAD", class: "agents.co.core.elements.action_head:ActionHead",
+      params: {
+        eps_on_cycle: 0.12,           # bandit: mild exploration
+        ngram_order:  2,              # renewal: 2-gram
+        greedy_explore_bias: 0.08     # maze: tiny off-greedy
+      } }
+
 primitives:
-  P10: { class: "ChangeOpsCore", params: { k: 4, epsilon: 1.0, mdλ: 0.5 } }
-  P11: { class: "Residuation", params: { } }
-  P12: { class: "ClosureQuotient", params: { epsilon: 1.0 } }
-  P13: { class: "CreativeOptionBirth", params: { mdl_lambda: 1.0, threshold: 2.0, cooldown: 5 } }
-  P14: { class: "DepthBreadthFlip", params: { max_rate: 0.2 } }
+  P10: { class: "agents.co.core.primitives.P10_change_ops_core:ChangeOpsCore",
+         params: { k: 4, epsilon: 1.0 } }  # (removed invalid 'mdλ')
+  P11: { class: "agents.co.core.primitives.P11_residuation:Residuation", params: { } }
+  P12: { class: "agents.co.core.primitives.P12_closure_quotient:ClosureQuotient", params: { epsilon: 1.0 } }
+  P13: { class: "agents.co.core.primitives.P13_creative_option_birth:CreativeOptionBirth",
+         params: { mdl_lambda: 1.0, threshold: 2.0, cooldown: 5 } }
+  P14: { class: "agents.co.core.primitives.P14_depth_breadth_flip:DepthBreadthFlip",
+         params: { max_rate: 0.2 } }
+
 combinators:
-  pipeline: { class: "C_Pipeline", params: { } }
-  gate:     { class: "C_Gate",     params: { prefer: "auto", co_bias: 0.6 } }
-  math:     { class: "C_MathPolicy", params: { policy: "co" } }
+  pipeline: { class: "agents.co.core.combinators.C_pipeline:C_Pipeline", params: { } }
+  gate:     { class: "agents.co.core.combinators.C_gate:C_Gate",         params: { prefer: "auto", co_bias: 0.6 } }
+  math:     { class: "agents.co.core.combinators.C_math_policy:C_MathPolicy", params: { policy: "co" } }

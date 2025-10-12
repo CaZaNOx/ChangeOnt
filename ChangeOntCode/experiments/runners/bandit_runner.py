@@ -1,8 +1,7 @@
 ﻿# PATH: experiments/runners/bandit_runner.py
 from __future__ import annotations
 
-import argparse
-import json
+import argparse, json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Optional, Dict, Any
@@ -13,9 +12,9 @@ from experiments.logging.logging import write_metric_line, write_budget_csv
 from agents.stoa.bandit.ts import ThompsonSampling
 from agents.stoa.bandit.k1_ucb import KLUCB
 
-# ---- CO adapter (uses your adapter + a small core builder) ----
+# CO adapter + core builder
 try:
-    from agents.co.adapters.bandit_adapter import COAdapterBandit  # your class
+    from agents.co.adapters.bandit_adapter import COAdapterBandit
     from agents.co.integration.core_builder import build_co_core
     HAS_CO = True
 except Exception:
@@ -53,7 +52,7 @@ def _load_config(args: argparse.Namespace) -> BanditConfig:
     # CLI fallback
     probs = [float(x) for x in args.probs.split(",")] if args.probs else [0.1, 0.2, 0.8]
     agent = {"type": args.agent.lower(), "params": {"epsilon": float(args.epsilon)}}
-    return BanditConfig(probs=probs, horizon=int(args.horizon), agent=agent, seed=int(args.seed), out=str(args.out))
+    return BanditConfig(probs=probs, horizon=int(args.horizon), agent=agent, epsilon=float(args.epsilon), seed=int(args.seed), out=str(args.out))
 
 def _write_progress(out_dir: Path, t: int) -> None:
     try:
@@ -85,9 +84,9 @@ def main() -> None:
     env.reset(seed=cfg.seed)
 
     agent_dict = dict(cfg.agent)
-    atype = str(agent_dict.get("type", "ucb1")).lower()
+    atype  = str(agent_dict.get("type", "ucb1")).lower()
     aparams = dict(agent_dict.get("params", {}))
-    aname = agent_dict.get("name")
+    aname  = agent_dict.get("name")
     agent_tag = atype if not aname else f"{atype}:{aname}"
 
     if atype == "ucb1":
@@ -102,8 +101,8 @@ def main() -> None:
     elif atype == "co":
         if not HAS_CO:
             raise RuntimeError("CO adapter not available: agents.co.adapters.bandit_adapter")
-        core = build_co_core(aparams)  # passes header/elements/math_policy if your core supports it
-        agent = COAdapterBandit(core=core, name=(aname or "CO"))
+        core = build_co_core(aparams)
+        agent = COAdapterBandit(core=core, name=(aname or "CO"), n_arms=env.n_arms)
     else:
         raise ValueError(f"unknown agent type: {atype}")
 
@@ -125,32 +124,67 @@ def main() -> None:
     HEARTBEAT = 500
 
     while not done:
-        # Your adapter returns a dict with "action"; support both dict & int
-        sel = None
-        try:
-            sel = agent.select({"t": t, "n_arms": env.n_arms})  # type: ignore[attr-defined]
-        except Exception:
-            pass
-        if isinstance(sel, dict) and "action" in sel:
-            a = int(sel["action"])
-        elif isinstance(sel, int):
-            a = sel
+        if atype == "co":
+            # ---- CO path (adapter expects a rich obs dict) ----
+            obs = {"family": "bandit", "t": t, "n_arms": env.n_arms}
+            sel = None
+            try:
+                sel = agent.select(obs)  # adapter may return int or {"action": int}
+            except Exception:
+                pass
+
+            # if isinstance(sel, dict) and ("head_eps" in sel or "head_ngram_order" in sel):
+            #     write_metric_line(metrics_path, {
+            #         "metric": "co_head_params",
+            #         "t": int(sel.get("step", 0)),
+            #         "head_eps": sel.get("head_eps"),
+            #         "head_ngram_order": sel.get("head_ngram_order"),
+            #         "maze_explore": sel.get("head_maze_explore"),  # if you added this field
+            #         "agent": agent_tag,
+            #     })
+
+            if isinstance(sel, dict) and "action" in sel:
+                a = int(sel["action"])
+            elif isinstance(sel, int):
+                a = sel
+            else:
+                a = 0  # safe default
+            _, r, done, info = env.step(a)
+
+            try:
+                agent.update({"action": a, "reward": float(r), "done": bool(done)})
+            except Exception:
+                pass
+
         else:
-            a = 0  # safe default
+            # ---- STOA path (native APIs) ----
+            # Try common method names without swallowing errors into "a=0".
+            if hasattr(agent, "select"):
+                a = int(agent.select())                         # UCB1 / ε-greedy
+            elif hasattr(agent, "act"):
+                a = int(agent.act())                            # some agents use act()
+            elif hasattr(agent, "choose_action"):
+                a = int(agent.choose_action())                  # alternative naming
+            else:
+                raise RuntimeError(f"Unsupported STOA API for {atype}")
 
-        _, r, done, info = env.step(a)
+            _, r, done, info = env.step(a)
 
-        # Your adapter expects a dict on update
-        try:
-            agent.update({"action": a, "reward": r, "done": done})  # type: ignore[attr-defined]
-        except Exception:
-            pass
+            # Most classic agents take (action, reward) or just (reward)
+            try:
+                agent.update(a, r)
+            except TypeError:
+                try:
+                    agent.update(r)
+                except Exception:
+                    pass
 
         pulls[a] += 1
         t += 1
 
         inst_pseudo = best_mean - cfg.probs[a]
-        if inst_pseudo < 0.0: inst_pseudo = 0.0
+        if inst_pseudo < 0.0:
+            inst_pseudo = 0.0
         cum_regret += inst_pseudo
 
         write_metric_line(metrics_path, {"metric": "cumulative_regret", "t": t, "value": float(cum_regret)})

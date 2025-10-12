@@ -1,11 +1,7 @@
 ﻿# FILE: experiments/runners/renewal_runner.py
 from __future__ import annotations
 
-import argparse
-import json
-import random
-import shutil
-import time
+import argparse, json, random, shutil, time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional, Dict, Any
@@ -30,14 +26,11 @@ except Exception:
 def _seed_all(seed: int) -> None:
     random.seed(seed)
     if np is not None:
-        try:
-            np.random.seed(seed)  # type: ignore[attr-defined]
-        except Exception:
-            pass
+        try: np.random.seed(seed)  # type: ignore[attr-defined]
+        except Exception: pass
 
 def _safe_copy(src: Path, dst: Path, retries: int = 12, delay: float = 0.12) -> None:
-    if not src.exists():
-        return
+    if not src.exists(): return
     dst.parent.mkdir(parents=True, exist_ok=True)
     for _ in range(retries):
         try:
@@ -85,8 +78,8 @@ def run(config_path: Optional[str]) -> dict:
     out_dir.mkdir(parents=True, exist_ok=True)
 
     metrics_path = out_dir / "metrics.jsonl"
-    budget_path = out_dir / "budget.csv"
-    plot_path = out_dir / "quick_plot.png"
+    budget_path  = out_dir / "budget.csv"
+    plot_path    = out_dir / "quick_plot.png"
 
     _seed_all(seed)
 
@@ -105,7 +98,7 @@ def run(config_path: Optional[str]) -> dict:
     agent_cfg = dict(cfg.get("agent", {}))
     mode = str(agent_cfg.get("type", cfg.get("type", cfg.get("mode", "last")))).lower()
     params = dict(agent_cfg.get("params", cfg.get("params", {})))
-    aname = agent_cfg.get("name")
+    aname  = agent_cfg.get("name")
     agent_tag = mode if not aname else f"{mode}:{aname}"
 
     A = int(cfg["env"]["A"])
@@ -124,7 +117,6 @@ def run(config_path: Optional[str]) -> dict:
         def budget_row(self) -> dict:
             return {"params_bits": 0, "flops_per_step": 1, "memory_bytes": 0}
 
-    # Default agent (simple baseline)
     agent = _PredictLastFSM(A)
 
     if mode == "phase":
@@ -142,12 +134,7 @@ def run(config_path: Optional[str]) -> dict:
         agent = COAdapterRenewal(core=core, name=(aname or "CO_full"))
 
     # budget row (one-time)
-    try:
-        # Your adapters don't expose budget; keep a tiny row anyway
-        budget_row = {"params_bits": 0, "flops_per_step": 0, "memory_bytes": 0}
-    except Exception:
-        budget_row = {"params_bits": 0, "flops_per_step": 0, "memory_bytes": 0}
-    write_budget_csv(budget_path, [budget_row])
+    write_budget_csv(budget_path, [{"params_bits": 0, "flops_per_step": 0, "memory_bytes": 0}])
 
     write_metric_line(metrics_path, {
         "record_type": "header",
@@ -163,18 +150,26 @@ def run(config_path: Optional[str]) -> dict:
     cum = 0.0
     for t in range(steps):
         if mode == "co":
-            # Your adapter API
             sel = None
             try:
-                sel = agent.select({"obs": obs, "t": t, "A": A})  # type: ignore[attr-defined]
+                sel = agent.select({"family": "renewal", "obs": int(obs), "t": t, "A": A, "L_win": L})  # type: ignore[attr-defined]
             except Exception:
                 pass
             if isinstance(sel, dict) and "action" in sel:
                 act = sel["action"]
             else:
-                act = 0  # safe default for env.step
+                act = sel
+            
+            # if isinstance(sel, dict) and ("head_eps" in sel or "head_ngram_order" in sel):
+            #     write_metric_line(metrics_path, {
+            #         "metric": "co_head_params",
+            #         "t": int(sel.get("step", 0)),
+            #         "head_eps": sel.get("head_eps"),
+            #         "head_ngram_order": sel.get("head_ngram_order"),
+            #         "maze_explore": sel.get("head_maze_explore"),  # if you added this field
+            #         "agent": agent_tag,
+            #     })
         else:
-            # STOA baselines
             try:
                 act = agent.act(obs)  # type: ignore[attr-defined]
             except Exception:
@@ -190,13 +185,12 @@ def run(config_path: Optional[str]) -> dict:
 
         if mode == "co":
             try:
-                agent.update({"observation": obs, "reward": r, "done": done, "action": act})  # type: ignore[attr-defined]
+                agent.update({"observation": int(obs), "reward": float(r), "done": bool(done), "action": int(act)})  # type: ignore[attr-defined]
             except Exception:
                 pass
 
         write_metric_line(metrics_path, {"t": int(t), "cum_reward": float(cum)})
-        if done:
-            break
+        if done: break
 
     write_metric_line(metrics_path, {"final_cum_reward": float(cum)})
 
@@ -222,10 +216,8 @@ def main() -> None:
         src_m = Path(paths["metrics"])
         src_b = Path(paths["budget"])
         def _safe_copy_local(src: Path, dst: Path) -> None:
-            try:
-                shutil.copy2(src, dst)
-            except Exception:
-                pass
+            try: shutil.copy2(src, dst)
+            except Exception: pass
         _safe_copy_local(src_m, out_dir / src_m.name)
         _safe_copy_local(src_b, out_dir / src_b.name)
 

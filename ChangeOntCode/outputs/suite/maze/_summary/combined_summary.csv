@@ -1,0 +1,13 @@
+agent,family_mean_steps,n_envs
+astar_s7,20.0,2
+astar_s9,20.0,2
+bfs_s7,20.0,2
+bfs_s9,20.0,2
+co_CO_full_max_s7,24.0,2
+co_CO_full_max_s9,24.0,2
+co_CO_full_s7,24.0,2
+co_CO_full_s9,24.0,2
+co_CO_mid_s7,24.0,2
+co_CO_mid_s9,24.0,2
+co_CO_router_s7,24.0,2
+co_CO_router_s9,24.0,2

@@ -1,0 +1,8 @@
+problem,agent,mean_final_regret,n_runs
+medium,co_CO_full,94.44999999999806,2
+medium,co_CO_full_max,65.29999999999994,2
+medium,co_CO_mid,139.24999999999665,2
+medium,co_CO_router,35.30000000000027,2
+medium,kl_ucb,36.00000000000017,2
+medium,ts,19.400000000000055,2
+medium,ucb1,61.300000000000324,2

@@ -1,0 +1,13 @@
+env,agent,episodes,mean_steps
+maze_9x9,astar_s7,5,16.0
+maze_9x9,astar_s9,5,16.0
+maze_9x9,bfs_s7,5,16.0
+maze_9x9,bfs_s9,5,16.0
+maze_9x9,co_CO_full_max_s7,5,18.0
+maze_9x9,co_CO_full_max_s9,5,18.0
+maze_9x9,co_CO_full_s7,5,18.0
+maze_9x9,co_CO_full_s9,5,18.0
+maze_9x9,co_CO_mid_s7,5,18.0
+maze_9x9,co_CO_mid_s9,5,18.0
+maze_9x9,co_CO_router_s7,5,18.0
+maze_9x9,co_CO_router_s9,5,18.0

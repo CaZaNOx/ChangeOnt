@@ -1,8 +1,7 @@
 ﻿# experiments/runners/maze_runner.py
 from __future__ import annotations
 
-import argparse
-import json
+import argparse, json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, Optional, Any
@@ -15,10 +14,18 @@ from experiments.logging.logging import write_metric_line, write_budget_csv
 # CO adapter + core builder
 try:
     from agents.co.adapters.maze_adapter import COAdapterMaze
-    from agents.co.integration.core_builder import build_co_core
     HAS_CO = True
-except Exception:
+except Exception as e:
+    import traceback, sys
+    print("[CO import error] agents.co.adapters.maze_adapter / core_builder", file=sys.stderr)
+    traceback.print_exc()
     HAS_CO = False
+
+try:
+    from agents.co.integration.core_builder import build_co_core
+    HAS_CORE = True
+except Exception:
+    HAS_CORE = False
 
 DIRS = ["UP", "DOWN", "LEFT", "RIGHT"]
 
@@ -61,10 +68,16 @@ def _load_config(args: argparse.Namespace) -> MazeConfig:
         agent = data.get("agent", {"type": args.agent.lower(), "params": {}})
         episodes = int(data.get("episodes", 5))
         spec_path = _resolve_spec_path(env.get("spec_path"), args.config)
-        return MazeConfig(spec_path=spec_path, episodes=episodes, out=str(out),
-                          agent=agent if isinstance(agent, dict) else {"type": str(agent).lower(), "params": {}})
-    return MazeConfig(spec_path=args.maze, episodes=int(args.episodes), out=str(args.out),
-                      agent={"type": args.agent.lower(), "params": {}})
+        return MazeConfig(
+            spec_path=spec_path,
+            episodes=episodes,
+            out=str(out),
+            agent=agent if isinstance(agent, dict) else {"type": str(agent).lower(), "params": {}},
+        )
+    return MazeConfig(
+        spec_path=args.maze, episodes=int(args.episodes), out=str(args.out),
+        agent={"type": args.agent.lower(), "params": {}},
+    )
 
 def main() -> None:
     ap = argparse.ArgumentParser(description="Maze runner (BFS / A* / CO)")
@@ -78,15 +91,15 @@ def main() -> None:
     cfg = _load_config(args)
     out_dir = Path(cfg.out); out_dir.mkdir(parents=True, exist_ok=True)
     metrics_path = out_dir / "metrics.jsonl"
-    budget_path = out_dir / "budget.csv"
-    plot_path = out_dir / "quick_plot.png"
+    budget_path  = out_dir / "budget.csv"
+    plot_path    = out_dir / "quick_plot.png"
 
     env = GridMazeEnv(spec_path=cfg.spec_path)
 
     agent_dict = dict(cfg.agent)
-    atype = str(agent_dict.get("type", "bfs")).lower()
+    atype  = str(agent_dict.get("type", "bfs")).lower()
     aparams = dict(agent_dict.get("params", {}))
-    aname = agent_dict.get("name")
+    aname  = agent_dict.get("name")
     agent_tag = atype if not aname else f"{atype}:{aname}"
 
     budget_rows = []
@@ -113,6 +126,10 @@ def main() -> None:
         elif atype == "co":
             if not HAS_CO:
                 raise RuntimeError("agent=co requested but agents.co.adapters.maze_adapter is not importable")
+            if not HAS_CORE:
+                raise RuntimeError("agent=co requested but agents.co.integration.core_builder is not importable")
+
+
 
             core = build_co_core(aparams)
             agent = COAdapterMaze(core=core, name=(aname or "CO_full"))
@@ -128,27 +145,95 @@ def main() -> None:
             steps = 0
             total_reward = 0.0
             done = False
+
             while not done:
+                # --- Build a robust, self-contained observation for CO ---
+                # Try to pull geometry from env; fall back to env.maze.* if needed
+                grid = getattr(env, "grid", None)
+                if grid is None and hasattr(env, "maze"):
+                    grid = getattr(env.maze, "grid", None)
+
+                H = getattr(env, "H", None)
+                W = getattr(env, "W", None)
+                if H is None and hasattr(env, "height"):
+                    H = getattr(env, "height", None)
+                if W is None and hasattr(env, "width"):
+                    W = getattr(env, "width", None)
+
+                # If still missing, infer from grid shape
+                if (H is None or W is None) and isinstance(grid, list) and grid and isinstance(grid[0], list):
+                    H = len(grid)
+                    W = len(grid[0])
+
+                goal = getattr(env, "goal", None)
+                if goal is None and hasattr(env, "maze"):
+                    goal = getattr(env.maze, "goal", None)
+
+                pos_tuple  = tuple(getattr(env, "pos", (0, 0)))
+                goal_tuple = tuple(goal) if isinstance(goal, (list, tuple)) and len(goal) == 2 else None
+
+                # Ensure grid is list[list[int]]; otherwise disable it
+                if grid is not None:
+                    try:
+                        grid = [[int(v) for v in row] for row in grid]
+                    except Exception:
+                        grid = None
+
+                obs = {
+                    "family": "maze",
+                    "t": steps,
+                    "episode": ep,
+                    "pos": pos_tuple,
+                    "goal": goal_tuple,
+                    "grid": grid,
+                    "width": W,
+                    "height": H,
+                }
+
+                # --- Ask CO for an action ---
                 sel = None
                 try:
-                    sel = agent.select({"pos": env.pos, "episode": ep})  # type: ignore[attr-defined]
+                    sel = agent.select(obs)
                 except Exception:
                     pass
+                # If the pipeline surfaced ActionHead metrics, log once in a while:
+                # if isinstance(sel, dict) and ("head_eps" in sel or "head_ngram_order" in sel):
+                #     write_metric_line(metrics_path, {
+                #         "metric": "co_head_params",
+                #         "t": int(sel.get("step", 0)),
+                #         "head_eps": sel.get("head_eps"),
+                #         "head_ngram_order": sel.get("head_ngram_order"),
+                #         "maze_explore": sel.get("head_maze_explore"),  # if you added this field
+                #         "agent": agent_tag,
+                #     })
+
                 if isinstance(sel, dict) and "action" in sel:
                     act = sel["action"]
                 else:
-                    act = DIRS[steps % 4]
+                    act = sel
 
+                # Final guard: keep action legal even if CO head returns junk
                 if act not in ("UP", "DOWN", "LEFT", "RIGHT"):
                     act = DIRS[steps % 4]
 
+                # --- Step environment ---
                 _, r, done, _ = env.step(act)
+
+                # --- Let CO learn from the outcome ---
                 try:
-                    agent.update({"observation": env.pos, "reward": r, "done": done})  # type: ignore[attr-defined]
+                    agent.update({
+                        "observation": tuple(env.pos),
+                        "reward": r,
+                        "done": done,
+                        "action": act
+                    })
                 except Exception:
                     pass
+
                 steps += 1
                 total_reward += r
+
+                # Safety guard (same as before)
                 if steps > 5000:
                     break
 

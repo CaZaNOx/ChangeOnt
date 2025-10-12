@@ -1,0 +1,13 @@
+seed: 7
+steps: 1000
+agent:
+  type: last
+  name: null
+  params: {}
+env:
+  A: 8
+  L_win: 6
+  p_ren: 0.0
+  p_noise: 0.0
+  T_max: 1000
+out_dir: outputs\suite\renewal\upper_bound\last_s7

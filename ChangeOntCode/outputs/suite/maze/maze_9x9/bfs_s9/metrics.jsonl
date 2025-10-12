@@ -1,0 +1,10 @@
+{"metric": "episode_steps", "episode": 0, "value": 16}
+{"metric": "episode_return", "episode": 0, "value": -15.0}
+{"metric": "episode_steps", "episode": 1, "value": 16}
+{"metric": "episode_return", "episode": 1, "value": -15.0}
+{"metric": "episode_steps", "episode": 2, "value": 16}
+{"metric": "episode_return", "episode": 2, "value": -15.0}
+{"metric": "episode_steps", "episode": 3, "value": 16}
+{"metric": "episode_return", "episode": 3, "value": -15.0}
+{"metric": "episode_steps", "episode": 4, "value": 16}
+{"metric": "episode_return", "episode": 4, "value": -15.0}

@@ -1,0 +1,32 @@
+env:
+  spec_path: environments/maze1/spec_13x13.yaml
+  params:
+    width: 5
+    height: 5
+    seed: 7
+episodes: 5
+seed: 7
+agent:
+  type: co
+  name: CO_router
+  params:
+    math_policy: co
+    header:
+      mode: SSI
+    elements:
+      haq:
+        enabled: true
+        history_len: 64
+        ema_alpha: 0.2
+      ghvc:
+        enabled: false
+      density:
+        enabled: false
+      change_ops:
+        enabled: false
+      action_head:
+        enabled: true
+        eps_on_cycle: 0.02
+        ngram_order: 0
+        greedy_explore_bias: 0.0
+out: outputs\suite\maze\maze_13x13\co_CO_router_s7

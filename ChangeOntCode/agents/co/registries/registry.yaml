@@ -1,8 +1,9 @@
 # agents/co/registries/registry.yaml
+
 adapters:
-  maze:    agents.co.adapters.maze_adapter:COAdapterMaze
-  bandit:  agents.co.adapters.bandit_adapter:COAdapterBandit
-  renewal: agents.co.adapters.renewal_adapter:COAdapterRenewal
+  maze:    "agents.co.adapters.maze_adapter:COAdapterMaze"
+  bandit:  "agents.co.adapters.bandit_adapter:COAdapterBandit"
+  renewal: "agents.co.adapters.renewal_adapter:COAdapterRenewal"
 
 headers:
   CS:  "agents.co.headers.H_CS:HeaderCS"
@@ -10,49 +11,16 @@ headers:
   SSI: "agents.co.headers.H_SSI:HeaderSSI"
 
 elements:
-  EA_HAQ:               agents.co.core.elements.EA_haq:EA_HAQ
-  EB_GHVC:              agents.co.core.elements.EB_ghvc:EB_GHVC
-  EC_Identity:          agents.co.core.elements.EC_identity:EC_Identity
-  ED_GaugeWarp:         agents.co.core.elements.E_D_gauge_warp:ED_GaugeWarp
-  EE_Compressibility:   agents.co.core.elements.E_E_compressibility:EE_Compressibility
-  EF_RouterGIL:         agents.co.core.elements.EF_router_gil:EF_RouterGIL
-  EG_DensityPrecision:  agents.co.core.elements.EG_density_precision:EG_DensityPrecision
-  EH_BreadthDepth:      agents.co.core.elements.EH_breadth_depth:EH_BreadthDepth
-  EI_ChangeOperators:   agents.co.core.elements.EI_change_operators:EI_ChangeOperators
-
-
-adapters:
-  maze:     "agents.co.adapters.maze_adapter:COAgentMaze"
-  bandit:   "agents.co.adapters.bandit_adapter:COAgentBandit"
-  renewal:  "agents.co.adapters.renewal_adapter:COAgentRenewal"
-
-# Optional: these modules are available to elements/headers via imports
-combinators:
-  classic_ops: "agents.co.core.combinators.classic_ops"
-  co_ops:      "agents.co.core.combinators.co_ops"
-
-logic:
-  semiring:    "agents.co.core.logic.co_math_semiring"
-  tri_diag:    "agents.co.core.logic.diagnostic_tri"
-
-primitives:
-  calibrators: "agents.co.core.primitives.calibrators"
-  budget:      "agents.co.core.primitives.budget"
-  identity:    "agents.co.core.primitives.identity"
-  P1: "agents.co.core.primitives.P1_bend_metric"
-  P2: "agents.co.core.primitives.P2_gauge"
-  P3: "agents.co.core.primitives.P3_mdl"
-  P4: "agents.co.core.primitives.P4_reid_kernel:ReIDKernel"
-  P5: "agents.co.core.primitives.P5_temporal_ops:TemporalOps"
-  P6: "agents.co.core.primitives.P6_change_ops"
-  P7: "agents.co.core.primitives.P7_precision"
-  P8: "agents.co.core.primitives.P8_loopiness"
-  P9: "agents.co.core.primitives.P9_variable_birth"
-  P10: "agents.co.core.primitives.P10_change_ops_core:ChangeOpsCore"
-  P11: "agents.co.core.primitives.P11_residuation:Residuation"
-  P12: "agents.co.core.primitives.P12_closure_quotient:ClosureQuotient"
-  P13: "agents.co.core.primitives.P13_creative_option_birth:CreativeOptionBirth"
-  P14: "agents.co.core.primitives.P14_depth_breadth_flip:DepthBreadthFlip"
+  action_head:           agents.co.core.elements.action_head:ActionHead
+  haq:                   agents.co.core.elements.EA_haq:EA_HAQ
+  ghvc:                  agents.co.core.elements.EB_ghvc:EB_GHVC
+  density:               agents.co.core.elements.EG_density_precision:EG_Density
+  change_ops:            agents.co.core.elements.EI_change_operators:EI_ChangeOps
+  EC_Identity:           agents.co.core.elements.EC_identity:EC_Identity
+  ED_GaugeWarp:          agents.co.core.elements.ED_gauge_warp:ED_GaugeWarp
+  EE_Compressibility:    agents.co.core.elements.EE_compressibility:EE_Compressibility
+  EF_RouterGIL:          agents.co.core.elements.EF_router_gil:EF_Router
+  EH_BreadthDepth:       agents.co.core.elements.EH_breadth_depth:EH_BreadthDepth
 
 combinators:
   C_Pipeline:    agents.co.core.combinators.C_pipeline:C_Pipeline
@@ -61,10 +29,32 @@ combinators:
   C_ClassicOps:  agents.co.core.combinators.C_classic_ops:C_ClassicOps
   C_CoOps:       agents.co.core.combinators.C_co_ops:C_CoOps
 
-  
+primitives:
+  calibrators:   "agents.co.core.primitives.calibrators"
+  budget:        "agents.co.core.primitives.budget"
+  identity:      "agents.co.core.primitives.identity"
+  visit_tracker: "agents.co.core.primitives.visit_tracker:VisitTracker"
+  bandit_stats:  "agents.co.core.primitives.bandit_stats:BanditStats"
+  ngram_model:   "agents.co.core.primitives.ngram_model:NGramModel"
+  P1:  "agents.co.core.primitives.P1_bend_metric"
+  P2:  "agents.co.core.primitives.P2_gauge"
+  P3:  "agents.co.core.primitives.P3_mdl"
+  P4:  "agents.co.core.primitives.P4_reid_kernel:ReIDKernel"
+  P5:  "agents.co.core.primitives.P5_temporal_ops:TemporalOps"
+  P6:  "agents.co.core.primitives.P6_change_ops"
+  P7:  "agents.co.core.primitives.P7_precision"
+  P8:  "agents.co.core.primitives.P8_loopiness"
+  P9:  "agents.co.core.primitives.P9_variable_birth"
+  P10: "agents.co.core.primitives.P10_change_ops_core:ChangeOpsCore"
+  P11: "agents.co.core.primitives.P11_residuation:Residuation"
+  P12: "agents.co.core.primitives.P12_closure_quotient:ClosureQuotient"
+  P13: "agents.co.core.primitives.P13_creative_option_birth:CreativeOptionBirth"
+  P14: "agents.co.core.primitives.P14_depth_breadth_flip:DepthBreadthFlip"
+
+
 operators:
-  J1: "agents.co.core.primitives.operators.J1_bend_substitution:bend_cost_between"
-  J2: "agents.co.core.primitives.operators.J2_haq_quotient:build_quotient_classes"
-  J3: "agents.co.core.primitives.operators.J3_attention_warp:warp_cost"
+  J1:  "agents.co.core.primitives.operators.J1_bend_substitution:bend_cost_between"
+  J2:  "agents.co.core.primitives.operators.J2_haq_quotient:build_quotient_classes"
+  J3:  "agents.co.core.primitives.operators.J3_attention_warp:warp_cost"
   J4a: "agents.co.core.primitives.operators.J4a_reid_closure:within_epsilon"
   J4b: "agents.co.core.primitives.operators.J4b_counterfactual_bend:counterfactual_cost"

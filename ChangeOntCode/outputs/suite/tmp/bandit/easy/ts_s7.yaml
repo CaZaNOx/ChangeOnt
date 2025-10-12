@@ -1,0 +1,12 @@
+env:
+  probs:
+  - 0.1
+  - 0.2
+  - 0.8
+  horizon: 1000
+agent:
+  type: ts
+  name: null
+  params: {}
+seed: 7
+out: outputs\suite\bandit\easy\ts_s7

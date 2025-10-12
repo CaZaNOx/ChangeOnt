@@ -1,14 +1,27 @@
 name: CO_router
 math_policy: co
+
 header: { type: SSI, params: { alpha: 0.2, eps_init: 0.5 } }
+
 elements:
-  - { key: "A", class: "EA_HAQ", params: { } }
-  - { key: "F", class: "EF_RouterGIL", params: { } }
+  - { key: "A", class: "agents.co.core.elements.EA_haq:EA_HAQ", params: { } }
+  - { key: "F", class: "agents.co.core.elements.EF_router_gil:EF_Router", params: { } }
+
+  # Add the ActionHead (was missing before) and keep it last.
+  - { key: "HEAD", class: "agents.co.core.elements.action_head:ActionHead",
+      params: {
+        eps_on_cycle: 0.02,           # bandit: almost pure exploit
+        ngram_order:  0,              # renewal: predict-last
+        greedy_explore_bias: 0.00     # maze: purely greedy
+      } }
+
 primitives:
-  P10: { class: "ChangeOpsCore", params: { k: 3, epsilon: 0.5 } }
-  P11: { class: "Residuation", params: { } }
-  P12: { class: "ClosureQuotient", params: { epsilon: 0.5 } }
+  P10: { class: "agents.co.core.primitives.P10_change_ops_core:ChangeOpsCore",
+         params: { k: 3, epsilon: 0.5 } }
+  P11: { class: "agents.co.core.primitives.P11_residuation:Residuation", params: { } }
+  P12: { class: "agents.co.core.primitives.P12_closure_quotient:ClosureQuotient", params: { epsilon: 0.5 } }
+
 combinators:
-  pipeline: { class: "C_Pipeline", params: { } }
-  gate:     { class: "C_Gate",     params: { prefer: "auto", co_bias: 0.7 } }
-  math:     { class: "C_MathPolicy", params: { policy: "co" } }
+  pipeline: { class: "agents.co.core.combinators.C_pipeline:C_Pipeline", params: { } }
+  gate:     { class: "agents.co.core.combinators.C_gate:C_Gate",         params: { prefer: "auto", co_bias: 0.7 } }
+  math:     { class: "agents.co.core.combinators.C_math_policy:C_MathPolicy", params: { policy: "co" } }

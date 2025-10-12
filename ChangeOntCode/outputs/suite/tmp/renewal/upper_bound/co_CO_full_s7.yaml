@@ -1,0 +1,38 @@
+seed: 7
+steps: 1000
+agent:
+  type: co
+  name: CO_full
+  params:
+    math_policy: co
+    header:
+      mode: SSI
+    elements:
+      haq:
+        enabled: true
+        history_len: 64
+        ema_alpha: 0.2
+      ghvc:
+        enabled: true
+        mdl_lambda: 1.0
+        cooldown: 5
+        birth_threshold: 2.0
+      density:
+        enabled: true
+        rounding: 2
+      change_ops:
+        enabled: true
+        k: 4
+        mdl_select: true
+      action_head:
+        enabled: true
+        eps_on_cycle: 0.12
+        ngram_order: 2
+        greedy_explore_bias: 0.08
+env:
+  A: 8
+  L_win: 6
+  p_ren: 0.0
+  p_noise: 0.0
+  T_max: 1000
+out_dir: outputs\suite\renewal\upper_bound\co_CO_full_s7

@@ -1,0 +1,13 @@
+env:
+  spec_path: environments/maze1/spec_9x9.yaml
+  params:
+    width: 5
+    height: 5
+    seed: 7
+episodes: 5
+seed: 7
+agent:
+  type: astar
+  name: null
+  params: {}
+out: outputs\suite\maze\maze_9x9\astar_s7

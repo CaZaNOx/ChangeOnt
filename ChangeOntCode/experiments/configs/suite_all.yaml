@@ -7,116 +7,82 @@ families:
   bandit:
     problems:
       - mode: easy
-        env:
-          probs: [0.1, 0.2, 0.8]
-          horizon: 500
-        seeds: [1, 2]
+        env: { probs: [0.10, 0.20, 0.80], horizon: 1000 }
+        seeds: [4, 7]
         agents:
           - { type: ucb1 }
-          - { type: epsgreedy, params: { epsilon: 0.1 } }
+          - { type: kl_ucb }
+          - { type: ts }            # Thompson Sampling
+      - mode: medium
+        env: { probs: [0.30, 0.50, 0.60], horizon: 1500 }
+        seeds: [4, 7]
+        agents:
+          - { type: ucb1 }
           - { type: kl_ucb }
           - { type: ts }
-          
-      # - mode: medium
-      #   env:
-      #     probs: [0.2, 0.4, 0.6]
-      #     horizon: 1000
-      #   seeds: [1, 2]
-      #   agents:
-      #     - { type: ucb1 }
-      #     - { type: epsgreedy, params: { epsilon: 0.1 } }
-      #     - { type: kl_ucb }
-      #     - { type: ts }
-      #     
-      # - mode: hard
-      #   env:
-      #     probs: [0.49, 0.5, 0.51]
-      #     horizon: 2000
-      #   seeds: [1, 2]
-      #   agents:
-      #     - { type: ucb1 }
-      #     - { type: epsgreedy, params: { epsilon: 0.1 } }
-      #     - { type: kl_ucb }
-      #     - { type: ts }
-      #     
+      - mode: hard
+        env: { probs: [0.49, 0.50, 0.51], horizon: 3000 }
+        seeds: [4, 7]
+        agents:
+          - { type: ucb1 }
+          - { type: kl_ucb }
+          - { type: ts }
+
 
   maze:
     envs:
-      - mode: maze_5x5
-        env:
-          spec_path: environments/maze1/spec_5x5.yaml
+      - mode: maze_9x9
+        env: { spec_path: environments/maze1/spec_9x9.yaml }
         episodes: 5
-        seeds: [7]
+        seeds: [7, 9]
         agents:
           - { type: bfs }
-          - { type: astar }   # STOA
-          
-      - mode: maze_7x7
-        env:
-          spec_path: environments/maze1/spec_7x7.yaml
+          - { type: astar }
+      - mode: maze_13x13
+        env: { spec_path: environments/maze1/spec_13x13.yaml }
         episodes: 5
-        seeds: [7]
+        seeds: [7, 9]
         agents:
           - { type: bfs }
           - { type: astar }
           
 
-      - mode: maze_9x9
-        env:
-          spec_path: environments/maze1/spec_9x9.yaml
-        episodes: 5
-        seeds: [7]
-        agents:
-          - { type: bfs }
-          - { type: astar }
-          
 
   renewal:
     instances:
-      # 1) Upper bound: no renewals, no noise
-      - mode: upper_bound
-        env: { A: 8, L_win: 6, p_ren: 0.0, p_noise: 0.0, T_max: 1000 }
+      - mode: upper_bound          # no renewals, no noise
+        env:  { A: 8, L_win: 6, p_ren: 0.00, p_noise: 0.00, T_max: 1000 }
         steps: 1000
-        seeds: [7, 8]
+        seeds: [7]
         agents:
-          # - { type: last }
+          - { type: last }
           - { type: phase }
-          # - { type: ngram }
           - { type: vom, params: { max_order: 5 } }
-          
 
-      # 2) Renewals only (harder than upper_bound)
-      - mode: clean
-        env: { A: 8, L_win: 6, p_ren: 0.02, p_noise: 0.0, T_max: 1000 }
+      - mode: clean                # renewals only
+        env:  { A: 8, L_win: 6, p_ren: 0.02, p_noise: 0.00, T_max: 1000 }
         steps: 1000
-        seeds: [7, 8]
+        seeds: [7]
         agents:
-          # - { type: last }
+          - { type: last }
           - { type: phase }
-          # - { type: ngram }
           - { type: vom, params: { max_order: 5 } }
-          
 
-      # # 3) Noise only (typically easier than renewals-only for Phase)
-      # - mode: noise_only
-      #   env: { A: 8, L_win: 6, p_ren: 0.0, p_noise: 0.02, T_max: 1000 }
-      #   steps: 1000
-      #   seeds: [7, 8]
-      #   agents:
-      #     # - { type: last }
-      #     # - { type: phase }
-      #     # - { type: ngram }
-      #     - { type: vom, params: { max_order: 5 } }
-          
-
-      # 4) Renewals + noise (hardest)
-      - mode: renewals_plus_noise
-        env: { A: 8, L_win: 6, p_ren: 0.02, p_noise: 0.02, T_max: 1000 }
+      - mode: noise_only           # no renewals, only noise
+        env:  { A: 8, L_win: 6, p_ren: 0.00, p_noise: 0.02, T_max: 1000 }
         steps: 1000
-        seeds: [7, 8]
+        seeds: [7]
         agents:
-          # - { type: last }
+          - { type: last }
           - { type: phase }
-          # - { type: ngram }
+          - { type: vom, params: { max_order: 5 } }
+
+      - mode: renewals_plus_noise  # both on
+        env:  { A: 8, L_win: 6, p_ren: 0.02, p_noise: 0.02, T_max: 1000 }
+        steps: 1000
+        seeds: [7]
+        agents:
+          - { type: last }
+          - { type: phase }
           - { type: vom, params: { max_order: 5 } }
           

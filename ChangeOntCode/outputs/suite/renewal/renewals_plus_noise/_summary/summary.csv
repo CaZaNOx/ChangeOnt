@@ -1,0 +1,8 @@
+instance,agent,mean_final_cum_reward,n_runs
+renewals_plus_noise,co_CO_full,583.0,1
+renewals_plus_noise,co_CO_full_max,583.0,1
+renewals_plus_noise,co_CO_mid,272.0,1
+renewals_plus_noise,co_CO_router,147.0,1
+renewals_plus_noise,last,134.0,1
+renewals_plus_noise,phase,857.0,1
+renewals_plus_noise,vom,141.0,1

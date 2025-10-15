@@ -1,35 +1,53 @@
 from __future__ import annotations
 from typing import Any, Dict, Optional
 
-from agents.co.core.pipeline import COAgentCore
-
 class COAdapterRenewal:
-    """
-    Passes family='renewal' to core, forwards last feedback,
-    and uses the core's proposed *integer* action when present.
-    Minimal fallback is predict-last: action = observation['obs'] (type-correct).
-    """
-    def __init__(self, core: COAgentCore, name: str = "CO_full"):
+    def __init__(self, core, name: str = "CO") -> None:
         self.core = core
         self.name = name
-        self._last_feedback: Dict[str, Any] = {}
+        self._pipe = core.combinators.get("pipeline")
+        self._last_obs: Optional[Dict[str, Any]] = None
 
-    def select(self, observation: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        obs: Dict[str, Any] = {"family": "renewal"}
-        if observation:
-            obs.update(observation)
+    def _ensure_bus(self) -> None:
+        if "co_bus" not in self.core.primitives:
+            try:
+                from agents.co.core.primitives.co_bus import CoVoteBus
+                self.core.primitives["co_bus"] = CoVoteBus()
+            except Exception:
+                pass
 
-        metrics = self.core.step(obs, feedback=(self._last_feedback or None))
+    def select(self, observation: Dict[str, Any]) -> Dict[str, Any]:
+        obs = dict(observation or {})
+        obs.setdefault("family", "renewal")
 
-        action = metrics.get("action")
-        if not isinstance(action, int):
-            # Predict-last fallback (aligns with your baseline types):
-            action = int(obs.get("obs", 0))
+        self._ensure_bus()
 
-        metrics["action"] = int(action)
-        metrics["agent"] = self.name
-        metrics["family"] = "renewal"
-        return metrics
+        out: Dict[str, Any] = {}
+        try:
+            out = self._pipe.run(self.core.elements, self.core.primitives, self.core.header, obs, feedback=None) or {}
+        except Exception:
+            out = {}
+
+        if "action" not in out:
+            out["action"] = int(obs.get("obs", 0))
+            out.setdefault("co_policy", "renewal:safe_default")
+            out.setdefault("co_bus_votes", 0)
+
+        self._last_obs = dict(obs)
+        return out
 
     def update(self, feedback: Dict[str, Any]) -> None:
-        self._last_feedback = dict(feedback or {})
+        obs_like = {"family": "renewal"}
+        if self._last_obs and "t" in self._last_obs:
+            try:
+                obs_like["t"] = int(self._last_obs["t"]) + 1
+            except Exception:
+                pass
+
+        try:
+            if hasattr(self._pipe, "run_update"):
+                self._pipe.run_update(self.core.elements, self.core.primitives, self.core.header, obs_like, feedback or {})
+            else:
+                self._pipe.run(self.core.elements, self.core.primitives, self.core.header, obs_like, feedback or {})
+        except Exception:
+            pass

@@ -1,8 +1,0 @@
-instance,agent,mean_final_cum_reward,n_runs
-upper_bound,co_CO_full,993.0,1
-upper_bound,co_CO_full_max,993.0,1
-upper_bound,co_CO_mid,828.0,1
-upper_bound,co_CO_router,0.0,1
-upper_bound,last,168.0,1
-upper_bound,phase,997.0,1
-upper_bound,vom,4.0,1

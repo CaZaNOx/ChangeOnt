@@ -191,26 +191,44 @@ def main() -> None:
                 }
 
                 # --- Ask CO for an action ---
+
+                print("[RUNNER] t=", steps,
+                    " pos=", obs.get("pos"),
+                    " goal=", obs.get("goal"), " type(goal)=", type(obs.get("goal")),
+                    " HxW=", obs.get("height"), "x", obs.get("width"),
+                    " grid_ok=", isinstance(obs.get("grid"), list) and bool(obs["grid"]))
+                # --- Ask CO for an action ---
                 sel = None
                 try:
                     sel = agent.select(obs)
                 except Exception:
                     pass
-                # If the pipeline surfaced ActionHead metrics, log once in a while:
-                # if isinstance(sel, dict) and ("head_eps" in sel or "head_ngram_order" in sel):
-                #     write_metric_line(metrics_path, {
-                #         "metric": "co_head_params",
-                #         "t": int(sel.get("step", 0)),
-                #         "head_eps": sel.get("head_eps"),
-                #         "head_ngram_order": sel.get("head_ngram_order"),
-                #         "maze_explore": sel.get("head_maze_explore"),  # if you added this field
-                #         "agent": agent_tag,
-                #     })
 
                 if isinstance(sel, dict) and "action" in sel:
                     act = sel["action"]
                 else:
                     act = sel
+
+                # Log what CO decided
+                print(f"[RUNNER] t={steps} CO raw action -> {act!r}  (type={type(act).__name__})  co_policy={ (sel.get('co_policy') if isinstance(sel, dict) else None) }")
+
+                co_policy    = (sel.get("co_policy") if isinstance(sel, dict) else None) or "n/a"
+                co_weight    = (float(sel.get("co_weight", 1.0)) if isinstance(sel, dict) else 1.0)
+                co_bus_votes = (int(sel.get("co_bus_votes", 0)) if isinstance(sel, dict) else 0)
+
+                # emit a co-debug line (rename the metric field so it matches the value we have)
+                write_metric_line(
+                    metrics_path,
+                    {
+                        "metric": "co_debug",
+                        "episode": ep,
+                        "t": steps,
+                        "co_policy": co_policy,
+                        "co_weight": co_weight,
+                        "co_bus_votes": co_bus_votes,   # <-- was co_bus_size; use the count returned by ActionHead
+                        "agent": agent_tag,
+                    },
+                )
 
                 # Final guard: keep action legal even if CO head returns junk
                 if act not in ("UP", "DOWN", "LEFT", "RIGHT"):

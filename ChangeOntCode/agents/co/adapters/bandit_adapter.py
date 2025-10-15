@@ -1,39 +1,55 @@
 from __future__ import annotations
 from typing import Any, Dict, Optional
 
-from agents.co.core.pipeline import COAgentCore
-
 class COAdapterBandit:
-    """
-    Passes family='bandit' (+ n_arms if known) to core, forwards last feedback,
-    and uses the core-proposed action when present. Minimal deterministic fallback
-    is round-robin by core step.
-    """
-    def __init__(self, core: COAgentCore, name: str = "CO_full", n_arms: Optional[int] = None):
+    def __init__(self, core, name: str = "CO", n_arms: int = 2) -> None:
         self.core = core
         self.name = name
-        self.n_arms = int(n_arms) if n_arms is not None else None
-        self._last_feedback: Dict[str, Any] = {}
+        self.n_arms = int(n_arms)
+        self._pipe = core.combinators.get("pipeline")
+        self._last_obs: Optional[Dict[str, Any]] = None
 
-    def select(self, observation: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        obs: Dict[str, Any] = {"family": "bandit"}
-        if self.n_arms is not None:
-            obs["n_arms"] = int(self.n_arms)
-        if observation:
-            obs.update(observation)
+    def _ensure_bus(self) -> None:
+        if "co_bus" not in self.core.primitives:
+            try:
+                from agents.co.core.primitives.co_bus import CoVoteBus
+                self.core.primitives["co_bus"] = CoVoteBus()
+            except Exception:
+                pass
 
-        metrics = self.core.step(obs, feedback=(self._last_feedback or None))
+    def select(self, observation: Dict[str, Any]) -> Dict[str, Any]:
+        obs = dict(observation or {})
+        obs.setdefault("family", "bandit")
+        obs.setdefault("n_arms", self.n_arms)
 
-        action = metrics.get("action")
-        if not isinstance(action, int) or (self.n_arms is not None and not (0 <= action < self.n_arms)):
-            step = int(metrics.get("step", 1))
-            n = int(obs.get("n_arms", self.n_arms or 2))
-            action = (step - 1) % max(1, n)
+        self._ensure_bus()
 
-        metrics["action"] = int(action)
-        metrics["agent"] = self.name
-        metrics["family"] = "bandit"
-        return metrics
+        out: Dict[str, Any] = {}
+        try:
+            out = self._pipe.run(self.core.elements, self.core.primitives, self.core.header, obs, feedback=None) or {}
+        except Exception:
+            out = {}
+
+        if "action" not in out or not isinstance(out["action"], int):
+            out["action"] = 0
+            out.setdefault("co_policy", "bandit:safe_default")
+            out.setdefault("co_bus_votes", 0)
+
+        self._last_obs = dict(obs)
+        return out
 
     def update(self, feedback: Dict[str, Any]) -> None:
-        self._last_feedback = dict(feedback or {})
+        obs_like = {"family": "bandit", "n_arms": self.n_arms}
+        if self._last_obs and "t" in self._last_obs:
+            try:
+                obs_like["t"] = int(self._last_obs["t"]) + 1
+            except Exception:
+                pass
+
+        try:
+            if hasattr(self._pipe, "run_update"):
+                self._pipe.run_update(self.core.elements, self.core.primitives, self.core.header, obs_like, feedback or {})
+            else:
+                self._pipe.run(self.core.elements, self.core.primitives, self.core.header, obs_like, feedback or {})
+        except Exception:
+            pass

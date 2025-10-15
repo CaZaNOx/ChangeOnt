@@ -12,6 +12,7 @@ headers:
 
 elements:
   action_head:           agents.co.core.elements.action_head:ActionHead
+  vote_bridge:           agents.co.core.elements.E0_vote_bridge:E0_VoteBridge
   haq:                   agents.co.core.elements.EA_haq:EA_HAQ
   ghvc:                  agents.co.core.elements.EB_ghvc:EB_GHVC
   density:               agents.co.core.elements.EG_density_precision:EG_Density
@@ -22,15 +23,23 @@ elements:
   EF_RouterGIL:          agents.co.core.elements.EF_router_gil:EF_Router
   EH_BreadthDepth:       agents.co.core.elements.EH_breadth_depth:EH_BreadthDepth
 
+translators:
+  maze:    "agents.co.integration.translators.maze_translator:translate"
+  bandit:  "agents.co.integration.translators.bandit_translator:translate"
+  renewal: "agents.co.integration.translators.renewal_translator:translate"
+
 combinators:
+  C_Fuse:        agents.co.core.combinators.C_fuse:C_Fuse
   C_Pipeline:    agents.co.core.combinators.C_pipeline:C_Pipeline
   C_Gate:        agents.co.core.combinators.C_gate:C_Gate
   C_MathPolicy:  agents.co.core.combinators.C_math_policy:C_MathPolicy
   C_ClassicOps:  agents.co.core.combinators.C_classic_ops:C_ClassicOps
   C_CoOps:       agents.co.core.combinators.C_co_ops:C_CoOps
 
+
 primitives:
   calibrators:   "agents.co.core.primitives.calibrators"
+  co_bus:        "agents.co.core.primitives.co_bus:CoVoteBus"
   budget:        "agents.co.core.primitives.budget"
   identity:      "agents.co.core.primitives.identity"
   visit_tracker: "agents.co.core.primitives.visit_tracker:VisitTracker"

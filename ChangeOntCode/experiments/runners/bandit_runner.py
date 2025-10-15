@@ -133,15 +133,23 @@ def main() -> None:
             except Exception:
                 pass
 
-            # if isinstance(sel, dict) and ("head_eps" in sel or "head_ngram_order" in sel):
-            #     write_metric_line(metrics_path, {
-            #         "metric": "co_head_params",
-            #         "t": int(sel.get("step", 0)),
-            #         "head_eps": sel.get("head_eps"),
-            #         "head_ngram_order": sel.get("head_ngram_order"),
-            #         "maze_explore": sel.get("head_maze_explore"),  # if you added this field
-            #         "agent": agent_tag,
-            #     })
+           # -- CO debug
+            co_policy    = (sel.get("co_policy") if isinstance(sel, dict) else None) or "n/a"
+            co_weight    = (float(sel.get("co_weight", 1.0)) if isinstance(sel, dict) else 1.0)
+            co_bus_votes = (int(sel.get("co_bus_votes", 0)) if isinstance(sel, dict) else 0)
+
+            # emit a co-debug line (rename the metric field so it matches the value we have)
+            write_metric_line(
+                metrics_path,
+                {
+                    "metric": "co_debug",
+                    "t": t,
+                    "co_policy": co_policy,
+                    "co_weight": co_weight,
+                    "co_bus_votes": co_bus_votes,   # <-- was co_bus_size; use the count returned by ActionHead
+                    "agent": agent_tag,
+                },
+            )
 
             if isinstance(sel, dict) and "action" in sel:
                 a = int(sel["action"])

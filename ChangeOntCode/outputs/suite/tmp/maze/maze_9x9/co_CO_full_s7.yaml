@@ -10,7 +10,6 @@ agent:
   type: co
   name: CO_full
   params:
-    math_policy: co
     header:
       mode: SSI
     elements:
@@ -30,9 +29,28 @@ agent:
         enabled: true
         k: 4
         mdl_select: true
+      vote_bridge:
+        enabled: true
       action_head:
         enabled: true
-        eps_on_cycle: 0.12
+        prefer_bus_if_present: true
+        use_translator: true
+        blend_mode: mix
+        classic_planner: greedy
+        co_weight_override: null
+        eps_on_cycle: 0.1
         ngram_order: 2
-        greedy_explore_bias: 0.08
+        greedy_explore_bias: 0.1
+    primitives:
+      co_bus: {}
+      bandit_stats: {}
+      ngram_model: {}
+    combinator:
+      order:
+      - haq
+      - ghvc
+      - density
+      - change_ops
+      - vote_bridge
+      - action_head
 out: outputs\suite\maze\maze_9x9\co_CO_full_s7

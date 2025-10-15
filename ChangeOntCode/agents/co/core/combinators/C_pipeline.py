@@ -1,51 +1,111 @@
-# agents/co/core/C_pipeline.py
+# agents/co/core/combinators/C_pipeline.py
+
+from __future__ import annotations
 from typing import Any, Dict, List
+from agents.co.core.contracts.signals import merge_signals
 
 class C_Pipeline:
-    """
-    Executes elements in sequence; collects/merges metrics.
-    Elements that declare `force_last = True` are executed after all others,
-    so they can deterministically win key collisions (e.g., 'action').
-    """
     def __init__(self, order: List[str] | None = None):
         self.order = order or []
 
     def run(
         self,
-        elements: List[Any],
-        primitives: Dict[str, Any],
-        header: Any,
-        observation: Dict[str, Any],
-        feedback: Dict[str, Any],
-    ) -> Dict[str, Any]:
-        metrics: Dict[str, Any] = {}
+        elements: list,
+        primitives: dict,
+        header: any,
+        observation: dict,
+        feedback: dict | None,
+    ) -> dict:
+        out: dict = {}
+        # 0) Header update so ActionHead sees co_weight/dyn
+        try:
+            hrec = header.update(observation)
+            if isinstance(hrec, dict):
+                out.update(hrec)
+        except Exception:
+            pass
 
-        heads = [e for e in elements if getattr(e, "force_last", False)]
-        rest  = [e for e in elements if not getattr(e, "force_last", False)]
+        # 1) Everything except ActionHead
+        head = None
+        for e in elements:
+            if e.__class__.__name__.lower().endswith("actionhead"):
+                head = e
+                continue
 
-        # optional: respect a given order filter (by element class name)
-        if self.order:
-            name = lambda e: e.__class__.__name__
-            rest  = [e for e in rest  if name(e) in self.order]
-            heads = [e for e in heads if name(e) in self.order]
-
-        def _run_block(block: List[Any]) -> None:
-            nonlocal metrics
-            for e in block:
+            if hasattr(e, "update"):
                 try:
-                    if hasattr(e, "update"):
-                        m = e.update(observation, primitives, header, feedback)  # type: ignore
-                        if isinstance(m, dict): metrics.update(m)
-                    if hasattr(e, "step"):
-                        m = e.step(observation, primitives, header, feedback)    # type: ignore
-                        if isinstance(m, dict): metrics.update(m)
-                    if hasattr(e, "metrics"):
-                        m = e.metrics()                                           # type: ignore
-                        if isinstance(m, dict): metrics.update(m)
+                    u = e.update(observation, primitives, header, feedback)
+                    if isinstance(u, dict) and u:
+                        out.update(u)
                 except Exception:
-                    metrics[e.__class__.__name__] = "failed"
+                    pass
 
-        _run_block(rest)
-        _run_block(heads)   # <- heads always win
+            if hasattr(e, "step"):
+                try:
+                    s = e.step(observation, primitives, header, feedback)
+                    if isinstance(s, dict) and s:
+                        out.update(s)
+                except Exception:
+                    pass
 
-        return metrics
+            if hasattr(e, "metrics"):
+                try:
+                    m = e.metrics()
+                    if isinstance(m, dict) and m:
+                        out.update(m)
+                except Exception:
+                    pass
+
+        # 2) ActionHead exactly once, last
+        if head is not None and hasattr(head, "step"):
+            try:
+                sel = head.step(observation, primitives, header, feedback)
+                if isinstance(sel, dict) and sel:
+                    out.update(sel)
+                    return out
+            except Exception:
+                pass
+
+        return out
+
+    def run_update(
+        self,
+        elements: list,
+        primitives: dict,
+        header: any,
+        observation: dict,
+        feedback: dict | None,
+    ) -> dict:
+        """Learning-only pass. IMPORTANT: do **not** invoke ActionHead.step()."""
+        out: dict = {}
+        try:
+            hrec = header.update(observation)
+            if isinstance(hrec, dict):
+                out.update(hrec)
+        except Exception:
+            pass
+
+        for e in elements:
+            if e.__class__.__name__.lower().endswith("actionhead"):
+                continue  # skip the head on update pass
+
+            if hasattr(e, "update"):
+                try:
+                    u = e.update(observation, primitives, header, feedback)
+                    if isinstance(u, dict) and u:
+                        out.update(u)
+                except Exception:
+                    pass
+
+            # NOTE: in update pass we intentionally do *not* call e.step(...)
+            # to avoid publishing/consuming votes and accidentally draining the bus.
+
+            if hasattr(e, "metrics"):
+                try:
+                    m = e.metrics()
+                    if isinstance(m, dict) and m:
+                        out.update(m)
+                except Exception:
+                    pass
+
+        return out

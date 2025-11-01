@@ -22,6 +22,7 @@ elements:
   EE_Compressibility:    agents.co.core.elements.EE_compressibility:EE_Compressibility
   EF_RouterGIL:          agents.co.core.elements.EF_router_gil:EF_Router
   EH_BreadthDepth:       agents.co.core.elements.EH_breadth_depth:EH_BreadthDepth
+  EJ_OrderAsymmetry: agents.co.core.elements.EJ_order_arisal:EJ_OrderAsymmetry
 
 translators:
   maze:    "agents.co.integration.translators.maze_translator:translate"
@@ -29,12 +30,13 @@ translators:
   renewal: "agents.co.integration.translators.renewal_translator:translate"
 
 combinators:
-  C_Fuse:        agents.co.core.combinators.C_fuse:C_Fuse
-  C_Pipeline:    agents.co.core.combinators.C_pipeline:C_Pipeline
-  C_Gate:        agents.co.core.combinators.C_gate:C_Gate
-  C_MathPolicy:  agents.co.core.combinators.C_math_policy:C_MathPolicy
-  C_ClassicOps:  agents.co.core.combinators.C_classic_ops:C_ClassicOps
-  C_CoOps:       agents.co.core.combinators.C_co_ops:C_CoOps
+  C_Fuse:         agents.co.core.combinators.C_fuse:C_Fuse
+  C_Pipeline:     agents.co.core.combinators.C_pipeline:C_Pipeline
+  C_Gate:         agents.co.core.combinators.C_gate:C_Gate
+  C_MathPolicy:   agents.co.core.combinators.C_math_policy:C_MathPolicy
+  C_ClassicOps:   agents.co.core.combinators.C_classic_ops:C_ClassicOps
+  C_CoOps:        agents.co.core.combinators.C_co_ops:C_CoOps
+  C_TransformChain: agents.co.core.combinators.C_transform_chain:C_TransformChain   # <-- add this
 
 
 primitives:
@@ -45,6 +47,7 @@ primitives:
   visit_tracker: "agents.co.core.primitives.visit_tracker:VisitTracker"
   bandit_stats:  "agents.co.core.primitives.bandit_stats:BanditStats"
   ngram_model:   "agents.co.core.primitives.ngram_model:NGramModel"
+  P0: "agents.co.core.primitives.P0_arisal_tension:ArisalTension"
   P1:  "agents.co.core.primitives.P1_bend_metric"
   P2:  "agents.co.core.primitives.P2_gauge"
   P3:  "agents.co.core.primitives.P3_mdl"

@@ -32,7 +32,7 @@ def main():
         r = 1.0 if a in ("R","U") else 0.0
         agent.learn({"reward": r})
         state = (state + (1 if a in ("R","U") else -1)) % 7
-    print("FINAL METRICS:", agent.finalize())
+    #print("FINAL METRICS:", agent.finalize())
 
 if __name__ == "__main__":
     main()

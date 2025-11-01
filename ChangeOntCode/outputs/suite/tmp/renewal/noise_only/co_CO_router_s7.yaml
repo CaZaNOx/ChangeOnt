@@ -1,0 +1,47 @@
+seed: 7
+steps: 1000
+agent:
+  type: co
+  name: CO_router
+  params:
+    header:
+      mode: SSI
+    elements:
+      haq:
+        enabled: true
+        history_len: 64
+        ema_alpha: 0.2
+      ghvc:
+        enabled: false
+      density:
+        enabled: false
+      change_ops:
+        enabled: false
+      vote_bridge:
+        enabled: true
+      action_head:
+        enabled: true
+        prefer_bus_if_present: true
+        use_translator: true
+        blend_mode: classic_only
+        classic_planner: astar
+        co_weight_override: 0.0
+        eps_on_cycle: 0.0
+        ngram_order: 0
+        greedy_explore_bias: 0.0
+    primitives:
+      co_bus: {}
+      P0: {}
+      bandit_stats: {}
+    combinator:
+      order:
+      - haq
+      - vote_bridge
+      - action_head
+env:
+  A: 8
+  L_win: 6
+  p_ren: 0.0
+  p_noise: 0.02
+  T_max: 1000
+out_dir: outputs\suite\renewal\noise_only\co_CO_router_s7

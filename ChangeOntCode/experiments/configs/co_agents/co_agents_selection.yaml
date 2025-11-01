@@ -1,3 +1,4 @@
+#ChangeOntCode\experiments\configs\co_agents\co_agents_selection.yaml
 apply_to_all_families: true
 apply_to_all_modes: true
 
@@ -27,6 +28,7 @@ co_agents:
 
       primitives:
         co_bus: {}
+        P0: {}
         bandit_stats: {}
         ngram_model: {}
 
@@ -59,6 +61,7 @@ co_agents:
 
       primitives:
         co_bus: {}
+        P0: {}
         bandit_stats: {}
 
       combinator:

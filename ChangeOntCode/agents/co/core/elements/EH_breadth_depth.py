@@ -1,17 +1,11 @@
 # agents/co/core/elements/EH_breadth_depth.py
+from __future__ import annotations
 from typing import Any, Dict
 from ..primitives.P8_loopiness import loopiness, suggest_p_breadth
 
 class EH_BreadthDepth:
     """
-    Schedules exploration breadth vs. depth from 'loopiness' and header dyn.
-    Inputs:
-      - 'frontier' OR 'path' to estimate loopiness
-      - header_state: we write p_breadth respecting header bounds
-    Params:
-      - depth_hint: optional int
-      - mix_mode: 'dyn_blend' | 'loop_only' | 'fixed'
-      - fixed_p: used when mix_mode='fixed'
+    Schedule exploration breadth vs. depth from 'loopiness' and header dyn.
     """
     def __init__(self):
         self.params: Dict[str, Any] = {}
@@ -27,11 +21,7 @@ class EH_BreadthDepth:
     def fit(self, stream_or_env_view=None):
         return self
 
-    def step(self, inputs: Dict) -> Dict:
-        hs = inputs.get("header_state")
-        frontier = inputs.get("frontier")
-        path = inputs.get("path")
-
+    def _compute(self, hs: Any, frontier, path) -> Dict[str, float]:
         L = 0.0
         if frontier is not None:
             L = loopiness(frontier)
@@ -48,11 +38,19 @@ class EH_BreadthDepth:
             else:  # dyn_blend
                 p = (1 - hs.dyn) * 0.5 * p_loop + (hs.dyn) * p_loop
 
-        # clamp to header bounds
         p = max(0.1, min(0.9, p))
         hs.p_breadth = p
         self.last_p = p
         return {"p_breadth": float(p), "loopiness": float(L)}
 
-    def report(self) -> Dict:
+    def update(self, observation: Dict[str, Any], primitives: Dict[str, Any], header: Any, feedback: Dict[str, Any] | None):
+        hs = getattr(header, "state", header)
+        frontier = observation.get("frontier")
+        path = observation.get("path")
+        return self._compute(hs, frontier, path)
+
+    def step(self, observation: Dict[str, Any], primitives: Dict[str, Any], header: Any, feedback: Dict[str, Any] | None):
+        return self.update(observation, primitives, header, feedback)
+
+    def report(self) -> Dict[str, float]:
         return {"p_breadth": float(self.last_p)}

@@ -43,6 +43,7 @@ agent:
         greedy_explore_bias: 0.1
     primitives:
       co_bus: {}
+      P0: {}
       bandit_stats: {}
       ngram_model: {}
     combinator:
@@ -53,4 +54,4 @@ agent:
       - change_ops
       - vote_bridge
       - action_head
-out: outputs\suite\maze\maze_9x9\co_CO_full_s7
+out: outputs/suite/maze/maze_9x9/co_CO_full_s7

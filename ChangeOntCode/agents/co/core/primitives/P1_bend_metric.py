@@ -19,6 +19,7 @@ def _edit_distance(a: Sequence[Any], b: Sequence[Any], sub_cost=1, ins_cost=1, d
             prev = cur
     return dp[m]
 
+
 def bend_distance(path, path_prime, metric: str = "edit", tau: float = 0.0) -> float:
     """
     Lawvere bend distance: inf bend budget to turn path->path'.

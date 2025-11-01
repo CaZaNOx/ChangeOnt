@@ -231,7 +231,7 @@ class ActionHead:
             elif self.blend_mode == "classic_only": co_w = 0.0
             classic_w = 1.0 - co_w
 
-            print(f"[HEAD] family={family} blend={self.blend_mode} co_w={co_w:.3f} classic_w={classic_w:.3f}")
+            #print(f"[HEAD] family={family} blend={self.blend_mode} co_w={co_w:.3f} classic_w={classic_w:.3f}")
 
             # CO path
             co_sources: List[str] = []
@@ -239,7 +239,7 @@ class ActionHead:
             if self.prefer_bus:
                 bus_scores, n_votes = self._bus_scores(primitives, family)
                 if bus_scores: co_sources.append("bus")
-            print(f"[HEAD] bus_scores={bus_scores} n_votes={n_votes}")
+            #print(f"[HEAD] bus_scores={bus_scores} n_votes={n_votes}")
 
             trans_scores: Dict[Any, float] = {}
             translator_mask: set = set()
@@ -252,7 +252,7 @@ class ActionHead:
                     except Exception:
                         trans_scores, translator_mask = {}, set()
                     if trans_scores: co_sources.append("translator")
-            print(f"[HEAD] trans_scores={trans_scores} mask={translator_mask}")
+            #print(f"[HEAD] trans_scores={trans_scores} mask={translator_mask}")
 
             co_scores: Dict[Any, float] = {}
             parts: List[Any] = []
@@ -261,21 +261,21 @@ class ActionHead:
             if parts:
                 co_scores = self._fuse_safe(parts)
                 co_scores = normalize_scores(co_scores)
-            print(f"[HEAD] co_scores (pre-mask)={co_scores}")
+            #print(f"[HEAD] co_scores (pre-mask)={co_scores}")
 
             # apply translator mask
             if translator_mask:
                 for a in list(co_scores.keys()):
                     if a in translator_mask:
                         co_scores.pop(a, None)
-            print(f"[HEAD] co_scores (post-mask)={co_scores}")
+            #print(f"[HEAD] co_scores (post-mask)={co_scores}")
 
             # classical
             classical = self._classical_scores(family, observation, primitives)
             if classical:
                 classical = normalize_scores(classical)
                 co_sources.append("classical")
-            print(f"[HEAD] classical={classical}")
+            #print(f"[HEAD] classical={classical}")
 
             # final scores
             domain = list(actions) if actions else list(set(list(co_scores.keys()) + list(classical.keys())))
@@ -284,7 +284,7 @@ class ActionHead:
                 for a in domain:
                     cs = co_scores.get(a, 0.0); ks = classical.get(a, 0.0)
                     final_scores[a] = co_w * cs + classic_w * ks
-                    print(f"[HEAD] score[{a}] = co({cs:.3f})*{co_w:.3f} + klass({ks:.3f})*{classic_w:.3f} = {final_scores[a]:.3f}")
+                    #print(f"[HEAD] score[{a}] = co({cs:.3f})*{co_w:.3f} + klass({ks:.3f})*{classic_w:.3f} = {final_scores[a]:.3f}")
 
             # ------------- Maze anti-osc without ties -------------
             picked_override: Optional[str] = None
@@ -329,7 +329,7 @@ class ActionHead:
                                     best_key, best_a = key, a
                             if best_a is not None:
                                 picked_override = best_a
-                                print(f"[HEAD] mask-only inverse '{only}' -> override to lateral '{picked_override}'")
+                                #print(f"[HEAD] mask-only inverse '{only}' -> override to lateral '{picked_override}'")
 
                 # (B) Two-step 2-cycle detector: if we returned to pos_{t-2}, avoid inverse even without ties.
                 if picked_override is None and self._prev_pos is not None and self._last_pos is not None and isinstance(pos,(list,tuple)):
@@ -355,7 +355,7 @@ class ActionHead:
                                 best_key, best_a = key, a
                         if best_a is not None:
                             picked_override = best_a
-                            print(f"[HEAD] 2-cycle detected -> override inverse to '{picked_override}'")
+                            #print(f"[HEAD] 2-cycle detected -> override inverse to '{picked_override}'")
 
             # choose action
             if final_scores or picked_override is not None:
@@ -373,7 +373,7 @@ class ActionHead:
                 if family == "maze" and isinstance(best, str):
                     self._last_action = best
 
-                print(f"[HEAD] choose action={best} sources={co_sources}")
+                #print(f"[HEAD] choose action={best} sources={co_sources}")
                 return {
                     "action": best,
                     "co_policy": f"{family}:blend(co={co_w:.2f})",
@@ -428,7 +428,7 @@ class ActionHead:
                         "co_sources": ["fallback"], "head_eps": float(self.eps), "head_ngram_order": int(self.k)}
             return {}
         except Exception as ex:
-            print(f"[HEAD.step] exception: {ex!r}")
+            #print(f"[HEAD.step] exception: {ex!r}")
             fam = str(observation.get("family","")).lower()
             if fam == "maze":
                 pos = observation.get("pos"); goal = observation.get("goal")

@@ -1,0 +1,6 @@
+agent,family_mean_final_regret,n_problems
+co_CO_full,403.3333333333405,3
+co_CO_router,403.3333333333405,3
+kl_ucb,26.490000000000023,3
+ts,13.663333333333275,3
+ucb1,41.81500000000017,3

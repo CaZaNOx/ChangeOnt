@@ -10,4 +10,4 @@ agent:
   type: bfs
   name: null
   params: {}
-out: outputs\suite\maze\maze_9x9\bfs_s7
+out: outputs/suite/maze/maze_9x9/bfs_s7

@@ -10,4 +10,4 @@ agent:
   type: astar
   name: null
   params: {}
-out: outputs\suite\maze\maze_9x9\astar_s7
+out: outputs/suite/maze/maze_9x9/astar_s7

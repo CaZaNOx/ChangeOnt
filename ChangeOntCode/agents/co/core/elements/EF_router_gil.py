@@ -21,15 +21,13 @@ class EF_Router:
     dyn_max: float = 1.0
 
     def configure(self, params: Dict[str, Any], context: Dict[str, Any]):
-        for k,v in params.items():
-            if hasattr(self, k): setattr(self, k, v)
+        for k, v in (params or {}).items():
+            if hasattr(self, k):
+                setattr(self, k, v)
         return self
 
-    def run(self, state: Dict[str, Any]) -> Dict[str, Any]:
-        hdr = state["header_state"]
-        probes = state.get("probes", {})
-        budget = state.get("budget", None)
-
+    # original core logic (slightly generalized)
+    def _run_core(self, hdr: Any, probes: Dict[str, Any], budget: Any, math_ctx: Any) -> Dict[str, Any]:
         V  = float(probes.get("volatility", 0.0))
         CP = float(probes.get("change_point", 0.0))
         H  = float(probes.get("holonomy", 0.0))
@@ -40,42 +38,65 @@ class EF_Router:
 
         score = (self.wV*V + self.wCP*CP + self.wH*H + self.wK*K +
                  self.wR*R + self.wF*F + self.wM*M)
-        prop = _sigmoid(score)  # 0..1
+        prop = _sigmoid(score)
         dyn_prev = float(getattr(hdr, "dyn", 0.0))
         dyn_target = self.dyn_min + prop * (self.dyn_max - self.dyn_min)
 
-        # hysteresis: move only across thresholds
         dyn_new = dyn_prev
         if dyn_prev < self.exit_thr and dyn_target >= self.enter_thr:
             dyn_new = dyn_target
-            # flipping regime costs budget "flip"
-            if budget is not None and budget.allow_move("flip"):
-                budget.commit("flip")
+            if budget is not None and hasattr(budget, "allow_move") and budget.allow_move("flip"):
+                try: budget.commit("flip")
+                except Exception: pass
         elif dyn_prev > self.enter_thr and dyn_target <= self.exit_thr:
             dyn_new = dyn_target
-            if budget is not None and budget.allow_move("flip"):
-                budget.commit("flip")
+            if budget is not None and hasattr(budget, "allow_move") and budget.allow_move("flip"):
+                try: budget.commit("flip")
+                except Exception: pass
         else:
-            # small adjustment
             dyn_new = 0.9 * dyn_prev + 0.1 * dyn_target
 
         hdr.dyn = max(0.0, min(1.0, dyn_new))
 
-        # math context selection
-        mctx = state["math_context"]
-        if hdr.dyn < 0.2:
-            mctx.path_algebra = "classical"
-            mctx.number_arith = "classic"
-            mctx.logic = "boolean"
-        elif hdr.dyn < 0.7:
-            mctx.path_algebra = "minplus"
-            mctx.number_arith = "classic"
-            mctx.logic = "boolean"
-        else:
-            mctx.path_algebra = "minplus"
-            mctx.number_arith = "spread"
-            mctx.logic = "quantale"
+        # math selection
+        if math_ctx is not None:
+            try:
+                if hdr.dyn < 0.2:
+                    math_ctx.path_algebra = "classical"
+                    math_ctx.number_arith = "classic"
+                    math_ctx.logic = "boolean"
+                elif hdr.dyn < 0.7:
+                    math_ctx.path_algebra = "minplus"
+                    math_ctx.number_arith = "classic"
+                    math_ctx.logic = "boolean"
+                else:
+                    math_ctx.path_algebra = "minplus"
+                    math_ctx.number_arith = "spread"
+                    math_ctx.logic = "quantale"
+            except Exception:
+                pass
 
-        # derive tolerances from dyn (header will finish mapping ranges)
-        # (caller typically calls header.derive_effective() after router)
-        return {"dyn": hdr.dyn, "math_context": mctx.to_dict()}
+        mctx_dict = {}
+        if math_ctx is not None:
+            to_dict = getattr(math_ctx, "to_dict", None)
+            if callable(to_dict):
+                try: mctx_dict = to_dict()
+                except Exception: mctx_dict = {}
+            else:
+                mctx_dict = {
+                    "path_algebra": getattr(math_ctx, "path_algebra", None),
+                    "number_arith": getattr(math_ctx, "number_arith", None),
+                    "logic": getattr(math_ctx, "logic", None),
+                }
+        return {"dyn": float(hdr.dyn), "math_context": mctx_dict}
+
+    # pipeline hooks
+    def update(self, observation: Dict[str, Any], primitives: Dict[str, Any], header: Any, feedback: Dict[str, Any] | None):
+        hdr = getattr(header, "state", header)  # accept either
+        probes = observation.get("probes", {}) or {}
+        budget = primitives.get("budget")
+        math_ctx = getattr(header, "math", None)
+        return self._run_core(hdr, probes, budget, math_ctx)
+
+    def step(self, observation: Dict[str, Any], primitives: Dict[str, Any], header: Any, feedback: Dict[str, Any] | None):
+        return self.update(observation, primitives, header, feedback)

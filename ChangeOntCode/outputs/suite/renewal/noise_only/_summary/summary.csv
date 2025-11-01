@@ -1,0 +1,6 @@
+instance,agent,mean_final_cum_reward,n_runs
+noise_only,co_CO_full,4.0,1
+noise_only,co_CO_router,4.0,1
+noise_only,last,163.0,1
+noise_only,phase,951.0,1
+noise_only,vom,36.0,1

@@ -1,0 +1,13 @@
+{
+  "name": "co-dev",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "workspaceFolder": "/workspaces/ChangeOnt",
+  "remoteUser": "vscode",
+  "postCreateCommand": "pip install -r requirements.txt || true",
+  "customizations": {
+    "vscode": {
+      "settings": { "terminal.integrated.cwd": "/workspaces/ChangeOnt/ChangeOntCode" },
+      "extensions": ["ms-python.python","ms-toolsai.jupyter","ms-vscode.gitlens"]
+    }
+  }
+}

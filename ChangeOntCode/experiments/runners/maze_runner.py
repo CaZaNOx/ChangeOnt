@@ -192,11 +192,11 @@ def main() -> None:
 
                 # --- Ask CO for an action ---
 
-                print("[RUNNER] t=", steps,
-                    " pos=", obs.get("pos"),
-                    " goal=", obs.get("goal"), " type(goal)=", type(obs.get("goal")),
-                    " HxW=", obs.get("height"), "x", obs.get("width"),
-                    " grid_ok=", isinstance(obs.get("grid"), list) and bool(obs["grid"]))
+                # print("[RUNNER] t=", steps,
+                #     " pos=", obs.get("pos"),
+                #     " goal=", obs.get("goal"), " type(goal)=", type(obs.get("goal")),
+                #     " HxW=", obs.get("height"), "x", obs.get("width"),
+                #     " grid_ok=", isinstance(obs.get("grid"), list) and bool(obs["grid"]))
                 # --- Ask CO for an action ---
                 sel = None
                 try:
@@ -210,7 +210,7 @@ def main() -> None:
                     act = sel
 
                 # Log what CO decided
-                print(f"[RUNNER] t={steps} CO raw action -> {act!r}  (type={type(act).__name__})  co_policy={ (sel.get('co_policy') if isinstance(sel, dict) else None) }")
+                #print(f"[RUNNER] t={steps} CO raw action -> {act!r}  (type={type(act).__name__})  co_policy={ (sel.get('co_policy') if isinstance(sel, dict) else None) }")
 
                 co_policy    = (sel.get("co_policy") if isinstance(sel, dict) else None) or "n/a"
                 co_weight    = (float(sel.get("co_weight", 1.0)) if isinstance(sel, dict) else 1.0)

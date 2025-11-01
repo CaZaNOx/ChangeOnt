@@ -1,16 +1,78 @@
-co_agents:
-  - name: co1
-    headers:
-      loop_signal:
-        alpha: 0.20
-        hysteresis:
-          up_thresh: 0.65
-          down_thresh: 0.45
+execute: 
+python -m experiments.suite_cli
 
-  - name: co2
-    headers:
-      loop_signal:
-        alpha: 0.05
-        hysteresis:
-          up_thresh: 0.55
-          down_thresh: 0.35
+suite_cli:
+  - for family in suite_all.yaml family is e.g maze
+    - read environment e.g different types of maze
+      - read mode e.g. maze_9x9 and relevant enviroment variables seeds and agents
+      the environment should be instantiated
+      - runner for family picks up the relevant agent and lets it run on the specific environment at hand.
+        - first all stoas are run e.g. astar ucb1  by executing the relevant function and returning values relevant for plotting and metricx
+        - runner calls co core 
+
+  - co core has agents it provides based on config. each co provided agent is executed on each present family mode environment
+    - for each co agent the following happens from bottom to top:
+      1) prmitives execute based on provided config params
+      2) primitves get combined together based on combinators with changeable weights into the Elements that group them
+      3) elements get combined together using combinators and assigned weights based on config (maybe even headers if this makes sense but i dont think so)
+      4) headers get applied to the combined elements (theres a dynamic header) how dynamic is the environement based on what we detect. header specifies partiall weight of co vs classical algorithms
+      5) global header applies and weights the co vs classical (predefined on family or env because we have prior knowledge that therers high vs low dynamicity e.g bandit vs maze)
+      6) full agent value gets transformed into task relevant statement 
+      7) the specific action is provided to the runner and executed on the environment
+
+      Notes i know this is currently not how the code is opperated and instead the top level idea
+      furhter it might be sensible to update the weights of elements prmitives etc based on returned reward etc so theres some tuning going on while executing.
+
+      Whats currently the case as far as i understand is that every element gets to vote on an action and then the votes are basically weighted with co vote do the relevant percentage and then the relevant action is taken.
+
+
+
+Can you express it kind of as pseudocode but still with structures that work:
+let me try to run trough what i naivley and just top of the head rough suggestion think of:
+runTest()
+  instantiates env
+  get state info e.g inital position etc
+  get allowed actions
+  provides: family, allowed actions, env state info, 
+
+performaction()
+  recieves action from co agent
+  performs action
+  get action info e.g. current position, reward, etc (only same info that stoa gets)
+  provides: family new env state info, reward, done, etc
+
+familyrouter()
+  recieves family, info etc
+  picks relevant translator
+  provides: allowed action, state info, reward etc
+
+env1translator()
+  recieves allowed actions, infos etc
+  maps actions and info into co format
+  downstream: provides co elements (maybe also headers with information about dynanmicity dont know what is the best level for headers)
+  upstream: recieves action in co format translates to env action 
+  has static pre config header value for classicality of the env and applies classical step vote weight and co step vote weight
+  selects step
+
+co corehandler()
+  recieves elements,
+  calls combinator to combine elements based on config, 
+  combines elements based on config for weights
+  applies and maybe tunes dynamic header based on env info
+  Note(maybe weights, headers can be dynamic based on env info but for now static config is desired to be able to lock in what values perform how well also would mean we need to include some band to avoid having every config just learn and tune in to the same behavior after some steps)
+
+element() or header() (note header handling for dynamic header is still uncertain)
+  recieves primitives
+  calls combinator to combine primitives based on config
+  combines configs based on weights 
+  (maybe calculates or updates weights dynamically but for a start have static weights to make it comparable, maybe applies band to max min weight and max min values for primitives)
+  calculates cummulative vote or value provides it to header
+  calls primitive with maybe dynamic values or config values
+  applies co math/logic based on config
+  recieves calcualted values of primitives
+
+primitves()
+  recieves values provided by element
+  recieves config regarding behavior e.g co math/logic
+  calcualtes values 
+  provides values to element

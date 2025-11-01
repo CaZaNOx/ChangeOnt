@@ -1,0 +1,56 @@
+env:
+  probs:
+  - 0.49
+  - 0.5
+  - 0.51
+  horizon: 3000
+agent:
+  type: co
+  name: CO_full
+  params:
+    header:
+      mode: SSI
+    elements:
+      haq:
+        enabled: true
+        history_len: 64
+        ema_alpha: 0.2
+      ghvc:
+        enabled: true
+        mdl_lambda: 1.0
+        cooldown: 5
+        birth_threshold: 2.0
+      density:
+        enabled: true
+        rounding: 2
+      change_ops:
+        enabled: true
+        k: 4
+        mdl_select: true
+      vote_bridge:
+        enabled: true
+      action_head:
+        enabled: true
+        prefer_bus_if_present: true
+        use_translator: true
+        blend_mode: mix
+        classic_planner: greedy
+        co_weight_override: null
+        eps_on_cycle: 0.1
+        ngram_order: 2
+        greedy_explore_bias: 0.1
+    primitives:
+      co_bus: {}
+      P0: {}
+      bandit_stats: {}
+      ngram_model: {}
+    combinator:
+      order:
+      - haq
+      - ghvc
+      - density
+      - change_ops
+      - vote_bridge
+      - action_head
+seed: 4
+out: outputs\suite\bandit\hard\co_CO_full_s4

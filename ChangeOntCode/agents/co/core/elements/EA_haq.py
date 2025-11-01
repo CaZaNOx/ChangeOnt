@@ -1,7 +1,10 @@
 # agents/co/core/elements/EA_haq.py
 from __future__ import annotations
-from typing import Dict, Any
+from typing import Dict, Any, Optional
 from dataclasses import dataclass
+
+def _get_bus(primitives: Dict[str, Any]):
+    return primitives.get("co_bus", None)
 
 @dataclass
 class EA_HAQ:
@@ -18,27 +21,50 @@ class EA_HAQ:
         self.alpha += self.kappa * (target - self.alpha)
         self.alpha = max(0.0, min(cap, self.alpha))
 
-    def _warp_classical(self, base_costs: Dict[Any, float]) -> Dict[Any, float]:
-        # Simple affine warp by alpha
-        return {k: v * (1.0 - self.alpha) for k, v in base_costs.items()}
+    def update(self, observation: Dict[str, Any], primitives: Dict[str, Any], header: Any, feedback: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+        return {}
 
-    def _warp_minplus(self, base_costs: Dict[Any, float]) -> Dict[Any, float]:
-        # In min-plus, lowering costs is also a linear shift; we keep it simple
-        return {k: v - self.alpha for k, v in base_costs.items()}
+    def step(self, observation: Dict[str, Any], primitives: Dict[str, Any], header: Any, feedback: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+        hs = getattr(header, "state", header)
+        cap = float(getattr(hs, "alpha_cap", 1.0))
 
-    def run(self, state: Dict[str, Any]) -> Dict[str, Any]:
-        hdr = state["header_state"]
-        math_ctx = state["math_context"]
-        signals = state.get("signals", {})
-        z_pe = float(signals.get("z_PE", 0.0))
-        z_gain = float(signals.get("z_gain", 0.0))
-        cap = float(getattr(hdr, "alpha_cap", 0.0))
+        # try to compute z_PE / z_gain via primitives if available
+        z_pe = 0.0
+        z_gain = 0.0
+        P1 = primitives.get("P1")  # bend/prediction error surrogate?
+        P5 = primitives.get("P5")  # temporal ops / gain?
+
+        try:
+            # best-effort: many P* are modules/classes; check common hooks
+            if hasattr(P1, "z_pe"):       z_pe = float(P1.z_pe(observation))
+            elif hasattr(P1, "surprise"): z_pe = float(P1.surprise(observation))
+        except Exception:
+            pass
+
+        try:
+            if hasattr(P5, "gain"):       z_gain = float(P5.gain(observation))
+            elif hasattr(P5, "z_gain"):   z_gain = float(P5.z_gain(observation))
+        except Exception:
+            pass
+
+        # fallback to signals in observation (if adapters set them)
+        sig = observation.get("signals", {})
+        z_pe   = float(sig.get("z_PE", z_pe))
+        z_gain = float(sig.get("z_gain", z_gain))
+
         self._update_alpha(z_pe, z_gain, cap)
 
-        base_costs = state.get("base_costs", {})
-        if math_ctx.path_algebra == "minplus":
-            warped = self._warp_minplus(base_costs)
-        else:
-            warped = self._warp_classical(base_costs)
+        # publish a simple novelty scalar (translator reads EA_HAQ.novelty)
+        bus = _get_bus(primitives)
+        try:
+            if bus is not None:
+                val = float(self.alpha)
+                # very lightweight bus key write (mapping-like or attribute-like)
+                try: bus["EA_HAQ.novelty"] = val
+                except Exception:
+                    try: setattr(bus, "EA_HAQ_novelty", val)
+                    except Exception: pass
+        except Exception:
+            pass
 
-        return {"alpha": self.alpha, "warped_costs": warped}
+        return {"haq_alpha": float(self.alpha), "z_PE": float(z_pe), "z_gain": float(z_gain)}

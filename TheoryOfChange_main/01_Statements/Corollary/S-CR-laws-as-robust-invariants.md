@@ -1,0 +1,66 @@
+---
+id: stmt.laws-as-robust-invariants
+type: CR
+title: Regularities (“laws”) as robust invariants under SRL/SE
+concepts: ["[[02_Concepts/C-identity-change]]", "[[02_Concepts/C-math-structures]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-identity-invariants]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]", "[[01_Statements/Definition/S-DF-evaluation-surface]]"]
+parents: ["[[01_Statements/Definition/S-DF-identity-invariants]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]"]
+successors: []
+symbols_used: []
+sources:
+  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:14
+flags: []
+status: stable
+tags: [regularity, invariants, SRL, SE, "type/CR", "#type/CR"]
+---
+# Regularities (“laws”) as robust invariants under SRL/SE
+Corollary: What appear as domain “laws” are regularities that persist as high‑SRL, high‑SE invariants within LocalReach, evaluated on the cost/evaluation surface; robustness across Tx confirms their status.
+
+## Tags
+#type/CR #domain/formal #concept/identity-change
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-identity-change]]; [[02_Concepts/C-math-structures]]
+- Parents: [[01_Statements/Definition/S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
+- Dependencies: [[01_Statements/Definition/S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/Definition/S-DF-evaluation-surface]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+---
+id: stmt.pattern-vs-noise-thresholds
+type: CL
+title: Pattern vs noise thresholds via RTV budgets and SE
+concepts: ["[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-identity-change]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-rtv-operator]]", "[[01_Statements/Definition/S-DF-rtv-fixedpoints]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]"]
+parents: ["[[01_Statements/Definition/S-DF-rtv-operator]]", "[[01_Statements/Definition/S-DF-rtv-fixedpoints]]"]
+successors: []
+symbols_used: []
+sources:
+  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:1800
+flags: []
+status: stable
+tags: [validation, thresholds, "type/CL", "#type/CL"]
+---
+# Pattern vs noise thresholds via RTV budgets and SE
+Clarifies that proto‑patterns become structure when RTV reaches stable cycles/fixed points within declared budgets and SE remains above collapse; otherwise classify as noise at that resolution.
+
+## Tags
+#type/CL #layer/validation #concept/recursive-truth
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-identity-change]]
+- Parents: [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/Definition/S-DF-rtv-fixedpoints]]
+- Dependencies: [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/Definition/S-DF-rtv-fixedpoints]]; [[01_Statements/Definition/S-DF-stabilization-energy]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+
+
+
+
+
+
+
+

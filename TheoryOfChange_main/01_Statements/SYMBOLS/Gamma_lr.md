@@ -1,0 +1,138 @@
+sym: "γ"
+name: Learning rate
+scope: optimization/update
+status: stable
+related: ["α", "β"]
+tags: ["symbol/Gamma_lr", "status/stable", "scope/optimization"]
+---
+# γ — Learning rate
+
+Definition (formal):
+Step size in parameter/self‑model updates.
+
+## Example
+- S^M_{t+1} = S^M_t + γ · (obs_t – pred_t) · ∇S^M_t
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:USED_IN -->
+## Used In
+
+<!-- END:AUTOGEN:USED_IN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

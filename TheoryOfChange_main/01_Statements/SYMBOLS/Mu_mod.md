@@ -1,0 +1,279 @@
+sym: "μ_mod"
+name: Minimal modulation unit
+scope: modulation
+status: draft
+related: []
+tags: ["symbol/Mu_mod", "status/draft", "scope/modulation"]
+---
+# μ_mod — Minimal modulation unit
+
+Definition (formal):
+Smallest modulation step after which re-anchoring ambiguity may occur.
+
+## Math
+```math
+\mu_{mod} := \inf\{\Delta: \text{re-anchor ambiguous at resolution } \varepsilon\}
+```
+
+## Example
+- Below μ_mod, pointer re-anchoring may be ill-defined.
+
+## Related
+- [[01_Statements/SYMBOLS/Epsilon]] (ε)
+
+## Philosophical Translation (of formal definition)
+There is a minimal step beyond which re-anchoring becomes ambiguous.
+
+## Philosophical Justification
+At very small scales, identity tracking can fail; μ_mod marks that practical boundary.
+
+## Explanation (informal)
+Use μ_mod to decide when to “snap” pointers or identities to new anchors.
+
+## Clarifications / Further Context
+- Relates to grid/quantization in practical systems.
+
+## Next Steps in Chain
+- Define anchoring policies based on μ_mod and ε.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:USED_IN -->
+## Used In
+
+<!-- END:AUTOGEN:USED_IN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

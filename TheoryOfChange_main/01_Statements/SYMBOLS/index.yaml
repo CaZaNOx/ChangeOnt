@@ -1,0 +1,84 @@
+# Canonical symbol registry (machine-readable)
+# Add entries here before using symbols in statements.
+
+symbols:
+  - sym: "Δ"
+    name: difference
+    scope: field-level
+    notes: global difference — field-level tension
+    related: ["δ", "⥤"]
+  - sym: "δ"
+    name: local change
+    scope: subject-local
+    notes: minimal difference at subject level
+    related: ["Δ"]
+  - sym: "⥤"
+    name: structural entailment
+    scope: derivation
+    notes: replaces logical → in recursive derivations
+    related: []
+  - sym: "ε"
+    name: sensitivity threshold
+    scope: modulation
+    notes: minimal perceptible Δ
+    related: ["σ(ε)", "μ_mod"]
+  - sym: "σ(ε)"
+    name: sensitivity fluctuation
+    scope: modulation
+    notes: function of ε — resolution instability
+    related: ["ε"]
+  - sym: "μ_mod"
+    name: minimal modulation unit
+    scope: modulation
+    notes: re-anchoring ambiguity threshold
+    related: ["ε"]
+  - sym: "⇘(x)"
+    name: field-level pointer to prior
+    scope: trace/pointer
+    notes: structural reference (not memory)
+    related: ["↶(x)", "⇘²(x)"]
+  - sym: "↶(x)"
+    name: local pointer to prior
+    scope: trace/pointer
+    notes: DS-local reference to internal prior
+    related: ["⇘(x)"]
+  - sym: "⇘²(x)"
+    name: meta-pointer
+    scope: trace/pointer
+    notes: pointer to pointer behavior (drift detection)
+    related: ["⇘(x)"]
+  - sym: "↻"
+    name: breath loop
+    scope: recursion
+    notes: recursive closure of modulation cycle
+    related: ["RTV"]
+  - sym: "⊘"
+    name: collapse
+    scope: validation
+    notes: invalid structure, fracture, trace failure
+    related: []
+  - sym: "⊗"
+    name: field boundary / wall
+    scope: topology
+    notes: discontinuity marker
+    related: ["∂"]
+  - sym: "∂"
+    name: local differential
+    scope: analysis
+    notes: rate of change across boundary
+    related: ["Δ", "δ"]
+  - sym: "≈"
+    name: approximate similarity
+    scope: structural
+    notes: structural (not metric) resemblance
+    related: []
+  - sym: "≠"
+    name: difference (not equal)
+    scope: structural
+    notes: inequality relation
+    related: ["≡", "Δ"]
+  - sym: "≡"
+    name: identity
+    scope: structural
+    notes: identity/equivalence relation
+    related: ["≠"]

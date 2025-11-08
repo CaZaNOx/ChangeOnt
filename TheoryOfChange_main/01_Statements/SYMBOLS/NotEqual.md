@@ -1,0 +1,276 @@
+sym: "≠"
+name: Difference (not equal)
+scope: structural
+status: draft
+related: []
+tags: ["symbol/NotEqual", "status/draft", "scope/structural"]
+---
+# ≠ — Difference (not equal)
+
+Definition (formal):
+Inequality relation; used to denote difference between states/values.
+
+## Example
+- a ≠ b implies presence of Δ distinguishing a and b.
+
+## Related
+- [[01_Statements/SYMBOLS/Identity]] (≡)
+- [[01_Statements/SYMBOLS/Delta]] (Δ)
+
+## Philosophical Translation (of formal definition)
+Difference is real: some things are not the same and that matters.
+
+## Philosophical Justification
+All intelligibility relies on distinguishing; ≠ asserts and records those distinctions.
+
+## Explanation (informal)
+Use ≠ to make Δ explicit in equations and definitions.
+
+## Clarifications / Further Context
+- ≠ indicates structural difference; its criteria must be stated.
+
+## Next Steps in Chain
+- Tie ≠ to collapse events and boundary conditions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:USED_IN -->
+## Used In
+- [[01_Statements/Counterfactual/S-CF-pointer-diff-equals]]
+- [[01_Statements/Definition/S-DF-difference-operator]]
+<!-- END:AUTOGEN:USED_IN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

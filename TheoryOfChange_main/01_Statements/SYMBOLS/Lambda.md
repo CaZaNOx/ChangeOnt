@@ -1,0 +1,146 @@
+sym: "λ"
+name: Regularization weight
+scope: modeling/selection
+status: stable
+related: []
+tags: ["symbol/Lambda", "status/stable", "scope/modeling"]
+---
+# λ — Regularization weight
+
+Definition (formal):
+Penalty weight used in MDL/compressibility or proxy models to trade error reduction against complexity.
+
+## Example
+- In [[01_Statements/Definition/S-DF-prm-mdl-compressibility]]: MDL gain = error_drop − λ·parameters.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:USED_IN -->
+## Used In
+- [[01_Statements/Definition/S-DF-prm-mdl-compressibility]]
+<!-- END:AUTOGEN:USED_IN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

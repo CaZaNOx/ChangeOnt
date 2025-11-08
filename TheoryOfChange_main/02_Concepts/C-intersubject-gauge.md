@@ -1,0 +1,134 @@
+---
+id: concept.intersubject-gauge
+title: Intersubject Gauge — Shared Alignment and Coupling
+tags: ["concept/intersubject-gauge", coupling, gauge]
+status: draft
+---
+# Intersubject Gauge — Shared Alignment and Coupling
+Overview:
+Shared alignment field synchronizing subjects’ perceptions/costs; coupling effects on stability and collapse propagation.
+
+Canonical statements:
+- [[01_Statements/Definition/S-DF-intersubject-gauge]]
+- [[01_Statements/Corollary/S-CR-collective-coupling-se]]
+
+Open items:
+- Minimal coupling models; measuring cross‑SE amplification and cascade risks.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+### Statements
+- [[01_Statements/Clarification/S-CL-anti-solipsistic-closure]]
+- [[01_Statements/Corollary/S-CR-ethics-gauge-strain-minimization]]
+- [[01_Statements/Corollary/S-CR-external-asymmetry-prevents-closure]]
+- [[01_Statements/Corollary/S-CR-micro-acts-stabilize-gauge]]
+- [[01_Statements/Definition/S-DF-intersubject-translation-resonance]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

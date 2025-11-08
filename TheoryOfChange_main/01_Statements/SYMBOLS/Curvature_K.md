@@ -1,0 +1,156 @@
+sym: "K"
+name: Curvature (gauge)
+scope: gauge/geometry
+status: stable
+related: ["Γ"]
+tags: ["symbol/K", "status/stable", "scope/gauge"]
+---
+# K — Curvature (gauge)
+
+Definition (formal):
+Curvature derived from Γ capturing accumulated misalignment (holonomy) in the gauge alignment field.
+
+## Example
+- Emitted as diagnostic in gauge alignment/stabilization elements.
+
+## Related
+- [[01_Statements/SYMBOLS/Gamma]] (Γ)
+
+## Clarifications
+- Interpreted operationally as a coherence signal in domain models.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:USED_IN -->
+## Used In
+- [[01_Statements/Definition/S-DF-prm-gauge]]
+<!-- END:AUTOGEN:USED_IN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

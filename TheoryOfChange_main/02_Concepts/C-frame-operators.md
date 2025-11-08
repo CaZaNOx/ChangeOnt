@@ -1,0 +1,268 @@
+---
+id: concept.frame-operators
+title: Frame Operators (Tx)
+tags: ["concept/frame-operators", operators, logical]
+status: draft
+---
+# Frame Operators (Tx)
+Overview:
+Operators that act on the configuration of the subject/space itself (not only within it), enabling meta‑change and frame transitions. Drawn from FND_6_TransformationOperator_Tx and related notes on meta‑change.
+
+Canonical statements (to be linked):
+- [[S-DF-tx-operator]] (DF)
+ - [[S-DF-tx-algebra]] (DF)
+ - [[S-DR-pointer-behavior-under-tx]] (DR)
+
+Dependencies:
+- From: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-prior-pointer-reach]]
+- To: [[02_Concepts/C-ontology-of-change]] (feedback), [[02_Concepts/C-performative-contradiction]] (consistency checks)
+
+Open items:
+- Specify algebra and closure properties of Tx; interaction with pointers and reach.
+
+## Tags
+#concept/frame-operators #layer/operators #domain/logical
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+### Statements
+- [[01_Statements/Corollary/S-CR-qm-no-privileged-substrate]]
+- [[01_Statements/Definition/S-DF-cross-audit-markov-gh-tx]]
+- [[01_Statements/Definition/S-DF-tx-algebra]]
+- [[01_Statements/Definition/S-DF-tx-operator]]
+- [[01_Statements/Derivation/S-DR-dimension-variation]]
+- [[01_Statements/Derivation/S-DR-math-structures-closure]]
+- [[01_Statements/Derivation/S-DR-pointer-behavior-under-tx]]
+- [[01_Statements/Derivation/S-DR-predictive-statement-nonclassical]]
+### Linked Concepts
+- [[02_Concepts/C-ontology-of-change]]
+- [[02_Concepts/C-prior-pointer-reach]]
+- [[02_Concepts/C-performative-contradiction]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

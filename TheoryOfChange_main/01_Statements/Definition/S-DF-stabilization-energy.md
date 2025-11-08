@@ -1,0 +1,499 @@
+---
+id: stmt.stabilization-energy
+type: DF
+aliases: ["FND_9.SE"]
+title: Stabilization Energy (SE) — robustness of identity loops
+concepts: ["[[02_Concepts/C-identity-change]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-identity-through-change]]", "[[01_Statements/Definition/S-DF-self-similarity-threshold]]"]
+parents: ["[[01_Statements/Definition/S-DF-identity-through-change]]"]
+successors: ["[[01_Statements/Corollary/S-CR-se-supports-identity]]"]
+symbols_used: ["[[01_Statements/SYMBOLS/Partial]]", "[[01_Statements/SYMBOLS/Approx]]"]
+sources:
+  - path: TheoryOfChange/02_Foundations/FND_9_StabilizationEnergy.md:1
+  - path: TheoryOfChange/01_CoreOntology/COT_4_Structured_Pattern_Emergence.md:1
+flags: []
+tags: [foundations, ontological, "type/DF", "concept/identity"]
+---
+# Stabilization Energy (SE) — robustness of identity loops
+## Claim (formal)
+SE quantifies robustness of return (identity) loops in local reach by assessing the distribution of contrast‑chain lifetimes; low variance implies greater stability.
+
+## Philosophical Translation (of formal claim)
+It is not enough that a pattern sometimes persists; we need a measure of how reliably it does so. SE captures the pattern’s power to keep breathing without collapsing.
+
+## Philosophical Justification
+Identity is a dynamic achievement. SE encodes whether the pattern’s self‑similarity is consistently maintained across cycles or only sporadically. This distinguishes resilient identities from fragile pseudo‑identities.
+
+## Derivation (Formal)
+```math
+\overline{\tau}(x) = \frac{1}{|\mathcal{P}^r(x)|} \sum_{p \in \mathcal{P}^r(x)} \tau(p)\; ;\; E_s(x)=\mathrm{Var}(\tau(p))
+```
+
+## Clarifications / Further Context
+- SE interacts with ε, σ(ε): detection granularity affects lifetime estimates and variance.
+
+## Next Steps in Chain
+- Integrate SE with entropy and dimensional analyses for full robustness profiles.
+
+## Tags
+#type/DF #layer/foundations #domain/ontological #concept/identity #symbol/Partial #symbol/Approx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+- [[01_Statements/Clarification/S-CL-pattern-vs-noise-thresholds]]
+- [[01_Statements/Clarification/S-CL-proto-conscious-min-criteria]]
+- [[01_Statements/Corollary/S-CR-complexity-no-fundamental-simplicity]]
+- [[01_Statements/Corollary/S-CR-consciousness-periodicity]]
+- [[01_Statements/Corollary/S-CR-criticism-increases-srl-se]]
+- [[01_Statements/Corollary/S-CR-ethics-gauge-strain-minimization]]
+- [[01_Statements/Corollary/S-CR-identity-as-phase-resonance]]
+- [[01_Statements/Corollary/S-CR-laws-as-robust-invariants]]
+- [[01_Statements/Corollary/S-CR-micro-acts-stabilize-gauge]]
+- [[01_Statements/Corollary/S-CR-residual-meaning-traces]]
+- [[01_Statements/Corollary/S-CR-se-supports-identity]]
+- [[01_Statements/Definition/S-DF-attractor-field]]
+- [[01_Statements/Definition/S-DF-change-fitness]]
+- [[01_Statements/Definition/S-DF-haq-core-family]]
+- [[01_Statements/Definition/S-DF-identity-through-change]]
+- [[01_Statements/Definition/S-DF-prm-variable-birth]]
+- [[01_Statements/Definition/S-DF-self-similarity-threshold]]
+- [[01_Statements/Derivation/S-DR-breath-stabilization]]
+- [[01_Statements/Derivation/S-DR-entropy-vs-se]]
+- [[01_Statements/Derivation/S-DR-fitness-vs-srl-se]]
+- [[01_Statements/Derivation/S-DR-rtv-collapse-threshold]]
+- [[01_Statements/Derivation/S-DR-srl-vs-se-theta]]
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-identity-change]]
+- Parents: [[01_Statements/Definition/S-DF-identity-through-change]]
+- Dependencies: [[01_Statements/Definition/S-DF-identity-through-change]]; [[01_Statements/Definition/S-DF-self-similarity-threshold]]
+- Successors: [[01_Statements/Corollary/S-CR-se-supports-identity]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

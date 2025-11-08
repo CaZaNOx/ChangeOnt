@@ -1,0 +1,316 @@
+---
+id: stmt.perceived-time-breath-index
+type: CR
+aliases: ["CR_Time.Phenomenology"]
+title: Perceived time as breath‑locked phase indexing (phenomenological)
+concepts: ["[[02_Concepts/C-recursive-truth]]"]
+dependencies: [
+  "[[01_Statements/Definition/S-DF-breath-field-global-integrator]]",
+  "[[01_Statements/Definition/S-DF-rtv-operator]]",
+  "[[01_Statements/Definition/S-DF-sigma-fluctuation]]"
+]
+parents: ["[[01_Statements/Definition/S-DF-breath-field-global-integrator]]"]
+successors: []
+symbols_used: []
+sources:
+  - path: TheoryOfChange_main/05_Speculations/SP-Time-Recursive-Phase.md:1
+flags: []
+tags: [corollary, phenomenology, rhythm, "type/CR", "concept/recursive-truth"]
+---
+# Perceived time as breath‑locked phase indexing (phenomenological)
+## Statement (corollary)
+Subjective sense of time corresponds to indexing of recursive validation (RTV) phases coordinated by the breath field; increased σ(ε) modulates this rhythm (e.g., dilation/contraction), without positing an external absolute time.
+
+## Justification from definitions
+- [[S-DF-breath-field-global-integrator]] coordinates recursive validation cycles.
+- [[S-DF-rtv-operator]] evaluates stability across cycles (phases/locks).
+- [[S-DF-sigma-fluctuation]] modulates sensitivity and thus perceived pacing.
+Hence, phase progression under breath provides a phenomenological index that tracks how “time feels” during stabilized vs unstable validation.
+
+## Scope note
+This is a phenomenological corollary only; it makes no claim about physical time. It characterizes experience relative to breath/RTV dynamics.
+
+## Tags
+#type/CR #layer/foundations #domain/phenomenology #rhythm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-recursive-truth]]
+- Parents: [[01_Statements/Definition/S-DF-breath-field-global-integrator]]
+- Dependencies: [[01_Statements/Definition/S-DF-breath-field-global-integrator]]; [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/Definition/S-DF-sigma-fluctuation]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

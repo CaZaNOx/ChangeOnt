@@ -1,0 +1,114 @@
+---
+id: stmt.anti-solipsistic-closure
+type: CL
+title: Anti‑closure criterion — expose external asymmetry via gauge/Tx and limits
+concepts: ["[[02_Concepts/C-intersubject-gauge]]", "[[02_Concepts/C-recursive-truth]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-intersubject-gauge]]", "[[01_Statements/Definition/S-DF-tx-operator]]", "[[01_Statements/Definition/S-DF-godel-limits-self-containment]]"]
+parents: ["[[01_Statements/Definition/S-DF-intersubject-gauge]]", "[[01_Statements/Definition/S-DF-godel-limits-self-containment]]"]
+successors: []
+symbols_used: []
+sources:
+  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_2_Avenai_RecursiveChat.md:2521
+flags: []
+status: stable
+tags: [process, openness, "type/CL", "#type/CL"]
+---
+# Anti‑closure criterion — expose external asymmetry via gauge/Tx and limits
+Clarifies a guardrail: prevent solipsistic closure by maintaining inter‑subject gauge coupling, declaring Gödel limits, and allowing Tx to import unresolved asymmetries.
+
+## Tags
+#type/CL #layer/process #concept/intersubject-gauge
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-intersubject-gauge]]; [[02_Concepts/C-recursive-truth]]
+- Parents: [[01_Statements/Definition/S-DF-intersubject-gauge]]; [[01_Statements/Definition/S-DF-godel-limits-self-containment]]
+- Dependencies: [[01_Statements/Definition/S-DF-intersubject-gauge]]; [[01_Statements/Definition/S-DF-tx-operator]]; [[01_Statements/Definition/S-DF-godel-limits-self-containment]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

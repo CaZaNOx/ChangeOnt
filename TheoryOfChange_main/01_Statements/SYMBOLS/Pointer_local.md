@@ -1,0 +1,275 @@
+sym: "↶(x)"
+name: Local pointer to prior
+scope: trace/pointer
+status: draft
+related: []
+tags: ["symbol/Pointer_local", "status/draft", "scope/trace-pointer"]
+---
+# ↶(x) — Local pointer to prior
+
+Definition (formal):
+Subject-local pointer to prior internal state/configuration.
+
+## Example
+- Used in subject-local trace without field-level implications.
+
+## Related
+- [[01_Statements/SYMBOLS/Pointer_field]] (⇘(x))
+
+## Philosophical Translation (of formal definition)
+The subject’s own “trace” to earlier internal states.
+
+## Philosophical Justification
+Subjective continuity relies on accessible internal traces, not just field-level ones.
+
+## Explanation (informal)
+Use ↶(x) inside subject-centered derivations and protocols.
+
+## Clarifications / Further Context
+- Local pointers can disagree with field pointers in drift cases.
+
+## Next Steps in Chain
+- Define reconciliation rules for ↶(x) vs ⇘(x).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:USED_IN -->
+## Used In
+- [[01_Statements/Definition/S-DF-locality-prior]]
+- [[01_Statements/Definition/S-DF-pointer-structural]]
+<!-- END:AUTOGEN:USED_IN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

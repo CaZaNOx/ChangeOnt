@@ -1,0 +1,321 @@
+---
+id: stmt.memory-drift-vs-se
+type: CR
+aliases: ["CR_Memory.Drift.SE"]
+title: Memory drift increases as SE decreases (and with higher σ(ε))
+concepts: ["[[02_Concepts/C-recursive-truth]]"]
+dependencies: [
+  "[[01_Statements/Definition/S-DF-memory-trace-integration]]",
+  "[[01_Statements/Definition/S-DF-stabilization-energy]]",
+  "[[01_Statements/Definition/S-DF-sigma-fluctuation]]"
+]
+parents: ["[[01_Statements/Definition/S-DF-memory-trace-integration]]"]
+successors: []
+symbols_used: []
+sources:
+  - path: TheoryOfChange_main/05_Speculations/ORIGINALS/SPE_1_CausalityEmergenceFromDeltaCoherence.md:SF_RecursiveMemoryFields
+flags: []
+tags: [corollary, memory, validation, "type/CR", "concept/recursive-truth"]
+---
+# Memory drift increases as SE decreases (and with higher σ(ε))
+## Statement (corollary)
+The stability of reactivatable memory traces declines as stabilization energy (SE) falls and as σ(ε) rises; drift precedes collapse of integration across experiences.
+
+## Justification from definitions
+- [[S-DF-memory-trace-integration]]: memory traces integrate across experiences via reactivation.
+- [[S-DF-stabilization-energy]]: higher SE corresponds to more reliable loop persistence.
+- [[S-DF-sigma-fluctuation]]: larger σ(ε) reduces reliable convergence.
+Therefore, lower SE and higher σ(ε) jointly increase drift of memory traces and reduce robust integration.
+
+## Tags
+#type/CR #layer/foundations #domain/recursion #memory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-recursive-truth]]
+- Parents: [[01_Statements/Definition/S-DF-memory-trace-integration]]
+- Dependencies: [[01_Statements/Definition/S-DF-memory-trace-integration]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-sigma-fluctuation]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

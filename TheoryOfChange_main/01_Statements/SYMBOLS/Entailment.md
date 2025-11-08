@@ -1,0 +1,289 @@
+sym: "⥤"
+name: Structural entailment
+scope: derivation
+status: stable
+related: []
+tags: ["symbol/Entailment", "status/stable", "scope/derivation"]
+---
+# ⥤ — Structural entailment
+
+Definition (formal):
+Entailment relation specific to recursive/structural derivations, replacing logical → where transformation of space/subject is implicated.
+
+Explanation:
+Used to distinguish structural derivations from purely propositional inference.
+
+## Math
+```math
+\text{If } A(\lnot P) \Rightarrow P \;\; \text{then } P.
+```
+Interpreted as entailment where the act A structurally presupposes P.
+
+## Example
+- In performative contradiction schema: Act(¬P) ⥤ Requires(P) ⥤ P
+
+References:
+- CO_LOGIC.md (planned), Derivation narratives
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:USED_IN -->
+## Used In
+- [[01_Statements/Corollary/S-CR-delta-now-implies-pointer]]
+- [[01_Statements/Definition/S-DF-performative-contradiction]]
+- [[01_Statements/Definition/S-DF-reach-relation]]
+- [[01_Statements/Derivation/S-DR-quantale-residuation-implication]]
+<!-- END:AUTOGEN:USED_IN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Related
+- [[01_Statements/SYMBOLS/Delta]] (Δ — field-level difference)
+
+## Philosophical Translation (of formal definition)
+Some acts or structures carry what they claim to deny; when an act requires P, P holds in that structure.
+
+## Philosophical Justification
+Structural entailment captures cases where inference is about the configuration of acting/knowing, not just propositions. Performative contradiction is one such case.
+
+## Explanation (informal)
+We use ⥤ to mark entailments that depend on transformation or context (e.g., the act’s preconditions), beyond material implication.
+
+## Clarifications / Further Context
+- ⥤ is not a replacement for →; it supplements it where structure changes (frame, space, subject) matter.
+
+## Next Steps in Chain
+- Formalize ⥤ within CO_LOGIC (rule schemas, introduction/elimination rules).

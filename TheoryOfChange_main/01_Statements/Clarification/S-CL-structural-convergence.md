@@ -1,0 +1,188 @@
+---
+id: stmt.cl-structural-convergence
+type: CL
+aliases: ["CL_Structural.Convergence"]
+title: Structural convergence — tie to SRL and identity invariants
+concepts: ["[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-identity-change]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]", "[[01_Statements/Definition/S-DF-identity-invariants]]"]
+parents: ["[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]"]
+successors: []
+symbols_used: []
+sources:
+  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_2_Avenai_RecursiveChat.md:414
+flags: []
+tags: [clarification, SRL, identity, "type/CL"]
+---
+# Structural convergence — tie to SRL and identity invariants
+## Content
+Claims of “convergence” should be grounded in (i) SRL increases across breath cycles and (ii) preservation of declared identity invariants. Convergence is not rhetorical harmony; it is improved recurrence under stable identity criteria.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-identity-change]]
+- Parents: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
+- Dependencies: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/Definition/S-DF-identity-invariants]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

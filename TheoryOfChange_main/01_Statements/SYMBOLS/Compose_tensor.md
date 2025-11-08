@@ -1,0 +1,163 @@
+sym: "⊗"
+name: Composition (inf-convolution)
+scope: logic/quantale
+status: stable
+related: ["⊕"]
+tags: ["symbol/Compose", "status/stable", "scope/logic"]
+---
+# ⊗ — Composition (inf‑convolution)
+
+Definition (formal):
+In CO quantale logic, ⊗ denotes composition via inf‑convolution of evidence/cost functions:
+
+```math
+(e_1 \otimes e_2)(z) = \inf_{x+y=z} \; e_1(x) + e_2(y)
+```
+
+## Example
+- Cost to reach A then B is the best split of effort across the path.
+
+## Related
+- [[01_Statements/SYMBOLS/Join_min]] (⊕) — join (min)
+
+## Clarifications / Further Context
+- Distinct from any topological boundary symbol; used strictly for quantale composition in this ontology.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:USED_IN -->
+## Used In
+- [[01_Statements/Definition/S-DF-quantale-logic]]
+- [[01_Statements/Derivation/S-DR-quantale-boolean-flattening-proof]]
+- [[01_Statements/Derivation/S-DR-quantale-evidence-composition]]
+- [[01_Statements/Derivation/S-DR-quantale-residuation-implication]]
+<!-- END:AUTOGEN:USED_IN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

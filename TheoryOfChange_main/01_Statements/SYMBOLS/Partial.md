@@ -1,0 +1,280 @@
+sym: "∂"
+name: Local differential
+scope: analysis
+status: draft
+related: []
+tags: ["symbol/Partial", "status/draft", "scope/analysis"]
+---
+# ∂ — Local differential
+
+Definition (formal):
+Rate of change across a boundary or local differential operator.
+
+## Math
+```math
+\partial_x f := \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}
+```
+
+## Example
+- Local rate of change across a declared boundary in a smooth patch.
+
+## Related
+- [[01_Statements/SYMBOLS/Delta]] (Δ)
+- [[01_Statements/SYMBOLS/Delta_lower]] (δ)
+
+## Philosophical Translation (of formal definition)
+This is how we speak about local rates of change — the “slope” of becoming.
+
+## Philosophical Justification
+Rates express how change propagates; partials capture direction-sensitive aspects required for structure.
+
+## Explanation (informal)
+∂ is the calculus bridge for the ontology — used when fields admit smooth local description.
+
+## Clarifications / Further Context
+- Not all structures are differentiable; ∂ applies where smoothness holds or is approximated.
+
+## Next Steps in Chain
+- Connect ∂ to discrete δ via limits and to ⊗ via jump conditions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:USED_IN -->
+## Used In
+- [[01_Statements/Definition/S-DF-localreach-topology]]
+- [[01_Statements/Definition/S-DF-stabilization-energy]]
+<!-- END:AUTOGEN:USED_IN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,280 @@
+sym: "⇘(x)"
+name: Field-level pointer to prior
+scope: trace/pointer
+status: draft
+related: []
+tags: ["symbol/Pointer_field", "status/draft", "scope/trace-pointer"]
+---
+# ⇘(x) — Field-level pointer to prior
+
+Definition (formal):
+Structural reference to earlier configuration at field level; not memory, but trace relation.
+
+## Math
+```text
+\Downarrow(x): \text{points to prior field state at index } x
+```
+
+## Example
+- Used to indicate field-level provenance in derivation traces.
+
+## Related
+- [[01_Statements/SYMBOLS/Pointer_local]] (↶(x))
+- [[01_Statements/SYMBOLS/Pointer_meta]] (⇘²(x))
+
+## Philosophical Translation (of formal definition)
+It’s the “trace” that situates the present within its field’s own past.
+
+## Philosophical Justification
+Without traces, a field can’t relate to what it has been; change would be memoryless in an implausible way.
+
+## Explanation (informal)
+Use ⇘(x) to connect current derivations to prior field configurations.
+
+## Clarifications / Further Context
+- Not a literal memory dump; it’s a structural pointer usable in proofs.
+
+## Next Steps in Chain
+- Specify pointer behavior under frame changes (Tx).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:USED_IN -->
+## Used In
+
+<!-- END:AUTOGEN:USED_IN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,481 @@
+---
+id: stmt.rtv-operator
+type: DF
+aliases: ["FND_10.RTV"]
+title: Recursive Truth Value (RTV)
+concepts: ["[[02_Concepts/C-recursive-truth]]"]
+dependencies: ["[[01_Statements/FoundationalTruth/S-FT-continuity-noncessation]]"]
+parents: ["[[01_Statements/FoundationalTruth/S-FT-continuity-noncessation]]"]
+successors: ["[[01_Statements/Derivation/S-DR-breath-stabilization]]"]
+symbols_used: ["[[01_Statements/SYMBOLS/Breath]]"]
+sources:
+  - path: TheoryOfChange/02_Foundations/FND_10_RecursiveTruthValue.md:1
+flags: []
+tags: [validation, recursion, "type/DF", "concept/recursive-truth"]
+---
+# Recursive Truth Value (RTV)
+## Claim (formal)
+RTV evaluates a claim’s stability across recursive breath cycles under evolving conditions; truth is a fixed point or stable orbit in the validation dynamics.
+
+## Philosophical Translation (of formal claim)
+Under change, we do not test once — we breathe the test. Truth is what keeps validating as the system and its resolution adjust.
+
+## Clarifications / Further Context
+- RTV depends on ε, σ(ε), and collapse ⊘ predicates; it complements classical truth with dynamical evaluation.
+
+## Tags
+#type/DF #layer/validation #domain/recursion #concept/recursive-truth #symbol/Breath
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+- [[01_Statements/Clarification/S-CL-attention-recursive-filter]]
+- [[01_Statements/Clarification/S-CL-pattern-vs-noise-thresholds]]
+- [[01_Statements/Corollary/S-CR-identity-as-phase-resonance]]
+- [[01_Statements/Definition/S-DF-attention-focus]]
+- [[01_Statements/Definition/S-DF-attractor-field]]
+- [[01_Statements/Definition/S-DF-breath-field-global-integrator]]
+- [[01_Statements/Definition/S-DF-co-logic-graded-order]]
+- [[01_Statements/Definition/S-DF-delta-field-tension]]
+- [[01_Statements/Definition/S-DF-entropy-co]]
+- [[01_Statements/Definition/S-DF-evaluation-surface]]
+- [[01_Statements/Definition/S-DF-math-structures]]
+- [[01_Statements/Definition/S-DF-rtv-fixedpoints]]
+- [[01_Statements/Definition/S-DF-self-model-evolution]]
+- [[01_Statements/Definition/S-DF-sigma-fluctuation]]
+- [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
+- [[01_Statements/Definition/S-DF-subject-recursive-field]]
+- [[01_Statements/Derivation/S-DR-breath-stabilization]]
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-recursive-truth]]
+- Parents: [[01_Statements/FoundationalTruth/S-FT-continuity-noncessation]]
+- Dependencies: [[01_Statements/FoundationalTruth/S-FT-continuity-noncessation]]
+- Successors: [[01_Statements/Derivation/S-DR-breath-stabilization]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

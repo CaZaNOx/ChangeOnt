@@ -1,0 +1,178 @@
+---
+id: stmt.quantale-boolean-flattening-proof
+type: DR
+title: Quantale → Boolean flattening — proof sketch via idempotent collapse
+concepts: ["[[02_Concepts/C-math-structures]]"]
+dependencies: ["[[01_Statements/Corollary/S-CR-boolean-as-collapse]]", "[[01_Statements/Definition/S-DF-evaluation-surface]]"]
+parents: ["[[01_Statements/Definition/S-DF-quantale-logic]]"]
+successors: ["[[01_Statements/Derivation/S-DR-quantale-evidence-composition]]", "[[01_Statements/Corollary/S-CR-proof-as-reachability]]"]
+symbols_used: ["[[01_Statements/SYMBOLS/Join_min]]", "[[01_Statements/SYMBOLS/Compose_tensor]]"]
+sources:
+  - path: TheoryOfChange_main/03_Derivation/Derivation.md:1
+  - path: TheoryOfChange/02_Foundations/DerChain.md:1
+flags: []
+status: stable
+tags: [logic/quantale, logic/boolean, formal, "type/DR", "concept/math-structures", "#logic", "#math", "#type/DR", "#layer/foundations", "#domain/formal", "#concept/math-structures"]
+---
+
+# Quantale → Boolean flattening — proof sketch via idempotent collapse
+
+Philosophical Derivation
+
+When evidence is graded and compositional, a quantale (complete lattice + monoidal composition ⊗ distributing over arbitrary joins) models aggregation and chaining of support. Boolean logic appears as a degenerate regime where all non-bottom elements are identified as “true enough” (idempotent collapse). This is a pragmatic convention: once costs collapse to a strict cut, residual distinctions vanish and only entailment structure remains.
+
+Formal/Operational Derivation
+
+Let (Q, ≤, ⊗, ⊕) be a unital quantale with ⊕ the join (e.g., min-plus or max-plus variants after order reversal). Define a quotient map π: Q → B by selecting a threshold θ and setting π(x) = 1 iff x ≥ θ, else 0, with 0 < θ ≤ ⊤. Then for any family {x_i}:
+
+1) π(⊕_i x_i) = 1 iff ∃i: x_i ≥ θ = ⊕_i π(x_i) in Boolean join.
+2) π(x ⊗ y) = 1 iff x ⊗ y ≥ θ. Choose θ with closure: if x ≥ θ and y ≥ θ then x ⊗ y ≥ θ (monotonicity). Then π respects composition: π(x ⊗ y) = π(x) ∧ π(y).
+
+Thus π is a quantale homomorphism to the Boolean algebra B when θ is admissible (upward closed and multiplicatively stable). Boolean logic is the flattened image; loss of grading is explicit, not mysterious.
+
+## Tags
+#type/DR #layer/foundations #domain/formal #concept/math-structures
+
+Clarifications
+
+- This does not posit Boolean foundations; it exhibits Boolean reasoning as a coarse projection of graded evidential calculus.
+- Choosing θ is application-dependent; see [[01_Statements/Definition/S-DF-evaluation-surface]].
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-math-structures]]
+- Parents: [[01_Statements/Definition/S-DF-quantale-logic]]
+- Dependencies: [[01_Statements/Corollary/S-CR-boolean-as-collapse]]; [[01_Statements/Definition/S-DF-evaluation-surface]]
+- Successors: [[01_Statements/Derivation/S-DR-quantale-evidence-composition]]; [[01_Statements/Corollary/S-CR-proof-as-reachability]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

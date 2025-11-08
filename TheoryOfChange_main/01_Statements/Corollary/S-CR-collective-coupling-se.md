@@ -1,0 +1,319 @@
+---
+id: stmt.collective-coupling-se
+type: CR
+aliases: ["CR_Collective.SE.Amplification"]
+title: Coupled subjects — cross‑SE amplification and cascade risk under intersubject gauge
+concepts: ["[[02_Concepts/C-subject-awareness-experience]]", "[[02_Concepts/C-math-structures]]"]
+dependencies: [
+  "[[01_Statements/Definition/S-DF-intersubject-gauge]]",
+  "[[01_Statements/Definition/S-DF-stabilization-energy]]"
+]
+parents: ["[[01_Statements/Definition/S-DF-intersubject-gauge]]"]
+successors: []
+symbols_used: []
+sources:
+  - path: TheoryOfChange_main/05_Speculations/ORIGINALS/SPE_1_CausalityEmergenceFromDeltaCoherence.md:129
+flags: []
+tags: [corollary, intersubject, stability, "type/CR", "concept/subject-awareness-experience", "concept/math-structures"]
+---
+# Coupled subjects — cross‑SE amplification and cascade risk under intersubject gauge
+## Statement (corollary)
+When subjects are coupled by the inter‑subject gauge, alignment reduces pairwise misfit and can raise effective stabilization energy (SE) for shared structures; conversely, strong misalignment can propagate collapse by lowering SE across the coupled set.
+
+## Justification from definitions
+- From [[S-DF-intersubject-gauge]]: shared alignment minimizes misfit between coupled subjects’ percepts/costs.
+- From [[S-DF-stabilization-energy]]: higher SE supports persistence; reduced SE increases fragility.
+Combining the two, alignment acts as a stabilizer on shared loops (SE↑), while misfit acts as a destabilizer (SE↓) that can spread via the coupling.
+
+## Tags
+#type/CR #layer/foundations #domain/formal #intersubject #stability
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-subject-awareness-experience]]; [[02_Concepts/C-math-structures]]
+- Parents: [[01_Statements/Definition/S-DF-intersubject-gauge]]
+- Dependencies: [[01_Statements/Definition/S-DF-intersubject-gauge]]; [[01_Statements/Definition/S-DF-stabilization-energy]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

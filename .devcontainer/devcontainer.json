@@ -1,13 +1,17 @@
 {
-  "name": "co-dev",
-  "image": "mcr.microsoft.com/devcontainers/python:3.11",
-  "workspaceFolder": "/workspaces/ChangeOnt",
+  "name": "ChangeOnt - WebOnly",
+  "build": { "dockerfile": "Dockerfile" },
   "remoteUser": "vscode",
-  "postCreateCommand": "pip install -r requirements.txt || true",
-  "customizations": {
-    "vscode": {
-      "settings": { "terminal.integrated.cwd": "/workspaces/ChangeOnt/ChangeOntCode" },
-      "extensions": ["ms-python.python","ms-toolsai.jupyter","ms-vscode.gitlens"]
-    }
-  }
+  "workspaceFolder": "/workspaces/ChangeOnt",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/ChangeOnt,type=bind,consistency=cached",
+  "runArgs": [
+    "--cap-drop=ALL",
+    "--cap-add=NET_ADMIN",
+    "--security-opt=no-new-privileges",
+    "--pids-limit=768",
+    "--memory=6g",
+    "--cpus=4"
+  ],
+  "postStartCommand": "/usr/local/bin/webonly-firewall.sh && /usr/local/bin/ai_bootstrap.sh",
+  "customizations": { "vscode": { "settings": { "remote.autoForwardPorts": false } } }
 }

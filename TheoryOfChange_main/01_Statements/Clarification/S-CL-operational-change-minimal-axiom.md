@@ -1,0 +1,50 @@
+---
+id: stmt.operational-change-minimal-axiom
+type: CL
+title: Operational change — minimal axiom via eventlets and difference
+concepts: ["[[02_Concepts/C-ontology-of-change]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-difference-operator]]", "[[01_Statements/Definition/S-DF-eventlet]]", "[[01_Statements/Definition/S-DF-path-eventlet-chain]]"]
+parents: ["[[01_Statements/Definition/S-DF-core-change-self-stabilizing]]"]
+successors: []
+symbols_used: ["[[01_Statements/SYMBOLS/Delta]]"]
+sources:
+  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:900
+flags: []
+status: stable
+tags: [foundations, definition, "type/CL", "#type/CL"]
+---
+# Operational change — minimal axiom via eventlets and difference
+Clarifies a non‑reductive operational handle: change is the condition enabling discernible eventlets connected by the difference operator into paths; no commitment to pre‑given states or substance is required.
+
+## Tags
+#type/CL #layer/foundations #concept/ontology-of-change #symbol/Delta
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-ontology-of-change]]
+- Parents: [[01_Statements/Definition/S-DF-core-change-self-stabilizing]]
+- Dependencies: [[01_Statements/Definition/S-DF-difference-operator]]; [[01_Statements/Definition/S-DF-eventlet]]; [[01_Statements/Definition/S-DF-path-eventlet-chain]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+
+
+
+

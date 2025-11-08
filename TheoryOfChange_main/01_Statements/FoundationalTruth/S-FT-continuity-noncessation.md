@@ -1,0 +1,506 @@
+---
+id: stmt.continuity-noncessation
+type: FT
+aliases: ["FND 2.0"]
+title: Continuity — change does not cease (non‑cessation)
+concepts: ["[[02_Concepts/C-ontology-of-change]]"]
+dependencies: ["[[01_Statements/Derivation/S-DR-change-cannot-begin]]"]
+parents: ["[[01_Statements/Derivation/S-DR-change-cannot-begin]]"]
+successors: []
+symbols_used: ["[[01_Statements/SYMBOLS/Delta]]"]
+sources:
+  - path: TheoryOfChange/02_Foundations/DerChain.md:120
+  - path: TheoryOfChange/02_Foundations/FND_2_Continuity.md:1
+flags: []
+tags: [foundations, ontological, stable, "type/FT", "concept/ontology-of-change", "symbol/Delta"]
+---
+# Continuity — change does not cease (non‑cessation)
+## Claim (formal)
+If change cannot have a beginning, then it cannot globally cease or restart; continuity means non‑cessation (not necessarily smoothness).
+
+## Philosophical Translation (of formal claim)
+Change never globally stops or restarts; it keeps going (though it need not be smooth). What we call “rest” is a local description inside continuing change — not a cosmic halt. Continuity here means non‑cessation, not mathematical smoothness.
+
+## Philosophical Justification
+Global cessation would imply a transition (Δ → ¬Δ), which is itself Δ. Thus non‑cessation follows from the impossibility of a first change. In practice, continuity licenses talking about persistence and identity as modes of change rather than exceptions to it. It also underwrites why we can build stable descriptions: patterns persist because change can take forms that conserve invariants.
+
+## Explanation (informal)
+Continuity here is ontological (no absolute interruption), not geometric smoothness.
+
+## Derivation (Philosophical)
+- From [[S-DR-change-cannot-begin]], the mirror argument rules out a “last” change; hence no global cessation.
+
+## Derivation (Formal/Logical/Mathematical)
+```text
+From impossibility of first change, derive impossibility of last change by temporal symmetry of the argument schema.
+```
+
+## Proofs/Corollaries References
+- proof: see formal schema in [[S-DR-change-cannot-begin]]
+
+## Clarifications / Further Context
+- “Continuity” does not assert differentiability or smooth calculus structure.
+- See symbol: [[01_Statements/SYMBOLS/Delta]]
+
+## Next Steps in Chain
+- suggest: derive local continuity conditions in measurement protocols.
+
+## Symbols
+- [[01_Statements/SYMBOLS/Delta]]
+
+## Tags
+#type/FT #layer/foundations #domain/ontological #concept/ontology-of-change #symbol/Delta #status/stable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-ontology-of-change]]
+- Parents: [[01_Statements/Derivation/S-DR-change-cannot-begin]]
+- Dependencies: [[01_Statements/Derivation/S-DR-change-cannot-begin]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+- [[01_Statements/Clarification/S-CL-change-not-mere-flux]]
+- [[01_Statements/Clarification/S-CL-continuity-noncessation]]
+- [[01_Statements/Corollary/S-CR-prior-with-change]]
+- [[01_Statements/Corollary/S-CR-recursive-expectation]]
+- [[01_Statements/Definition/S-DF-core-change-self-stabilizing]]
+- [[01_Statements/Definition/S-DF-identity-through-change]]
+- [[01_Statements/Definition/S-DF-reach-relation]]
+- [[01_Statements/Definition/S-DF-rtv-operator]]
+- [[01_Statements/Derivation/S-DR-change-cannot-begin]]
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

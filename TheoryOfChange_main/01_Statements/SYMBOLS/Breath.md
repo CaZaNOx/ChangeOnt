@@ -1,0 +1,285 @@
+sym: "↻"
+name: Breath loop
+scope: recursion
+status: draft
+related: []
+tags: ["symbol/Breath", "status/draft", "scope/recursion"]
+---
+# ↻ — Breath loop
+
+Definition (formal):
+Recursive modulation cycle closing on itself; used in truth valuation dynamics.
+
+## Example
+- A detect-modulate-validate cycle returning to detection.
+
+## Related
+- [[01_Statements/SYMBOLS/Entailment]] (⥤) in structural cycles
+
+## Philosophical Translation (of formal definition)
+The system “breathes”: detect, modulate, validate, and return — a living loop.
+
+## Philosophical Justification
+Truth/validation under change needs iteration; single-pass evaluation is brittle under drift.
+
+## Explanation (informal)
+↻ names the cyclic structure used for recursive truth and stability checks.
+
+## Clarifications / Further Context
+- Distinct from naive repetition; each cycle may adjust ε, σ(ε), and pointers.
+
+## Next Steps in Chain
+- Specify breath-linked truth valuation operators (RTV).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:USED_IN -->
+## Used In
+- [[01_Statements/Clarification/S-CL-representation-scope-rhythm-vs-geometry]]
+- [[01_Statements/Corollary/S-CR-multi-axis-attention-pain-proximity]]
+- [[01_Statements/Corollary/S-CR-stability-duality-via-attractors]]
+- [[01_Statements/Definition/S-DF-attractor-field]]
+- [[01_Statements/Definition/S-DF-breath-field-global-integrator]]
+- [[01_Statements/Definition/S-DF-rtv-fixedpoints]]
+- [[01_Statements/Definition/S-DF-rtv-operator]]
+- [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
+- [[01_Statements/Definition/S-DF-subject-recursive-field]]
+- [[01_Statements/Derivation/S-DR-breath-stabilization]]
+- [[01_Statements/Derivation/S-DR-gh-review-loop]]
+- [[01_Statements/Derivation/S-DR-rtv-collapse-threshold]]
+<!-- END:AUTOGEN:USED_IN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

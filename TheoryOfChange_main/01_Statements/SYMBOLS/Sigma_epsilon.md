@@ -1,0 +1,283 @@
+sym: "σ(ε)"
+name: Sensitivity fluctuation
+scope: modulation
+status: draft
+related: []
+tags: ["symbol/Sigma_epsilon", "status/draft", "scope/modulation"]
+---
+# σ(ε) — Sensitivity fluctuation
+
+Definition (formal):
+Variation of sensitivity threshold; models resolution instability as ε changes.
+
+## Math
+```math
+\sigma(\varepsilon) := \text{Var}(\text{sensitivity} | \varepsilon)
+```
+
+## Example
+- Increased noise raises σ(ε), making detection less reliable.
+
+## Related
+- [[01_Statements/SYMBOLS/Epsilon]] (ε)
+
+## Philosophical Translation (of formal definition)
+The sensitivity threshold itself varies; sometimes we can tell small changes apart, sometimes not.
+
+## Philosophical Justification
+Resolution is not fixed: noise, load, and context affect what we can discriminate.
+
+## Explanation (informal)
+σ(ε) captures instability in detection, crucial for robust protocols and for explaining drift.
+
+## Clarifications / Further Context
+- High σ(ε) implies unreliable judgments near ε.
+
+## Next Steps in Chain
+- Model how σ(ε) affects collapse criteria and truth valuation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:USED_IN -->
+## Used In
+- [[01_Statements/Definition/S-DF-locality-threshold]]
+- [[01_Statements/Definition/S-DF-self-similarity-threshold]]
+- [[01_Statements/Definition/S-DF-sigma-fluctuation]]
+- [[01_Statements/Definition/S-DF-similarity-operator]]
+- [[01_Statements/Derivation/S-DR-rtv-collapse-threshold]]
+<!-- END:AUTOGEN:USED_IN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

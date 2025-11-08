@@ -1,0 +1,138 @@
+sym: "β"
+name: Forgetting rate
+scope: memory/control
+status: stable
+related: ["η"]
+tags: ["symbol/Beta", "status/stable", "scope/memory"]
+---
+# β — Forgetting rate
+
+Definition (formal):
+Rate parameter for memory update/decay (e.g., EMA); higher β → faster forgetting/adaptation.
+
+## Example
+- M_{t+1} = (1 – β) M_t + β · φ(e_t)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:USED_IN -->
+## Used In
+
+<!-- END:AUTOGEN:USED_IN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

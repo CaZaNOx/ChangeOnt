@@ -1,0 +1,129 @@
+---
+id: concept.phenomenology-time
+title: Phenomenology of Time — Breath‑locked Phase Indexing
+tags: ["concept/phenomenology-time", phenomenology, phase]
+status: draft
+---
+# Phenomenology of Time — Breath‑locked Phase Indexing
+Overview:
+Subjective “time” is modeled as indexing of recursive validation phases coordinated by breath; sensitive to σ(ε). No claims about physical time are made here; see [[01_Statements/Corollary/S-CR-perceived-time-breath-index]].
+
+Canonical statements:
+- [[01_Statements/Corollary/S-CR-perceived-time-breath-index]]
+- [[01_Statements/Definition/S-DF-breath-field-global-integrator]]
+- [[01_Statements/Definition/S-DF-rtv-operator]]
+- [[01_Statements/Definition/S-DF-sigma-fluctuation]]
+
+Open items:
+- No claims about physical time; possible bridges require careful modeling.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

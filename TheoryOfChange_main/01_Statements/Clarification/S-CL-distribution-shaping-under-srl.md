@@ -1,0 +1,66 @@
+---
+id: stmt.distribution-shaping-under-srl
+type: CL
+title: Distribution shaping under SRL/Evaluation Surface
+concepts: ["[[02_Concepts/C-recursive-truth]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]", "[[01_Statements/Definition/S-DF-evaluation-surface]]", "[[01_Statements/Definition/S-DF-nonclassical-indicators]]"]
+parents: ["[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]", "[[01_Statements/Definition/S-DF-evaluation-surface]]"]
+successors: []
+symbols_used: []
+sources:
+  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:401
+flags: []
+status: stable
+tags: [probabilistic, SRL, evaluation, "type/CL", "#type/CL"]
+---
+# Distribution shaping under SRL/Evaluation Surface
+Clarifies how “probabilities” in narrative examples correspond to SRL weights shaped by history, invariants, SE, and non‑classical indicators on the evaluation surface.
+
+## Tags
+#type/CL #layer/validation #concept/recursive-truth
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-recursive-truth]]
+- Parents: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/Definition/S-DF-evaluation-surface]]
+- Dependencies: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/Definition/S-DF-evaluation-surface]]; [[01_Statements/Definition/S-DF-nonclassical-indicators]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+
+
+
+
+
+
+
+

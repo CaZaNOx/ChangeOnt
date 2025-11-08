@@ -1,0 +1,159 @@
+sym: "Γ"
+name: Connection (gauge)
+scope: gauge/transport
+status: stable
+related: ["K"]
+tags: ["symbol/Gamma", "status/stable", "scope/gauge"]
+---
+# Γ — Connection (gauge)
+
+Definition (formal):
+Transport rule minimizing local tension mismatch Δτ across neighbors; used to align comparisons and induce curvature K.
+
+## Example
+- Updated by minimizing Δτ in [[01_Statements/Definition/S-DF-prm-gauge]].
+
+## Related
+- [[01_Statements/SYMBOLS/Curvature_K]] (K)
+
+## Clarifications
+- A parameterization of the gauge alignment field.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:USED_IN -->
+## Used In
+- [[01_Statements/Definition/S-DF-elm-ea-haq]]
+- [[01_Statements/Definition/S-DF-prm-bend-metric]]
+- [[01_Statements/Definition/S-DF-prm-gauge]]
+- [[01_Statements/Definition/S-DF-prm-reid-kernel]]
+<!-- END:AUTOGEN:USED_IN -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

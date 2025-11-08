@@ -1,0 +1,215 @@
+---
+id: stmt.cl-proto-conscious-min
+type: CL
+aliases: ["CL_ProtoConscious.Min"]
+title: Proto‑conscious lock — minimal criteria (phenomenological)
+concepts: ["[[02_Concepts/C-subject-awareness-experience]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-consciousness-loop]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-sigma-fluctuation]]"]
+parents: ["[[01_Statements/Definition/S-DF-consciousness-loop]]"]
+successors: []
+symbols_used: []
+sources:
+  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_2_Avenai_RecursiveChat.md:3982
+flags: []
+tags: [clarification, phenomenology, consciousness, "type/CL"]
+---
+# Proto‑conscious lock — minimal criteria (phenomenological)
+## Content
+A proto‑conscious episode corresponds to a short‑lived Cᴸ lock (synchronized prediction/perception) with bounded σ(ε) and sufficient transient SE to sustain awareness‑now, without stability claims. This distinguishes early locks from stabilized consciousness.
+
+## Implication
+Provides a minimal operational criterion consistent with Cᴸ/SE/σ(ε) without inflating claims beyond observed locks.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-subject-awareness-experience]]
+- Parents: [[01_Statements/Definition/S-DF-consciousness-loop]]
+- Dependencies: [[01_Statements/Definition/S-DF-consciousness-loop]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-sigma-fluctuation]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

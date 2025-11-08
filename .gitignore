@@ -25,3 +25,9 @@ Thumbs.db
 
 #obsidian
 .obsidian/
+
+#ais
+# AI state/credentials
+.codex/
+.gemini/
+.claude/

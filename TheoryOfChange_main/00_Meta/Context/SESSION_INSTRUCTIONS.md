@@ -60,10 +60,20 @@ Working Protocol (per chat)
 4) Update 00_Meta/Context/state.json with last processed line and notes.
 
 Current Status Snapshot (for continuity)
-- AI_13 integrated; DerChain covered (see 00_Meta/DerChain_Coverage.md).
-- AI_2: mapping complete; CL/CR/HYP promoted and graphed per AI_2_mapping.md.
-- AI_1: full mapping complete; promoted corollaries/clarifications/definitions/hypotheses and wired.
-- Next: proceed with AI_3 using the same protocol (map → promote → validate → update state).
+- AI_1–AI_3: mappings finalized, all promoted CL/CR/DF/HYP wired into `03_Derivation/graph.yaml` and documented in the respective mapping files.
+- AI_4–AI_20: runs are now tracked centrally through `00_Meta/Context/AI_Leads_Master.md`; each entry identifies the chat, block range, and why it still needs review. This master list is the single source of truth for “still interesting” content that survives the first shallow scan.
+- New statements/hypotheses already committed (e.g., `S-CL-act-relative-detectability`, `S-CL-arrow-of-time-memory-irreversibility`, `S-DF-actor`, `S-DR-breath-knot-stabilization-topology`, `HYP-Goal-Emergence-From-Feedback`) cover the main motifs unearthed so far.
+- Next focus: finish the AI_15–AI_20 block passes (flag → decide → promote/prune → graph) and prune their ranges from the master list immediately upon resolution.
+
+Master Leads Workflow
+- Treat `AI_Leads_Master.md` as the batching log: read each range in context, flag whether it adds clarification, derivation, definition, or hypothesis, then either prune the lead or schedule a promotion.
+- Use the per-chat files in `TheoryOfChange/00_Meta/AI_RecursiveChats*` for sourcing; point to the slim copy when the full log contains redundancies.
+- Record decisions in the master file (status columns) so future passes know whether a range still needs review or is already promoted/covered.
+
+Graph & Statement Hygiene
+- After promoting a CL/CR/DF/DR, add a corresponding node to `03_Derivation/graph.yaml` (matching the statement id) and draw edges to the most immediate parents. Run `python3 tools/graph_sweep_suggest.py` to catch missing linkages, then rerun `python3 tools/update_backlinks.py`.
+- Hypotheses remain in `05_Speculations/HYPOTHESES/` and are excluded from the DAG; document experiment sketches and drift expectations in their bodies.
+- Keep `01_Statements/SYMBOLS/` synchronized (add new symbol pages when introduced, update `symbols_used` in each statement).
 
 Rigor and Anti‑Drift
 - No unjustified theory bloat; no smoothing inconsistencies — flag them.

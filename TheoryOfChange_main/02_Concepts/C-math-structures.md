@@ -128,11 +128,102 @@ Dependencies:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
 ### Statements
+- [[01_Statements/Clarification/S-CL-pointer-span-metrics]]
+- [[01_Statements/Clarification/S-CL-precision-gauge]]
 - [[01_Statements/Clarification/S-CL-probabilistic-language-srl]]
+- [[01_Statements/Clarification/S-CL-recursive-probabilistic-logic]]
 - [[01_Statements/Corollary/S-CR-action-influences-expectation]]
 - [[01_Statements/Corollary/S-CR-boolean-as-collapse]]
 - [[01_Statements/Corollary/S-CR-collective-coupling-se]]
@@ -141,6 +232,7 @@ Dependencies:
 - [[01_Statements/Corollary/S-CR-qualia-gauge-curvature]]
 - [[01_Statements/Corollary/S-CR-recursive-expectation]]
 - [[01_Statements/Definition/S-DF-co-logic-graded-order]]
+- [[01_Statements/Definition/S-DF-co-spread-number]]
 - [[01_Statements/Definition/S-DF-elm-ea-haq]]
 - [[01_Statements/Definition/S-DF-elm-ed-gauge-warp]]
 - [[01_Statements/Definition/S-DF-elm-ee-compressibility]]
@@ -171,6 +263,94 @@ Dependencies:
 - [[02_Concepts/C-identity-change]]
 - [[02_Concepts/C-recursive-truth]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

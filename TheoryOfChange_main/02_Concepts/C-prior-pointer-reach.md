@@ -152,17 +152,119 @@ Open items:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
 ### Statements
+- [[01_Statements/Clarification/S-CL-act-relative-detectability]]
+- [[01_Statements/Clarification/S-CL-agent-transparency-delta]]
+- [[01_Statements/Clarification/S-CL-assumption-to-derived]]
+- [[01_Statements/Clarification/S-CL-attention-field-hierarchy]]
+- [[01_Statements/Clarification/S-CL-classical-compression]]
+- [[01_Statements/Clarification/S-CL-cross-agent-recursion-entanglement]]
+- [[01_Statements/Clarification/S-CL-identity-orchestrator]]
+- [[01_Statements/Clarification/S-CL-meaning-field-gravity]]
+- [[01_Statements/Clarification/S-CL-minimal-threshold-def]]
+- [[01_Statements/Clarification/S-CL-operator-hygiene]]
 - [[01_Statements/Clarification/S-CL-pointer-structural-not-causal]]
+- [[01_Statements/Clarification/S-CL-space-as-subject]]
+- [[01_Statements/Clarification/S-CL-time-noise-thresholds]]
 - [[01_Statements/Corollary/S-CR-delta-now-implies-pointer]]
 - [[01_Statements/Corollary/S-CR-prior-with-change]]
 - [[01_Statements/Corollary/S-CR-reactivation-of-tension]]
 - [[01_Statements/Corollary/S-CR-spiral-context-continuity]]
 - [[01_Statements/Counterfactual/S-CF-pointer-diff-equals]]
+- [[01_Statements/Definition/S-DF-actor]]
 - [[01_Statements/Definition/S-DF-boundary-persistent-nonintegration]]
+- [[01_Statements/Definition/S-DF-communication-synchronization]]
 - [[01_Statements/Definition/S-DF-depth-reach]]
 - [[01_Statements/Definition/S-DF-eventlet]]
 - [[01_Statements/Definition/S-DF-locality-prior]]
@@ -172,11 +274,100 @@ Open items:
 - [[01_Statements/Definition/S-DF-path-eventlet-chain]]
 - [[01_Statements/Definition/S-DF-pointer-structural]]
 - [[01_Statements/Definition/S-DF-reach-relation]]
+- [[01_Statements/Definition/S-DF-recursive-transformation-rule]]
 - [[01_Statements/Derivation/S-DR-pointer-behavior-under-tx]]
 ### Linked Concepts
 - [[02_Concepts/C-ontology-of-change]]
 - [[02_Concepts/C-frame-operators]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

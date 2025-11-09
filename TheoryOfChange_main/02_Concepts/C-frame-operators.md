@@ -148,12 +148,101 @@ Open items:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
 ### Statements
 - [[01_Statements/Corollary/S-CR-qm-no-privileged-substrate]]
 - [[01_Statements/Definition/S-DF-cross-audit-markov-gh-tx]]
+- [[01_Statements/Definition/S-DF-ops-discovery-pipeline]]
 - [[01_Statements/Definition/S-DF-tx-algebra]]
 - [[01_Statements/Definition/S-DF-tx-operator]]
 - [[01_Statements/Derivation/S-DR-dimension-variation]]
@@ -165,6 +254,94 @@ Open items:
 - [[02_Concepts/C-prior-pointer-reach]]
 - [[02_Concepts/C-performative-contradiction]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

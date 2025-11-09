@@ -147,10 +147,108 @@ Open items:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
 ### Statements
+- [[01_Statements/Clarification/S-CL-field-formalism-roadmap]]
+- [[01_Statements/Clarification/S-CL-godel-hole-attractor-limits]]
+- [[01_Statements/Clarification/S-CL-godel-hole-classification]]
+- [[01_Statements/Clarification/S-CL-godel-hole-legacy]]
+- [[01_Statements/Clarification/S-CL-godel-hole-meta-advantage]]
+- [[01_Statements/Clarification/S-CL-godel-hole-probability]]
+- [[01_Statements/Clarification/S-CL-godel-hole-spawning]]
+- [[01_Statements/Clarification/S-CL-godel-layer-epistemic-limit]]
+- [[01_Statements/Clarification/S-CL-hard-vs-soft-jump]]
+- [[01_Statements/Clarification/S-CL-meta-shape-mapping]]
 - [[01_Statements/Corollary/S-CR-ethical-humility]]
 - [[01_Statements/Corollary/S-CR-exploration-floor]]
 - [[01_Statements/Corollary/S-CR-necessary-openness]]
@@ -161,6 +259,7 @@ Open items:
 - [[01_Statements/Definition/S-DF-godel-hole-pointer]]
 - [[01_Statements/Definition/S-DF-godel-hole-tracking-protocol]]
 - [[01_Statements/Definition/S-DF-godel-limits-self-containment]]
+- [[01_Statements/Definition/S-DF-godel-pressure-score]]
 - [[01_Statements/Definition/S-DF-limits-and-rigor-principle]]
 - [[01_Statements/Definition/S-DF-prm-creative-option-birth]]
 - [[01_Statements/Derivation/S-DR-gh-review-loop]]
@@ -168,6 +267,94 @@ Open items:
 - [[02_Concepts/C-markov-closure]]
 - [[02_Concepts/C-frame-operators]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

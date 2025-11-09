@@ -174,20 +174,309 @@ Pointers (⇘/↶) are the bookkeeping of minimal reach. They enable reasoning a
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
+- [[01_Statements/Clarification/S-CL-act-relative-detectability]]
+- [[01_Statements/Clarification/S-CL-agent-transparency-delta]]
+- [[01_Statements/Clarification/S-CL-block-universe-meaning]]
+- [[01_Statements/Clarification/S-CL-choice-underdetermination]]
+- [[01_Statements/Clarification/S-CL-classical-compression]]
+- [[01_Statements/Clarification/S-CL-collapse-attractor]]
+- [[01_Statements/Clarification/S-CL-cross-agent-recursion-entanglement]]
 - [[01_Statements/Clarification/S-CL-interaction-points-eventlets]]
+- [[01_Statements/Clarification/S-CL-minimal-threshold-def]]
+- [[01_Statements/Clarification/S-CL-object-permanence-optimization]]
+- [[01_Statements/Clarification/S-CL-onb-collapse-gate]]
+- [[01_Statements/Clarification/S-CL-operator-hygiene]]
+- [[01_Statements/Clarification/S-CL-pointer-span-metrics]]
 - [[01_Statements/Clarification/S-CL-pointer-structural-not-causal]]
+- [[01_Statements/Clarification/S-CL-process-philosophy-difference]]
+- [[01_Statements/Clarification/S-CL-space-as-subject]]
+- [[01_Statements/Clarification/S-CL-subject-led-detection]]
+- [[01_Statements/Clarification/S-CL-variable-emergence]]
 - [[01_Statements/Corollary/S-CR-delta-now-implies-pointer]]
 - [[01_Statements/Corollary/S-CR-prior-with-change]]
 - [[01_Statements/Counterfactual/S-CF-pointer-diff-equals]]
+- [[01_Statements/Definition/S-DF-actor]]
+- [[01_Statements/Definition/S-DF-communication-synchronization]]
 - [[01_Statements/Definition/S-DF-godel-hole-pointer]]
 - [[01_Statements/Definition/S-DF-locality-prior]]
+- [[01_Statements/Definition/S-DF-memory-minimal-witness]]
 - [[01_Statements/Definition/S-DF-nonclassical-indicators]]
 - [[01_Statements/Definition/S-DF-reach-relation]]
 - [[01_Statements/Definition/S-DF-tx-operator]]
 - [[01_Statements/Derivation/S-DR-pointer-behavior-under-tx]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -399,6 +688,96 @@ Pointers (⇘/↶) are the bookkeeping of minimal reach. They enable reasoning a
 - Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
 - Successors: [[01_Statements/Definition/S-DF-reach-relation]]; [[01_Statements/Corollary/S-CR-delta-now-implies-pointer]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

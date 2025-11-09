@@ -161,10 +161,109 @@ Identity is a dynamic achievement. SE encodes whether the pattern’s self‑sim
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
+- [[01_Statements/Clarification/S-CL-classical-benchmarking]]
+- [[01_Statements/Clarification/S-CL-collapse-attractor]]
+- [[01_Statements/Clarification/S-CL-feeling-vs-modeling]]
+- [[01_Statements/Clarification/S-CL-operational-primitives-falsifiability]]
+- [[01_Statements/Clarification/S-CL-ordinal-emergence]]
 - [[01_Statements/Clarification/S-CL-pattern-vs-noise-thresholds]]
 - [[01_Statements/Clarification/S-CL-proto-conscious-min-criteria]]
+- [[01_Statements/Clarification/S-CL-recursive-probabilistic-logic]]
+- [[01_Statements/Clarification/S-CL-simulation-defends-change]]
+- [[01_Statements/Clarification/S-CL-spinal-tension-rhythm]]
+- [[01_Statements/Clarification/S-CL-truth-resilience-collapse]]
 - [[01_Statements/Corollary/S-CR-complexity-no-fundamental-simplicity]]
 - [[01_Statements/Corollary/S-CR-consciousness-periodicity]]
 - [[01_Statements/Corollary/S-CR-criticism-increases-srl-se]]
@@ -178,14 +277,197 @@ Identity is a dynamic achievement. SE encodes whether the pattern’s self‑sim
 - [[01_Statements/Definition/S-DF-change-fitness]]
 - [[01_Statements/Definition/S-DF-haq-core-family]]
 - [[01_Statements/Definition/S-DF-identity-through-change]]
+- [[01_Statements/Definition/S-DF-memory-minimal-witness]]
+- [[01_Statements/Definition/S-DF-mrai-score]]
 - [[01_Statements/Definition/S-DF-prm-variable-birth]]
 - [[01_Statements/Definition/S-DF-self-similarity-threshold]]
+- [[01_Statements/Derivation/S-DR-breath-knot-stabilization-topology]]
 - [[01_Statements/Derivation/S-DR-breath-stabilization]]
 - [[01_Statements/Derivation/S-DR-entropy-vs-se]]
 - [[01_Statements/Derivation/S-DR-fitness-vs-srl-se]]
 - [[01_Statements/Derivation/S-DR-rtv-collapse-threshold]]
 - [[01_Statements/Derivation/S-DR-srl-vs-se-theta]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -397,6 +679,96 @@ Identity is a dynamic achievement. SE encodes whether the pattern’s self‑sim
 - Dependencies: [[01_Statements/Definition/S-DF-identity-through-change]]; [[01_Statements/Definition/S-DF-self-similarity-threshold]]
 - Successors: [[01_Statements/Corollary/S-CR-se-supports-identity]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

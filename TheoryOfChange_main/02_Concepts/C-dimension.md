@@ -128,10 +128,100 @@ Dependencies:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
 ### Statements
+- [[01_Statements/Clarification/S-CL-dynamic-variable-structure]]
+- [[01_Statements/Clarification/S-CL-recursive-dimension-scope]]
 - [[01_Statements/Definition/S-DF-boundary-persistent-nonintegration]]
 - [[01_Statements/Definition/S-DF-dimension-change]]
 - [[01_Statements/Definition/S-DF-metric-space-emergent]]
@@ -141,6 +231,94 @@ Dependencies:
 - [[02_Concepts/C-frame-operators]]
 - [[02_Concepts/C-math-structures]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

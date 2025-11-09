@@ -57,8 +57,9 @@ Entries
     - Status: Needs CL linkage (scope) + CR tie-in
     - Targets: [[TheoryOfChange_main/01_Statements/Clarification/S-CL-emotion-recursive-valuation.md]], [[TheoryOfChange_main/01_Statements/Corollary/S-CR-qualia-gauge-curvature.md]], [[TheoryOfChange_main/01_Statements/Definition/S-DF-stabilization-energy.md]]
   - “Dissociation Cascade metric” mention
-    - Status: Needs DF (PRM candidate)
-    - Targets: (to add) [[TheoryOfChange_main/01_Statements/Definition/S-DF-prm-dissociation-cascade.md]] → relate to [[TheoryOfChange_main/01_Statements/Definition/S-DF-entropy-co.md]], [[TheoryOfChange_main/01_Statements/Definition/S-DF-gauge-alignment-field.md]]
+    - Status: Promoted (DF added)
+    - Targets: [[TheoryOfChange_main/01_Statements/Definition/S-DF-prm-dissociation-cascade.md]] → relate to [[TheoryOfChange_main/01_Statements/Definition/S-DF-entropy-co.md]], [[TheoryOfChange_main/01_Statements/Definition/S-DF-gauge-alignment-field.md]]
+    - Graph: node added `stmt.prm-dissociation-cascade`; edges from `stmt.gauge-alignment-field`, `stmt.stabilization-energy`, `stmt.entropy-co`
   - Recursive asymmetry triggers (proactive contradiction probes)
     - Status: Covered; consider CL cross-link
     - Targets: [[TheoryOfChange_main/01_Statements/Corollary/S-CR-necessary-openness.md]], [[TheoryOfChange_main/01_Statements/Corollary/S-CR-external-asymmetry-prevents-closure.md]]
@@ -68,7 +69,9 @@ Pending Segments (to process next)
 - 1201–2000: Look for formal seeds (JSON-LD maps, attractor architectures) → map to DF/DR/HYP as appropriate.
 - 2001–end: Meta and concluding reflections — promote only if distinct theory claims arise; else reference process docs.
 
+Deep-Read Line Index
+- See: [[TheoryOfChange_main/00_Meta/Context/AI_3_line_index.md]] for grouped line ranges of theory-bearing segments across the full file.
+
 Notes
 - After mapping confirmation, batch-create any missing DF/CR/CL/HYP marked “Needs …”, wire graph edges, and run tools.
 - Maintain anti-drift clarifications for “spiral”, “time”, “probability”, “attention”, “emotion” by linking to existing CL pages in any new promotions.
-

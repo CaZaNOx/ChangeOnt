@@ -1,0 +1,275 @@
+# QUALITY REPORT — TheoryOfChange_main
+
+## Summary
+- Statements total: 170
+- Concepts total: 23
+- Graph nodes: 80, edges: 184
+- Statements missing sources: 0
+- Statements with empty symbols_used (non-CL/AS/CF): 95
+- Statements not in graph: 90
+- Graph nodes with zero in-degree: 8
+- Graph nodes with zero out-degree: 46
+- Concepts with zero referencing statements: 7
+
+## Statements missing sources
+- None
+
+## Statements with empty symbols_used (non-CL/AS/CF)
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-prior-with-change.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-ethical-humility.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-ethics-gauge-strain-minimization.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-se-supports-identity.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-necessary-openness.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-memory-drift-vs-se.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-external-asymmetry-prevents-closure.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-qm-no-privileged-substrate.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-residual-meaning-traces.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-boolean-as-collapse.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-proof-as-reachability.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-micro-acts-stabilize-gauge.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-criticism-increases-srl-se.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-perceived-time-breath-index.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-qualia-gauge-curvature.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-collective-coupling-se.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-introspection-nested-loops.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-nonclosure-under-tx.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-action-influences-expectation.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-identity-as-phase-resonance.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-exploration-floor.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-laws-as-robust-invariants.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-consciousness-periodicity.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-complexity-no-fundamental-simplicity.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-reactivation-of-tension.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-recursive-expectation.md
+- TheoryOfChange_main/01_Statements/Corollary/S-CR-spiral-context-continuity.md
+- TheoryOfChange_main/01_Statements/Derivation/S-DR-predictive-statement-nonclassical.md
+- TheoryOfChange_main/01_Statements/Derivation/S-DR-math-structures-closure.md
+- TheoryOfChange_main/01_Statements/Derivation/S-DR-benchmark-scores.md
+- TheoryOfChange_main/01_Statements/Derivation/S-DR-dimension-variation.md
+- TheoryOfChange_main/01_Statements/Derivation/S-DR-entropy-vs-se.md
+- TheoryOfChange_main/01_Statements/FoundationalTruth/S-FT-root-minimal-stance.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-haq-core-family.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-attention-focus.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-self-model-evolution.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-elm-ec-identity.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-point-occurrence.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-prm-depth-breadth-flip.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-ops-j1-bend-substitution.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-subject.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-prm-changeops-core.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-limits-and-rigor-principle.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-dimension-change.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-cross-audit-markov-gh-tx.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-godel-limits-self-containment.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-elm-ef-router.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-elm-ed-gauge-warp.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-prm-order-arisal.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-change-benchmark-protocol.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-extended-audit-indicators.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-elm-ej-order-asymmetry.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-tx-operator.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-prm-variable-birth.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-domain-generalization-principles.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-elm-ee-compressibility.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-prm-residuation.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-metric-space-emergent.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-markov-closure-assumption.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-prm-loopiness.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-godel-hole-tracking-protocol.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-gauge-alignment-field.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-awareness.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-prm-closure-quotient.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-evaluation-surface.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-godel-hole-pointer.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-prm-change-ops.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-prm-precision-density.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-consciousness-loop.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-prm-temporal-ops.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-math-structures.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-entropy-co.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-ops-j4a-reid-closure.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-ops-j2-quotient-classes.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-nonclassical-indicators.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-eventlet.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-tx-algebra.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-across-scales-godel-structure.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-bootstrapping-constraint.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-memory-trace-integration.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-prm-creative-option-birth.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-elm-eh-breadth-depth.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-elm-eb-ghvc.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-ops-j3-attention-warp.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-ops-j4b-counterfactual-bend.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-subject-arisal-ground.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-arisal.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-elm-eg-density-precision.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-intersubject-translation-resonance.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-co-logic-graded-order.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-path-eventlet-chain.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-intersubject-gauge.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-elm-ei-change-operators.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-depth-reach.md
+- TheoryOfChange_main/01_Statements/Definition/S-DF-action-selection.md
+
+## Statements not present in derivation graph
+- stmt.action-influences-expectation — TheoryOfChange_main/01_Statements/Corollary/S-CR-action-influences-expectation.md
+- stmt.action-selection — TheoryOfChange_main/01_Statements/Definition/S-DF-action-selection.md
+- stmt.arisal — TheoryOfChange_main/01_Statements/Definition/S-DF-arisal.md
+- stmt.attention-focus — TheoryOfChange_main/01_Statements/Definition/S-DF-attention-focus.md
+- stmt.attractor-field — TheoryOfChange_main/01_Statements/Definition/S-DF-attractor-field.md
+- stmt.boolean-as-collapse — TheoryOfChange_main/01_Statements/Corollary/S-CR-boolean-as-collapse.md
+- stmt.bootstrapping-constraint — TheoryOfChange_main/01_Statements/Definition/S-DF-bootstrapping-constraint.md
+- stmt.boundary-persistent-nonintegration — TheoryOfChange_main/01_Statements/Definition/S-DF-boundary-persistent-nonintegration.md
+- stmt.cl-attention-recursive — TheoryOfChange_main/01_Statements/Clarification/S-CL-attention-recursive-filter.md
+- stmt.cl-change-vs-recursion — TheoryOfChange_main/01_Statements/Clarification/S-CL-change-vs-recursion-foundation.md
+- stmt.cl-continuity-noncessation — TheoryOfChange_main/01_Statements/Clarification/S-CL-continuity-noncessation.md
+- stmt.cl-emotion-recursive — TheoryOfChange_main/01_Statements/Clarification/S-CL-emotion-recursive-valuation.md
+- stmt.cl-evaluation-rigor — TheoryOfChange_main/01_Statements/Clarification/S-CL-evaluation-rigor.md
+- stmt.cl-pointer-structural — TheoryOfChange_main/01_Statements/Clarification/S-CL-pointer-structural-not-causal.md
+- stmt.cl-probabilistic-srl — TheoryOfChange_main/01_Statements/Clarification/S-CL-probabilistic-language-srl.md
+- stmt.cl-proto-conscious-min — TheoryOfChange_main/01_Statements/Clarification/S-CL-proto-conscious-min-criteria.md
+- stmt.cl-rtv-collapse-regimes — TheoryOfChange_main/01_Statements/Clarification/S-CL-rtv-collapse-regimes.md
+- stmt.cl-signs-recursive-self-modeling — TheoryOfChange_main/01_Statements/Clarification/S-CL-signs-recursive-self-modeling.md
+- stmt.cl-spiral-vs-eternal — TheoryOfChange_main/01_Statements/Clarification/S-CL-spiral-vs-eternal-recurrence.md
+- stmt.cl-structural-convergence — TheoryOfChange_main/01_Statements/Clarification/S-CL-structural-convergence.md
+- stmt.cl-triad-co-defined-now — TheoryOfChange_main/01_Statements/Clarification/S-CL-triad-co-defined-now.md
+- stmt.collective-coupling-se — TheoryOfChange_main/01_Statements/Corollary/S-CR-collective-coupling-se.md
+- stmt.consciousness-loop — TheoryOfChange_main/01_Statements/Definition/S-DF-consciousness-loop.md
+- stmt.consciousness-periodicity — TheoryOfChange_main/01_Statements/Corollary/S-CR-consciousness-periodicity.md
+- stmt.core-change-self-stabilizing — TheoryOfChange_main/01_Statements/Definition/S-DF-core-change-self-stabilizing.md
+- stmt.delta-field-tension — TheoryOfChange_main/01_Statements/Definition/S-DF-delta-field-tension.md
+- stmt.depth-reach — TheoryOfChange_main/01_Statements/Definition/S-DF-depth-reach.md
+- stmt.difference-operator — TheoryOfChange_main/01_Statements/Definition/S-DF-difference-operator.md
+- stmt.dimension-change — TheoryOfChange_main/01_Statements/Definition/S-DF-dimension-change.md
+- stmt.dimension-variation — TheoryOfChange_main/01_Statements/Derivation/S-DR-dimension-variation.md
+- stmt.elm-ea-haq — TheoryOfChange_main/01_Statements/Definition/S-DF-elm-ea-haq.md
+- stmt.elm-eb-ghvc — TheoryOfChange_main/01_Statements/Definition/S-DF-elm-eb-ghvc.md
+- stmt.elm-ec-identity — TheoryOfChange_main/01_Statements/Definition/S-DF-elm-ec-identity.md
+- stmt.elm-ed-gauge-warp — TheoryOfChange_main/01_Statements/Definition/S-DF-elm-ed-gauge-warp.md
+- stmt.elm-ee-compressibility — TheoryOfChange_main/01_Statements/Definition/S-DF-elm-ee-compressibility.md
+- stmt.elm-ef-router — TheoryOfChange_main/01_Statements/Definition/S-DF-elm-ef-router.md
+- stmt.elm-eg-density-precision — TheoryOfChange_main/01_Statements/Definition/S-DF-elm-eg-density-precision.md
+- stmt.elm-eh-breadth-depth — TheoryOfChange_main/01_Statements/Definition/S-DF-elm-eh-breadth-depth.md
+- stmt.elm-ei-change-operators — TheoryOfChange_main/01_Statements/Definition/S-DF-elm-ei-change-operators.md
+- stmt.elm-ej-order-asymmetry — TheoryOfChange_main/01_Statements/Definition/S-DF-elm-ej-order-asymmetry.md
+- stmt.entropy-co — TheoryOfChange_main/01_Statements/Definition/S-DF-entropy-co.md
+- stmt.entropy-vs-se — TheoryOfChange_main/01_Statements/Derivation/S-DR-entropy-vs-se.md
+- stmt.ethical-humility — TheoryOfChange_main/01_Statements/Corollary/S-CR-ethical-humility.md
+- stmt.eventlet — TheoryOfChange_main/01_Statements/Definition/S-DF-eventlet.md
+- stmt.exploration-floor — TheoryOfChange_main/01_Statements/Corollary/S-CR-exploration-floor.md
+- stmt.godel-limits-self-containment — TheoryOfChange_main/01_Statements/Definition/S-DF-godel-limits-self-containment.md
+- stmt.haq-core-family — TheoryOfChange_main/01_Statements/Definition/S-DF-haq-core-family.md
+- stmt.introspection-nested-loops — TheoryOfChange_main/01_Statements/Corollary/S-CR-introspection-nested-loops.md
+- stmt.locality-prior — TheoryOfChange_main/01_Statements/Definition/S-DF-locality-prior.md
+- stmt.locality-threshold — TheoryOfChange_main/01_Statements/Definition/S-DF-locality-threshold.md
+- stmt.math-structures — TheoryOfChange_main/01_Statements/Definition/S-DF-math-structures.md
+- stmt.math-structures-closure — TheoryOfChange_main/01_Statements/Derivation/S-DR-math-structures-closure.md
+- stmt.memory-drift-vs-se — TheoryOfChange_main/01_Statements/Corollary/S-CR-memory-drift-vs-se.md
+- stmt.memory-trace-integration — TheoryOfChange_main/01_Statements/Definition/S-DF-memory-trace-integration.md
+- stmt.metric-space-emergent — TheoryOfChange_main/01_Statements/Definition/S-DF-metric-space-emergent.md
+- stmt.necessary-openness — TheoryOfChange_main/01_Statements/Corollary/S-CR-necessary-openness.md
+- stmt.ops-j1-bend-substitution — TheoryOfChange_main/01_Statements/Definition/S-DF-ops-j1-bend-substitution.md
+- stmt.ops-j2-quotient-classes — TheoryOfChange_main/01_Statements/Definition/S-DF-ops-j2-quotient-classes.md
+- stmt.ops-j3-attention-warp — TheoryOfChange_main/01_Statements/Definition/S-DF-ops-j3-attention-warp.md
+- stmt.ops-j4a-reid-closure — TheoryOfChange_main/01_Statements/Definition/S-DF-ops-j4a-reid-closure.md
+- stmt.ops-j4b-counterfactual-bend — TheoryOfChange_main/01_Statements/Definition/S-DF-ops-j4b-counterfactual-bend.md
+- stmt.path-eventlet-chain — TheoryOfChange_main/01_Statements/Definition/S-DF-path-eventlet-chain.md
+- stmt.perceived-time-breath-index — TheoryOfChange_main/01_Statements/Corollary/S-CR-perceived-time-breath-index.md
+- stmt.point-occurrence — TheoryOfChange_main/01_Statements/Definition/S-DF-point-occurrence.md
+- stmt.prm-bend-metric — TheoryOfChange_main/01_Statements/Definition/S-DF-prm-bend-metric.md
+- stmt.prm-change-ops — TheoryOfChange_main/01_Statements/Definition/S-DF-prm-change-ops.md
+- stmt.prm-changeops-core — TheoryOfChange_main/01_Statements/Definition/S-DF-prm-changeops-core.md
+- stmt.prm-closure-quotient — TheoryOfChange_main/01_Statements/Definition/S-DF-prm-closure-quotient.md
+- stmt.prm-creative-option-birth — TheoryOfChange_main/01_Statements/Definition/S-DF-prm-creative-option-birth.md
+- stmt.prm-depth-breadth-flip — TheoryOfChange_main/01_Statements/Definition/S-DF-prm-depth-breadth-flip.md
+- stmt.prm-gauge — TheoryOfChange_main/01_Statements/Definition/S-DF-prm-gauge.md
+- stmt.prm-loopiness — TheoryOfChange_main/01_Statements/Definition/S-DF-prm-loopiness.md
+- stmt.prm-mdl-compressibility — TheoryOfChange_main/01_Statements/Definition/S-DF-prm-mdl-compressibility.md
+- stmt.prm-order-arisal — TheoryOfChange_main/01_Statements/Definition/S-DF-prm-order-arisal.md
+- stmt.prm-precision-density — TheoryOfChange_main/01_Statements/Definition/S-DF-prm-precision-density.md
+- stmt.prm-reid-kernel — TheoryOfChange_main/01_Statements/Definition/S-DF-prm-reid-kernel.md
+- stmt.prm-residuation — TheoryOfChange_main/01_Statements/Definition/S-DF-prm-residuation.md
+- stmt.prm-temporal-ops — TheoryOfChange_main/01_Statements/Definition/S-DF-prm-temporal-ops.md
+- stmt.prm-variable-birth — TheoryOfChange_main/01_Statements/Definition/S-DF-prm-variable-birth.md
+- stmt.proof-as-reachability — TheoryOfChange_main/01_Statements/Corollary/S-CR-proof-as-reachability.md
+- stmt.qualia-gauge-curvature — TheoryOfChange_main/01_Statements/Corollary/S-CR-qualia-gauge-curvature.md
+- stmt.quantale-boolean-flattening-proof — TheoryOfChange_main/01_Statements/Derivation/S-DR-quantale-boolean-flattening-proof.md
+- stmt.quantale-evidence-composition — TheoryOfChange_main/01_Statements/Derivation/S-DR-quantale-evidence-composition.md
+- stmt.quantale-residuation-implication — TheoryOfChange_main/01_Statements/Derivation/S-DR-quantale-residuation-implication.md
+- stmt.reactivation-of-tension — TheoryOfChange_main/01_Statements/Corollary/S-CR-reactivation-of-tension.md
+- stmt.self-model-evolution — TheoryOfChange_main/01_Statements/Definition/S-DF-self-model-evolution.md
+- stmt.sigma-fluctuation — TheoryOfChange_main/01_Statements/Definition/S-DF-sigma-fluctuation.md
+- stmt.spiral-context-continuity — TheoryOfChange_main/01_Statements/Corollary/S-CR-spiral-context-continuity.md
+- stmt.subject-arisal-ground — TheoryOfChange_main/01_Statements/Definition/S-DF-subject-arisal-ground.md
+- stmt.subject-recursive-field — TheoryOfChange_main/01_Statements/Definition/S-DF-subject-recursive-field.md
+
+## Graph nodes with zero in-degree
+- stmt.breath-field-global-integrator
+- stmt.cross-audit-markov-gh-tx
+- stmt.domain-generalization-principles
+- stmt.evaluation-surface
+- stmt.gauge-alignment-field
+- stmt.intersubject-gauge
+- stmt.markov-closure-assumption
+- stmt.root
+
+## Graph nodes with zero out-degree
+- stmt.across-scales-godel-structure
+- stmt.anti-solipsistic-closure
+- stmt.as-minimal-definitions
+- stmt.awareness-definition
+- stmt.benchmark-scores
+- stmt.cf-immediate-reading-generalization
+- stmt.cf-pointer-diff-equals
+- stmt.cf-subject-no-experience
+- stmt.change-not-mere-flux
+- stmt.change-ontically-prior
+- stmt.co-logic-graded-order
+- stmt.complexity-no-fundamental-simplicity
+- stmt.criticism-increases-srl-se
+- stmt.delta-now-implies-pointer
+- stmt.distribution-shaping-under-srl
+- stmt.ethics-gauge-strain-min
+- stmt.extended-audit-indicators
+- stmt.external-asymmetry-prevents-closure
+- stmt.fitness-vs-srl-se
+- stmt.gh-review-loop
+- stmt.identity-phase-resonance
+- stmt.interaction-points-eventlets
+- stmt.intersubject-translation-resonance
+- stmt.laws-as-robust-invariants
+- stmt.limits-and-rigor
+- stmt.localreach-topology
+- stmt.micro-acts-stabilize-gauge
+- stmt.multi-axis-attention-pain-proximity
+- stmt.no-null-world
+- stmt.observation-subordinate
+- stmt.operational-change-minimal-axiom
+- stmt.pattern-vs-noise-thresholds
+- stmt.pointer-under-tx
+- stmt.predictive-statement-nonclassical
+- stmt.prior-with-change
+- stmt.qm-no-privileged-substrate
+- stmt.recursive-expectation
+- stmt.recursive-identity-vs-semantic-error
+- stmt.representation-scope-rhythm
+- stmt.residual-meaning-traces
+- stmt.rtv-collapse-threshold
+- stmt.se-supports-identity
+- stmt.self-similarity-threshold
+- stmt.srl-vs-se-theta
+- stmt.stability-duality-via-attractors
+- stmt.tx-algebra
+
+## Concepts with zero statements referencing them
+- README — TheoryOfChange_main/02_Concepts/README.md
+- concept.change-fitness — TheoryOfChange_main/02_Concepts/C-change-fitness.md
+- concept.gauge-haq-stabilization — TheoryOfChange_main/02_Concepts/C-gauge-haq-stabilization.md
+- concept.phenomenology-time — TheoryOfChange_main/02_Concepts/C-phenomenology-time.md
+- concept.worked-example-srl-cbf — TheoryOfChange_main/02_Concepts/C-worked-example-srl-cbf.md
+- concept.worked-example-tx-pointer — TheoryOfChange_main/02_Concepts/C-worked-example-tx-pointer.md
+- concept.worked-example.spiral-localreach — TheoryOfChange_main/02_Concepts/C-worked-example-spiral-localreach.md
+
+## Statements that link to concept pages missing an id
+- None
+

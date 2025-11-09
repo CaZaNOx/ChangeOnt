@@ -16,4 +16,4 @@ Proposal
 
 Measures
 - Lock duration/frequency, SRL, SE variance; collapse regime classification.
-
+ - Drift induction protocol: vary σ(ε) and apply Tx perturbations; record DC, Γ curvature/strain, SE drops; compare pre/post identity markers (≈, invariants).

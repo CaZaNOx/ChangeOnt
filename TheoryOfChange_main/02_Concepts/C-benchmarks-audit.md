@@ -73,12 +73,197 @@ Open items:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
 ### Statements
+- [[01_Statements/Clarification/S-CL-change-instrumentation-scripts]]
+- [[01_Statements/Clarification/S-CL-compute-fairness-contract]]
+- [[01_Statements/Clarification/S-CL-consciousness-falsifiability]]
+- [[01_Statements/Clarification/S-CL-early-warning-coherence-collapse]]
+- [[01_Statements/Clarification/S-CL-evaluation-grid-sweep]]
 - [[01_Statements/Clarification/S-CL-evaluation-rigor]]
+- [[01_Statements/Clarification/S-CL-gate-budget-honesty]]
+- [[01_Statements/Clarification/S-CL-meta-audit-guardrails]]
+- [[01_Statements/Clarification/S-CL-operational-primitives-falsifiability]]
+- [[01_Statements/Definition/S-DF-j-criterion]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

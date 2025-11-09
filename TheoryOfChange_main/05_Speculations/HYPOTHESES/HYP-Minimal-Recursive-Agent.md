@@ -16,4 +16,4 @@ Proposal
 
 Test sketch
 - Track drift vs stability; apply recursive contradictions; monitor identity metrics (SE, similarity thresholds).
-
+ - Add metrics: Dissociation Cascade (DC) ↑ under Γ↑, Σ↑, σ(ε)↑ and SE↓; RTV lock patterns; collapse regime classification.

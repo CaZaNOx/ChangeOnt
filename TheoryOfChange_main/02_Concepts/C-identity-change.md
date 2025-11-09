@@ -150,12 +150,109 @@ Open items:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
 ### Statements
+- [[01_Statements/Clarification/S-CL-co-lateg-plan]]
+- [[01_Statements/Clarification/S-CL-error-contracts]]
+- [[01_Statements/Clarification/S-CL-hindsight-canonicalization]]
+- [[01_Statements/Clarification/S-CL-identity-orchestrator]]
+- [[01_Statements/Clarification/S-CL-invariance-as-derivative]]
+- [[01_Statements/Clarification/S-CL-kappa-merge]]
 - [[01_Statements/Clarification/S-CL-pattern-vs-noise-thresholds]]
+- [[01_Statements/Clarification/S-CL-stability-dynamism]]
 - [[01_Statements/Clarification/S-CL-structural-convergence]]
+- [[01_Statements/Clarification/S-CL-subject-minus-assumption]]
+- [[01_Statements/Clarification/S-CL-variable-emergence]]
 - [[01_Statements/Corollary/S-CR-complexity-no-fundamental-simplicity]]
 - [[01_Statements/Corollary/S-CR-criticism-increases-srl-se]]
 - [[01_Statements/Corollary/S-CR-identity-as-phase-resonance]]
@@ -173,9 +270,11 @@ Open items:
 - [[01_Statements/Definition/S-DF-haq-core-family]]
 - [[01_Statements/Definition/S-DF-identity-invariants]]
 - [[01_Statements/Definition/S-DF-identity-through-change]]
+- [[01_Statements/Definition/S-DF-mrai-score]]
 - [[01_Statements/Definition/S-DF-ops-j2-quotient-classes]]
 - [[01_Statements/Definition/S-DF-ops-j4a-reid-closure]]
 - [[01_Statements/Definition/S-DF-prm-closure-quotient]]
+- [[01_Statements/Definition/S-DF-prm-dissociation-cascade]]
 - [[01_Statements/Definition/S-DF-prm-mdl-compressibility]]
 - [[01_Statements/Definition/S-DF-prm-reid-kernel]]
 - [[01_Statements/Definition/S-DF-prm-variable-birth]]
@@ -190,6 +289,94 @@ Open items:
 - [[02_Concepts/C-prior-pointer-reach]]
 - [[02_Concepts/C-frame-operators]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

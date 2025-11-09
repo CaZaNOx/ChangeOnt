@@ -70,10 +70,199 @@ Open items:
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
+### Statements
+- [[01_Statements/Clarification/S-CL-change-instrumentation-scripts]]
+- [[01_Statements/Clarification/S-CL-change-space-metric]]
+- [[01_Statements/Clarification/S-CL-co-pillars]]
+- [[01_Statements/Clarification/S-CL-compute-fairness-contract]]
+- [[01_Statements/Clarification/S-CL-error-contracts]]
+- [[01_Statements/Clarification/S-CL-exposure-probability]]
+- [[01_Statements/Clarification/S-CL-feature-gating]]
+- [[01_Statements/Clarification/S-CL-hole-density]]
+- [[01_Statements/Clarification/S-CL-precision-gauge]]
+- [[01_Statements/Clarification/S-CL-symmetry-tie-breaking]]
+- [[01_Statements/Clarification/S-CL-timestep-gauge]]
+- [[01_Statements/Definition/S-DF-ops-discovery-pipeline]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

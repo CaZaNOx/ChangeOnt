@@ -1,18 +1,32 @@
 ---
 id: stmt.cl-operational-primitives-falsifiability
 type: CL
-title: Operational primitives and falsifiability — Σ, σ(ε), SE, depth
-concepts: ["[[02_Concepts/C-benchmarks-audit]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-entropy-co]]", "[[01_Statements/Definition/S-DF-sigma-fluctuation]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-depth-reach]]", "[[01_Statements/Clarification/S-CL-evaluation-rigor]]"]
-parents: ["[[01_Statements/Clarification/S-CL-evaluation-rigor]]"]
+title: "Operational primitives and falsifiability \u2014 \u03A3, \u03C3(\u03B5), SE,\
+  \ depth"
+concepts:
+- '[[02_Concepts/C-benchmarks-audit]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-entropy-co]]'
+- '[[01_Statements/Definition/S-DF-sigma-fluctuation]]'
+- '[[01_Statements/Definition/S-DF-stabilization-energy]]'
+- '[[01_Statements/Definition/S-DF-depth-reach]]'
+- '[[01_Statements/Clarification/S-CL-evaluation-rigor]]'
+parents:
+- '[[01_Statements/Clarification/S-CL-evaluation-rigor]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_6_Logos_RecursiveChat.md:135
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_6_Logos_RecursiveChat.md:289
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_6_Logos_RecursiveChat.md:135
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_6_Logos_RecursiveChat.md:289
 flags: []
-tags: [clarification, falsifiability, primitives, "type/CL"]
+tags:
+- clarification
+- falsifiability
+- primitives
+- type/CL
+- status/stable
 ---
+
 # Operational primitives and falsifiability — Σ, σ(ε), SE, depth
 ## Content
 Primitives must ship with measurement protocols. Provide operational definitions for Σ, σ(ε), SE, depth (units, procedures, confidence). Axioms that fail to yield numeric predictions within Δt should be revised or explicitly abstained.
@@ -23,278 +37,10 @@ Prevents ornamentation without grounding; aligns falsifiability with the evaluat
 ## Tags
 #type/CL #layer/validation #domain/formal #concept/benchmarks-audit
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 - [[01_Statements/Clarification/S-CL-tool-access-drift]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -303,92 +49,4 @@ Prevents ornamentation without grounding; aligns falsifiability with the evaluat
 - Parents: [[01_Statements/Clarification/S-CL-evaluation-rigor]]
 - Dependencies: [[01_Statements/Definition/S-DF-entropy-co]]; [[01_Statements/Definition/S-DF-sigma-fluctuation]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-depth-reach]]; [[01_Statements/Clarification/S-CL-evaluation-rigor]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

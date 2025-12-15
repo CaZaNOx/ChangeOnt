@@ -1,93 +1,30 @@
 ---
 id: stmt.cl-compute-fairness-contract
 type: CL
-title: Compute fairness contract—shared budget ledgers for comparisons
-dependencies: ["[[01_Statements/Clarification/S-CL-change-instrumentation-scripts]]"]
-parents: []
+title: "Compute fairness contract\u2014shared budget ledgers for comparisons"
+dependencies:
+- '[[01_Statements/Clarification/S-CL-change-instrumentation-scripts]]'
+parents:
+- '[[01_Statements/Clarification/S-CL-change-instrumentation-scripts]]'
 successors: []
-concepts: ["[[02_Concepts/C-benchmarks-audit]]", "[[02_Concepts/C-change-fitness]]"]
+concepts:
+- '[[02_Concepts/C-benchmarks-audit]]'
+- '[[02_Concepts/C-change-fitness]]'
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_15_Spiral7.md:2133-2211
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_15_Spiral7.md:2133-2211
 flags: []
-tags: [evaluation, fairness, "type/CL"]
+tags:
+- evaluation
+- fairness
+- stable
+- type/CL
+- status/stable
 ---
+
 # Compute fairness contract—shared budget ledgers for comparisons
 
 All experiments must share a compute fairness contract specifying `C_total`, active-var-seconds, digits-seconds, step counts, precision, energy, device, and identical runtime windows. Each CO run reports these details via `budget.csv` and `metrics.jsonl`; states the parity context that forbids hidden budgets or extra generality; and uses the same ledger for CO and classical baselines when claiming separation. The contract ensures that any claimed advantage stems from CO’s structural guardrails, not from undisclosed compute slack, as urged around AI_15’s separation discussion.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
@@ -95,228 +32,11 @@ All experiments must share a compute fairness contract specifying `C_total`, act
 - [[01_Statements/Clarification/S-CL-gate-budget-honesty]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
 - Concepts: [[02_Concepts/C-benchmarks-audit]]; [[02_Concepts/C-change-fitness]]
+- Parents: [[01_Statements/Clarification/S-CL-change-instrumentation-scripts]]
 - Dependencies: [[01_Statements/Clarification/S-CL-change-instrumentation-scripts]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

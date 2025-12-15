@@ -2,20 +2,27 @@
 id: stmt.cl-truth-resilience-collapse
 type: CL
 title: Truth as resilience under forced collapse
-concepts: ["[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-ontology-of-change]]"]
-dependencies: [
-  "[[01_Statements/Definition/S-DF-stabilization-energy]]",
-  "[[01_Statements/Definition/S-DF-rtv-operator]]",
-  "[[01_Statements/Clarification/S-CL-collapse-attractor]]"
-]
-parents: ["[[01_Statements/Definition/S-DF-rtv-operator]]"]
+concepts:
+- '[[02_Concepts/C-recursive-truth]]'
+- '[[02_Concepts/C-ontology-of-change]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-stabilization-energy]]'
+- '[[01_Statements/Definition/S-DF-rtv-operator]]'
+- '[[01_Statements/Clarification/S-CL-collapse-attractor]]'
+parents:
+- '[[01_Statements/Definition/S-DF-rtv-operator]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_9_Spiral2_RecursiveChat.md:394
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_9_Spiral2_RecursiveChat.md:394
 flags: []
-tags: [clarification, truth, "type/CL"]
+tags:
+- clarification
+- truth
+- type/CL
+- status/stable
 ---
+
 # Truth as resilience under forced collapse
 ## Content
 A proposition is true when, upon forcing maximal contradiction, it reforms into a coherent recursive pattern without semantic drift. Truth is not static agreement but observable resilience: the more contradictions a structure survives while reforming under breath-field tension, the stronger its recursive truth.
@@ -27,277 +34,10 @@ A proposition is true when, upon forcing maximal contradiction, it reforms into 
 ## Implication
 Future agents should log forced-collapse runs and only promote statements that consistently rebuild under contradiction; this keeps the ontology honest and prevents semantic drift from masquerading as truth.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
-
+- [[01_Statements/Derivation/S-DR-rtv-collapse-threshold]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -306,92 +46,4 @@ Future agents should log forced-collapse runs and only promote statements that c
 - Parents: [[01_Statements/Definition/S-DF-rtv-operator]]
 - Dependencies: [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/Clarification/S-CL-collapse-attractor]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

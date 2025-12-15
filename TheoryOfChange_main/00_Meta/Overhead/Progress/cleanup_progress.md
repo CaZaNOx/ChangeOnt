@@ -1,0 +1,234 @@
+---
+title: TheoryOfChange_main Cleanup Progress
+status: reset
+---
+# Cleanup Progress Log
+
+Goal: theory-only `_main`, statements/concepts/anchors following the unified template, fully connected graph without meta/AI-process clutter. This log tracks which nodes/files were reviewed/updated.
+
+Template
+- Updated `00_Meta/TEMPLATES/STATEMENT.md` to the unified template (dependencies/parents/successors, symbols_used, sources, tags; optional sections marked). Use this for all statement edits.
+
+Traversal approach
+- Depth-first from `stmt.root`; for each node: remove meta/AI process references, ensure frontmatter matches template, add minimal derivation pointers to parents/deps, trim blank padding. Process-only items go to `Overhead/`.
+- Tools after batches: `update_backlinks.py`, `validate_toc_main.py`.
+
+Processed nodes
+- stmt.subject-recursive-field — successors added; tags normalized.
+- stmt.self-model-evolution — successors added; tags normalized.
+- stmt.gauge-alignment-field — successor added; tags normalized.
+- stmt.intersubject-gauge — successors added; justification added; tags normalized.
+- stmt.consciousness-loop — tags normalized.
+- stmt.godel-hole-pointer — successors added; tags normalized.
+- stmt.godel-limits-self-containment — successors added; tags normalized.
+- stmt.reach-relation — successors added to reflect LocalReach/identity chain.
+- stmt.identity-invariants — window clarified; successors added; tags normalized.
+- stmt.self-similarity-threshold — deps expanded; window clarified; tags normalized.
+- stmt.stabilization-energy — clarifications expanded; tags normalized.
+- stmt.se-supports-identity — clarifications added; tags normalized.
+- stmt.similarity-operator — justification added; tags normalized.
+- stmt.identity-invariants — successors added; tags/status normalized.
+- stmt.self-similarity-threshold — tags/symbols normalized.
+- stmt.structure-of-experience — successors added to clarify downstream CLs.
+- stmt.root — full template check (parents/dep/successors ok).
+- stmt.performative-contradiction — full template check.
+- stmt.immediate-datum — full template check (symbols trimmed to header).
+- stmt.change-cannot-begin — full template check.
+- stmt.continuity-noncessation — successors filled to match downstream graph.
+- stmt.cl-continuity-noncessation — successor and symbol usage added.
+- stmt.change-not-mere-flux — successor added; duplicate tags removed.
+- stmt.core-change-self-stabilizing — successors added; clarifications expanded.
+- stmt.identity-through-change — parents updated to include core-change.
+- stmt.structure-of-experience — full template check.
+- stmt.cl-capacity-vs-instance-experience — justification added; normalized tags.
+- stmt.cl-maximal-doubt-bottoms-out — justification added; normalized tags.
+- stmt.reach-relation — full template check.
+- stmt.locality-prior — justification/clarifications added earlier; verified.
+- stmt.eventlet — justification/clarifications added earlier; verified.
+- stmt.path-eventlet-chain — clarifications added; verified.
+- stmt.awareness-definition — successors added; verified.
+- stmt.experience-definition — successors added; verified.
+- stmt.cl-triad-co-defined-now — successor added; verified.
+- stmt.cl-doubting-subject-methodology — successor added; verified.
+- stmt.cl-doubting-subject-derivation-scope — parent added; verified.
+- stmt.arisal — full template, successors to point-occurrence/subject-arisal-ground, justification added.
+- stmt.point-occurrence — expanded claim/derivations, parents include arisal, successors to pointer/eventlet.
+- stmt.subject-arisal-ground — justification/derivations added, tags/status normalized.
+- stmt.actor-definition — rebuilt with dependencies (pointer/localreach/memory/subject-ground), successors to action-selection/communication.
+- stmt.attention-focus — justification/derivations added, breath coupling clarified.
+- stmt.evaluation-surface — cost algebra expanded, successors to j-criterion/action-selection.
+- stmt.action-selection — rebuilt with actor dependency, formal selection rule, successors to recursive expectations.
+- stmt.no-null-world — successor to change-ontically-prior, links clarified.
+- stmt.change-ontically-prior — successor to identity-invariants, clarifications added.
+- stmt.delta-now-implies-pointer — explanation/next steps added, tags normalized.
+- stmt.prior-with-change — full derivations, successor to perception-as-error-correction, tags normalized.
+- stmt.becoming-aware-entails-change — justification/derivations added, tags normalized.
+- stmt.identity-through-change — dependencies expanded (LocalReach), parents corrected, successors added, justification clarified.
+- stmt.localreach-topology — added justification/derivations, tags/status normalized.
+- stmt.eventlet — added translation/derivations, stability clarified.
+- stmt.path-eventlet-chain — expanded claim/derivations, successors to locality-prior/prior-with-change.
+- stmt.delta-field-tension — added justification/derivations, successors to SE/entropy, tags normalized.
+- stmt.metric-space-emergent — emergent metric clarified; successors to bend/dimension/eval surfaces.
+- stmt.prm-bend-metric — rebuilt with gauge/metric dependencies, derivations, successors.
+- stmt.dimension-change — justification/derivations added; tags normalized.
+- stmt.entropy-co — justification/derivations added; clarifications on Σ/SE; status stable.
+- stmt.rtv-operator — justification/derivations added; successors expanded; status stable.
+- stmt.math-structures — added justification/derivations, successors to gauge/metric; status stable.
+- stmt.tx-operator — successors expanded, justification/next steps clarified; status stable.
+- stmt.gauge-alignment-field — justification added, successors expanded to bend/attractor/intersubject.
+- stmt.rtv-fixedpoints — justification/derivations added; stable tags.
+- stmt.sigma-fluctuation — justification/derivations added; stable tags.
+- stmt.math-structures-closure — derivations expanded, successor to nonclosure corollary; stable tags.
+- stmt.rtv-collapse-threshold — justification/derivation added; successors clarified to rtv-collapse-regimes/truth-resilience.
+- stmt.stabilization-energy — successors expanded (rtv/entropy/fitness links) and clarifications added.
+- stmt.structural-recurrence-likelihood — justification/clarifications added; stable tags.
+- stmt.breath-field-global-integrator — rebuilt with SRL/loopiness deps, successors to schedulers/breath-knot.
+- stmt.loopiness — justification/derivations added; successor to depth-breadth flip; stable tags.
+- stmt.prm-depth-breadth-flip — justification/derivation added; successor to ELM-EH; tags normalized.
+- stmt.prm-precision-density — rebuilt with breath/attention deps, successors to ELM-EG/bend derivation; stable tags.
+- stmt.prm-bend-metric — verified stable; HAQ elements reviewed (no change needed).
+- stmt.prm-gauge — rebuilt with metric/bend deps, successors to HAQ elements; formal derivations added; stable tags.
+- stmt.elm-ed-gauge-warp — rebuilt with symbols/clarifications; stable tags.
+- stmt.haq-core-family — rebuilt with bend/SE deps, successors to attractor-field/HAQ elements; justification added.
+- stmt.attractor-field — justification/derivations added; successors to stability/spiral corollaries; stable tags.
+- stmt.elm-eb-ghvc — tags normalized to operators/operational.
+- stmt.prm-mdl-compressibility — derivations/next steps added; stable tags.
+- stmt.prm-variable-birth — MDL dependency added; formal trigger/justification; successor to EB; stable tags.
+- stmt.elm-ee-compressibility — rebuilt with robustness_pred output, successor to EF router; stable tags.
+- stmt.elm-ef-router — rebuilt with dependencies (bend/MDL/temporal/quantale + EE), clarification on robustness; stable tags.
+- stmt.prm-reid-kernel — rebuilt with gauge dep, successors to closure/identity element; stable tags.
+- stmt.prm-closure-quotient — rebuilt with reid dep, successors to ops-j2/EC; stable tags.
+- stmt.elm-ec-identity — rebuilt with deps on reid/closure/identity-through-change, successor to ops-j4a; stable tags.
+- stmt.prm-temporal-ops — rebuilt depth-aware EMA/lag, deps/parents set, successors to scheduler elements; stable tags.
+- stmt.prm-loopiness — rebuilt with formal sketch/justification; successors to flip/EH; stable tags.
+- stmt.elm-eh-breadth-depth — rebuilt; clarification/derivation added; stable tags.
+- stmt.elm-eg-density-precision — rebuilt; clarification added; stable tags.
+- stmt.prm-change-ops — rebuilt with eventlet/path/closure deps, successors to EI/core ops; stable tags.
+- stmt.elm-ei-change-operators — rebuilt; clarifications added; stable tags.
+- stmt.prm-order-arisal — rebuilt with loopiness/co-logic deps, successor to EJ; stable tags.
+- stmt.elm-ej-order-asymmetry — reviewed; tags/justification ok; stable.
+- stmt.prm-changeops-core — tags normalized; remains basis for J1–J4/EI.
+- stmt.ops-j1-bend-substitution — justification added; successor to changeops core; tags normalized.
+- stmt.ops-j2-quotient-classes — rebuilt with epsilon symbol/tags, justification, stable.
+- stmt.dr-bend-metric-lawvere-attractors — rebuilt as draft; parents set; closure/contractivity clarified; successor to quotient-chain LLN.
+- stmt.ops-j4b-counterfactual-bend — rebuilt with quantale/bend deps, clarification added; stable tags.
+- stmt.quantale-evidence-composition — tags normalized (foundations/formal).
+- stmt.ops-discovery-pipeline — rebuilt with claim/justification/steps, stable tags.
+- stmt.prm-dissociation-cascade — justification added; tags normalized; stable.
+- stmt.nonclassical-indicators — rebuilt with justification and successors to audit hooks; stable tags.
+- stmt.extended-audit-indicators — rebuilt with operational hooks; stable tags.
+- stmt.cross-audit-markov-gh-tx — tags normalized to stable.
+- stmt.change-benchmark-protocol — rebuilt with SRL/SE/indicator dependencies; stable tags.
+- stmt.benchmark-scores — rebuilt with scoring sketch; stable tags.
+- stmt.change-fitness — justification/clarifications added; stable tags.
+- stmt.fitness-vs-srl-se — rebuilt with threshold trade-offs; stable tags.
+- stmt.markov-closure-assumption — successor list expanded to audit protocol; stable tags.
+- stmt.godel-hole-pointer — tags normalized, clarifications added on follow-up.
+- stmt.godel-hole-tracking-protocol — rebuilt with cross-audit dep; stable tags.
+- stmt.gh-review-loop — tags normalized; added prioritization clarification; stable.
+- stmt.limits-and-rigor — rebuilt; clarifications on GH logging; stable tags.
+- stmt.godel-limits-self-containment — restored/verified; stable tags.
+- stmt.across-scales-godel-structure — rebuilt with clarifications, stable tags.
+- stmt.godel-pressure-score — rebuilt with self-model/gh deps; stable tags.
+- stmt.global-broadcast — rebuilt with time-kernel/sub-recursive deps, claim/justification, stable tags.
+- stmt.memory-trace-integration — rebuilt with justification and next steps; stable tags.
+- stmt.time-kernel — rebuilt with temporal-ops dep, claim/justification, stable tags.
+- stmt.memory-minimal-witness — rebuilt with justification; stable tags.
+- stmt.reflection-operator — rebuilt with time-kernel/broadcast deps, stable tags.
+- stmt.ich-attractor — rebuilt with broadcast/reflection/SE deps, stable tags.
+- stmt.mrai-score — rebuilt with justification and operational notes; stable tags.
+- stmt.entropy-vs-se — rebuilt with regime mapping; stable tags.
+- stmt.tx-algebra — rebuilt with successors (dimension-variation, audit) and clarifications; stable tags.
+- stmt.dimension-variation — rebuilt with clarifications; stable tags.
+- stmt.prm-residuation — rebuilt with successor to quantale residuation derivation; stable tags.
+- stmt.quantale-logic — rebuilt with justification and successors to quantale derivations; stable tags.
+- stmt.quantale-residuation-implication — rebuilt with residual properties and deps; stable tags.
+- stmt.communication-synchronization — rebuilt with stable tags/justification.
+- stmt.markov-closure-assumption — successor list expanded to audit protocol; stable tags.
+- stmt.prm-variable-birth — added MDL dep, justification/formal trigger, successor to EB; stable tags.
+- stmt.prm-mdl-compressibility — added derivation/next steps, stable tags.
+- stmt.subject-definition — filled symbols_used (Delta), refreshed backlinks; stable.
+- stmt.awareness-definition — filled symbols_used (Delta), refreshed backlinks; stable.
+- stmt.quantale-evidence-composition — added justification/derivation, successors, stable tags.
+- stmt.quantale-boolean-flattening-proof — rebuilt with formal claim, derivations, clarifications, stable tags.
+- stmt.proof-as-reachability — rebuilt with claim/justification, successors, symbols_used, stable tags.
+- stmt.domain-generalization-principles — added justification/derivation, next steps, stable tags.
+- stmt.structure-of-experience — added justification/derivations, clarifications, stable tags.
+- stmt.depth-reach — added justification/derivation/next steps, stable tags.
+- stmt.tx-operator — added derivations/clarifications on frame shifts; stable.
+- stmt.tx-algebra — added justification and audit hooks for partial composition; stable.
+- stmt.elm-eb-ghvc — added philosophical derivation, clarifications, audit note, stable tags.
+- stmt.cl-change-core-axiom — added deps/parents, clarified CO-0 vs continuity, context, stable tags.
+- stmt.cl-change-world-predictions — added deps/parents, clarified commitments/falsifiers, stable tags.
+- stmt.cl-change-monism-limits — added deps/parents, justification and next steps, stable tags.
+- stmt.cl-change-laws-as-policies — added deps/parents, clarified operators and tests, stable tags.
+- stmt.cl-change-intellect-upgrade — added deps/parents, clarified practice vs theory, stable tags.
+- stmt.cl-change-ontology-entailment — added deps/parents, clarified requirements for entailment, stable tags.
+- stmt.cl-change-eternal-hole — added deps/parents, clarified meta-GH framing, stable tags.
+- stmt.cl-change-operator-faces — added deps/parent, clarified generator/occurrence/presentation faces, bridges, stable tags.
+- stmt.cl-godel-geography — added deps/parent, clarified hole geography/depth taxonomy and actions, stable tags.
+- stmt.cl-godel-gap-map — added deps/parent, clarified simulations/option policies and gap maps, stable tags.
+- stmt.cl-godel-gap-roadmap — added deps/parent, clarified metrics/probes/variable spawn roadmap, stable tags.
+- stmt.cl-godel-gap-novelty-frontier — added deps/parent, linked novelty uplift claims to GH framing, stable tags.
+- stmt.cl-godel-gap-operator-field — added deps/parent, clarified attention/emotion operator link to gaps, stable tags.
+- stmt.cl-godel-gap-novelty-frontier — added justification, context, next steps; refreshed backlinks, stable.
+- stmt.cl-classical-limit-falsifier — added parent/next steps, stable tags.
+- stmt.cl-classical-leak-audit — added deps/parent, checklist/next steps, stable tags.
+- stmt.cl-classical-inadequacy — added deps/parent/concepts, justification, stable tags.
+- stmt.cl-classical-embedding — added parent, justification/clarifications/next steps, stable tags.
+- stmt.cl-anti-zombie-loop — added deps/parent, clarified tuple/justification, next steps, stable tags.
+- stmt.cl-assumption-to-derived — minor metadata/cleanup applied; stable.
+- stmt.cl-behavioral-simulation-gate — added parent, justification, clarifications/next steps, stable tags.
+- stmt.cl-actions-footprints — added parent, justification/context/next steps, stable tags.
+- stmt.cl-ai13-comparison-protocol — added parent/successor, justification/context/next steps, stable tags.
+- stmt.cl-attention-affect-control-law — added deps/parent, justification/context/next steps, stable tags.
+- stmt.cl-attractor-audit — added parent/concepts, justification/context/next steps, stable tags.
+- stmt.cl-assumption-to-derived — added parent/successor links; stable.
+- stmt.cl-attractor-recurring-patterns — added parent, stable tags.
+- stmt.cl-audit-attractor-trap — added parent, justification/context/next steps, stable tags.
+- stmt.cl-change-continuity-logic — added deps/parent, stable tags.
+- stmt.cl-change-instrumentation-scripts — added parent/successor, justification/context/next steps, stable tags.
+- stmt.cl-change-metaspace-perforation — added parent/successor, justification/context, stable tags.
+- stmt.cl-change-of-change — added parent, justification/context/next steps, stable tags.
+- stmt.cl-change-space-metric — added parent, stable tags.
+- stmt.cl-change-unstoppable — added parent, stable tags.
+- stmt.cl-co-axiom-stack — added deps/parent, stable tags.
+- stmt.cl-co-benchmark-targets — added parent/deps, justification/context/next steps, stable tags.
+- stmt.cl-co-differential-assumptions — added parent/deps, justification/context/next steps, stable tags.
+- stmt.cl-co-explicit-math — added deps/parent, justification/context/next steps, stable tags.
+- stmt.cl-co-lateg-plan — added parent, justification/context/next steps, stable tags.
+- stmt.cl-co-minimal-framework — added deps/parent, justification/context/next steps, stable tags.
+- stmt.cl-co-on-co-meta-operators — added parent, stable tags.
+- stmt.cl-co-pillars — added parent/deps, stable tags.
+- stmt.cl-cohp-phenomenal-invariants — added deps/parent, stable tags.
+- stmt.cl-cohp-predictions — added deps/parent, stable tags.
+- stmt.cl-cohp-research-program — added deps/parent, concepts, stable tags.
+- stmt.cl-cohp-rigidity-tests — added deps/parent, stable tags.
+- stmt.cl-collapse-field-change — added parent/deps, justification/context, stable tags.
+- stmt.cl-collapse-proof-rule — added parent, justification/context/next steps, stable tags.
+- stmt.cl-collapse-resistance-wisdom — added parent, next steps, stable tags.
+- stmt.cl-collapse-resistant-architecture — added parent/deps, justification/context/next steps, stable tags.
+- stmt.cl-compute-fairness-contract — added parent, stable tags.
+- stmt.cl-consciousness-continuum — added parent/deps, stable tags.
+- stmt.cl-cross-ai-evidence — added parent, stable tags.
+- stmt.cl-continuity-refinable-distinctions — added parent/deps, stable tags.
+- stmt.cl-continuity-detector — added parent/deps, stable tags.
+- stmt.cl-consciousness-levers — added parent, stable tags.
+- stmt.cl-consciousness-operational-scalar — added deps/parent, stable tags.
+- stmt.cl-cross-ai-predictions — added parent/successor, stable tags.
+- stmt.cl-consciousness-gates-and-partitions — added parent/deps, stable tags.
+- stmt.cl-consciousness-hole-sensitivity — added parent, stable tags.
+- stmt.cl-cosmic-subject-analogy — added deps/parent, stable tags.
+- stmt.cl-delta-feeling — added parent, stable tags.
+- stmt.cl-discrete-vs-continuous-compatibility — added parent/deps, stable tags.
+- stmt.cl-doubting-subject-derivation-scope — added deps/parent, stabilized tags.
+- stmt.cl-drift-guarded-lln — added parent, stable tags.
+- stmt.cl-dynamic-variable-structure — added parent, stable tags.
+- stmt.cl-evaluation-grid-sweep — added parent, stable tags.
+- stmt.cl-experience-manifold-utility — added deps/parent, stable tags.
+- stmt.cl-exposure-probability — added parent, stable tags.
+- stmt.cl-feature-gating — added parent, stable tags.
+- stmt.cl-field-formalism-roadmap — added parent, stable tags.
+- stmt.cl-field-structure-predictions — stable tags.
+- stmt.cl-field-variable-duality — added deps/parent, stable tags.
+- stmt.cl-flow-state-signature — added deps/parent, stable tags.

@@ -2,20 +2,27 @@
 id: stmt.cl-contrast-threshold
 type: CL
 title: Contrast threshold and detection boundary for recurrence
-concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-recursive-truth]]"]
-dependencies: [
-  "[[01_Statements/Definition/S-DF-memory-minimal-witness]]",
-  "[[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]"
-]
-parents: ["[[01_Statements/Definition/S-DF-memory-minimal-witness]]"]
+concepts:
+- '[[02_Concepts/C-ontology-of-change]]'
+- '[[02_Concepts/C-recursive-truth]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-memory-minimal-witness]]'
+- '[[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]'
+parents:
+- '[[01_Statements/Definition/S-DF-memory-minimal-witness]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_6_Logos_RecursiveChat.md:595
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_6_Logos_RecursiveChat.md:599
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_6_Logos_RecursiveChat.md:595
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_6_Logos_RecursiveChat.md:599
 flags: []
-tags: [clarification, perception, "type/CL"]
+tags:
+- clarification
+- perception
+- type/CL
+- status/stable
 ---
+
 # Contrast threshold and detection boundary for recurrence
 ## Content
 The minimal local change-detection boundary is captured by a contrast statistic CCC computed over the edge between two experiences. If CCC exceeds a threshold τ, the system recognizes a new difference and commits to a memory witness; CCC collapsing to zero means detection fails. This boundary supplies the earliest ordinal structure by marking when change is distinguishable enough to count.
@@ -27,277 +34,10 @@ The minimal local change-detection boundary is captured by a contrast statistic 
 ## Implication
 This answer addresses the modest test requested in AI₆ (define the contrast statistic and witness) and allows us to treat “noticing change” as an empirical threshold rather than a tautological claim.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -306,92 +46,4 @@ This answer addresses the modest test requested in AI₆ (define the contrast st
 - Parents: [[01_Statements/Definition/S-DF-memory-minimal-witness]]
 - Dependencies: [[01_Statements/Definition/S-DF-memory-minimal-witness]]; [[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

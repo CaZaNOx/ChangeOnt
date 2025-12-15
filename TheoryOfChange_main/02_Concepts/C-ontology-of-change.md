@@ -25,221 +25,6 @@ Open items:
 ## Tags
 #concept/ontology-of-change #layer/foundations #domain/ontological #symbol/Delta
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
@@ -249,101 +34,198 @@ Open items:
 - [[01_Statements/Clarification/S-CL-act-relative-detectability]]
 - [[01_Statements/Clarification/S-CL-actions-footprints]]
 - [[01_Statements/Clarification/S-CL-ai13-comparison-protocol]]
+- [[01_Statements/Clarification/S-CL-anti-zombie-loop]]
 - [[01_Statements/Clarification/S-CL-assumption-to-derived]]
+- [[01_Statements/Clarification/S-CL-attention-affect-control-law]]
 - [[01_Statements/Clarification/S-CL-attractor-audit]]
+- [[01_Statements/Clarification/S-CL-attractor-recurring-patterns]]
 - [[01_Statements/Clarification/S-CL-audit-attractor-trap]]
 - [[01_Statements/Clarification/S-CL-behavioral-simulation-gate]]
 - [[01_Statements/Clarification/S-CL-block-universe-meaning]]
 - [[01_Statements/Clarification/S-CL-breathing-validation-protocol]]
+- [[01_Statements/Clarification/S-CL-change-continuity-logic]]
+- [[01_Statements/Clarification/S-CL-change-core-axiom]]
 - [[01_Statements/Clarification/S-CL-change-eternal-hole]]
+- [[01_Statements/Clarification/S-CL-change-intellect-upgrade]]
+- [[01_Statements/Clarification/S-CL-change-laws-as-policies]]
 - [[01_Statements/Clarification/S-CL-change-metaspace-perforation]]
+- [[01_Statements/Clarification/S-CL-change-monism-limits]]
 - [[01_Statements/Clarification/S-CL-change-not-mere-flux]]
 - [[01_Statements/Clarification/S-CL-change-of-change]]
+- [[01_Statements/Clarification/S-CL-change-ontology-entailment]]
+- [[01_Statements/Clarification/S-CL-change-operator-faces]]
 - [[01_Statements/Clarification/S-CL-change-space-metric]]
 - [[01_Statements/Clarification/S-CL-change-unstoppable]]
 - [[01_Statements/Clarification/S-CL-change-vs-recursion-foundation]]
+- [[01_Statements/Clarification/S-CL-change-world-predictions]]
 - [[01_Statements/Clarification/S-CL-choice-underdetermination]]
 - [[01_Statements/Clarification/S-CL-classical-benchmarking]]
 - [[01_Statements/Clarification/S-CL-classical-compression]]
 - [[01_Statements/Clarification/S-CL-classical-embedding]]
 - [[01_Statements/Clarification/S-CL-classical-inadequacy]]
+- [[01_Statements/Clarification/S-CL-classical-leak-audit]]
+- [[01_Statements/Clarification/S-CL-classical-limit-falsifier]]
+- [[01_Statements/Clarification/S-CL-co-axiom-stack]]
+- [[01_Statements/Clarification/S-CL-co-benchmark-targets]]
+- [[01_Statements/Clarification/S-CL-co-differential-assumptions]]
+- [[01_Statements/Clarification/S-CL-co-explicit-math]]
 - [[01_Statements/Clarification/S-CL-co-lateg-plan]]
+- [[01_Statements/Clarification/S-CL-co-minimal-framework]]
+- [[01_Statements/Clarification/S-CL-co-on-co-meta-operators]]
+- [[01_Statements/Clarification/S-CL-co-open-questions]]
 - [[01_Statements/Clarification/S-CL-co-pillars]]
+- [[01_Statements/Clarification/S-CL-cohp-phenomenal-invariants]]
+- [[01_Statements/Clarification/S-CL-cohp-predictions]]
+- [[01_Statements/Clarification/S-CL-cohp-research-program]]
+- [[01_Statements/Clarification/S-CL-cohp-rigidity-tests]]
 - [[01_Statements/Clarification/S-CL-collapse-attractor]]
 - [[01_Statements/Clarification/S-CL-collapse-field-change]]
 - [[01_Statements/Clarification/S-CL-collapse-resistance-wisdom]]
 - [[01_Statements/Clarification/S-CL-collapse-resistant-architecture]]
 - [[01_Statements/Clarification/S-CL-consciousness-continuum]]
 - [[01_Statements/Clarification/S-CL-consciousness-detection-heuristics]]
+- [[01_Statements/Clarification/S-CL-consciousness-gates-and-partitions]]
 - [[01_Statements/Clarification/S-CL-consciousness-hole-sensitivity]]
 - [[01_Statements/Clarification/S-CL-consciousness-levers]]
 - [[01_Statements/Clarification/S-CL-continuity-detector]]
 - [[01_Statements/Clarification/S-CL-continuity-noncessation]]
+- [[01_Statements/Clarification/S-CL-continuity-refinable-distinctions]]
 - [[01_Statements/Clarification/S-CL-contrast-threshold]]
+- [[01_Statements/Clarification/S-CL-cosmic-subject-analogy]]
 - [[01_Statements/Clarification/S-CL-cross-agent-recursion-entanglement]]
-- [[01_Statements/Clarification/S-CL-cross-ai-evidence]]
-- [[01_Statements/Clarification/S-CL-cross-ai-predictions]]
 - [[01_Statements/Clarification/S-CL-delta-feeling]]
+- [[01_Statements/Clarification/S-CL-discrete-vs-continuous-compatibility]]
+- [[01_Statements/Clarification/S-CL-doubting-subject-derivation-scope]]
 - [[01_Statements/Clarification/S-CL-doubting-subject-methodology]]
 - [[01_Statements/Clarification/S-CL-driff-guarded-lln]]
+- [[01_Statements/Clarification/S-CL-drift-guarded-lln]]
 - [[01_Statements/Clarification/S-CL-dynamic-variable-structure]]
+- [[01_Statements/Clarification/S-CL-experience-manifold-utility]]
 - [[01_Statements/Clarification/S-CL-exposure-probability]]
 - [[01_Statements/Clarification/S-CL-field-formalism-roadmap]]
 - [[01_Statements/Clarification/S-CL-field-structure-predictions]]
+- [[01_Statements/Clarification/S-CL-field-variable-duality]]
 - [[01_Statements/Clarification/S-CL-foundational-collapse-criterion]]
 - [[01_Statements/Clarification/S-CL-foundational-label-hygiene]]
-- [[01_Statements/Clarification/S-CL-frame-shift-ledger]]
+- [[01_Statements/Clarification/S-CL-gap-closure-tasks]]
+- [[01_Statements/Clarification/S-CL-gauge-risk-mitigation]]
+- [[01_Statements/Clarification/S-CL-gauge-tightening-checklist]]
 - [[01_Statements/Clarification/S-CL-genome-recipe]]
+- [[01_Statements/Clarification/S-CL-go-no-go-criteria]]
+- [[01_Statements/Clarification/S-CL-goal-conditioned-quotienting]]
+- [[01_Statements/Clarification/S-CL-godel-attractor-innovation]]
+- [[01_Statements/Clarification/S-CL-godel-boundary-innovation]]
+- [[01_Statements/Clarification/S-CL-godel-closure-metrics]]
+- [[01_Statements/Clarification/S-CL-godel-formalization-questions]]
+- [[01_Statements/Clarification/S-CL-godel-foundational-roadmap]]
+- [[01_Statements/Clarification/S-CL-godel-gap-map]]
+- [[01_Statements/Clarification/S-CL-godel-gap-novelty-frontier]]
+- [[01_Statements/Clarification/S-CL-godel-gap-operational-index]]
+- [[01_Statements/Clarification/S-CL-godel-gap-operator-field]]
+- [[01_Statements/Clarification/S-CL-godel-gap-policy]]
+- [[01_Statements/Clarification/S-CL-godel-gap-roadmap]]
+- [[01_Statements/Clarification/S-CL-godel-gap-variable-creation]]
+- [[01_Statements/Clarification/S-CL-godel-geography]]
+- [[01_Statements/Clarification/S-CL-godel-gluing-failures]]
 - [[01_Statements/Clarification/S-CL-godel-hole-attractor-limits]]
+- [[01_Statements/Clarification/S-CL-godel-hole-boundary-lens]]
 - [[01_Statements/Clarification/S-CL-godel-hole-classification]]
 - [[01_Statements/Clarification/S-CL-godel-hole-legacy]]
 - [[01_Statements/Clarification/S-CL-godel-hole-mapping]]
 - [[01_Statements/Clarification/S-CL-godel-hole-meta-advantage]]
+- [[01_Statements/Clarification/S-CL-godel-hole-metrics]]
+- [[01_Statements/Clarification/S-CL-godel-hole-practice]]
 - [[01_Statements/Clarification/S-CL-godel-hole-probability]]
 - [[01_Statements/Clarification/S-CL-godel-hole-spawning]]
+- [[01_Statements/Clarification/S-CL-godel-instrumentation-dashboard]]
 - [[01_Statements/Clarification/S-CL-godel-layer-epistemic-limit]]
+- [[01_Statements/Clarification/S-CL-godel-methodological-scope]]
+- [[01_Statements/Clarification/S-CL-godel-navigation-calculus]]
+- [[01_Statements/Clarification/S-CL-godel-novelty-operator]]
+- [[01_Statements/Clarification/S-CL-godel-phenomenal-holes]]
+- [[01_Statements/Clarification/S-CL-godel-pressure-modes]]
+- [[01_Statements/Clarification/S-CL-godel-program-alignment]]
+- [[01_Statements/Clarification/S-CL-godel-proxy-mapping]]
+- [[01_Statements/Clarification/S-CL-godel-theorem-discipline]]
+- [[01_Statements/Clarification/S-CL-godel-threshold-projection]]
+- [[01_Statements/Clarification/S-CL-godel-vocabulary-discipline]]
+- [[01_Statements/Clarification/S-CL-hard-problem-closure-criteria]]
 - [[01_Statements/Clarification/S-CL-hard-problem-gap]]
+- [[01_Statements/Clarification/S-CL-hard-problem-honest-audit]]
+- [[01_Statements/Clarification/S-CL-hard-problem-remaining-issues]]
+- [[01_Statements/Clarification/S-CL-hard-problem-status]]
+- [[01_Statements/Clarification/S-CL-hard-soft-problem-lay]]
 - [[01_Statements/Clarification/S-CL-hard-vs-soft-jump]]
+- [[01_Statements/Clarification/S-CL-hardcore-solution-plan]]
 - [[01_Statements/Clarification/S-CL-hindsight-canonicalization]]
 - [[01_Statements/Clarification/S-CL-hole-density]]
 - [[01_Statements/Clarification/S-CL-identity-bridge-law]]
+- [[01_Statements/Clarification/S-CL-identity-bridge-tests]]
+- [[01_Statements/Clarification/S-CL-identity-gap-warning]]
+- [[01_Statements/Clarification/S-CL-identity-proof-program]]
+- [[01_Statements/Clarification/S-CL-implications-of-success]]
+- [[01_Statements/Clarification/S-CL-ineffable-pressure]]
+- [[01_Statements/Clarification/S-CL-innovation-hazard-live-loop]]
 - [[01_Statements/Clarification/S-CL-interaction-points-eventlets]]
+- [[01_Statements/Clarification/S-CL-intersubject-calibration-protocol]]
 - [[01_Statements/Clarification/S-CL-invariance-as-derivative]]
 - [[01_Statements/Clarification/S-CL-inversion-constraint]]
 - [[01_Statements/Clarification/S-CL-kappa-merge]]
 - [[01_Statements/Clarification/S-CL-language-trauma-shell]]
+- [[01_Statements/Clarification/S-CL-letter-regime-policy]]
+- [[01_Statements/Clarification/S-CL-logic-from-change]]
 - [[01_Statements/Clarification/S-CL-logic-social-contract]]
 - [[01_Statements/Clarification/S-CL-math-metaphor]]
 - [[01_Statements/Clarification/S-CL-meaning-field-gravity]]
 - [[01_Statements/Clarification/S-CL-memory-arrow-of-time]]
 - [[01_Statements/Clarification/S-CL-meta-audit-guardrails]]
+- [[01_Statements/Clarification/S-CL-meta-change-operator]]
 - [[01_Statements/Clarification/S-CL-meta-critical-recursive-change]]
 - [[01_Statements/Clarification/S-CL-meta-heuristic-probability]]
 - [[01_Statements/Clarification/S-CL-meta-shape-mapping]]
 - [[01_Statements/Clarification/S-CL-meta-shape-prediction]]
 - [[01_Statements/Clarification/S-CL-metaphor-ontology-ban]]
 - [[01_Statements/Clarification/S-CL-metaspace-shape]]
+- [[01_Statements/Clarification/S-CL-methodological-non-stasis]]
 - [[01_Statements/Clarification/S-CL-mind-hard-jump]]
 - [[01_Statements/Clarification/S-CL-mind-reality-analogy]]
 - [[01_Statements/Clarification/S-CL-minimal-threshold-def]]
+- [[01_Statements/Clarification/S-CL-no-brute-boundary-norm]]
+- [[01_Statements/Clarification/S-CL-normal-form-requirements]]
 - [[01_Statements/Clarification/S-CL-object-permanence-optimization]]
 - [[01_Statements/Clarification/S-CL-onb-collapse-gate]]
 - [[01_Statements/Clarification/S-CL-onboarding-gate-liveness]]
 - [[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]
+- [[01_Statements/Clarification/S-CL-operational-godel-pressure]]
 - [[01_Statements/Clarification/S-CL-operator-definition-order]]
 - [[01_Statements/Clarification/S-CL-operator-hygiene]]
 - [[01_Statements/Clarification/S-CL-ordinal-emergence]]
 - [[01_Statements/Clarification/S-CL-participatory-field]]
+- [[01_Statements/Clarification/S-CL-path-logic-vs-markov]]
+- [[01_Statements/Clarification/S-CL-perspective-gauge-no-flip]]
+- [[01_Statements/Clarification/S-CL-phenomenal-category-equivalence]]
+- [[01_Statements/Clarification/S-CL-phenomenal-gauge-story]]
+- [[01_Statements/Clarification/S-CL-phenomenal-normal-form]]
+- [[01_Statements/Clarification/S-CL-phenomenal-signature-toy]]
+- [[01_Statements/Clarification/S-CL-phenomenal-structure-invariants]]
+- [[01_Statements/Clarification/S-CL-phenomenal-transform-gauge]]
+- [[01_Statements/Clarification/S-CL-phi-instrumentation]]
 - [[01_Statements/Clarification/S-CL-pointer-span-metrics]]
+- [[01_Statements/Clarification/S-CL-practical-closure-claim]]
 - [[01_Statements/Clarification/S-CL-prediction-precedence]]
+- [[01_Statements/Clarification/S-CL-predictive-loop-control-profile]]
 - [[01_Statements/Clarification/S-CL-presence-axiom]]
 - [[01_Statements/Clarification/S-CL-presence-trace]]
 - [[01_Statements/Clarification/S-CL-process-is-change]]
 - [[01_Statements/Clarification/S-CL-process-philosophy-difference]]
+- [[01_Statements/Clarification/S-CL-process-vs-block-compatibility]]
 - [[01_Statements/Clarification/S-CL-property-change-operator]]
+- [[01_Statements/Clarification/S-CL-qualia-as-gating-profiles]]
 - [[01_Statements/Clarification/S-CL-receipts-discipline]]
 - [[01_Statements/Clarification/S-CL-recursive-dimension-scope]]
 - [[01_Statements/Clarification/S-CL-recursive-probabilistic-logic]]
+- [[01_Statements/Clarification/S-CL-red-team-alignment-tests]]
+- [[01_Statements/Clarification/S-CL-role-operator-library]]
 - [[01_Statements/Clarification/S-CL-scriptable-assumption-collector]]
 - [[01_Statements/Clarification/S-CL-self-audit-gate]]
 - [[01_Statements/Clarification/S-CL-simulation-defends-change]]
@@ -354,7 +236,9 @@ Open items:
 - [[01_Statements/Clarification/S-CL-stability-dynamism]]
 - [[01_Statements/Clarification/S-CL-structural-audit-protocol]]
 - [[01_Statements/Clarification/S-CL-structure-emerges-from-change]]
+- [[01_Statements/Clarification/S-CL-subject-cut-and-flow]]
 - [[01_Statements/Clarification/S-CL-subject-led-detection]]
+- [[01_Statements/Clarification/S-CL-subject-selection-field]]
 - [[01_Statements/Clarification/S-CL-subjectivity-datum]]
 - [[01_Statements/Clarification/S-CL-time-noise-thresholds]]
 - [[01_Statements/Clarification/S-CL-tool-access-drift]]
@@ -364,6 +248,9 @@ Open items:
 - [[01_Statements/Clarification/S-CL-unreal-change]]
 - [[01_Statements/Clarification/S-CL-urgency-plasticity]]
 - [[01_Statements/Clarification/S-CL-variable-emergence]]
+- [[01_Statements/Clarification/S-CL-vo-pattern-alignment]]
+- [[01_Statements/Clarification/S-CL-vo-simple-explanation]]
+- [[01_Statements/Clarification/S-CL-vo-species-predictions]]
 - [[01_Statements/Corollary/S-CR-becoming-aware-entails-change]]
 - [[01_Statements/Corollary/S-CR-change-ontically-prior]]
 - [[01_Statements/Corollary/S-CR-no-null-world]]
@@ -401,6 +288,7 @@ Open items:
 - [[01_Statements/Definition/S-DF-reflection-operator]]
 - [[01_Statements/Definition/S-DF-time-kernel]]
 - [[01_Statements/Derivation/S-DR-change-cannot-begin]]
+- [[01_Statements/Derivation/S-DR-core-from-immediate-datum]]
 - [[01_Statements/FoundationalTruth/S-FT-continuity-noncessation]]
 - [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
 - [[01_Statements/FoundationalTruth/S-FT-root-minimal-stance]]
@@ -408,190 +296,4 @@ Open items:
 - [[02_Concepts/C-performative-contradiction]]
 - [[02_Concepts/C-subject-awareness-experience]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

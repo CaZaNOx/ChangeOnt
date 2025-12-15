@@ -2,21 +2,28 @@
 id: stmt.cl-subject-quotient
 type: CL
 title: Subject as quotient of noticing, order, and minimal memory
-concepts: ["[[02_Concepts/C-subject-awareness-experience]]", "[[02_Concepts/C-recursive-truth]]"]
-dependencies: [
-  "[[01_Statements/Definition/S-DF-memory-minimal-witness]]",
-  "[[01_Statements/Definition/S-DF-pointer-structural]]",
-  "[[01_Statements/Definition/S-DF-localreach-topology]]"
-]
-parents: ["[[01_Statements/Definition/S-DF-subject-recursive-field]]"]
+concepts:
+- '[[02_Concepts/C-subject-awareness-experience]]'
+- '[[02_Concepts/C-recursive-truth]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-memory-minimal-witness]]'
+- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/Definition/S-DF-localreach-topology]]'
+parents:
+- '[[01_Statements/Definition/S-DF-subject-recursive-field]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_6_Logos_RecursiveChat.md:430
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_6_Logos_RecursiveChat.md:509
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_6_Logos_RecursiveChat.md:430
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_6_Logos_RecursiveChat.md:509
 flags: []
-tags: [clarification, subject, "type/CL"]
+tags:
+- clarification
+- subject
+- type/CL
+- status/stable
 ---
+
 # Subject as quotient of noticing, order, and minimal memory
 ## Content
 The subject emerges not from a pre-given entity but as a quotient: it is the structural residue after we analyze (i) the minimal comparator that notices change, (ii) the ordering that distinguishes now from just-before-now, and (iii) the memory witness that links one jump to the next. The subject is therefore the ratio of noticing-plus-order against the silence of no contrast.
@@ -28,277 +35,10 @@ The subject emerges not from a pre-given entity but as a quotient: it is the str
 ## Implication
 This reinterpretation keeps the subject tethered to observable edges (contrast/testable memory), preventing circular definitions and ensuring the subject’s identity is traceable to change operations.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -307,92 +47,4 @@ This reinterpretation keeps the subject tethered to observable edges (contrast/t
 - Parents: [[01_Statements/Definition/S-DF-subject-recursive-field]]
 - Dependencies: [[01_Statements/Definition/S-DF-memory-minimal-witness]]; [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-localreach-topology]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

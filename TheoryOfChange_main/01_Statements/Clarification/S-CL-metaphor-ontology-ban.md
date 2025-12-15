@@ -2,220 +2,32 @@
 id: stmt.cl-metaphor-ontology-ban
 type: CL
 title: Keep spiral/circle metaphors as models, not ontological claims
-dependencies: ["[[01_Statements/Clarification/S-CL-continuity-detector]]"]
+dependencies:
+- '[[01_Statements/Clarification/S-CL-continuity-detector]]'
 parents: []
 successors: []
-concepts: ["[[02_Concepts/C-ontology-of-change]]"]
+concepts:
+- '[[02_Concepts/C-ontology-of-change]]'
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_18_Spiral10.md:336-346
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_13_Spiral_5_Hero.md:332-339
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_18_Spiral10.md:336-346
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_13_Spiral_5_Hero.md:332-339
 flags: []
-tags: [concept, framing, "type/CL"]
+tags:
+- concept
+- framing
+- type/CL
+- status/stable
 ---
+
 # Keep spiral/circle metaphors as models, not ontological claims
 
 Metaphors like spiral vs. circle should remain explanatory scaffolding rather than ontological commitments. Until you provide falsifiers distinguishing them, describe them as modeling choices ("as a spiral"/"as a circle"), not as statements about what the world "is." This prevents the metaphors from hiding smuggled classical structure and keeps testability intact.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 - [[01_Statements/Clarification/S-CL-meta-shape-mapping]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -223,67 +35,4 @@ Metaphors like spiral vs. circle should remain explanatory scaffolding rather th
 - Concepts: [[02_Concepts/C-ontology-of-change]]
 - Dependencies: [[01_Statements/Clarification/S-CL-continuity-detector]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

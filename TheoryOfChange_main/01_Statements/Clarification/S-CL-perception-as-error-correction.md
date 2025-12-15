@@ -2,17 +2,28 @@
 id: stmt.cl-perception-error-correction
 type: CL
 title: Perception as prediction error correction (RTV framing)
-concepts: ["[[02_Concepts/C-recursive-truth]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-rtv-operator]]", "[[01_Statements/Corollary/S-CR-prior-with-change]]", "[[01_Statements/Definition/S-DF-evaluation-surface]]"]
-parents: ["[[01_Statements/Definition/S-DF-rtv-operator]]"]
+concepts:
+- '[[02_Concepts/C-recursive-truth]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-rtv-operator]]'
+- '[[01_Statements/Corollary/S-CR-prior-with-change]]'
+- '[[01_Statements/Definition/S-DF-evaluation-surface]]'
+parents:
+- '[[01_Statements/Definition/S-DF-rtv-operator]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_12_RandomChat_drifting_torwards_change_ontology.md:60
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_12_RandomChat_drifting_torwards_change_ontology.md:62
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_12_RandomChat_drifting_torwards_change_ontology.md:60
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_12_RandomChat_drifting_torwards_change_ontology.md:62
 flags: []
-tags: [clarification, perception, prediction, "type/CL"]
+tags:
+- clarification
+- perception
+- prediction
+- type/CL
+- status/stable
 ---
+
 # Perception as prediction error correction (RTV framing)
 ## Content
 Expectation sets a prior under change; perception updates by correcting prediction error on the evaluation surface (RTV). This aligns “perception” with recursive validation rather than passive reception.
@@ -23,278 +34,10 @@ Connects prior‑with‑change to operational perception; supports testable lock
 ## Tags
 #type/CL #layer/validation #domain/recursion #concept/recursive-truth
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
-
+- [[01_Statements/Corollary/S-CR-prior-with-change]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -303,92 +46,4 @@ Connects prior‑with‑change to operational perception; supports testable lock
 - Parents: [[01_Statements/Definition/S-DF-rtv-operator]]
 - Dependencies: [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/Corollary/S-CR-prior-with-change]]; [[01_Statements/Definition/S-DF-evaluation-surface]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

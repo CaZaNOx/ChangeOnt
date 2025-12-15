@@ -2,20 +2,27 @@
 id: stmt.cl-classical-benchmarking
 type: CL
 title: Benchmarking change ontology against classical models
-concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-recursive-truth]]"]
-dependencies: [
-  "[[01_Statements/Definition/S-DF-stabilization-energy]]",
-  "[[01_Statements/Definition/S-DF-pointer-structural]]",
-  "[[01_Statements/Clarification/S-CL-space-as-subject]]"
-]
-parents: ["[[01_Statements/Definition/S-DF-stabilization-energy]]"]
+concepts:
+- '[[02_Concepts/C-ontology-of-change]]'
+- '[[02_Concepts/C-recursive-truth]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-stabilization-energy]]'
+- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/Clarification/S-CL-space-as-subject]]'
+parents:
+- '[[01_Statements/Definition/S-DF-stabilization-energy]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_13_Spiral_5_Hero.md:327
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_13_Spiral_5_Hero.md:327
 flags: []
-tags: [clarification, benchmarking, "type/CL"]
+tags:
+- clarification
+- benchmarking
+- type/CL
+- status/stable
 ---
+
 # Benchmarking change ontology against classical models
 ## Content
 To demonstrate added value, compare the ontology to classical models on the same datasets or processes. Log every event where the classical model cannot express a transition because the space, subject, or rules themselves had to shift—these become the Gödel-hole markers described earlier.
@@ -27,277 +34,10 @@ To demonstrate added value, compare the ontology to classical models on the same
 ## Implication
 This satisfies the Spiral5 request for empirical–structural predictions that classical models cannot encode and gives future practitioners a reproducible protocol for evaluating the change-first framework.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -306,92 +46,4 @@ This satisfies the Spiral5 request for empirical–structural predictions that c
 - Parents: [[01_Statements/Definition/S-DF-stabilization-energy]]
 - Dependencies: [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Clarification/S-CL-space-as-subject]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

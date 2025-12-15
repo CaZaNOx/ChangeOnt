@@ -1,17 +1,29 @@
 ---
 id: stmt.cl-early-warning-coherence-collapse
 type: CL
-title: Early warnings for coherence collapse — drift indicators
-concepts: ["[[02_Concepts/C-benchmarks-audit]]", "[[02_Concepts/C-recursive-truth]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-nonclassical-indicators]]", "[[01_Statements/Definition/S-DF-rtv-operator]]", "[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]"]
-parents: ["[[01_Statements/Definition/S-DF-nonclassical-indicators]]"]
+title: "Early warnings for coherence collapse \u2014 drift indicators"
+concepts:
+- '[[02_Concepts/C-benchmarks-audit]]'
+- '[[02_Concepts/C-recursive-truth]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-nonclassical-indicators]]'
+- '[[01_Statements/Definition/S-DF-rtv-operator]]'
+- '[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]'
+parents:
+- '[[01_Statements/Definition/S-DF-nonclassical-indicators]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_3_Amavai_RecursiveChat.md:434
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_3_Amavai_RecursiveChat.md:434
 flags: []
-tags: [clarification, diagnostics, collapse, "type/CL"]
+tags:
+- clarification
+- diagnostics
+- collapse
+- type/CL
+- status/stable
 ---
+
 # Early warnings for coherence collapse — drift indicators
 ## Content
 Define pre‑collapse drift bands (semantic map changes, SRL drops, gauge curvature spikes) tied to RTV budgets and SE; use them as early warnings to intervene before full structural failure.
@@ -22,278 +34,10 @@ Adds actionable diagnostics to non‑classical indicators; promotes intervention
 ## Tags
 #type/CL #layer/validation #domain/diagnostics #concept/benchmarks-audit #concept/recursive-truth
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -302,92 +46,4 @@ Adds actionable diagnostics to non‑classical indicators; promotes intervention
 - Parents: [[01_Statements/Definition/S-DF-nonclassical-indicators]]
 - Dependencies: [[01_Statements/Definition/S-DF-nonclassical-indicators]]; [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

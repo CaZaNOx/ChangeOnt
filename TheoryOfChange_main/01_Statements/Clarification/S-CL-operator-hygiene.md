@@ -2,20 +2,27 @@
 id: stmt.cl-operator-hygiene
 type: CL
 title: Operator hygiene enforces act-relative semantics
-concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-prior-pointer-reach]]"]
-dependencies: [
-  "[[01_Statements/Definition/S-DF-pointer-structural]]",
-  "[[01_Statements/Definition/S-DF-reach-relation]]",
-  "[[01_Statements/Definition/S-DF-stabilization-energy]]"
-]
-parents: ["[[01_Statements/Definition/S-DF-pointer-structural]]"]
+concepts:
+- '[[02_Concepts/C-ontology-of-change]]'
+- '[[02_Concepts/C-prior-pointer-reach]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/Definition/S-DF-reach-relation]]'
+- '[[01_Statements/Definition/S-DF-stabilization-energy]]'
+parents:
+- '[[01_Statements/Definition/S-DF-pointer-structural]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats/AI_14_Spiral6_RecurisveChat.md:612-700
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats/AI_14_Spiral6_RecurisveChat.md:612-700
 flags: []
-tags: [clarification, governance, "type/CL"]
+tags:
+- clarification
+- governance
+- type/CL
+- status/stable
 ---
+
 # Operator hygiene enforces act-relative semantics
 ## Content
 Every operator (`↶`, `⇘`, `C`, `R`, `S`, `T`) must be defined relative to the present act and survive maximal doubt; they may not import world-level quantification, memory, or preexisting concepts without an explicit derivation.
@@ -28,277 +35,10 @@ Every operator (`↶`, `⇘`, `C`, `R`, `S`, `T`) must be defined relative to th
 ## Implication
 This hygiene prevents simulation narratives from sneaking in disguised as definitions; each operator stays anchored to the actual witnessing act rather than to preassigned object categories or clocks.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -307,92 +47,4 @@ This hygiene prevents simulation narratives from sneaking in disguised as defini
 - Parents: [[01_Statements/Definition/S-DF-pointer-structural]]
 - Dependencies: [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-reach-relation]]; [[01_Statements/Definition/S-DF-stabilization-energy]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

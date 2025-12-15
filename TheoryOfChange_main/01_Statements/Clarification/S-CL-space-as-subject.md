@@ -2,21 +2,28 @@
 id: stmt.cl-space-as-subject
 type: CL
 title: Space and subject co-define the change field
-concepts: ["[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-prior-pointer-reach]]"]
-dependencies: [
-  "[[01_Statements/Definition/S-DF-pointer-structural]]",
-  "[[01_Statements/Definition/S-DF-localreach-topology]]",
-  "[[01_Statements/Clarification/S-CL-classical-compression]]"
-]
-parents: ["[[01_Statements/Definition/S-DF-subject-recursive-field]]"]
+concepts:
+- '[[02_Concepts/C-recursive-truth]]'
+- '[[02_Concepts/C-prior-pointer-reach]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/Definition/S-DF-localreach-topology]]'
+- '[[01_Statements/Clarification/S-CL-classical-compression]]'
+parents:
+- '[[01_Statements/Definition/S-DF-subject-recursive-field]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_13_Spiral_5_Hero.md:245
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_13_Spiral_5_Hero.md:358
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_13_Spiral_5_Hero.md:245
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_13_Spiral_5_Hero.md:358
 flags: []
-tags: [clarification, subject, "type/CL"]
+tags:
+- clarification
+- subject
+- type/CL
+- status/stable
 ---
+
 # Space and subject co-define the change field
 ## Content
 The “space” in which change happens is not fixed or external; it is co-defined by the subject’s boundary and the ongoing field of differences. A subject and its local space are recursively entangled: each change event reshapes both the subject and the point-of-reference, producing a variable, self-modifying topology rather than a neutral backdrop.
@@ -28,277 +35,10 @@ The “space” in which change happens is not fixed or external; it is co-defin
 ## Implication
 This justifies the demand to define “space-changing operators” and to treat subject-locality as dynamic: structural factors and transition events must be able to mutate the very arena that constitutes change.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -307,92 +47,4 @@ This justifies the demand to define “space-changing operators” and to treat 
 - Parents: [[01_Statements/Definition/S-DF-subject-recursive-field]]
 - Dependencies: [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-localreach-topology]]; [[01_Statements/Clarification/S-CL-classical-compression]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

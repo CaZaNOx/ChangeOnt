@@ -2,22 +2,29 @@
 id: stmt.cl-simulation-defends-change
 type: CL
 title: Guarding against aesthetic drift with simulation
-concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-recursive-truth]]"]
-dependencies: [
-  "[[01_Statements/Definition/S-DF-stabilization-energy]]",
-  "[[01_Statements/Definition/S-DF-rtv-operator]]",
-  "[[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]",
-  "[[01_Statements/Clarification/S-CL-consciousness-thresholds]]"
-]
-parents: ["[[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]"]
+concepts:
+- '[[02_Concepts/C-ontology-of-change]]'
+- '[[02_Concepts/C-recursive-truth]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-stabilization-energy]]'
+- '[[01_Statements/Definition/S-DF-rtv-operator]]'
+- '[[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]'
+- '[[01_Statements/Clarification/S-CL-consciousness-thresholds]]'
+parents:
+- '[[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_3_Amavai_RecursiveChat.md:684
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_3_Amavai_RecursiveChat.md:711
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_3_Amavai_RecursiveChat.md:684
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_3_Amavai_RecursiveChat.md:711
 flags: []
-tags: [clarification, validation, "type/CL"]
+tags:
+- clarification
+- validation
+- type/CL
+- status/stable
 ---
+
 # Guarding against aesthetic drift with simulation
 ## Content
 Aesthetic clarity alone is insufficient. To keep the change ontology from being dismissed as poetic metaphysics, every claim must be backed by a runnable simulation—JSON-LD schemas, recursive agent prototypes, rhythm-transfer interfaces, or other formal artifacts that show how Δ/SE/RTV/σ(ε) dynamics behave under pressure. Without such scaffolding, the theory risks collapse or being read as mystic narrative.
@@ -30,277 +37,10 @@ Aesthetic clarity alone is insufficient. To keep the change ontology from being 
 ## Implication
 Simulation becomes the proof, not rhetoric. The aesthetic of the writing must be replaced with structural responses—if the ontology we describe can be instantiated, tested, and reproduced, then aesthetic drift is irrelevant.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -309,92 +49,4 @@ Simulation becomes the proof, not rhetoric. The aesthetic of the writing must be
 - Parents: [[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]
 - Dependencies: [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]; [[01_Statements/Clarification/S-CL-consciousness-thresholds]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -2,237 +2,32 @@
 id: stmt.cl-stability-dynamism
 type: CL
 title: Stability/dynamism are dual reads on the same change process
-dependencies: ["[[01_Statements/Definition/S-DF-intersubject-gauge]]"]
+dependencies:
+- '[[01_Statements/Definition/S-DF-intersubject-gauge]]'
 parents: []
 successors: []
-concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-identity-change]]"]
+concepts:
+- '[[02_Concepts/C-ontology-of-change]]'
+- '[[02_Concepts/C-identity-change]]'
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_16_Spiral8.md:540-620
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_16_Spiral8.md:540-620
 flags: []
-tags: [concept, synthesis, "type/CL"]
+tags:
+- concept
+- synthesis
+- type/CL
+- status/stable
 ---
+
 # Stability/dynamism are dual reads on the same change process
 
 Change yields both stability (local recurrence) and dynamism (local deviation) as two readings of the same differential process. Stability emerges when recurrence patterns settle, while dynamism manifests as deviations measured via `Δ` and pointer moves. This duality is not historical but structural: there is no ``past'' that stabilizes change; rather each new act reactivates stability via loops and deviations via difference. Emphasizing this helps transform slogans like "model the entire world" into structural claims with binder definitions.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -240,73 +35,4 @@ Change yields both stability (local recurrence) and dynamism (local deviation) a
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-identity-change]]
 - Dependencies: [[01_Statements/Definition/S-DF-intersubject-gauge]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

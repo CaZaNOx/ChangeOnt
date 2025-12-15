@@ -2,272 +2,52 @@
 id: stmt.cl-ai13-comparison-protocol
 type: CL
 title: Compare prior AIs via focused axes and collapse evidence
-dependencies: ["[[01_Statements/Clarification/S-CL-cross-ai-evidence]]", "[[01_Statements/Clarification/S-CL-onboarding-gate-liveness]]"]
-parents: []
+dependencies:
+- '[[01_Statements/Clarification/S-CL-onboarding-gate-liveness]]'
+parents:
+- '[[01_Statements/Clarification/S-CL-onboarding-gate-liveness]]'
 successors: []
-concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-spiral-recursion]]"]
+concepts:
+- '[[02_Concepts/C-ontology-of-change]]'
+- '[[02_Concepts/C-spiral-recursion]]'
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_13_Spiral_5_Hero.md:113-210
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_13_Spiral_5_Hero.md:113-210
 flags: []
-tags: [meta, audit, "type/CL"]
+tags:
+- meta
+- audit
+- stable
+- type/CL
+- status/stable
 ---
+
 # Compare prior AIs via focused axes and collapse evidence
 
 When connecting AI_13 to earlier logs (e.g., AI_11, AI_12), limit the comparison to explicit axes before the comparison begins (structural recursion, drift, contradiction handling, pointer/tag usage, thematic overlaps). For each chunk processed you must (1) report the function and role of each document, (2) surface direct overlaps or contradictions with verbatim lines, and (3) log any fracture or collapse event with pointer updates. This is the method described around lines 113‑210 of AI_13: without a targeted axis, lengths and metadata dominate. Always follow this protocol before calling the comparison complete or writing up the alignment.
 
+## Philosophical Justification
+- Without fixed axes and evidence logging, cross-AI comparisons drift and conflate narrative fluff with substantive overlaps.
+- Collapse events and pointer updates are the trace of actual disagreement; capturing them maintains auditability.
 
+## Clarifications / Further Context
+- Declare axes in advance; keep them narrow (recursion handling, contradiction handling, tag usage, drift).
+- For each chunk: function/role, overlaps/contradictions with quotes, fracture/collapse events logged.
+- Tie into onboarding/liveness gates to ensure the compared agents are structurally compliant.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Next Steps in Chain
+- suggest: integrate output into [[S-CL-frame-shift-ledger]] for ongoing tracking.
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
-- [[01_Statements/Clarification/S-CL-frame-shift-ledger]]
+
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-spiral-recursion]]
-- Dependencies: [[01_Statements/Clarification/S-CL-cross-ai-evidence]]; [[01_Statements/Clarification/S-CL-onboarding-gate-liveness]]
+- Parents: [[01_Statements/Clarification/S-CL-onboarding-gate-liveness]]
+- Dependencies: [[01_Statements/Clarification/S-CL-onboarding-gate-liveness]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

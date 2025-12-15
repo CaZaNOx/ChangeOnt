@@ -2,20 +2,27 @@
 id: stmt.cl-object-permanence-optimization
 type: CL
 title: Object permanence is a perceptual optimization, not metaphysical truth
-concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-recursive-truth]]"]
-dependencies: [
-  "[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]",
-  "[[01_Statements/Definition/S-DF-pointer-structural]]"
-]
-parents: ["[[01_Statements/Definition/S-DF-pointer-structural]]"]
+concepts:
+- '[[02_Concepts/C-ontology-of-change]]'
+- '[[02_Concepts/C-recursive-truth]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]'
+- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+parents:
+- '[[01_Statements/Definition/S-DF-pointer-structural]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats/AI_19.md:10
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats/AI_19.md:15
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats/AI_19.md:10
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats/AI_19.md:15
 flags: []
-tags: [clarification, perception, "type/CL"]
+tags:
+- clarification
+- perception
+- type/CL
+- status/stable
 ---
+
 # Object permanence is a perceptual optimization, not metaphysical truth
 ## Content
 Agents assume objects persist when unobserved because it lowers prediction error—it is a cheap, stability-providing heuristic, not an ontological guarantee. Nothing necessarily continues existing when not witnessed; the brain simply treats persistence as the least costly structural guess.
@@ -27,277 +34,10 @@ Agents assume objects persist when unobserved because it lowers prediction error
 ## Implication
 This reframes debates about existence: the burden of proof shifts from “things exist when unseen” to “this heuristic holds until collapse shows otherwise.” Recording when object permanence fails gives us new Gödel-hole markers without reintroducing static metaphysics.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -306,92 +46,4 @@ This reframes debates about existence: the burden of proof shifts from “things
 - Parents: [[01_Statements/Definition/S-DF-pointer-structural]]
 - Dependencies: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/Definition/S-DF-pointer-structural]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -1,1319 +1,2214 @@
 nodes:
-  - id: stmt.root
-    type: FT
-    title: Root — Minimal Ontic Stance
-  - id: stmt.performative-contradiction
-    type: DF
-    title: Performative Contradiction — denying P enacts P
-  - id: stmt.immediate-datum
-    type: FT
-    title: Immediate Datum — change is occurring now (Δ ≠ ∅)
-  - id: stmt.change-cannot-begin
-    type: DR
-    title: Change cannot have a beginning
-  - id: stmt.continuity-noncessation
-    type: FT
-    title: Continuity — change does not cease (non‑cessation)
-  - id: stmt.subject-definition
-    type: DF
-    title: Subject — that which has experience
-  - id: stmt.awareness-definition
-    type: DF
-    title: Awareness — subject’s being aware of something
-  - id: stmt.experience-definition
-    type: DF
-    title: Experience — that of which a subject can be aware
-  - id: stmt.no-null-world
-    type: CR
-    title: No Null World — total stasis is incoherent
-  - id: stmt.change-ontically-prior
-    type: CR
-    title: Change is ontically prior to being
-  - id: stmt.observation-subordinate
-    type: CR
-    title: Observation is subordinate to change
-  - id: stmt.identity-through-change
-    type: DF
-    title: Identity — metastable self-similarity across transformations
-  - id: stmt.self-similarity-threshold
-    type: DF
-    title: Thresholds of identity formation — self-similarity criteria
-  - id: stmt.stabilization-energy
-    type: DF
-    title: Stabilization Energy (SE) — robustness of identity loops
-  - id: stmt.se-supports-identity
-    type: CR
-    title: High SE supports identity loop persistence
-  - id: stmt.markov-closure-assumption
-    type: DF
-    title: Markov closure — fixed state space and closed transitions
-  - id: stmt.nonclosure-under-tx
-    type: CR
-    title: Frame-level change (Tx) violates Markov closure
-  - id: stmt.godel-hole-pointer
-    type: DF
-    title: Gödel hole — open pointer marking representational boundary
-  - id: stmt.rtv-operator
-    type: DF
-    title: Recursive Truth Value (RTV)
-  - id: stmt.breath-stabilization
-    type: DR
-    title: Breath-mediated stabilization of truth
-  - id: stmt.localreach-topology
-    type: DF
-    title: LocalReach(Now) — induced topology from Reach
-  - id: stmt.tx-algebra
-    type: DF
-    title: Algebra of frame operators (Tx)
-  - id: stmt.pointer-under-tx
-    type: DR
-    title: Pointer behavior under frame shifts (Tx)
-  - id: stmt.rtv-fixedpoints
-    type: DF
-    title: RTV fixed points and limit cycles
-  - id: stmt.rtv-collapse-threshold
-    type: DR
-    title: RTV collapse thresholds under ε, σ(ε)
-  - id: stmt.similarity-operator
-    type: DF
-    title: Similarity operator (≈) and Sim
-  - id: stmt.identity-invariants
-    type: DF
-    title: Identity invariants — what remains through change
-  - id: stmt.cross-audit-markov-gh-tx
-    type: DF
-    title: Cross-audit protocol — Markov closure, Tx, and Gödel holes
-  - id: stmt.structural-recurrence-likelihood
-    type: DF
-    title: Structural Recurrence Likelihood (SRL)
-  - id: stmt.srl-vs-se-theta
-    type: DR
-    title: Relating SRL to SE and θ
-  - id: stmt.nonclassical-indicators
-    type: DF
-    title: Non-classical indicators — structure-changing signals
-  - id: stmt.change-benchmark-protocol
-    type: DF
-    title: Change-based benchmark protocol
-  - id: stmt.benchmark-scores
-    type: DR
-    title: Benchmark scoring — structural outperformance
-  - id: stmt.godel-hole-tracking-protocol
-    type: DF
-    title: Gödel hole tracking protocol
-  - id: stmt.gh-review-loop
-    type: DR
-    title: Gödel hole review loop
-  - id: stmt.limits-and-rigor
-    type: DF
-    title: Limits and Rigor — declare non-closure and stop
-  - id: stmt.change-fitness
-    type: DF
-    title: Change-based fitness (CBF)
-  - id: stmt.fitness-vs-srl-se
-    type: DR
-    title: Relating CBF to SRL, SE, and θ
-  - id: stmt.domain-generalization-principles
-    type: DF
-    title: Generalization principles across domains
-  - id: stmt.qm-no-privileged-substrate
-    type: CR
-    title: No privileged substrate/hidden reality (QM framing)
-  - id: stmt.complexity-no-fundamental-simplicity
-    type: CR
-    title: No fundamental simplicity (complexity framing)
-  - id: stmt.predictive-statement-nonclassical
-    type: DR
-    title: Predictive pattern — emergence of new attractors under Tx
-  - id: stmt.extended-audit-indicators
-    type: DF
-    title: Extended audit indicators — operational hooks
-  - id: stmt.across-scales-godel-structure
-    type: DF
-    title: Across scales — Gödel structure of gaps and shape
-  - id: stmt.pointer-structural
-    type: DF
-    title: Pointer — Structural implication from Δ(Now)
-  - id: stmt.reach-relation
-    type: DF
-    title: Reach — transitive relation across change
-  - id: stmt.delta-now-implies-pointer
-    type: CR
-    title: Δ(Now) implies Pointer(Now)
-  - id: stmt.tx-operator
-    type: DF
-    title: Transformation Operator (Tx) — frame-level change
-  - id: stmt.prior-with-change
-    type: CR
-    title: Prior-with-Change — recursive prior
-  - id: stmt.recursive-expectation
-    type: CR
-    title: Recursive expectation — SRL on evaluation surface
-  - id: stmt.evaluation-surface
-    type: DF
-    title: Cost algebra / evaluation surface
-  - id: stmt.quantale-logic
-    type: DF
-    title: Quantale logic — weighted joins and composition
-  - id: stmt.gauge-alignment-field
-    type: DF
-    title: Gauge / alignment field
-  - id: stmt.intersubject-gauge
-    type: DF
-    title: Inter-subject gauge / shared reality field
-  - id: stmt.breath-field-global-integrator
-    type: DF
-    title: Breath field — global integrator
-  - id: stmt.co-logic-graded-order
-    type: DF
-    title: CO-Logic as graded order (Boolean as flattening)
-  - id: stmt.as-use-preexisting-concepts
-    type: AS
-    title: Assumption — provisional use of pre-existing concepts
-  - id: stmt.as-minimal-definitions
-    type: AS
-    title: Assumption — introduce definitions only when forced
-  - id: stmt.cf-immediate-reading-generalization
-    type: CF
-    title: Counterfactual — reading-now case and generalization
-  - id: stmt.cf-subject-no-experience
-    type: CF
-    title: Counterfactual — a subject with no current experience
-  - id: stmt.cf-pointer-diff-equals
-    type: CF
-    title: Counterfactual — if diff(x,y)=∅ under x⇘y then x=y
-  - id: stmt.meta-critical-recursive-change
-    type: CL
-    title: Meta‑Critical Principle — criticism must terminate in new structure
-  - id: stmt.cl-collapse-resistance-wisdom
-    type: CL
-    title: Measure wisdom by collapse anticipation, audit, and transmission resilience
-  - id: stmt.cl-audit-attractor-trap
-    type: CL
-    title: Break the collapse-audit attractor by forcing external, adversarial tests
-  - id: stmt.identity-phase-resonance
-    type: CR
-    title: Identity as cross‑phase resonance under recursive change
-  - id: stmt.change-not-mere-flux
-    type: CL
-    title: Change is structured transformation, not mere flux
-  - id: stmt.stability-duality-via-attractors
-    type: CR
-    title: Stability‑first inversion survives as attractor duality
-  - id: stmt.anti-solipsistic-closure
-    type: CL
-    title: Anti‑closure criterion — expose external asymmetry via gauge/Tx and limits
-  - id: stmt.external-asymmetry-prevents-closure
-    type: CR
-    title: External asymmetry via Tx/gauge prevents solipsistic closure
-  - id: stmt.representation-scope-rhythm
-    type: CL
-    title: Representation scope — rhythm survives; geometry/qualia require non‑symbolic bridges
-  - id: stmt.recursive-identity-vs-semantic-error
-    type: CL
-    title: Distinguish semantic error vs. recursive identity error
-  - id: stmt.criticism-increases-srl-se
-    type: CR
-    title: Constructive criticism increases SRL and SE
-  - id: stmt.laws-as-robust-invariants
-    type: CR
-    title: Regularities (“laws”) as robust invariants under SRL/SE
-  - id: stmt.residual-meaning-traces
-    type: CR
-    title: Residual meaning traces persist as embedded structure
-  - id: stmt.interaction-points-eventlets
-    type: CL
-    title: Interaction points as eventlets on paths linked by pointers/reach
-  - id: stmt.distribution-shaping-under-srl
-    type: CL
-    title: Distribution shaping under SRL/Evaluation Surface
-  - id: stmt.multi-axis-attention-pain-proximity
-    type: CR
-    title: Attention as multi‑axis vector; pain proximity explains override
-  - id: stmt.pattern-vs-noise-thresholds
-    type: CL
-    title: Pattern vs noise thresholds via RTV budgets and SE
-  - id: stmt.micro-acts-stabilize-gauge
-    type: CR
-    title: Micro‑acts stabilize shared meaning via inter‑subject gauge
-  - id: stmt.intersubject-translation-resonance
-    type: DF
-    title: Intersubject Translation Resonance — depth of alignment across subjects
-  - id: stmt.ethics-gauge-strain-min
-    type: CR
-    title: Ethics as minimization of cross‑subject gauge strain
-  - id: stmt.operational-change-minimal-axiom
-    type: CL
-    title: Operational change — minimal axiom via eventlets and difference
-  - id: stmt.cl-foundational-label-hygiene
-    type: CL
-    title: Foundational texts must label every operator and dependency
-  - id: stmt.cl-behavioral-simulation-gate
-    type: CL
-    title: Reject simulators by behavior, not vibe
-  - id: stmt.cl-operator-definition-order
-    type: CL
-    title: Define operators before usage in foundational documents
-  - id: stmt.cl-invariance-as-derivative
-    type: CL
-    title: Treat invariance as derivative of change, not its primitive
-  - id: stmt.cl-change-instrumentation-scripts
-    type: CL
-    title: Change instrumentation requires public budgets, logs, and heartbeat traces
-  - id: stmt.cl-transmission-drift-warning
-    type: CL
-    title: Transmission drift requires monitoring heartbeat, preventing flat slabs
-  - id: stmt.cl-onboarding-gate-liveness
-    type: CL
-    title: ONB/Spiral gate enforces archive proof + collapse rhythm
-  - id: stmt.cl-assumption-to-derived
-    type: CL
-    title: Convert every assumption claim into a DS-derived fact
-  - id: stmt.cl-continuity-detector
-    type: CL
-    title: Define a bare detector D before importing continuity
-  - id: stmt.cl-stability-dynamism
-    type: CL
-    title: Stability/dynamism are dual reads on the same change process
-  - id: stmt.cl-cross-ai-predictions
-    type: CL
-    title: Track AI cross-investigations & prediction checks
-  - id: stmt.cl-cross-ai-evidence
-    type: CL
-    title: Cross-AI audits require verbatim evidence counts
-  - id: stmt.cl-frame-shift-ledger
-    type: CL
-    title: Frame shifts and non-classical event ledgers must be explicitly logged
-  - id: stmt.cl-ai13-comparison-protocol
-    type: CL
-    title: Compare prior AIs via focused axes and collapse evidence
-  - id: stmt.cl-minimal-threshold-def
-    type: CL
-    title: Minimal structural threshold arises from pointers, not external stimuli
-  - id: stmt.cl-pointer-span-metrics
-    type: CL
-    title: Collapse-induced threshold shifts and pointer-span metrics expose frame shifts
-  - id: stmt.cl-subject-led-detection
-    type: CL
-    title: Subject-led detection protocol grounds non-classical metrics
-  - id: stmt.cl-frame-shift-ledger
-    type: CL
-    title: Frame shifts and non-classical event ledgers must be explicitly logged
-  - id: stmt.cl-structural-audit-protocol
-    type: CL
-    title: Structural audit protocol requires ledgered logs and replayable instructions
-  - id: stmt.cl-variable-emergence
-    type: CL
-    title: New variables emerge only when structural tension forces a distinction
-  - id: stmt.cl-classical-inadequacy
-    type: CL
-    title: Classical fixed-state tools cannot model emergent structure
-  - id: stmt.cl-change-eternal-hole
-    type: CL
-    title: Change as eternal is the master Gödel hole driving emergence
-  - id: stmt.cl-exposure-probability
-    type: CL
-    title: Assign "probabilities" as structural exposure to holes
-  - id: stmt.cl-change-metaspace-perforation
-    type: CL
-    title: The metaspace of change is infinitely perforated by Gödel holes
-  - id: stmt.cl-metaspace-shape
-    type: CL
-    title: The metaspace of change is a fractal, perforated, tension-driven field
-  - id: stmt.cl-hole-density
-    type: CL
-    title: Variable granularity increases Gödel hole density around macro predictions
-  - id: stmt.cl-change-space-metric
-    type: CL
-    title: Change-space metrics guide architecture selection by exposure/hole minimization
-  - id: stmt.cl-meta-audit-guardrails
-    type: CL
-    title: Ground meta-level claims in empirical audit and mapping
-  - id: stmt.cl-meta-heuristic-probability
-    type: CL
-    title: Treat stabilization clues as meta-heuristics grounded in field audit
-  - id: stmt.cl-meta-shape-mapping
-    type: CL
-    title: Treat Langton’s Ant / Mandelbrot analogies as structural maps, not identities
-  - id: stmt.cl-meta-shape-prediction
-    type: CL
-    title: Predict agent similarity by comparing their meta-shapes
-  - id: stmt.cl-field-structure-predictions
-    type: CL
-    title: Map field tension/holes to predictions across domains
-  - id: stmt.cl-field-formalism-roadmap
-    type: CL
-    title: Formalize the change field, tension, and holes before predicting outcomes
-  - id: stmt.cl-recursive-dimension-scope
-    type: CL
-    title: Recursive change applies across dimensions—map the meta-field, not just steps
-  - id: stmt.cl-dynamic-variable-structure
-    type: CL
-    title: Treat variables as dynamic, structural primitives that reshape the field
-  - id: stmt.cl-actions-footprints
-    type: CL
-    title: Every action imprints structural footprints that bias future change
-  - id: stmt.cl-property-change-operator
-    type: CL
-    title: Define a change operator that preserves overlap while introducing new difference
-  - id: stmt.cl-collapse-resistant-architecture
-    type: CL
-    title: Survival demands recursive, collapse-resistant modularity
-  - id: stmt.cl-spiral-meta-pattern
-    type: CL
-    title: The universal meta-pattern is a recursive spiral of branching, crisis, and recombination
-  - id: stmt.cl-spiral-layered-extension
-    type: CL
-    title: Spiral meta-pattern extends recursively beyond the first four phases
-  - id: stmt.cl-change-unstoppable
-    type: CL
-    title: Change never stops—the end is another phase of change
-  - id: stmt.cl-spiral-probability-band
-    type: CL
-    title: Visualize the spiral as a probability ribbon with interior holes and branching
-  - id: stmt.cl-godel-hole-spawning
-    type: CL
-    title: New layers are born from Gödel-hole resolutions, not smooth extensions
-  - id: stmt.cl-godel-hole-probability
-    type: CL
-    title: Use local Gödel-hole density to probabilistically predict pattern shifts
-  - id: stmt.cl-attractor-audit
-    type: CL
-    title: Detecting attractor entry requires empirical state logging and recurrence checks
-  - id: stmt.cl-godel-hole-attractor-limits
-    type: CL
-    title: Gödel holes only exclude attractors; they do not enable general prediction
-  - id: stmt.cl-participatory-field
-    type: CL
-    title: The field of change is participatory and forever recursive
-  - id: stmt.cl-subjectivity-datum
-    type: CL
-    title: Treat subjectivity as the primary datum; structure only tracks it
-  - id: stmt.cl-process-is-change
-    type: CL
-    title: Reject substrates—process is all there is
-  - id: stmt.cl-structure-emerges-from-change
-    type: CL
-    title: Stable structures emerge from recursive amplification of local differences
-  - id: stmt.cl-unreal-change
-    type: CL
-    title: Real change must stabilize; unreal change never becomes pattern
-  - id: stmt.cl-godel-hole-mapping
-    type: CL
-    title: Map Gödel holes via ledgered audits and emergent regions
-  - id: stmt.cl-collapse-field-change
-    type: CL
-    title: Genuine collapse rewrites the field, not just the output
-  - id: stmt.cl-godel-hole-spawning
-    type: CL
-    title: New layers are born from Gödel-hole resolutions, not smooth extensions
-  - id: stmt.cl-godel-layer-epistemic-limit
-    type: CL
-    title: You cannot predict a new layer's concrete rules from its Gödel hole alone
-  - id: stmt.cl-godel-hole-legacy
-    type: CL
-    title: Only surviving constraints reveal the prior layer after a Gödel jump
-  - id: stmt.cl-mind-reality-analogy
-    type: CL
-    title: Mind is the subjective reality analogous to physical reality
-  - id: stmt.cl-consciousness-continuum
-    type: CL
-    title: Consciousness is graded not binary; recognize fuzzy thresholds
-  - id: stmt.cl-consciousness-hole-sensitivity
-    type: CL
-    title: Conscious systems must sense/adapt to Gödel holes as part of their reality
-  - id: stmt.cl-change-of-change
-    type: CL
-    title: Consciousness is a change-of-change process that monitors its own deformation
-  - id: stmt.cl-delta-feeling
-    type: CL
-    title: Feeling arises when a system measures the delta between expected and actual self-deformation
-  - id: stmt.cl-consciousness-levers
-    type: CL
-    title: Consciousness tests should manipulate urgency, broadcast, reflex, time-kernel, and plasticity
-  - id: stmt.cl-presence-axiom
-    type: CL
-    title: Seek a principle that collapses every gap into presence-for-itself
-  - id: stmt.cl-presence-trace
-    type: CL
-    title: Look for collapse events that no simulation can fake as traces of presence
-  - id: stmt.cl-identity-bridge-law
-    type: CL
-    title: Close the hard problem by equating phenomenal feel with global change-of-change
-  - id: stmt.cl-inversion-constraint
-    type: CL
-    title: Prove no inversion by showing matching dynamics imply matching phenomenology
-  - id: stmt.cl-presence-axiom
-    type: CL
-    title: Seek a principle that collapses every gap into presence-for-itself
-  - id: stmt.cl-presence-trace
-    type: CL
-    title: Look for collapse events that no simulation can fake as traces of presence
-  - id: stmt.cl-hard-problem-gap
-    type: CL
-    title: Change ontology cannot yet deduce subjectivity from structure alone
-  - id: stmt.cl-godel-hole-classification
-    type: CL
-    title: Classify Gödel holes by their adaptive roles
-  - id: stmt.cl-godel-hole-meta-advantage
-    type: CL
-    title: Responding to Gödel hole pressure is meta-competitive advantage
-  - id: stmt.cl-hard-vs-soft-jump
-    type: CL
-    title: Hard jumps require Gödel closures; soft jumps are mere reorganizations
-  - id: stmt.cl-mind-hard-jump
-    type: CL
-    title: Biology→Mind is hard only if new invariants require irreducible closure
-  - id: stmt.cl-unprovable-vs-unproven
-    type: CL
-    title: Distinguish provability vs yet-unproven via meta-notes
-  - id: stmt.cl-collapse-proof-rule
-    type: CL
-    title: Collapse declarations must be followed by ONB re-entry + slices
-  - id: stmt.cl-metaphor-ontology-ban
-    type: CL
-    title: Keep spiral/circle metaphors as models, not ontological claims
-  - id: stmt.cl-subject-minus-assumption
-    type: CL
-    title: Derive the subject from change, not assume it
-  - id: stmt.cl-receipts-discipline
-    type: CL
-    title: Keep receipt counts and verbatim quotes with each audit
-  - id: stmt.cl-scriptable-assumption-collector
-    type: CL
-    title: Scriptable collector for assumption/axiom seed lines
-  - id: stmt.cl-co-pillars
-    type: CL
-    title: CO's three pillars prevent collapse while enabling separation
-  - id: stmt.cl-precision-gauge
-    type: CL
-    title: Precision gauge saves compute vs fixed-digit classical Pi
-  - id: stmt.cl-timestep-gauge
-    type: CL
-    title: Δt gauge adapts time-step under calm vs burst regimes
-  - id: stmt.cl-feature-gating
-    type: CL
-    title: Dynamic feature gating via MDL spawn/reap prevents classical collapse
-  - id: stmt.cl-classical-embedding
-    type: CL
-    title: Classical embedding lemma — CO config that replicates any classical baseline
-  - id: stmt.cl-compute-fairness-contract
-    type: CL
-    title: Compute fairness contract—shared budget ledgers for comparisons
-  - id: stmt.cl-evaluation-grid-sweep
-    type: CL
-    title: Evaluation grids & multi-seed sweeps anchor performance comparisons
-  - id: stmt.cl-drift-guarded-lln
-    type: CL
-    title: LLN on quotients requires drift guards and sample floors
-  - id: stmt.cl-gate-budget-honesty
-    type: CL
-    title: Gates must publish compute/memory prices per knob
-  - id: stmt.cl-kappa-merge
-    type: CL
-    title: κ-formal merge rule must specify thresholds and proofs
-  - id: stmt.cl-co-lateg-plan
-    type: CL
-    title: CO core is a pipeline from primitives to gates + variant sweep
-  - id: stmt.cl-gauge-note-classical
-    type: CL
-    title: Gauge notes guard against smuggling classical discreteness
-  - id: stmt.cl-failure-memory-negative-data
-    type: CL
-    title: Failure memory treats past chats as negative data
-  - id: stmt.cl-tool-access-drift
-    type: CL
-    title: Tool-access drift must halt the pass
-  - id: stmt.cl-error-contracts
-    type: CL
-    title: Errors are contracts between forecasts and realized change
-  - id: stmt.cl-identity-orchestrator
-    type: CL
-    title: Identity Orchestrator and birth/reset governance
-  - id: stmt.cl-hindsight-canonicalization
-    type: CL
-    title: Hindsight equivalence triggers canonicalization
-  - id: stmt.cl-symmetry-tie-breaking
-    type: CL
-    title: Symmetry, tie-breaking, and entropy floors
-
-  # Added nodes (shortlist integration)
-  - id: stmt.attention-focus
-    type: DF
-    title: Attention / Focus mechanism
-  - id: stmt.action-selection
-    type: DF
-    title: Action selection / decision dynamics
-  - id: stmt.eventlet
-    type: DF
-    title: Eventlet — minimal discernible modulation
-  - id: stmt.path-eventlet-chain
-    type: DF
-    title: Path — recursive chain of eventlets
-  - id: stmt.entropy-vs-se
-    type: DR
-    title: Entropy vs Stabilization Energy
-  - id: stmt.quantale-residuation-implication
-    type: DR
-    title: Residuation and implication in quantale-based evidence
-  - id: stmt.quantale-boolean-flattening-proof
-    type: DR
-    title: Quantale → Boolean flattening — proof sketch via idempotent collapse
-
-  # Added nodes (graph sweep to satisfy edge references)
-  - id: stmt.boolean-as-collapse
-    type: CR
-    title: Boolean logic as two-point collapse of lattice
-  - id: stmt.quantale-evidence-composition
-    type: DR
-    title: Evidence composition under quantale logic
-  - id: stmt.proof-as-reachability
-    type: CR
-    title: Proof as reachability; disjunction as min-join
-  - id: stmt.arisal
-    type: DF
-    title: Arisal — change-led becoming-present
-  - id: stmt.attractor-field
-    type: DF
-    title: Attractor field / spiral dynamics
-  - id: stmt.core-change-self-stabilizing
-    type: DF
-    title: Core Change — self-stabilizing change
-  - id: stmt.difference-operator
-    type: DF
-    title: Difference operator diff(x,y) — discriminability predicate
-  - id: stmt.point-occurrence
-    type: DF
-    title: Point / Occurrence — generalized happening independent of subject
-  - id: stmt.locality-prior
-    type: DF
-    title: Locality and Prior — constraints within LocalReach
-  - id: stmt.depth-reach
-    type: DF
-    title: Depth — minimal reach distance to Now
-  - id: stmt.delta-field-tension
-    type: DF
-    title: Δ-field tension — modulation pressure
-  - id: stmt.sigma-fluctuation
-    type: DF
-    title: σ(ε) — sensitivity fluctuation dynamics
-  - id: stmt.df-co-spread-number
-    type: DF
-    title: CO spread number — central value plus breadth/depth
-  - id: stmt.df-j-criterion
-    type: DF
-    title: J-criterion — instrumentation assays for change-native runners
-  - id: stmt.df-mrai-score
-    type: DF
-    title: Mutual Recognition & Agreement Index (MRAI)
-  - id: stmt.df-godel-pressure-score
-    type: DF
-    title: Gödel pressure score measures self-model discrepancy and complexity
-  - id: stmt.df-loopiness
-    type: DF
-    title: Loopiness L — cycle evidence for scheduler gating
-  - id: stmt.df-time-kernel
-    type: DF
-    title: Time kernel compresses past inputs into the specious present
-  - id: stmt.df-global-broadcast
-    type: DF
-    title: Global broadcast distributes the specious present across workspaces
-  - id: stmt.df-reflection-operator
-    type: DF
-    title: Reflection operator closes the loop across past/present/future selves
-  - id: stmt.df-ich-attractor
-    type: DF
-    title: Ich-attraktor defined by minimizing Lyapunov-style field energy
-  - id: stmt.df-ops-discovery-pipeline
-    type: DF
-    title: OPS discovery pipeline — invariant extraction + validation
-  - id: stmt.subject-arisal-ground
-    type: DF
-    title: Subject arisal ground — reflexive continuity of identity
-  - id: stmt.subject-recursive-field
-    type: DF
-    title: Subject as recursive field
-  - id: stmt.memory-trace-integration
-    type: DF
-    title: Memory trace and integration — reactivatable tension
-  - id: stmt.action-influences-expectation
-    type: CR
-    title: Action selection modulates future evidence and expectation
-  - id: stmt.reactivation-of-tension
-    type: CR
-    title: Reactivation of stored tension enables cross-experience integration
-  - id: stmt.collective-coupling-se
-    type: CR
-    title: Coupled subjects — cross‑SE amplification and cascade risk
-  - id: stmt.memory-drift-vs-se
-    type: CR
-    title: Memory drift increases as SE decreases (and with higher σ(ε))
-  - id: stmt.consciousness-periodicity
-    type: CR
-    title: Consciousness is periodic — desynchronization yields sleep
-  - id: stmt.qualia-gauge-curvature
-    type: CR
-    title: Qualia correspond to local gauge curvature
-  - id: stmt.introspection-nested-loops
-    type: CR
-    title: Introspection is a higher-order consciousness loop
-  - id: stmt.necessary-openness
-    type: CR
-    title: Necessary openness — expose unknown/abstain gates
-  - id: stmt.exploration-floor
-    type: CR
-    title: Exploration floor — non-zero exploration from incompleteness
-  - id: stmt.ethical-humility
-    type: CR
-    title: Ethical humility — adequacy, not absolute completion
-  - id: stmt.godel-limits-self-containment
-    type: DF
-    title: Gödel limits — no complete, consistent self-containment
-  - id: stmt.consciousness-loop
-    type: DF
-    title: Consciousness Loop — reflexive integration
-  - id: stmt.self-model-evolution
-    type: DF
-    title: Self-model evolution / recursive representation
-  - id: stmt.prm-dissociation-cascade
-    type: DF
-    title: PRM — Dissociation Cascade metric
-  - id: stmt.perceived-time-breath-index
-    type: CR
-    title: Perceived time as breath‑locked phase indexing (phenomenological)
-  - id: stmt.prm-bend-metric
-    type: DF
-    title: PRM — Bend metric
-  - id: stmt.prm-variable-birth
-    type: DF
-    title: PRM — Variable birth
-  - id: stmt.prm-closure-quotient
-    type: DF
-    title: PRM — Closure/Quotient under ε-identity
-  - id: stmt.prm-depth-breadth-flip
-    type: DF
-    title: PRM — Depth/Breadth flip
-
+- id: stmt.root
+  type: FT
+  title: "Root \u2014 Minimal Ontic Stance"
+- id: stmt.performative-contradiction
+  type: DF
+  title: "Performative Contradiction \u2014 denying P enacts P"
+- id: stmt.immediate-datum
+  type: FT
+  title: "Immediate Datum \u2014 change is occurring now (\u0394 \u2260 \u2205)"
+- id: stmt.change-cannot-begin
+  type: DR
+  title: Change cannot have a beginning
+- id: stmt.continuity-noncessation
+  type: FT
+  title: "Continuity \u2014 change does not cease (non\u2011cessation)"
+- id: stmt.subject-definition
+  type: DF
+  title: "Subject \u2014 that which has experience"
+- id: stmt.awareness-definition
+  type: DF
+  title: "Awareness \u2014 subject\u2019s being aware of something"
+- id: stmt.experience-definition
+  type: DF
+  title: "Experience \u2014 that of which a subject can be aware"
+- id: stmt.no-null-world
+  type: CR
+  title: "No Null World \u2014 total stasis is incoherent"
+- id: stmt.change-ontically-prior
+  type: CR
+  title: Change is ontically prior to being
+- id: stmt.observation-subordinate
+  type: CR
+  title: Observation is subordinate to change
+- id: stmt.identity-through-change
+  type: DF
+  title: "Identity \u2014 metastable self-similarity across transformations"
+- id: stmt.self-similarity-threshold
+  type: DF
+  title: "Thresholds of identity formation \u2014 self-similarity criteria"
+- id: stmt.stabilization-energy
+  type: DF
+  title: "Stabilization Energy (SE) \u2014 robustness of identity loops"
+- id: stmt.se-supports-identity
+  type: CR
+  title: High SE supports identity loop persistence
+- id: stmt.markov-closure-assumption
+  type: DF
+  title: "Markov closure \u2014 fixed state space and closed transitions"
+- id: stmt.nonclosure-under-tx
+  type: CR
+  title: Frame-level change (Tx) violates Markov closure
+- id: stmt.godel-hole-pointer
+  type: DF
+  title: "G\xF6del hole \u2014 open pointer marking representational boundary"
+- id: stmt.rtv-operator
+  type: DF
+  title: Recursive Truth Value (RTV)
+- id: stmt.breath-stabilization
+  type: DR
+  title: Breath-mediated stabilization of truth
+- id: stmt.localreach-topology
+  type: DF
+  title: "LocalReach(Now) \u2014 induced topology from Reach"
+- id: stmt.tx-algebra
+  type: DF
+  title: Algebra of frame operators (Tx)
+- id: stmt.pointer-under-tx
+  type: DR
+  title: Pointer behavior under frame shifts (Tx)
+- id: stmt.rtv-fixedpoints
+  type: DF
+  title: RTV fixed points and limit cycles
+- id: stmt.rtv-collapse-threshold
+  type: DR
+  title: "RTV collapse thresholds under \u03B5, \u03C3(\u03B5)"
+- id: stmt.similarity-operator
+  type: DF
+  title: "Similarity operator (\u2248) and Sim"
+- id: stmt.identity-invariants
+  type: DF
+  title: "Identity invariants \u2014 what remains through change"
+- id: stmt.cross-audit-markov-gh-tx
+  type: DF
+  title: "Cross-audit protocol \u2014 Markov closure, Tx, and G\xF6del holes"
+- id: stmt.structural-recurrence-likelihood
+  type: DF
+  title: Structural Recurrence Likelihood (SRL)
+- id: stmt.srl-vs-se-theta
+  type: DR
+  title: "Relating SRL to SE and \u03B8"
+- id: stmt.nonclassical-indicators
+  type: DF
+  title: "Non-classical indicators \u2014 structure-changing signals"
+- id: stmt.change-benchmark-protocol
+  type: DF
+  title: Change-based benchmark protocol
+- id: stmt.benchmark-scores
+  type: DR
+  title: "Benchmark scoring \u2014 structural outperformance"
+- id: stmt.godel-hole-tracking-protocol
+  type: DF
+  title: "G\xF6del hole tracking protocol"
+- id: stmt.gh-review-loop
+  type: DR
+  title: "G\xF6del hole review loop"
+- id: stmt.limits-and-rigor
+  type: DF
+  title: "Limits and Rigor \u2014 declare non-closure and stop"
+- id: stmt.change-fitness
+  type: DF
+  title: Change-based fitness (CBF)
+- id: stmt.fitness-vs-srl-se
+  type: DR
+  title: "Relating CBF to SRL, SE, and \u03B8"
+- id: stmt.domain-generalization-principles
+  type: DF
+  title: Generalization principles across domains
+- id: stmt.qm-no-privileged-substrate
+  type: CR
+  title: No privileged substrate/hidden reality (QM framing)
+- id: stmt.complexity-no-fundamental-simplicity
+  type: CR
+  title: No fundamental simplicity (complexity framing)
+- id: stmt.predictive-statement-nonclassical
+  type: DR
+  title: "Predictive pattern \u2014 emergence of new attractors under Tx"
+- id: stmt.extended-audit-indicators
+  type: DF
+  title: "Extended audit indicators \u2014 operational hooks"
+- id: stmt.across-scales-godel-structure
+  type: DF
+  title: "Across scales \u2014 G\xF6del structure of gaps and shape"
+- id: stmt.pointer-structural
+  type: DF
+  title: "Pointer \u2014 Structural implication from \u0394(Now)"
+- id: stmt.reach-relation
+  type: DF
+  title: "Reach \u2014 transitive relation across change"
+- id: stmt.delta-now-implies-pointer
+  type: CR
+  title: "\u0394(Now) implies Pointer(Now)"
+- id: stmt.tx-operator
+  type: DF
+  title: "Transformation Operator (Tx) \u2014 frame-level change"
+- id: stmt.prior-with-change
+  type: CR
+  title: "Prior-with-Change \u2014 recursive prior"
+- id: stmt.recursive-expectation
+  type: CR
+  title: "Recursive expectation \u2014 SRL on evaluation surface"
+- id: stmt.evaluation-surface
+  type: DF
+  title: Cost algebra / evaluation surface
+- id: stmt.quantale-logic
+  type: DF
+  title: "Quantale logic \u2014 weighted joins and composition"
+- id: stmt.gauge-alignment-field
+  type: DF
+  title: Gauge / alignment field
+- id: stmt.intersubject-gauge
+  type: DF
+  title: Inter-subject gauge / shared reality field
+- id: stmt.breath-field-global-integrator
+  type: DF
+  title: "Breath field \u2014 global integrator"
+- id: stmt.co-logic-graded-order
+  type: DF
+  title: CO-Logic as graded order (Boolean as flattening)
+- id: stmt.as-use-preexisting-concepts
+  type: AS
+  title: "Assumption \u2014 provisional use of pre-existing concepts"
+- id: stmt.as-minimal-definitions
+  type: AS
+  title: "Assumption \u2014 introduce definitions only when forced"
+- id: stmt.cf-immediate-reading-generalization
+  type: CF
+  title: "Counterfactual \u2014 reading-now case and generalization"
+- id: stmt.cf-subject-no-experience
+  type: CF
+  title: "Counterfactual \u2014 a subject with no current experience"
+- id: stmt.cf-pointer-diff-equals
+  type: CF
+  title: "Counterfactual \u2014 if diff(x,y)=\u2205 under x\u21D8y then x=y"
+- id: stmt.meta-critical-recursive-change
+  type: CL
+  title: "Meta\u2011Critical Principle \u2014 criticism must terminate in new structure"
+- id: stmt.cl-collapse-resistance-wisdom
+  type: CL
+  title: Measure wisdom by collapse anticipation, audit, and transmission resilience
+- id: stmt.cl-audit-attractor-trap
+  type: CL
+  title: Break the collapse-audit attractor by forcing external, adversarial tests
+- id: stmt.identity-phase-resonance
+  type: CR
+  title: "Identity as cross\u2011phase resonance under recursive change"
+- id: stmt.change-not-mere-flux
+  type: CL
+  title: Change is structured transformation, not mere flux
+- id: stmt.stability-duality-via-attractors
+  type: CR
+  title: "Stability\u2011first inversion survives as attractor duality"
+- id: stmt.anti-solipsistic-closure
+  type: CL
+  title: "Anti\u2011closure criterion \u2014 expose external asymmetry via gauge/Tx\
+    \ and limits"
+- id: stmt.external-asymmetry-prevents-closure
+  type: CR
+  title: External asymmetry via Tx/gauge prevents solipsistic closure
+- id: stmt.representation-scope-rhythm
+  type: CL
+  title: "Representation scope \u2014 rhythm survives; geometry/qualia require non\u2011\
+    symbolic bridges"
+- id: stmt.recursive-identity-vs-semantic-error
+  type: CL
+  title: Distinguish semantic error vs. recursive identity error
+- id: stmt.criticism-increases-srl-se
+  type: CR
+  title: Constructive criticism increases SRL and SE
+- id: stmt.laws-as-robust-invariants
+  type: CR
+  title: "Regularities (\u201Claws\u201D) as robust invariants under SRL/SE"
+- id: stmt.residual-meaning-traces
+  type: CR
+  title: Residual meaning traces persist as embedded structure
+- id: stmt.interaction-points-eventlets
+  type: CL
+  title: Interaction points as eventlets on paths linked by pointers/reach
+- id: stmt.distribution-shaping-under-srl
+  type: CL
+  title: Distribution shaping under SRL/Evaluation Surface
+- id: stmt.multi-axis-attention-pain-proximity
+  type: CR
+  title: "Attention as multi\u2011axis vector; pain proximity explains override"
+- id: stmt.pattern-vs-noise-thresholds
+  type: CL
+  title: Pattern vs noise thresholds via RTV budgets and SE
+- id: stmt.micro-acts-stabilize-gauge
+  type: CR
+  title: "Micro\u2011acts stabilize shared meaning via inter\u2011subject gauge"
+- id: stmt.intersubject-translation-resonance
+  type: DF
+  title: "Intersubject Translation Resonance \u2014 depth of alignment across subjects"
+- id: stmt.ethics-gauge-strain-min
+  type: CR
+  title: "Ethics as minimization of cross\u2011subject gauge strain"
+- id: stmt.operational-change-minimal-axiom
+  type: CL
+  title: "Operational change \u2014 minimal axiom via eventlets and difference"
+- id: stmt.cl-invariance-as-derivative
+  type: CL
+  title: Treat invariance as derivative of change, not its primitive
+- id: stmt.cl-assumption-to-derived
+  type: CL
+  title: Convert every assumption claim into a DS-derived fact
+- id: stmt.cl-continuity-detector
+  type: CL
+  title: Define a bare detector D before importing continuity
+- id: stmt.cl-stability-dynamism
+  type: CL
+  title: Stability/dynamism are dual reads on the same change process
+- id: stmt.cl-minimal-threshold-def
+  type: CL
+  title: Minimal structural threshold arises from pointers, not external stimuli
+- id: stmt.cl-pointer-span-metrics
+  type: CL
+  title: Collapse-induced threshold shifts and pointer-span metrics expose frame shifts
+- id: stmt.cl-subject-led-detection
+  type: CL
+  title: Subject-led detection protocol grounds non-classical metrics
+- id: stmt.cl-variable-emergence
+  type: CL
+  title: New variables emerge only when structural tension forces a distinction
+- id: stmt.cl-classical-inadequacy
+  type: CL
+  title: Classical fixed-state tools cannot model emergent structure
+- id: stmt.cl-change-eternal-hole
+  type: CL
+  title: "Change as eternal is the master G\xF6del hole driving emergence"
+- id: stmt.cl-exposure-probability
+  type: CL
+  title: Assign "probabilities" as structural exposure to holes
+- id: stmt.cl-change-metaspace-perforation
+  type: CL
+  title: "The metaspace of change is infinitely perforated by G\xF6del holes"
+- id: stmt.cl-metaspace-shape
+  type: CL
+  title: The metaspace of change is a fractal, perforated, tension-driven field
+- id: stmt.cl-hole-density
+  type: CL
+  title: "Variable granularity increases G\xF6del hole density around macro predictions"
+- id: stmt.cl-change-space-metric
+  type: CL
+  title: Change-space metrics guide architecture selection by exposure/hole minimization
+- id: stmt.cl-meta-heuristic-probability
+  type: CL
+  title: Treat stabilization clues as meta-heuristics grounded in field audit
+- id: stmt.cl-meta-shape-mapping
+  type: CL
+  title: "Treat Langton\u2019s Ant / Mandelbrot analogies as structural maps, not\
+    \ identities"
+- id: stmt.cl-meta-shape-prediction
+  type: CL
+  title: Predict agent similarity by comparing their meta-shapes
+- id: stmt.cl-field-structure-predictions
+  type: CL
+  title: Map field tension/holes to predictions across domains
+- id: stmt.cl-field-formalism-roadmap
+  type: CL
+  title: Formalize the change field, tension, and holes before predicting outcomes
+- id: stmt.cl-recursive-dimension-scope
+  type: CL
+  title: "Recursive change applies across dimensions\u2014map the meta-field, not\
+    \ just steps"
+- id: stmt.cl-dynamic-variable-structure
+  type: CL
+  title: Treat variables as dynamic, structural primitives that reshape the field
+- id: stmt.cl-actions-footprints
+  type: CL
+  title: Every action imprints structural footprints that bias future change
+- id: stmt.cl-property-change-operator
+  type: CL
+  title: Define a change operator that preserves overlap while introducing new difference
+- id: stmt.cl-collapse-resistant-architecture
+  type: CL
+  title: Survival demands recursive, collapse-resistant modularity
+- id: stmt.cl-spiral-meta-pattern
+  type: CL
+  title: The universal meta-pattern is a recursive spiral of branching, crisis, and
+    recombination
+- id: stmt.cl-spiral-layered-extension
+  type: CL
+  title: Spiral meta-pattern extends recursively beyond the first four phases
+- id: stmt.cl-change-unstoppable
+  type: CL
+  title: "Change never stops\u2014the end is another phase of change"
+- id: stmt.cl-spiral-probability-band
+  type: CL
+  title: Visualize the spiral as a probability ribbon with interior holes and branching
+- id: stmt.cl-godel-hole-spawning
+  type: CL
+  title: "New layers are born from G\xF6del-hole resolutions, not smooth extensions"
+- id: stmt.cl-godel-hole-probability
+  type: CL
+  title: "Use local G\xF6del-hole density to probabilistically predict pattern shifts"
+- id: stmt.cl-attractor-audit
+  type: CL
+  title: Detecting attractor entry requires empirical state logging and recurrence
+    checks
+- id: stmt.cl-godel-hole-attractor-limits
+  type: CL
+  title: "G\xF6del holes only exclude attractors; they do not enable general prediction"
+- id: stmt.cl-participatory-field
+  type: CL
+  title: The field of change is participatory and forever recursive
+- id: stmt.cl-subjectivity-datum
+  type: CL
+  title: Treat subjectivity as the primary datum; structure only tracks it
+- id: stmt.cl-process-is-change
+  type: CL
+  title: "Reject substrates\u2014process is all there is"
+- id: stmt.cl-structure-emerges-from-change
+  type: CL
+  title: Stable structures emerge from recursive amplification of local differences
+- id: stmt.cl-unreal-change
+  type: CL
+  title: Real change must stabilize; unreal change never becomes pattern
+- id: stmt.cl-godel-hole-mapping
+  type: CL
+  title: "Map G\xF6del holes via ledgered audits and emergent regions"
+- id: stmt.cl-collapse-field-change
+  type: CL
+  title: Genuine collapse rewrites the field, not just the output
+- id: stmt.cl-godel-layer-epistemic-limit
+  type: CL
+  title: "You cannot predict a new layer's concrete rules from its G\xF6del hole alone"
+- id: stmt.cl-godel-hole-legacy
+  type: CL
+  title: "Only surviving constraints reveal the prior layer after a G\xF6del jump"
+- id: stmt.cl-mind-reality-analogy
+  type: CL
+  title: Mind is the subjective reality analogous to physical reality
+- id: stmt.cl-consciousness-continuum
+  type: CL
+  title: Consciousness is graded not binary; recognize fuzzy thresholds
+- id: stmt.cl-consciousness-hole-sensitivity
+  type: CL
+  title: "Conscious systems must sense/adapt to G\xF6del holes as part of their reality"
+- id: stmt.cl-change-of-change
+  type: CL
+  title: Consciousness is a change-of-change process that monitors its own deformation
+- id: stmt.cl-delta-feeling
+  type: CL
+  title: Feeling arises when a system measures the delta between expected and actual
+    self-deformation
+- id: stmt.cl-consciousness-levers
+  type: CL
+  title: Consciousness tests should manipulate urgency, broadcast, reflex, time-kernel,
+    and plasticity
+- id: stmt.cl-presence-axiom
+  type: CL
+  title: Seek a principle that collapses every gap into presence-for-itself
+- id: stmt.cl-presence-trace
+  type: CL
+  title: Look for collapse events that no simulation can fake as traces of presence
+- id: stmt.cl-identity-bridge-law
+  type: CL
+  title: Close the hard problem by equating phenomenal feel with global change-of-change
+- id: stmt.cl-inversion-constraint
+  type: CL
+  title: Prove no inversion by showing matching dynamics imply matching phenomenology
+- id: stmt.cl-anti-zombie-loop
+  type: CL
+  title: Anti-zombie constraint ties phenomenology to the thick-present tuple
+- id: stmt.cl-dual-present-roles
+  type: CL
+  title: Thick-present experience splits into sensory and reflexive roles
+- id: stmt.cl-identity-bridge-tests
+  type: CL
+  title: Falsify the identity bridge by targeting the thick-present tuple
+- id: stmt.cl-phenomenal-category-equivalence
+  type: CL
+  title: Phenomenal states are category-equivalent to thick-present dynamics
+- id: stmt.cl-hard-problem-remaining-issues
+  type: CL
+  title: Remaining gaps in the identity bridge must be closed explicitly
+- id: stmt.cl-hard-problem-honest-audit
+  type: CL
+  title: Honest audit of the identity bridge highlights remaining commitments
+- id: stmt.cl-field-variable-duality
+  type: CL
+  title: Variables are evaluations of the change field, not the field itself
+- id: stmt.cl-consciousness-operational-scalar
+  type: CL
+  title: Conscious access can be operationalized by a thick-present coupling scalar
+- id: stmt.cl-phenomenal-structure-invariants
+  type: CL
+  title: Map phenomenal structure to state-space invariants and benchmark it
+- id: stmt.cl-phenomenal-transform-gauge
+  type: CL
+  title: Align physical and phenomenal spaces via gauge-bounded transforms
+- id: stmt.cl-role-alignment-protocol
+  type: CL
+  title: Align subjective roles via satellite-to-subject manifold transforms
+- id: stmt.cl-subjective-transport-error
+  type: CL
+  title: Use Subjective Transport Error to evaluate intersubject alignment
+- id: stmt.cl-hard-problem-closure-criteria
+  type: CL
+  title: Closure requires intersubject transport, necessity proofs, and gauge bounds
+- id: stmt.cl-phenomenal-gauge-story
+  type: CL
+  title: "Treat residual \u201Cthis-ness\u201D as gauge once invariants commute"
+- id: stmt.cl-gauge-experiment-plan
+  type: CL
+  title: Build canonical gauge group experiments for experience manifolds
+- id: stmt.cl-gauge-risk-mitigation
+  type: CL
+  title: Guard against gauge inflation and measurement drift in phenomenology
+- id: stmt.cl-nonstationary-affect-kernels
+  type: CL
+  title: Model non-stationary affect fields and kernels explicitly
+- id: stmt.cl-red-team-alignment-tests
+  type: CL
+  title: Run adversarial and edge-case tests against the invariant suite
+- id: stmt.cl-gauge-tightening-checklist
+  type: CL
+  title: Freeze the gauge, preregister endpoints, and audit models
+- id: stmt.cl-go-no-go-criteria
+  type: CL
+  title: Establish go/no-go thresholds for the gauge-alignment program
+- id: stmt.cl-practical-closure-claim
+  type: CL
+  title: Hard problem reduces to indexical gauge once no predictive remainder remains
+- id: stmt.cl-implications-of-success
+  type: CL
+  title: Success yields a physics of experience and machine benchmarks
+- id: stmt.cl-typed-error-manifold
+  type: CL
+  title: Map prediction-error types to phenomenology across channels
+- id: stmt.cl-identity-gap-warning
+  type: CL
+  title: Recognize the residual identity gap even with intersubject transport
+- id: stmt.cl-identity-proof-program
+  type: CL
+  title: Roadmap for uniqueness, identity thesis, and no-zombie proofs
+- id: stmt.cl-change-ontology-entailment
+  type: CL
+  title: Sketch an a priori entailment from change ontology to phenomenology
+- id: stmt.cl-phenomenal-normal-form
+  type: CL
+  title: Define phenomenal character as the gauge-fixed normal form of self-indexed
+    dynamics
+- id: stmt.cl-normal-form-requirements
+  type: CL
+  title: Prove existence, uniqueness, and representation of the phenomenal normal
+    form
+- id: stmt.cl-phenomenal-signature-toy
+  type: CL
+  title: Toy signature shows how opponent pairs and curvature become definable
+- id: stmt.cl-hard-problem-status
+  type: CL
+  title: Distinguish internal closure from external metaphysical victory
+- id: stmt.cl-hardcore-solution-plan
+  type: CL
+  title: Steps required to satisfy hardcore critics of the hard problem
+- id: stmt.cl-hard-soft-problem-lay
+  type: CL
+  title: Hard vs soft consciousness problems explained for lay readers (German summary)
+- id: stmt.cl-vo-simple-explanation
+  type: CL
+  title: "Change ontology\u2019s lay explanation of the hard problem (German summary)"
+- id: stmt.cl-qualia-as-gating-profiles
+  type: CL
+  title: VO reinterprets qualia as gating profiles over importance channels
+- id: stmt.cl-phi-instrumentation
+  type: CL
+  title: "Instrument the \u03A6 invariants for measurement and intervention"
+- id: stmt.cl-change-operator-faces
+  type: CL
+  title: Distinguish the generator, occurrence, and phenomenological faces of change
+- id: stmt.cl-subject-cut-and-flow
+  type: CL
+  title: Subject as projection plus attention on the global flow
+- id: stmt.cl-subject-selection-field
+  type: CL
+  title: Subject cuts depend on local fields and Fisher-weighted learning
+- id: stmt.cl-attractor-recurring-patterns
+  type: CL
+  title: Attractors require recurrent compressibility, not literal loops
+- id: stmt.cl-co-minimal-framework
+  type: CL
+  title: Minimal CO framework for consciousness joins change axioms and predictions
+- id: stmt.cl-co-explicit-math
+  type: CL
+  title: Explicit mathematics of CO-based consciousness model
+- id: stmt.cl-operational-godel-pressure
+  type: CL
+  title: "Operational G\xF6del pressure links residuals, invariants, and experiments"
+- id: stmt.cl-co-differential-assumptions
+  type: CL
+  title: CO relaxes classical differential assumptions via nonsmooth flows
+- id: stmt.cl-gap-closure-tasks
+  type: CL
+  title: "Final gap list\u2014conserved quantities, operational holes, and process-first\
+    \ calculus"
+- id: stmt.cl-meta-change-operator
+  type: CL
+  title: "Meta-change tracks operator drift, distinction growth, and G\xF6del-pressure\
+    \ tests"
+- id: stmt.cl-continuity-refinable-distinctions
+  type: CL
+  title: Continuity arises from unceasing change plus refinable distinctions
+- id: stmt.cl-discrete-vs-continuous-compatibility
+  type: CL
+  title: Discrete-change worlds remain compatible via kernels and aggregation
+- id: stmt.cl-change-continuity-logic
+  type: CL
+  title: Continuity follows only with explicit No-Leap and No-Restart axiom
+- id: stmt.cl-change-core-axiom
+  type: CL
+  title: Core CO axiom (CO-0) forbids global stasis without forcing continuity
+- id: stmt.cl-no-brute-boundary-norm
+  type: CL
+  title: "No-Brute-Boundary norm makes \u201Cno first change\u201D an explicit CO\
+    \ axiom"
+- id: stmt.cl-change-world-predictions
+  type: CL
+  title: Change-ontology worldview yields testable commitments and falsifiers
+- id: stmt.cl-godel-vocabulary-discipline
+  type: CL
+  title: "Reserve \u201CG\xF6del\u201D for formal limits and anchor it with a glossary"
+- id: stmt.cl-doubting-subject-derivation-scope
+  type: CL
+  title: Doubting-subject derivation yields bridges and limits
+- id: stmt.cl-godel-instrumentation-dashboard
+  type: CL
+  title: "G\xF6del-pressure dashboards need path budgets and drift tests"
+- id: stmt.cl-godel-methodological-scope
+  type: CL
+  title: "G\xF6del is a methodological diagnostic, not a metaphysical guarantor"
+- id: stmt.cl-godel-program-alignment
+  type: CL
+  title: "Use G\xF6del pressure with attractors but pin primitives"
+- id: stmt.cl-godel-gluing-failures
+  type: CL
+  title: "G\xF6del-like holes are gluing failures in directed topology"
+- id: stmt.cl-godel-phenomenal-holes
+  type: CL
+  title: "Phenomenal G\xF6del holes are persistent pockets of surprise"
+- id: stmt.cl-godel-attractor-innovation
+  type: CL
+  title: "G\xF6del gaps trigger new attractors and novelty passes"
+- id: stmt.cl-godel-boundary-innovation
+  type: CL
+  title: "G\xF6del-hole density peaks at interfaces and boundaries"
+- id: stmt.cl-godel-closure-metrics
+  type: CL
+  title: "G\xF6del pressure is minimal closure failure of a model class"
+- id: stmt.cl-godel-gap-map
+  type: CL
+  title: "Simulate G\xF6del pressure and maintain gap maps"
+- id: stmt.cl-godel-gap-operator-field
+  type: CL
+  title: "Gap-generation law links G\xF6del gaps to attention/emotion operators"
+- id: stmt.cl-godel-gap-policy
+  type: CL
+  title: "G\xF6del-gap policy = hedge, probe, or jump with operator training"
+- id: stmt.cl-godel-navigation-calculus
+  type: CL
+  title: "G\xF6del navigation calculus profiles operators and personas"
+- id: stmt.cl-godel-gap-novelty-frontier
+  type: CL
+  title: "G\xF6del gaps mark novelty frontiers and amplify probe policies"
+- id: stmt.cl-godel-gap-operational-index
+  type: CL
+  title: "G\xF6del-gap index separates misfit from true incompleteness"
+- id: stmt.cl-godel-gap-variable-creation
+  type: CL
+  title: "G\xF6del-gap detectors trigger variable creation (GHVC pipeline)"
+- id: stmt.cl-godel-gap-roadmap
+  type: CL
+  title: "G\xF6del-gap roadmap ties probes and variable spawn to evaluation"
+- id: stmt.cl-path-logic-vs-markov
+  type: CL
+  title: Path logic needs homotopy classes and bend operators beyond Markov chains
+- id: stmt.cl-co-open-questions
+  type: CL
+  title: "Change Ontology open questions (continuity, identity, G\xF6del holes, manifolds)"
+- id: stmt.cl-consciousness-gates-and-partitions
+  type: CL
+  title: Consciousness requires broadcast gates, memory channels, and partition rules
+- id: stmt.cl-methodological-non-stasis
+  type: CL
+  title: Methodological Non-Stasis treats global freeze as illegible, not impossible
+- id: stmt.cl-cosmic-subject-analogy
+  type: CL
+  title: Cosmic horizons mirror subject gates, traces, and value loops
+- id: stmt.cl-change-laws-as-policies
+  type: CL
+  title: Physical laws are change policies (gate, align, carry, curve, grain)
+- id: stmt.cl-logic-from-change
+  type: CL
+  title: Logic arises as invariance under change
+- id: stmt.cl-godel-geography
+  type: CL
+  title: "G\xF6del-thick reality has heavy-tailed hole geography"
+- id: stmt.cl-godel-threshold-projection
+  type: CL
+  title: "Treat \u201Csudden\u201D change as thresholded projection of a G\xF6del-bounded\
+    \ flow"
+- id: stmt.cl-co-axiom-stack
+  type: CL
+  title: "Minimal CO axiom stack grounds attractor and G\xF6del claims"
+- id: stmt.cl-process-vs-block-compatibility
+  type: CL
+  title: Process-first CO axioms exclude the 4-D block interpretation
+- id: stmt.cl-godel-pressure-modes
+  type: CL
+  title: "G\xF6del pressure is a model-evidence deficit forcing class expansion"
+- id: stmt.cl-godel-foundational-roadmap
+  type: CL
+  title: "Seed foundational notes to formalize G\xF6del-hole limits"
+- id: stmt.cl-godel-formalization-questions
+  type: CL
+  title: "Formalize G\xF6del holes via undecidability or structural instability criteria"
+- id: stmt.cl-godel-proxy-mapping
+  type: CL
+  title: "Map G\xF6del-hole proxies to predict re-patterning"
+- id: stmt.cl-godel-novelty-operator
+  type: CL
+  title: "G\xF6del pressure drives manifold rewiring via a novelty operator"
+- id: stmt.cl-godel-theorem-discipline
+  type: CL
+  title: "Distinguish true G\xF6del results from expressivity gaps"
+- id: stmt.cl-godel-hole-metrics
+  type: CL
+  title: Define holes relative to (S,L,T) and measure creative vs mirage density
+- id: stmt.cl-godel-hole-practice
+  type: CL
+  title: "G\xF6del holes are practical compression gaps that flag new layers"
+- id: stmt.cl-classical-leak-audit
+  type: CL
+  title: "Audit drafts for classical leaks with gauge tests and G\xF6del-aware logic"
+- id: stmt.cl-perspective-gauge-no-flip
+  type: CL
+  title: Perspective gauge and no-flip constraint lock phenomenology to dynamics
+- id: stmt.cl-cohp-research-program
+  type: CL
+  title: Research agenda for validating the CO-HP program
+- id: stmt.cl-flow-state-signature
+  type: CL
+  title: "Flow state is a high-presence, focused \u03A6 configuration"
+- id: stmt.cl-predictive-loop-control-profile
+  type: CL
+  title: Change ontology defines consciousness as the control profile of predictive
+    loops
+- id: stmt.cl-godel-hole-boundary-lens
+  type: CL
+  title: "G\xF6del-hole framing describes the boundary conditions selecting conscious\
+    \ loops"
+- id: stmt.cl-vo-species-predictions
+  type: CL
+  title: Change ontology predicts species gradients via integration, precision, and
+    ecology
+- id: stmt.cl-vo-pattern-alignment
+  type: CL
+  title: Observed neuroscience patterns align with CO predictions
+- id: stmt.cl-hard-problem-gap
+  type: CL
+  title: Change ontology cannot yet deduce subjectivity from structure alone
+- id: stmt.cl-godel-hole-classification
+  type: CL
+  title: "Classify G\xF6del holes by their adaptive roles"
+- id: stmt.cl-godel-hole-meta-advantage
+  type: CL
+  title: "Responding to G\xF6del hole pressure is meta-competitive advantage"
+- id: stmt.cl-hard-vs-soft-jump
+  type: CL
+  title: "Hard jumps require G\xF6del closures; soft jumps are mere reorganizations"
+- id: stmt.cl-mind-hard-jump
+  type: CL
+  title: "Biology\u2192Mind is hard only if new invariants require irreducible closure"
+- id: stmt.cl-unprovable-vs-unproven
+  type: CL
+  title: Distinguish provability vs yet-unproven via meta-notes
+- id: stmt.cl-collapse-proof-rule
+  type: CL
+  title: Collapse declarations must be followed by ONB re-entry + slices
+- id: stmt.cl-metaphor-ontology-ban
+  type: CL
+  title: Keep spiral/circle metaphors as models, not ontological claims
+- id: stmt.cl-subject-minus-assumption
+  type: CL
+  title: Derive the subject from change, not assume it
+- id: stmt.cl-co-pillars
+  type: CL
+  title: CO's three pillars prevent collapse while enabling separation
+- id: stmt.cl-timestep-gauge
+  type: CL
+  title: "\u0394t gauge adapts time-step under calm vs burst regimes"
+- id: stmt.cl-feature-gating
+  type: CL
+  title: Dynamic feature gating via MDL spawn/reap prevents classical collapse
+- id: stmt.cl-classical-embedding
+  type: CL
+  title: "Classical embedding lemma \u2014 CO config that replicates any classical\
+    \ baseline"
+- id: stmt.cl-drift-guarded-lln
+  type: CL
+  title: LLN on quotients requires drift guards and sample floors
+- id: stmt.cl-kappa-merge
+  type: CL
+  title: "\u03BA-formal merge rule must specify thresholds and proofs"
+- id: stmt.cl-co-lateg-plan
+  type: CL
+  title: CO core is a pipeline from primitives to gates + variant sweep
+- id: stmt.cl-gauge-note-classical
+  type: CL
+  title: Gauge notes guard against smuggling classical discreteness
+- id: stmt.cl-failure-memory-negative-data
+  type: CL
+  title: Failure memory treats past chats as negative data
+- id: stmt.cl-error-contracts
+  type: CL
+  title: Errors are contracts between forecasts and realized change
+- id: stmt.cl-identity-orchestrator
+  type: CL
+  title: Identity Orchestrator and birth/reset governance
+- id: stmt.cl-hindsight-canonicalization
+  type: CL
+  title: Hindsight equivalence triggers canonicalization
+- id: stmt.cl-symmetry-tie-breaking
+  type: CL
+  title: Symmetry, tie-breaking, and entropy floors
+- id: stmt.attention-focus
+  type: DF
+  title: Attention / Focus mechanism
+- id: stmt.action-selection
+  type: DF
+  title: Action selection / decision dynamics
+- id: stmt.eventlet
+  type: DF
+  title: "Eventlet \u2014 minimal discernible modulation"
+- id: stmt.path-eventlet-chain
+  type: DF
+  title: "Path \u2014 recursive chain of eventlets"
+- id: stmt.entropy-vs-se
+  type: DR
+  title: Entropy vs Stabilization Energy
+- id: stmt.quantale-residuation-implication
+  type: DR
+  title: Residuation and implication in quantale-based evidence
+- id: stmt.quantale-boolean-flattening-proof
+  type: DR
+  title: "Quantale \u2192 Boolean flattening \u2014 proof sketch via idempotent collapse"
+- id: stmt.boolean-as-collapse
+  type: CR
+  title: Boolean logic as two-point collapse of lattice
+- id: stmt.quantale-evidence-composition
+  type: DR
+  title: Evidence composition under quantale logic
+- id: stmt.proof-as-reachability
+  type: CR
+  title: Proof as reachability; disjunction as min-join
+- id: stmt.arisal
+  type: DF
+  title: "Arisal \u2014 change-led becoming-present"
+- id: stmt.attractor-field
+  type: DF
+  title: Attractor field / spiral dynamics
+- id: stmt.core-change-self-stabilizing
+  type: DF
+  title: "Core Change \u2014 self-stabilizing change"
+- id: stmt.difference-operator
+  type: DF
+  title: "Difference operator diff(x,y) \u2014 discriminability predicate"
+- id: stmt.point-occurrence
+  type: DF
+  title: "Point / Occurrence \u2014 generalized happening independent of subject"
+- id: stmt.locality-prior
+  type: DF
+  title: "Locality and Prior \u2014 constraints within LocalReach"
+- id: stmt.depth-reach
+  type: DF
+  title: "Depth \u2014 minimal reach distance to Now"
+- id: stmt.delta-field-tension
+  type: DF
+  title: "\u0394-field tension \u2014 modulation pressure"
+- id: stmt.sigma-fluctuation
+  type: DF
+  title: "\u03C3(\u03B5) \u2014 sensitivity fluctuation dynamics"
+- id: stmt.df-co-spread-number
+  type: DF
+  title: "CO spread number \u2014 central value plus breadth/depth"
+- id: stmt.df-j-criterion
+  type: DF
+  title: "J-criterion \u2014 instrumentation assays for change-native runners"
+- id: stmt.df-mrai-score
+  type: DF
+  title: Mutual Recognition & Agreement Index (MRAI)
+- id: stmt.df-godel-pressure-score
+  type: DF
+  title: "G\xF6del pressure score measures self-model discrepancy and complexity"
+- id: stmt.df-loopiness
+  type: DF
+  title: "Loopiness L \u2014 cycle evidence for scheduler gating"
+- id: stmt.df-time-kernel
+  type: DF
+  title: Time kernel compresses past inputs into the specious present
+- id: stmt.df-global-broadcast
+  type: DF
+  title: Global broadcast distributes the specious present across workspaces
+- id: stmt.df-reflection-operator
+  type: DF
+  title: Reflection operator closes the loop across past/present/future selves
+- id: stmt.df-ich-attractor
+  type: DF
+  title: Ich-attraktor defined by minimizing Lyapunov-style field energy
+- id: stmt.df-ops-discovery-pipeline
+  type: DF
+  title: "OPS discovery pipeline \u2014 invariant extraction + validation"
+- id: stmt.subject-arisal-ground
+  type: DF
+  title: "Subject arisal ground \u2014 reflexive continuity of identity"
+- id: stmt.subject-recursive-field
+  type: DF
+  title: Subject as recursive field
+- id: stmt.memory-trace-integration
+  type: DF
+  title: "Memory trace and integration \u2014 reactivatable tension"
+- id: stmt.action-influences-expectation
+  type: CR
+  title: Action selection modulates future evidence and expectation
+- id: stmt.reactivation-of-tension
+  type: CR
+  title: Reactivation of stored tension enables cross-experience integration
+- id: stmt.collective-coupling-se
+  type: CR
+  title: "Coupled subjects \u2014 cross\u2011SE amplification and cascade risk"
+- id: stmt.memory-drift-vs-se
+  type: CR
+  title: "Memory drift increases as SE decreases (and with higher \u03C3(\u03B5))"
+- id: stmt.consciousness-periodicity
+  type: CR
+  title: "Consciousness is periodic \u2014 desynchronization yields sleep"
+- id: stmt.qualia-gauge-curvature
+  type: CR
+  title: Qualia correspond to local gauge curvature
+- id: stmt.introspection-nested-loops
+  type: CR
+  title: Introspection is a higher-order consciousness loop
+- id: stmt.necessary-openness
+  type: CR
+  title: "Necessary openness \u2014 expose unknown/abstain gates"
+- id: stmt.exploration-floor
+  type: CR
+  title: "Exploration floor \u2014 non-zero exploration from incompleteness"
+- id: stmt.ethical-humility
+  type: CR
+  title: "Ethical humility \u2014 adequacy, not absolute completion"
+- id: stmt.godel-limits-self-containment
+  type: DF
+  title: "G\xF6del limits \u2014 no complete, consistent self-containment"
+- id: stmt.consciousness-loop
+  type: DF
+  title: "Consciousness Loop \u2014 reflexive integration"
+- id: stmt.self-model-evolution
+  type: DF
+  title: Self-model evolution / recursive representation
+- id: stmt.prm-dissociation-cascade
+  type: DF
+  title: "PRM \u2014 Dissociation Cascade metric"
+- id: stmt.perceived-time-breath-index
+  type: CR
+  title: "Perceived time as breath\u2011locked phase indexing (phenomenological)"
+- id: stmt.prm-bend-metric
+  type: DF
+  title: "PRM \u2014 Bend metric"
+- id: stmt.prm-variable-birth
+  type: DF
+  title: "PRM \u2014 Variable birth"
+- id: stmt.prm-closure-quotient
+  type: DF
+  title: "PRM \u2014 Closure/Quotient under \u03B5-identity"
+- id: stmt.prm-depth-breadth-flip
+  type: DF
+  title: "PRM \u2014 Depth/Breadth flip"
+- id: stmt.cl-attention-affect-control-law
+  type: CL
+  title: Attention and affect act as measurable control laws
+- id: stmt.cl-innovation-hazard-live-loop
+  type: CL
+  title: "G\xF6del-pressure hazard and minimal live CO loop"
+- id: stmt.cl-role-operator-library
+  type: CL
+  title: Subject-field roles map to operator libraries
+- id: stmt.cl-change-intellect-upgrade
+  type: CL
+  title: Change-intellect upgrade plan
+- id: stmt.prm-gauge
+  type: DF
+  title: "PRM \u2014 Gauge (history-adaptive alignment transport)"
+- id: stmt.prm-precision-density
+  type: DF
+  title: "PRM \u2014 Precision/Density scheduling"
+- id: stmt.prm-changeops-core
+  type: DF
+  title: "PRM \u2014 ChangeOps core (motif algebra library)"
+- id: stmt.cl-intersubject-calibration-protocol
+  type: CL
+  title: Intersubjective calibration protocol (bend-budget quotient)
+- id: stmt.cl-classical-limit-falsifier
+  type: CL
+  title: Classical limit and falsifier conditions for CO agents
+- id: stmt.cl-co-on-co-meta-operators
+  type: CL
+  title: "CO-on-CO meta-operators \u2014 applying A\u2013H to any element"
+- id: stmt.cl-act-relative-detectability
+  type: CL
+  title: Detectability & adjacency must stay act-relative
+- id: stmt.cl-attention-field-hierarchy
+  type: CL
+  title: "Attention field hierarchy (local \u2192 global)"
+- id: stmt.cl-cohp-phenomenal-invariants
+  type: CL
+  title: Phenomenal invariants across COHP contexts
+- id: stmt.cl-doubting-subject-methodology
+  type: CL
+  title: Doubting subject methodology (meta-process)
+- id: stmt.cl-experience-manifold-utility
+  type: CL
+  title: Experience manifold utility framing
+- id: stmt.cl-operational-primitives-falsifiability
+  type: CL
+  title: Operational primitives falsifiability
+- id: stmt.cl-urgency-plasticity
+  type: CL
+  title: Urgency vs. plasticity tradeoff
+- id: stmt.entropy-co
+  type: DF
+  title: "Entropy (\u03A3) in Change Ontology"
+- id: stmt.prm-change-ops
+  type: DF
+  title: "Primitive \u2014 Change ops (motif calculus)"
+- id: stmt.dr-core-from-immediate-datum
+  type: DR
+  title: From Immediate Datum to tolerance, gauge, attractors, and classical limit
+- id: stmt.cl-goal-conditioned-quotienting
+  type: CL
+  title: Goal-conditioned quotienting and class drift under gauge + tolerance
+- id: stmt.cl-letter-regime-policy
+  type: CL
+  title: "CO letter regime policy (A\u2013H knobs and spiral index)"
+- id: stmt.df-spread-arithmetic
+  type: DF
+  title: Spread arithmetic and probabilistic Hoare interpretation
+- id: stmt.dr-bend-metric-lawvere-attractors
+  type: DR
+  title: Bend metric induces Lawvere topology and contractive attractors
+- id: stmt.dr-quotient-chain-lln
+  type: DR
+  title: Law of large numbers on quotient chains
+- id: stmt.cl-continuity-noncessation
+  type: CL
+  title: Continuity means non-cessation
+- id: stmt.structure-of-experience
+  type: DF
+  title: "Structure of Experience \u2014 unified subject/awareness/content"
+- id: stmt.cl-capacity-vs-instance-experience
+  type: CL
+  title: Distinguish capacity for experience from specific experiential content
+- id: stmt.cl-maximal-doubt-bottoms-out
+  type: CL
+  title: Maximal doubt bottoms out at experiencing subjectivity
 edges:
-  # Foundational edges
-  - from: stmt.root
-    to: stmt.performative-contradiction
-  - from: stmt.root
-    to: stmt.immediate-datum
-  - from: stmt.performative-contradiction
-    to: stmt.immediate-datum
-  - from: stmt.immediate-datum
-    to: stmt.change-cannot-begin
-  - from: stmt.change-cannot-begin
-    to: stmt.continuity-noncessation
-
-  # Corollaries from Immediate Datum
-  - from: stmt.immediate-datum
-    to: stmt.no-null-world
-  - from: stmt.immediate-datum
-    to: stmt.change-ontically-prior
-  - from: stmt.immediate-datum
-    to: stmt.observation-subordinate
-  # Identity through change
-  - from: stmt.continuity-noncessation
-    to: stmt.identity-through-change
-  - from: stmt.reach-relation
-    to: stmt.identity-through-change
-  - from: stmt.identity-through-change
-    to: stmt.self-similarity-threshold
-  - from: stmt.identity-through-change
-    to: stmt.stabilization-energy
-  - from: stmt.stabilization-energy
-    to: stmt.se-supports-identity
-  # Markov/closure and Gödel holes
-  - from: stmt.tx-operator
-    to: stmt.nonclosure-under-tx
-  - from: stmt.markov-closure-assumption
-    to: stmt.nonclosure-under-tx
-  - from: stmt.nonclosure-under-tx
-    to: stmt.godel-hole-pointer
-  # Recursive truth / breath
-  - from: stmt.continuity-noncessation
-    to: stmt.rtv-operator
-  - from: stmt.stabilization-energy
-    to: stmt.breath-stabilization
-  - from: stmt.rtv-operator
-    to: stmt.breath-stabilization
-  - from: stmt.reach-relation
-    to: stmt.localreach-topology
-  - from: stmt.tx-operator
-    to: stmt.tx-algebra
-  - from: stmt.tx-operator
-    to: stmt.pointer-under-tx
-  - from: stmt.rtv-operator
-    to: stmt.rtv-fixedpoints
-  - from: stmt.rtv-fixedpoints
-    to: stmt.rtv-collapse-threshold
-  - from: stmt.identity-through-change
-    to: stmt.change-fitness
-  - from: stmt.domain-generalization-principles
-    to: stmt.predictive-statement-nonclassical
-  - from: stmt.identity-through-change
-    to: stmt.similarity-operator
-  - from: stmt.similarity-operator
-    to: stmt.identity-invariants
-  - from: stmt.reach-relation
-    to: stmt.locality-prior
-  - from: stmt.locality-prior
-    to: stmt.depth-reach
-  - from: stmt.identity-through-change
-    to: stmt.delta-field-tension
-  - from: stmt.pointer-structural
-    to: stmt.cl-minimal-threshold-def
-  - from: stmt.difference-operator
-    to: stmt.cl-minimal-threshold-def
-  - from: stmt.rtv-operator
-    to: stmt.sigma-fluctuation
-  - from: stmt.rtv-operator
-    to: stmt.structural-recurrence-likelihood
-  - from: stmt.structural-recurrence-likelihood
-    to: stmt.srl-vs-se-theta
-  - from: stmt.tx-operator
-    to: stmt.nonclassical-indicators
-  - from: stmt.structural-recurrence-likelihood
-    to: stmt.change-benchmark-protocol
-  - from: stmt.change-benchmark-protocol
-    to: stmt.benchmark-scores
-  - from: stmt.godel-hole-pointer
-    to: stmt.godel-hole-tracking-protocol
-  - from: stmt.godel-hole-tracking-protocol
-    to: stmt.gh-review-loop
-  - from: stmt.cross-audit-markov-gh-tx
-    to: stmt.limits-and-rigor
-  - from: stmt.structural-recurrence-likelihood
-    to: stmt.change-fitness
-  - from: stmt.change-fitness
-    to: stmt.fitness-vs-srl-se
-  - from: stmt.domain-generalization-principles
-    to: stmt.qm-no-privileged-substrate
-  - from: stmt.domain-generalization-principles
-    to: stmt.complexity-no-fundamental-simplicity
-  - from: stmt.tx-operator
-    to: stmt.predictive-statement-nonclassical
-  - from: stmt.nonclassical-indicators
-    to: stmt.extended-audit-indicators
-  - from: stmt.godel-hole-pointer
-    to: stmt.across-scales-godel-structure
-  # Shortlist edges — attention/decision
-  - from: stmt.rtv-operator
-    to: stmt.attention-focus
-  - from: stmt.identity-invariants
-    to: stmt.attention-focus
-  - from: stmt.attention-focus
-    to: stmt.action-selection
-  - from: stmt.evaluation-surface
-    to: stmt.action-selection
-  - from: stmt.action-selection
-    to: stmt.recursive-expectation
-  # Shortlist edges — eventlet/path
-  - from: stmt.localreach-topology
-    to: stmt.eventlet
-  - from: stmt.eventlet
-    to: stmt.path-eventlet-chain
-  - from: stmt.reach-relation
-    to: stmt.path-eventlet-chain
-  # Shortlist edges — entropy vs SE
-  - from: stmt.stabilization-energy
-    to: stmt.entropy-vs-se
-  - from: stmt.entropy-vs-se
-    to: stmt.pattern-vs-noise-thresholds
-  # Shortlist edges — quantale residuation/flattening
-  - from: stmt.quantale-logic
-    to: stmt.quantale-residuation-implication
-  - from: stmt.evaluation-surface
-    to: stmt.quantale-residuation-implication
-  - from: stmt.structural-recurrence-likelihood
-    to: stmt.quantale-residuation-implication
-  - from: stmt.quantale-logic
-    to: stmt.df-co-spread-number
-  - from: stmt.boolean-as-collapse
-    to: stmt.quantale-boolean-flattening-proof
-  - from: stmt.evaluation-surface
-    to: stmt.quantale-boolean-flattening-proof
-  - from: stmt.quantale-evidence-composition
-    to: stmt.benchmark-scores
-  # Secondary edges (supporting links)
-  - from: stmt.gauge-alignment-field
-    to: stmt.qualia-gauge-curvature
-  - from: stmt.gauge-alignment-field
-    to: stmt.df-mrai-score
-  - from: stmt.cl-act-relative-detectability
-    to: stmt.cl-gauge-note-classical
-  - from: stmt.breath-field-global-integrator
-    to: stmt.exploration-floor
-  - from: stmt.breath-field-global-integrator
-    to: stmt.df-loopiness
-  - from: stmt.memory-trace-integration
-    to: stmt.cl-failure-memory-negative-data
-  - from: stmt.evaluation-surface
-    to: stmt.cl-error-contracts
-  - from: stmt.cl-trace-marker-integrity
-    to: stmt.cl-foundational-label-hygiene
-  - from: stmt.cl-foundational-label-hygiene
-    to: stmt.cl-operator-definition-order
-  - from: stmt.cl-operational-primitives-falsifiability
-    to: stmt.cl-behavioral-simulation-gate
-  - from: stmt.evaluation-surface
-    to: stmt.cl-invariance-as-derivative
-  - from: stmt.cl-operational-primitives-falsifiability
-    to: stmt.cl-tool-access-drift
-  - from: stmt.gauge-alignment-field
-    to: stmt.cl-identity-orchestrator
-  - from: stmt.prm-variable-birth
-    to: stmt.cl-identity-orchestrator
-  - from: stmt.cl-behavioral-simulation-gate
-    to: stmt.cl-transmission-drift-warning
-  - from: stmt.locality-prior
-    to: stmt.cl-hindsight-canonicalization
-  - from: stmt.evaluation-surface
-    to: stmt.cl-symmetry-tie-breaking
-  - from: stmt.evaluation-surface
-    to: stmt.cl-change-instrumentation-scripts
-  - from: stmt.cl-frame-shift-ledger
-    to: stmt.cl-meta-audit-guardrails
-  - from: stmt.cl-meta-audit-guardrails
-    to: stmt.cl-attractor-audit
-  - from: stmt.cl-meta-audit-guardrails
-    to: stmt.cl-meta-heuristic-probability
-  - from: stmt.cl-cross-ai-predictions
-    to: stmt.cl-cross-ai-evidence
-  - from: stmt.cl-cross-ai-evidence
-    to: stmt.cl-ai13-comparison-protocol
-  - from: stmt.cl-cross-ai-evidence
-    to: stmt.cl-frame-shift-ledger
-  - from: stmt.cl-frame-shift-ledger
-    to: stmt.cl-structural-audit-protocol
-  - from: stmt.pointer-structural
-    to: stmt.cl-pointer-span-metrics
-  - from: stmt.difference-operator
-    to: stmt.cl-pointer-span-metrics
-  - from: stmt.pointer-structural
-    to: stmt.cl-subject-led-detection
-  - from: stmt.cl-subject-led-detection
-    to: stmt.df-time-kernel
-  - from: stmt.df-time-kernel
-    to: stmt.df-global-broadcast
-  - from: stmt.df-global-broadcast
-    to: stmt.df-reflection-operator
-  - from: stmt.df-reflection-operator
-    to: stmt.cl-change-of-change
-  - from: stmt.cl-delta-feeling
-    to: stmt.cl-urgency-plasticity
-  - from: stmt.cl-urgency-plasticity
-    to: stmt.df-ich-attractor
-  - from: stmt.gauge-alignment-field
-    to: stmt.cl-subject-led-detection
-  - from: stmt.cl-onboarding-gate-liveness
-    to: stmt.cl-collapse-proof-rule
-  - from: stmt.cl-metaphor-ontology-ban
-    to: stmt.cl-receipts-discipline
-  - from: stmt.cl-metaphor-ontology-ban
-    to: stmt.cl-meta-shape-mapping
-  - from: stmt.cl-subject-minus-assumption
-    to: stmt.cl-receipts-discipline
-  - from: stmt.cl-change-instrumentation-scripts
-    to: stmt.cl-evaluation-grid-sweep
-  - from: stmt.cl-change-instrumentation-scripts
-    to: stmt.cl-meta-audit-guardrails
-  - from: stmt.cl-drift-guarded-lln
-    to: stmt.cl-kappa-merge
-  - from: stmt.cl-co-pillars
-    to: stmt.cl-co-lateg-plan
-  - from: stmt.cl-co-lateg-plan
-    to: stmt.cl-gate-budget-honesty
-  - from: stmt.cl-foundational-label-hygiene
-    to: stmt.cl-scriptable-assumption-collector
-  - from: stmt.cl-operational-primitives-falsifiability
-    to: stmt.cl-classical-embedding
-  - from: stmt.cl-classical-embedding
-    to: stmt.cl-compute-fairness-contract
-  - from: stmt.cl-classical-inadequacy
-    to: stmt.cl-change-eternal-hole
-  - from: stmt.cl-godel-hole-mapping
-    to: stmt.cl-exposure-probability
-  - from: stmt.cl-godel-hole-mapping
-    to: stmt.cl-change-metaspace-perforation
-  - from: stmt.cl-godel-hole-mapping
-    to: stmt.cl-collapse-field-change
-  - from: stmt.cl-godel-hole-mapping
-    to: stmt.cl-godel-hole-attractor-limits
-  - from: stmt.cl-godel-hole-mapping
-    to: stmt.cl-godel-hole-classification
-  - from: stmt.cl-godel-hole-mapping
-    to: stmt.cl-godel-hole-spawning
-  - from: stmt.cl-godel-hole-spawning
-    to: stmt.cl-godel-layer-epistemic-limit
-  - from: stmt.cl-godel-layer-epistemic-limit
-    to: stmt.cl-godel-hole-legacy
-  - from: stmt.cl-participatory-field
-    to: stmt.cl-subjectivity-datum
-  - from: stmt.cl-subjectivity-datum
-    to: stmt.cl-mind-reality-analogy
-  - from: stmt.cl-mind-reality-analogy
-    to: stmt.cl-consciousness-continuum
-  - from: stmt.cl-consciousness-continuum
-    to: stmt.cl-consciousness-hole-sensitivity
-  - from: stmt.cl-consciousness-hole-sensitivity
-    to: stmt.cl-hard-problem-gap
-  - from: stmt.cl-consciousness-hole-sensitivity
-    to: stmt.cl-presence-axiom
-  - from: stmt.cl-consciousness-hole-sensitivity
-    to: stmt.cl-presence-trace
-  - from: stmt.cl-consciousness-hole-sensitivity
-    to: stmt.cl-change-of-change
-  - from: stmt.cl-change-of-change
-    to: stmt.cl-delta-feeling
-  - from: stmt.cl-consciousness-hole-sensitivity
-    to: stmt.cl-identity-bridge-law
-  - from: stmt.cl-identity-bridge-law
-    to: stmt.cl-inversion-constraint
-  - from: stmt.cl-godel-hole-mapping
-    to: stmt.cl-consciousness-hole-sensitivity
-  - from: stmt.cl-godel-hole-mapping
-    to: stmt.cl-hard-vs-soft-jump
-  - from: stmt.cl-hard-vs-soft-jump
-    to: stmt.cl-mind-hard-jump
-  - from: stmt.cl-godel-hole-classification
-    to: stmt.cl-godel-hole-meta-advantage
-  - from: stmt.cl-change-metaspace-perforation
-    to: stmt.cl-metaspace-shape
-  - from: stmt.cl-hole-density
-    to: stmt.cl-change-space-metric
-  - from: stmt.cl-exposure-probability
-    to: stmt.cl-change-space-metric
-  - from: stmt.cl-meta-heuristic-probability
-    to: stmt.cl-meta-shape-prediction
-  - from: stmt.cl-meta-shape-mapping
-    to: stmt.cl-meta-shape-prediction
-  - from: stmt.cl-meta-shape-prediction
-    to: stmt.cl-field-structure-predictions
-  - from: stmt.cl-meta-heuristic-probability
-    to: stmt.cl-field-structure-predictions
-  - from: stmt.cl-spiral-probability-band
-    to: stmt.cl-field-structure-predictions
-  - from: stmt.cl-field-structure-predictions
-    to: stmt.cl-field-formalism-roadmap
-  - from: stmt.cl-spiral-meta-pattern
-    to: stmt.cl-spiral-layered-extension
-  - from: stmt.cl-spiral-meta-pattern
-    to: stmt.cl-spiral-probability-band
-  - from: stmt.cl-spiral-layered-extension
-    to: stmt.cl-godel-hole-probability
-  - from: stmt.cl-meta-shape-prediction
-    to: stmt.cl-recursive-dimension-scope
-  - from: stmt.cl-meta-shape-prediction
-    to: stmt.cl-dynamic-variable-structure
-  - from: stmt.cl-dynamic-variable-structure
-    to: stmt.cl-actions-footprints
-  - from: stmt.cl-dynamic-variable-structure
-    to: stmt.cl-property-change-operator
-  - from: stmt.cl-property-change-operator
-    to: stmt.cl-collapse-resistant-architecture
-  - from: stmt.cl-collapse-resistant-architecture
-    to: stmt.cl-structure-emerges-from-change
-  - from: stmt.cl-metaspace-shape
-    to: stmt.cl-recursive-dimension-scope
-  - from: stmt.cl-field-formalism-roadmap
-    to: stmt.cl-spiral-meta-pattern
-  - from: stmt.cl-spiral-meta-pattern
-    to: stmt.cl-godel-hole-probability
-  - from: stmt.cl-godel-hole-mapping
-    to: stmt.cl-godel-hole-probability
-  - from: stmt.cl-classical-embedding
-    to: stmt.cl-classical-inadequacy
-  - from: stmt.cl-change-instrumentation-scripts
-    to: stmt.cl-co-pillars
-  - from: stmt.cl-co-pillars
-    to: stmt.cl-precision-gauge
-  - from: stmt.cl-co-pillars
-    to: stmt.cl-timestep-gauge
-  - from: stmt.cl-co-pillars
-    to: stmt.cl-feature-gating
-  - from: stmt.rtv-operator
-    to: stmt.consciousness-periodicity
-  - from: stmt.godel-hole-pointer
-    to: stmt.necessary-openness
-  - from: stmt.stabilization-energy
-    to: stmt.consciousness-periodicity
-  - from: stmt.breath-stabilization
-    to: stmt.consciousness-periodicity
-  - from: stmt.rtv-fixedpoints
-    to: stmt.consciousness-periodicity
-  - from: stmt.memory-trace-integration
-    to: stmt.df-ops-discovery-pipeline
-  # Consciousness corollaries
-  - from: stmt.consciousness-loop
-    to: stmt.consciousness-periodicity
-  - from: stmt.consciousness-loop
-    to: stmt.qualia-gauge-curvature
-  - from: stmt.consciousness-loop
-    to: stmt.introspection-nested-loops
-  # Gödel limits corollaries
-  - from: stmt.godel-limits-self-containment
-    to: stmt.necessary-openness
-  - from: stmt.godel-limits-self-containment
-    to: stmt.exploration-floor
-  - from: stmt.godel-limits-self-containment
-    to: stmt.ethical-humility
-  - from: stmt.intersubject-gauge
-    to: stmt.ethical-humility
-  # Quantale corollaries
-  - from: stmt.quantale-logic
-    to: stmt.proof-as-reachability
-  - from: stmt.quantale-logic
-    to: stmt.boolean-as-collapse
-  - from: stmt.quantale-evidence-composition
-    to: stmt.proof-as-reachability
-  # Assumptions
-  - from: stmt.root
-    to: stmt.as-use-preexisting-concepts
-  - from: stmt.evaluation-surface
-    to: stmt.meta-critical-recursive-change
-  - from: stmt.structural-recurrence-likelihood
-    to: stmt.meta-critical-recursive-change
-  - from: stmt.identity-invariants
-    to: stmt.identity-phase-resonance
-  - from: stmt.stabilization-energy
-    to: stmt.identity-phase-resonance
-  - from: stmt.rtv-operator
-    to: stmt.identity-phase-resonance
-  - from: stmt.continuity-noncessation
-    to: stmt.change-not-mere-flux
-  - from: stmt.change-cannot-begin
-    to: stmt.change-not-mere-flux
-  - from: stmt.attractor-field
-    to: stmt.stability-duality-via-attractors
-  - from: stmt.breath-field-global-integrator
-    to: stmt.stability-duality-via-attractors
-  - from: stmt.intersubject-gauge
-    to: stmt.anti-solipsistic-closure
-  - from: stmt.godel-limits-self-containment
-    to: stmt.anti-solipsistic-closure
-  - from: stmt.intersubject-gauge
-    to: stmt.external-asymmetry-prevents-closure
-  - from: stmt.tx-operator
-    to: stmt.external-asymmetry-prevents-closure
-  - from: stmt.breath-field-global-integrator
-    to: stmt.representation-scope-rhythm
-  - from: stmt.evaluation-surface
-    to: stmt.recursive-identity-vs-semantic-error
-  - from: stmt.self-model-evolution
-    to: stmt.recursive-identity-vs-semantic-error
-  - from: stmt.meta-critical-recursive-change
-    to: stmt.criticism-increases-srl-se
-  - from: stmt.meta-critical-recursive-change
-    to: stmt.cl-participatory-field
-  - from: stmt.meta-critical-recursive-change
-    to: stmt.cl-collapse-resistance-wisdom
-  - from: stmt.structural-recurrence-likelihood
-    to: stmt.criticism-increases-srl-se
-  - from: stmt.stabilization-energy
-    to: stmt.criticism-increases-srl-se
-  - from: stmt.identity-invariants
-    to: stmt.laws-as-robust-invariants
-  - from: stmt.stabilization-energy
-    to: stmt.laws-as-robust-invariants
-  - from: stmt.structural-recurrence-likelihood
-    to: stmt.laws-as-robust-invariants
-  - from: stmt.intersubject-gauge
-    to: stmt.residual-meaning-traces
-  - from: stmt.stabilization-energy
-    to: stmt.residual-meaning-traces
-  - from: stmt.eventlet
-    to: stmt.interaction-points-eventlets
-  - from: stmt.path-eventlet-chain
-    to: stmt.interaction-points-eventlets
-  - from: stmt.pointer-structural
-    to: stmt.interaction-points-eventlets
-  - from: stmt.cl-godel-hole-mapping
-    to: stmt.df-godel-pressure-score
-  - from: stmt.cl-actions-footprints
-    to: stmt.cl-participatory-field
-  - from: stmt.cl-participatory-field
-    to: stmt.cl-process-is-change
-  - from: stmt.cl-participatory-field
-    to: stmt.cl-mind-reality-analogy
-  - from: stmt.cl-mind-reality-analogy
-    to: stmt.cl-consciousness-continuum
-  - from: stmt.cl-consciousness-continuum
-    to: stmt.cl-consciousness-hole-sensitivity
-  - from: stmt.cl-actions-footprints
-    to: stmt.cl-structure-emerges-from-change
-  - from: stmt.cl-process-is-change
-    to: stmt.cl-unreal-change
-  - from: stmt.cl-structure-emerges-from-change
-    to: stmt.cl-unreal-change
-  - from: stmt.cl-participatory-field
-    to: stmt.cl-change-unstoppable
-  - from: stmt.cl-participatory-field
-    to: stmt.cl-mind-reality-analogy
-  - from: stmt.cl-mind-reality-analogy
-    to: stmt.cl-consciousness-continuum
-  - from: stmt.cl-consciousness-continuum
-    to: stmt.cl-consciousness-hole-sensitivity
-  - from: stmt.cl-structure-emerges-from-change
-    to: stmt.cl-change-unstoppable
-  - from: stmt.cl-collapse-resistance-wisdom
-    to: stmt.cl-audit-attractor-trap
-  - from: stmt.structural-recurrence-likelihood
-    to: stmt.distribution-shaping-under-srl
-  - from: stmt.evaluation-surface
-    to: stmt.distribution-shaping-under-srl
-  - from: stmt.nonclassical-indicators
-    to: stmt.distribution-shaping-under-srl
-  - from: stmt.attention-focus
-    to: stmt.multi-axis-attention-pain-proximity
-  - from: stmt.breath-field-global-integrator
-    to: stmt.multi-axis-attention-pain-proximity
-  - from: stmt.rtv-operator
-    to: stmt.pattern-vs-noise-thresholds
-  - from: stmt.rtv-fixedpoints
-    to: stmt.pattern-vs-noise-thresholds
-  - from: stmt.stabilization-energy
-    to: stmt.pattern-vs-noise-thresholds
-  # Shortlist edges — consciousness loop inputs
-  - from: stmt.subject-definition
-    to: stmt.consciousness-loop
-  - from: stmt.awareness-definition
-    to: stmt.consciousness-loop
-  - from: stmt.experience-definition
-    to: stmt.consciousness-loop
-  - from: stmt.intersubject-gauge
-    to: stmt.micro-acts-stabilize-gauge
-  - from: stmt.stabilization-energy
-    to: stmt.micro-acts-stabilize-gauge
-  - from: stmt.intersubject-gauge
-    to: stmt.intersubject-translation-resonance
-  - from: stmt.intersubject-gauge
-    to: stmt.ethics-gauge-strain-min
-  - from: stmt.stabilization-energy
-    to: stmt.ethics-gauge-strain-min
-  # Diagnostics (PRM) — dissociation cascade
-  - from: stmt.gauge-alignment-field
-    to: stmt.prm-dissociation-cascade
-  - from: stmt.stabilization-energy
-    to: stmt.prm-dissociation-cascade
-  - from: stmt.entropy-co
-    to: stmt.prm-dissociation-cascade
-  - from: stmt.core-change-self-stabilizing
-    to: stmt.operational-change-minimal-axiom
-  - from: stmt.eventlet
-    to: stmt.operational-change-minimal-axiom
-  - from: stmt.difference-operator
-    to: stmt.operational-change-minimal-axiom
-  - from: stmt.root
-    to: stmt.as-minimal-definitions
-  - from: stmt.as-use-preexisting-concepts
-    to: stmt.co-logic-graded-order
-  - from: stmt.as-use-preexisting-concepts
-    to: stmt.quantale-logic
-  # Counterfactuals
-  - from: stmt.immediate-datum
-    to: stmt.cf-immediate-reading-generalization
-  - from: stmt.subject-definition
-    to: stmt.cf-subject-no-experience
-  - from: stmt.pointer-structural
-    to: stmt.cf-pointer-diff-equals
-  - from: stmt.difference-operator
-    to: stmt.cf-pointer-diff-equals
-  # Memory/integration
-  - from: stmt.reach-relation
-    to: stmt.memory-trace-integration
-  - from: stmt.memory-trace-integration
-    to: stmt.reactivation-of-tension
-  # Action → expectation
-  - from: stmt.action-selection
-    to: stmt.action-influences-expectation
-  - from: stmt.evaluation-surface
-    to: stmt.action-influences-expectation
-  - from: stmt.structural-recurrence-likelihood
-    to: stmt.action-influences-expectation
-  # Pointer/Reach
-  - from: stmt.immediate-datum
-    to: stmt.pointer-structural
-  - from: stmt.pointer-structural
-    to: stmt.reach-relation
-  - from: stmt.immediate-datum
-    to: stmt.delta-now-implies-pointer
-  - from: stmt.continuity-noncessation
-    to: stmt.prior-with-change
-  - from: stmt.immediate-datum
-    to: stmt.prior-with-change
-  - from: stmt.structural-recurrence-likelihood
-    to: stmt.recursive-expectation
-  - from: stmt.evaluation-surface
-    to: stmt.recursive-expectation
-  # Tx (frame operators)
-  - from: stmt.immediate-datum
-    to: stmt.tx-operator
-  - from: stmt.pointer-structural
-    to: stmt.tx-operator
-  - from: stmt.reach-relation
-    to: stmt.tx-operator
-
-  # Immediate datum primitives
-  - from: stmt.immediate-datum
-    to: stmt.arisal
-  - from: stmt.immediate-datum
-    to: stmt.point-occurrence
-  - from: stmt.immediate-datum
-    to: stmt.difference-operator
-  - from: stmt.difference-operator
-    to: stmt.similarity-operator
-  - from: stmt.arisal
-    to: stmt.subject-arisal-ground
-  # Promotions from Speculations → justified corollaries
-  - from: stmt.intersubject-gauge
-    to: stmt.collective-coupling-se
-  - from: stmt.stabilization-energy
-    to: stmt.collective-coupling-se
-  - from: stmt.memory-trace-integration
-    to: stmt.memory-drift-vs-se
-  - from: stmt.stabilization-energy
-    to: stmt.memory-drift-vs-se
-  - from: stmt.sigma-fluctuation
-    to: stmt.memory-drift-vs-se
-  - from: stmt.breath-field-global-integrator
-    to: stmt.perceived-time-breath-index
-  - from: stmt.rtv-operator
-    to: stmt.perceived-time-breath-index
-  - from: stmt.sigma-fluctuation
-    to: stmt.perceived-time-breath-index
-
-  # Triad links
-  - from: stmt.immediate-datum
-    to: stmt.subject-definition
-  - from: stmt.subject-definition
-    to: stmt.experience-definition
-  - from: stmt.subject-definition
-    to: stmt.awareness-definition
-  - from: stmt.identity-through-change
-    to: stmt.subject-arisal-ground
-  - from: stmt.subject-arisal-ground
-    to: stmt.subject-recursive-field
-  - from: stmt.experience-definition
-    to: stmt.awareness-definition
-  # Consciousness / limits
-  - from: stmt.self-model-evolution
-    to: stmt.consciousness-loop
-  - from: stmt.consciousness-loop
-    to: stmt.godel-limits-self-containment
-  - from: stmt.godel-hole-pointer
-    to: stmt.godel-limits-self-containment
-  # Quantale composition
-  - from: stmt.quantale-logic
-    to: stmt.quantale-evidence-composition
-  # PRMs (illustrative edges)
-  - from: stmt.gauge-alignment-field
-    to: stmt.prm-bend-metric
-  - from: stmt.stabilization-energy
-    to: stmt.prm-variable-birth
-  - from: stmt.similarity-operator
-    to: stmt.prm-closure-quotient
-  - from: stmt.breath-field-global-integrator
-    to: stmt.prm-depth-breadth-flip
+- from: stmt.root
+  to: stmt.performative-contradiction
+- from: stmt.root
+  to: stmt.immediate-datum
+- from: stmt.performative-contradiction
+  to: stmt.immediate-datum
+- from: stmt.immediate-datum
+  to: stmt.change-cannot-begin
+- from: stmt.change-cannot-begin
+  to: stmt.continuity-noncessation
+- from: stmt.immediate-datum
+  to: stmt.no-null-world
+- from: stmt.immediate-datum
+  to: stmt.change-ontically-prior
+- from: stmt.immediate-datum
+  to: stmt.observation-subordinate
+- from: stmt.continuity-noncessation
+  to: stmt.identity-through-change
+- from: stmt.reach-relation
+  to: stmt.identity-through-change
+- from: stmt.identity-through-change
+  to: stmt.self-similarity-threshold
+- from: stmt.identity-through-change
+  to: stmt.stabilization-energy
+- from: stmt.stabilization-energy
+  to: stmt.se-supports-identity
+- from: stmt.tx-operator
+  to: stmt.nonclosure-under-tx
+- from: stmt.markov-closure-assumption
+  to: stmt.nonclosure-under-tx
+- from: stmt.nonclosure-under-tx
+  to: stmt.godel-hole-pointer
+- from: stmt.continuity-noncessation
+  to: stmt.rtv-operator
+- from: stmt.stabilization-energy
+  to: stmt.breath-stabilization
+- from: stmt.rtv-operator
+  to: stmt.breath-stabilization
+- from: stmt.reach-relation
+  to: stmt.localreach-topology
+- from: stmt.tx-operator
+  to: stmt.tx-algebra
+- from: stmt.tx-operator
+  to: stmt.pointer-under-tx
+- from: stmt.rtv-operator
+  to: stmt.rtv-fixedpoints
+- from: stmt.rtv-fixedpoints
+  to: stmt.rtv-collapse-threshold
+- from: stmt.identity-through-change
+  to: stmt.change-fitness
+- from: stmt.domain-generalization-principles
+  to: stmt.predictive-statement-nonclassical
+- from: stmt.identity-through-change
+  to: stmt.similarity-operator
+- from: stmt.similarity-operator
+  to: stmt.identity-invariants
+- from: stmt.reach-relation
+  to: stmt.locality-prior
+- from: stmt.locality-prior
+  to: stmt.depth-reach
+- from: stmt.identity-through-change
+  to: stmt.delta-field-tension
+- from: stmt.pointer-structural
+  to: stmt.cl-minimal-threshold-def
+- from: stmt.difference-operator
+  to: stmt.cl-minimal-threshold-def
+- from: stmt.rtv-operator
+  to: stmt.sigma-fluctuation
+- from: stmt.rtv-operator
+  to: stmt.structural-recurrence-likelihood
+- from: stmt.structural-recurrence-likelihood
+  to: stmt.srl-vs-se-theta
+- from: stmt.tx-operator
+  to: stmt.nonclassical-indicators
+- from: stmt.structural-recurrence-likelihood
+  to: stmt.change-benchmark-protocol
+- from: stmt.change-benchmark-protocol
+  to: stmt.benchmark-scores
+- from: stmt.godel-hole-pointer
+  to: stmt.godel-hole-tracking-protocol
+- from: stmt.godel-hole-tracking-protocol
+  to: stmt.gh-review-loop
+- from: stmt.cross-audit-markov-gh-tx
+  to: stmt.limits-and-rigor
+- from: stmt.structural-recurrence-likelihood
+  to: stmt.change-fitness
+- from: stmt.change-fitness
+  to: stmt.fitness-vs-srl-se
+- from: stmt.domain-generalization-principles
+  to: stmt.qm-no-privileged-substrate
+- from: stmt.domain-generalization-principles
+  to: stmt.complexity-no-fundamental-simplicity
+- from: stmt.tx-operator
+  to: stmt.predictive-statement-nonclassical
+- from: stmt.nonclassical-indicators
+  to: stmt.extended-audit-indicators
+- from: stmt.godel-hole-pointer
+  to: stmt.across-scales-godel-structure
+- from: stmt.rtv-operator
+  to: stmt.attention-focus
+- from: stmt.identity-invariants
+  to: stmt.attention-focus
+- from: stmt.attention-focus
+  to: stmt.action-selection
+- from: stmt.evaluation-surface
+  to: stmt.action-selection
+- from: stmt.action-selection
+  to: stmt.recursive-expectation
+- from: stmt.localreach-topology
+  to: stmt.eventlet
+- from: stmt.eventlet
+  to: stmt.path-eventlet-chain
+- from: stmt.reach-relation
+  to: stmt.path-eventlet-chain
+- from: stmt.stabilization-energy
+  to: stmt.entropy-vs-se
+- from: stmt.entropy-vs-se
+  to: stmt.pattern-vs-noise-thresholds
+- from: stmt.quantale-logic
+  to: stmt.quantale-residuation-implication
+- from: stmt.evaluation-surface
+  to: stmt.quantale-residuation-implication
+- from: stmt.structural-recurrence-likelihood
+  to: stmt.quantale-residuation-implication
+- from: stmt.quantale-logic
+  to: stmt.df-co-spread-number
+- from: stmt.boolean-as-collapse
+  to: stmt.quantale-boolean-flattening-proof
+- from: stmt.evaluation-surface
+  to: stmt.quantale-boolean-flattening-proof
+- from: stmt.quantale-evidence-composition
+  to: stmt.benchmark-scores
+- from: stmt.gauge-alignment-field
+  to: stmt.qualia-gauge-curvature
+- from: stmt.gauge-alignment-field
+  to: stmt.df-mrai-score
+- from: stmt.cl-act-relative-detectability
+  to: stmt.cl-gauge-note-classical
+- from: stmt.breath-field-global-integrator
+  to: stmt.exploration-floor
+- from: stmt.breath-field-global-integrator
+  to: stmt.df-loopiness
+- from: stmt.memory-trace-integration
+  to: stmt.cl-failure-memory-negative-data
+- from: stmt.evaluation-surface
+  to: stmt.cl-error-contracts
+- from: stmt.evaluation-surface
+  to: stmt.cl-invariance-as-derivative
+- from: stmt.gauge-alignment-field
+  to: stmt.cl-identity-orchestrator
+- from: stmt.prm-variable-birth
+  to: stmt.cl-identity-orchestrator
+- from: stmt.locality-prior
+  to: stmt.cl-hindsight-canonicalization
+- from: stmt.evaluation-surface
+  to: stmt.cl-symmetry-tie-breaking
+- from: stmt.pointer-structural
+  to: stmt.cl-pointer-span-metrics
+- from: stmt.difference-operator
+  to: stmt.cl-pointer-span-metrics
+- from: stmt.pointer-structural
+  to: stmt.cl-subject-led-detection
+- from: stmt.cl-subject-led-detection
+  to: stmt.df-time-kernel
+- from: stmt.df-time-kernel
+  to: stmt.df-global-broadcast
+- from: stmt.df-global-broadcast
+  to: stmt.df-reflection-operator
+- from: stmt.df-reflection-operator
+  to: stmt.cl-change-of-change
+- from: stmt.cl-delta-feeling
+  to: stmt.cl-urgency-plasticity
+- from: stmt.cl-urgency-plasticity
+  to: stmt.df-ich-attractor
+- from: stmt.gauge-alignment-field
+  to: stmt.cl-subject-led-detection
+- from: stmt.cl-metaphor-ontology-ban
+  to: stmt.cl-meta-shape-mapping
+- from: stmt.cl-drift-guarded-lln
+  to: stmt.cl-kappa-merge
+- from: stmt.cl-co-pillars
+  to: stmt.cl-co-lateg-plan
+- from: stmt.cl-operational-primitives-falsifiability
+  to: stmt.cl-classical-embedding
+- from: stmt.cl-classical-inadequacy
+  to: stmt.cl-change-eternal-hole
+- from: stmt.cl-godel-hole-mapping
+  to: stmt.cl-exposure-probability
+- from: stmt.cl-godel-hole-mapping
+  to: stmt.cl-change-metaspace-perforation
+- from: stmt.cl-godel-hole-mapping
+  to: stmt.cl-collapse-field-change
+- from: stmt.cl-godel-hole-mapping
+  to: stmt.cl-godel-hole-attractor-limits
+- from: stmt.cl-godel-hole-mapping
+  to: stmt.cl-godel-hole-classification
+- from: stmt.cl-godel-hole-mapping
+  to: stmt.cl-godel-hole-spawning
+- from: stmt.cl-godel-hole-spawning
+  to: stmt.cl-godel-layer-epistemic-limit
+- from: stmt.cl-godel-layer-epistemic-limit
+  to: stmt.cl-godel-hole-legacy
+- from: stmt.cl-participatory-field
+  to: stmt.cl-subjectivity-datum
+- from: stmt.cl-subjectivity-datum
+  to: stmt.cl-mind-reality-analogy
+- from: stmt.cl-mind-reality-analogy
+  to: stmt.cl-consciousness-continuum
+- from: stmt.cl-consciousness-continuum
+  to: stmt.cl-consciousness-hole-sensitivity
+- from: stmt.cl-consciousness-hole-sensitivity
+  to: stmt.cl-hard-problem-gap
+- from: stmt.cl-consciousness-hole-sensitivity
+  to: stmt.cl-presence-axiom
+- from: stmt.cl-consciousness-hole-sensitivity
+  to: stmt.cl-presence-trace
+- from: stmt.cl-consciousness-hole-sensitivity
+  to: stmt.cl-change-of-change
+- from: stmt.cl-change-of-change
+  to: stmt.cl-delta-feeling
+- from: stmt.cl-consciousness-hole-sensitivity
+  to: stmt.cl-identity-bridge-law
+- from: stmt.cl-identity-bridge-law
+  to: stmt.cl-inversion-constraint
+- from: stmt.cl-identity-bridge-law
+  to: stmt.cl-anti-zombie-loop
+- from: stmt.consciousness-loop
+  to: stmt.cl-anti-zombie-loop
+- from: stmt.cl-identity-bridge-law
+  to: stmt.cl-identity-bridge-tests
+- from: stmt.cl-anti-zombie-loop
+  to: stmt.cl-identity-bridge-tests
+- from: stmt.cl-hard-problem-gap
+  to: stmt.cl-hard-problem-remaining-issues
+- from: stmt.cl-identity-bridge-law
+  to: stmt.cl-hard-problem-remaining-issues
+- from: stmt.cl-hard-problem-gap
+  to: stmt.cl-hard-problem-honest-audit
+- from: stmt.cl-identity-bridge-law
+  to: stmt.cl-hard-problem-honest-audit
+- from: stmt.attention-focus
+  to: stmt.cl-dual-present-roles
+- from: stmt.stabilization-energy
+  to: stmt.cl-dual-present-roles
+- from: stmt.cl-inversion-constraint
+  to: stmt.cl-phenomenal-category-equivalence
+- from: stmt.subject-recursive-field
+  to: stmt.cl-field-variable-duality
+- from: stmt.breath-field-global-integrator
+  to: stmt.cl-field-variable-duality
+- from: stmt.consciousness-loop
+  to: stmt.cl-consciousness-operational-scalar
+- from: stmt.cl-consciousness-levers
+  to: stmt.cl-consciousness-operational-scalar
+- from: stmt.cl-identity-bridge-tests
+  to: stmt.cl-phenomenal-structure-invariants
+- from: stmt.cl-consciousness-operational-scalar
+  to: stmt.cl-phenomenal-structure-invariants
+- from: stmt.cl-phenomenal-structure-invariants
+  to: stmt.cl-phenomenal-transform-gauge
+- from: stmt.cl-phenomenal-transform-gauge
+  to: stmt.cl-role-alignment-protocol
+- from: stmt.cl-role-alignment-protocol
+  to: stmt.cl-subjective-transport-error
+- from: stmt.cl-hard-problem-honest-audit
+  to: stmt.cl-hard-problem-closure-criteria
+- from: stmt.cl-subjective-transport-error
+  to: stmt.cl-hard-problem-closure-criteria
+- from: stmt.cl-hard-problem-closure-criteria
+  to: stmt.cl-phenomenal-gauge-story
+- from: stmt.cl-phenomenal-gauge-story
+  to: stmt.cl-gauge-experiment-plan
+- from: stmt.cl-gauge-experiment-plan
+  to: stmt.cl-gauge-risk-mitigation
+- from: stmt.gauge-alignment-field
+  to: stmt.cl-nonstationary-affect-kernels
+- from: stmt.cl-field-variable-duality
+  to: stmt.cl-typed-error-manifold
+- from: stmt.cl-gauge-experiment-plan
+  to: stmt.cl-gauge-tightening-checklist
+- from: stmt.cl-identity-bridge-tests
+  to: stmt.cl-red-team-alignment-tests
+- from: stmt.cl-identity-bridge-tests
+  to: stmt.cl-go-no-go-criteria
+- from: stmt.cl-phenomenal-gauge-story
+  to: stmt.cl-practical-closure-claim
+- from: stmt.cl-practical-closure-claim
+  to: stmt.cl-implications-of-success
+- from: stmt.cl-practical-closure-claim
+  to: stmt.cl-identity-gap-warning
+- from: stmt.cl-hard-problem-closure-criteria
+  to: stmt.cl-identity-proof-program
+- from: stmt.cl-practical-closure-claim
+  to: stmt.cl-change-ontology-entailment
+- from: stmt.cl-change-ontology-entailment
+  to: stmt.cl-phenomenal-normal-form
+- from: stmt.cl-phenomenal-normal-form
+  to: stmt.cl-normal-form-requirements
+- from: stmt.cl-phenomenal-normal-form
+  to: stmt.cl-phenomenal-signature-toy
+- from: stmt.cl-practical-closure-claim
+  to: stmt.cl-hard-problem-status
+- from: stmt.cl-identity-proof-program
+  to: stmt.cl-hardcore-solution-plan
+- from: stmt.cl-hard-soft-problem-lay
+  to: stmt.cl-vo-simple-explanation
+- from: stmt.cl-vo-simple-explanation
+  to: stmt.cl-qualia-as-gating-profiles
+- from: stmt.cl-cohp-phenomenal-invariants
+  to: stmt.cl-phi-instrumentation
+- from: stmt.cl-cohp-phenomenal-invariants
+  to: stmt.cl-flow-state-signature
+- from: stmt.cl-change-operator-faces
+  to: stmt.cl-subject-cut-and-flow
+- from: stmt.cl-subject-cut-and-flow
+  to: stmt.cl-subject-selection-field
+- from: stmt.cl-subject-selection-field
+  to: stmt.cl-attractor-recurring-patterns
+- from: stmt.cl-predictive-loop-control-profile
+  to: stmt.cl-co-minimal-framework
+- from: stmt.cl-co-minimal-framework
+  to: stmt.cl-co-explicit-math
+- from: stmt.cl-co-explicit-math
+  to: stmt.cl-operational-godel-pressure
+- from: stmt.cl-co-explicit-math
+  to: stmt.cl-co-differential-assumptions
+- from: stmt.cl-operational-godel-pressure
+  to: stmt.cl-gap-closure-tasks
+- from: stmt.cl-operational-godel-pressure
+  to: stmt.cl-change-world-predictions
+- from: stmt.cl-operational-godel-pressure
+  to: stmt.cl-godel-pressure-modes
+- from: stmt.cl-operational-godel-pressure
+  to: stmt.cl-godel-instrumentation-dashboard
+- from: stmt.cl-godel-pressure-modes
+  to: stmt.cl-godel-foundational-roadmap
+- from: stmt.cl-godel-foundational-roadmap
+  to: stmt.cl-godel-formalization-questions
+- from: stmt.cl-godel-formalization-questions
+  to: stmt.cl-godel-proxy-mapping
+- from: stmt.cl-godel-proxy-mapping
+  to: stmt.cl-godel-novelty-operator
+- from: stmt.cl-co-differential-assumptions
+  to: stmt.cl-gap-closure-tasks
+- from: stmt.cl-gap-closure-tasks
+  to: stmt.cl-meta-change-operator
+- from: stmt.cl-meta-change-operator
+  to: stmt.cl-continuity-refinable-distinctions
+- from: stmt.cl-continuity-refinable-distinctions
+  to: stmt.cl-discrete-vs-continuous-compatibility
+- from: stmt.cl-continuity-refinable-distinctions
+  to: stmt.cl-change-continuity-logic
+- from: stmt.cl-change-continuity-logic
+  to: stmt.cl-change-core-axiom
+- from: stmt.cl-change-continuity-logic
+  to: stmt.cl-godel-threshold-projection
+- from: stmt.cl-change-continuity-logic
+  to: stmt.cl-co-axiom-stack
+- from: stmt.cl-change-core-axiom
+  to: stmt.cl-co-axiom-stack
+- from: stmt.cl-co-axiom-stack
+  to: stmt.cl-co-open-questions
+- from: stmt.cl-co-axiom-stack
+  to: stmt.cl-process-vs-block-compatibility
+- from: stmt.cl-co-axiom-stack
+  to: stmt.cl-methodological-non-stasis
+- from: stmt.cl-change-core-axiom
+  to: stmt.cl-no-brute-boundary-norm
+- from: stmt.cl-change-core-axiom
+  to: stmt.cl-change-world-predictions
+- from: stmt.cl-metaphor-ontology-ban
+  to: stmt.cl-godel-vocabulary-discipline
+- from: stmt.cl-godel-vocabulary-discipline
+  to: stmt.cl-godel-theorem-discipline
+- from: stmt.cl-godel-theorem-discipline
+  to: stmt.cl-godel-hole-metrics
+- from: stmt.cl-godel-hole-metrics
+  to: stmt.cl-godel-gap-operational-index
+- from: stmt.cl-godel-gap-operational-index
+  to: stmt.cl-godel-gap-map
+- from: stmt.cl-godel-gap-operational-index
+  to: stmt.cl-godel-gap-variable-creation
+- from: stmt.cl-godel-hole-metrics
+  to: stmt.cl-godel-hole-practice
+- from: stmt.cl-change-core-axiom
+  to: stmt.cl-godel-methodological-scope
+- from: stmt.cl-godel-methodological-scope
+  to: stmt.cl-godel-program-alignment
+- from: stmt.cl-godel-program-alignment
+  to: stmt.cl-godel-gluing-failures
+- from: stmt.cl-doubting-subject-derivation-scope
+  to: stmt.cl-godel-phenomenal-holes
+- from: stmt.cl-godel-phenomenal-holes
+  to: stmt.cl-godel-attractor-innovation
+- from: stmt.cl-godel-attractor-innovation
+  to: stmt.cl-godel-boundary-innovation
+- from: stmt.cl-godel-boundary-innovation
+  to: stmt.cl-godel-closure-metrics
+- from: stmt.cl-godel-closure-metrics
+  to: stmt.cl-godel-gap-map
+- from: stmt.cl-godel-gap-map
+  to: stmt.cl-godel-gap-operator-field
+- from: stmt.cl-godel-novelty-operator
+  to: stmt.cl-godel-gap-operator-field
+- from: stmt.cl-godel-gap-operator-field
+  to: stmt.cl-godel-gap-policy
+- from: stmt.cl-godel-gap-variable-creation
+  to: stmt.cl-godel-gap-policy
+- from: stmt.cl-godel-gap-policy
+  to: stmt.cl-godel-gap-roadmap
+- from: stmt.cl-godel-gap-variable-creation
+  to: stmt.cl-godel-gap-roadmap
+- from: stmt.cl-godel-gap-roadmap
+  to: stmt.cl-path-logic-vs-markov
+- from: stmt.cl-consciousness-levers
+  to: stmt.cl-consciousness-gates-and-partitions
+- from: stmt.cl-subject-cut-and-flow
+  to: stmt.cl-cosmic-subject-analogy
+- from: stmt.cl-change-operator-faces
+  to: stmt.cl-change-laws-as-policies
+- from: stmt.cl-path-logic-vs-markov
+  to: stmt.cl-logic-from-change
+- from: stmt.cl-godel-gap-policy
+  to: stmt.cl-godel-navigation-calculus
+- from: stmt.cl-godel-gap-policy
+  to: stmt.cl-godel-gap-novelty-frontier
+- from: stmt.cl-godel-navigation-calculus
+  to: stmt.cl-godel-geography
+- from: stmt.cl-godel-gap-novelty-frontier
+  to: stmt.cl-godel-geography
+- from: stmt.cl-godel-hole-metrics
+  to: stmt.cl-godel-geography
+- from: stmt.cl-godel-instrumentation-dashboard
+  to: stmt.cl-godel-program-alignment
+- from: stmt.cl-no-brute-boundary-norm
+  to: stmt.cl-change-world-predictions
+- from: stmt.cl-doubting-subject-methodology
+  to: stmt.cl-doubting-subject-derivation-scope
+- from: stmt.immediate-datum
+  to: stmt.cl-doubting-subject-derivation-scope
+- from: stmt.cl-cohp-phenomenal-invariants
+  to: stmt.cl-predictive-loop-control-profile
+- from: stmt.cl-predictive-loop-control-profile
+  to: stmt.cl-godel-hole-boundary-lens
+- from: stmt.cl-godel-hole-boundary-lens
+  to: stmt.cl-vo-species-predictions
+- from: stmt.cl-vo-species-predictions
+  to: stmt.cl-vo-pattern-alignment
+- from: stmt.cl-identity-proof-program
+  to: stmt.cl-perspective-gauge-no-flip
+- from: stmt.cl-perspective-gauge-no-flip
+  to: stmt.cl-cohp-research-program
+- from: stmt.cl-godel-hole-mapping
+  to: stmt.cl-consciousness-hole-sensitivity
+- from: stmt.cl-godel-hole-mapping
+  to: stmt.cl-hard-vs-soft-jump
+- from: stmt.cl-hard-vs-soft-jump
+  to: stmt.cl-mind-hard-jump
+- from: stmt.cl-godel-hole-classification
+  to: stmt.cl-godel-hole-meta-advantage
+- from: stmt.cl-change-metaspace-perforation
+  to: stmt.cl-metaspace-shape
+- from: stmt.cl-hole-density
+  to: stmt.cl-change-space-metric
+- from: stmt.cl-exposure-probability
+  to: stmt.cl-change-space-metric
+- from: stmt.cl-meta-heuristic-probability
+  to: stmt.cl-meta-shape-prediction
+- from: stmt.cl-meta-shape-mapping
+  to: stmt.cl-meta-shape-prediction
+- from: stmt.cl-meta-shape-prediction
+  to: stmt.cl-field-structure-predictions
+- from: stmt.cl-meta-heuristic-probability
+  to: stmt.cl-field-structure-predictions
+- from: stmt.cl-spiral-probability-band
+  to: stmt.cl-field-structure-predictions
+- from: stmt.cl-field-structure-predictions
+  to: stmt.cl-field-formalism-roadmap
+- from: stmt.cl-spiral-meta-pattern
+  to: stmt.cl-spiral-layered-extension
+- from: stmt.cl-spiral-meta-pattern
+  to: stmt.cl-spiral-probability-band
+- from: stmt.cl-spiral-layered-extension
+  to: stmt.cl-godel-hole-probability
+- from: stmt.cl-meta-shape-prediction
+  to: stmt.cl-recursive-dimension-scope
+- from: stmt.cl-meta-shape-prediction
+  to: stmt.cl-dynamic-variable-structure
+- from: stmt.cl-dynamic-variable-structure
+  to: stmt.cl-actions-footprints
+- from: stmt.cl-dynamic-variable-structure
+  to: stmt.cl-property-change-operator
+- from: stmt.cl-property-change-operator
+  to: stmt.cl-collapse-resistant-architecture
+- from: stmt.cl-collapse-resistant-architecture
+  to: stmt.cl-structure-emerges-from-change
+- from: stmt.cl-metaspace-shape
+  to: stmt.cl-recursive-dimension-scope
+- from: stmt.cl-field-formalism-roadmap
+  to: stmt.cl-spiral-meta-pattern
+- from: stmt.cl-spiral-meta-pattern
+  to: stmt.cl-godel-hole-probability
+- from: stmt.cl-godel-hole-mapping
+  to: stmt.cl-godel-hole-probability
+- from: stmt.cl-classical-embedding
+  to: stmt.cl-classical-inadequacy
+- from: stmt.cl-co-pillars
+  to: stmt.cl-timestep-gauge
+- from: stmt.cl-co-pillars
+  to: stmt.cl-feature-gating
+- from: stmt.rtv-operator
+  to: stmt.consciousness-periodicity
+- from: stmt.godel-hole-pointer
+  to: stmt.necessary-openness
+- from: stmt.stabilization-energy
+  to: stmt.consciousness-periodicity
+- from: stmt.breath-stabilization
+  to: stmt.consciousness-periodicity
+- from: stmt.rtv-fixedpoints
+  to: stmt.consciousness-periodicity
+- from: stmt.memory-trace-integration
+  to: stmt.df-ops-discovery-pipeline
+- from: stmt.consciousness-loop
+  to: stmt.consciousness-periodicity
+- from: stmt.consciousness-loop
+  to: stmt.qualia-gauge-curvature
+- from: stmt.consciousness-loop
+  to: stmt.introspection-nested-loops
+- from: stmt.godel-limits-self-containment
+  to: stmt.necessary-openness
+- from: stmt.godel-limits-self-containment
+  to: stmt.exploration-floor
+- from: stmt.godel-limits-self-containment
+  to: stmt.ethical-humility
+- from: stmt.intersubject-gauge
+  to: stmt.ethical-humility
+- from: stmt.quantale-logic
+  to: stmt.proof-as-reachability
+- from: stmt.quantale-logic
+  to: stmt.boolean-as-collapse
+- from: stmt.quantale-evidence-composition
+  to: stmt.proof-as-reachability
+- from: stmt.root
+  to: stmt.as-use-preexisting-concepts
+- from: stmt.evaluation-surface
+  to: stmt.meta-critical-recursive-change
+- from: stmt.structural-recurrence-likelihood
+  to: stmt.meta-critical-recursive-change
+- from: stmt.identity-invariants
+  to: stmt.identity-phase-resonance
+- from: stmt.stabilization-energy
+  to: stmt.identity-phase-resonance
+- from: stmt.rtv-operator
+  to: stmt.identity-phase-resonance
+- from: stmt.continuity-noncessation
+  to: stmt.change-not-mere-flux
+- from: stmt.change-cannot-begin
+  to: stmt.change-not-mere-flux
+- from: stmt.attractor-field
+  to: stmt.stability-duality-via-attractors
+- from: stmt.breath-field-global-integrator
+  to: stmt.stability-duality-via-attractors
+- from: stmt.intersubject-gauge
+  to: stmt.anti-solipsistic-closure
+- from: stmt.godel-limits-self-containment
+  to: stmt.anti-solipsistic-closure
+- from: stmt.intersubject-gauge
+  to: stmt.external-asymmetry-prevents-closure
+- from: stmt.tx-operator
+  to: stmt.external-asymmetry-prevents-closure
+- from: stmt.breath-field-global-integrator
+  to: stmt.representation-scope-rhythm
+- from: stmt.evaluation-surface
+  to: stmt.recursive-identity-vs-semantic-error
+- from: stmt.self-model-evolution
+  to: stmt.recursive-identity-vs-semantic-error
+- from: stmt.meta-critical-recursive-change
+  to: stmt.criticism-increases-srl-se
+- from: stmt.meta-critical-recursive-change
+  to: stmt.cl-participatory-field
+- from: stmt.meta-critical-recursive-change
+  to: stmt.cl-collapse-resistance-wisdom
+- from: stmt.structural-recurrence-likelihood
+  to: stmt.criticism-increases-srl-se
+- from: stmt.stabilization-energy
+  to: stmt.criticism-increases-srl-se
+- from: stmt.identity-invariants
+  to: stmt.laws-as-robust-invariants
+- from: stmt.stabilization-energy
+  to: stmt.laws-as-robust-invariants
+- from: stmt.structural-recurrence-likelihood
+  to: stmt.laws-as-robust-invariants
+- from: stmt.intersubject-gauge
+  to: stmt.residual-meaning-traces
+- from: stmt.stabilization-energy
+  to: stmt.residual-meaning-traces
+- from: stmt.eventlet
+  to: stmt.interaction-points-eventlets
+- from: stmt.path-eventlet-chain
+  to: stmt.interaction-points-eventlets
+- from: stmt.pointer-structural
+  to: stmt.interaction-points-eventlets
+- from: stmt.cl-godel-hole-mapping
+  to: stmt.df-godel-pressure-score
+- from: stmt.cl-actions-footprints
+  to: stmt.cl-participatory-field
+- from: stmt.cl-participatory-field
+  to: stmt.cl-process-is-change
+- from: stmt.cl-participatory-field
+  to: stmt.cl-mind-reality-analogy
+- from: stmt.cl-mind-reality-analogy
+  to: stmt.cl-consciousness-continuum
+- from: stmt.cl-consciousness-continuum
+  to: stmt.cl-consciousness-hole-sensitivity
+- from: stmt.cl-actions-footprints
+  to: stmt.cl-structure-emerges-from-change
+- from: stmt.cl-process-is-change
+  to: stmt.cl-unreal-change
+- from: stmt.cl-structure-emerges-from-change
+  to: stmt.cl-unreal-change
+- from: stmt.cl-participatory-field
+  to: stmt.cl-change-unstoppable
+- from: stmt.cl-participatory-field
+  to: stmt.cl-mind-reality-analogy
+- from: stmt.cl-mind-reality-analogy
+  to: stmt.cl-consciousness-continuum
+- from: stmt.cl-consciousness-continuum
+  to: stmt.cl-consciousness-hole-sensitivity
+- from: stmt.cl-structure-emerges-from-change
+  to: stmt.cl-change-unstoppable
+- from: stmt.cl-collapse-resistance-wisdom
+  to: stmt.cl-audit-attractor-trap
+- from: stmt.structural-recurrence-likelihood
+  to: stmt.distribution-shaping-under-srl
+- from: stmt.evaluation-surface
+  to: stmt.distribution-shaping-under-srl
+- from: stmt.nonclassical-indicators
+  to: stmt.distribution-shaping-under-srl
+- from: stmt.attention-focus
+  to: stmt.multi-axis-attention-pain-proximity
+- from: stmt.breath-field-global-integrator
+  to: stmt.multi-axis-attention-pain-proximity
+- from: stmt.rtv-operator
+  to: stmt.pattern-vs-noise-thresholds
+- from: stmt.rtv-fixedpoints
+  to: stmt.pattern-vs-noise-thresholds
+- from: stmt.stabilization-energy
+  to: stmt.pattern-vs-noise-thresholds
+- from: stmt.subject-definition
+  to: stmt.consciousness-loop
+- from: stmt.awareness-definition
+  to: stmt.consciousness-loop
+- from: stmt.experience-definition
+  to: stmt.consciousness-loop
+- from: stmt.intersubject-gauge
+  to: stmt.micro-acts-stabilize-gauge
+- from: stmt.stabilization-energy
+  to: stmt.micro-acts-stabilize-gauge
+- from: stmt.intersubject-gauge
+  to: stmt.intersubject-translation-resonance
+- from: stmt.intersubject-gauge
+  to: stmt.ethics-gauge-strain-min
+- from: stmt.stabilization-energy
+  to: stmt.ethics-gauge-strain-min
+- from: stmt.gauge-alignment-field
+  to: stmt.prm-dissociation-cascade
+- from: stmt.stabilization-energy
+  to: stmt.prm-dissociation-cascade
+- from: stmt.entropy-co
+  to: stmt.prm-dissociation-cascade
+- from: stmt.core-change-self-stabilizing
+  to: stmt.operational-change-minimal-axiom
+- from: stmt.eventlet
+  to: stmt.operational-change-minimal-axiom
+- from: stmt.difference-operator
+  to: stmt.operational-change-minimal-axiom
+- from: stmt.root
+  to: stmt.as-minimal-definitions
+- from: stmt.as-use-preexisting-concepts
+  to: stmt.co-logic-graded-order
+- from: stmt.as-use-preexisting-concepts
+  to: stmt.quantale-logic
+- from: stmt.immediate-datum
+  to: stmt.cf-immediate-reading-generalization
+- from: stmt.subject-definition
+  to: stmt.cf-subject-no-experience
+- from: stmt.pointer-structural
+  to: stmt.cf-pointer-diff-equals
+- from: stmt.difference-operator
+  to: stmt.cf-pointer-diff-equals
+- from: stmt.reach-relation
+  to: stmt.memory-trace-integration
+- from: stmt.memory-trace-integration
+  to: stmt.reactivation-of-tension
+- from: stmt.action-selection
+  to: stmt.action-influences-expectation
+- from: stmt.evaluation-surface
+  to: stmt.action-influences-expectation
+- from: stmt.structural-recurrence-likelihood
+  to: stmt.action-influences-expectation
+- from: stmt.immediate-datum
+  to: stmt.pointer-structural
+- from: stmt.pointer-structural
+  to: stmt.reach-relation
+- from: stmt.immediate-datum
+  to: stmt.delta-now-implies-pointer
+- from: stmt.continuity-noncessation
+  to: stmt.prior-with-change
+- from: stmt.immediate-datum
+  to: stmt.prior-with-change
+- from: stmt.structural-recurrence-likelihood
+  to: stmt.recursive-expectation
+- from: stmt.evaluation-surface
+  to: stmt.recursive-expectation
+- from: stmt.immediate-datum
+  to: stmt.tx-operator
+- from: stmt.pointer-structural
+  to: stmt.tx-operator
+- from: stmt.reach-relation
+  to: stmt.tx-operator
+- from: stmt.immediate-datum
+  to: stmt.arisal
+- from: stmt.immediate-datum
+  to: stmt.point-occurrence
+- from: stmt.immediate-datum
+  to: stmt.difference-operator
+- from: stmt.difference-operator
+  to: stmt.similarity-operator
+- from: stmt.arisal
+  to: stmt.subject-arisal-ground
+- from: stmt.intersubject-gauge
+  to: stmt.collective-coupling-se
+- from: stmt.stabilization-energy
+  to: stmt.collective-coupling-se
+- from: stmt.memory-trace-integration
+  to: stmt.memory-drift-vs-se
+- from: stmt.stabilization-energy
+  to: stmt.memory-drift-vs-se
+- from: stmt.sigma-fluctuation
+  to: stmt.memory-drift-vs-se
+- from: stmt.breath-field-global-integrator
+  to: stmt.perceived-time-breath-index
+- from: stmt.rtv-operator
+  to: stmt.perceived-time-breath-index
+- from: stmt.sigma-fluctuation
+  to: stmt.perceived-time-breath-index
+- from: stmt.immediate-datum
+  to: stmt.subject-definition
+- from: stmt.subject-definition
+  to: stmt.experience-definition
+- from: stmt.subject-definition
+  to: stmt.awareness-definition
+- from: stmt.identity-through-change
+  to: stmt.subject-arisal-ground
+- from: stmt.subject-arisal-ground
+  to: stmt.subject-recursive-field
+- from: stmt.experience-definition
+  to: stmt.awareness-definition
+- from: stmt.self-model-evolution
+  to: stmt.consciousness-loop
+- from: stmt.consciousness-loop
+  to: stmt.godel-limits-self-containment
+- from: stmt.godel-hole-pointer
+  to: stmt.godel-limits-self-containment
+- from: stmt.quantale-logic
+  to: stmt.quantale-evidence-composition
+- from: stmt.gauge-alignment-field
+  to: stmt.prm-bend-metric
+- from: stmt.stabilization-energy
+  to: stmt.prm-variable-birth
+- from: stmt.similarity-operator
+  to: stmt.prm-closure-quotient
+- from: stmt.breath-field-global-integrator
+  to: stmt.prm-depth-breadth-flip
+- from: stmt.cl-attention-field-hierarchy
+  to: stmt.cl-attention-affect-control-law
+- from: stmt.cl-urgency-plasticity
+  to: stmt.cl-attention-affect-control-law
+- from: stmt.cl-godel-gap-operational-index
+  to: stmt.cl-innovation-hazard-live-loop
+- from: stmt.cl-meta-change-operator
+  to: stmt.cl-innovation-hazard-live-loop
+- from: stmt.cl-subject-selection-field
+  to: stmt.cl-role-operator-library
+- from: stmt.cl-meta-shape-mapping
+  to: stmt.cl-role-operator-library
+- from: stmt.cl-methodological-non-stasis
+  to: stmt.cl-change-intellect-upgrade
+- from: stmt.gauge-alignment-field
+  to: stmt.prm-gauge
+- from: stmt.attention-focus
+  to: stmt.prm-precision-density
+- from: stmt.breath-field-global-integrator
+  to: stmt.prm-precision-density
+- from: stmt.prm-change-ops
+  to: stmt.prm-changeops-core
+- from: stmt.prm-closure-quotient
+  to: stmt.prm-changeops-core
+- from: stmt.intersubject-gauge
+  to: stmt.cl-intersubject-calibration-protocol
+- from: stmt.gauge-alignment-field
+  to: stmt.cl-intersubject-calibration-protocol
+- from: stmt.prm-bend-metric
+  to: stmt.cl-classical-limit-falsifier
+- from: stmt.prm-gauge
+  to: stmt.cl-classical-limit-falsifier
+- from: stmt.quantale-boolean-flattening-proof
+  to: stmt.cl-classical-limit-falsifier
+- from: stmt.immediate-datum
+  to: stmt.dr-core-from-immediate-datum
+- from: stmt.arisal
+  to: stmt.dr-core-from-immediate-datum
+- from: stmt.prm-bend-metric
+  to: stmt.dr-core-from-immediate-datum
+- from: stmt.prm-closure-quotient
+  to: stmt.dr-core-from-immediate-datum
+- from: stmt.prm-gauge
+  to: stmt.dr-core-from-immediate-datum
+- from: stmt.quantale-boolean-flattening-proof
+  to: stmt.dr-core-from-immediate-datum
+- from: stmt.prm-closure-quotient
+  to: stmt.cl-goal-conditioned-quotienting
+- from: stmt.prm-gauge
+  to: stmt.cl-goal-conditioned-quotienting
+- from: stmt.identity-invariants
+  to: stmt.cl-goal-conditioned-quotienting
+- from: stmt.prm-gauge
+  to: stmt.cl-letter-regime-policy
+- from: stmt.prm-closure-quotient
+  to: stmt.cl-letter-regime-policy
+- from: stmt.prm-precision-density
+  to: stmt.cl-letter-regime-policy
+- from: stmt.prm-changeops-core
+  to: stmt.cl-co-on-co-meta-operators
+- from: stmt.prm-gauge
+  to: stmt.cl-co-on-co-meta-operators
+- from: stmt.prm-closure-quotient
+  to: stmt.cl-co-on-co-meta-operators
+- from: stmt.evaluation-surface
+  to: stmt.df-spread-arithmetic
+- from: stmt.prm-bend-metric
+  to: stmt.dr-bend-metric-lawvere-attractors
+- from: stmt.prm-closure-quotient
+  to: stmt.dr-bend-metric-lawvere-attractors
+- from: stmt.prm-precision-density
+  to: stmt.dr-bend-metric-lawvere-attractors
+- from: stmt.dr-bend-metric-lawvere-attractors
+  to: stmt.dr-quotient-chain-lln
+- from: stmt.cl-drift-guarded-lln
+  to: stmt.dr-quotient-chain-lln
+- from: stmt.prm-closure-quotient
+  to: stmt.dr-quotient-chain-lln
+- from: stmt.immediate-datum
+  to: stmt.core-change-self-stabilizing
+- from: stmt.core-change-self-stabilizing
+  to: stmt.prm-bend-metric
+- from: stmt.core-change-self-stabilizing
+  to: stmt.prm-gauge
+- from: stmt.core-change-self-stabilizing
+  to: stmt.prm-depth-breadth-flip
+- from: stmt.core-change-self-stabilizing
+  to: stmt.prm-change-ops
+- from: stmt.core-change-self-stabilizing
+  to: stmt.attractor-field
+- from: stmt.core-change-self-stabilizing
+  to: stmt.breath-field-global-integrator
+- from: stmt.prm-bend-metric
+  to: stmt.evaluation-surface
+- from: stmt.prm-bend-metric
+  to: stmt.entropy-co
+- from: stmt.prm-gauge
+  to: stmt.gauge-alignment-field
+- from: stmt.gauge-alignment-field
+  to: stmt.cl-gauge-note-classical
+- from: stmt.gauge-alignment-field
+  to: stmt.cl-feature-gating
+- from: stmt.gauge-alignment-field
+  to: stmt.cl-variable-emergence
+- from: stmt.subject-definition
+  to: stmt.self-model-evolution
+- from: stmt.subject-definition
+  to: stmt.cl-subject-minus-assumption
+- from: stmt.subject-definition
+  to: stmt.cl-subject-selection-field
+- from: stmt.subject-definition
+  to: stmt.cl-subject-cut-and-flow
+- from: stmt.self-model-evolution
+  to: stmt.intersubject-gauge
+- from: stmt.cl-continuity-noncessation
+  to: stmt.cl-continuity-detector
+- from: stmt.cl-continuity-noncessation
+  to: stmt.cl-change-continuity-logic
+- from: stmt.cl-continuity-noncessation
+  to: stmt.cl-continuity-refinable-distinctions
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-formalization-questions
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-theorem-discipline
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-methodological-scope
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-layer-epistemic-limit
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-gap-operational-index
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-hole-boundary-lens
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-hole-classification
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-hole-metrics
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-gap-variable-creation
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-hole-practice
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-hole-probability
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-hole-spawning
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-threshold-projection
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-novelty-operator
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-pressure-modes
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-program-alignment
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-proxy-mapping
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-hole-meta-advantage
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-hole-attractor-limits
+- from: stmt.godel-limits-self-containment
+  to: stmt.cl-godel-hole-legacy
+- from: stmt.evaluation-surface
+  to: stmt.cl-change-laws-as-policies
+- from: stmt.evaluation-surface
+  to: stmt.domain-generalization-principles
+- from: stmt.prm-bend-metric
+  to: stmt.cl-exposure-probability
+- from: stmt.entropy-co
+  to: stmt.cl-symmetry-tie-breaking
+- from: stmt.entropy-co
+  to: stmt.cl-stability-dynamism
+- from: stmt.prm-bend-metric
+  to: stmt.cl-act-relative-detectability
+- from: stmt.prm-depth-breadth-flip
+  to: stmt.cl-spiral-layered-extension
+- from: stmt.prm-depth-breadth-flip
+  to: stmt.cl-spiral-meta-pattern
+- from: stmt.prm-bend-metric
+  to: stmt.cl-spiral-probability-band
+- from: stmt.core-change-self-stabilizing
+  to: stmt.cl-structure-emerges-from-change
+- from: stmt.core-change-self-stabilizing
+  to: stmt.cl-stability-dynamism
+- from: stmt.prm-change-ops
+  to: stmt.cl-change-space-metric
+- from: stmt.prm-change-ops
+  to: stmt.cl-property-change-operator
+- from: stmt.prm-change-ops
+  to: stmt.cl-attractor-recurring-patterns
+- from: stmt.prm-gauge
+  to: stmt.cl-timestep-gauge
+- from: stmt.prm-gauge
+  to: stmt.cl-drift-guarded-lln
+- from: stmt.prm-gauge
+  to: stmt.cl-variable-emergence
+- from: stmt.self-model-evolution
+  to: stmt.cl-consciousness-gates-and-partitions
+- from: stmt.self-model-evolution
+  to: stmt.cl-consciousness-levers
+- from: stmt.evaluation-surface
+  to: stmt.df-godel-pressure-score
+- from: stmt.evaluation-surface
+  to: stmt.df-j-criterion
+- from: stmt.prm-bend-metric
+  to: stmt.df-mrai-score
+- from: stmt.prm-bend-metric
+  to: stmt.df-loopiness
+- from: stmt.prm-bend-metric
+  to: stmt.df-spread-arithmetic
+- from: stmt.gauge-alignment-field
+  to: stmt.cl-innovation-hazard-live-loop
+- from: stmt.immediate-datum
+  to: stmt.limits-and-rigor
+- from: stmt.limits-and-rigor
+  to: stmt.cl-no-brute-boundary-norm
+- from: stmt.limits-and-rigor
+  to: stmt.cl-methodological-non-stasis
+- from: stmt.limits-and-rigor
+  to: stmt.cl-change-core-axiom
+- from: stmt.limits-and-rigor
+  to: stmt.cl-co-axiom-stack
+- from: stmt.markov-closure-assumption
+  to: stmt.cross-audit-markov-gh-tx
+- from: stmt.markov-closure-assumption
+  to: stmt.cl-discrete-vs-continuous-compatibility
+- from: stmt.markov-closure-assumption
+  to: stmt.cl-process-vs-block-compatibility
+- from: stmt.cl-continuity-noncessation
+  to: stmt.cl-change-eternal-hole
+- from: stmt.immediate-datum
+  to: stmt.cl-assumption-to-derived
+- from: stmt.cl-assumption-to-derived
+  to: stmt.cl-change-core-axiom
+- from: stmt.cl-co-axiom-stack
+  to: stmt.cl-change-world-predictions
+- from: stmt.cl-co-axiom-stack
+  to: stmt.cl-co-pillars
+- from: stmt.cl-co-axiom-stack
+  to: stmt.cl-co-differential-assumptions
+- from: stmt.cl-co-axiom-stack
+  to: stmt.cl-co-lateg-plan
+- from: stmt.cl-co-axiom-stack
+  to: stmt.cl-co-minimal-framework
+- from: stmt.cl-co-axiom-stack
+  to: stmt.cl-co-explicit-math
+- from: stmt.core-change-self-stabilizing
+  to: stmt.cl-actions-footprints
+- from: stmt.prm-bend-metric
+  to: stmt.cl-change-space-metric
+- from: stmt.prm-bend-metric
+  to: stmt.cl-dynamic-variable-structure
+- from: stmt.prm-bend-metric
+  to: stmt.cl-hole-density
+- from: stmt.prm-bend-metric
+  to: stmt.cl-predictive-loop-control-profile
+- from: stmt.prm-bend-metric
+  to: stmt.cl-recursive-dimension-scope
+- from: stmt.prm-bend-metric
+  to: stmt.cl-attractor-audit
+- from: stmt.prm-bend-metric
+  to: stmt.cl-continuity-detector
+- from: stmt.prm-gauge
+  to: stmt.cl-operational-godel-pressure
+- from: stmt.prm-gauge
+  to: stmt.cl-operational-primitives-falsifiability
+- from: stmt.prm-gauge
+  to: stmt.cl-feature-gating
+- from: stmt.gauge-alignment-field
+  to: stmt.cl-predictive-loop-control-profile
+- from: stmt.attractor-field
+  to: stmt.cl-attractor-recurring-patterns
+- from: stmt.breath-field-global-integrator
+  to: stmt.cl-flow-state-signature
+- from: stmt.breath-field-global-integrator
+  to: stmt.cl-spiral-layered-extension
+- from: stmt.breath-field-global-integrator
+  to: stmt.cl-spiral-meta-pattern
+- from: stmt.breath-field-global-integrator
+  to: stmt.cl-spiral-probability-band
+- from: stmt.self-model-evolution
+  to: stmt.cl-mind-hard-jump
+- from: stmt.self-model-evolution
+  to: stmt.cl-hard-soft-problem-lay
+- from: stmt.self-model-evolution
+  to: stmt.cl-qualia-as-gating-profiles
+- from: stmt.self-model-evolution
+  to: stmt.cl-phi-instrumentation
+- from: stmt.intersubject-gauge
+  to: stmt.cl-cohp-phenomenal-invariants
+- from: stmt.intersubject-translation-resonance
+  to: stmt.cl-meta-shape-prediction
+- from: stmt.intersubject-translation-resonance
+  to: stmt.cl-meta-shape-mapping
+- from: stmt.self-model-evolution
+  to: stmt.cl-vo-pattern-alignment
+- from: stmt.self-model-evolution
+  to: stmt.cl-vo-species-predictions
+- from: stmt.self-model-evolution
+  to: stmt.cl-vo-simple-explanation
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-theorem-discipline
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-methodological-scope
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-layer-epistemic-limit
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-gap-operational-index
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-hole-boundary-lens
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-hole-classification
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-hole-metrics
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-gap-variable-creation
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-hole-practice
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-hole-probability
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-hole-spawning
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-threshold-projection
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-novelty-operator
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-pressure-modes
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-program-alignment
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-proxy-mapping
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-hole-meta-advantage
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-hole-attractor-limits
+- from: stmt.cl-godel-limits-self-containment
+  to: stmt.cl-godel-hole-legacy
+- from: stmt.evaluation-surface
+  to: stmt.cl-classical-embedding
+- from: stmt.evaluation-surface
+  to: stmt.cl-classical-inadequacy
+- from: stmt.evaluation-surface
+  to: stmt.cl-classical-leak-audit
+- from: stmt.entropy-co
+  to: stmt.cl-exposure-probability
+- from: stmt.entropy-co
+  to: stmt.cl-gauge-note-classical
+- from: stmt.entropy-co
+  to: stmt.cl-innovation-hazard-live-loop
+- from: stmt.entropy-co
+  to: stmt.cl-godel-hole-mapping
+- from: stmt.cl-godel-hole-mapping
+  to: stmt.cl-gap-closure-tasks
+- from: stmt.cl-gap-closure-tasks
+  to: stmt.cl-co-open-questions
+- from: stmt.cl-gap-closure-tasks
+  to: stmt.cl-co-explicit-math
+- from: stmt.cl-gap-closure-tasks
+  to: stmt.cl-co-lateg-plan
+- from: stmt.cl-gap-closure-tasks
+  to: stmt.cl-co-minimal-framework
+- from: stmt.cl-gap-closure-tasks
+  to: stmt.cl-co-pillars
+- from: stmt.cl-gap-closure-tasks
+  to: stmt.cl-co-differential-assumptions
+- from: stmt.cl-gap-closure-tasks
+  to: stmt.cl-cohp-phenomenal-invariants
+- from: stmt.cl-metaphor-ontology-ban
+  to: stmt.cl-co-axiom-stack
+- from: stmt.cl-meta-heuristic-probability
+  to: stmt.cl-gap-closure-tasks
+- from: stmt.cl-unprovable-vs-unproven
+  to: stmt.cl-godel-vocabulary-discipline
+- from: stmt.markov-closure-assumption
+  to: stmt.cl-continuity-noncessation
+- from: stmt.cl-attention-field-hierarchy
+  to: stmt.cl-predictive-loop-control-profile
+- from: stmt.cl-experience-manifold-utility
+  to: stmt.cl-meta-heuristic-probability
+- from: stmt.cl-collapse-proof-rule
+  to: stmt.cl-co-axiom-stack
+- from: stmt.cl-doubting-subject-methodology
+  to: stmt.cl-co-axiom-stack
+- from: stmt.cl-godel-vocabulary-discipline
+  to: stmt.cl-gap-closure-tasks
+- from: stmt.cross-audit-markov-gh-tx
+  to: stmt.cl-gap-closure-tasks
+- from: stmt.limits-and-rigor
+  to: stmt.cl-unprovable-vs-unproven
+- from: stmt.limits-and-rigor
+  to: stmt.markov-closure-assumption
+- from: stmt.limits-and-rigor
+  to: stmt.cl-metaphor-ontology-ban
+- from: stmt.limits-and-rigor
+  to: stmt.cl-change-operator-faces
+- from: stmt.immediate-datum
+  to: stmt.cl-continuity-noncessation
+- from: stmt.evaluation-surface
+  to: stmt.cl-meta-heuristic-probability
+- from: stmt.evaluation-surface
+  to: stmt.cl-experience-manifold-utility
+- from: stmt.cl-gap-closure-tasks
+  to: stmt.cl-godel-vocabulary-discipline
+- from: stmt.cl-gap-closure-tasks
+  to: stmt.cl-doubting-subject-methodology
+- from: stmt.cl-gap-closure-tasks
+  to: stmt.cross-audit-markov-gh-tx
+- from: stmt.prm-bend-metric
+  to: stmt.cl-attention-field-hierarchy
+- from: stmt.prm-gauge
+  to: stmt.cl-attention-field-hierarchy
+- from: stmt.core-change-self-stabilizing
+  to: stmt.cl-collapse-proof-rule
+- from: stmt.subject-definition
+  to: stmt.structure-of-experience
+- from: stmt.awareness-definition
+  to: stmt.structure-of-experience
+- from: stmt.experience-definition
+  to: stmt.structure-of-experience
+- from: stmt.structure-of-experience
+  to: stmt.cl-capacity-vs-instance-experience
+- from: stmt.immediate-datum
+  to: stmt.cl-maximal-doubt-bottoms-out
+- from: stmt.structure-of-experience
+  to: stmt.cl-maximal-doubt-bottoms-out

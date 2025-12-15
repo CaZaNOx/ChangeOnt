@@ -1,19 +1,37 @@
 ---
 id: stmt.cl-doubting-subject-methodology
 type: CL
-aliases: ["DF 0.5_2", "DF 0.12", "DS", "RDS"]
-title: Methodological roles — Doubting Subject (DS) and Relaxed Doubting Subject (RDS)
-concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-subject-awareness-experience]]"]
-dependencies: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]", "[[01_Statements/Definition/S-DF-subject]]"]
-parents: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]"]
+aliases:
+- DF 0.5_2
+- DF 0.12
+- DS
+- RDS
+title: "Methodological roles \u2014 Doubting Subject (DS) and Relaxed Doubting Subject\
+  \ (RDS)"
+concepts:
+- '[[02_Concepts/C-ontology-of-change]]'
+- '[[02_Concepts/C-subject-awareness-experience]]'
+dependencies:
+- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/Definition/S-DF-subject]]'
+parents:
+- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/02_Foundations/FND_0_Phil-ImmediateDatum.md:200
-  - path: TheoryOfChange/02_Foundations/FND_0_Phil-ImmediateDatum.md:230
+- path: TheoryOfChange/02_Foundations/FND_0_Phil-ImmediateDatum.md:200
+- path: TheoryOfChange/02_Foundations/FND_0_Phil-ImmediateDatum.md:230
 flags: []
-tags: [clarification, methodology, triad, "type/CL", "concept/ontology-of-change", "concept/subject-awareness-experience"]
+tags:
+- clarification
+- methodology
+- triad
+- type/CL
+- concept/ontology-of-change
+- concept/subject-awareness-experience
+- status/stable
 ---
+
 # Methodological roles — Doubting Subject (DS) and Relaxed Doubting Subject (RDS)
 ## Content
 DS is a thought tool: a subject considered under maximal doubt that acknowledges only the structure of experiencing (not content). RDS relaxes DS just enough to follow reasoning and answer structural questions while still withholding content commitments.
@@ -29,278 +47,11 @@ These roles justify stripping imported assumptions early on and focusing on stru
 ## Tags
 #type/CL #layer/methodology #domain/ontological #concept/ontology-of-change #concept/subject-awareness-experience
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
-
+- [[01_Statements/Clarification/S-CL-doubting-subject-derivation-scope]]
+- [[01_Statements/Definition/S-DF-subject-recursive-field]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -309,92 +60,4 @@ These roles justify stripping imported assumptions early on and focusing on stru
 - Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
 - Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-subject]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

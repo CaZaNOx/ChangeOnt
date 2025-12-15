@@ -2,17 +2,27 @@
 id: stmt.cl-arrow-time-memory-irreversibility
 type: CL
 title: Arrow of time as memory irreversibility (breath/memory)
-concepts: ["[[02_Concepts/C-phenomenology-time]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-breath-field-global-integrator]]", "[[01_Statements/Definition/S-DF-memory-trace-integration]]"]
-parents: ["[[01_Statements/Definition/S-DF-breath-field-global-integrator]]"]
+concepts:
+- '[[02_Concepts/C-phenomenology-time]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-breath-field-global-integrator]]'
+- '[[01_Statements/Definition/S-DF-memory-trace-integration]]'
+parents:
+- '[[01_Statements/Definition/S-DF-breath-field-global-integrator]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_12_RandomChat_drifting_torwards_change_ontology.md:49
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_12_RandomChat_drifting_torwards_change_ontology.md:51
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_12_RandomChat_drifting_torwards_change_ontology.md:49
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_12_RandomChat_drifting_torwards_change_ontology.md:51
 flags: []
-tags: [clarification, time, memory, "type/CL"]
+tags:
+- clarification
+- time
+- memory
+- type/CL
+- status/stable
 ---
+
 # Arrow of time as memory irreversibility (breath/memory)
 ## Content
 Experienced “time’s arrow” arises from irreversible memory traces across breath cycles: updates cannot be undone without loss; breath integrates forward.
@@ -23,278 +33,10 @@ Locates phenomenological time in memory/breath structure rather than physical la
 ## Tags
 #type/CL #layer/validation #domain/phenomenology #concept/phenomenology-time
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -303,92 +45,4 @@ Locates phenomenological time in memory/breath structure rather than physical la
 - Parents: [[01_Statements/Definition/S-DF-breath-field-global-integrator]]
 - Dependencies: [[01_Statements/Definition/S-DF-breath-field-global-integrator]]; [[01_Statements/Definition/S-DF-memory-trace-integration]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

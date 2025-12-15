@@ -1,19 +1,19 @@
----
 id: stmt.<slug>
 type: FT|DF|DR|CR|CF|AS|CL
 aliases: ["FT x.y"]
 title: <short title>
 concepts: [<concept-slug>, ...]
-layer: foundations|operators|validation|speculations
-domain: ontological|logical|formal|operational
-status: stable|draft|open|speculative
-dependencies: [stmt.<id>, ...]
-parents: [stmt.<id>]
-successors: [stmt.<id>, ...]
-symbols_used: ["Δ", "⥤"]
+dependencies: ["[[01_Statements/...]]"]          # logical prerequisites
+parents: ["[[01_Statements/...]]"]               # immediate logical parents
+successors: ["[[01_Statements/...]]"]            # children, if any
+symbols_used: ["[[01_Statements/SYMBOLS/Delta]]"] # [] if none
 sources:
   - path: <file:line>
 flags: [] # godel_hole|contradiction|open_proof
+tags: [layer/foundations|operators|validation|speculations,
+       domain/ontological|logical|formal|operational|phenomenology,
+       "type/<type>"]
+status: stable|draft|evolving|open           # optional
 ---
 ## Claim (formal)
 ...
@@ -52,7 +52,4 @@ flags: [] # godel_hole|contradiction|open_proof
 
 ## Tags
 #type/<type> #layer/<layer> #domain/<domain> #concept/<concept> #symbol/<symbol>
-
-## Notes
-- provenance/merge decisions
 

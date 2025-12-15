@@ -2,24 +2,32 @@
 id: stmt.cl-process-philosophy-difference
 type: CL
 title: Process Philosophy vs recursive change-first ontology
-concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-gauge-haq-stabilization]]"]
-dependencies: [
-  "[[01_Statements/Definition/S-DF-pointer-structural]]",
-  "[[01_Statements/Definition/S-DF-breath-field-global-integrator]]",
-  "[[01_Statements/Derivation/S-DR-breath-knot-stabilization-topology]]",
-  "[[01_Statements/Clarification/S-CL-foundational-collapse-criterion]]"
-]
-parents: ["[[01_Statements/Definition/S-DF-pointer-structural]]"]
+concepts:
+- '[[02_Concepts/C-ontology-of-change]]'
+- '[[02_Concepts/C-recursive-truth]]'
+- '[[02_Concepts/C-gauge-haq-stabilization]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/Definition/S-DF-breath-field-global-integrator]]'
+- '[[01_Statements/Derivation/S-DR-breath-knot-stabilization-topology]]'
+- '[[01_Statements/Clarification/S-CL-foundational-collapse-criterion]]'
+parents:
+- '[[01_Statements/Definition/S-DF-pointer-structural]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:244
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:246
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:270
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:275
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:244
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:246
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:270
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:275
 flags: []
-tags: [clarification, comparison, "type/CL"]
+tags:
+- clarification
+- comparison
+- type/CL
+- status/stable
 ---
+
 # Process Philosophy vs recursive change-first ontology
 ## Content
 Whitehead’s Process Philosophy already frames change (actual occasions, prehension) as ontologically dominant, but it leans on timeless metaphysics, poetic imagery, and a theological ancestry that is not operationalized in modern evidence protocols. Our change-first program, by contrast, roots every ontological move in Δ(Now), pointer/LocalReach structure, breath-mediated stabilization, and framed falsifiability gates. The scope is not merely descriptive but algorithmic: we specify how a happening induces a pointer field, how breath cycles rewrite RTV curves, how stabilization energy (SE) binds recursive truth, and how collapse re-enters as validation.
@@ -33,277 +41,10 @@ Whitehead’s Process Philosophy already frames change (actual occasions, prehen
 ## Implication
 With this clarification we can say: Process Philosophy gestures at the same motivation, but our theory advances beyond it by spelling out the operational/backbone infrastructure (pointer + breath + collapse + falsifiability) that keeps the ontology anchored rather than poetic.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -312,92 +53,4 @@ With this clarification we can say: Process Philosophy gestures at the same moti
 - Parents: [[01_Statements/Definition/S-DF-pointer-structural]]
 - Dependencies: [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-breath-field-global-integrator]]; [[01_Statements/Derivation/S-DR-breath-knot-stabilization-topology]]; [[01_Statements/Clarification/S-CL-foundational-collapse-criterion]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

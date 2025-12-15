@@ -2,23 +2,32 @@
 id: stmt.cl-time-noise-thresholds
 type: CL
 title: Time and pattern/noise thresholds as emergent reach phenomena
-concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-prior-pointer-reach]]", "[[02_Concepts/C-recursive-truth]]"]
-dependencies: [
-  "[[01_Statements/Definition/S-DF-depth-reach]]",
-  "[[01_Statements/Definition/S-DF-localreach-topology]]",
-  "[[01_Statements/Clarification/S-CL-consciousness-thresholds]]",
-  "[[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]"
-]
-parents: ["[[01_Statements/Definition/S-DF-depth-reach]]"]
+concepts:
+- '[[02_Concepts/C-ontology-of-change]]'
+- '[[02_Concepts/C-prior-pointer-reach]]'
+- '[[02_Concepts/C-recursive-truth]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-depth-reach]]'
+- '[[01_Statements/Definition/S-DF-localreach-topology]]'
+- '[[01_Statements/Clarification/S-CL-consciousness-thresholds]]'
+- '[[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]'
+parents:
+- '[[01_Statements/Definition/S-DF-depth-reach]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:1851
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:1862
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:1867
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:1851
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:1862
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:1867
 flags: []
-tags: [clarification, time, threshold, "type/CL"]
+tags:
+- clarification
+- time
+- threshold
+- type/CL
+- status/stable
 ---
+
 # Time and pattern/noise thresholds as emergent reach phenomena
 ## Content
 Both time and the difference between pattern and noise are emergent consequences of recursive change rather than extra assumptions.
@@ -28,277 +37,10 @@ Both time and the difference between pattern and noise are emergent consequences
 ## Implication
 This clarifies why we do not need extra axioms for time or for seeing patterns: both follow from Δ(Now) plus the reach/threshold infrastructure. Understanding them as emergent reach phenomena also gives a clear handle on how to tune thresholds (hard, soft, or context-sensitive) via SE, LocalReach, and breath-phase control.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -307,92 +49,4 @@ This clarifies why we do not need extra axioms for time or for seeing patterns: 
 - Parents: [[01_Statements/Definition/S-DF-depth-reach]]
 - Dependencies: [[01_Statements/Definition/S-DF-depth-reach]]; [[01_Statements/Definition/S-DF-localreach-topology]]; [[01_Statements/Clarification/S-CL-consciousness-thresholds]]; [[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

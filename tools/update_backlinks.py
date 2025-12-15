@@ -19,6 +19,11 @@ REL_END = '<!-- END:AUTOGEN:RELATIONSHIPS -->'
 UI_BEGIN = '<!-- BEGIN:AUTOGEN:USED_IN -->'
 UI_END = '<!-- END:AUTOGEN:USED_IN -->'
 
+
+def _collapse_blank_lines(text: str) -> str:
+    """Reduce 3+ consecutive newlines to 2 to avoid padding bloat."""
+    return re.sub(r'\n{3,}', '\n\n', text)
+
 def frontmatter(text: str):
     m = FM_RE.search(text)
     return m.group(1) if m else ''
@@ -88,7 +93,7 @@ def update_referenced_by(stmt_file: Path, links: list[str]):
     body = '\n'.join(f'- [[{l}]]' for l in sorted(links)) + '\n'
     block = f"\n{RB_BEGIN}\n{header}{body}{RB_END}\n"
     new_text = _replace_block(text, RB_BEGIN, RB_END, block, fallback_heading='## Referenced By')
-    stmt_file.write_text(new_text, encoding='utf-8')
+    stmt_file.write_text(_collapse_blank_lines(new_text), encoding='utf-8')
 
 def extract_frontmatter_links(fm: str, key: str) -> list[str]:
     lines = fm.splitlines()
@@ -144,7 +149,7 @@ def update_relationships(stmt_file: Path, fm_text: str):
 
     text = stmt_file.read_text(encoding='utf-8', errors='replace')
     new_text = _replace_block(text, REL_BEGIN, REL_END, block, fallback_heading='## Relationships')
-    stmt_file.write_text(new_text, encoding='utf-8')
+    stmt_file.write_text(_collapse_blank_lines(new_text), encoding='utf-8')
 
 def collect_symbol_usage():
     """Collect symbol usage from statements by looking at:
@@ -207,7 +212,7 @@ def update_symbol_used_in(usage):
         body = '\n'.join(f'- [[{l}]]' for l in links) + '\n'
         block = f"\n{UI_BEGIN}\n{header}{body}{UI_END}\n"
         new_text = _replace_block(text, UI_BEGIN, UI_END, block, fallback_heading='## Used In')
-        sym_md.write_text(new_text, encoding='utf-8')
+        sym_md.write_text(_collapse_blank_lines(new_text), encoding='utf-8')
 
 def main():
     # Update Referenced By in statements
@@ -274,7 +279,7 @@ def main():
                 lines.append(f'- {c}')
         block = f"\n{REL_BEGIN}\n" + '\n'.join(lines) + "\n" + f"{REL_END}\n"
         new_text = _replace_block(text, REL_BEGIN, REL_END, block, fallback_heading='## Relationships')
-        cfile.write_text(new_text, encoding='utf-8')
+        cfile.write_text(_collapse_blank_lines(new_text), encoding='utf-8')
 
     for cp in CONCEPTS_DIR.glob('*.md'):
         if cp.name == 'README.md':
@@ -282,10 +287,6 @@ def main():
         update_concept_relationships(cp)
 
     print('Updated Referenced By for statements, Relationships for statements, Used In for symbols, and Relationships for concepts.')
-
-if __name__ == '__main__':
-    main()
-
 
 if __name__ == '__main__':
     main()

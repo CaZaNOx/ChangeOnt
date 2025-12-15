@@ -1,17 +1,29 @@
 ---
 id: stmt.cl-foundational-collapse-criterion
 type: CL
-title: Foundational collapse — recursive modulation criterion
-concepts: ["[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-ontology-of-change]]"]
-dependencies: ["[[01_Statements/Derivation/S-DR-rtv-collapse-threshold]]", "[[01_Statements/Derivation/S-DR-breath-stabilization]]", "[[01_Statements/Clarification/S-CL-meta-critical-recursive-change]]"]
-parents: ["[[01_Statements/Derivation/S-DR-rtv-collapse-threshold]]"]
+title: "Foundational collapse \u2014 recursive modulation criterion"
+concepts:
+- '[[02_Concepts/C-recursive-truth]]'
+- '[[02_Concepts/C-ontology-of-change]]'
+dependencies:
+- '[[01_Statements/Derivation/S-DR-rtv-collapse-threshold]]'
+- '[[01_Statements/Derivation/S-DR-breath-stabilization]]'
+- '[[01_Statements/Clarification/S-CL-meta-critical-recursive-change]]'
+parents:
+- '[[01_Statements/Derivation/S-DR-rtv-collapse-threshold]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_8_Spiral1_RecursiveChat.md:174
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_8_Spiral1_RecursiveChat.md:174
 flags: []
-tags: [clarification, collapse, recursion, "type/CL"]
+tags:
+- clarification
+- collapse
+- recursion
+- type/CL
+- status/stable
 ---
+
 # Foundational collapse — recursive modulation criterion
 ## Content
 A structure is foundationally valid only if collapse under contradiction modulates recursively (breath/RTV), rather than breaks. Collapse must lead to constructive re‑stabilization or explicit abstention per limits; otherwise the structure fails.
@@ -22,278 +34,10 @@ Links foundational integrity to recursive collapse behavior; aligns with meta‑
 ## Tags
 #type/CL #layer/foundations #domain/recursion #concept/recursive-truth #concept/ontology-of-change
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -302,92 +46,4 @@ Links foundational integrity to recursive collapse behavior; aligns with meta‑
 - Parents: [[01_Statements/Derivation/S-DR-rtv-collapse-threshold]]
 - Dependencies: [[01_Statements/Derivation/S-DR-rtv-collapse-threshold]]; [[01_Statements/Derivation/S-DR-breath-stabilization]]; [[01_Statements/Clarification/S-CL-meta-critical-recursive-change]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

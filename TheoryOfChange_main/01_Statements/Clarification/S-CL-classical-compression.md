@@ -2,20 +2,28 @@
 id: stmt.cl-classical-compression
 type: CL
 title: Classical compression layers emerge when stable units of change solidify
-concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-prior-pointer-reach]]"]
-dependencies: [
-  "[[01_Statements/Definition/S-DF-pointer-structural]]",
-  "[[01_Statements/Definition/S-DF-localreach-topology]]",
-  "[[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]"
-]
-parents: ["[[01_Statements/Definition/S-DF-pointer-structural]]"]
+concepts:
+- '[[02_Concepts/C-ontology-of-change]]'
+- '[[02_Concepts/C-recursive-truth]]'
+- '[[02_Concepts/C-prior-pointer-reach]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/Definition/S-DF-localreach-topology]]'
+- '[[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]'
+parents:
+- '[[01_Statements/Definition/S-DF-pointer-structural]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_5_Evoairos_RecursiveChat.md:876
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_5_Evoairos_RecursiveChat.md:876
 flags: []
-tags: [clarification, classicality, "type/CL"]
+tags:
+- clarification
+- classicality
+- type/CL
+- status/stable
 ---
+
 # Classical compression layers emerge when stable units of change solidify
 ## Content
 Pure breathing Change is open-ended. Classical constructs (numbers, metrics, logic, computation) appear only after the first stable relational units emerge: each repeated stabilization event becomes an ordinal proto-number; pointer depth plus recursive tension define scalars; repeated breath cycles yield frame anchors for measurements; and persistent recurrence allows collapse into logic/computation modules. Those classical layers are not primitive—they are compressions that clamp breathing structures into usable, transmissible systems.
@@ -28,278 +36,11 @@ Pure breathing Change is open-ended. Classical constructs (numbers, metrics, log
 ## Implication
 This supports the live challenge to derive measurement and logic purely from Change: the first stable relational unit is the unlock, and further classicality arises from successive compressions of the breathing topology. Tracking where each layer emerges keeps us honest about what part of the ontology remains open and what part we’ve temporarily stabilized.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 - [[01_Statements/Clarification/S-CL-genome-recipe]]
 - [[01_Statements/Clarification/S-CL-math-metaphor]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -308,92 +49,4 @@ This supports the live challenge to derive measurement and logic purely from Cha
 - Parents: [[01_Statements/Definition/S-DF-pointer-structural]]
 - Dependencies: [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-localreach-topology]]; [[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

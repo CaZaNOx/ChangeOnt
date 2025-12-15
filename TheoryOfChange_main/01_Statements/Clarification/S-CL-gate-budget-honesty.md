@@ -2,225 +2,31 @@
 id: stmt.cl-gate-budget-honesty
 type: CL
 title: Gates must publish compute/memory prices per knob
-concepts: ["[[02_Concepts/C-benchmarks-audit]]"]
-dependencies: ["[[01_Statements/Clarification/S-CL-compute-fairness-contract]]"]
+concepts:
+- '[[02_Concepts/C-benchmarks-audit]]'
+dependencies:
+- '[[01_Statements/Clarification/S-CL-compute-fairness-contract]]'
 parents: []
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_17_Spiral9.md:436-479
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_17_Spiral9.md:436-479
 flags: []
-tags: [operations, fairness, "type/CL"]
+tags:
+- operations
+- fairness
+- type/CL
+- status/stable
 ---
+
 # Gates must publish compute/memory prices per knob
 
 Every gating rule (collapse, merge, habit flip) must declare the compute and memory price of its extra knob, so we can accounting for the budget honesty AI_17 demands (`do well, spend little`). The rule should state the constant price per invocation (O(1) counters, windowed EMA, etc.) and include it in the `budget.csv` ledger, ensuring the gate comparisons to STOA baselines stay transparent and reproducible.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -228,70 +34,4 @@ Every gating rule (collapse, merge, habit flip) must declare the compute and mem
 - Concepts: [[02_Concepts/C-benchmarks-audit]]
 - Dependencies: [[01_Statements/Clarification/S-CL-compute-fairness-contract]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

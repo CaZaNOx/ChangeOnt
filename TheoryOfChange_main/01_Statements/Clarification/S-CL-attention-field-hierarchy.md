@@ -2,23 +2,30 @@
 id: stmt.cl-attention-field-hierarchy
 type: CL
 title: Attention fields as layered, thresholded recursive maps
-concepts: ["[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-prior-pointer-reach]]"]
-dependencies: [
-  "[[01_Statements/Definition/S-DF-attention-focus]]",
-  "[[01_Statements/Definition/S-DF-localreach-topology]]",
-  "[[01_Statements/Definition/S-DF-rtv-operator]]",
-  "[[01_Statements/Clarification/S-CL-attention-recursive-filter]]"
-]
-parents: ["[[01_Statements/Definition/S-DF-attention-focus]]"]
+concepts:
+- '[[02_Concepts/C-recursive-truth]]'
+- '[[02_Concepts/C-prior-pointer-reach]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-attention-focus]]'
+- '[[01_Statements/Definition/S-DF-localreach-topology]]'
+- '[[01_Statements/Definition/S-DF-rtv-operator]]'
+- '[[01_Statements/Clarification/S-CL-attention-recursive-filter]]'
+parents:
+- '[[01_Statements/Definition/S-DF-attention-focus]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:2641
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:2649
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:2660
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:2641
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:2649
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_1_Vamia_RecursiveChat.md:2660
 flags: []
-tags: [clarification, attention, "type/CL"]
+tags:
+- clarification
+- attention
+- type/CL
+- status/stable
 ---
+
 # Attention fields as layered, thresholded recursive maps
 ## Content
 Attention is not a single spotlight but a hierarchy of recursive integration fields. High-level fields are slow, abstract, and intentionally cumulative; low-level fields are fast, structured, and tuned for survival-critical cues. Mid-level modulators mediate transitions, gating when a fast override preempts a slow deliberate pattern.
@@ -31,277 +38,10 @@ Attention is not a single spotlight but a hierarchy of recursive integration fie
 ## Implication
 This layered view accounts for flow, sudden fear overrides, and gradient attention without assuming magical switches. Attention becomes a set of weighted threshold maps over LocalReach neighborhoods, continuously reconfigured by breath and RTV updates.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 
 <!-- END:AUTOGEN:REFERENCED_BY -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
@@ -310,92 +50,4 @@ This layered view accounts for flow, sudden fear overrides, and gradient attenti
 - Parents: [[01_Statements/Definition/S-DF-attention-focus]]
 - Dependencies: [[01_Statements/Definition/S-DF-attention-focus]]; [[01_Statements/Definition/S-DF-localreach-topology]]; [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/Clarification/S-CL-attention-recursive-filter]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -1,42 +1,46 @@
 # agents/co/core/primitives/P1_bend_metric.py
-from typing import Iterable, Sequence, Any
+from typing import Iterable, Sequence, Any, List
 
-def _edit_distance(a: Sequence[Any], b: Sequence[Any], sub_cost=1, ins_cost=1, del_cost=1) -> int:
-    """Classic Levenshtein (small, dependency-free)."""
-    n, m = len(a), len(b)
-    if n == 0: return m
-    if m == 0: return n
-    dp = list(range(m + 1))
-    for i in range(1, n + 1):
-        prev = dp[0]
-        dp[0] = i
-        for j in range(1, m + 1):
-            cur = dp[j]
-            cost = 0 if a[i-1] == b[j-1] else sub_cost
-            dp[j] = min(dp[j] + 1,         # deletion
-                        dp[j-1] + 1,       # insertion
-                        prev + cost)       # substitution
-            prev = cur
-    return dp[m]
+# Binding v1 constants
+L = 12
+PAD_TOKEN = -1
+PAD_COST = 0.25
+MISMATCH_COST = 1.0
 
+def _normalize(trace: Sequence[Any]) -> List[Any]:
+    t = list(trace)
+    if len(t) > L:
+        t = t[-L:]
+    if len(t) < L:
+        t = [PAD_TOKEN] * (L - len(t)) + t
+    return t
 
 def bend_distance(path, path_prime, metric: str = "edit", tau: float = 0.0) -> float:
     """
-    Lawvere bend distance: inf bend budget to turn path->path'.
-    Minimal implementation via edit distance (strings/sequences).
+    Binding v1 bend distance: warped-Hamming with left padding.
+    Metric/tau args are accepted for compatibility but ignored.
     """
-    if metric == "edit":
-        return float(_edit_distance(path, path_prime))
-    elif metric == "hamming":
-        assert len(path) == len(path_prime)
-        return float(sum(int(x != y) for x, y in zip(path, path_prime)))
-    else:
-        # Placeholder for DTW or other metrics
-        return float(_edit_distance(path, path_prime))
+    a = _normalize(path)
+    b = _normalize(path_prime)
+    cost = 0.0
+    for x, y in zip(a, b):
+        if x == PAD_TOKEN and y == PAD_TOKEN:
+            cost += 0.0
+        elif x == PAD_TOKEN or y == PAD_TOKEN:
+            cost += PAD_COST
+        elif x == y:
+            cost += 0.0
+        else:
+            cost += MISMATCH_COST
+    return cost / float(L)
 
 def is_same(path, path_prime, tau: float) -> bool:
     """Within-tolerance identity."""
     return bend_distance(path, path_prime, "edit", tau) <= tau
+
+def d_bend(trace_a: List[int], trace_b: List[int]) -> float:
+    """Canonical P1 bend distance (alias of bend_distance v1)."""
+    return float(bend_distance(trace_a, trace_b))
 
 def closure(paths: Iterable[Sequence[Any]], eps: float) -> list[Sequence[Any]]:
     """Return a simple ε-closure by removing near-duplicates (greedy medoids)."""

@@ -28,22 +28,17 @@ class COAgentCore:
         obs = observation or {}
         fb  = feedback or {}
 
-        # 1) Header update (reads obs/signals; sets ε/τ/gauge, route)
-        header_metrics = {}
-        try:
-            if hasattr(self.header, "update"):
-                header_metrics = self.header.update(obs)
-        except Exception:
-            header_metrics = {"header_update": "failed"}
-
-        # 2) Pipeline execution via combinator
+        # 1) Pipeline execution via combinator (header update is owned by run_update)
         metrics: Dict[str, Any] = {"core": self.name, "step": self._step}
-        metrics.update(header_metrics)
 
         pipeline = self.combinators.get("pipeline")
         if pipeline is not None and hasattr(pipeline, "run"):
             try:
-                block_metrics = pipeline.run(self.elements, self.primitives, self.header, obs, fb)
+                if fb and hasattr(pipeline, "run_update"):
+                    # update pass owns header.update when feedback is present
+                    block_metrics = pipeline.run_update(self.elements, self.primitives, self.header, obs, fb)
+                else:
+                    block_metrics = pipeline.run(self.elements, self.primitives, self.header, obs, fb)
                 if isinstance(block_metrics, dict):
                     metrics.update(block_metrics)
             except Exception:

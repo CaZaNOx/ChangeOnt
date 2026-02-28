@@ -19,6 +19,8 @@ agent:
         ema_alpha: 0.2
       ghvc:
         enabled: false
+      EC_Identity:
+        enabled: true
       density:
         enabled: false
       change_ops:
@@ -42,6 +44,7 @@ agent:
     combinator:
       order:
       - haq
+      - EC_Identity
       - vote_bridge
       - action_head
 out: outputs/suite/maze/maze_9x9/co_CO_router_s9

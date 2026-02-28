@@ -17,13 +17,8 @@ class C_Pipeline:
         feedback: dict | None,
     ) -> dict:
         out: dict = {}
-        # 0) Header update so ActionHead sees co_weight/dyn
-        try:
-            hrec = header.update(observation)
-            if isinstance(hrec, dict):
-                out.update(hrec)
-        except Exception:
-            pass
+        # 0) NOTE: Header update is owned by run_update (learning pass).
+        # Decision pass must read existing header.state only (no update here).
 
         # 1) Everything except ActionHead
         head = None
@@ -78,10 +73,36 @@ class C_Pipeline:
     ) -> dict:
         """Learning-only pass. IMPORTANT: do **not** invoke ActionHead.step()."""
         out: dict = {}
+        obs_for_header = observation or {}
+        if feedback is not None:
+            try:
+                if "feedback" not in obs_for_header:
+                    obs_for_header = dict(obs_for_header)
+                    obs_for_header["feedback"] = feedback
+            except Exception:
+                pass
+        obs = obs_for_header
         try:
-            hrec = header.update(observation)
+            hrec = header.update(obs_for_header)
             if isinstance(hrec, dict):
                 out.update(hrec)
+            # debug counter (off by default): track header updates per env step
+            try:
+                import os
+                if os.environ.get("CO_DEBUG_HEADER", "") == "1":
+                    state = getattr(header, "state", None)
+                    if state is not None:
+                        try:
+                            cur = int(getattr(state, "_debug_header_updates", 0))
+                            setattr(state, "_debug_header_updates", cur + 1)
+                        except Exception:
+                            try:
+                                cur = int(state.get("_debug_header_updates", 0))
+                                state["_debug_header_updates"] = cur + 1
+                            except Exception:
+                                pass
+            except Exception:
+                pass
         except Exception:
             pass
 
@@ -91,7 +112,7 @@ class C_Pipeline:
 
             if hasattr(e, "update"):
                 try:
-                    u = e.update(observation, primitives, header, feedback)
+                    u = e.update(obs, primitives, header, feedback)
                     if isinstance(u, dict) and u:
                         out.update(u)
                 except Exception:

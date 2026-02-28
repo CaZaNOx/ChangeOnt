@@ -12,6 +12,7 @@ def translate(
 ) -> Tuple[Dict[Any, float], set, Dict[str, Any]]:
     """
     Score symbols using n-gram model when available; fallback predict-last.
+    translator_mask is a *blocklist* of invalid/blocked actions.
     """
     A = int(observation.get("A", 0))
     actions: List[int] = list(observation.get("action_space") or list(range(A)))

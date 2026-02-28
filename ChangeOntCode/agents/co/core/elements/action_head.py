@@ -108,6 +108,94 @@ class ActionHead:
                 agg[a] += w
         return dict(agg), len(votes)
 
+    def _signal_snapshot(self, primitives: Dict[str, Any]) -> Dict[str, float]:
+        bus = primitives.get("co_bus", None)
+        if bus is None:
+            return {}
+        if hasattr(bus, "signals"):
+            try:
+                return dict(bus.signals())
+            except Exception:
+                return {}
+        # tolerate dict-like buses
+        if isinstance(bus, dict):
+            try:
+                return {k: float(v) for k, v in bus.items() if isinstance(v, (int, float))}
+            except Exception:
+                return {}
+        return {}
+
+    def _attach_telemetry(self, out: Dict[str, Any], primitives: Dict[str, Any], header: Any,
+                          family: str, translator_mask: set, actions: list) -> Dict[str, Any]:
+        signals = self._signal_snapshot(primitives)
+        out.setdefault("signals", dict(signals))
+        out.setdefault("translator_mask", sorted(list(translator_mask)))
+        out.setdefault("mask_mode", "blocklist")
+        required = [
+            "EC_Identity.same",
+            "EC_Identity.last_d",
+            "EB_GHVC.pressure",
+            "EB_GHVC.mdl_gain",
+            "EB_GHVC.birth_suggest",
+        ]
+        missing = [k for k in required if k not in signals]
+        if missing:
+            out.setdefault("missing_signal_keys", missing)
+            try:
+                import os
+                if os.environ.get("CO_STRICT_SIGNALS", "") == "1":
+                    raise RuntimeError(f"Missing required signals: {missing}")
+            except Exception:
+                pass
+        out.setdefault("birth_events", int(signals.get("birth_events", 0)))
+        out.setdefault("merge_events", int(signals.get("merge_events", 0)))
+        out.setdefault("split_events", int(signals.get("split_events", 0)))
+        out.setdefault("bend_triggers", int(signals.get("bend_triggers", 0)))
+        out.setdefault("birth_count", int(signals.get("birth_count", 0)))
+        out.setdefault("prototype_count", int(signals.get("prototype_count", 0)))
+        out.setdefault("class_count", int(signals.get("class_count", 0)))
+        out.setdefault("cap_hits", int(signals.get("cap_hits", 0)))
+        # key scalar signals for logs
+        if "EC_Identity.last_d" in signals:
+            out.setdefault("last_d", float(signals.get("EC_Identity.last_d", 0.0)))
+        if "EC_Identity.same" in signals:
+            out.setdefault("identity_ok", bool(signals.get("EC_Identity.same", 0.0) >= 0.5))
+        if "EB_GHVC.pressure" in signals:
+            out.setdefault("ghvc_pressure", float(signals.get("EB_GHVC.pressure", 0.0)))
+        if "EB_GHVC.mdl_gain" in signals:
+            out.setdefault("ghvc_mdl_gain", float(signals.get("EB_GHVC.mdl_gain", 0.0)))
+
+        # debug mask semantics (off by default)
+        try:
+            import os
+            if os.environ.get("CO_DEBUG_MASK", "") == "1":
+                out.setdefault("translator_mask_mode", "blocklist")
+                if actions:
+                    blocked = sum(1 for a in actions if a in translator_mask)
+                    out.setdefault("translator_mask_blocked", int(blocked))
+                    out.setdefault("translator_mask_size", int(len(translator_mask)))
+                    if blocked >= len(actions):
+                        out.setdefault("translator_mask_blocks_all", True)
+        except Exception:
+            pass
+
+        # debug header update counter (off by default)
+        try:
+            import os
+            if os.environ.get("CO_DEBUG_HEADER", "") == "1":
+                state = getattr(header, "state", None)
+                if state is not None:
+                    try:
+                        out.setdefault("debug_header_updates", int(getattr(state, "_debug_header_updates", 0)))
+                    except Exception:
+                        try:
+                            out.setdefault("debug_header_updates", int(state.get("_debug_header_updates", 0)))
+                        except Exception:
+                            pass
+        except Exception:
+            pass
+        return out
+
     def _classical_scores(self, family: str, obs: Dict[str, Any], primitives: Dict[str, Any]) -> Dict[Any, float]:
         if family == "bandit":
             n = int(obs.get("n_arms", 2))
@@ -248,7 +336,9 @@ class ActionHead:
                 if translator is not None:
                     tcfg = {"eps": self.eps, "maze_explore": self._maze_explore, "k": self.k}
                     try:
-                        trans_scores, translator_mask, _info = translator(observation, header, primitives, {}, tcfg)
+                        # translator_mask is a *blocklist* of invalid actions.
+                        sig_src = self._signal_snapshot(primitives)
+                        trans_scores, translator_mask, _info = translator(observation, header, primitives, sig_src, tcfg)
                     except Exception:
                         trans_scores, translator_mask = {}, set()
                     if trans_scores: co_sources.append("translator")
@@ -285,6 +375,35 @@ class ActionHead:
                     cs = co_scores.get(a, 0.0); ks = classical.get(a, 0.0)
                     final_scores[a] = co_w * cs + classic_w * ks
                     #print(f"[HEAD] score[{a}] = co({cs:.3f})*{co_w:.3f} + klass({ks:.3f})*{classic_w:.3f} = {final_scores[a]:.3f}")
+            # enforce mask on final scores (blocklist)
+            if translator_mask:
+                for a in list(final_scores.keys()):
+                    if a in translator_mask:
+                        final_scores.pop(a, None)
+
+            def _finalize_action(chosen: Any, out: Dict[str, Any]) -> Dict[str, Any]:
+                fallback_chosen = chosen
+                if chosen in translator_mask:
+                    allowed_scores = {a: v for a, v in final_scores.items() if a not in translator_mask}
+                    if allowed_scores:
+                        chosen = max(allowed_scores, key=allowed_scores.get)
+                    else:
+                        allowed_actions = [a for a in (actions or []) if a not in translator_mask]
+                        if allowed_actions:
+                            chosen = allowed_actions[0]
+                        else:
+                            # mask blocks all actions -> deterministic fallback + explicit flag
+                            out.setdefault("translator_mask_blocks_all", 1)
+                            if actions:
+                                chosen = actions[0]
+                            elif final_scores:
+                                chosen = next(iter(final_scores))
+                            else:
+                                chosen = fallback_chosen
+                out.setdefault("translator_mask", sorted(list(translator_mask)))
+                out.setdefault("mask_mode", "blocklist")
+                out["action"] = chosen
+                return self._attach_telemetry(out, primitives, header, family, translator_mask, list(actions or []))
 
             # ------------- Maze anti-osc without ties -------------
             picked_override: Optional[str] = None
@@ -303,7 +422,7 @@ class ActionHead:
                     if only == inv and pr is not None:
                         # consider laterals
                         laterals = [a for a in ("UP","DOWN","LEFT","RIGHT")
-                                    if a not in (only, OPPOSITE[only])]
+                                    if a not in (only, OPPOSITE[only]) and a not in translator_mask]
                         # legal & free
                         cand = []
                         for a in laterals:
@@ -337,7 +456,7 @@ class ActionHead:
                     if cur == self._prev_pos and self._last_action in OPPOSITE:
                         inv = OPPOSITE[self._last_action]
                         # choose best legal non-inverse option
-                        options = [a for a in ("UP","DOWN","LEFT","RIGHT") if a != inv]
+                        options = [a for a in ("UP","DOWN","LEFT","RIGHT") if a != inv and a not in translator_mask]
                         best_a, best_key = None, (-1e9, -1)
                         for a in options:
                             dr,dc = {"UP":(-1,0),"DOWN":(1,0),"LEFT":(0,-1),"RIGHT":(0,1)}[a]
@@ -359,10 +478,14 @@ class ActionHead:
 
             # choose action
             if final_scores or picked_override is not None:
+                if picked_override is not None and picked_override in translator_mask:
+                    picked_override = None
                 if picked_override is not None:
                     best = picked_override
                 else:
-                    best = max(final_scores, key=final_scores.get)
+                    max_score = max(final_scores.values())
+                    best_actions = [a for a, v in final_scores.items() if v == max_score]
+                    best = self.rng.choice(best_actions) if len(best_actions) > 1 else best_actions[0]
 
                 # update 2-step position history
                 pos = observation.get("pos")
@@ -374,8 +497,7 @@ class ActionHead:
                     self._last_action = best
 
                 #print(f"[HEAD] choose action={best} sources={co_sources}")
-                return {
-                    "action": best,
+                out = {
                     "co_policy": f"{family}:blend(co={co_w:.2f})",
                     "co_bus_votes": int(n_votes),
                     "co_weight": float(co_w),
@@ -384,6 +506,7 @@ class ActionHead:
                     "head_eps": float(self.eps),
                     "head_ngram_order": int(self.k),
                 }
+                return _finalize_action(best, out)
 
             # fallbacks (unchanged)
             if family == "bandit":
@@ -391,19 +514,22 @@ class ActionHead:
                 self._ensure_arms(n_arms)
                 for i in range(n_arms):
                     if self._counts[i] == 0:
-                        return {"action": i, "co_policy": "bandit:fallback_roundrobin",
-                                "co_bus_votes": 0, "co_weight": float(co_w), "classic_weight": float(classic_w),
-                                "co_sources": ["fallback"], "head_eps": float(self.eps), "head_ngram_order": int(self.k)}
+                        out = {"co_policy": "bandit:fallback_roundrobin",
+                               "co_bus_votes": 0, "co_weight": float(co_w), "classic_weight": float(classic_w),
+                               "co_sources": ["fallback"], "head_eps": float(self.eps), "head_ngram_order": int(self.k)}
+                        return _finalize_action(i, out)
                 a = self.rng.randrange(n_arms) if self.rng.random() < self.eps else max(range(n_arms), key=lambda j: self._means[j])
-                return {"action": a, "co_policy": "bandit:fallback_egreedy",
-                        "co_bus_votes": 0, "co_weight": float(co_w), "classic_weight": float(classic_w),
-                        "co_sources": ["fallback"], "head_eps": float(self.eps), "head_ngram_order": int(self.k)}
+                out = {"co_policy": "bandit:fallback_egreedy",
+                       "co_bus_votes": 0, "co_weight": float(co_w), "classic_weight": float(classic_w),
+                       "co_sources": ["fallback"], "head_eps": float(self.eps), "head_ngram_order": int(self.k)}
+                return _finalize_action(a, out)
 
             if family == "renewal":
                 a = int(observation.get("obs", 0))
-                return {"action": a, "co_policy": "renewal:fallback_predict_last",
-                        "co_bus_votes": 0, "co_weight": float(co_w), "classic_weight": float(classic_w),
-                        "co_sources": ["fallback"], "head_eps": float(self.eps), "head_ngram_order": int(self.k)}
+                out = {"co_policy": "renewal:fallback_predict_last",
+                       "co_bus_votes": 0, "co_weight": float(co_w), "classic_weight": float(classic_w),
+                       "co_sources": ["fallback"], "head_eps": float(self.eps), "head_ngram_order": int(self.k)}
+                return _finalize_action(a, out)
 
             if family == "maze":
                 pos = observation.get("pos"); goal = observation.get("goal")
@@ -414,18 +540,29 @@ class ActionHead:
                     best = None; best_improve = -1e9
                     d0 = abs(pr-gr)+abs(pc-gc)
                     for d,(dr,dc) in deltas.items():
+                        if d in translator_mask:
+                            continue
                         d1 = abs(pr+dr-gr)+abs(pc+dc-gc)
                         imp = d0 - d1
                         if imp > best_improve:
                             best_improve, best = imp, d
                     self._last_action = best
-                    return {"action": best or "RIGHT", "co_policy": "maze:fallback_greedy",
-                            "co_bus_votes": 0, "co_weight": float(co_w), "classic_weight": float(classic_w),
-                            "co_sources": ["fallback"], "head_eps": float(self.eps), "head_ngram_order": int(self.k)}
+                    out = {"co_policy": "maze:fallback_greedy",
+                           "co_bus_votes": 0, "co_weight": float(co_w), "classic_weight": float(classic_w),
+                           "co_sources": ["fallback"], "head_eps": float(self.eps), "head_ngram_order": int(self.k)}
+                    return _finalize_action(best or "RIGHT", out)
             if actions:
-                return {"action": actions[0], "co_policy": "fallback:any",
-                        "co_bus_votes": 0, "co_weight": float(co_w), "classic_weight": float(classic_w),
-                        "co_sources": ["fallback"], "head_eps": float(self.eps), "head_ngram_order": int(self.k)}
+                pick = None
+                for a in actions:
+                    if a not in translator_mask:
+                        pick = a
+                        break
+                if pick is None:
+                    pick = actions[0]
+                out = {"co_policy": "fallback:any",
+                       "co_bus_votes": 0, "co_weight": float(co_w), "classic_weight": float(classic_w),
+                       "co_sources": ["fallback"], "head_eps": float(self.eps), "head_ngram_order": int(self.k)}
+                return _finalize_action(pick, out)
             return {}
         except Exception as ex:
             #print(f"[HEAD.step] exception: {ex!r}")
@@ -441,19 +578,16 @@ class ActionHead:
                         d1 = abs(pr+dr-gr)+abs(pc+dc-gc); imp = d0 - d1
                         if imp > best_improve: best_improve, best = imp, d
                     self._last_action = best
-                    return {"action": best or "RIGHT", "co_policy": "maze:fallback_greedy", "co_bus_votes": 0,
-                            "co_sources": ["fallback"]}
+                    out = {"action": best or "RIGHT", "co_policy": "maze:fallback_greedy", "co_bus_votes": 0,
+                           "co_sources": ["fallback"]}
+                    return self._attach_telemetry(out, primitives, header, fam, set(), list(observation.get("action_space") or []))
             actions = observation.get("action_space") or []
-            return {"action": (actions[0] if actions else None), "co_policy": "fallback:any",
-                    "co_bus_votes": 0, "co_sources": ["fallback"]}
+            out = {"action": (actions[0] if actions else None), "co_policy": "fallback:any",
+                   "co_bus_votes": 0, "co_sources": ["fallback"]}
+            return self._attach_telemetry(out, primitives, header, fam, set(), list(actions or []))
 
     def run_update(self, elements: list, primitives: dict, header: any, observation: dict, feedback: dict | None) -> dict:
         out: dict = {}
-        try:
-            hrec = header.update(observation)
-            if isinstance(hrec, dict): out.update(hrec)
-        except Exception:
-            pass
         for e in elements:
             if e.__class__.__name__.lower().endswith("actionhead"): continue
             if hasattr(e, "update"):

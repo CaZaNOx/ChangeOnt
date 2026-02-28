@@ -16,12 +16,19 @@ class COAdapterMaze:
             except Exception:
                 # tiny inline bus fallback
                 class _Bus:
-                    def __init__(self): self._s = {}
+                    def __init__(self):
+                        self._s = {}
+                        self._signals = {}
                     def push(self,f,a,weight=1.0,**kw):
                         self._s.setdefault(f,[]).append({"action":a,"weight":float(weight),**kw})
                     def drain(self,f): lst=self._s.get(f,[]); self._s[f]=[]; return lst
                     def peek(self,f):  return list(self._s.get(f,[]))
                     def size(self,f):  return len(self._s.get(f,[]))
+                    def set(self,k,v):  self._signals[str(k)] = float(v)
+                    def get(self,k,d=None): return self._signals.get(str(k), d)
+                    def signals(self): return dict(self._signals)
+                    def __setitem__(self,k,v): self.set(k,v)
+                    def __getitem__(self,k): return self._signals[str(k)]
                 self.core.primitives["co_bus"] = _Bus()
 
     def select(self, observation: Dict[str, Any]) -> Dict[str, Any]:

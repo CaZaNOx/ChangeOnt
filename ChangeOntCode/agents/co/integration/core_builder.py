@@ -74,6 +74,26 @@ def _instantiate_components(params: Dict[str, Any], classes: Dict[str, Dict[str,
             if cls:
                 primitives[name] = cls()
 
+    # Ensure canonical primitives exist when classes are available
+    if "co_bus" not in primitives:
+        cls = prim_classes.get("co_bus")
+        if cls:
+            primitives["co_bus"] = cls()
+    if "p10" not in primitives:
+        cls = prim_classes.get("p10")
+        if cls:
+            primitives["p10"] = cls()
+    if "p12" not in primitives:
+        cls = prim_classes.get("p12")
+        if cls:
+            primitives["p12"] = cls()
+    if "id_mem" not in primitives:
+        cls = prim_classes.get("id_mem")
+        if cls:
+            primitives["id_mem"] = cls()
+    if "birth_count" not in primitives:
+        primitives["birth_count"] = 0
+
     # -------- Elements (now with explicit reordering) --------
     el_cfg_map = dict(params.get("elements", {}))   # preserves insertion order from YAML loader
     element_classes = classes.get("elements", {})

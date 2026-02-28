@@ -1,7 +1,14 @@
 # P10_change_ops_core.py
-from typing import List, Tuple, Any, Callable, Dict
+from typing import List, Tuple, Any, Callable, Dict, Optional
+from dataclasses import dataclass
 from .operators.J1_bend_substitution import bend_cost_between
 from .operators.J4a_reid_closure import within_epsilon
+
+@dataclass
+class Prototype:
+    id: int
+    trace: List[Any]
+    created_t: int
 
 class ChangeOpsCore:
     """
@@ -12,7 +19,16 @@ class ChangeOpsCore:
         self.k = max(1, int(k))
         self.epsilon = max(0.0, float(epsilon))
         self.mdl_lambda = max(0.0, float(mdλ))
-        self.prototypes: List[Tuple[Any, ...]] = []
+        self._next_id = 0
+        self.prototypes: List[Prototype] = []
+
+    def append(self, trace: Optional[List[Any]] = None, t: Optional[int] = None) -> int:
+        trace_list = list(trace) if trace is not None else []
+        created_t = int(t) if t is not None else 0
+        proto = Prototype(id=self._next_id, trace=trace_list, created_t=created_t)
+        self._next_id += 1
+        self.prototypes.append(proto)
+        return proto.id
 
     def kgrams(self, seq: List[Any]) -> List[Tuple[Any, ...]]:
         k = self.k
@@ -47,9 +63,13 @@ class ChangeOpsCore:
         ks = self.kgrams(seq)
         feats: Dict[str, float] = {}
         for i, p in enumerate(self.prototypes):
+            if hasattr(p, "trace"):
+                proto = tuple(getattr(p, "trace", ()))
+            else:
+                proto = tuple(p)
             cnt = 0
             for g in ks:
-                if within_epsilon(g, p, self.epsilon, dist):
+                if within_epsilon(g, proto, self.epsilon, dist):
                     cnt += 1
             feats[f"motif_{i}"] = float(cnt)
         return feats

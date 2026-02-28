@@ -8,7 +8,7 @@ from .EC_identity import EC_Identity
 from .ED_gauge_warp import ED_GaugeWarp
 from .EE_compressibility import EE_Compressibility
 from .EF_router_gil import EF_Router
-from .EG_density_precision import EG_Density
+from .EG_density_precision import EG_Density, EG_DensityPrecision
 from .EH_breadth_depth import EH_BreadthDepth
 from .EI_change_operators import EI_ChangeOps
 from .EJ_order_arisal import EJ_OrderAsymmetry
@@ -23,6 +23,7 @@ __all__ = [
     "EE_Compressibility",
     "EF_Router",
     "EG_Density",
+    "EG_DensityPrecision",
     "EH_BreadthDepth",
     "EI_ChangeOps",
     "EJ_OrderAsymmetry",

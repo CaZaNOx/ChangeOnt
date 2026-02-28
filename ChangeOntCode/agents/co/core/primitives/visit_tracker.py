@@ -48,3 +48,14 @@ class VisitTracker:
         self.note_visit(curr_pos)
         # Update last_pos to what we just observed
         self.last_pos = curr_pos
+
+    def density(self) -> float:
+        """
+        Visit density proxy in [0,1]: high when many revisits.
+        Defined as 1 - unique/total over recorded visits.
+        """
+        total = sum(int(v) for v in self.visits.values())
+        if total <= 0:
+            return 0.0
+        unique = len(self.visits)
+        return max(0.0, min(1.0, 1.0 - (unique / float(total))))

@@ -2,12 +2,23 @@
 from __future__ import annotations
 from typing import Dict, Any, Optional
 from dataclasses import dataclass
+from ._shared import publish_signal
 
 def _get_bus(primitives: Dict[str, Any]):
     return primitives.get("co_bus", None)
 
 @dataclass
 class EA_HAQ:
+    """
+    EA_HAQ (v1): history-adaptive modulation.
+    Primitive deps (intended): P2_Gauge (primary), optional history/state support, optional P7_Precision later.
+    Combinator form (intended): SC_MultiplicativeCoupling (primary), optional SC_AdditiveBlend.
+    Formula status: provisional.
+    """
+    PRIMITIVE_DEPS = ("P2_Gauge", "history/state support (optional)", "P7_Precision (optional)")
+    COMBINATOR_FORM = "SC_MultiplicativeCoupling (+ optional SC_AdditiveBlend)"
+    FORMULA_STATUS = "provisional"
+
     alpha: float = 0.0
     kappa: float = 0.2  # learning stiffness
 
@@ -28,7 +39,8 @@ class EA_HAQ:
         hs = getattr(header, "state", header)
         cap = float(getattr(hs, "alpha_cap", 1.0))
 
-        # try to compute z_PE / z_gain via primitives if available
+        # Intended primitive: P2_Gauge. Current v1 uses z_PE / z_gain as a proxy modulation input.
+        # Keep this minimal and stable; exact gauge coupling is still provisional.
         z_pe = 0.0
         z_gain = 0.0
         P1 = primitives.get("P1")  # bend/prediction error surrogate?
@@ -56,15 +68,6 @@ class EA_HAQ:
 
         # publish a simple novelty scalar (translator reads EA_HAQ.novelty)
         bus = _get_bus(primitives)
-        try:
-            if bus is not None:
-                val = float(self.alpha)
-                # very lightweight bus key write (mapping-like or attribute-like)
-                try: bus["EA_HAQ.novelty"] = val
-                except Exception:
-                    try: setattr(bus, "EA_HAQ_novelty", val)
-                    except Exception: pass
-        except Exception:
-            pass
+        publish_signal(bus, "EA_HAQ.novelty", float(self.alpha))
 
         return {"haq_alpha": float(self.alpha), "z_PE": float(z_pe), "z_gain": float(z_gain)}

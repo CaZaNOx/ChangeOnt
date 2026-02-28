@@ -20,10 +20,10 @@ elements:
       } }
 
 primitives:
-  P10: { class: "agents.co.core.primitives.P10_change_ops_core:ChangeOpsCore",
+  p10: { class: "agents.co.core.primitives.P10_change_ops_core:ChangeOpsCore",
          params: { k: 3, epsilon: 0.7 } }
   P11: { class: "agents.co.core.primitives.P11_residuation:Residuation", params: { } }
-  P12: { class: "agents.co.core.primitives.P12_closure_quotient:ClosureQuotient", params: { epsilon: 0.7 } }
+  p12: { class: "agents.co.core.primitives.P12_closure_quotient:ClosureQuotient", params: { epsilon: 0.7 } }
 
 combinators:
   pipeline: { class: "agents.co.core.combinators.C_pipeline:C_Pipeline", params: { } }

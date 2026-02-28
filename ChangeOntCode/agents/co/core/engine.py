@@ -17,7 +17,7 @@ def build_core(combo_cfg: Dict[str, Any],
         "header": {"type": "SSI", "params": {...}},
         "math_policy": "co"|"classical",
         "elements": [{"key": "A", "class": "EA_HAQ", "params": {...}}, ...],
-        "primitives": {"P10": {"class": "ChangeOpsCore", "params": {...}}, ...},
+        "primitives": {"p10": {"class": "ChangeOpsCore", "params": {...}}, ...},
         "combinators": {"pipeline": {"class": "C_Pipeline", "params": {...}}, ...}
       }
     """
@@ -37,6 +37,30 @@ def build_core(combo_cfg: Dict[str, Any],
             primitives[key] = cls(**params)
         except Exception:
             primitives[key] = cls()  # safe default
+
+    # ensure canonical primitives exist when classes are available
+    if "co_bus" not in primitives and "co_bus" in primitive_classes:
+        try:
+            primitives["co_bus"] = primitive_classes["co_bus"]()
+        except Exception:
+            pass
+    if "p10" not in primitives and "p10" in primitive_classes:
+        try:
+            primitives["p10"] = primitive_classes["p10"]()
+        except Exception:
+            pass
+    if "p12" not in primitives and "p12" in primitive_classes:
+        try:
+            primitives["p12"] = primitive_classes["p12"]()
+        except Exception:
+            pass
+    if "id_mem" not in primitives and "id_mem" in primitive_classes:
+        try:
+            primitives["id_mem"] = primitive_classes["id_mem"]()
+        except Exception:
+            pass
+    if "birth_count" not in primitives:
+        primitives["birth_count"] = 0
 
     # 3) Elements
     elems: List[Any] = []

@@ -11,6 +11,7 @@ def translate(
     co_bus: Dict[str, Any],
     cfg: Dict[str, Any],
 ) -> Tuple[Dict[Any, float], set, Dict[str, Any]]:
+    """translator_mask is a *blocklist* of invalid/blocked actions."""
     n_arms = int(observation.get("n_arms", 2))
     actions: List[int] = list(observation.get("action_space") or list(range(n_arms)))
     mask: set = set()

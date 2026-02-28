@@ -22,6 +22,8 @@ agent:
         mdl_lambda: 1.0
         cooldown: 5
         birth_threshold: 2.0
+      EC_Identity:
+        enabled: true
       density:
         enabled: true
         rounding: 2
@@ -50,6 +52,7 @@ agent:
       order:
       - haq
       - ghvc
+      - EC_Identity
       - density
       - change_ops
       - vote_bridge

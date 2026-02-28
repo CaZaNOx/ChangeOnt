@@ -7,6 +7,10 @@ class EH_BreadthDepth:
     """
     Schedule exploration breadth vs. depth from 'loopiness' and header dyn.
     """
+    PRIMITIVE_DEPS = ("P8_Loopiness",)
+    COMBINATOR_FORM = "SC_WeightedSelection (+ optional SC_GatedThreshold)"
+    FORMULA_STATUS = "provisional"
+
     def __init__(self):
         self.params: Dict[str, Any] = {}
         self.last_p: float = 0.2

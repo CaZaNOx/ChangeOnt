@@ -18,7 +18,12 @@ agent:
         history_len: 64
         ema_alpha: 0.2
       ghvc:
-        enabled: false
+        enabled: true
+        mdl_lambda: 1.0
+        cooldown: 5
+        birth_threshold: 0.01
+      EC_Identity:
+        enabled: true
       density:
         enabled: false
       change_ops:
@@ -42,6 +47,7 @@ agent:
     combinator:
       order:
       - haq
+      - EC_Identity
       - vote_bridge
       - action_head
 out: outputs/suite/maze/maze_9x9/co_CO_router_s7

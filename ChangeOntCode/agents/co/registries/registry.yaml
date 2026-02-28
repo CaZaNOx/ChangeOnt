@@ -57,9 +57,10 @@ primitives:
   P7:  "agents.co.core.primitives.P7_precision"
   P8:  "agents.co.core.primitives.P8_loopiness"
   P9:  "agents.co.core.primitives.P9_variable_birth"
-  P10: "agents.co.core.primitives.P10_change_ops_core:ChangeOpsCore"
+  id_mem: "agents.co.core.primitives.identity:TraceMemory"
+  p10: "agents.co.core.primitives.P10_change_ops_core:ChangeOpsCore"
+  p12: "agents.co.core.primitives.P12_closure_quotient:ClosureQuotient"
   P11: "agents.co.core.primitives.P11_residuation:Residuation"
-  P12: "agents.co.core.primitives.P12_closure_quotient:ClosureQuotient"
   P13: "agents.co.core.primitives.P13_creative_option_birth:CreativeOptionBirth"
   P14: "agents.co.core.primitives.P14_depth_breadth_flip:DepthBreadthFlip"
 

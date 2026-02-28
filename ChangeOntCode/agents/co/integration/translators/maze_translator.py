@@ -13,6 +13,7 @@ def translate(
     """
     Turn co_bus + observation into per-direction scores.
     Prefers moving closer to goal; penalizes revisits/density; tiny novelty bonus if present.
+    translator_mask is a *blocklist* of invalid/blocked actions.
     """
     pos  = observation.get("pos")
     goal = observation.get("goal")

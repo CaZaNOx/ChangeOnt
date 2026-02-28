@@ -148,6 +148,16 @@ def main() -> None:
                     "co_weight": co_weight,
                     "co_bus_votes": co_bus_votes,   # <-- was co_bus_size; use the count returned by ActionHead
                     "agent": agent_tag,
+                    **({
+                        k: sel[k] for k in (
+                            "birth_events","merge_events","split_events","bend_triggers",
+                            "birth_count","prototype_count","class_count","cap_hits",
+                            "last_d","identity_ok","ghvc_pressure","ghvc_mdl_gain",
+                            "debug_header_updates","translator_mask_mode",
+                            "translator_mask_blocked","translator_mask_size","translator_mask_blocks_all",
+                            "signals","header_update_count","header_update_source","mask_mode","translator_mask",
+                        ) if isinstance(sel, dict) and k in sel
+                    }),
                 },
             )
 

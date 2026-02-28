@@ -8,6 +8,7 @@ class COAdapterBandit:
         self.n_arms = int(n_arms)
         self._pipe = core.combinators.get("pipeline")
         self._last_obs: Optional[Dict[str, Any]] = None
+        self._last_feedback: Optional[Dict[str, Any]] = None
 
     def _ensure_bus(self) -> None:
         if "co_bus" not in self.core.primitives:
@@ -21,6 +22,8 @@ class COAdapterBandit:
         obs = dict(observation or {})
         obs.setdefault("family", "bandit")
         obs.setdefault("n_arms", self.n_arms)
+        if self._last_feedback is not None and "feedback" not in obs:
+            obs["feedback"] = dict(self._last_feedback)
 
         self._ensure_bus()
 
@@ -42,9 +45,11 @@ class COAdapterBandit:
         obs_like = {"family": "bandit", "n_arms": self.n_arms}
         if self._last_obs and "t" in self._last_obs:
             try:
-                obs_like["t"] = int(self._last_obs["t"]) + 1
+                obs_like["t"] = int(self._last_obs["t"])
             except Exception:
                 pass
+        if isinstance(feedback, dict):
+            self._last_feedback = dict(feedback)
 
         try:
             if hasattr(self._pipe, "run_update"):

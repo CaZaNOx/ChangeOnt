@@ -2,8 +2,7 @@
 from __future__ import annotations
 from typing import Dict, Any, Iterable, List
 from dataclasses import dataclass
-from ..primitives.identity import bend_distance, closure, TraceMemory
-from ..primitives.P1_bend_metric import L as P1_L, PAD_TOKEN as P1_PAD_TOKEN
+from ..primitives.identity import TraceMemory
 from ._shared import publish_signal
 
 @dataclass
@@ -19,7 +18,7 @@ class EC_Identity:
     FORMULA_STATUS = "provisional"
 
     mem_len: int = 64
-    trace_len: int = P1_L
+    trace_len: int = 0
 
     def configure(self, params, context):
         try:
@@ -29,12 +28,12 @@ class EC_Identity:
             pass
         return self
 
-    def _normalize_trace(self, trace: Iterable[Any]) -> List[Any]:
+    def _normalize_trace(self, trace: Iterable[Any], trace_len: int, pad_token: Any) -> List[Any]:
         t = list(trace)
-        if self.trace_len > 0 and len(t) > self.trace_len:
-            t = t[-self.trace_len:]
-        if self.trace_len > 0 and len(t) < self.trace_len:
-            t = [P1_PAD_TOKEN] * (self.trace_len - len(t)) + t
+        if trace_len > 0 and len(t) > trace_len:
+            t = t[-trace_len:]
+        if trace_len > 0 and len(t) < trace_len:
+            t = [pad_token] * (trace_len - len(t)) + t
         return t
 
     def _get_eps(self, header: Any) -> float:
@@ -48,12 +47,17 @@ class EC_Identity:
 
     def _run_core(self, observation: Dict[str, Any], primitives: Dict[str, Any], header: Any) -> Dict[str, Any]:
         eps = self._get_eps(header)
+        P1 = primitives.get("P1")
+        if P1 is None:
+            raise RuntimeError("EC_Identity requires primitives['P1'] (P1_BendMetric) but it is missing.")
+        trace_len = self.trace_len if self.trace_len > 0 else int(getattr(P1, "L", 0) or 0)
+        pad_token = getattr(P1, "PAD_TOKEN", None)
         hist = list(observation.get("history", ()))
         trace = observation.get("trace", hist)
         if isinstance(trace, (list, tuple)):
-            trace = self._normalize_trace(trace)
+            trace = self._normalize_trace(trace, trace_len, pad_token)
         else:
-            trace = self._normalize_trace(hist)
+            trace = self._normalize_trace(hist, trace_len, pad_token)
 
         mem = primitives.get("id_mem")
         if mem is None:
@@ -65,12 +69,20 @@ class EC_Identity:
         identity_ok = False
         bend_trigger = 0
         if prev and trace:
-            last_d = min(float(bend_distance(trace, p)) for p in prev)
+            if hasattr(P1, "bend_distance"):
+                last_d = min(float(P1.bend_distance(trace, p)) for p in prev)
+            elif hasattr(P1, "d_bend"):
+                last_d = min(float(P1.d_bend(trace, p)) for p in prev)
+            else:
+                raise RuntimeError("P1_BendMetric has no supported API (bend_distance/d_bend).")
             identity_ok = bool(last_d <= eps)
             bend_trigger = 1 if (last_d > eps) else 0
 
         # compute class count from closure over recent traces
-        classes = closure(prev + ([tuple(trace)] if trace else []), eps) if (prev or trace) else []
+        if hasattr(P1, "closure"):
+            classes = P1.closure(prev + ([tuple(trace)] if trace else []), eps) if (prev or trace) else []
+        else:
+            classes = prev + ([tuple(trace)] if trace else [])
         class_count = len(classes)
 
         # update memory after computing distance

@@ -28,37 +28,41 @@ def build_core(combo_cfg: Dict[str, Any],
     # 2) Primitives
     prim_cfg: Dict[str, Dict[str, Any]] = combo_cfg.get("primitives", {})
     primitives: Dict[str, Any] = {}
+    def _init_primitive(cls: Any, params: Dict[str, Any]) -> Any:
+        if cls is None:
+            return None
+        if callable(cls):
+            try:
+                return cls(**params)
+            except Exception:
+                try:
+                    return cls()
+                except Exception:
+                    return cls
+        return cls
+
     for key, spec in prim_cfg.items():
         cls = primitive_classes.get(spec.get("class"))
         if cls is None:
             continue
         params = spec.get("params", {})
-        try:
-            primitives[key] = cls(**params)
-        except Exception:
-            primitives[key] = cls()  # safe default
+        primitives[key] = _init_primitive(cls, params)
 
     # ensure canonical primitives exist when classes are available
     if "co_bus" not in primitives and "co_bus" in primitive_classes:
-        try:
-            primitives["co_bus"] = primitive_classes["co_bus"]()
-        except Exception:
-            pass
+        primitives["co_bus"] = _init_primitive(primitive_classes.get("co_bus"), {})
+    if "P1" not in primitives and "P1" in primitive_classes:
+        primitives["P1"] = _init_primitive(primitive_classes.get("P1"), {})
+    if "P2" not in primitives and "P2" in primitive_classes:
+        primitives["P2"] = _init_primitive(primitive_classes.get("P2"), {})
+    if "P3" not in primitives and "P3" in primitive_classes:
+        primitives["P3"] = _init_primitive(primitive_classes.get("P3"), {})
     if "p10" not in primitives and "p10" in primitive_classes:
-        try:
-            primitives["p10"] = primitive_classes["p10"]()
-        except Exception:
-            pass
+        primitives["p10"] = _init_primitive(primitive_classes.get("p10"), {})
     if "p12" not in primitives and "p12" in primitive_classes:
-        try:
-            primitives["p12"] = primitive_classes["p12"]()
-        except Exception:
-            pass
+        primitives["p12"] = _init_primitive(primitive_classes.get("p12"), {})
     if "id_mem" not in primitives and "id_mem" in primitive_classes:
-        try:
-            primitives["id_mem"] = primitive_classes["id_mem"]()
-        except Exception:
-            pass
+        primitives["id_mem"] = _init_primitive(primitive_classes.get("id_mem"), {})
     if "birth_count" not in primitives:
         primitives["birth_count"] = 0
 

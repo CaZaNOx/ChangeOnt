@@ -21,10 +21,16 @@ class EA_HAQ:
 
     alpha: float = 0.0
     kappa: float = 0.2  # learning stiffness
+    gauge_policy: str = "R_gated"
+    gauge_eta: float = 0.1
+    gauge_lam: float = 0.02
 
     def configure(self, params: Dict[str, Any], context: Dict[str, Any]):
         self.alpha = float(params.get("alpha0", 0.0))
         self.kappa = float(params.get("kappa", self.kappa))
+        self.gauge_policy = str(params.get("gauge_policy", self.gauge_policy))
+        self.gauge_eta = float(params.get("gauge_eta", self.gauge_eta))
+        self.gauge_lam = float(params.get("gauge_lam", self.gauge_lam))
         return self
 
     def _update_alpha(self, z_pe: float, z_gain: float, cap: float):
@@ -39,8 +45,7 @@ class EA_HAQ:
         hs = getattr(header, "state", header)
         cap = float(getattr(hs, "alpha_cap", 1.0))
 
-        # Intended primitive: P2_Gauge. Current v1 uses z_PE / z_gain as a proxy modulation input.
-        # Keep this minimal and stable; exact gauge coupling is still provisional.
+        # Primary primitive: P2_Gauge. Use it as the explicit modulation source.
         z_pe = 0.0
         z_gain = 0.0
         P1 = primitives.get("P1")  # bend/prediction error surrogate?
@@ -64,7 +69,57 @@ class EA_HAQ:
         z_pe   = float(sig.get("z_PE", z_pe))
         z_gain = float(sig.get("z_gain", z_gain))
 
-        self._update_alpha(z_pe, z_gain, cap)
+        gain = 1.0
+        P2 = primitives.get("P2")
+        if P2 is None:
+            raise RuntimeError("EA_HAQ requires primitives['P2'] (P2_Gauge) but it is missing.")
+        try:
+            p2_state = primitives.get("p2_state")
+            if p2_state is None:
+                p2_state = {}
+                primitives["p2_state"] = p2_state
+            signals = {"z_PE": float(z_pe), "z_gain": float(z_gain)}
+            if isinstance(sig, dict) and "var_resid" in sig:
+                signals["var_resid"] = float(sig.get("var_resid", 1.0))
+            # Prefer explicit P2 API if present.
+            if hasattr(P2, "gauge_gain"):
+                p2_state, gain = P2.gauge_gain(
+                    signals,
+                    state=p2_state,
+                    policy_name=self.gauge_policy,
+                    eta=self.gauge_eta,
+                    lam=self.gauge_lam,
+                )
+            elif hasattr(P2, "gauge_step"):
+                p2_state, alpha = P2.gauge_step(
+                    signals,
+                    state=p2_state,
+                    policy_name=self.gauge_policy,
+                    eta=self.gauge_eta,
+                    lam=self.gauge_lam,
+                )
+                gain = 1.0 + float(alpha)
+            elif hasattr(P2, "update_gauge"):
+                A_state = p2_state.get("A_state", {})
+                A_state, alpha = P2.update_gauge(
+                    A_state,
+                    signals,
+                    policy_name=self.gauge_policy,
+                    eta=self.gauge_eta,
+                    lam=self.gauge_lam,
+                )
+                p2_state["A_state"] = A_state
+                gain = 1.0 + float(alpha)
+            else:
+                raise RuntimeError("P2_Gauge has no supported API (gauge_gain/gauge_step/update_gauge).")
+            primitives["p2_state"] = p2_state
+        except Exception:
+            raise
+
+        # Multiplicative modulation: P2 gain modulates base (z_pe + z_gain).
+        z_pe_mod = z_pe * gain
+        z_gain_mod = z_gain * gain
+        self._update_alpha(z_pe_mod, z_gain_mod, cap)
 
         # publish a simple novelty scalar (translator reads EA_HAQ.novelty)
         bus = _get_bus(primitives)

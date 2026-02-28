@@ -27,10 +27,6 @@ class EB_GHVC:
         self.cooldown = int(params.get("cooldown", self.cooldown))
         return self
 
-    def _mdl_gain(self, mse: float, k_new: int) -> float:
-        # Surrogate for P3_MDL pressure: negative gain discourages admission.
-        return max(0.0, mse - self.mdl_lambda * float(k_new))
-
     def _sum_abs(self, values) -> float:
         total = 0.0
         for v in values:
@@ -64,7 +60,13 @@ class EB_GHVC:
 
         k_new = 1 if (res or probes) else 0
         mse = pressure
-        mdl_gain = self._mdl_gain(mse, k_new=k_new)
+        P3 = primitives.get("P3")
+        if P3 is None:
+            raise RuntimeError("EB_GHVC requires primitives['P3'] (P3_MDL) but it is missing.")
+        if hasattr(P3, "mdl_gain"):
+            mdl_gain = float(P3.mdl_gain(mse, k_new=k_new, mdl_lambda=self.mdl_lambda))
+        else:
+            raise RuntimeError("P3_MDL has no supported API (mdl_gain).")
         if self.cooldown <= 0:
             cooldown_ok = True
         else:

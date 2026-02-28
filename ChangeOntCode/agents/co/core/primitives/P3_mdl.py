@@ -30,3 +30,23 @@ def mdl_slope(history: List[float], window: int = 5) -> float:
         return 0.0
     diffs = [vals[i] - vals[i-1] for i in range(1, len(vals))]
     return sum(diffs) / len(diffs)
+
+def mdl_gain(mse: float, k_new: int, mdl_lambda: float = 1.0) -> float:
+    """
+    Minimal v1 MDL gain surrogate:
+      gain = max(0, mse - mdl_lambda * k_new)
+    Ownership: P3_MDL; callers supply the context (mse, k_new, lambda).
+    """
+    try:
+        base = float(mse)
+    except Exception:
+        base = 0.0
+    try:
+        k = float(k_new)
+    except Exception:
+        k = 0.0
+    try:
+        lam = float(mdl_lambda)
+    except Exception:
+        lam = 1.0
+    return max(0.0, base - lam * k)

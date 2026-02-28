@@ -4,7 +4,8 @@ header: { type: SSI, params: { alpha: 0.2, eps_init: 1.0 } }
 elements:
   - { key: "A", class: "EA_HAQ", params: { } }
   - { key: "G", class: "EG_DensityPrecision", params: { } }
-primitives: { }
+primitives:
+  P2: { class: "P2", params: { } }
 combinators:
   pipeline: { class: "C_Pipeline", params: { } }
   math:     { class: "C_MathPolicy", params: { policy: "co" } }

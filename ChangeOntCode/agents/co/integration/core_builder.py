@@ -61,13 +61,26 @@ def _instantiate_components(params: Dict[str, Any], classes: Dict[str, Dict[str,
     prim_cfg = dict(params.get("primitives", {}))
     prim_classes = classes.get("primitives", {})
     primitives: Dict[str, Any] = {}
+    def _init_primitive(cls: Any, params: Dict[str, Any]) -> Any:
+        if cls is None:
+            return None
+        if callable(cls):
+            try:
+                return cls(**params)
+            except Exception:
+                try:
+                    return cls()
+                except Exception:
+                    return cls
+        return cls
+
     if prim_cfg:
         for name, cfg in prim_cfg.items():
             cls = prim_classes.get(name)
             if cls is None: continue
             kwargs = dict(cfg) if isinstance(cfg, dict) else {}
             kwargs.pop("enabled", None)
-            primitives[name] = cls(**kwargs)
+            primitives[name] = _init_primitive(cls, kwargs)
     else:
         for name in ("visit_tracker", "bandit_stats", "ngram_model"):
             cls = prim_classes.get(name)
@@ -78,19 +91,31 @@ def _instantiate_components(params: Dict[str, Any], classes: Dict[str, Dict[str,
     if "co_bus" not in primitives:
         cls = prim_classes.get("co_bus")
         if cls:
-            primitives["co_bus"] = cls()
+            primitives["co_bus"] = _init_primitive(cls, {})
+    if "P1" not in primitives:
+        cls = prim_classes.get("P1")
+        if cls:
+            primitives["P1"] = _init_primitive(cls, {})
+    if "P2" not in primitives:
+        cls = prim_classes.get("P2")
+        if cls:
+            primitives["P2"] = _init_primitive(cls, {})
+    if "P3" not in primitives:
+        cls = prim_classes.get("P3")
+        if cls:
+            primitives["P3"] = _init_primitive(cls, {})
     if "p10" not in primitives:
         cls = prim_classes.get("p10")
         if cls:
-            primitives["p10"] = cls()
+            primitives["p10"] = _init_primitive(cls, {})
     if "p12" not in primitives:
         cls = prim_classes.get("p12")
         if cls:
-            primitives["p12"] = cls()
+            primitives["p12"] = _init_primitive(cls, {})
     if "id_mem" not in primitives:
         cls = prim_classes.get("id_mem")
         if cls:
-            primitives["id_mem"] = cls()
+            primitives["id_mem"] = _init_primitive(cls, {})
     if "birth_count" not in primitives:
         primitives["birth_count"] = 0
 

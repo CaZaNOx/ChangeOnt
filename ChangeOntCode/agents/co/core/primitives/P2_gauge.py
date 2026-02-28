@@ -1,5 +1,11 @@
 # agents/co/core/primitives/P2_gauge.py
-from typing import Dict, Tuple
+from __future__ import annotations
+from typing import Dict, Tuple, Any, Optional
+
+# P2_Gauge: minimal modulation primitive. Formula remains provisional by doctrine.
+DEFAULT_POLICY = "R_gated"
+DEFAULT_ETA = 0.1
+DEFAULT_LAM = 0.02
 
 def warp_costs(base_costs: Dict, A_state: Dict, alpha: float) -> Dict:
     """
@@ -37,3 +43,63 @@ def update_gauge(A_state: Dict, signals: Dict, policy_name: str = "R_gated",
     # Optionally highlight global salience (you can specialize per edge outside)
     new_A["__global__"] = new_A.get("__global__", 0.0) + z_pe * 0.1
     return new_A, alpha
+
+
+def extract_signals(observation: Dict[str, Any], fallback: Optional[Dict[str, float]] = None) -> Dict[str, float]:
+    """
+    Extract minimal gauge signals from observation (or fallback).
+    Expected keys: z_PE, z_gain, var_resid.
+    """
+    out: Dict[str, float] = {}
+    sig = observation.get("signals", {}) if isinstance(observation, dict) else {}
+    if isinstance(sig, dict):
+        out["z_PE"] = float(sig.get("z_PE", 0.0))
+        out["z_gain"] = float(sig.get("z_gain", 0.0))
+        out["var_resid"] = float(sig.get("var_resid", 1.0))
+    if fallback:
+        for k, v in fallback.items():
+            if k not in out or out[k] == 0.0:
+                try:
+                    out[k] = float(v)
+                except Exception:
+                    continue
+    return out
+
+
+def gauge_step(signals: Dict[str, float],
+               state: Optional[Dict[str, Any]] = None,
+               policy_name: str = DEFAULT_POLICY,
+               eta: float = DEFAULT_ETA,
+               lam: float = DEFAULT_LAM) -> Tuple[Dict[str, Any], float]:
+    """
+    Update gauge state and return a scalar modulation alpha in [0,1].
+    """
+    if state is None:
+        state = {}
+    A_state = state.get("A_state", {})
+    if not isinstance(A_state, dict):
+        A_state = {}
+    new_A, alpha = update_gauge(A_state, signals, policy_name=policy_name, eta=eta, lam=lam)
+    state["A_state"] = new_A
+    state["alpha"] = float(alpha)
+    return state, float(alpha)
+
+
+def gauge_gain(signals: Dict[str, float],
+               state: Optional[Dict[str, Any]] = None,
+               policy_name: str = DEFAULT_POLICY,
+               eta: float = DEFAULT_ETA,
+               lam: float = DEFAULT_LAM,
+               min_gain: float = 0.0,
+               max_gain: float = 2.0) -> Tuple[Dict[str, Any], float]:
+    """
+    Return a multiplicative gain derived from gauge alpha.
+    gain = 1 + alpha (clamped to [min_gain, max_gain]).
+    """
+    state, alpha = gauge_step(signals, state=state, policy_name=policy_name, eta=eta, lam=lam)
+    gain = 1.0 + float(alpha)
+    if min_gain is not None:
+        gain = max(float(min_gain), gain)
+    if max_gain is not None:
+        gain = min(float(max_gain), gain)
+    return state, float(gain)

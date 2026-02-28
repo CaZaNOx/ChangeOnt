@@ -25,6 +25,9 @@ elements:
       } }
 
 primitives:
+  P1: { class: "P1", params: { } }
+  P2: { class: "P2", params: { } }
+  P3: { class: "P3", params: { } }
   p10: { class: "agents.co.core.primitives.P10_change_ops_core:ChangeOpsCore",
          params: { k: 4, epsilon: 1.0 } }  # (removed invalid 'mdλ')
   P11: { class: "agents.co.core.primitives.P11_residuation:Residuation", params: { } }

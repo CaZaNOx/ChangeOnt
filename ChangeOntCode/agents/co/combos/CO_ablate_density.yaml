@@ -5,6 +5,7 @@ elements:
   - { key: "A", class: "EA_HAQ", params: { } }
   - { key: "I", class: "EI_ChangeOperators", params: { } }
 primitives:
+  P2: { class: "P2", params: { } }
   p10: { class: "ChangeOpsCore", params: { k: 4, epsilon: 1.0 } }
   P11: { class: "Residuation", params: { } }
   p12: { class: "ClosureQuotient", params: { epsilon: 1.0 } }

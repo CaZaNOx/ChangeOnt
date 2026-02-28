@@ -1,7 +1,7 @@
 # agents/co/core/elements/EG_density_precision.py
 from __future__ import annotations
 from typing import Any, Dict, Set, Tuple, Optional
-from ..primitives.P7_precision import precision_schedule
+from ..primitives.P7_precision import P7_Precision, precision_schedule
 from ..primitives.visit_tracker import VisitTracker
 from ._shared import publish_signal
 
@@ -65,7 +65,16 @@ class EG_Density:
         r_static = int(self.params.get("r_static", 1))
 
         stats = {"surprise": float(signals.get("z_PE", 0.0))}
-        r_p = precision_schedule(stats, mode)
+        p7 = primitives.get("P7")
+        if p7 is None:
+            p7 = P7_Precision()
+            primitives["P7"] = p7
+        if hasattr(p7, "schedule"):
+            r_p = p7.schedule(stats, mode=mode, r_static=r_static)
+        elif hasattr(p7, "precision_schedule"):
+            r_p = p7.precision_schedule(stats, mode)
+        else:
+            r_p = precision_schedule(stats, mode)
         if r_p != getattr(hs, "r_prime", r_static):
             hs.r_prime = r_p
         self.last_r = int(getattr(hs, "r_prime", r_static))

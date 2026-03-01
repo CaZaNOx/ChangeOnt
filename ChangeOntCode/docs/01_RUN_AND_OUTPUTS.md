@@ -1,18 +1,28 @@
 # Run and Outputs
 
 ## Run the suite (all families)
-Exact command:
+Exact command (default config):
 - `python -m experiments.suite_cli`
+
+Run with a specific suite config:
+- `python -m experiments.suite_cli --config experiments/configs/suite_demo.yaml`
 
 Suite config files (used by `suite_cli`):
 - `ChangeOntCode/experiments/configs/suite_all.yaml` (families, modes, seeds, agents, envs)
 - `ChangeOntCode/experiments/configs/co_agents/co_agents_selection.yaml` (CO variants injected across families)
 
+Config toggles:
+- `inject_co: true|false` (default true; disables CO injection when false)
+- `co_manifest: <path>` (optional override; resolved relative to the suite config file)
+
 What the suite does:
-- loads `experiments/configs/suite_all.yaml`
+- loads the suite config (default `experiments/configs/suite_all.yaml` unless `--config` is provided)
 - generates per-run configs under `ChangeOntCode/outputs/suite/tmp/<family>/<mode>/...`
 - calls each family runner as a subprocess
 - writes per-mode and per-family summaries plus a suite summary
+
+Note on output root:
+- When `--config` is used, `out_root` is automatically suffixed with a timestamp: `_YYYY-MM-DD-HH-MM-SS`.
 
 ## Run a single family (exact commands)
 Bandit:
@@ -62,4 +72,3 @@ Each line is a JSON object. Typical record patterns include:
 - CO telemetry: `metric="co_debug"` with fields such as `action`, `co_policy`, `co_weight`, `co_bus_votes`,
   plus counters (`birth_events`, `merge_events`, `split_events`, `bend_triggers`, `prototype_count`, `class_count`, `cap_hits`)
   and signals (`last_d`, `identity_ok`, `ghvc_pressure`, `ghvc_mdl_gain`).
-

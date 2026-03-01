@@ -3,9 +3,6 @@ import json
 from pathlib import Path
 from typing import Optional, Iterable, Dict, Any
 
-import matplotlib.pyplot as plt
-
-
 def _read_metrics(path: Path) -> Iterable[Dict[str, Any]]:
     with path.open("r", encoding="utf-8") as f:
         for line in f:
@@ -25,6 +22,11 @@ def quick_plot(step_log: Path, out_png: Path, title: Optional[str] = None) -> No
     - If it sees 'metric' == 'episode_steps' → bar/line over episode index.
     - Otherwise: plot first numeric series it can find.
     """
+    try:
+        import matplotlib.pyplot as plt  # type: ignore
+    except Exception:
+        return
+
     step_log = Path(step_log)
     out_png = Path(out_png)
     series_regret_t = []

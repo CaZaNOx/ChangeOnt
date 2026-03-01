@@ -8,7 +8,7 @@
 - `outputs/` — run artifacts and summaries
 
 ## Canonical call flow (suite → runner → env → agent)
-1) `experiments/suite_cli.py` loads `experiments/configs/suite_all.yaml`
+1) `experiments/suite_cli.py` loads `experiments/configs/suite_all.yaml` (or `--config`)
 2) For each job (family × mode × agent × seed):
    - writes a per-run config under `outputs/suite/tmp/...`
    - calls a family runner as a subprocess
@@ -43,4 +43,3 @@ Execution path (canonical surface):
 - **Votes:** Elements publish action votes into `co_bus` via `co_bus.push(family, action, weight, ...)`. ActionHead drains votes once per decision step with `co_bus.drain(family)`.
 - **Scalar signals:** Elements publish scalar telemetry into `co_bus` via `co_bus.set(key, value)` (or `bus[key] = value`). ActionHead snapshots `co_bus.signals()` and attaches key signals into `co_debug` records.
 - **Masks:** Translators return a `translator_mask` set (blocklist). ActionHead removes masked actions from **CO scores** before blending with classical scores (see `03_BINDING_SPEC.md`).
-

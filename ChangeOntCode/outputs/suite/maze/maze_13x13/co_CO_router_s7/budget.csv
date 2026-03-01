@@ -1,6 +1,0 @@
-agent,episode,flops_step,memory_bytes
-co:CO_router,0,1,0
-co:CO_router,1,1,0
-co:CO_router,2,1,0
-co:CO_router,3,1,0
-co:CO_router,4,1,0

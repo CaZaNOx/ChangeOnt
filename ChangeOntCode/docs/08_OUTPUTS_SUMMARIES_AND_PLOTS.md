@@ -7,16 +7,18 @@ Each runner writes into a run directory constructed by `suite_cli`:
 - Path pattern: `ChangeOntCode/outputs/suite/<family>/<mode>/<agent>_s<seed>/`
 
 Files written by all runners:
-- `metrics.jsonl` — JSONL log (appended to, one record per line).
+- `metrics.jsonl` — JSONL log (one record per line).
 - `budget.csv` — a single CSV file (rewritten on each run).
+- `run_manifest.json` — run metadata and success/failure status.
 - `quick_plot.png` — best-effort plot derived from `metrics.jsonl` (skipped if plotting deps are missing).
 
-Additional per-run file (bandit only):
-- `progress.json` — a heartbeat file updated every 500 steps.
+Additional per-run files:
+- `progress.json` (bandit only) — a heartbeat file updated every 500 steps.
+- `job_state.json` (suite only) — suite-level job status with timestamps.
 
 Notes on overwrite behavior:
-- Bandit runner deletes existing `metrics.jsonl` and `budget.csv` before starting.
-- Maze and renewal runners do not delete `metrics.jsonl` before writing (so repeated runs can append). They do overwrite `budget.csv`.
+- All runners delete existing `metrics.jsonl` and `budget.csv` before starting.
+- `quick_plot.png` is overwritten on success.
 
 ## Per-mode summaries (current)
 After all runs for a given mode complete, `suite_cli` calls a per-mode summarizer.
@@ -49,10 +51,12 @@ Location:
 - `ChangeOntCode/outputs/suite/summary/overall_summary.csv`
 - `ChangeOntCode/outputs/suite/summary/overall_stoa_vs_co.csv`
 - `ChangeOntCode/outputs/suite/summary/overall_stoa_vs_co.png`
+- `ChangeOntCode/outputs/suite/summary/overall_failures.csv`
 
 What they contain (current):
 - `overall_summary.csv` concatenates each family’s `combined_summary.csv` with a `family` column.
 - `overall_stoa_vs_co.csv` normalizes per-family metrics to compute a simple cross-family “overall_accuracy”.
+- `overall_failures.csv` lists any runs that did not succeed based on `job_state.json`.
 
 ## Plots (current)
 There are two plotting layers:

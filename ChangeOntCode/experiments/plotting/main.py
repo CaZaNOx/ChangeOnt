@@ -90,7 +90,7 @@ def summarize_suite(suite_root: Path, families: List[str]) -> None:
     missing: List[str] = []
 
     fam_csv_map: Dict[str, Path] = {
-        fam: suite_root / fam / "summary" / "combined_summary.csv"
+        fam: suite_root / fam / "_summary" / "combined_summary.csv"
         for fam in families
     }
 

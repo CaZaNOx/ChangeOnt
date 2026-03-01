@@ -5,35 +5,53 @@ This document describes how `suite_cli` calls each runner today, what each runne
 ## How runners are called
 `suite_cli` always calls runners as Python modules:
 - Bandit: `python -m experiments.runners.bandit_runner --config <tmp.yaml>`
-- Maze: `python -m experiments.runners.maze_runner --config <tmp.yaml> --agent <type> --episodes <n> --out <dir>`
+- Maze: `python -m experiments.runners.maze_runner --config <tmp.yaml>`
 - Renewal: `python -m experiments.runners.renewal_runner --config <tmp.yaml>`
 
 Notes:
 - The `--config` file is always provided by `suite_cli`.
-- Maze also passes CLI flags, but the runner ignores them when a config is present.
-- All runners run in-process and block; `suite_cli` waits for each subprocess to finish.
+- Runners treat `--config` as authoritative.
+- All runners are invoked as subprocesses; `suite_cli` manages concurrency via a worker pool (default `max_workers: 1`).
 
 ## Per-run config payloads (current)
-Bandit (`bandit_runner`) config shape:
-- `env.probs` (list of floats)
-- `env.horizon` (int)
-- `agent.type`, `agent.name` (optional), `agent.params`
-- `seed` (int)
-- `out` (directory for run artifacts)
+All runners accept a **canonical per-run config**:
 
-Maze (`maze_runner`) config shape:
-- `env.spec_path` (string path)
-- `env.params` (dict) is written by `suite_cli` but not read by `maze_runner`
-- `episodes` (int)
-- `agent.type`, `agent.name` (optional), `agent.params`
-- `out` (directory for run artifacts)
+```yaml
+job:
+  family: "<bandit|maze|renewal>"
+  mode: "<mode_name>"
+  seed: 0
+  agent_id: "<display_name>"
+  agent_type: "<raw_agent_type>"
+  agent_name: "<optional_name>"
+  out_dir: "outputs/suite/<family>/<mode>/<agent>_s<seed>"
+  runner: "experiments.runners.<family>_runner"
 
-Renewal (`renewal_runner`) config shape:
-- `seed` (int)
-- `steps` (int)
-- `agent.type`, `agent.name` (optional), `agent.params`
-- `env` (dict: `A`, `L_win`, `p_ren`, `p_noise`, `T_max`)
-- `out_dir` (directory for run artifacts)
+env:
+  kind: "<family>"
+  spec: {}
+  params: {}
+
+agent:
+  type: "<stoa|co>"
+  name: "<algo_or_variant>"
+  params: {}
+
+run:
+  steps: null
+  episodes: null
+  horizon: null
+
+logging:
+  write_metrics: true
+  write_budget: true
+  write_plot: true
+```
+
+Family payload conventions:
+- Bandit: `env.params.probs`, `env.params.horizon`, `run.horizon`.
+- Maze: `env.spec.spec_path`, `run.episodes`, and optional `env.params` (width/height/seed).
+- Renewal: `env.params.A/L_win/p_ren/p_noise/T_max`, `run.steps`.
 
 ## What each runner is responsible for
 All runners:
@@ -41,6 +59,7 @@ All runners:
 - Construct the environment and agent.
 - Run a single episode/loop series.
 - Write `metrics.jsonl` and `budget.csv`.
+- Write `run_manifest.json`.
 - Optionally write `quick_plot.png` (best-effort; silently skipped if plotting deps are missing).
 
 Bandit runner (`experiments/runners/bandit_runner.py`):
@@ -77,11 +96,8 @@ STOA agents are constructed directly inside each runner:
 
 ## Duplications and family-specific logic (current)
 There is no shared runner base class. Each family has its own:
-- Config parsing and defaults.
+- Environment construction and observation translation.
 - CO setup and observation construction.
 - Metrics naming and summary expectations.
-- Output cleanup behavior.
 
-Current behavior vs future idea:
-- Current: family-specific loops are duplicated in each runner and in `suite_cli`.
-- Future idea (not implemented): centralize job creation and config schemas to reduce duplication and enforce consistent output conventions across families.
+Suite orchestration now centralizes job creation and config schema generation, while family-specific loops remain in runners.

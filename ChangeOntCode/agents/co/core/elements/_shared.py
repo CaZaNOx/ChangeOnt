@@ -33,3 +33,14 @@ def push_votes(bus: Any, family: str, votes: dict[str, float], source: str) -> N
             bus.push(family, a, weight=float(w), source=source)
         except Exception:
             continue
+
+
+def get_semantic(primitives: Any) -> dict:
+    """Fetch semantic combinators registry from primitives."""
+    try:
+        sem = primitives.get("_semantic", {})
+        if isinstance(sem, dict):
+            return sem
+    except Exception:
+        pass
+    return {}

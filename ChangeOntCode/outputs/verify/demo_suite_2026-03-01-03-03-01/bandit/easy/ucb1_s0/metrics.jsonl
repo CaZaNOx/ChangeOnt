@@ -1,0 +1,402 @@
+{"record_type": "header", "runner": "bandit", "family": "bandit", "mode": "easy", "seed": 0, "env": {"probs": [0.1, 0.2, 0.8], "horizon": 200}, "agent": "ucb1:ucb1", "out_dir": "outputs/verify/demo_suite_2026-03-01-03-03-01/bandit/easy/ucb1_s0"}
+{"metric": "cumulative_regret", "t": 1, "value": 0.7000000000000001}
+{"metric": "arm_pull", "t": 1, "arm": 0, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 2, "value": 1.3000000000000003}
+{"metric": "arm_pull", "t": 2, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 3, "value": 1.3000000000000003}
+{"metric": "arm_pull", "t": 3, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 4, "value": 1.3000000000000003}
+{"metric": "arm_pull", "t": 4, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 5, "value": 1.3000000000000003}
+{"metric": "arm_pull", "t": 5, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 6, "value": 1.3000000000000003}
+{"metric": "arm_pull", "t": 6, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 7, "value": 1.3000000000000003}
+{"metric": "arm_pull", "t": 7, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 8, "value": 1.3000000000000003}
+{"metric": "arm_pull", "t": 8, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 9, "value": 2.0000000000000004}
+{"metric": "arm_pull", "t": 9, "arm": 0, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 10, "value": 2.6000000000000005}
+{"metric": "arm_pull", "t": 10, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 11, "value": 2.6000000000000005}
+{"metric": "arm_pull", "t": 11, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 12, "value": 2.6000000000000005}
+{"metric": "arm_pull", "t": 12, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 13, "value": 2.6000000000000005}
+{"metric": "arm_pull", "t": 13, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 14, "value": 2.6000000000000005}
+{"metric": "arm_pull", "t": 14, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 15, "value": 2.6000000000000005}
+{"metric": "arm_pull", "t": 15, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 16, "value": 3.3000000000000007}
+{"metric": "arm_pull", "t": 16, "arm": 0, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 17, "value": 3.900000000000001}
+{"metric": "arm_pull", "t": 17, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 18, "value": 3.900000000000001}
+{"metric": "arm_pull", "t": 18, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 19, "value": 3.900000000000001}
+{"metric": "arm_pull", "t": 19, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 20, "value": 3.900000000000001}
+{"metric": "arm_pull", "t": 20, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 21, "value": 4.6000000000000005}
+{"metric": "arm_pull", "t": 21, "arm": 0, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 22, "value": 5.200000000000001}
+{"metric": "arm_pull", "t": 22, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 23, "value": 5.200000000000001}
+{"metric": "arm_pull", "t": 23, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 24, "value": 5.200000000000001}
+{"metric": "arm_pull", "t": 24, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 25, "value": 5.200000000000001}
+{"metric": "arm_pull", "t": 25, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 26, "value": 5.200000000000001}
+{"metric": "arm_pull", "t": 26, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 27, "value": 5.200000000000001}
+{"metric": "arm_pull", "t": 27, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 28, "value": 5.200000000000001}
+{"metric": "arm_pull", "t": 28, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 29, "value": 5.200000000000001}
+{"metric": "arm_pull", "t": 29, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 30, "value": 5.900000000000001}
+{"metric": "arm_pull", "t": 30, "arm": 0, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 31, "value": 6.500000000000002}
+{"metric": "arm_pull", "t": 31, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 32, "value": 6.500000000000002}
+{"metric": "arm_pull", "t": 32, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 33, "value": 6.500000000000002}
+{"metric": "arm_pull", "t": 33, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 34, "value": 6.500000000000002}
+{"metric": "arm_pull", "t": 34, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 35, "value": 6.500000000000002}
+{"metric": "arm_pull", "t": 35, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 36, "value": 6.500000000000002}
+{"metric": "arm_pull", "t": 36, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 37, "value": 6.500000000000002}
+{"metric": "arm_pull", "t": 37, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 38, "value": 6.500000000000002}
+{"metric": "arm_pull", "t": 38, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 39, "value": 6.500000000000002}
+{"metric": "arm_pull", "t": 39, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 40, "value": 7.200000000000002}
+{"metric": "arm_pull", "t": 40, "arm": 0, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 41, "value": 7.8000000000000025}
+{"metric": "arm_pull", "t": 41, "arm": 1, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 42, "value": 8.400000000000002}
+{"metric": "arm_pull", "t": 42, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 43, "value": 8.400000000000002}
+{"metric": "arm_pull", "t": 43, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 44, "value": 9.000000000000002}
+{"metric": "arm_pull", "t": 44, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 45, "value": 9.000000000000002}
+{"metric": "arm_pull", "t": 45, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 46, "value": 9.000000000000002}
+{"metric": "arm_pull", "t": 46, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 47, "value": 9.000000000000002}
+{"metric": "arm_pull", "t": 47, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 48, "value": 9.000000000000002}
+{"metric": "arm_pull", "t": 48, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 49, "value": 9.000000000000002}
+{"metric": "arm_pull", "t": 49, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 50, "value": 9.000000000000002}
+{"metric": "arm_pull", "t": 50, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 51, "value": 9.700000000000001}
+{"metric": "arm_pull", "t": 51, "arm": 0, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 52, "value": 9.700000000000001}
+{"metric": "arm_pull", "t": 52, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 53, "value": 9.700000000000001}
+{"metric": "arm_pull", "t": 53, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 54, "value": 9.700000000000001}
+{"metric": "arm_pull", "t": 54, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 55, "value": 9.700000000000001}
+{"metric": "arm_pull", "t": 55, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 56, "value": 9.700000000000001}
+{"metric": "arm_pull", "t": 56, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 57, "value": 9.700000000000001}
+{"metric": "arm_pull", "t": 57, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 58, "value": 9.700000000000001}
+{"metric": "arm_pull", "t": 58, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 59, "value": 9.700000000000001}
+{"metric": "arm_pull", "t": 59, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 60, "value": 9.700000000000001}
+{"metric": "arm_pull", "t": 60, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 61, "value": 9.700000000000001}
+{"metric": "arm_pull", "t": 61, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 62, "value": 10.3}
+{"metric": "arm_pull", "t": 62, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 63, "value": 10.3}
+{"metric": "arm_pull", "t": 63, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 64, "value": 10.3}
+{"metric": "arm_pull", "t": 64, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 65, "value": 10.3}
+{"metric": "arm_pull", "t": 65, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 66, "value": 10.3}
+{"metric": "arm_pull", "t": 66, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 67, "value": 10.3}
+{"metric": "arm_pull", "t": 67, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 68, "value": 10.3}
+{"metric": "arm_pull", "t": 68, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 69, "value": 10.3}
+{"metric": "arm_pull", "t": 69, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 70, "value": 10.3}
+{"metric": "arm_pull", "t": 70, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 71, "value": 10.3}
+{"metric": "arm_pull", "t": 71, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 72, "value": 10.3}
+{"metric": "arm_pull", "t": 72, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 73, "value": 10.3}
+{"metric": "arm_pull", "t": 73, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 74, "value": 10.3}
+{"metric": "arm_pull", "t": 74, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 75, "value": 10.3}
+{"metric": "arm_pull", "t": 75, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 76, "value": 10.3}
+{"metric": "arm_pull", "t": 76, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 77, "value": 10.3}
+{"metric": "arm_pull", "t": 77, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 78, "value": 10.3}
+{"metric": "arm_pull", "t": 78, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 79, "value": 10.3}
+{"metric": "arm_pull", "t": 79, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 80, "value": 11.0}
+{"metric": "arm_pull", "t": 80, "arm": 0, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 81, "value": 11.0}
+{"metric": "arm_pull", "t": 81, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 82, "value": 11.6}
+{"metric": "arm_pull", "t": 82, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 83, "value": 11.6}
+{"metric": "arm_pull", "t": 83, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 84, "value": 11.6}
+{"metric": "arm_pull", "t": 84, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 85, "value": 11.6}
+{"metric": "arm_pull", "t": 85, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 86, "value": 11.6}
+{"metric": "arm_pull", "t": 86, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 87, "value": 11.6}
+{"metric": "arm_pull", "t": 87, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 88, "value": 11.6}
+{"metric": "arm_pull", "t": 88, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 89, "value": 11.6}
+{"metric": "arm_pull", "t": 89, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 90, "value": 11.6}
+{"metric": "arm_pull", "t": 90, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 91, "value": 11.6}
+{"metric": "arm_pull", "t": 91, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 92, "value": 12.299999999999999}
+{"metric": "arm_pull", "t": 92, "arm": 0, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 93, "value": 12.299999999999999}
+{"metric": "arm_pull", "t": 93, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 94, "value": 12.299999999999999}
+{"metric": "arm_pull", "t": 94, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 95, "value": 12.299999999999999}
+{"metric": "arm_pull", "t": 95, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 96, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 96, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 97, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 97, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 98, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 98, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 99, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 99, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 100, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 100, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 101, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 101, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 102, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 102, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 103, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 103, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 104, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 104, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 105, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 105, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 106, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 106, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 107, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 107, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 108, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 108, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 109, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 109, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 110, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 110, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 111, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 111, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 112, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 112, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 113, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 113, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 114, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 114, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 115, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 115, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 116, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 116, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 117, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 117, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 118, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 118, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 119, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 119, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 120, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 120, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 121, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 121, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 122, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 122, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 123, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 123, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 124, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 124, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 125, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 125, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 126, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 126, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 127, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 127, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 128, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 128, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 129, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 129, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 130, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 130, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 131, "value": 12.899999999999999}
+{"metric": "arm_pull", "t": 131, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 132, "value": 13.599999999999998}
+{"metric": "arm_pull", "t": 132, "arm": 0, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 133, "value": 13.599999999999998}
+{"metric": "arm_pull", "t": 133, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 134, "value": 13.599999999999998}
+{"metric": "arm_pull", "t": 134, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 135, "value": 13.599999999999998}
+{"metric": "arm_pull", "t": 135, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 136, "value": 13.599999999999998}
+{"metric": "arm_pull", "t": 136, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 137, "value": 13.599999999999998}
+{"metric": "arm_pull", "t": 137, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 138, "value": 13.599999999999998}
+{"metric": "arm_pull", "t": 138, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 139, "value": 13.599999999999998}
+{"metric": "arm_pull", "t": 139, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 140, "value": 13.599999999999998}
+{"metric": "arm_pull", "t": 140, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 141, "value": 13.599999999999998}
+{"metric": "arm_pull", "t": 141, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 142, "value": 13.599999999999998}
+{"metric": "arm_pull", "t": 142, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 143, "value": 13.599999999999998}
+{"metric": "arm_pull", "t": 143, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 144, "value": 13.599999999999998}
+{"metric": "arm_pull", "t": 144, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 145, "value": 14.199999999999998}
+{"metric": "arm_pull", "t": 145, "arm": 1, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 146, "value": 14.799999999999997}
+{"metric": "arm_pull", "t": 146, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 147, "value": 14.799999999999997}
+{"metric": "arm_pull", "t": 147, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 148, "value": 14.799999999999997}
+{"metric": "arm_pull", "t": 148, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 149, "value": 14.799999999999997}
+{"metric": "arm_pull", "t": 149, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 150, "value": 15.399999999999997}
+{"metric": "arm_pull", "t": 150, "arm": 1, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 151, "value": 15.999999999999996}
+{"metric": "arm_pull", "t": 151, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 152, "value": 15.999999999999996}
+{"metric": "arm_pull", "t": 152, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 153, "value": 15.999999999999996}
+{"metric": "arm_pull", "t": 153, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 154, "value": 15.999999999999996}
+{"metric": "arm_pull", "t": 154, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 155, "value": 15.999999999999996}
+{"metric": "arm_pull", "t": 155, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 156, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 156, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 157, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 157, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 158, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 158, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 159, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 159, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 160, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 160, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 161, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 161, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 162, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 162, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 163, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 163, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 164, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 164, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 165, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 165, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 166, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 166, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 167, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 167, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 168, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 168, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 169, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 169, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 170, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 170, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 171, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 171, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 172, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 172, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 173, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 173, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 174, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 174, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 175, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 175, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 176, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 176, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 177, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 177, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 178, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 178, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 179, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 179, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 180, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 180, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 181, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 181, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 182, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 182, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 183, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 183, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 184, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 184, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 185, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 185, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 186, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 186, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 187, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 187, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 188, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 188, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 189, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 189, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 190, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 190, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 191, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 191, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 192, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 192, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 193, "value": 16.599999999999998}
+{"metric": "arm_pull", "t": 193, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 194, "value": 17.299999999999997}
+{"metric": "arm_pull", "t": 194, "arm": 0, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 195, "value": 17.299999999999997}
+{"metric": "arm_pull", "t": 195, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 196, "value": 17.299999999999997}
+{"metric": "arm_pull", "t": 196, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 197, "value": 17.299999999999997}
+{"metric": "arm_pull", "t": 197, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 198, "value": 17.299999999999997}
+{"metric": "arm_pull", "t": 198, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 199, "value": 17.299999999999997}
+{"metric": "arm_pull", "t": 199, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 200, "value": 17.299999999999997}
+{"metric": "arm_pull", "t": 200, "arm": 2, "reward": 1.0}
+{"metric": "pulls_summary", "t": 200, "pulls": [11, 16, 173], "best_arm": 2}

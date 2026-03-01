@@ -1,10 +1,11 @@
 # experiments/plotting/bandit.py
 from __future__ import annotations
-from pathlib import Path
 from typing import Dict, Any, List, Tuple
-from experiments.plotting.util import ensure_dir, write_csv, safe_import_plt
+from pathlib import Path
 
-plt = safe_import_plt()
+from experiments.plotting.raster import bar_chart_png, line_chart_png
+from experiments.plotting.util import ensure_dir, write_csv
+
 
 def summarize_problem(problem_dir: Path, data: Dict[str, Any]) -> None:
     summary_dir = problem_dir / "_summary"
@@ -21,22 +22,16 @@ def summarize_problem(problem_dir: Path, data: Dict[str, Any]) -> None:
         })
     write_csv(summary_dir / "summary.csv", rows)
 
-    if plt:
-        plt.figure()
-        for agent, d in sorted(data["agents"].items()):
-            mc = d.get("mean_curve", {})
-            t = mc.get("t", [])
-            reg = mc.get("regret", [])
-            if not t or not reg:
-                continue
-            plt.plot(t, reg, label=agent, linewidth=2)
-        plt.xlabel("t")
-        plt.ylabel("mean cumulative regret")
-        plt.title(f"Bandit: {data['problem']}")
-        plt.legend()
-        plt.tight_layout()
-        plt.savefig(summary_dir / "summary.png", dpi=160)
-        plt.close()
+    series: Dict[str, List[float]] = {}
+    for agent, d in sorted(data["agents"].items()):
+        mc = d.get("mean_curve", {})
+        t = mc.get("t", [])
+        reg = mc.get("regret", [])
+        if not t or not reg:
+            continue
+        series[agent] = reg[:min(len(reg), len(t))]
+    line_chart_png(summary_dir / "summary.png", series, f"Bandit: {data['problem']}", "t", "mean cumulative regret")
+
 
 def aggregate_family(bandit_root: Path) -> None:
     # combine all problem summaries into a family-level summary & plot
@@ -71,15 +66,6 @@ def aggregate_family(bandit_root: Path) -> None:
     } for agent, v in sorted(agg.items())]
     write_csv(summary_dir / "combined_summary.csv", fam_rows)
 
-    if plt and fam_rows:
-        agents = [r["agent"] for r in fam_rows]
-        vals = [r["family_mean_final_regret"] for r in fam_rows]
-        plt.figure()
-        plt.bar(range(len(agents)), vals)
-        plt.xticks(range(len(agents)), agents, rotation=30, ha="right")
-        plt.ylabel("mean final regret (lower is better)")
-        plt.title("Bandit: aggregated over problems")
-        plt.tight_layout()
-        plt.savefig(summary_dir / "combined_summary.png", dpi=160)
-        plt.close()
- 
+    agents = [r["agent"] for r in fam_rows]
+    vals = [r["family_mean_final_regret"] for r in fam_rows]
+    bar_chart_png(summary_dir / "combined_summary.png", agents, vals, "Bandit: aggregated over problems", "mean final regret")

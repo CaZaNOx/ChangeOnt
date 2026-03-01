@@ -1,7 +1,10 @@
 # experiments/configs/suite_all.yaml
 # One-shot configuration to run STOA and CO across bandit, maze, renewal.
 
-out_root: outputs/suite
+out_root: outputs/suite/suite
+suffix_out_root: true
+inject_co: true
+co_manifest: co_agents/co_agents_selection.yaml
 
 families:
   bandit:

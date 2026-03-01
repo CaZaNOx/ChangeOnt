@@ -13,8 +13,10 @@ class COAgentCore:
                  primitives: Dict[str, Any],
                  combinators: Dict[str, Any],
                  math_policy: str = "co",
-                 name: str = "CO_core"):
+                 name: str = "CO_core",
+                 meta_header: Any = None):
         self.header = header
+        self.meta_header = meta_header
         self.elements = elements
         self.primitives = primitives
         self.combinators = combinators

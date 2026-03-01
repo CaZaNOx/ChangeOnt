@@ -2,7 +2,7 @@
 from __future__ import annotations
 from typing import Dict, Any
 from dataclasses import dataclass
-from ._shared import publish_signal
+from ._shared import publish_signal, get_semantic
 
 @dataclass
 class EB_GHVC:
@@ -14,6 +14,7 @@ class EB_GHVC:
     """
     PRIMITIVE_DEPS = ("P3_MDL", "P10_ChangeOpsCore", "P12_ClosureQuotient (optional)")
     COMBINATOR_FORM = "SC_GatedThreshold (+ SC_AdditiveBlend inside score)"
+    COMBINATOR_DEPS = ("SC_GatedThreshold", "SC_AdditiveBlend")
     FORMULA_STATUS = "provisional"
 
     birth_threshold: float = 2.0
@@ -46,17 +47,22 @@ class EB_GHVC:
             fb = feedback
         budget= primitives.get("budget")
 
-        if res:
-            pressure = self._sum_abs(res.values())
-        elif probes:
-            pressure = self._sum_abs(probes.values())
-        else:
-            pressure = 0.0
-            if isinstance(fb, dict) and "reward" in fb:
-                try:
-                    pressure = abs(float(fb.get("reward", 0.0))) * 4.5
-                except Exception:
-                    pressure = 0.0
+        sem = get_semantic(primitives)
+        sc_add = sem.get("SC_AdditiveBlend")
+        sc_gate = sem.get("SC_GatedThreshold")
+        if sc_add is None or sc_gate is None:
+            raise RuntimeError("EB_GHVC requires semantic combinators SC_AdditiveBlend and SC_GatedThreshold.")
+
+        res_pressure = self._sum_abs(res.values()) if res else 0.0
+        probes_pressure = self._sum_abs(probes.values()) if probes else 0.0
+        reward_pressure = 0.0
+        if isinstance(fb, dict) and "reward" in fb:
+            try:
+                reward_pressure = abs(float(fb.get("reward", 0.0))) * 4.5
+            except Exception:
+                reward_pressure = 0.0
+
+        pressure = sc_add.combine([res_pressure, probes_pressure, reward_pressure])
 
         k_new = 1 if (res or probes) else 0
         mse = pressure
@@ -71,7 +77,7 @@ class EB_GHVC:
             cooldown_ok = True
         else:
             cooldown_ok = (t - int(self.last_birth_t)) >= int(self.cooldown)
-        birth_suggest = int((pressure >= self.birth_threshold) and (mdl_gain > 0.0) and cooldown_ok)
+        birth_suggest = int(sc_gate.activate(pressure, self.birth_threshold, gate_ok=(mdl_gain > 0.0 and cooldown_ok)))
 
         born = False
         cap_hits = 0
@@ -89,12 +95,46 @@ class EB_GHVC:
         if born:
             self.last_birth_t = t
 
+        # Optional P9 variable-birth proposal path (if present)
+        p9 = primitives.get("P9")
+        p9_proposal = None
+        p9_delta_mdl = 0.0
+        p9_accepted = False
+        if p9 is not None and hasattr(p9, "propose_new_variable") and hasattr(p9, "accept_birth"):
+            try:
+                proposal = p9.propose_new_variable(res or probes, {}, float(mdl_gain))
+            except Exception:
+                proposal = {"proposal": None, "delta_mdl": 0.0}
+            out_prop = proposal.get("proposal")
+            try:
+                delta_mdl = float(proposal.get("delta_mdl", 0.0))
+            except Exception:
+                delta_mdl = 0.0
+            residual_gain = 0.0
+            if out_prop and isinstance(out_prop, dict):
+                try:
+                    residual_gain = float(out_prop.get("estimated_gain", 0.0))
+                except Exception:
+                    residual_gain = 0.0
+            cooldown_state = primitives.setdefault("_p9_cooldown", {"cooldown": self.cooldown, "steps_left": 0})
+            try:
+                if p9.accept_birth(delta_mdl, residual_gain, gamma=float(self.mdl_lambda), cooldown_state=cooldown_state):
+                    born = True
+                    p9_accepted = True
+            except Exception:
+                pass
+            p9_proposal = out_prop
+            p9_delta_mdl = float(delta_mdl)
+
         return {
             "born_variable": born,
             "birth_suggest": birth_suggest,
             "pressure": pressure,
             "mdl_gain": mdl_gain,
             "cap_hits": int(cap_hits),
+            "p9_proposal": p9_proposal,
+            "p9_delta_mdl": float(p9_delta_mdl),
+            "p9_accepted": bool(p9_accepted),
         }
 
     def update(self, observation: Dict[str, Any], primitives: Dict[str, Any], header: Any, feedback: Dict[str, Any] | None) -> Dict[str, Any]:

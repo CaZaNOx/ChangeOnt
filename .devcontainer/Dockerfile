@@ -12,10 +12,21 @@ RUN setcap cap_net_admin+ep /usr/sbin/iptables || true \
 
 # ---- Python venv + SDKs
 ENV AI_VENV=/opt/ai/venv
-RUN python3 -m venv $AI_VENV \
- && $AI_VENV/bin/pip install --upgrade pip \
- && $AI_VENV/bin/pip install --no-cache-dir google-generativeai anthropic openai huggingface_hub
-ENV PATH="$AI_VENV/bin:${PATH}"
+ENV PATH="${AI_VENV}/bin:${PATH}"
+ENV MPLCONFIGDIR=/home/vscode/.config/matplotlib
+
+RUN mkdir -p /home/vscode/.config/matplotlib \
+ && chown -R vscode:vscode /home/vscode/.config
+
+RUN python3 -m venv "${AI_VENV}" \
+ && "${AI_VENV}/bin/python" -m pip install --upgrade pip setuptools wheel \
+ && "${AI_VENV}/bin/python" -m pip install --no-cache-dir \
+      google-generativeai \
+      anthropic \
+      openai \
+      huggingface_hub \
+      matplotlib \
+ && apt-get update
 
 # ---- Node.js 20 (for CLIs)
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
@@ -30,13 +41,8 @@ ENV PATH=/opt/npm-global/bin:$PATH
 # ---- Install CLIs as non-root so no EACCES
 USER vscode
 
-# 1) ChatGPT Codex CLI (latest)
 RUN npm install -g @openai/codex@latest
-
-# 2) Google Gemini CLI (latest)
 RUN npm install -g @google/gemini-cli@latest
-
-# 3) (optional) Claude Code CLI — uncomment when needed
 # RUN npm install -g @anthropic-ai/claude-code@latest
 
 USER root

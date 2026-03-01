@@ -5,6 +5,13 @@ from pathlib import Path
 
 # Core & combinators
 from agents.co.core.pipeline import COAgentCore
+from agents.co.headers.meta_header import MetaHeader
+from agents.co.core.combinators import (
+    SC_AdditiveBlend,
+    SC_MultiplicativeCoupling,
+    SC_GatedThreshold,
+    SC_WeightedSelection,
+)
 
 # Registry loader (already used by suite hooks)
 from agents.co.integration.loader import load_registry, resolve_classes
@@ -35,7 +42,7 @@ except Exception:
 
 # ... (keep your current imports and C_Pipeline fallback)
 
-def _instantiate_components(params: Dict[str, Any], classes: Dict[str, Dict[str, Any]]) -> tuple[Any, Dict[str, Any], List[Any], Dict[str, Any]]:
+def _instantiate_components(params: Dict[str, Any], classes: Dict[str, Dict[str, Any]]) -> tuple[Any, Dict[str, Any], List[Any], Dict[str, Any], Any]:
     # -------- Header (unchanged) --------
     hcfg  = dict(params.get("header", {}))
     htype = str(hcfg.pop("type", hcfg.pop("mode", "SSI")))
@@ -119,6 +126,14 @@ def _instantiate_components(params: Dict[str, Any], classes: Dict[str, Dict[str,
     if "birth_count" not in primitives:
         primitives["birth_count"] = 0
 
+    # Ensure additional v1 primitives if available (used by active elements)
+    # NOTE: P9 (VariableBirth) remains optional and should only be enabled explicitly.
+    for key in ("P5", "P7", "P8", "P11", "P13", "P14"):
+        if key not in primitives:
+            cls = prim_classes.get(key)
+            if cls:
+                primitives[key] = _init_primitive(cls, {})
+
     # -------- Elements (now with explicit reordering) --------
     el_cfg_map = dict(params.get("elements", {}))   # preserves insertion order from YAML loader
     element_classes = classes.get("elements", {})
@@ -168,12 +183,28 @@ def _instantiate_components(params: Dict[str, Any], classes: Dict[str, Dict[str,
 
         elements.append(inst)
 
-    # -------- Combinators (unchanged; we still pass order to pipeline if it supports it) --------
+    # -------- Combinators (runtime + semantic) --------
     comb_classes = classes.get("combinators", {})
     pipeline_cls = comb_classes.get("pipeline", C_Pipeline)
     order = list(params.get("combinator", {}).get("order", []))
     pipeline = pipeline_cls(order=order) if "order" in getattr(pipeline_cls.__init__, "__code__", type("x", (), {"co_varnames": ()})) .co_varnames else pipeline_cls()
-    combinators: Dict[str, Any] = {"pipeline": pipeline}
+    # Semantic combinators (law-forms)
+    semantic = {
+        "SC_AdditiveBlend": SC_AdditiveBlend,
+        "SC_MultiplicativeCoupling": SC_MultiplicativeCoupling,
+        "SC_GatedThreshold": SC_GatedThreshold,
+        "SC_WeightedSelection": SC_WeightedSelection,
+    }
+    # Optional semantic combinator remapping for experiment doctrine
+    overrides = params.get("semantic_overrides", params.get("semantic_combinators", {})) or {}
+    if isinstance(overrides, dict):
+        for name, target in overrides.items():
+            if name in semantic and target in semantic:
+                semantic[name] = semantic[target]
+    # expose to elements without conflating primitives
+    primitives["_semantic"] = semantic
+
+    combinators: Dict[str, Any] = {"pipeline": pipeline, "semantic": semantic}
 
     gate_cls = comb_classes.get("gate")
     if gate_cls:
@@ -182,7 +213,16 @@ def _instantiate_components(params: Dict[str, Any], classes: Dict[str, Dict[str,
         except Exception:
             pass
 
-    return header, primitives, elements, combinators
+    return header, primitives, elements, combinators, semantic
+
+
+def _build_meta_header(params: Dict[str, Any]) -> MetaHeader:
+    meta_cfg = params.get("meta_header", params.get("meta", {})) or {}
+    if not isinstance(meta_cfg, dict):
+        meta_cfg = {}
+    priors = dict(meta_cfg.get("priors", meta_cfg))
+    family = meta_cfg.get("family")
+    return MetaHeader(priors=priors, family=family)
 
 
 def build_co_core(params: Dict[str, Any] | None = None) -> COAgentCore:
@@ -216,14 +256,18 @@ def build_co_core(params: Dict[str, Any] | None = None) -> COAgentCore:
     classes = resolve_classes(reg)
 
     # Build components
-    header, primitives, elements, combinators = _instantiate_components(cfg, classes)
+    header, primitives, elements, combinators, semantic = _instantiate_components(cfg, classes)
 
     # Return core
-    return COAgentCore(
+    core = COAgentCore(
         header=header,
         elements=elements,
         primitives=primitives,
         combinators=combinators,
         math_policy=math_policy,
         name=str(cfg.get("name", "CO_core")),
+        meta_header=_build_meta_header(cfg),
     )
+    # expose meta header for telemetry without conflating with internal header
+    primitives["_meta_header"] = core.meta_header
+    return core

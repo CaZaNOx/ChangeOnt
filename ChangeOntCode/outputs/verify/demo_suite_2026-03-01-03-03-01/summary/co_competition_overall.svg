@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320">
+<rect x="0" y="0" width="640" height="320" fill="#111f2b"/>
+<text x="320.0" y="24" text-anchor="middle" font-size="18" fill="#fff">CO Competition (overall)</text>
+<text x="580.0" y="40" text-anchor="middle" font-size="12" fill="#eee">overall score</text>
+<rect x="50" y="239" width="30" height="21" fill="#4c78a8" />
+<rect x="90" y="239" width="30" height="21" fill="#4c78a8" />
+<rect x="130" y="80" width="30" height="180" fill="#4c78a8" />
+<rect x="170" y="100" width="30" height="160" fill="#4c78a8" />
+<rect x="210" y="80" width="30" height="180" fill="#4c78a8" />
+<rect x="250" y="80" width="30" height="180" fill="#4c78a8" />
+<rect x="290" y="200" width="30" height="60" fill="#4c78a8" />
+<rect x="330" y="80" width="30" height="180" fill="#4c78a8" />
+</svg>

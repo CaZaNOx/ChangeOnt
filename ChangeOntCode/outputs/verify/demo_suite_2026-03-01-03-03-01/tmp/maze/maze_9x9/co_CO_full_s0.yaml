@@ -1,0 +1,76 @@
+job:
+  family: maze
+  mode: maze_9x9
+  seed: 0
+  agent_id: co_CO_full
+  agent_type: co
+  agent_name: CO_full
+  out_dir: outputs/verify/demo_suite_2026-03-01-03-03-01/maze/maze_9x9/co_CO_full_s0
+  runner: experiments.runners.maze_runner
+env:
+  kind: maze
+  spec:
+    spec_path: environments/maze1/spec_9x9.yaml
+  params:
+    width: 5
+    height: 5
+    seed: 0
+agent:
+  type: co
+  name: CO_full
+  params:
+    header:
+      mode: SSI
+    elements:
+      haq:
+        enabled: true
+        history_len: 64
+        ema_alpha: 0.2
+      ghvc:
+        enabled: true
+        mdl_lambda: 1.0
+        cooldown: 5
+        birth_threshold: 2.0
+      EC_Identity:
+        enabled: true
+      density:
+        enabled: true
+        rounding: 2
+      change_ops:
+        enabled: true
+        k: 4
+        mdl_select: true
+      vote_bridge:
+        enabled: true
+      action_head:
+        enabled: true
+        prefer_bus_if_present: true
+        use_translator: true
+        blend_mode: mix
+        classic_planner: greedy
+        co_weight_override: null
+        eps_on_cycle: 0.1
+        ngram_order: 2
+        greedy_explore_bias: 0.1
+    primitives:
+      co_bus: {}
+      P0: {}
+      bandit_stats: {}
+      ngram_model: {}
+    combinator:
+      order:
+      - haq
+      - ghvc
+      - EC_Identity
+      - density
+      - change_ops
+      - vote_bridge
+      - action_head
+run:
+  steps: null
+  episodes: 2
+  horizon: null
+logging:
+  write_metrics: true
+  write_budget: true
+  write_plot: true

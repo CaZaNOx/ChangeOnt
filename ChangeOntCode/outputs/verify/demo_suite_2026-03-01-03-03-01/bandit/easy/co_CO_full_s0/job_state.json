@@ -1,0 +1,12 @@
+{
+  "agent_tag": "co_CO_full",
+  "ended_at": "2026-03-01T03:04:35.532475+00:00",
+  "error": null,
+  "family": "bandit",
+  "mode": "easy",
+  "out_dir": "outputs/verify/demo_suite_2026-03-01-03-03-01/bandit/easy/co_CO_full_s0",
+  "runner": "experiments.runners.bandit_runner",
+  "seed": 0,
+  "started_at": "2026-03-01T03:04:29.824672+00:00",
+  "status": "succeeded"
+}

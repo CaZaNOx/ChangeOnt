@@ -19,11 +19,11 @@ Parallelism must be introduced at the **job orchestration layer**, not by making
 
 ## Current state
 
-Current suite execution is sequential:
+Current suite execution supports run-level parallelism:
 
 * family by family
-* mode by mode
-* seed × agent jobs one at a time
+* mode by mode (or mode-level parallelism if `parallelize_by: mode`)
+* seed × agent jobs can run in parallel within a mode when `parallelize_by: run`
 
 This is simple but slow.
 
@@ -181,6 +181,12 @@ Add barrier-based summary triggering.
 Add failure reporting in overall suite summary.
 
 This is enough for first real parallelism.
+
+## Implemented knobs (current)
+- `max_workers`
+- `parallelize_by` (`run` or `mode`)
+- `continue_on_failure`
+- `rerun_failed_only`
 
 ## What must not happen
 

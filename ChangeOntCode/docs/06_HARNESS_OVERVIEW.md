@@ -17,17 +17,25 @@ Any other family name is ignored by `suite_cli` unless corresponding code is add
 
 ## High-level flow (current behavior)
 1. Load suite config from `ChangeOntCode/experiments/configs/suite_all.yaml` (or `--config`).
-2. Determine `out_root` (default: `outputs/suite`, relative to the working directory).
+2. Determine `out_root` (default: `outputs/suite/suite`, which results in a run directory like `outputs/suite/suite_YYYY-MM-DD-HH-MM-SS`).
 3. Load CO agent manifest from `ChangeOntCode/experiments/configs/co_agents/co_agents_selection.yaml` and append those agents to each family’s agent lists (unless `inject_co: false`).
 4. For each family present (order is `maze`, then `renewal`, then `bandit`):
-   - For each mode in that family:
-     - For each seed × agent pair:
-       - Write a per-run YAML config under `ChangeOntCode/outputs/suite/tmp/<family>/<mode>/<agent>_s<seed>.yaml`.
+    - For each mode in that family:
+      - For each seed × agent pair:
+        - Write a per-run YAML config under `ChangeOntCode/outputs/suite/<suite_run>/tmp/<family>/<mode>/<agent>_s<seed>.yaml`.
        - Invoke the corresponding runner as `python -m experiments.runners.<family>_runner --config <tmp.yaml> ...`.
      - After all runs for that mode complete, generate the per-mode summary for that family.
    - After all modes in the family complete, generate the per-family summary.
 5. After all requested families finish, generate the suite summary.
 6. Print a JSON blob containing `suite_out`.
+
+## Parallelism and rerun controls (current)
+The suite supports run-level parallelism and optional mode-level parallelism:
+- `max_workers`: number of workers for the parallelization unit
+- `parallelize_by`: `"run"` (default) or `"mode"`
+- `continue_on_failure`: `true|false`
+- `rerun_failed_only`: `true|false` (skips previously succeeded jobs)
+- `suffix_out_root`: `true|false` (append timestamp when `--config` is used)
 
 ## Configuration sources (current)
 - Suite config: `ChangeOntCode/experiments/configs/suite_all.yaml` (or `--config` override)
@@ -41,4 +49,4 @@ Any other family name is ignored by `suite_cli` unless corresponding code is add
 Current behavior:
 - The flow above is the literal code path in `suite_cli`.
 - Runs execute in parallel within each mode group when `max_workers > 1`, otherwise sequential.
-- Per-run configs are written into `outputs/suite/tmp/...` before being passed to runners.
+- Per-run configs are written into `outputs/suite/<suite_run>/tmp/...` before being passed to runners.

@@ -2,7 +2,7 @@
 from __future__ import annotations
 from typing import Dict, Any, Optional
 from dataclasses import dataclass
-from ._shared import publish_signal
+from ._shared import publish_signal, get_semantic
 
 def _get_bus(primitives: Dict[str, Any]):
     return primitives.get("co_bus", None)
@@ -17,6 +17,7 @@ class EA_HAQ:
     """
     PRIMITIVE_DEPS = ("P2_Gauge", "history/state support (optional)", "P7_Precision (optional)")
     COMBINATOR_FORM = "SC_MultiplicativeCoupling (+ optional SC_AdditiveBlend)"
+    COMBINATOR_DEPS = ("SC_MultiplicativeCoupling", "SC_AdditiveBlend")
     FORMULA_STATUS = "provisional"
 
     alpha: float = 0.0
@@ -117,12 +118,19 @@ class EA_HAQ:
             raise
 
         # Multiplicative modulation: P2 gain modulates base (z_pe + z_gain).
-        z_pe_mod = z_pe * gain
-        z_gain_mod = z_gain * gain
+        sem = get_semantic(primitives)
+        sc_mul = sem.get("SC_MultiplicativeCoupling")
+        sc_add = sem.get("SC_AdditiveBlend")
+        if sc_mul is None or sc_add is None:
+            raise RuntimeError("EA_HAQ requires semantic combinators SC_MultiplicativeCoupling and SC_AdditiveBlend.")
+
+        z_pe_mod = sc_mul.couple(z_pe, gain)
+        z_gain_mod = sc_mul.couple(z_gain, gain)
+        combined = sc_add.combine([z_pe_mod, z_gain_mod])
         self._update_alpha(z_pe_mod, z_gain_mod, cap)
 
         # publish a simple novelty scalar (translator reads EA_HAQ.novelty)
         bus = _get_bus(primitives)
         publish_signal(bus, "EA_HAQ.novelty", float(self.alpha))
 
-        return {"haq_alpha": float(self.alpha), "z_PE": float(z_pe), "z_gain": float(z_gain)}
+        return {"haq_alpha": float(self.alpha), "z_PE": float(z_pe), "z_gain": float(z_gain), "z_combined": float(combined)}

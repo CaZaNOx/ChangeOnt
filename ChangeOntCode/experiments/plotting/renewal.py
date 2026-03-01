@@ -2,9 +2,10 @@
 from __future__ import annotations
 from pathlib import Path
 from typing import Dict, Any, List
-from experiments.plotting.util import ensure_dir, write_csv, safe_import_plt
 
-plt = safe_import_plt()
+from experiments.plotting.raster import bar_chart_png, line_chart_png
+from experiments.plotting.util import ensure_dir, write_csv
+
 
 def summarize_instance(inst_dir: Path, data: Dict[str, Any]) -> None:
     summary_dir = inst_dir / "_summary"
@@ -21,22 +22,15 @@ def summarize_instance(inst_dir: Path, data: Dict[str, Any]) -> None:
         })
     write_csv(summary_dir / "summary.csv", rows)
 
-    if plt:
-        plt.figure()
-        for agent, d in sorted(data["agents"].items()):
-            mc = d.get("mean_curve", {})
-            t = mc.get("t", [])
-            cm = mc.get("cum", [])
-            if not t or not cm:
-                continue
-            plt.plot(t, cm, label=agent, linewidth=2)
-        plt.xlabel("t")
-        plt.ylabel("mean cumulative reward")
-        plt.title(f"Renewal: {data['instance']}")
-        plt.legend()
-        plt.tight_layout()
-        plt.savefig(summary_dir / "summary.png", dpi=160)
-        plt.close()
+    series: Dict[str, List[float]] = {}
+    for agent, d in sorted(data["agents"].items()):
+        mc = d.get("mean_curve", {})
+        cum = mc.get("cum", [])
+        if not cum:
+            continue
+        series[agent] = cum
+    line_chart_png(summary_dir / "summary.png", series, f"Renewal: {data['instance']}", "t", "mean cumulative reward")
+
 
 def aggregate_family(renewal_root: Path) -> None:
     summary_dir = renewal_root / "_summary"
@@ -68,14 +62,6 @@ def aggregate_family(renewal_root: Path) -> None:
     } for agent, v in sorted(agg.items())]
     write_csv(summary_dir / "combined_summary.csv", fam_rows)
 
-    if plt and fam_rows:
-        labels = [r["agent"] for r in fam_rows]
-        vals = [r["family_mean_final_cum_reward"] for r in fam_rows]
-        plt.figure()
-        plt.bar(range(len(labels)), vals)
-        plt.xticks(range(len(labels)), labels, rotation=30, ha="right")
-        plt.ylabel("mean final cumulative reward (higher is better)")
-        plt.title("Renewal: aggregated over instances")
-        plt.tight_layout()
-        plt.savefig(summary_dir / "combined_summary.png", dpi=160)
-        plt.close()
+    agents = [r["agent"] for r in fam_rows]
+    vals = [r["family_mean_final_cum_reward"] for r in fam_rows]
+    bar_chart_png(summary_dir / "combined_summary.png", agents, vals, "Renewal: aggregated over instances", "mean final cumulative reward")

@@ -1,0 +1,7 @@
+family,agent,normalized_score
+bandit,co_CO_full,0.0
+bandit,co_CO_full_QA,0.0
+maze,co_CO_full_QA_s0,0.003199360127974405
+maze,co_CO_full_s0,0.003199360127974405
+renewal,co_CO_full,0.3541666666666667
+renewal,co_CO_full_QA,0.3541666666666667

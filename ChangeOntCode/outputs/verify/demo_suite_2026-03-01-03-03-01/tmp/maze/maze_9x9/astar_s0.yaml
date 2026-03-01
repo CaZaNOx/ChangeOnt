@@ -1,0 +1,29 @@
+job:
+  family: maze
+  mode: maze_9x9
+  seed: 0
+  agent_id: astar
+  agent_type: astar
+  agent_name: null
+  out_dir: outputs/verify/demo_suite_2026-03-01-03-03-01/maze/maze_9x9/astar_s0
+  runner: experiments.runners.maze_runner
+env:
+  kind: maze
+  spec:
+    spec_path: environments/maze1/spec_9x9.yaml
+  params:
+    width: 5
+    height: 5
+    seed: 0
+agent:
+  type: stoa
+  name: astar
+  params: {}
+run:
+  steps: null
+  episodes: 2
+  horizon: null
+logging:
+  write_metrics: true
+  write_budget: true
+  write_plot: true

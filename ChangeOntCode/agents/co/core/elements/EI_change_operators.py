@@ -12,14 +12,24 @@ def _kgrams(seq: Tuple, k: int) -> List[Tuple]:
 
 @dataclass
 class EI_ChangeOps:
+    PRIMITIVE_DEPS = ("P10_ChangeOpsCore (optional)", "history/state support")
+    COMBINATOR_DEPS = ()
+    FORMULA_STATUS = "provisional"
+
     k: int = 3
 
     def configure(self, params: Dict[str, Any], context: Dict[str, Any]):
         self.k = int(params.get("k", self.k))
         return self
 
-    def _run_core(self, history: Tuple) -> Dict[str, Any]:
-        grams = _kgrams(history, self.k)
+    def _run_core(self, history: Tuple, p10: Any | None = None) -> Dict[str, Any]:
+        if p10 is not None and hasattr(p10, "kgrams"):
+            try:
+                grams = list(p10.kgrams(list(history)))
+            except Exception:
+                grams = _kgrams(history, self.k)
+        else:
+            grams = _kgrams(history, self.k)
         motif_counts: Dict[Tuple, int] = {}
         for g in grams:
             motif_counts[g] = motif_counts.get(g, 0) + 1
@@ -32,7 +42,8 @@ class EI_ChangeOps:
     def update(self, observation: Dict[str, Any], primitives: Dict[str, Any], header: Any, feedback: Dict[str, Any] | None):
         eps = float(getattr(getattr(header, "state", object()), "eps_eff", 0.0))
         hist = tuple(observation.get("history", ()))
-        out = self._run_core(hist)
+        p10 = primitives.get("p10", primitives.get("P10"))
+        out = self._run_core(hist, p10)
         out["eps"] = eps
         return out
 

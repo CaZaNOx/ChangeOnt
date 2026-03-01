@@ -6,6 +6,10 @@ class ED_GaugeWarp:
     Element D: Gauge-only stabilization outside HAQ.
     Provides a salience-weighted warp for motif detection (no A* coupling).
     """
+    PRIMITIVE_DEPS = ("P2_Gauge (optional)",)
+    COMBINATOR_DEPS = ()
+    FORMULA_STATUS = "provisional"
+
     def __init__(self, alpha: float = 0.0):
         self.alpha = max(0.0, float(alpha))
 

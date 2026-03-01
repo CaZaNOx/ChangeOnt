@@ -8,6 +8,10 @@ class EE_Compressibility:
     Element E: Memory compressibility → robustness predictor.
     Simple LZ-ish distinct-subsequence counter in a sliding window.
     """
+    PRIMITIVE_DEPS = ("history/state support", "co_bus (optional)")
+    COMBINATOR_DEPS = ()
+    FORMULA_STATUS = "provisional"
+
     def __init__(self, window: int = 32):
         self.window = max(4, int(window))
         self._last: Dict[str, float] = {}

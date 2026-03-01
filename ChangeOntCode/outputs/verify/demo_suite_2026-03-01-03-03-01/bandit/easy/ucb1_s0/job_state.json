@@ -1,0 +1,12 @@
+{
+  "agent_tag": "ucb1",
+  "ended_at": "2026-03-01T03:04:29.813318+00:00",
+  "error": null,
+  "family": "bandit",
+  "mode": "easy",
+  "out_dir": "outputs/verify/demo_suite_2026-03-01-03-03-01/bandit/easy/ucb1_s0",
+  "runner": "experiments.runners.bandit_runner",
+  "seed": 0,
+  "started_at": "2026-03-01T03:04:25.920201+00:00",
+  "status": "succeeded"
+}

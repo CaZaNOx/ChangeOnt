@@ -1,0 +1,30 @@
+job:
+  family: renewal
+  mode: clean
+  seed: 0
+  agent_id: phase
+  agent_type: phase
+  agent_name: null
+  out_dir: outputs/verify/demo_suite_2026-03-01-03-03-01/renewal/clean/phase_s0
+  runner: experiments.runners.renewal_runner
+env:
+  kind: renewal
+  spec: {}
+  params:
+    A: 4
+    L_win: 3
+    p_ren: 0.02
+    p_noise: 0.0
+    T_max: 50
+agent:
+  type: stoa
+  name: phase
+  params: {}
+run:
+  steps: 200
+  episodes: null
+  horizon: null
+logging:
+  write_metrics: true
+  write_budget: true
+  write_plot: true

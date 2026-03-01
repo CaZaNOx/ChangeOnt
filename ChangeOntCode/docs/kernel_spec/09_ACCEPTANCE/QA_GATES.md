@@ -13,6 +13,8 @@
 - Mask semantics
 - Exactly one co_debug per t
 
+Note: QA expects CO telemetry (`co_debug`). If the latest run is STOA-only, CO-specific checks will fail.
+
 ## What SPEC_GATE checks
 - Static grep: fails if any of these appear in ChangeOntCode/agents/co:
   - `primitives["P10"]`, `primitives["P12"]`, `identity_mem`, `update_from_primitives`

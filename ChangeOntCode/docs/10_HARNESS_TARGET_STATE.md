@@ -111,6 +111,14 @@ The harness must make it easy to compare:
 * CO vs STOA
 * CO variant vs CO variant
 
+## Current alignment (snapshot)
+The current harness already supports:
+- canonical job model and per-run config schema
+- run-level parallelism with barriers
+- job_state tracking per run
+- optional mode-level parallelism
+- rerun of failed-only jobs
+
 ## Target directory role split
 
 ### `experiments/`
@@ -215,4 +223,3 @@ The harness target state is reached when:
 * summaries run at explicit barriers
 * parallel execution is possible without changing runner semantics
 * adding a new family does not require copying another family runner wholesale
-

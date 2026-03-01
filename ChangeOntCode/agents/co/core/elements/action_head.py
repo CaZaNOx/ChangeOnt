@@ -45,6 +45,10 @@ Coord = Tuple[int, int]
 OPPOSITE = {"UP":"DOWN","DOWN":"UP","LEFT":"RIGHT","RIGHT":"LEFT"}
 
 class ActionHead:
+    PRIMITIVE_DEPS = ("co_bus (optional)", "bandit_stats (optional)", "ngram_model (optional)")
+    COMBINATOR_DEPS = ()
+    FORMULA_STATUS = "working"
+
     def __init__(
         self,
         seed: int = 0,
@@ -129,6 +133,15 @@ class ActionHead:
                           family: str, translator_mask: set, actions: list) -> Dict[str, Any]:
         signals = self._signal_snapshot(primitives)
         out.setdefault("signals", dict(signals))
+        meta = primitives.get("_meta_header")
+        if meta is not None:
+            try:
+                out.setdefault("meta_header", meta.to_dict())
+            except Exception:
+                try:
+                    out.setdefault("meta_header", dict(meta))
+                except Exception:
+                    out.setdefault("meta_header", {})
         out.setdefault("translator_mask", sorted(list(translator_mask)))
         out.setdefault("mask_mode", "blocklist")
         required = [

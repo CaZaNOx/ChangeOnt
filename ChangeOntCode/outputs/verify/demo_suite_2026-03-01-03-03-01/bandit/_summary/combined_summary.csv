@@ -1,0 +1,5 @@
+agent,family_mean_final_regret,n_problems
+co_CO_full,85.20000000000012,1
+co_CO_full_QA,85.20000000000012,1
+kl_ucb,8.899999999999999,1
+ucb1,17.299999999999997,1

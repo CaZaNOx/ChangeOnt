@@ -24,7 +24,7 @@ job:
   agent_id: "<display_name>"
   agent_type: "<raw_agent_type>"
   agent_name: "<optional_name>"
-  out_dir: "outputs/suite/<family>/<mode>/<agent>_s<seed>"
+  out_dir: "outputs/suite/<suite_run>/<family>/<mode>/<agent>_s<seed>"
   runner: "experiments.runners.<family>_runner"
 
 env:

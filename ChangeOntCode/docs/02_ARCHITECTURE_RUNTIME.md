@@ -10,7 +10,7 @@
 ## Canonical call flow (suite → runner → env → agent)
 1) `experiments/suite_cli.py` loads `experiments/configs/suite_all.yaml` (or `--config`)
 2) For each job (family × mode × agent × seed):
-   - writes a per-run config under `outputs/suite/tmp/...`
+- writes a per-run config under `outputs/suite/<suite_run>/tmp/...` inside the timestamped suite folder
    - calls a family runner as a subprocess
 3) Each runner:
    - constructs the environment from `environments/<family>/...`
@@ -27,6 +27,7 @@ Construction:
 - `agents/co/integration/core_builder.py::build_co_core(params)`
   - loads `agents/co/registries/registry.yaml`
   - builds header, primitives, elements, combinators
+  - optionally remaps semantic combinators via `params.semantic_overrides`
 
 Execution path (canonical surface):
 - Adapter select: `agents/co/adapters/*_adapter.py::select(obs)`

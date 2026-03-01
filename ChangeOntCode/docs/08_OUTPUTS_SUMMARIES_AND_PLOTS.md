@@ -4,7 +4,7 @@ This document is strictly about what the current harness writes today and when i
 
 ## Per-run outputs (current)
 Each runner writes into a run directory constructed by `suite_cli`:
-- Path pattern: `ChangeOntCode/outputs/suite/<family>/<mode>/<agent>_s<seed>/`
+- Path pattern: `ChangeOntCode/outputs/suite/<suite_run>/<family>/<mode>/<agent>_s<seed>/`
 
 Files written by all runners:
 - `metrics.jsonl` — JSONL log (one record per line).
@@ -24,8 +24,8 @@ Notes on overwrite behavior:
 After all runs for a given mode complete, `suite_cli` calls a per-mode summarizer.
 
 Location:
-- `ChangeOntCode/outputs/suite/<family>/<mode>/_summary/summary.csv`
-- `ChangeOntCode/outputs/suite/<family>/<mode>/_summary/summary.png`
+- `ChangeOntCode/outputs/suite/<suite_run>/<family>/<mode>/_summary/summary.csv`
+- `ChangeOntCode/outputs/suite/<suite_run>/<family>/<mode>/_summary/summary.png`
 
 What the summaries contain (current):
 - Bandit: `mean_final_regret` per agent, averaged over seeds.
@@ -36,8 +36,8 @@ What the summaries contain (current):
 After all modes in a family finish, `suite_cli` calls `summarize_family`.
 
 Location:
-- `ChangeOntCode/outputs/suite/<family>/_summary/combined_summary.csv`
-- `ChangeOntCode/outputs/suite/<family>/_summary/combined_summary.png`
+- `ChangeOntCode/outputs/suite/<suite_run>/<family>/_summary/combined_summary.csv`
+- `ChangeOntCode/outputs/suite/<suite_run>/<family>/_summary/combined_summary.png`
 
 What the summaries contain (current):
 - Bandit: mean of `mean_final_regret` over problems per agent.
@@ -48,10 +48,10 @@ What the summaries contain (current):
 At the end of the suite run, `suite_cli` calls `summarize_suite`.
 
 Location:
-- `ChangeOntCode/outputs/suite/summary/overall_summary.csv`
-- `ChangeOntCode/outputs/suite/summary/overall_stoa_vs_co.csv`
-- `ChangeOntCode/outputs/suite/summary/overall_stoa_vs_co.png`
-- `ChangeOntCode/outputs/suite/summary/overall_failures.csv`
+- `ChangeOntCode/outputs/suite/<suite_run>/summary/overall_summary.csv`
+- `ChangeOntCode/outputs/suite/<suite_run>/summary/overall_stoa_vs_co.csv`
+- `ChangeOntCode/outputs/suite/<suite_run>/summary/overall_stoa_vs_co.png`
+- `ChangeOntCode/outputs/suite/<suite_run>/summary/overall_failures.csv`
 
 What they contain (current):
 - `overall_summary.csv` concatenates each family’s `combined_summary.csv` with a `family` column.

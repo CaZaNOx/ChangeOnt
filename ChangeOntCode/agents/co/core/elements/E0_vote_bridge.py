@@ -51,6 +51,10 @@ def _maze_votes(obs: Dict[str, Any]) -> List[Dict[str, Any]]:
     return votes
 
 class E0_VoteBridge:
+    PRIMITIVE_DEPS = ("bandit_stats (optional)", "co_bus (optional)")
+    COMBINATOR_DEPS = ()
+    FORMULA_STATUS = "working"
+
     def update(self, observation: Dict[str, Any], primitives: Dict[str, Any],
                header: Any, feedback: Optional[Dict[str, Any]]) -> Dict[str, Any]:
         return {}

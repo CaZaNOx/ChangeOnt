@@ -2,9 +2,10 @@
 from __future__ import annotations
 from pathlib import Path
 from typing import Dict, Any, List
-from experiments.plotting.util import ensure_dir, write_csv, safe_import_plt
 
-plt = safe_import_plt()
+from experiments.plotting.raster import bar_chart_png
+from experiments.plotting.util import ensure_dir, write_csv
+
 
 def summarize_env(env_dir: Path, data: Dict[str, Any]) -> None:
     summary_dir = env_dir / "_summary"
@@ -20,17 +21,10 @@ def summarize_env(env_dir: Path, data: Dict[str, Any]) -> None:
         })
     write_csv(summary_dir / "summary.csv", rows)
 
-    if plt and rows:
-        labels = [r["agent"] for r in rows]
-        vals = [float(r["mean_steps"]) if r["mean_steps"] != "" else float("nan") for r in rows]
-        plt.figure()
-        plt.bar(range(len(labels)), vals)
-        plt.xticks(range(len(labels)), labels, rotation=30, ha="right")
-        plt.ylabel("mean steps (lower is better)")
-        plt.title(f"Maze: {data['env']}")
-        plt.tight_layout()
-        plt.savefig(summary_dir / "summary.png", dpi=160)
-        plt.close()
+    labels = [r["agent"] for r in rows]
+    vals = [float(r["mean_steps"]) if r["mean_steps"] != "" else float("nan") for r in rows]
+    bar_chart_png(summary_dir / "summary.png", labels, vals, f"Maze: {data['env']}", "mean steps")
+
 
 def aggregate_family(maze_root: Path) -> None:
     summary_dir = maze_root / "_summary"
@@ -64,14 +58,6 @@ def aggregate_family(maze_root: Path) -> None:
     } for agent, v in sorted(agg.items())]
     write_csv(summary_dir / "combined_summary.csv", fam_rows)
 
-    if plt and fam_rows:
-        labels = [r["agent"] for r in fam_rows]
-        vals = [r["family_mean_steps"] for r in fam_rows]
-        plt.figure()
-        plt.bar(range(len(labels)), vals)
-        plt.xticks(range(len(labels)), labels, rotation=30, ha="right")
-        plt.ylabel("mean steps (lower is better)")
-        plt.title("Maze: aggregated over envs")
-        plt.tight_layout()
-        plt.savefig(summary_dir / "combined_summary.png", dpi=160)
-        plt.close()
+    agents = [r["agent"] for r in fam_rows]
+    vals = [r["family_mean_steps"] for r in fam_rows]
+    bar_chart_png(summary_dir / "combined_summary.png", agents, vals, "Maze: aggregated over envs", "mean steps")

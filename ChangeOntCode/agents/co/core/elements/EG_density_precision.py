@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any, Dict, Set, Tuple, Optional
 from ..primitives.P7_precision import P7_Precision, precision_schedule
 from ..primitives.visit_tracker import VisitTracker
-from ._shared import publish_signal
+from ._shared import publish_signal, get_semantic
 
 class EG_Density:
     """
@@ -14,6 +14,7 @@ class EG_Density:
     """
     PRIMITIVE_DEPS = ("P7_Precision", "visit_tracker (local visit density)")
     COMBINATOR_FORM = "SC_AdditiveBlend (+ optional SC_MultiplicativeCoupling)"
+    COMBINATOR_DEPS = ("SC_AdditiveBlend",)
     FORMULA_STATUS = "provisional"
 
     def __init__(self):
@@ -81,10 +82,15 @@ class EG_Density:
 
         # publish visit density
         vd = self._visit_density(observation, primitives)
+        sem = get_semantic(primitives)
+        sc_add = sem.get("SC_AdditiveBlend")
+        if sc_add is None:
+            raise RuntimeError("EG_DensityPrecision requires semantic combinator SC_AdditiveBlend.")
+        density_hint = sc_add.combine([vd])
         bus = primitives.get("co_bus")
-        publish_signal(bus, "EG_DensityPrecision.visit_density", float(vd))
+        publish_signal(bus, "EG_DensityPrecision.visit_density", float(density_hint))
 
-        return {"r_prime": int(self.last_r), "visit_density": float(vd)}
+        return {"r_prime": int(self.last_r), "visit_density": float(density_hint)}
 
     def step(self, observation: Dict[str, Any], primitives: Dict[str, Any], header: Any, feedback: Dict[str, Any] | None):
         # no extra step-time effects vs update

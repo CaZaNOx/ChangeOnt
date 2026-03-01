@@ -239,9 +239,24 @@ def _validate_run_outputs(out_dir: Path) -> bool:
     return metrics_ok and budget_ok and manifest_ok
 
 
+def _should_run_job(job: SuiteJob, rerun_failed_only: bool) -> bool:
+    if not rerun_failed_only:
+        return True
+    state_path = job.out_dir / "job_state.json"
+    if not state_path.exists():
+        return True
+    try:
+        data = json.loads(state_path.read_text(encoding="utf-8"))
+        status = str(data.get("status", "")).lower()
+        return status != "succeeded"
+    except Exception:
+        return True
+
+
 def _run_job(job: SuiteJob, continue_on_failure: bool) -> bool:
     state_path = job.out_dir / "job_state.json"
     started_at = _now_iso()
+    job.out_dir.mkdir(parents=True, exist_ok=True)
     _write_job_state(state_path, "running", job, started_at, "", None)
     try:
         _run_module(job.runner_module, "--config", str(job.config_path))
@@ -511,9 +526,11 @@ def main() -> None:
     )
     args = ap.parse_args()
 
-    suite_cfg = _load_yaml(Path(args.config))
-    out_root = Path(suite_cfg.get("out_root", "outputs/suite"))
-    if "--config" in sys.argv:
+    cfg_path = Path(args.config)
+    suite_cfg = _load_yaml(cfg_path)
+    out_root = Path(suite_cfg.get("out_root", "outputs/suite/suite"))
+    suffix_out_root = bool(suite_cfg.get("suffix_out_root", True))
+    if "--config" in sys.argv and suffix_out_root:
         ts = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
         out_root = out_root.parent / f"{out_root.name}_{ts}"
     _ensure_dir(out_root)
@@ -526,7 +543,9 @@ def main() -> None:
         co_manifest_path = suite_cfg.get("co_manifest", "experiments/configs/co_agents/co_agents_selection.yaml")
         co_path = Path(co_manifest_path)
         if not co_path.is_absolute():
-            co_path = (Path(args.config).parent / co_path).resolve()
+            # prefer path relative to cwd if it exists, otherwise relative to config dir
+            if not co_path.exists():
+                co_path = (cfg_path.parent / co_path).resolve()
         co_manifest = _load_co_manifest(co_path)
         suite_cfg = _inject_co_everywhere(suite_cfg, co_manifest)
         fams = dict(suite_cfg.get("families", {}))
@@ -551,20 +570,47 @@ def main() -> None:
 
     max_workers = int(suite_cfg.get("max_workers", 1))
     continue_on_failure = bool(suite_cfg.get("continue_on_failure", True))
+    rerun_failed_only = bool(suite_cfg.get("rerun_failed_only", False))
+    parallelize_by = str(suite_cfg.get("parallelize_by", "run")).lower()
+    if parallelize_by not in ("run", "mode"):
+        raise SystemExit("parallelize_by must be 'run' or 'mode'")
 
     # Execute grouped by (family, mode) with barriers for summaries
     for family in family_order:
-        for mode in mode_order.get(family, []):
-            group_jobs = [j for j in all_jobs if j.family == family and j.mode == mode]
-            _dispatch_jobs(group_jobs, max_workers=max_workers, continue_on_failure=continue_on_failure)
+        if parallelize_by == "mode":
+            def _run_mode(mode: str) -> None:
+                group_jobs = [j for j in all_jobs if j.family == family and j.mode == mode]
+                run_jobs = [j for j in group_jobs if _should_run_job(j, rerun_failed_only)]
+                _dispatch_jobs(run_jobs, max_workers=1, continue_on_failure=continue_on_failure)
+                mode_dir = mode_dirs.get((family, mode), out_root / family / mode)
+                if family == "bandit":
+                    summarize_bandit_mode(mode_dir)
+                elif family == "maze":
+                    summarize_maze_mode(mode_dir)
+                elif family == "renewal":
+                    summarize_renewal_mode(mode_dir)
 
-            mode_dir = mode_dirs.get((family, mode), out_root / family / mode)
-            if family == "bandit":
-                summarize_bandit_mode(mode_dir)
-            elif family == "maze":
-                summarize_maze_mode(mode_dir)
-            elif family == "renewal":
-                summarize_renewal_mode(mode_dir)
+            with ThreadPoolExecutor(max_workers=max_workers) as executor:
+                future_to_mode = {executor.submit(_run_mode, mode): mode for mode in mode_order.get(family, [])}
+                for future in as_completed(future_to_mode):
+                    try:
+                        future.result()
+                    except Exception:
+                        if not continue_on_failure:
+                            raise
+        else:
+            for mode in mode_order.get(family, []):
+                group_jobs = [j for j in all_jobs if j.family == family and j.mode == mode]
+                run_jobs = [j for j in group_jobs if _should_run_job(j, rerun_failed_only)]
+                _dispatch_jobs(run_jobs, max_workers=max_workers, continue_on_failure=continue_on_failure)
+
+                mode_dir = mode_dirs.get((family, mode), out_root / family / mode)
+                if family == "bandit":
+                    summarize_bandit_mode(mode_dir)
+                elif family == "maze":
+                    summarize_maze_mode(mode_dir)
+                elif family == "renewal":
+                    summarize_renewal_mode(mode_dir)
 
         summarize_family(out_root, family)
 

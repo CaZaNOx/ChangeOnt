@@ -1,0 +1,5 @@
+{"record_type": "header", "runner": "maze", "family": "maze", "mode": "maze_9x9", "seed": 0, "episodes": 2, "agent": "astar:astar", "out_dir": "outputs/verify/demo_suite_2026-03-01-03-03-01/maze/maze_9x9/astar_s0"}
+{"metric": "episode_steps", "episode": 0, "value": 16}
+{"metric": "episode_return", "episode": 0, "value": -15.0}
+{"metric": "episode_steps", "episode": 1, "value": 16}
+{"metric": "episode_return", "episode": 1, "value": -15.0}

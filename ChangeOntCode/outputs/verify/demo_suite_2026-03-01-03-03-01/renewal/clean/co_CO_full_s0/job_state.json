@@ -1,0 +1,12 @@
+{
+  "agent_tag": "co_CO_full",
+  "ended_at": "2026-03-01T03:04:25.521407+00:00",
+  "error": null,
+  "family": "renewal",
+  "mode": "clean",
+  "out_dir": "outputs/verify/demo_suite_2026-03-01-03-03-01/renewal/clean/co_CO_full_s0",
+  "runner": "experiments.runners.renewal_runner",
+  "seed": 0,
+  "started_at": "2026-03-01T03:04:23.501730+00:00",
+  "status": "succeeded"
+}

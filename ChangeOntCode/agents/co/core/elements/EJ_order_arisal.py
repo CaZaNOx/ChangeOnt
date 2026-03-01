@@ -10,6 +10,10 @@ class EJ_OrderAsymmetry:
       - publishes loop/arisal to co_bus under namespaced keys
       - pushes a per-action vote (penalizes backtracks/2-cycles) into co_bus
     """
+    PRIMITIVE_DEPS = ("P15_OrderAsymmetry", "co_bus (optional)")
+    COMBINATOR_DEPS = ()
+    FORMULA_STATUS = "provisional"
+
     def __init__(self):
         self.params: Dict[str, Any] = {}
         self.tag: str = "EJ_OrderAsymmetry"

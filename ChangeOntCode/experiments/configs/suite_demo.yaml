@@ -1,13 +1,14 @@
 # Reduced demo runner config
 out_root: outputs/verify/demo_suite
-inject_co: false
+inject_co: true
+co_manifest: co_agents/co_agents_demo.yaml
 max_workers: 2
 
 families:
   bandit:
     problems:
       - mode: easy
-        env: { probs: [0.10, 0.20, 0.80], horizon: 50 }
+        env: { probs: [0.10, 0.20, 0.80], horizon: 200 }
         seeds: [0]
         agents:
           - { type: ucb1 }
@@ -17,7 +18,7 @@ families:
     envs:
       - mode: maze_9x9
         env: { spec_path: environments/maze1/spec_9x9.yaml }
-        episodes: 1
+        episodes: 2
         seeds: [0]
         agents:
           - { type: bfs }
@@ -27,7 +28,7 @@ families:
     instances:
       - mode: clean
         env: { A: 4, L_win: 3, p_ren: 0.02, p_noise: 0.00, T_max: 50 }
-        steps: 50
+        steps: 200
         seeds: [0]
         agents:
           - { type: last }

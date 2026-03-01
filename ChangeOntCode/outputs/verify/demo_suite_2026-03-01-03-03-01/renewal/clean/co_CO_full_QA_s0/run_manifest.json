@@ -1,0 +1,20 @@
+{
+  "agent_name": "CO_full_QA",
+  "agent_type": "co",
+  "ended_at": "2026-03-01T03:04:25.440738+00:00",
+  "environment_spec": {
+    "A": 4,
+    "L_win": 3,
+    "T_max": 50,
+    "p_noise": 0.0,
+    "p_ren": 0.02
+  },
+  "error": null,
+  "family": "renewal",
+  "mode": "co",
+  "out_dir": "outputs/verify/demo_suite_2026-03-01-03-03-01/renewal/clean/co_CO_full_QA_s0",
+  "runner": "experiments.runners.renewal_runner",
+  "seed": 0,
+  "started_at": "2026-03-01T03:04:23.951275+00:00",
+  "status": "succeeded"
+}

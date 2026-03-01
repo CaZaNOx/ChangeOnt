@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Dict, Any, Iterable, List
 from dataclasses import dataclass
 from ..primitives.identity import TraceMemory
-from ._shared import publish_signal
+from ._shared import publish_signal, get_semantic
 
 @dataclass
 class EC_Identity:
@@ -15,6 +15,7 @@ class EC_Identity:
     """
     PRIMITIVE_DEPS = ("P1_BendMetric", "identity memory", "P12_ClosureQuotient (optional)")
     COMBINATOR_FORM = "SC_GatedThreshold"
+    COMBINATOR_DEPS = ("SC_GatedThreshold",)
     FORMULA_STATUS = "provisional"
 
     mem_len: int = 64
@@ -75,7 +76,11 @@ class EC_Identity:
                 last_d = min(float(P1.d_bend(trace, p)) for p in prev)
             else:
                 raise RuntimeError("P1_BendMetric has no supported API (bend_distance/d_bend).")
-            identity_ok = bool(last_d <= eps)
+            sem = get_semantic(primitives)
+            sc_gate = sem.get("SC_GatedThreshold")
+            if sc_gate is None:
+                raise RuntimeError("EC_Identity requires semantic combinator SC_GatedThreshold.")
+            identity_ok = bool(sc_gate.activate(last_d, eps, gate_ok=True, direction="lte"))
             bend_trigger = 1 if (last_d > eps) else 0
 
         # compute class count from closure over recent traces

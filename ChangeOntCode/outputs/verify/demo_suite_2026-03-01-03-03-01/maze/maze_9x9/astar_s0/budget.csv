@@ -1,0 +1,3 @@
+agent,episode,flops_step,memory_bytes
+astar,0,1,0
+astar,1,1,0

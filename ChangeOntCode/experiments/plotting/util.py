@@ -17,10 +17,3 @@ def write_csv(path: Path, rows: List[Dict[str, Any]]) -> None:
         w.writeheader()
         for r in rows:
             w.writerow(r)
-
-def safe_import_plt():
-    try:
-        import matplotlib.pyplot as plt  # type: ignore
-        return plt
-    except Exception:
-        return None

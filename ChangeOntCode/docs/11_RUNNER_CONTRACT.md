@@ -53,7 +53,7 @@ job:
   mode: "<mode_name>"
   seed: 0
   agent_id: "<display_name>"
-  out_dir: "outputs/suite/<family>/<mode>/<agent>_s<seed>"
+  out_dir: "outputs/suite/<suite_run>/<family>/<mode>/<agent>_s<seed>"
 
 env:
   kind: "<family_specific_env_kind>"
@@ -224,4 +224,3 @@ A runner contract is satisfied when:
 * every runner clears stale per-run outputs
 * CO and STOA both fit the same runner lifecycle
 * family-specific differences stay local
-

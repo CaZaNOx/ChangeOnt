@@ -8,6 +8,10 @@ def _sigmoid(x: float) -> float:
 
 @dataclass
 class EF_Router:
+    PRIMITIVE_DEPS = ("budget (optional)", "history/state support (optional)")
+    COMBINATOR_DEPS = ()
+    FORMULA_STATUS = "provisional"
+
     wV: float = 1.0
     wCP: float = 1.2
     wH: float = 0.6

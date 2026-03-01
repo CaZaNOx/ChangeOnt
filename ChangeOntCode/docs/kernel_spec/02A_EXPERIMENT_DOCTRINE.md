@@ -62,6 +62,9 @@ Examples:
 Purpose:
 - test candidate law-forms without changing the primitive set itself
 
+Implementation hint (current):
+- `semantic_overrides` can be set in CO agent params to remap semantic combinators.
+
 ### 5. Header / meta-header variation
 Examples:
 - detected stability only

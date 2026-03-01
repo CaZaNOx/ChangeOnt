@@ -11,6 +11,13 @@ Current behavior:
 
 Parallelism is managed by a worker pool at the suite level. If `max_workers: 1`, execution is sequential.
 
+## Additional controls (current)
+- `parallelize_by`: `"run"` (default) or `"mode"`
+  - `run`: parallelize within each mode
+  - `mode`: parallelize modes within a family; jobs inside each mode are sequential
+- `continue_on_failure`: `true|false`
+- `rerun_failed_only`: `true|false` (skip jobs marked `succeeded` in `job_state.json`)
+
 ## Where task groups are formed
 The task grouping is explicit in `suite_cli`:
 - Family group: `maze`, `renewal`, `bandit` (in that order if present).

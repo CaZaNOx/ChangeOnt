@@ -63,6 +63,7 @@ primitives:
   P11: "agents.co.core.primitives.P11_residuation:Residuation"
   P13: "agents.co.core.primitives.P13_creative_option_birth:CreativeOptionBirth"
   P14: "agents.co.core.primitives.P14_depth_breadth_flip:DepthBreadthFlip"
+  P15: "agents.co.core.primitives.P15_order_asymetry:OrderArisal"
 
 
 operators:

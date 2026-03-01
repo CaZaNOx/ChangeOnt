@@ -1,0 +1,16 @@
+{
+  "agent_name": "astar",
+  "agent_type": "astar",
+  "ended_at": "2026-03-01T03:03:02.653946+00:00",
+  "environment_spec": {
+    "spec_path": "/workspaces/ChangeOnt/ChangeOntCode/environments/maze1/spec_9x9.yaml"
+  },
+  "error": null,
+  "family": "maze",
+  "mode": "maze_9x9",
+  "out_dir": "outputs/verify/demo_suite_2026-03-01-03-03-01/maze/maze_9x9/astar_s0",
+  "runner": "experiments.runners.maze_runner",
+  "seed": 0,
+  "started_at": "2026-03-01T03:03:01.961622+00:00",
+  "status": "succeeded"
+}

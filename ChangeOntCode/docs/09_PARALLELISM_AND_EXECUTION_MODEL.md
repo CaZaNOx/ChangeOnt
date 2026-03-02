@@ -1,36 +1,72 @@
-# Parallelism and Execution Model (Current)
+# Parallelism and Execution Model
 
-## Current execution model
-Current behavior:
-- `suite_cli` builds a concrete job list from the suite config.
-- For each `(family, mode)` group, it executes jobs in parallel up to `max_workers` (default 1).
-- Each run is a separate subprocess (`python -m ...`) invoked with `--config`.
-- Per-mode summaries are generated only after all jobs in that mode complete.
-- Per-family summaries are generated after all modes in the family complete.
-- Suite-level summaries are generated once after all selected families finish.
+This file describes the target-state execution dependency model.
 
-Parallelism is managed by a worker pool at the suite level. If `max_workers: 1`, execution is sequential.
+## 1. Principle
 
-## Additional controls (current)
-- `parallelize_by`: `"run"` (default) or `"mode"`
-  - `run`: parallelize within each mode
-  - `mode`: parallelize modes within a family; jobs inside each mode are sequential
-- `continue_on_failure`: `true|false`
-- `rerun_failed_only`: `true|false` (skip jobs marked `succeeded` in `job_state.json`)
+The project should support parallel execution in a way that matches the natural structure of the suite:
+- families
+- modes within families
+- runs within modes
 
-## Where task groups are formed
-The task grouping is explicit in `suite_cli`:
-- Family group: `maze`, `renewal`, `bandit` (in that order if present).
-- Mode group: each `mode` entry under a family.
-- Run group: the Cartesian product of `seeds × agents` within each mode.
+## 2. Target-state dependency structure
 
-Summaries are aligned with those groups:
-- Per-mode summary consumes all runs in that mode’s directory.
-- Per-family summary consumes all `_summary/summary.csv` files across modes.
-- Suite summary consumes all family `combined_summary.csv` files.
+The effective target-state behavior is:
 
-## What would need to change for more parallelism
-Future idea (not implemented):
-- Optional parallelism at the mode or family level (in addition to run-level).
-- More resilient summary logic for partially failed runs.
-- Richer job status aggregation beyond `job_state.json`.
+- families run in parallel
+- modes run in parallel within families
+- runs `(agent × seed)` run in parallel within modes
+
+Then:
+
+- mode summaries wait for all runs in their mode
+- family summaries wait for all modes in their family
+- suite summary waits for all families
+
+## 3. Allowed implementations
+
+The implementation does not need to be one specific concurrency design.
+
+It may use:
+- nested executors
+- dependency graph scheduling
+- queue-based scheduling
+- priority queues
+- load-balanced job pickup
+
+provided the effective dependency/barrier behavior matches the target state.
+
+## 4. Queue-based interpretation
+
+A queue-based implementation is acceptable if:
+- all runnable jobs are conceptually available
+- workers draw eligible jobs according to family/mode/run dependency rules
+- summary jobs are only triggered once their dependencies are complete
+
+## 5. Why this model is required
+
+This model is needed because the suite is intended to:
+- scale across families and modes
+- support many STOA and CO configurations
+- avoid unnecessary serialization
+- still preserve correct summary barriers
+
+## 6. Status/progress rule
+
+Parallelism is not correctly implemented if:
+- job states become unreliable
+- summary barriers are violated
+- or large parts of the suite are accidentally serialized contrary to the target model
+
+## 7. Smoke and reliability
+
+Even under parallel execution:
+- runs must remain individually diagnosable
+- statuses must remain truthful
+- artifacts must still be written deterministically enough to inspect failures
+
+## 8. Current vs target
+
+The current code may still be more serial than this.
+
+This file describes the target execution model the implementation should converge to.

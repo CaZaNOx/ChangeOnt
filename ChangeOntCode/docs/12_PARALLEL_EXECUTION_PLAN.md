@@ -1,233 +1,69 @@
-### `ChangeOntCode/docs/12_PARALLEL_EXECUTION_PLAN.md`
-
 # Parallel Execution Plan
 
-This document defines the **target plan** for safe harness parallelism.
+This file records the target parallel execution plan for the harness.
 
-It describes how to parallelize execution without breaking run isolation or summary correctness.
+## 1. Target behavior
 
-## Purpose
+The target execution behavior is:
 
-Parallelism should reduce wall-clock time without changing:
+- one active branch per family
+- one active branch per mode within each family
+- one active branch per run within each mode
 
-* runner semantics
-* run outputs
-* summary semantics
-* CO/STOA comparability
+This produces a hierarchical or dependency-equivalent fan-out.
 
-Parallelism must be introduced at the **job orchestration layer**, not by making runners interdependent.
+## 2. Barrier points
 
-## Current state
+The required barrier points are:
 
-Current suite execution supports run-level parallelism:
+### Mode barrier
+Mode summary waits for all runs in the mode.
 
-* family by family
-* mode by mode (or mode-level parallelism if `parallelize_by: mode`)
-* seed × agent jobs can run in parallel within a mode when `parallelize_by: run`
+### Family barrier
+Family summary waits for all modes in the family.
 
-This is simple but slow.
+### Suite barrier
+Suite summary waits for all families.
 
-## Recommended parallelization unit
+## 3. Allowed implementation patterns
 
-The correct parallelization unit is:
+The implementation may use:
 
-**one concrete run job**
+- nested executors
+- family/mode/run pools
+- dependency queues
+- priority queues
+- load-balanced worker pulling
 
-That means one tuple of:
+The exact mechanism is open as long as the dependency behavior is preserved.
 
-* family
-* mode
-* seed
-* agent
-* environment spec
-* out_dir
+## 4. Why this plan exists
 
-Each such run is independent and can be executed in parallel as long as `out_dir` is unique.
+The project needs:
+- scalability across families and modes
+- many STOA and CO variants
+- reduced unnecessary serialization
+- correct summaries at every level
 
-## Why run-level parallelism is the right first step
+## 5. Operational constraints
 
-Because it preserves the clean separation:
+Even under parallelism:
+- status/progress must remain truthful
+- per-run artifacts must remain isolated and inspectable
+- failures must remain visible
+- plot/summary generation must respect barriers
 
-* suite schedules jobs
-* runner executes one job
-* summaries happen only after all jobs in a group finish
+## 6. Practical note
 
-This avoids coupling runners to each other.
+A queue-based implementation is acceptable and may be preferable if:
+- all jobs are conceptually available
+- workers pull eligible jobs under dependency constraints
+- the effective behavior still matches the target fan-out and barrier structure
 
-## Parallelization levels considered
+## 7. Relation to the target state
 
-### Option A — parallelize inside runners
+This file is a concrete execution-planning companion to:
+- `09_PARALLELISM_AND_EXECUTION_MODEL.md`
+- `14_EXECUTION_AND_ARTIFACT_CONTRACT.md`
 
-Not recommended as first move.
-
-Why:
-
-* family-specific
-* harder to reason about
-* mixes harness concerns with loop concerns
-* complicates debugging
-
-### Option B — parallelize at mode level only
-
-Possible, but too coarse.
-
-Why:
-
-* wastes available independence within a mode
-* still leaves unnecessary serialization
-
-### Option C — parallelize at run level
-
-Recommended.
-
-Why:
-
-* natural job unit
-* least conceptual distortion
-* easiest to implement with barriers
-
-## Required invariants for parallel execution
-
-### 1. Unique output directory per run
-
-No two jobs may write to the same run directory.
-
-### 2. Summary barriers
-
-Per-mode summary runs only after all jobs in that mode are finished.
-Per-family summary runs only after all modes in that family are finished.
-Suite summary runs only after all selected families are finished.
-
-### 3. No runner-owned summary side effects
-
-Runners must not produce family/suite summaries directly.
-
-### 4. Failure isolation
-
-One failed run must not corrupt outputs of sibling runs.
-
-### 5. Stable manifesting
-
-Each run should leave behind enough metadata to be counted as:
-
-* success
-* failed
-* incomplete
-
-## Target orchestration model
-
-### Phase 1 — expand plan
-
-Suite expands config into a full job list.
-
-### Phase 2 — group jobs
-
-Group by:
-
-* family
-* mode
-
-### Phase 3 — fan out run jobs
-
-Launch all jobs in a group, up to a configurable worker limit.
-
-### Phase 4 — wait for group completion
-
-Do not summarize early.
-
-### Phase 5 — summarize completed group
-
-After the group barrier is reached, write summaries.
-
-### Phase 6 — continue upward
-
-Repeat for family barrier and suite barrier.
-
-## Required job states
-
-Each run job should be classifiable as one of:
-
-* `pending`
-* `running`
-* `succeeded`
-* `failed`
-* `incomplete`
-
-This does not require a huge framework.
-A simple manifest/status file per run is enough.
-
-## Minimal implementation strategy
-
-Start with the smallest change that preserves correctness.
-
-### Step 1
-
-Normalize runner output cleanup and manifest writing.
-
-### Step 2
-
-Normalize suite job creation.
-
-### Step 3
-
-Add a small worker pool at suite level.
-
-### Step 4
-
-Add barrier-based summary triggering.
-
-### Step 5
-
-Add failure reporting in overall suite summary.
-
-This is enough for first real parallelism.
-
-## Implemented knobs (current)
-- `max_workers`
-- `parallelize_by` (`run` or `mode`)
-- `continue_on_failure`
-- `rerun_failed_only`
-
-## What must not happen
-
-* summaries reading half-written metrics
-* two jobs writing the same output path
-* family-specific concurrency hacks
-* different parallel logic per family
-* using output directory existence alone as proof of success
-
-## Suggested control knobs
-
-Suite config should eventually expose:
-
-* `max_workers`
-* `parallelize_by`
-
-  * `run`
-  * maybe later `mode`
-* `continue_on_failure`
-* `rerun_failed_only`
-
-These are harness-level controls, not runner-level controls.
-
-## Philosophical fit
-
-This execution model fits the broader project structure well:
-
-* kernel stays modular
-* runners stay self-contained
-* suite becomes the scheduler
-* summary logic becomes explicit
-* parallelism reflects independence of experiments, not entanglement of implementations
-
-That is the cleanest architecture.
-
-## Acceptance idea
-
-Parallel execution is ready when:
-
-* run jobs can be launched concurrently
-* outputs remain isolated
-* summaries wait for correct barriers
-* failures are visible and do not silently poison aggregates
-* sequential and parallel runs produce the same summary semantics
+It should be read as part of the same target-state scheduler specification.

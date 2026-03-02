@@ -1,34 +1,90 @@
-# Developer Guide (Code)
+# Developer Guide
 
-## Lanes (avoid conflicts)
-- Kernel: `agents/co/` (primitives, elements, headers, combinators, translators)
-- Harness: `experiments/` (suite, runners, configs, logging, plotting)
-- Envs: `environments/`
-- Baselines: `agents/stoa/`
-- Docs: `docs/` (these 6 pages are binding; annex is legacy)
+This file explains how development should proceed under the docs → code pipeline.
 
-## Add a new environment
-1) Implement the environment under `environments/<family>/...`
-2) Update the family runner in `experiments/runners/<family>_runner.py` to construct it
-3) Ensure the runner emits a valid observation envelope (see `03_BINDING_SPEC.md`)
-4) Add a suite entry in `experiments/configs/suite_all.yaml`
-5) If CO needs a new translator, add one under `agents/co/integration/translators/`
-6) Run the suite and QA
+## 1. Development rule
 
-## Add a new baseline agent (STOA)
-1) Implement under `agents/stoa/<family>/...`
-2) Add it to the family runner switch
-3) Ensure budget and metrics are comparable to existing agents
-4) Add it to `experiments/configs/suite_all.yaml`
-5) Run the suite and QA
+Development should proceed against the documented target state.
 
-## Add/modify a CO element or primitive
-Rules that prevent drift:
-- Do not create alternate runtime paths. The only canonical path is adapters → `C_Pipeline.run/run_update`.
-- Elements must call primitives, not re-implement primitive logic inside elements.
-- Publish votes via `co_bus.push(...)` and scalars via `co_bus.set(...)` with stable keys.
-- Update this binding spec only when behavior truly changes.
+Do not use the current code alone as the source of truth when it conflicts with the docs.
 
-## When to update the binding spec
-- Update `03_BINDING_SPEC.md` when an implementation change affects adapter envelopes, mask semantics, vote/signal APIs, or telemetry keys.
+## 2. Docs-first or docs-in-lockstep rule
 
+When adding or changing major functionality, do one of the following:
+- update docs first
+- or update docs in lockstep with code
+
+Do not let code drift into undocumented behavior.
+
+## 3. Adding a new environment
+
+To add a new environment family or environment variant, the following must be updated:
+
+1. environment code
+2. family runner support
+3. translator boundary support
+4. config surfaces
+5. docs:
+   - environment docs
+   - runner docs if needed
+   - translator docs if needed
+   - coverage checklist if new folder/subsystem is introduced
+
+The final result should be a plug-in style extension, not an ad hoc special-case branch.
+
+## 4. Adding a new primitive
+
+To add a new primitive:
+1. define its conceptual role
+2. define its runtime interface
+3. define which elements may consume it
+4. classify it:
+   - core
+   - optional
+   - experimental
+5. document it in kernel docs and code-reference docs
+6. ensure config exposure is honest
+
+## 5. Adding a new element
+
+To add a new element:
+1. define its conceptual role
+2. define its primitive dependencies
+3. define its contribution packet behavior
+4. define whether it is:
+   - core
+   - optional
+   - experimental
+5. document its expected role in fusion/grouping
+6. add honest runtime/test coverage
+
+## 6. Config truthfulness rule
+
+Do not expose parameters that runtime ignores.
+
+Decorative config is a real misalignment.
+
+## 7. Folder and naming rule
+
+Folders and file names should reflect:
+- actual responsibility
+- actual runtime role
+- and actual status
+
+Meaningless names, stale locations, or misleading placement should be cleaned up.
+
+## 8. Legacy rule
+
+Do not keep legacy code as a hidden active alternative.
+
+Legacy code should be:
+- archived
+- isolated
+- or clearly marked inactive
+
+## 9. Extension success criterion
+
+An extension is only successful if:
+- it plugs into the existing architecture cleanly
+- it preserves the docs → code alignment
+- and it does not create a second hidden truth about runtime behavior

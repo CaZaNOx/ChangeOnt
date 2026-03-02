@@ -1,79 +1,88 @@
-# Outputs, Summaries, and Plots (Current)
+# Outputs, Summaries, and Plots
 
-This document is strictly about what the current harness writes today and when it writes it.
+This file documents the semantic meaning of outputs and the rules that make them trustworthy.
 
-## Per-run outputs (current)
-Each runner writes into a run directory constructed by `suite_cli`:
-- Path pattern: `ChangeOntCode/outputs/suite/<suite_run>/<family>/<mode>/<agent>_s<seed>/`
+## 1. Principle
 
-Files written by all runners:
-- `metrics.jsonl` — JSONL log (one record per line).
-- `budget.csv` — a single CSV file (rewritten on each run).
-- `run_manifest.json` — run metadata and success/failure status.
-- `quick_plot.png` — best-effort plot derived from `metrics.jsonl` (skipped if plotting deps are missing).
+Outputs are part of the contract.
 
-Additional per-run files:
-- `progress.json` (bandit only) — a heartbeat file updated every 500 steps.
-- `job_state.json` (suite only) — suite-level job status with timestamps.
+A file that exists but is semantically wrong does not count as a valid output.
 
-Notes on overwrite behavior:
-- All runners delete existing `metrics.jsonl` and `budget.csv` before starting.
-- `quick_plot.png` is overwritten on success.
+## 2. Run outputs
 
-## Per-mode summaries (current)
-After all runs for a given mode complete, `suite_cli` calls a per-mode summarizer.
+Required run outputs:
+- `metrics.jsonl`
+- `budget.csv`
+- `run_manifest.json`
+- `job_state.json`
+- `quick_plot.png`
 
-Location:
-- `ChangeOntCode/outputs/suite/<suite_run>/<family>/<mode>/_summary/summary.csv`
-- `ChangeOntCode/outputs/suite/<suite_run>/<family>/<mode>/_summary/summary.png`
+These are required artifacts.
 
-What the summaries contain (current):
-- Bandit: `mean_final_regret` per agent, averaged over seeds.
-- Maze: `mean_steps` per agent, averaged over episodes.
-- Renewal: `mean_final_cum_reward` per agent, averaged over seeds.
+## 3. Summary levels
 
-## Per-family summaries (current)
-After all modes in a family finish, `suite_cli` calls `summarize_family`.
+### Mode
+Aggregates all runs in one mode/environment.
 
-Location:
-- `ChangeOntCode/outputs/suite/<suite_run>/<family>/_summary/combined_summary.csv`
-- `ChangeOntCode/outputs/suite/<suite_run>/<family>/_summary/combined_summary.png`
+### Family
+Aggregates all completed modes in one family.
 
-What the summaries contain (current):
-- Bandit: mean of `mean_final_regret` over problems per agent.
-- Maze: mean of `mean_steps` over envs per agent.
-- Renewal: mean of `mean_final_cum_reward` over instances per agent.
+### Suite
+Aggregates all completed families.
 
-## Suite-level summaries (current)
-At the end of the suite run, `suite_cli` calls `summarize_suite`.
+## 4. Plot requirement
 
-Location:
-- `ChangeOntCode/outputs/suite/<suite_run>/summary/overall_summary.csv`
-- `ChangeOntCode/outputs/suite/<suite_run>/summary/overall_stoa_vs_co.csv`
-- `ChangeOntCode/outputs/suite/<suite_run>/summary/overall_stoa_vs_co.png`
-- `ChangeOntCode/outputs/suite/<suite_run>/summary/overall_failures.csv`
+Plots are required at:
+- run level
+- mode level
+- family level
+- suite level
 
-What they contain (current):
-- `overall_summary.csv` concatenates each family’s `combined_summary.csv` with a `family` column.
-- `overall_stoa_vs_co.csv` normalizes per-family metrics to compute a simple cross-family “overall_accuracy”.
-- `overall_failures.csv` lists any runs that did not succeed based on `job_state.json`.
+Missing plots are a contract failure.
 
-## Plots (current)
-There are two plotting layers:
-- Per-run `quick_plot.png` created by each runner (best-effort, minimal heuristics).
-- Per-mode and per-family plots created by `experiments/plotting/*` using matplotlib.
+## 5. Semantic rules
 
-If matplotlib is not installed, plots are silently skipped but CSV summaries are still written.
+### CO-only rule
+CO-only summaries and plots must exclude STOA rows.
 
-## Current behavior vs future idea
-Current behavior:
-- Summaries are generated synchronously: per-mode after all runs for that mode; per-family after all modes; suite-level at the end.
-- No run is considered complete until its runner finishes and its output files are written.
+### STOA-vs-CO rule
+STOA-vs-CO outputs must use compatible metric semantics across rows.
 
-Future idea (not implemented):
-- Make summary generation robust to missing/partial runs and handle parallel execution, so summaries can be produced incrementally or after a parallel fan-in.
+### Identity normalization rule
+Agent identity normalization must be consistent across:
+- run folders
+- mode summaries
+- family summaries
+- suite summaries
+- plot labels
 
-## Known limitations or ambiguity (current)
-- The harness relies on specific directory names (`_summary`, `combined_summary.csv`, etc.). There is no schema validation for these outputs.
-- Maze and renewal runners append to `metrics.jsonl` if the file already exists. This can lead to mixed runs if outputs are reused.
-- `suite_cli` writes `env.params` for maze runs, but `maze_runner` does not read or use those params today.
+### Label honesty rule
+A plot or CSV label must correspond to what actually ran.
+
+## 6. What must be documented for every summary output
+
+Each summary output should make clear:
+- what rows it uses
+- what aggregation it performs
+- what the resulting file means
+- what would make it invalid
+
+## 7. Failure/provenance outputs
+
+**Recommended starting point**
+
+Suites should also produce:
+- failure summary outputs
+- suite manifest/provenance
+- config snapshots
+
+These are strongly recommended and may become Binding if needed for diagnosis/reproducibility.
+
+## 8. Current misalignment examples this file is meant to catch
+
+This file should help detect:
+- CO-only outputs that include STOA rows
+- STOA-vs-CO files mixing incompatible metrics
+- missing plots
+- label drift across levels
+- misleading suite outputs that appear valid but are not semantically correct

@@ -1,59 +1,97 @@
-# Binding Spec (Code Contracts)
+# Binding Spec
 
-This page defines binding contracts for the canonical runtime (adapters → pipeline → ActionHead). Keep it unambiguous and in sync with code.
+This file explains how to interpret the documentation set as a target-state specification.
 
-## 1) Observation envelope (adapter → kernel)
-All CO adapters must provide an observation dict with these **required keys**:
-- `family: str` — lower-case family name (`"bandit"`, `"maze"`, `"renewal"`)
-- `t: int` — step index within the episode/run
+## 1. Docs are the target-state authority
 
-Standard optional keys (use when available):
-- `episode: int` — episode index
-- `feedback: dict` — outcome feedback (reward, done, etc.)
-- `translator_mask: list` — blocklist of forbidden actions (if provided by runner)
-- `residuals: dict`, `probes: dict` — diagnostics for GHVC / change detection
-- `history: list`, `trace: list` — short action/observation traces for identity
+The documentation is the canonical source of truth for the target state.
 
-**Rule:** adapters must not inject hidden env state beyond what the runner already exposes.
+The code is the implementation.
 
-### Current implementation detail (per-family fields)
-Per-family observation fields are defined by translator expectations and runners, not by this contract. For current expectations, see:
-- `agents/co/integration/translators/bandit_translator.py`
-- `agents/co/integration/translators/maze_translator.py`
-- `agents/co/integration/translators/renewal_translator.py`
+If code and docs differ, then one of the following must be true:
+- code is incomplete
+- code is incorrect
+- code is experimental
+- code is legacy/inactive
+- docs are incomplete and must be updated
 
-## 2) Mask contract (translator → ActionHead)
-- Translators return a `translator_mask` **blocklist** (set of forbidden actions).
-- ActionHead removes any masked actions **from CO scores** before blending.
-- ActionHead does **not** currently apply the mask to classical scores. If you need a hard blocklist across all paths, update ActionHead accordingly.
+This distinction must be made explicitly.
 
-## 3) Vote bus vs scalar signal contract
-- **Votes:** elements publish votes to `co_bus.push(family, action, weight, ...)`.
-  - ActionHead drains votes once per decision via `co_bus.drain(family)`.
-- **Scalar signals:** elements publish scalar telemetry to `co_bus.set(key, value)` (or `bus[key] = value`).
-  - Naming convention: `ElementName.field`, e.g., `EC_Identity.last_d`, `EB_GHVC.pressure`.
+## 2. Status labels
 
-## 4) Header update ownership
-- Decision pass (`C_Pipeline.run`) must **not** update header state.
-- Learning pass (`C_Pipeline.run_update`) owns `header.update(...)` and uses feedback.
+The docs use these status labels.
 
-## 5) Required telemetry keys (QA-aligned)
-QA reads `metrics.jsonl` and expects these fields when present:
+### Binding
+Part of the canonical target state. Code should converge to this.
 
-Signals dict keys:
-- `signals["EC_Identity.same"]`
-- `signals["EC_Identity.last_d"]`
-- `signals["EB_GHVC.pressure"]`
-- `signals["EB_GHVC.mdl_gain"]`
-- `signals["EB_GHVC.birth_suggest"]`
+### Recommended starting point
+Best current implementation choice under CO and current architecture, but not claimed as uniquely derived.
 
-Other keys (if present in records):
-- `header_update_count`
-- `header_update_source`
-- `mask_mode`
-- `translator_mask`
-- `birth_count`
+### Open design space
+A genuine design space remains. Multiple CO-faithful realizations may be possible.
 
-## 6) No alternate runtime semantics
-There must be exactly one canonical runtime semantics: adapters → `C_Pipeline.run/run_update`. Do not create alternate runtime loops or bypass ActionHead.
+### Experimental
+May exist in code or theory, but is not baseline-supported canonical runtime behavior.
 
+### Legacy / inactive
+Historical or non-binding material. Must not compete as an equal active runtime truth.
+
+## 3. Binding rule
+
+A statement is binding when it defines:
+- the target-state architecture
+- a required contract
+- a required artifact
+- a required runtime separation
+- a required semantic rule
+- a required classification boundary
+
+## 4. Misalignment detection rule
+
+The docs must be strong enough that a developer can identify whether code is:
+- aligned
+- incomplete
+- incorrect
+- experimental
+- legacy
+
+If the docs are too weak to make that judgment, they are not complete enough for the docs → code pipeline.
+
+## 5. What the docs must capture
+
+The docs must capture enough detail that a developer can answer:
+
+- what the system should do
+- why it should do it
+- what each major subsystem is for
+- what interfaces it should expose
+- what inputs and outputs it should use
+- what artifacts it must produce
+- what is binding vs recommended vs experimental vs legacy
+
+## 6. Legacy promotion rule
+
+Legacy material is not binding unless explicitly promoted into the main docs.
+
+Code must not rely on concepts that only exist in legacy/reference material without promoting them into the binding docs.
+
+## 7. Canonical runtime path rule
+
+There must be one canonical active runtime path for:
+- suite execution
+- runner execution
+- translator boundaries
+- kernel construction
+- kernel execution
+- artifact generation
+- summary generation
+
+Other paths must be clearly marked experimental or legacy.
+
+## 8. Documentation completeness rule
+
+The docs are complete enough only when they are sufficient to:
+- rebuild the intended runtime behavior in principle
+- detect code misalignment
+- define acceptance conditions
+- support extension without drift

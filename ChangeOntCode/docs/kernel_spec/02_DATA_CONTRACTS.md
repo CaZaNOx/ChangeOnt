@@ -1,157 +1,188 @@
 # Data Contracts
 
-## Purpose
+This file defines the target-state data contracts that connect the kernel runtime layers.
 
-This page defines the canonical contracts between layers of the kernel and between the kernel and task environments.
+The purpose is to make explicit:
+- what kinds of structures exist,
+- what each layer may emit or consume,
+- and where code misalignment should be detectable.
 
-It is binding for the current codebase.
+It should be read together with:
+- `11_INTERNAL_REPRESENTATION.md`
+- `14_ELEMENT_CONTRIBUTION_PACKET.md`
+- `16_TRANSLATOR_BOUNDARY_CONTRACT.md`
 
----
+## 1. Principle
 
-## Observation Envelope
+The kernel should not rely on ad hoc undocumented dict shapes.
 
-All adapters/translators must provide an observation dict with these required keys:
+The project must converge toward explicit data contracts for:
+- path-space fragments
+- element contribution packets
+- continuation surfaces
+- translator input/output/update structures
+- run/suite artifact shapes
 
-- `family: str`
-- `t: int`
+## 2. Canonical internal kernel data object
 
-Optional keys may include:
+The kernel’s canonical internal runtime object is the:
 
-- `episode: int`
-- `action_space: list`
-- `feedback: dict`
-- `history: list`
-- `trace: list`
-- `residuals: dict`
-- `probes: dict`
-- task-specific geometry/statistics needed by translators
+> **k-local weighted directional path-space fragment**
 
-Adapters must not inject hidden oracle state.
+### Required structural areas
+The fragment should contain, at minimum:
 
----
+#### Anchoring/order
+- `now_ref`
+- `anchor_id`
+- `prior_refs`
+- `k_window`
+- `path_depth`
 
-## Mask Semantics
+#### Realized local segment
+- `realized_segment`
 
-`translator_mask` is a **blocklist**.
+Each realized entry should include:
+- `from_ref`
+- `to_ref`
+- `action_ref` if relevant
+- `order_rank`
+- `transition_weight`
+- `bend_local`
+- `delta_signature`
 
-If a translator returns a mask:
-- any action in `translator_mask` is considered forbidden
-- ActionHead must respect the mask in final action selection
-- if all actions are blocked, this must be explicitly flagged by `translator_mask_blocks_all = 1`
+#### Local branch-space
+- `branch_space`
 
-Translators must not guess validity from hidden information.
+Each branch candidate should include:
+- `candidate_ref`
+- `parent_ref`
+- `branch_weight`
+- `selection_bias`
+- `constraint_status`
 
-If validity cannot be determined from runner-exposed observation, return an empty mask.
+#### Structural profiles
+- `bend_profile`
+- `loop_profile`
+- `closure_profile`
+- `density_profile`
+- `asymmetry_profile`
+- `compressibility_profile`
+- `gauge_profile`
+- `tension_profile`
+- `stabilization_profile`
 
----
+#### Regime-control profiles
+- `meta_regime_prior`
+- `runtime_regime_profile`
+- `classicality_profile`
+- `reeval_pressure`
+- `cadence_profile`
 
-## Votes and Signals
+#### Decision-side profiles
+- `continuation_surface`
+- `constraint_surface`
+- `confidence_profile`
 
-### Votes
-Elements publish action-affecting votes to the bus.
+## 3. Element contribution packet contract
 
-Votes are:
-- family-scoped
-- drained once per decision step
-- transport objects, not final policy decisions
+Every element should emit a typed structural contribution packet.
 
-### Scalar Signals
-Elements publish scalar signals to the bus.
+### Mandatory fields
+- `element_id`
+- `scope_ref`
+- `contribution_kind`
+- `confidence`
+- `diagnostics`
 
-Signals are:
-- canonical inter-element communication and telemetry values
-- snapshotted by ActionHead into `signals`
+### Optional canonical fields
+- `branch_vote_surface`
+- `regime_contribution`
+- `cadence_contribution`
+- `weight_hint`
+- `bus_updates`
 
-Canonical required keys currently include:
-- `EC_Identity.same`
-- `EC_Identity.last_d`
-- `EB_GHVC.pressure`
-- `EB_GHVC.mdl_gain`
-- `EB_GHVC.birth_suggest`
+### Important rule
+Not every element must emit a branch vote.
 
----
+Some elements may primarily emit:
+- regime contributions
+- cadence contributions
+- structural diagnostics
 
-## Layer Contracts
+## 4. Group output contract
 
-### Primitives
-Primitives expose reusable semantic quantities/operations.
-They must:
-- be task-agnostic
-- be reusable by many elements
-- not directly decide final actions
+A group output is the fused higher-order result of one or more element packets.
 
-### Semantic Combinators
-Semantic combinators expose reusable laws of composition between primitive outputs.
-They must:
-- be explicit
-- be reusable
-- not be hidden inside element internals
+A group output should preserve enough structure to participate honestly in final fusion.
 
-### Elements
-Elements consume primitives via semantic combinators.
-They must:
-- declare their primitive dependencies
-- declare their combinator dependencies
-- emit votes/signals
-- not directly call other elements
+### Recommended minimum structure
+- `group_id`
+- `scope_ref`
+- `group_contribution_kind`
+- `group_branch_surface` if applicable
+- `group_regime_contribution` if applicable
+- `group_confidence`
+- `group_diagnostics`
 
-### Header
-Header consumes canonical signals and internal state.
-It must:
-- update only on update pass
-- not depend on hidden task specifics
-- not silently redefine primitive meaning
+## 5. Continuation surface contract
 
-### Meta Header
-Meta header consumes external priors and explicit task-family assumptions.
-It must:
-- remain separate from internal header logic
-- be explicitly logged
+The continuation surface is the final kernel-internal decision structure before translator-side collapse.
 
-### Translators
-Translators convert task-specific observations into canonical forms.
-They must:
-- not contain ontology logic that belongs in primitives/elements
-- not smuggle hidden state
+### It may contain
+- branch candidate weights
+- preference ordering
+- soft constraints
+- hard masks
+- confidence
+- residual ambiguity
+- partial preselection
 
-### ActionHead
-ActionHead is the final action surface.
-It must:
-- respect masks
-- snapshot signals
-- not become a hidden ontology layer
+### It must not be
+- already the final task action token
+- or a hidden task-local action object pretending to be generic kernel output
 
----
+## 6. Translator input/output/update contracts
 
-## Telemetry Schema
+### Translator input contract
+Translators receive task-local information and must emit path-space relevant update structure.
 
-`metrics.jsonl` is JSONL.
+### Translator output contract
+Translators receive the continuation surface and must emit a concrete legal task action.
 
-CO telemetry records use:
-- `metric = "co_debug"`
+### Translator feedback contract
+Translators receive task-local feedback/result and must emit update-relevant kernel structure.
 
-Canonical top-level fields may include:
-- `action`
-- `co_policy`
-- `co_weight`
-- `co_bus_votes`
-- `signals`
-- `birth_count`
-- `prototype_count`
-- `class_count`
-- `cap_hits`
-- `translator_mask`
-- `mask_mode`
-- `translator_mask_blocks_all`
-- `header_update_count`
-- `header_update_source`
+## 7. Run artifact contracts
 
----
+At the run level, the required data artifacts are:
+- `metrics.jsonl`
+- `budget.csv`
+- `run_manifest.json`
+- `job_state.json`
+- `quick_plot.png`
 
-## Current Binding Rule
+These are part of the overall data contract of the harness.
 
-The current codebase may be incomplete, but any new code must preserve the layer boundaries defined here.
+## 8. Summary data contracts
 
-If implementation and this contract disagree:
-- either update code to match contract
-- or record the disagreement explicitly in `09_ACCEPTANCE/SPEC_GAPS.md`
+At higher levels, the harness must produce:
+- mode summary CSVs
+- family summary CSVs
+- suite summary CSVs
+- plots
+
+These outputs must be semantically clean:
+- CO-only outputs exclude STOA
+- STOA-vs-CO outputs use compatible metrics
+- identity normalization is consistent
+
+## 9. Misalignment examples
+
+Data contracts are misaligned if:
+- packet shapes are undocumented
+- translators and kernel assume incompatible structures
+- branch-space vanishes silently before the kernel
+- contribution packets are flattened inconsistently
+- continuation surfaces are secretly task-local action objects
+- or summary CSVs mix incompatible semantics while looking valid

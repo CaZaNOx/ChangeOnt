@@ -1,103 +1,88 @@
-# Runners and Job Flow (Current)
+# Runners and Job Flow
 
-This document describes how `suite_cli` calls each runner today, what each runner receives, and what it is responsible for.
+This file documents the target-state job flow and the role of family runners.
 
-## How runners are called
-`suite_cli` always calls runners as Python modules:
-- Bandit: `python -m experiments.runners.bandit_runner --config <tmp.yaml>`
-- Maze: `python -m experiments.runners.maze_runner --config <tmp.yaml>`
-- Renewal: `python -m experiments.runners.renewal_runner --config <tmp.yaml>`
+## 1. Job model
 
-Notes:
-- The `--config` file is always provided by `suite_cli`.
-- Runners treat `--config` as authoritative.
-- All runners are invoked as subprocesses; `suite_cli` manages concurrency via a worker pool (default `max_workers: 1`).
+A suite run expands into concrete jobs identified by:
+- family
+- mode/environment
+- agent
+- seed
+- runner path
+- output location
 
-## Per-run config payloads (current)
-All runners accept a **canonical per-run config**:
+Each job should be self-contained enough that:
+- it can be launched independently
+- it has its own run artifacts
+- it can be summarized correctly later
 
-```yaml
-job:
-  family: "<bandit|maze|renewal>"
-  mode: "<mode_name>"
-  seed: 0
-  agent_id: "<display_name>"
-  agent_type: "<raw_agent_type>"
-  agent_name: "<optional_name>"
-  out_dir: "outputs/suite/<suite_run>/<family>/<mode>/<agent>_s<seed>"
-  runner: "experiments.runners.<family>_runner"
+## 2. Job flow
 
-env:
-  kind: "<family>"
-  spec: {}
-  params: {}
+The canonical job flow is:
 
-agent:
-  type: "<stoa|co>"
-  name: "<algo_or_variant>"
-  params: {}
+1. suite creates a concrete job
+2. suite writes or resolves per-run config if needed
+3. family runner loads that config
+4. runner constructs environment
+5. runner constructs STOA or CO path
+6. runner executes family loop
+7. runner writes required artifacts
+8. suite later aggregates completed runs into summaries
 
-run:
-  steps: null
-  episodes: null
-  horizon: null
+## 3. Runner responsibilities
 
-logging:
-  write_metrics: true
-  write_budget: true
-  write_plot: true
-```
+Every runner must:
+- own the family-local loop
+- preserve honest select/update behavior
+- call the correct STOA or CO path
+- write required artifacts
+- return enough information for summaries
 
-Family payload conventions:
-- Bandit: `env.params.probs`, `env.params.horizon`, `run.horizon`.
-- Maze: `env.spec.spec_path`, `run.episodes`, and optional `env.params` (width/height/seed).
-- Renewal: `env.params.A/L_win/p_ren/p_noise/T_max`, `run.steps`.
+## 4. CO path responsibilities
 
-## What each runner is responsible for
-All runners:
-- Create the run output directory.
-- Construct the environment and agent.
-- Run a single episode/loop series.
-- Write `metrics.jsonl` and `budget.csv`.
-- Write `run_manifest.json`.
-- Optionally write `quick_plot.png` (best-effort; silently skipped if plotting deps are missing).
+For CO runs, the runner must preserve:
+- translator boundary integrity
+- adapter select/update integrity
+- honest kernel update behavior
+- no hidden bypasses that deactivate documented kernel semantics
 
-Bandit runner (`experiments/runners/bandit_runner.py`):
-- Builds a `BernoulliBanditEnv`.
-- Supports STOA agents: `ucb1`, `epsgreedy`, `kl_ucb`, `ts`.
-- Supports CO via `COAdapterBandit` and `build_co_core` when `agent.type == "co"`.
-- Writes a header record and per-step metrics (regret, arm pulls), plus `progress.json` every 500 steps.
-- Deletes existing `metrics.jsonl` and `budget.csv` if present before starting.
+## 5. STOA path responsibilities
 
-Maze runner (`experiments/runners/maze_runner.py`):
-- Builds a `GridMazeEnv` from `env.spec_path`.
-- Supports STOA agents: `bfs`, `astar` (path planning, no learning).
-- Supports CO via `COAdapterMaze` + `build_co_core` when `agent.type == "co"`.
-- Logs per-episode `episode_steps` and `episode_return`.
-- Does not delete existing `metrics.jsonl` before writing (new runs append).
+For STOA runs, the runner must preserve:
+- family-appropriate baseline semantics
+- clear action/update logic
+- honest comparison conditions
 
-Renewal runner (`experiments/runners/renewal_runner.py`):
-- Builds a `CodebookRenewalEnvW` using `env` values.
-- Supports STOA agents: `last` (default), `phase`, `ngram`, `vom`.
-- Supports CO via `COAdapterRenewal` + `build_co_core` when `agent.type == "co"`.
-- Logs a header record plus per-step `cum_reward` lines and a final summary line.
-- Does not delete existing `metrics.jsonl` before writing (new runs append).
+## 6. Artifact contract at runner level
 
-## CO vs STOA instantiation (current)
-CO is instantiated inside the runner when `agent.type` (or `mode` for renewal) is `co`:
-- `build_co_core(params)` builds the CO core.
-- A family-specific adapter (`COAdapterBandit`, `COAdapterMaze`, `COAdapterRenewal`) wraps the core.
-- The runner constructs the CO observation dict and calls `select()` and `update()` for each step.
+A successful runner invocation must produce:
+- `metrics.jsonl`
+- `budget.csv`
+- `run_manifest.json`
+- `job_state.json`
+- `quick_plot.png`
 
-STOA agents are constructed directly inside each runner:
-- Bandit: UCB1 / ε-greedy / KL-UCB / TS.
-- Maze: direct `bfs_path` / `astar_path` with no per-step agent state.
-- Renewal: small FSM-style agents or `VOKT`.
+## 7. Known target-state risk areas
 
-## Duplications and family-specific logic (current)
-There is no shared runner base class. Each family has its own:
-- Environment construction and observation translation.
-- CO setup and observation construction.
-- Metrics naming and summary expectations.
+The runner layer is a common misalignment point if:
+- CO maze hangs indefinitely
+- update semantics are too thin
+- status files are inaccurate
+- plotting is not produced
+- family-local assumptions are not documented
 
-Suite orchestration now centralizes job creation and config schema generation, while family-specific loops remain in runners.
+## 8. Family differences, unified contract
+
+Families differ in:
+- environment structure
+- baseline algorithms
+- translator behavior
+- metrics
+
+But all runners still satisfy one unified contract:
+- environment construction
+- agent construction
+- select/update loop
+- artifact generation
+- summary compatibility

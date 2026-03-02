@@ -1,46 +1,145 @@
-# Architecture and Runtime (Canonical)
+# Architecture Runtime
 
-## Repo component map
-- `environments/` — task worlds (maze/bandit/renewal)
-- `agents/stoa/` — baseline agents (SOTA/standard algorithms)
-- `agents/co/` — CO kernel (primitives, elements, headers, combinators, translators)
-- `experiments/` — harness (suite, runners, logging, plotting)
-- `outputs/` — run artifacts and summaries
+This file describes the canonical target-state runtime architecture.
 
-## Canonical call flow (suite → runner → env → agent)
-1) `experiments/suite_cli.py` loads `experiments/configs/suite_all.yaml` (or `--config`)
-2) For each job (family × mode × agent × seed):
-- writes a per-run config under `outputs/suite/<suite_run>/tmp/...` inside the timestamped suite folder
-   - calls a family runner as a subprocess
-3) Each runner:
-   - constructs the environment from `environments/<family>/...`
-   - constructs the agent (STOA or CO)
-   - runs the environment loop and logs metrics
+## 1. Canonical runtime backbone
 
-Family runners:
-- `experiments/runners/bandit_runner.py`
-- `experiments/runners/maze_runner.py`
-- `experiments/runners/renewal_runner.py`
+The target-state runtime backbone is:
 
-## Canonical CO runtime path
-Construction:
-- `agents/co/integration/core_builder.py::build_co_core(params)`
-  - loads `agents/co/registries/registry.yaml`
-  - builds header, primitives, elements, combinators
-  - optionally remaps semantic combinators via `params.semantic_overrides`
+1. suite config is loaded
+2. jobs are expanded
+3. environment family runner is selected
+4. runner constructs environment
+5. runner constructs either:
+   - STOA path
+   - or CO path
+6. select → act → feedback → update loop executes
+7. required run artifacts are written
+8. mode/family/suite summaries and plots are generated
 
-Execution path (canonical surface):
-- Adapter select: `agents/co/adapters/*_adapter.py::select(obs)`
-  - calls `C_Pipeline.run(...)`
-- Adapter update: `agents/co/adapters/*_adapter.py::update(feedback)`
-  - calls `C_Pipeline.run_update(...)`
-- Pipeline: `agents/co/core/combinators/C_pipeline.py::{run,run_update}`
-- Action selection: `agents/co/core/elements/action_head.py::ActionHead.step(...)`
-- Translation (family-specific scoring/masks): `agents/co/integration/translators/*_translator.py`
+## 2. CO runtime backbone
 
-**Canonical surface:** adapters → `C_Pipeline.run/run_update`. Do not introduce alternate entrypoints (direct ActionHead calls, direct element calls, or custom loops). Those are non-canonical and must not diverge from the above path.
+The canonical CO runtime backbone is:
 
-## Dataflow: votes, signals, masks
-- **Votes:** Elements publish action votes into `co_bus` via `co_bus.push(family, action, weight, ...)`. ActionHead drains votes once per decision step with `co_bus.drain(family)`.
-- **Scalar signals:** Elements publish scalar telemetry into `co_bus` via `co_bus.set(key, value)` (or `bus[key] = value`). ActionHead snapshots `co_bus.signals()` and attaches key signals into `co_debug` records.
-- **Masks:** Translators return a `translator_mask` set (blocklist). ActionHead removes masked actions from **CO scores** before blending with classical scores (see `03_BINDING_SPEC.md`).
+1. meta-header provides prior regime frame
+2. translator converts task-local input into a CO path-space update
+3. current path-space fragment is assembled
+4. header evaluates runtime regime
+5. primitives read the fragment
+6. elements emit typed structural contribution packets
+7. packets fuse into group outputs
+8. groups fuse with:
+   - header contribution
+   - meta-header contribution
+   - explicit classical/STOA continuation stream
+9. final CO continuation surface is produced
+10. translator maps continuation surface into concrete task action
+11. runner executes action
+12. environment feedback is translated back into kernel update form
+13. fragment updates asymmetrically
+14. loop repeats
+
+## 3. STOA runtime backbone
+
+The canonical STOA runtime backbone is simpler:
+
+1. runner constructs environment
+2. runner constructs family-local STOA algorithm
+3. runner obtains action/prediction from STOA logic
+4. runner applies action to environment
+5. runner updates STOA model/state
+6. runner writes required artifacts
+
+## 4. Canonical internal representation
+
+The CO kernel must not be modeled as a flat time-indexed state vector.
+
+The canonical internal representation is:
+
+> a time-free, asymmetry-preserving, k-local weighted directional path-space fragment
+
+This is the kernel-native situation model.
+
+## 5. Boundary layers
+
+### Environment
+Defines the task-local world.
+
+### Runner
+Owns family-local execution.
+
+### Adapter
+Bridges runner-facing execution and the CO kernel path.
+
+### Translator
+Converts:
+- task-local input into kernel-relevant path-space updates
+- kernel continuation surfaces into concrete task actions
+- task feedback back into kernel update structure
+
+### Kernel
+Operates on the internal path-space fragment.
+
+## 6. Header and meta-header
+
+The runtime must distinguish:
+
+### Meta-header
+Prior regime frame:
+- rule stability
+- prior classicality
+- prior expected staticity/dynamism
+
+### Header
+Live runtime regime modulation:
+- sensitivity
+- reevaluation pressure
+- structural cadence
+- local classicality modulation
+- reopening of stabilized assumptions
+
+These are not the same thing.
+
+## 7. Classicality
+
+Classicality is not a primitive global truth source.
+
+It is a regime judgment about how strongly a local domain behaves like a fixed-rule, fixed-identity, highly stabilized space.
+
+In highly classical regimes, the final fusion may collapse strongly toward the classical/STOA continuation stream.
+
+## 8. Asymmetry
+
+Asymmetry is foundational.
+
+It must be preserved in:
+- internal representation
+- update semantics
+- at least some fusion/composition behavior
+
+Symmetry may appear only as a local or derived special case.
+
+## 9. Time
+
+External time is not primitive in the kernel.
+
+The kernel must privilege:
+- order
+- precedence
+- path relation
+- reach
+- structural spacing
+- deformation
+- recurrence
+
+Time-like quantities may be derived later but must not be assumed primitive.
+
+## 10. Runtime misalignment examples
+
+The runtime architecture is misaligned if:
+- the code has multiple competing active runtime paths
+- translators are bypassed or reduced to trivial state passthroughs
+- the kernel is forced to think directly in final task actions
+- meta-header and header are collapsed together
+- classicality is treated as a global constant
+- time is treated as a primitive kernel coordinate

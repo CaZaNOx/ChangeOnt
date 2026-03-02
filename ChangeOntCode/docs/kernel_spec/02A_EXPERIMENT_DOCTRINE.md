@@ -1,123 +1,82 @@
 # Experiment Doctrine
 
-## Purpose
+This file explains what the suite is for at the kernel level.
 
-This page defines how ChangeOnt kernel research should be conducted without creating code drift, semantic duplication, or uncontrolled variant explosion.
+## 1. The suite is not only a benchmark harness
 
----
+The suite is an investigation harness for the philosophical and mechanistic commitments of the kernel.
 
-## Core Principle
+It must support not only:
+- STOA vs CO comparison
 
-Experiments must vary:
-- assembly
-- activation
-- weights
-- semantic combinator choice
-- header/meta-header settings
+but also:
+- reduced vs full CO comparison
+- primitive/element/combinator/weight/threshold investigations
+- interaction studies across kernel configurations
 
-They must **not** primarily vary by cloning files into many near-duplicate implementations.
+## 2. Full configuration
 
-The repo should preserve one implementation per semantic unit wherever possible.
+`CO_full` means:
+- the maximal coherent supported kernel configuration
+- the fullest honest active stack of supported kernel functionality
 
----
+It does not merely mean “many toggles on”.
 
-## Allowed Experimental Axes
+## 3. Reduced configurations
 
-### 1. Element isolation
+Reduced configurations are not secondary hacks.
+
+They are necessary to investigate:
+- whether a mechanism matters
+- how parameter choices behave
+- how element interactions change behavior
+- whether parameter choices remain stable across contexts
+
 Examples:
-- EA only
-- EB only
-- EC only
+- EA-only
+- EB-only
+- EC-only
+- EA+EB
+- EA+EC
+- full vs reduced
 
-Purpose:
-- test whether the mechanism has standalone value
-- inspect its internal telemetry and semantic signature
+## 4. Honest comparison rule
 
-### 2. Element combinations
-Examples:
-- EA + EB
-- EA + EC
-- EB + EC
-- EA + EB + EC
+The suite must support honest comparison of:
+- full CO
+- reduced CO variants
+- STOA baselines
 
-Purpose:
-- test whether mechanisms compose meaningfully
-- inspect interaction effects
+The goal is not merely to “win”.
 
-### 3. Weight variation
-Examples:
-- relative weighting between active elements
-- relative weighting between CO and classical fallback
-- internal declared weights where explicitly supported
+The goal is also to see:
+- what the ontology commits you to
+- what those commitments actually do
+- when classical collapse is justified
+- and how mechanism families behave across regimes
 
-Purpose:
-- test whether a stable weighting pattern emerges across tasks
+## 5. Parameter sweep rule
 
-### 4. Semantic combinator variation
-Examples:
-- additive vs multiplicative
-- gated vs ungated
-- CO-native vs classical composition laws
+Parameter sweeps should be real:
+- no decorative params
+- no ignored config surfaces
+- no fake variants that differ only on paper
 
-Purpose:
-- test candidate law-forms without changing the primitive set itself
+## 6. Investigation targets
 
-Implementation hint (current):
-- `semantic_overrides` can be set in CO agent params to remap semantic combinators.
+The suite should make it possible to study:
+- primitive roles
+- element roles
+- combinator roles
+- weighting roles
+- threshold roles
+- interaction effects
+- cross-family stability of choices
 
-### 5. Header / meta-header variation
-Examples:
-- detected stability only
-- external prior only
-- mixed control
+## 7. Extensibility
 
-Purpose:
-- test deployment/control assumptions separately from semantic mechanism content
-
----
-
-## Required Experimental Discipline
-
-### Cross-task evaluation
-Experiments should be tested across different task families where possible.
-
-### Budget parity
-Comparisons should preserve reasonable parity in budget and observability.
-
-### Telemetry
-Reward/performance alone is not enough.
-
-Where relevant, experiments should also inspect:
-- identity behavior
-- birth behavior
-- closure/class behavior
-- mask behavior
-- stability/control behavior
-
-### Logging
-Experimental conditions must be explicit and recoverable from configs/logs.
-
----
-
-## What does not count as a clean experiment
-
-The following are discouraged unless explicitly justified:
-- cloning many slightly different EA/EB files
-- silently changing formulas inside element files without contract updates
-- sweeping many parameters without a clear semantic question
-- introducing task-specific ontology logic into translators to make an experiment “work”
-
----
-
-## Scientific posture
-
-The goal is not to prove the final kernel by fiat.
-
-The goal is to test whether:
-- derivationally motivated primitives
-- candidate semantic combinators
-- semantically meaningful elements
-
-produce transfer, explanatory value, and disciplined behavior across tasks.
-
-This page is binding for future experiment design.
+The experimental doctrine must also support:
+- adding new environments
+- adding new primitives
+- adding new elements
+- and bringing them into the same investigatory harness without drift

@@ -1,15 +1,26 @@
-# agents/co/headers/H_ID.py
+from __future__ import annotations
+
 from .H_common import BaseHeader
+
 
 class HeaderID(BaseHeader):
     """
-    Intermediate dynamic header (router will move dyn across 0..1).
+    Intermediate regime header.
+
+    This is the "bridge" regime:
+    - not strongly classical
+    - not strongly CO-dominant
+    - can move either way based on runtime evidence
     """
-    def apply_static(self):
-        # dyn_prior might be >0 for semi-dynamic families (bandit/renewal)
-        self.state.dyn = float(self.st.get("dyn_prior", 0.25))
+
+    def apply_static(self) -> None:
         self.state.tag = "ID"
-        # start hybrid math; router adjusts further
+        self.state.dyn = float(self.st.get("dyn_prior", 0.35))
+        self.state.classicality = float(self.st.get("classicality_prior", 0.65))
+
+        self.st.setdefault("co_base", 0.35)
+        self.st.setdefault("anneal_beta", 0.006)
+
         self.math.path_algebra = "minplus"
         self.math.number_arith = "classic"
         self.math.logic = "boolean"

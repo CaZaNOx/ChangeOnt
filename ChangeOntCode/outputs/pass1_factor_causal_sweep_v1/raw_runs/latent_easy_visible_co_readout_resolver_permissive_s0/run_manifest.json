@@ -1,9 +1,0 @@
-{
-  "started_at": "2026-05-25T13:46:43.550673+00:00",
-  "finished_at": "2026-05-25T13:46:43.656911+00:00",
-  "status": "ok",
-  "error": null,
-  "seed": 0,
-  "spec_name": "easy_visible",
-  "agent": "co:co_readout_resolver_permissive"
-}

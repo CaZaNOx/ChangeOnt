@@ -1,9 +1,0 @@
-{
-  "started_at": "2026-05-17T20:58:52.355875+00:00",
-  "finished_at": "2026-05-17T20:58:52.365482+00:00",
-  "status": "ok",
-  "error": null,
-  "seed": 0,
-  "spec_name": "easy_visible",
-  "agent": "heuristic"
-}

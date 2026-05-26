@@ -1,9 +1,0 @@
-instance,agent,mean_final_cum_reward,n_runs
-clean,co_CO_EA_EB,20.0,1
-clean,co_CO_EA_EB_h32_a02,20.0,1
-clean,co_CO_EA_EB_h64_a02,20.0,1
-clean,co_CO_EA_EB_h64_a05,20.0,1
-clean,co_CO_full,20.0,1
-clean,co_CO_router,20.0,1
-clean,last,19.0,1
-clean,phase,58.0,1

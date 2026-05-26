@@ -1,9 +1,0 @@
-{"record_type": "header", "runner": "latent_mechanism", "family": "latent_mechanism", "seed": 0, "spec_name": "easy_visible", "spec_params": {"max_steps": 8, "seed": 0}, "agent": "heuristic", "out_dir": "/mnt/data/co_factor/ChangeOnt_pass1_all_problem_stoa_comparison_2026-05-25/ChangeOntCode/outputs/pass1_factor_causal_sweep_v1/raw_runs/latent_easy_visible_heuristic_s0", "co_runtime_contract": null}
-{"metric": "step", "t": 0, "action": "RIGHT", "reward": -1.0, "door_open": false, "progress_obs": 0.0, "last_event": "move"}
-{"metric": "step", "t": 1, "action": "INTERACT", "reward": -1.8, "door_open": false, "progress_obs": 0.0, "last_event": "wrong_interact"}
-{"metric": "step", "t": 2, "action": "INTERACT", "reward": -1.8, "door_open": false, "progress_obs": 0.0, "last_event": "wrong_interact"}
-{"metric": "step", "t": 3, "action": "INTERACT", "reward": -1.8, "door_open": false, "progress_obs": 0.0, "last_event": "wrong_interact"}
-{"metric": "step", "t": 4, "action": "INTERACT", "reward": -1.8, "door_open": false, "progress_obs": 0.0, "last_event": "wrong_interact"}
-{"metric": "step", "t": 5, "action": "INTERACT", "reward": -1.8, "door_open": false, "progress_obs": 0.0, "last_event": "wrong_interact"}
-{"metric": "step", "t": 6, "action": "INTERACT", "reward": -1.8, "door_open": false, "progress_obs": 0.0, "last_event": "wrong_interact"}
-{"metric": "step", "t": 7, "action": "INTERACT", "reward": -1.8, "door_open": false, "progress_obs": 0.0, "last_event": "wrong_interact"}

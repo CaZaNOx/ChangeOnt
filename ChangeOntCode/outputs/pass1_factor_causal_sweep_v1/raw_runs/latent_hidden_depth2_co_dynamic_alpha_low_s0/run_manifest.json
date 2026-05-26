@@ -1,9 +1,0 @@
-{
-  "started_at": "2026-05-25T13:46:44.464818+00:00",
-  "finished_at": "2026-05-25T13:46:44.574365+00:00",
-  "status": "ok",
-  "error": null,
-  "seed": 0,
-  "spec_name": "hidden_depth2",
-  "agent": "co:co_dynamic_alpha_low"
-}

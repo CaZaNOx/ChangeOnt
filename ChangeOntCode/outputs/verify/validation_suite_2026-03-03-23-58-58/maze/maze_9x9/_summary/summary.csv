@@ -1,9 +1,0 @@
-env,agent,episodes,mean_steps
-maze_9x9,astar_s0,1,16.0
-maze_9x9,bfs_s0,1,16.0
-maze_9x9,co_CO_EA_EB_h32_a02_s0,1,648.0
-maze_9x9,co_CO_EA_EB_h64_a02_s0,1,648.0
-maze_9x9,co_CO_EA_EB_h64_a05_s0,1,648.0
-maze_9x9,co_CO_EA_EB_s0,1,648.0
-maze_9x9,co_CO_full_s0,1,648.0
-maze_9x9,co_CO_router_s0,1,16.0

@@ -1,6 +1,0 @@
-{"record_type": "header", "runner": "latent_mechanism", "family": "latent_mechanism", "seed": 0, "spec_name": "easy_visible", "spec_params": {"seed": 0, "max_steps": 20}, "agent": "heuristic", "out_dir": "outputs/frozen_empirical_sanity_smoke_v1/latent_easy_seed0/heuristic", "co_runtime_contract": null}
-{"metric": "step", "t": 0, "action": "RIGHT", "reward": -1.0, "door_open": false, "progress_obs": 0.0, "last_event": "move"}
-{"metric": "step", "t": 5, "action": "INTERACT", "reward": -1.8, "door_open": false, "progress_obs": 0.0, "last_event": "wrong_interact"}
-{"metric": "step", "t": 10, "action": "INTERACT", "reward": -1.8, "door_open": false, "progress_obs": 0.0, "last_event": "wrong_interact"}
-{"metric": "step", "t": 15, "action": "INTERACT", "reward": -1.8, "door_open": false, "progress_obs": 0.0, "last_event": "wrong_interact"}
-{"metric": "step", "t": 19, "action": "INTERACT", "reward": -1.8, "door_open": false, "progress_obs": 0.0, "last_event": "wrong_interact"}

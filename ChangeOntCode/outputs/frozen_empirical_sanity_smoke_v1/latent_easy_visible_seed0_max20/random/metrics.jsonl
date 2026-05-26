@@ -1,6 +1,0 @@
-{"record_type": "header", "runner": "latent_mechanism", "family": "latent_mechanism", "seed": 0, "spec_name": "easy_visible", "spec_params": {"max_steps": 20, "seed": 0}, "agent": "random", "out_dir": "/mnt/data/co_work/ChangeOntCode/outputs/frozen_empirical_sanity_smoke_v1/latent_easy_visible_seed0_max20/random", "co_runtime_contract": null}
-{"metric": "step", "t": 0, "action": "DOWN", "reward": -1.0, "door_open": false, "progress_obs": 0.0, "last_event": "move"}
-{"metric": "step", "t": 5, "action": "RIGHT", "reward": -1.0, "door_open": false, "progress_obs": 0.0, "last_event": "move"}
-{"metric": "step", "t": 10, "action": "LEFT", "reward": -1.0, "door_open": false, "progress_obs": 0.0, "last_event": "move"}
-{"metric": "step", "t": 15, "action": "UP", "reward": -1.0, "door_open": false, "progress_obs": 0.0, "last_event": "move"}
-{"metric": "step", "t": 19, "action": "UP", "reward": -1.0, "door_open": false, "progress_obs": 0.0, "last_event": "move"}

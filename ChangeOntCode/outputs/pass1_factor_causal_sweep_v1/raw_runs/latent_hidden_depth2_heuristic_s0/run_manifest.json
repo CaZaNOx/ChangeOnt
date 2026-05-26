@@ -1,9 +1,0 @@
-{
-  "started_at": "2026-05-25T13:46:45.371573+00:00",
-  "finished_at": "2026-05-25T13:46:45.377378+00:00",
-  "status": "ok",
-  "error": null,
-  "seed": 0,
-  "spec_name": "hidden_depth2",
-  "agent": "heuristic"
-}

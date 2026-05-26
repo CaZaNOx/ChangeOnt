@@ -6,7 +6,7 @@ concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 - '[[02_Concepts/C-prior-pointer-reach]]'
 dependencies:
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
 - '[[01_Statements/Definition/S-DF-difference-operator]]'
 parents: []
 successors: []
@@ -34,6 +34,6 @@ The smallest detectable difference (`Δ_min`) is not a fixed psychometric thresh
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-prior-pointer-reach]]
-- Dependencies: [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-difference-operator]]
+- Dependencies: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/Definition/S-DF-difference-operator]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

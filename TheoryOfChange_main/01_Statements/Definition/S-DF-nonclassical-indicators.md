@@ -4,7 +4,7 @@ type: DF
 aliases: ["AI13.Indicators"]
 title: Non-classical indicators — structure-changing signals
 concepts: ["[[02_Concepts/C-markov-closure]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-tx-operator]]", "[[01_Statements/Definition/S-DF-pointer-structural]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-tx-operator]]", "[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]"]
 parents: ["[[01_Statements/Definition/S-DF-tx-operator]]"]
 successors: ["[[01_Statements/Definition/S-DF-cross-audit-markov-gh-tx]]", "[[01_Statements/Definition/S-DF-extended-audit-indicators]]"]
 symbols_used: []
@@ -48,7 +48,7 @@ Clues that the “space itself” is changing show up as structural events, not 
 
 - Concepts: [[02_Concepts/C-markov-closure]]
 - Parents: [[01_Statements/Definition/S-DF-tx-operator]]
-- Dependencies: [[01_Statements/Definition/S-DF-tx-operator]]; [[01_Statements/Definition/S-DF-pointer-structural]]
+- Dependencies: [[01_Statements/Definition/S-DF-tx-operator]]; [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]
 - Successors: [[01_Statements/Definition/S-DF-cross-audit-markov-gh-tx]]; [[01_Statements/Definition/S-DF-extended-audit-indicators]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

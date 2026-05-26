@@ -7,10 +7,10 @@ concepts:
 - '[[02_Concepts/C-subject-awareness-experience]]'
 dependencies:
 - '[[01_Statements/Definition/S-DF-stabilization-energy]]'
-- '[[01_Statements/Definition/S-DF-memory-minimal-witness]]'
+- '[[01_Statements/03_Inner_Development/007_S-DF-memory-minimal-witness]]'
 - '[[01_Statements/Clarification/S-CL-breathing-validation-protocol]]'
 parents:
-- '[[01_Statements/Definition/S-DF-subject-recursive-field]]'
+- '[[01_Statements/03_Inner_Development/005_S-DF-subject-recursive-field]]'
 successors: []
 symbols_used: []
 sources:
@@ -44,7 +44,7 @@ This keeps us honest about claims of consciousness: we accept the modeling when 
 ## Relationships
 
 - Concepts: [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-subject-awareness-experience]]
-- Parents: [[01_Statements/Definition/S-DF-subject-recursive-field]]
-- Dependencies: [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-memory-minimal-witness]]; [[01_Statements/Clarification/S-CL-breathing-validation-protocol]]
+- Parents: [[01_Statements/03_Inner_Development/005_S-DF-subject-recursive-field]]
+- Dependencies: [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/03_Inner_Development/007_S-DF-memory-minimal-witness]]; [[01_Statements/Clarification/S-CL-breathing-validation-protocol]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

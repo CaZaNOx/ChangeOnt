@@ -1,0 +1,11 @@
+{
+  "spec_name": "easy_visible",
+  "agent": "random",
+  "steps": 64,
+  "mean_reward": -1.059375,
+  "success": 0,
+  "door_reframes": 1,
+  "wrong_count": 6,
+  "mechanism_depth": 1,
+  "co_runtime_contract": null
+}

@@ -1,4 +1,4 @@
-﻿# agents/stoa/agent_fsm.py
+# agents/stoa/agent_fsm.py
 from __future__ import annotations
 
 class LastFSM:

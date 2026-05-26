@@ -1,0 +1,57 @@
+{
+  "agent": {
+    "params": {
+      "combinator": {
+        "order": [
+          "haq",
+          "EC_Identity",
+          "density",
+          "change_ops",
+          "candidate_surface",
+          "commitment_surface"
+        ]
+      },
+      "elements": {
+        "EC_Identity": {
+          "enabled": true
+        },
+        "candidate_surface": {
+          "enabled": true
+        },
+        "change_ops": {
+          "enabled": true
+        },
+        "commitment_surface": {
+          "enabled": true
+        },
+        "density": {
+          "enabled": true
+        },
+        "haq": {
+          "enabled": true
+        }
+      },
+      "header": {
+        "mode": "SSI"
+      },
+      "primitives": {
+        "bandit_stats": {},
+        "kernel_substrate": {},
+        "ngram_model": {},
+        "operative_relevance": {},
+        "signal_bus": {}
+      }
+    },
+    "type": "co"
+  },
+  "log_every": 5,
+  "out_dir": "/mnt/data/co_work/ChangeOntCode/outputs/frozen_empirical_sanity_smoke_v1/latent_easy_visible_seed0_max20/co",
+  "seed": 0,
+  "spec": {
+    "name": "easy_visible",
+    "params": {
+      "max_steps": 20,
+      "seed": 0
+    }
+  }
+}

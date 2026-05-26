@@ -4,7 +4,7 @@ type: DF
 aliases: ["LOG_1.0.GradedOrder"]
 title: CO-Logic as graded order (Boolean as flattening)
 concepts: ["[[02_Concepts/C-math-structures]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-rtv-operator]]", "[[01_Statements/Definition/S-DF-similarity-operator]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-rtv-operator]]", "[[01_Statements/02_Outer_Formation/023_S-DF-similarity-operator]]"]
 parents: ["[[01_Statements/Definition/S-DF-rtv-operator]]"]
 successors: ["[[01_Statements/Definition/S-DF-quantale-logic]]"]
 symbols_used: []
@@ -26,6 +26,7 @@ Instead of all‑or‑nothing, we keep track of how well claims hold under breat
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 - [[01_Statements/Assumption/S-AS-use-of-preexisting-concepts]]
+- [[01_Statements/Definition/S-DF-candidate-surface]]
 - [[01_Statements/Definition/S-DF-elm-ej-order-asymmetry]]
 - [[01_Statements/Definition/S-DF-prm-order-arisal]]
 - [[01_Statements/Definition/S-DF-quantale-logic]]
@@ -36,7 +37,7 @@ Instead of all‑or‑nothing, we keep track of how well claims hold under breat
 
 - Concepts: [[02_Concepts/C-math-structures]]
 - Parents: [[01_Statements/Definition/S-DF-rtv-operator]]
-- Dependencies: [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/Definition/S-DF-similarity-operator]]
+- Dependencies: [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/02_Outer_Formation/023_S-DF-similarity-operator]]
 - Successors: [[01_Statements/Definition/S-DF-quantale-logic]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

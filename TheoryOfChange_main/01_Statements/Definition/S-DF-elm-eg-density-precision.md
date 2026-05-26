@@ -23,11 +23,19 @@ Tighten or loosen your grip when it helps most.
 ## Philosophical Justification
 Information is not free: higher precision costs attention and risks over‑fitting to noise; lower precision saves resources but can miss signal. Surprise and breath phase provide natural cues for scheduling r′, making precision adaptive to context.
 
-## Derivation (Formal/Operational)
+## Derivation (Philosophical)
+- Surprise and phase do not merely affect belief; they affect how finely the field should be sampled.
+- Precision/density is the primitive knob.
+- EG is the element that turns that knob into an explicit scheduling policy.
+
+## Derivation (Formal/Logical/Mathematical)
 ```text
 r'_t := schedule(surprise_t, phase_t; EMA)
 ```
 with EMA smoothing to prevent jitter.
+
+## Explanation (informal)
+EG is the element that tightens or loosens how finely the kernel resolves structure. It is the practical face of precision scheduling.
 
 ## Clarifications / Further Context
 - Couple to attention maps so precision is applied where it matters.

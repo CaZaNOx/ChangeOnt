@@ -6,7 +6,7 @@ title: Spiral adjacency supports contextual continuity under LocalReach
 concepts: ["[[02_Concepts/C-spiral-recursion]]", "[[02_Concepts/C-prior-pointer-reach]]"]
 dependencies: [
   "[[01_Statements/Definition/S-DF-breath-field-global-integrator]]",
-  "[[01_Statements/Definition/S-DF-locality-prior]]",
+  "[[01_Statements/02_Outer_Formation/008_S-DF-asymmetric-local-contribution]]",
   "[[01_Statements/Definition/S-DF-depth-reach]]"
 ]
 parents: ["[[01_Statements/Definition/S-DF-breath-field-global-integrator]]"]
@@ -35,6 +35,6 @@ When breath sustains spiral recursion, adjacent arms remain within LocalReach ba
 
 - Concepts: [[02_Concepts/C-spiral-recursion]]; [[02_Concepts/C-prior-pointer-reach]]
 - Parents: [[01_Statements/Definition/S-DF-breath-field-global-integrator]]
-- Dependencies: [[01_Statements/Definition/S-DF-breath-field-global-integrator]]; [[01_Statements/Definition/S-DF-locality-prior]]; [[01_Statements/Definition/S-DF-depth-reach]]
+- Dependencies: [[01_Statements/Definition/S-DF-breath-field-global-integrator]]; [[01_Statements/02_Outer_Formation/008_S-DF-asymmetric-local-contribution]]; [[01_Statements/Definition/S-DF-depth-reach]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

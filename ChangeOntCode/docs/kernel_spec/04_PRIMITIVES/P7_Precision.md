@@ -1,4 +1,7 @@
 # P7 Precision
+Current classification: **Provisional**
+
+Active bounded support primitive for discrimination/precision control, not yet full core doctrine.
 
 ## Purpose
 

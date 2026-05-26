@@ -3,8 +3,8 @@ id: stmt.cl-attention-affect-control-law
 type: CL
 title: Attention and affect act as measurable control laws with falsifiers
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
-- '[[01_Statements/Definition/S-DF-structure-of-experience]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
+- '[[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]'
 - '[[01_Statements/Definition/S-DF-prm-temporal-ops]]'
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
@@ -52,6 +52,6 @@ AI_13 makes the attention story testable: define the allocation \(A_n = \arg\max
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-subject-awareness-experience]]
 - Parents: [[01_Statements/Clarification/S-CL-change-core-axiom]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-structure-of-experience]]; [[01_Statements/Definition/S-DF-prm-temporal-ops]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]; [[01_Statements/Definition/S-DF-prm-temporal-ops]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

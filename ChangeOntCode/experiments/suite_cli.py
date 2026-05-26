@@ -232,11 +232,26 @@ def _write_job_state(path: Path, status: str, job: SuiteJob, started_at: str, en
     path.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
 
 
+def _strict_errors() -> bool:
+    import os
+    return str(os.environ.get("CO_STRICT_ERRORS", "")).strip() == "1"
+
+
 def _validate_run_outputs(out_dir: Path) -> bool:
-    metrics_ok = (out_dir / "metrics.jsonl").exists()
-    budget_ok = (out_dir / "budget.csv").exists()
-    manifest_ok = (out_dir / "run_manifest.json").exists()
-    return metrics_ok and budget_ok and manifest_ok
+    metrics = out_dir / "metrics.jsonl"
+    budget = out_dir / "budget.csv"
+    manifest = out_dir / "run_manifest.json"
+    if not (metrics.exists() and budget.exists() and manifest.exists()):
+        return False
+    if metrics.stat().st_size <= 0 or budget.stat().st_size <= 0 or manifest.stat().st_size <= 0:
+        return False
+    try:
+        payload = json.loads(manifest.read_text(encoding="utf-8"))
+    except Exception:
+        if _strict_errors():
+            raise
+        return False
+    return str(payload.get("status", "")).lower() == "succeeded"
 
 
 def _should_run_job(job: SuiteJob, rerun_failed_only: bool) -> bool:
@@ -250,6 +265,8 @@ def _should_run_job(job: SuiteJob, rerun_failed_only: bool) -> bool:
         status = str(data.get("status", "")).lower()
         return status != "succeeded"
     except Exception:
+        if _strict_errors():
+            raise
         return True
 
 
@@ -306,6 +323,8 @@ def _write_failure_report(out_root: Path, jobs: List[SuiteJob]) -> None:
                 status = str(data.get("status", status))
                 error = str(data.get("error", "")) if data.get("error") else ""
             except Exception:
+                if _strict_errors():
+                    raise
                 status = "unknown"
         if status != "succeeded":
             rows.append({
@@ -596,7 +615,7 @@ def main() -> None:
                     try:
                         future.result()
                     except Exception:
-                        if not continue_on_failure:
+                        if _strict_errors() or not continue_on_failure:
                             raise
         else:
             for mode in mode_order.get(family, []):

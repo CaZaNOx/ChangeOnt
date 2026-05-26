@@ -4,7 +4,7 @@ type: DF
 title: CO spread number — central value plus breadth and depth
 concepts: ["[[02_Concepts/C-math-structures]]"]
 dependencies: []
-parents: ["[[01_Statements/Definition/S-DF-identity-invariants]]"]
+parents: ["[[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]"]
 successors: []
 symbols_used: []
 sources:
@@ -29,6 +29,6 @@ Setting `b=d=0` recovers the classical semiring because spreads collapse to poin
 ## Relationships
 
 - Concepts: [[02_Concepts/C-math-structures]]
-- Parents: [[01_Statements/Definition/S-DF-identity-invariants]]
+- Parents: [[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

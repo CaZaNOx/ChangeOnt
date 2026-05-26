@@ -4,7 +4,7 @@ type: CL
 title: Define a bare detector D before importing continuity
 dependencies:
 - '[[01_Statements/Definition/S-DF-difference-operator]]'
-- '[[01_Statements/Definition/S-DF-locality-prior]]'
+- '[[01_Statements/02_Outer_Formation/008_S-DF-asymmetric-local-contribution]]'
 - '[[01_Statements/Clarification/S-CL-change-continuity-logic]]'
 parents:
 - '[[01_Statements/Clarification/S-CL-change-continuity-logic]]'
@@ -38,6 +38,6 @@ Before claiming a continuity relation `C(x,y)` or the existence of a subject-fie
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Clarification/S-CL-change-continuity-logic]]
-- Dependencies: [[01_Statements/Definition/S-DF-difference-operator]]; [[01_Statements/Definition/S-DF-locality-prior]]; [[01_Statements/Clarification/S-CL-change-continuity-logic]]
+- Dependencies: [[01_Statements/Definition/S-DF-difference-operator]]; [[01_Statements/02_Outer_Formation/008_S-DF-asymmetric-local-contribution]]; [[01_Statements/Clarification/S-CL-change-continuity-logic]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

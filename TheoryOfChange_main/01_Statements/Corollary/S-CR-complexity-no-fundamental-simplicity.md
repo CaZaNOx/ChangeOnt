@@ -4,7 +4,7 @@ type: CR
 aliases: ["AI13.ComplexityNoSimple"]
 title: No fundamental simplicity (complexity framing)
 concepts: ["[[02_Concepts/C-identity-change]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-domain-generalization-principles]]", "[[01_Statements/Definition/S-DF-identity-invariants]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-domain-generalization-principles]]", "[[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]"]
 parents: ["[[01_Statements/Definition/S-DF-domain-generalization-principles]]"]
 successors: []
 symbols_used: []
@@ -33,6 +33,6 @@ Simplicity is not the ground; structured persistence is — and it’s dynamic.
 
 - Concepts: [[02_Concepts/C-identity-change]]
 - Parents: [[01_Statements/Definition/S-DF-domain-generalization-principles]]
-- Dependencies: [[01_Statements/Definition/S-DF-domain-generalization-principles]]; [[01_Statements/Definition/S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-stabilization-energy]]
+- Dependencies: [[01_Statements/Definition/S-DF-domain-generalization-principles]]; [[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-stabilization-energy]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

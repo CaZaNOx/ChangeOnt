@@ -10,7 +10,9 @@ It is binding for all primitive docs and implementations.
 
 ## Definition
 
-A primitive is a **minimal reusable operational encoding of a structurally recurring demand** that arises when trying to think consistently from change.
+A primitive is a **minimal reusable kernel-resolution encoding of a structurally recurring demand** that arises when trying to think consistently from change.
+
+A primitive is therefore not the same thing as the deepest ontological distinction. Philosophy may derive a deeper need first; the primitive is the first reusable finite handle for that need.
 
 Primitives are not claimed to be final or uniquely deduced formulas.
 

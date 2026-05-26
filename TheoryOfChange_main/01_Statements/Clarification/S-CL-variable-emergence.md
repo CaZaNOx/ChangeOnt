@@ -3,7 +3,7 @@ id: stmt.cl-variable-emergence
 type: CL
 title: New variables emerge only when structural tension forces a distinction
 dependencies:
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
 - '[[01_Statements/Definition/S-DF-difference-operator]]'
 parents: []
 successors: []
@@ -34,6 +34,6 @@ In the change ontology, a new variable/dimension arises when the subject encount
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-identity-change]]
-- Dependencies: [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-difference-operator]]
+- Dependencies: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/Definition/S-DF-difference-operator]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

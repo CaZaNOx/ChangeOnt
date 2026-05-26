@@ -1,0 +1,517 @@
+{
+  "aggregate": {
+    "candidate_rows": 20,
+    "cases": 5,
+    "relations_total": 80,
+    "rows_with_public_effects": 20
+  },
+  "cases": [
+    {
+      "candidate_summary": {
+        "candidate_rows": 3,
+        "leakage_status_counts": {
+          "public": 9
+        },
+        "max_effects_per_row": 3,
+        "min_effects_per_row": 3,
+        "operation_counts": {
+          "carry": 3,
+          "decision_slot": 3,
+          "reduce": 3
+        },
+        "public_basis_counts": {
+          "declared_transition_rule": 3,
+          "legal_constraint": 3,
+          "public_history": 3
+        },
+        "rows_with_public_effects": 3
+      },
+      "family": "bandit_initial",
+      "relation_surface": {
+        "accepted_public_effects": 9,
+        "branch_internal_hiddenness_pressure_total": 3.0,
+        "branch_internal_operation_rows": 3,
+        "branch_internal_resolver_support_total": 3.0,
+        "branch_internal_unresolved_pressure_total": 1.8599999999999999,
+        "branches_derived": 3,
+        "candidate_rows": 3,
+        "identity_source_counts": {
+          "public_effects": 3
+        },
+        "operation_carry": 3,
+        "operation_decision_slot": 3,
+        "operation_reduce": 3,
+        "quotient_bucket_sizes": [],
+        "quotient_buckets_with_multiple_members": 0,
+        "quotient_derivation_basis": "public_residual_profile",
+        "quotient_profile_summaries": [
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::reward_uncertainty_arm_0:carry:arm_0:critical:none:unknown:reward_feedback|reward_uncertainty_arm_0:reduce:arm_0:critical:none:unknown:reward_feedback::expr::0",
+            "entries": [
+              "reward_uncertainty_arm_0/evidence/relief/arm_0/critical/none/unknown/reward_feedback",
+              "reward_uncertainty_arm_0/uncertainty/carry/arm_0/critical/none/unknown/reward_feedback"
+            ],
+            "reason": "accepted",
+            "signature": "reward_uncertainty_arm_0/evidence/relief/arm_0/critical/none/unknown/reward_feedback|reward_uncertainty_arm_0/uncertainty/carry/arm_0/critical/none/unknown/reward_feedback"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::reward_uncertainty_arm_1:carry:arm_1:critical:none:unknown:reward_feedback|reward_uncertainty_arm_1:reduce:arm_1:critical:none:unknown:reward_feedback::expr::1",
+            "entries": [
+              "reward_uncertainty_arm_1/evidence/relief/arm_1/critical/none/unknown/reward_feedback",
+              "reward_uncertainty_arm_1/uncertainty/carry/arm_1/critical/none/unknown/reward_feedback"
+            ],
+            "reason": "accepted",
+            "signature": "reward_uncertainty_arm_1/evidence/relief/arm_1/critical/none/unknown/reward_feedback|reward_uncertainty_arm_1/uncertainty/carry/arm_1/critical/none/unknown/reward_feedback"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::reward_uncertainty_arm_2:carry:arm_2:critical:none:unknown:reward_feedback|reward_uncertainty_arm_2:reduce:arm_2:critical:none:unknown:reward_feedback::expr::2",
+            "entries": [
+              "reward_uncertainty_arm_2/evidence/relief/arm_2/critical/none/unknown/reward_feedback",
+              "reward_uncertainty_arm_2/uncertainty/carry/arm_2/critical/none/unknown/reward_feedback"
+            ],
+            "reason": "accepted",
+            "signature": "reward_uncertainty_arm_2/evidence/relief/arm_2/critical/none/unknown/reward_feedback|reward_uncertainty_arm_2/uncertainty/carry/arm_2/critical/none/unknown/reward_feedback"
+          }
+        ],
+        "quotient_profiles_accepted": 3,
+        "quotient_profiles_rejected": {},
+        "quotient_profiles_total": 3,
+        "quotient_relations_derived": 0,
+        "rejected_nonoverlap": 48,
+        "relation_decision_slot_competition": 6,
+        "relations_by_type": {
+          "decision_slot_competition": 6
+        },
+        "relations_total": 6,
+        "rows_with_public_effects": 3,
+        "rows_with_relations": 3
+      }
+    },
+    {
+      "candidate_summary": {
+        "candidate_rows": 5,
+        "leakage_status_counts": {
+          "public": 11
+        },
+        "max_effects_per_row": 3,
+        "min_effects_per_row": 2,
+        "operation_counts": {
+          "carry": 3,
+          "decision_slot": 5,
+          "reduce": 1,
+          "reset": 1,
+          "reveal": 1
+        },
+        "public_basis_counts": {
+          "declared_transition_rule": 5,
+          "legal_constraint": 5,
+          "visible_observation": 1
+        },
+        "rows_with_public_effects": 5
+      },
+      "family": "maintenance_partial_midhealth",
+      "relation_surface": {
+        "accepted_public_effects": 11,
+        "branch_internal_hiddenness_pressure_total": 0.22000000000000003,
+        "branch_internal_operation_rows": 5,
+        "branch_internal_resolver_support_total": 1.13,
+        "branch_internal_unresolved_pressure_total": 0.426085,
+        "branches_derived": 5,
+        "candidate_rows": 5,
+        "identity_source_counts": {
+          "public_effects": 5
+        },
+        "operation_carry": 3,
+        "operation_decision_slot": 5,
+        "operation_reduce": 1,
+        "operation_reset": 1,
+        "operation_reveal": 1,
+        "quotient_bucket_sizes": [],
+        "quotient_buckets_with_multiple_members": 0,
+        "quotient_derivation_basis": "public_residual_profile",
+        "quotient_profile_summaries": [
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::degradation:carry:machine_health:medium:none:unknown:health_continuation|hiddenness:carry:health_observability:low:none:unknown:health_continuation::expr::RUN",
+            "entries": [
+              "degradation/burden/carry/machine_health/medium/none/unknown/health_continuation",
+              "hiddenness/uncertainty/carry/health_observability/medium/none/unknown/health_continuation"
+            ],
+            "reason": "accepted",
+            "signature": "degradation/burden/carry/machine_health/medium/none/unknown/health_continuation|hiddenness/uncertainty/carry/health_observability/medium/none/unknown/health_continuation"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::hiddenness:reveal:health_observability:low:none:unknown:health_continuation::expr::INSPECT",
+            "entries": [
+              "hiddenness/evidence/expose/health_observability/medium/none/unknown/health_continuation"
+            ],
+            "reason": "accepted",
+            "signature": "hiddenness/evidence/expose/health_observability/medium/none/unknown/health_continuation"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::degradation:reduce:machine_health:medium:none:unknown:health_continuation::expr::REPAIR",
+            "entries": [
+              "degradation/burden/relief/machine_health/medium/none/unknown/health_continuation"
+            ],
+            "reason": "accepted",
+            "signature": "degradation/burden/relief/machine_health/medium/none/unknown/health_continuation"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::degradation:reset:machine_health:medium:none:unknown:machine_identity::expr::REPLACE",
+            "entries": [
+              "degradation/burden/cancel/machine_health/medium/none/unknown/machine_identity"
+            ],
+            "reason": "accepted",
+            "signature": "degradation/burden/cancel/machine_health/medium/none/unknown/machine_identity"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::degradation:carry:machine_health:low:none:unknown:health_continuation::expr::WAIT",
+            "entries": [
+              "degradation/burden/carry/machine_health/medium/none/unknown/health_continuation"
+            ],
+            "reason": "accepted",
+            "signature": "degradation/burden/carry/machine_health/medium/none/unknown/health_continuation"
+          }
+        ],
+        "quotient_profiles_accepted": 5,
+        "quotient_profiles_rejected": {},
+        "quotient_profiles_total": 5,
+        "quotient_relations_derived": 0,
+        "rejected_nonoverlap": 62,
+        "relation_cancellation": 3,
+        "relation_decision_slot_competition": 20,
+        "relation_relief": 2,
+        "relation_shared_evidence": 1,
+        "relations_by_type": {
+          "cancellation": 3,
+          "decision_slot_competition": 20,
+          "relief": 2,
+          "shared_evidence": 1
+        },
+        "relations_total": 26,
+        "rows_with_public_effects": 5,
+        "rows_with_relations": 5
+      }
+    },
+    {
+      "candidate_summary": {
+        "candidate_rows": 4,
+        "leakage_status_counts": {
+          "public": 8
+        },
+        "max_effects_per_row": 2,
+        "min_effects_per_row": 2,
+        "operation_counts": {
+          "carry": 3,
+          "decision_slot": 4,
+          "reduce": 1
+        },
+        "public_basis_counts": {
+          "legal_constraint": 4,
+          "visible_observation": 4
+        },
+        "rows_with_public_effects": 4
+      },
+      "family": "maze_visible_local",
+      "relation_surface": {
+        "accepted_public_effects": 8,
+        "branch_internal_hiddenness_pressure_total": 0.0,
+        "branch_internal_operation_rows": 4,
+        "branch_internal_resolver_support_total": 1.0,
+        "branch_internal_unresolved_pressure_total": 1.3800000000000001,
+        "branches_derived": 4,
+        "candidate_rows": 4,
+        "identity_source_counts": {
+          "public_effects": 4
+        },
+        "operation_carry": 3,
+        "operation_decision_slot": 4,
+        "operation_reduce": 1,
+        "quotient_bucket_sizes": [
+          3
+        ],
+        "quotient_buckets_with_multiple_members": 1,
+        "quotient_derivation_basis": "public_residual_profile",
+        "quotient_profile_summaries": [
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::visible_goal_distance:carry:local_geometry:critical:none:unknown:goal_anchor::expr::UP",
+            "entries": [
+              "visible_goal_distance/burden/carry/local_geometry/critical/none/unknown/goal_anchor"
+            ],
+            "reason": "accepted",
+            "signature": "visible_goal_distance/burden/carry/local_geometry/critical/none/unknown/goal_anchor"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::visible_goal_distance:carry:local_geometry:critical:none:unknown:goal_anchor::expr::DOWN",
+            "entries": [
+              "visible_goal_distance/burden/carry/local_geometry/critical/none/unknown/goal_anchor"
+            ],
+            "reason": "accepted",
+            "signature": "visible_goal_distance/burden/carry/local_geometry/critical/none/unknown/goal_anchor"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::visible_goal_distance:carry:local_geometry:critical:none:unknown:goal_anchor::expr::LEFT",
+            "entries": [
+              "visible_goal_distance/burden/carry/local_geometry/critical/none/unknown/goal_anchor"
+            ],
+            "reason": "accepted",
+            "signature": "visible_goal_distance/burden/carry/local_geometry/critical/none/unknown/goal_anchor"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::visible_goal_distance:reduce:local_geometry:critical:none:unknown:goal_anchor::expr::RIGHT",
+            "entries": [
+              "visible_goal_distance/burden/relief/local_geometry/critical/none/unknown/goal_anchor"
+            ],
+            "reason": "accepted",
+            "signature": "visible_goal_distance/burden/relief/local_geometry/critical/none/unknown/goal_anchor"
+          }
+        ],
+        "quotient_profiles_accepted": 4,
+        "quotient_profiles_rejected": {},
+        "quotient_profiles_total": 4,
+        "quotient_relations_derived": 3,
+        "rejected_nonoverlap": 24,
+        "relation_decision_slot_competition": 12,
+        "relation_equivalence": 3,
+        "relation_relief": 3,
+        "relations_by_type": {
+          "decision_slot_competition": 12,
+          "equivalence": 3,
+          "relief": 3
+        },
+        "relations_total": 18,
+        "rows_with_public_effects": 4,
+        "rows_with_relations": 4
+      }
+    },
+    {
+      "candidate_summary": {
+        "candidate_rows": 5,
+        "leakage_status_counts": {
+          "public": 14
+        },
+        "max_effects_per_row": 3,
+        "min_effects_per_row": 2,
+        "operation_counts": {
+          "carry": 8,
+          "decision_slot": 5,
+          "reduce": 1
+        },
+        "public_basis_counts": {
+          "legal_constraint": 5,
+          "visible_observation": 9
+        },
+        "rows_with_public_effects": 5
+      },
+      "family": "latent_mechanism_visible",
+      "relation_surface": {
+        "accepted_public_effects": 14,
+        "branch_internal_hiddenness_pressure_total": 3.0,
+        "branch_internal_operation_rows": 5,
+        "branch_internal_resolver_support_total": 1.0,
+        "branch_internal_unresolved_pressure_total": 2.412,
+        "branches_derived": 5,
+        "candidate_rows": 5,
+        "identity_source_counts": {
+          "public_effects": 5
+        },
+        "operation_carry": 8,
+        "operation_decision_slot": 5,
+        "operation_reduce": 1,
+        "quotient_bucket_sizes": [
+          2
+        ],
+        "quotient_buckets_with_multiple_members": 1,
+        "quotient_derivation_basis": "public_residual_profile",
+        "quotient_profile_summaries": [
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::mechanism_hiddenness:carry:mechanism_observability:high:none:unknown:door_mechanism|visible_route_distance:carry:local_geometry:critical:none:unknown:goal_or_mechanism_anchor::expr::UP",
+            "entries": [
+              "mechanism_hiddenness/uncertainty/carry/mechanism_observability/high/none/unknown/door_mechanism",
+              "visible_route_distance/burden/carry/local_geometry/critical/none/unknown/goal_or_mechanism_anchor"
+            ],
+            "reason": "accepted",
+            "signature": "mechanism_hiddenness/uncertainty/carry/mechanism_observability/high/none/unknown/door_mechanism|visible_route_distance/burden/carry/local_geometry/critical/none/unknown/goal_or_mechanism_anchor"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::mechanism_hiddenness:carry:mechanism_observability:high:none:unknown:door_mechanism|visible_route_distance:carry:local_geometry:high:none:unknown:goal_or_mechanism_anchor::expr::DOWN",
+            "entries": [
+              "mechanism_hiddenness/uncertainty/carry/mechanism_observability/high/none/unknown/door_mechanism",
+              "visible_route_distance/burden/carry/local_geometry/high/none/unknown/goal_or_mechanism_anchor"
+            ],
+            "reason": "accepted",
+            "signature": "mechanism_hiddenness/uncertainty/carry/mechanism_observability/high/none/unknown/door_mechanism|visible_route_distance/burden/carry/local_geometry/high/none/unknown/goal_or_mechanism_anchor"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::mechanism_hiddenness:carry:mechanism_observability:high:none:unknown:door_mechanism|visible_route_distance:carry:local_geometry:critical:none:unknown:goal_or_mechanism_anchor::expr::LEFT",
+            "entries": [
+              "mechanism_hiddenness/uncertainty/carry/mechanism_observability/high/none/unknown/door_mechanism",
+              "visible_route_distance/burden/carry/local_geometry/critical/none/unknown/goal_or_mechanism_anchor"
+            ],
+            "reason": "accepted",
+            "signature": "mechanism_hiddenness/uncertainty/carry/mechanism_observability/high/none/unknown/door_mechanism|visible_route_distance/burden/carry/local_geometry/critical/none/unknown/goal_or_mechanism_anchor"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::mechanism_hiddenness:carry:mechanism_observability:high:none:unknown:door_mechanism|visible_route_distance:reduce:local_geometry:critical:none:unknown:goal_or_mechanism_anchor::expr::RIGHT",
+            "entries": [
+              "mechanism_hiddenness/uncertainty/carry/mechanism_observability/high/none/unknown/door_mechanism",
+              "visible_route_distance/burden/relief/local_geometry/critical/none/unknown/goal_or_mechanism_anchor"
+            ],
+            "reason": "accepted",
+            "signature": "mechanism_hiddenness/uncertainty/carry/mechanism_observability/high/none/unknown/door_mechanism|visible_route_distance/burden/relief/local_geometry/critical/none/unknown/goal_or_mechanism_anchor"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::mechanism_hiddenness:carry:visible_interactive:high:none:unknown:door_mechanism::expr::INTERACT",
+            "entries": [
+              "mechanism_hiddenness/uncertainty/carry/visible_interactive/high/none/unknown/door_mechanism"
+            ],
+            "reason": "accepted",
+            "signature": "mechanism_hiddenness/uncertainty/carry/visible_interactive/high/none/unknown/door_mechanism"
+          }
+        ],
+        "quotient_profiles_accepted": 5,
+        "quotient_profiles_rejected": {},
+        "quotient_profiles_total": 5,
+        "quotient_relations_derived": 1,
+        "rejected_nonoverlap": 104,
+        "relation_decision_slot_competition": 20,
+        "relation_equivalence": 1,
+        "relation_relief": 3,
+        "relations_by_type": {
+          "decision_slot_competition": 20,
+          "equivalence": 1,
+          "relief": 3
+        },
+        "relations_total": 24,
+        "rows_with_public_effects": 5,
+        "rows_with_relations": 5
+      }
+    },
+    {
+      "candidate_summary": {
+        "candidate_rows": 3,
+        "leakage_status_counts": {
+          "public": 15
+        },
+        "max_effects_per_row": 5,
+        "min_effects_per_row": 5,
+        "operation_counts": {
+          "carry": 9,
+          "decision_slot": 3,
+          "reduce": 3
+        },
+        "public_basis_counts": {
+          "declared_transition_rule": 3,
+          "legal_constraint": 3,
+          "public_history": 9
+        },
+        "rows_with_public_effects": 3
+      },
+      "family": "renewal_initial",
+      "relation_surface": {
+        "accepted_public_effects": 15,
+        "branch_internal_hiddenness_pressure_total": 3.0,
+        "branch_internal_operation_rows": 3,
+        "branch_internal_resolver_support_total": 2.8,
+        "branch_internal_unresolved_pressure_total": 1.8599999999999999,
+        "branches_derived": 3,
+        "candidate_rows": 3,
+        "identity_source_counts": {
+          "public_effects": 3
+        },
+        "operation_carry": 9,
+        "operation_decision_slot": 3,
+        "operation_reduce": 3,
+        "quotient_bucket_sizes": [],
+        "quotient_buckets_with_multiple_members": 0,
+        "quotient_derivation_basis": "public_residual_profile",
+        "quotient_profile_summaries": [
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::context_entropy:carry:sequence_context:critical:none:unknown:sequence_prediction|prediction_miss_burden:carry:sequence_history:low:none:unknown:task_anchor|predictive_uncertainty_sym_0:carry:sym_0:critical:none:unknown:s::expr::0",
+            "entries": [
+              "context_entropy/uncertainty/carry/sequence_context/critical/none/unknown/sequence_prediction",
+              "prediction_miss_burden/burden/carry/sequence_history/low/none/unknown/task_anchor",
+              "predictive_uncertainty_sym_0/evidence/relief/sym_0/critical/none/unknown/sequence_prediction",
+              "predictive_uncertainty_sym_0/uncertainty/carry/sym_0/critical/none/unknown/sequence_prediction"
+            ],
+            "reason": "accepted",
+            "signature": "context_entropy/uncertainty/carry/sequence_context/critical/none/unknown/sequence_prediction|prediction_miss_burden/burden/carry/sequence_history/low/none/unknown/task_anchor|predictive_uncertainty_sym_0/evidence/relief/sym_0/critical/none/unknown/sequence_pre"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::context_entropy:carry:sequence_context:critical:none:unknown:sequence_prediction|prediction_miss_burden:carry:sequence_history:low:none:unknown:task_anchor|predictive_uncertainty_sym_1:carry:sym_1:critical:none:unknown:s::expr::1",
+            "entries": [
+              "context_entropy/uncertainty/carry/sequence_context/critical/none/unknown/sequence_prediction",
+              "prediction_miss_burden/burden/carry/sequence_history/low/none/unknown/task_anchor",
+              "predictive_uncertainty_sym_1/evidence/relief/sym_1/critical/none/unknown/sequence_prediction",
+              "predictive_uncertainty_sym_1/uncertainty/carry/sym_1/critical/none/unknown/sequence_prediction"
+            ],
+            "reason": "accepted",
+            "signature": "context_entropy/uncertainty/carry/sequence_context/critical/none/unknown/sequence_prediction|prediction_miss_burden/burden/carry/sequence_history/low/none/unknown/task_anchor|predictive_uncertainty_sym_1/evidence/relief/sym_1/critical/none/unknown/sequence_pre"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::context_entropy:carry:sequence_context:critical:none:unknown:sequence_prediction|prediction_miss_burden:carry:sequence_history:low:none:unknown:task_anchor|predictive_uncertainty_sym_2:carry:sym_2:critical:none:unknown:s::expr::2",
+            "entries": [
+              "context_entropy/uncertainty/carry/sequence_context/critical/none/unknown/sequence_prediction",
+              "prediction_miss_burden/burden/carry/sequence_history/low/none/unknown/task_anchor",
+              "predictive_uncertainty_sym_2/evidence/relief/sym_2/critical/none/unknown/sequence_prediction",
+              "predictive_uncertainty_sym_2/uncertainty/carry/sym_2/critical/none/unknown/sequence_prediction"
+            ],
+            "reason": "accepted",
+            "signature": "context_entropy/uncertainty/carry/sequence_context/critical/none/unknown/sequence_prediction|prediction_miss_burden/burden/carry/sequence_history/low/none/unknown/task_anchor|predictive_uncertainty_sym_2/evidence/relief/sym_2/critical/none/unknown/sequence_pre"
+          }
+        ],
+        "quotient_profiles_accepted": 3,
+        "quotient_profiles_rejected": {},
+        "quotient_profiles_total": 3,
+        "quotient_relations_derived": 0,
+        "rejected_nonoverlap": 132,
+        "relation_decision_slot_competition": 6,
+        "relations_by_type": {
+          "decision_slot_competition": 6
+        },
+        "relations_total": 6,
+        "rows_with_public_effects": 3,
+        "rows_with_relations": 3
+      }
+    }
+  ]
+}

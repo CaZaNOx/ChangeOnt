@@ -3,7 +3,7 @@ id: stmt.cl-change-world-predictions
 type: CL
 title: Change-ontology worldview yields testable commitments and falsifiers
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 - '[[01_Statements/Clarification/S-CL-change-core-axiom]]'
 - '[[01_Statements/Clarification/S-CL-change-monism-limits]]'
 concepts:
@@ -53,6 +53,6 @@ Under CO‑0 + No‑Brute‑Boundary, the world should show: (i) every change se
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-change-fitness]]
 - Parents: [[01_Statements/Clarification/S-CL-change-core-axiom]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]; [[01_Statements/Clarification/S-CL-change-monism-limits]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]; [[01_Statements/Clarification/S-CL-change-monism-limits]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

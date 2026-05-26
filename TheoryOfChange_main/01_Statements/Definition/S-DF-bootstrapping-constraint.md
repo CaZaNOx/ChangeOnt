@@ -4,8 +4,8 @@ type: DF
 aliases: ["FND_5.Bootstrapping"]
 title: Bootstrapping constraint — build only from secured structure
 concepts: ["[[02_Concepts/C-ontology-of-change]]"]
-dependencies: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]", "[[01_Statements/Definition/S-DF-performative-contradiction]]"]
-parents: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]"]
+dependencies: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]", "[[01_Statements/00_Opening_Justification/002_S-DF-performative-contradiction]]"]
+parents: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]"]
 successors: []
 symbols_used: []
 sources:
@@ -32,7 +32,7 @@ We build carefully: no bricks that the wall can’t already support.
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-performative-contradiction]]
+- Parents: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/00_Opening_Justification/002_S-DF-performative-contradiction]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

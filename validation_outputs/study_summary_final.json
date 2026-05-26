@@ -1,0 +1,27 @@
+{
+  "experiments.studies.adapter_public_effect_relation_coverage_v1": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "experiments.studies.architecture_acceptance_audit_v1": {
+    "duration": "2s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "experiments.studies.commitment_relation_readout_trace_v1": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": true
+  },
+  "experiments.studies.relation_path_trace_v1": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "experiments.studies.structural_trace_validation_v1": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": false
+  }
+}

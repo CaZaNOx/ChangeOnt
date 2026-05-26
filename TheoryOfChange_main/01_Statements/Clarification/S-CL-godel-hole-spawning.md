@@ -26,7 +26,7 @@ Every major meta-layer jump (chemistry→biology, biology→mind/memes, potentia
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
-- [[01_Statements/Clarification/S-CL-godel-hole-legacy]]
+- [[01_Statements/Clarification/S-CL-godel-hole-inactive]]
 - [[01_Statements/Clarification/S-CL-mind-hard-jump]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 

@@ -3,7 +3,7 @@ id: stmt.cl-co-explicit-math
 type: CL
 title: Explicit mathematics of CO-based consciousness model
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 - '[[01_Statements/Clarification/S-CL-change-core-axiom]]'
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
@@ -48,6 +48,6 @@ AI_13 spells out the math requested: Change Ontology defines a smooth manifold \
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-math-structures]]
 - Parents: [[01_Statements/Clarification/S-CL-change-core-axiom]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

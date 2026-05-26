@@ -3,7 +3,7 @@ id: stmt.cl-continuity-refinable-distinctions
 type: CL
 title: Continuity arises from unceasing change plus refinable distinctions
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 - '[[01_Statements/Clarification/S-CL-change-continuity-logic]]'
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
@@ -36,6 +36,6 @@ AI_13 clarifies the logical path: to avoid importing classical assumptions, Chan
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Clarification/S-CL-change-continuity-logic]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-continuity-logic]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-continuity-logic]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

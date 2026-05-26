@@ -1,38 +1,31 @@
-# agents/co/tests/smoke_co_runner.py
 """
-Run a toy 'maze' loop with synthetic observations to check wiring.
+Run a tiny CO bandit loop with a real built core to check wiring.
 python -m agents.co.tests.smoke_co_runner
 """
-import random
-from agents.co.registries.factories import load_registry, get_adapter_class
-from pathlib import Path
-import yaml
+from agents.co.integration.core_builder import build_co_core
+from agents.co.adapters.bandit_adapter import COAdapterBandit
 
-def load_combo(path: str):
-    with open(path, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f)
 
 def main():
-    reg = load_registry("agents/co/registries/registry.yaml")
-    combo = load_combo("agents/co/combos/R6_router_full.yaml")
-    Adapter = get_adapter_class(reg, combo["env_adapter"])
-    agent = Adapter(combo, registry_path="agents/co/registries/registry.yaml")
-    agent.reset(0)
-    # toy stream
-    state = 0
-    for t in range(50):
-        obs = {
-            "state_token": f"s{state}",
-            "valid_actions": ["L","R","U","D"],
-            "base_costs": {"L":1.0,"R":1.0,"U":1.0,"D":1.0},
-            "signals": {"z_PE": 0.3 if t%7==0 else 0.05, "z_gain": 0.2, "var_resid": 0.1},
-        }
-        a = agent.act(obs)
-        # fake reward
-        r = 1.0 if a in ("R","U") else 0.0
-        agent.learn({"reward": r})
-        state = (state + (1 if a in ("R","U") else -1)) % 7
-    #print("FINAL METRICS:", agent.finalize())
+    params = {
+        "header": {"type": "SSI"},
+        "elements": {
+            "haq": {"enabled": True, "history_len": 8, "ema_alpha": 0.2},
+            "candidate_surface": {"enabled": True},
+            "router": {"enabled": True},
+            "commitment_surface": {"enabled": True, "eps_on_cycle": 0.02, "ngram_order": 0},
+        },
+        "combinator": {"order": ["haq", "candidate_surface", "router", "commitment_surface"]},
+        "primitives": {"bandit_stats": {}, "signal_bus": {}, "P2": {}},
+    }
+    core = build_co_core(params)
+    agent = COAdapterBandit(core=core, name="CO_SMOKE", n_arms=3)
+    for t in range(20):
+        sel = agent.select({"family": "bandit", "t": t, "n_arms": 3})
+        action = int(sel["action"]) if isinstance(sel, dict) and "action" in sel else 0
+        reward = 1.0 if action == 2 else 0.0
+        agent.update({"action": action, "reward": reward, "done": False})
+
 
 if __name__ == "__main__":
     main()

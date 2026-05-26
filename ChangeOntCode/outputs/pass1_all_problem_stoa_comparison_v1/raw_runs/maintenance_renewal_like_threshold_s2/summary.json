@@ -1,0 +1,11 @@
+{
+  "agent": "threshold",
+  "family": "maintenance_replacement",
+  "final_health_true": 3,
+  "horizon": 100,
+  "observation_mode": "hidden",
+  "regime": "renewal_like",
+  "seed": 2,
+  "steps": 100,
+  "total_reward": -36.6
+}

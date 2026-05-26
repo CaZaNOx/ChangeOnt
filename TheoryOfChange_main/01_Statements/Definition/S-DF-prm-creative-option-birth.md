@@ -26,6 +26,20 @@ Make new moves where you know you don’t know — but don’t blow yourself up.
 - [[S-DF-breath-field-global-integrator]] and depth/breadth limits keep exploration within SE budgets and coherence.
 - Bounded exploration prevents collapse while still harvesting novelty.
 
+## Explanation (informal)
+Creative option birth is the lighter-weight cousin of variable birth: it proposes new actionable options before the theory is ready to declare a whole new stable variable.
+
+## Derivation (Philosophical)
+- Gödel-hole loci mark places where current representation is known to be incomplete.
+- The system needs a bounded way to try new options there before committing to full structural growth.
+- Creative option birth is that bounded novelty operator.
+
+## Derivation (Formal/Logical/Mathematical)
+```text
+propose option o when GH(x) high and depth/breath constraints permit;
+accept o only as a provisional continuation candidate, not yet as a new variable.
+```
+
 ## Clarifications / Further Context
 - Feeds EH/EJ policy and EB/EF routers.
 - Depth bounds and breath phase should be declared; log options generated and their impact on GH/SE.

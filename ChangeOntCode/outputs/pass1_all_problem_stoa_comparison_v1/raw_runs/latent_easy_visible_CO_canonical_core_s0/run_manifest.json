@@ -1,0 +1,9 @@
+{
+  "started_at": "2026-05-25T13:20:04.403208+00:00",
+  "finished_at": "2026-05-25T13:20:04.821708+00:00",
+  "status": "ok",
+  "error": null,
+  "seed": 0,
+  "spec_name": "easy_visible",
+  "agent": "co:CO_canonical_core"
+}

@@ -4,8 +4,8 @@ type: DF
 aliases: ["FND_7.Dimension"]
 title: Dimension — degrees of freedom under change
 concepts: ["[[02_Concepts/C-dimension]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-reach-relation]]", "[[01_Statements/Definition/S-DF-localreach-topology]]"]
-parents: ["[[01_Statements/Definition/S-DF-reach-relation]]"]
+dependencies: ["[[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]", "[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]"]
+parents: ["[[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]"]
 successors: ["[[01_Statements/Derivation/S-DR-dimension-variation]]"]
 symbols_used: []
 sources:
@@ -54,7 +54,6 @@ Tx: G → G' ⇒ dim' = rank(span(G')).
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
-- [[01_Statements/Definition/S-DF-metric-space-emergent]]
 - [[01_Statements/Derivation/S-DR-dimension-variation]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
@@ -62,8 +61,8 @@ Tx: G → G' ⇒ dim' = rank(span(G')).
 ## Relationships
 
 - Concepts: [[02_Concepts/C-dimension]]
-- Parents: [[01_Statements/Definition/S-DF-reach-relation]]
-- Dependencies: [[01_Statements/Definition/S-DF-reach-relation]]; [[01_Statements/Definition/S-DF-localreach-topology]]
+- Parents: [[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]
+- Dependencies: [[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]; [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]
 - Successors: [[01_Statements/Derivation/S-DR-dimension-variation]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -5,15 +5,15 @@ Statement (one file per statement)
 ---
 id: stmt.<slug>                 # stable id (machine)
 type: FT|DF|DR|CR|CF|AS|CL      # category
-aliases: ["FT 0.2_1"]          # legacy labels (optional)
+aliases: ["FT 0.2_1"]          # inactive labels (optional)
 title: <short human title>
-concepts: ["[[02_Concepts/C-...]]"] # wiki links to concept pages
-dependencies: ["[[01_Statements/...]]", ...] # wiki links to statements
-parents: ["[[01_Statements/...]]"]            # wiki links to statements
-successors: ["[[01_Statements/...]]", ...]    # wiki links to statements
+concepts: ["`02_Concepts/C-...`"] # wiki links to concept pages
+dependencies: ["`01_Statements/...`", ...] # wiki links to statements
+parents: ["`01_Statements/...`"]            # wiki links to statements
+successors: ["`01_Statements/...`", ...]    # wiki links to statements
 symbols_used: ["[[01_Statements/SYMBOLS/Delta]]", "[[01_Statements/SYMBOLS/Entailment]]"]  # wiki links to symbol pages; each must exist in 01_Statements/SYMBOLS/index.yaml
 tags: [foundations, ontological, stable, "type/FT", "symbol/Delta"] # Obsidian tags
-sources:                        # provenance
+sources:                        # reference
   - path: <file:line>
 flags: [godel_hole|contradiction|open_proof]
 ---

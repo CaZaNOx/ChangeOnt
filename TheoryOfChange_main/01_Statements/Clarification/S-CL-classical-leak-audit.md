@@ -4,7 +4,7 @@ type: CL
 title: "Audit drafts for classical leaks using gauge tests and many-valued logic near\
   \ G\xF6del regions"
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 - '[[01_Statements/Definition/S-DF-prm-gauge]]'
 - '[[01_Statements/Clarification/S-CL-change-core-axiom]]'
 concepts:
@@ -52,6 +52,6 @@ Classical leak checklist: treat topology/continuation as primitive, use metrics 
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Clarification/S-CL-change-core-axiom]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-prm-gauge]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-prm-gauge]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

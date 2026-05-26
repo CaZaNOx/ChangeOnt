@@ -4,8 +4,8 @@ type: CR
 aliases: ["C0.1"]
 title: No Null World — total stasis is incoherent
 concepts: ["[[02_Concepts/C-ontology-of-change]]"]
-dependencies: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]", "[[01_Statements/Definition/S-DF-performative-contradiction]]"]
-parents: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]"]
+dependencies: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]", "[[01_Statements/00_Opening_Justification/002_S-DF-performative-contradiction]]"]
+parents: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]"]
 successors: ["[[01_Statements/Corollary/S-CR-change-ontically-prior]]"]
 symbols_used: ["[[01_Statements/SYMBOLS/Delta]]"]
 sources:
@@ -57,8 +57,8 @@ Act(\lnot \Delta) entails \Delta
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-performative-contradiction]]
+- Parents: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/00_Opening_Justification/002_S-DF-performative-contradiction]]
 - Successors: [[01_Statements/Corollary/S-CR-change-ontically-prior]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

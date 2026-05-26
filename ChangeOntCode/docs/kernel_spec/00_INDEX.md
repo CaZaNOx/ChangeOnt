@@ -1,42 +1,100 @@
-# Kernel Spec Index
+# Kernel Spec Index — Canonical Clean Set
 
-This section documents the target-state CO kernel.
+This index lists the active canonical documentation set needed to understand and implement the current target architecture. If entering from the repo root, follow `NEXT_AI_START_HERE.md` and `TheoryOfChange_main/00_Meta/CANONICAL_REFERENCE_STACK.md` first. This file is the kernel-doc catalog, not a competing onboarding route.
 
-It combines:
-- architectural doctrine
-- experimental doctrine
-- target-state runtime wiring
-- and executable contracts for the internal kernel structure
+## Kernel-doc starting set
 
-## Read order
+1. `00A_DOCS_READING_GUIDE.md`
+2. `01B_TARGET_ARCHITECTURE_CONTRACT.md`
+3. `17_COMPONENT_CLASSIFICATION.md`
+4. `96_CONCEPTUAL_CLOSURE_LEDGER.md`
+5. `95_KERNEL_STRUCTURE_CARRIER_ALIGNMENT.md`
+6. `102_DOCS_CONSOLIDATION_AND_IMPLEMENTATION_AUDIT_GATE.md`
+7. `03C_IMPLEMENTATION_FIDELITY_STATUS.md`
 
-### Foundation kernel docs
-- `01A_ARCHITECTURE_DOCTRINE.md`
-- `01_KERNEL_RUNTIME.md`
-- `02A_EXPERIMENT_DOCTRINE.md`
-- `02_DATA_CONTRACTS.md`
-- `03_WIRING_MAP.md`
-- `03A_TARGET_KERNEL_TABLE.md`
-- `10_IMPLEMENTATION_ROADMAP.md`
+## Boundary / problem input
 
-### Executable contract docs
-- `11_INTERNAL_REPRESENTATION.md`
-- `12_HEADER_AND_METAHEADER_CONTRACT.md`
-- `13_PRIMITIVE_ELEMENT_COMPOSITION.md`
-- `14_ELEMENT_CONTRIBUTION_PACKET.md`
-- `15_FUSION_AND_CLASSICAL_COLLAPSE.md`
 - `16_TRANSLATOR_BOUNDARY_CONTRACT.md`
+- `77_PUBLIC_BURDEN_EFFECT_SCHEMA.md`
+- `08_TRANSLATORS/README.md`
+- `34_CANONICAL_PROBLEM_DEFINITION_AND_PLACEMENT_BASIS.md`
+- `74_PROBLEM_SPECIFICATION_SHAPE_DERIVATION_AND_KERNEL_INPUT.md`
+- `74_SIX_QUESTION_SHAPE_PRIOR.md`
+- `75_MAINTENANCE_REPLACEMENT_MDP_PROBLEM_SPEC.md`
+- `100_SHAPE_PRIOR_FORMULA_AND_EVIDENCE_STATUS.md`
+- `103_DYNAMIC_SHAPE_FIELD_CONTRACT.md`
+- `104_DYNAMIC_SHAPE_UPDATE_MICROCASE_EXPECTATIONS.md`
+- `106_RELATION_FIELD_FUNCTION_LIKE_COLLAPSE.md`
+
+## Kernel loop
+
+- `03_WIRING_MAP.md`
+- `04_GOAL_STATE_CO_ALIGNED_KERNEL.md`
+- `44_CANONICAL_CANDIDATE_SURFACE.md`
+- `46_CONTINUATION_STATE_AND_VIABILITY.md`
+- `76_CONTINUATION_IDENTITY_AND_RELATION_PUBLICATION_CONTRACT.md`
+- `84_BURDEN_OPERATION_ALGEBRA.md`
+- `86_MINIMAL_BURDEN_FORMAL_SKELETON.md`
+- `80_KERNEL_SIDE_RELATION_SURFACE_CONTRACT.md`
+- `106_RELATION_FIELD_FUNCTION_LIKE_COLLAPSE.md`
+- `87_RELATION_SURFACE_PUBLIC_EFFECT_IMPLEMENTATION.md`
+- `95_KERNEL_STRUCTURE_CARRIER_ALIGNMENT.md`
+- `47_RECURSIVE_CONTINUATION_FIELD.md`
+- `48_RECURSIVE_CONTINUATION_FIELD_INVARIANTS_AND_NOVELTY_BOUNDARY.md`
+- `49_RECURSIVE_CONTINUATION_FIELD_RUNTIME_CONTRACT.md`
+- `50_RECURSIVE_CONTINUATION_FIELD_IMPLEMENTATION_READINESS.md`
+- `91_EARNED_COLLAPSE_CERTIFICATE_IMPLEMENTATION.md`
+- `43_CANONICAL_COMMITMENT_RULE.md`
+- `42_CANONICAL_READOUT_AND_ACTION_SELECTION_RULE.md`
+- `103_DYNAMIC_SHAPE_FIELD_CONTRACT.md`
+- `104_DYNAMIC_SHAPE_UPDATE_MICROCASE_EXPECTATIONS.md`
+- `106_RELATION_FIELD_FUNCTION_LIKE_COLLAPSE.md`
+
+## Dynamic shape field
+
+- `103_DYNAMIC_SHAPE_FIELD_CONTRACT.md`
+- `104_DYNAMIC_SHAPE_UPDATE_MICROCASE_EXPECTATIONS.md`
+- `106_RELATION_FIELD_FUNCTION_LIKE_COLLAPSE.md`
+- Runtime carrier: `ChangeOntCode/agents/co/runtime/surfaces/dynamic_shape_field.py`
+- Structural probes: `dynamic_shape_microcase_probe_v1.py`, `dynamic_shape_real_trace_ablation_v1.py`
+
+## Quotient / recursion / relation target-state
+
+- `97_QUOTIENT_EQUIVALENCE_TARGET_STATE.md`
+- `98_RECURSION_DEMAND_TARGET_STATE.md`
+- `99_RELATION_ALGEBRA_TARGET_STATE.md`
+- `81_STRUCTURAL_PROXIMITY_PATH_DENSITY_AND_RECURSION_CONTRACT.md`
+- `85_RELATION_TO_COLLAPSE_DIAGNOSTIC_CONTRACT.md`
+
+## Safety, formulas, and validation
+
+- `78_RUNTIME_SAFETY_AND_FALLBACK_CONTRACT.md`
+- `79_CANDIDATE_AND_COMMITMENT_FORMULA_GROUNDING_PROTOCOL.md`
+- `82_SCALARIZATION_AND_CLASSICAL_DISTINCTNESS_CONTRACT.md`
+- `83_PROBLEM_FAMILY_ADMISSIBILITY_AND_TEST_VALIDITY.md`
+- `88_ADAPTER_PUBLIC_EFFECT_RELATION_COVERAGE.md`
+- `89_RELATION_PATH_TRACE_VALIDATION.md`
+- `90_COMMITMENT_SURFACE_RELATION_AWARENESS_AUDIT.md`
+- `92_ARCHITECTURE_ACCEPTANCE_AUDITS.md`
+- `93_ARCHITECTURE_ACCEPTANCE_FIXES.md`
+- `94_REAL_TRACE_STRUCTURAL_VALIDATION_AND_FORMULA_GROUNDING.md`
+
+## Primitive / element specs
+
+- `04_PRIMITIVES/`
+- `05_ELEMENTS/`
+- `05_SURFACES/`
+- `13_PRIMITIVE_ELEMENT_COMPOSITION.md`
 - `17_COMPONENT_CLASSIFICATION.md`
 
-### Supporting rules
-- `00B_SPEC_TEMPLATE_RULES.md`
-- `00C_NAMING_AND_KEYS.md`
+## Out-of-scope / comparison boundaries
 
-## Distinction
+- `19_PATH_ALGEBRA_AND_SEMIRING_DIRECTION.md`
+- `23_CO_MATH_ALIGNMENT_AND_CRITIQUE.md`
+- `101_RCF_ALGORITHM_COMPARISON_AND_CONSCIOUSNESS_SCOPE.md`
 
-The doctrine files explain:
-- what the kernel is trying to be
+## Canonical rule
 
-The executable contract files explain:
-- what the target-state implementation must satisfy
-- and how code misalignment should be detected
+If a doc conflicts with the execution loop above, the doc is not canonical and should be corrected or removed before implementation-audit work proceeds.
+
+- `107_DOMAIN_RELATIVE_COARSENESS_FIELD.md` — domain-relative coarseness field: global fallback plus bounded public-domain coarseness profile.

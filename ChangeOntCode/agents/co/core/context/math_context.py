@@ -2,15 +2,15 @@
 from dataclasses import dataclass, asdict
 from typing import Literal, Dict, Any
 
-PathAlg = Literal["classical", "minplus"]
-NumArith = Literal["classic", "spread"]
+PathAlg = Literal["thin", "minplus"]
+NumArith = Literal["standard", "spread"]
 LogicAlg = Literal["boolean", "quantale"]
 
 @dataclass
 class MathContext:
     """Three algebraic dials controlled by headers."""
-    path_algebra: PathAlg = "classical"
-    number_arith: NumArith = "classic"
+    path_algebra: PathAlg = "thin"
+    number_arith: NumArith = "standard"
     logic: LogicAlg = "boolean"
 
     def to_dict(self) -> Dict[str, Any]:

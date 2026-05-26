@@ -3,11 +3,11 @@ id: stmt.cl-change-core-axiom
 type: CL
 title: Core CO axiom (CO-0) forbids global stasis without forcing continuity
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 parents:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 successors: []
 symbols_used: []
 sources:
@@ -49,7 +49,7 @@ CO‑0: change is happening now and never globally stops (no open interval of to
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
+- Parents: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

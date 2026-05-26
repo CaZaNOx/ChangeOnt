@@ -1,27 +1,25 @@
 ---
-id: stmt.df-j-criterion
-type: DF
-title: J-criterion — instrumentation assays for change-native runners
-concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-benchmarks-audit]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-evaluation-surface]]", "[[01_Statements/Definition/S-DF-gauge-alignment-field]]"]
-parents: ["[[01_Statements/Definition/S-DF-evaluation-surface]]"]
+id: stmt.j-criterion
+type: CL
+aliases: ["OPS.J.Criterion"]
+title: Clarification — J-criterion for operator admission and packaging
+concepts: ["[[02_Concepts/C-ontology-of-change]]"]
+dependencies: ["[[01_Statements/Derivation/S-DR-kernel-primitives-from-invariant-regimes]]", "[[01_Statements/Definition/S-DF-prm-changeops-core]]"]
+parents: ["[[01_Statements/Definition/S-DF-prm-changeops-core]]"]
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/00_Meta/AI_RecursiveChats/AI_19.md:288-296
-flags: []
-tags: [metrics, evaluation, "type/DF"]
+  - path: chat/2026-03-24 normalization pass for kernel subtree
+flags: [partial]
+tags: [layer/validation, domain/operational, criteria, partial, "type/CL", "concept/ontology-of-change"]
+status: evolving
 ---
-# J-criterion — instrumentation assays for change-native runners
+# Clarification — J-criterion for operator admission and packaging
+## Content
+A J-operator should remain a named operator only if it packages a reusable lawful manipulation over already-admitted primitives rather than merely wrapping a one-off engineering trick.
 
-Each invariant-driven instrument ships a J-criterion tuple `(J1, J2, J3, J4)` to diagnose its performance relative to the change ontology goals:
-
-- `J1` = reportability (do logs, invariants, and error traces provide a coherent story for human inspection?).
-- `J2` = order-sensitivity (does the instrument detect holonomy and sequence-dependent effects?).
-- `J3` = compressibility (does the instrument admit concise representations such as low MDL?).
-- `J4` = control leverage (does it afford lightweight, interpretable knobs that shape the invariants?).
-
-Together the J-criterion is a bounded checklist: each `J` must be sustained before claiming a new header/operator is admissible. Passing the J-criterion keeps instrumentation aligned with the evaluation surface and prevents hidden assumptions from masquerading as universals.
+## Implication
+This note is intentionally weaker than a full statement node. It remains a clarification until the operator suite itself is more fully formalized.
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
@@ -31,8 +29,8 @@ Together the J-criterion is a bounded checklist: each `J` must be sustained befo
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
-- Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-benchmarks-audit]]
-- Parents: [[01_Statements/Definition/S-DF-evaluation-surface]]
-- Dependencies: [[01_Statements/Definition/S-DF-evaluation-surface]]; [[01_Statements/Definition/S-DF-gauge-alignment-field]]
+- Concepts: [[02_Concepts/C-ontology-of-change]]
+- Parents: [[01_Statements/Definition/S-DF-prm-changeops-core]]
+- Dependencies: [[01_Statements/Derivation/S-DR-kernel-primitives-from-invariant-regimes]]; [[01_Statements/Definition/S-DF-prm-changeops-core]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

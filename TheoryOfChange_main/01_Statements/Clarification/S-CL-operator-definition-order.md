@@ -3,7 +3,7 @@ id: stmt.cl-operator-definition-order
 type: CL
 title: Define operators before usage in foundational documents
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 - '[[01_Statements/Definition/S-DF-difference-operator]]'
 parents: []
 successors: []
@@ -33,6 +33,6 @@ Before any operator or relation appears in a proof or narrative, it must be defi
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-difference-operator]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-difference-operator]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

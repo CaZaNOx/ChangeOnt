@@ -35,7 +35,7 @@ If you can go the same way with less effort, take it.
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
-- [[01_Statements/Definition/S-DF-prm-bend-metric]]
+
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->

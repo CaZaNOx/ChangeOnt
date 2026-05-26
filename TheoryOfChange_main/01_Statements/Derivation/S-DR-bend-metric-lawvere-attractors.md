@@ -40,7 +40,6 @@ The “minimum bend” notion already gives you continuity, closure, and fixed p
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
-- [[01_Statements/Definition/S-DF-prm-bend-metric]]
 - [[01_Statements/Definition/S-DF-prm-precision-density]]
 - [[01_Statements/Derivation/S-DR-quotient-chain-lln]]
 <!-- END:AUTOGEN:REFERENCED_BY -->

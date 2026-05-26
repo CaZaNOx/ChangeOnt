@@ -1,48 +1,33 @@
-# TheoryOfChange_main — Knowledge Base
+# Meta Overview
 
-Purpose
-- Clean, theory-only KB that accumulates canonical statements, concept pages, and a derivation DAG without touching the legacy folders.
-- Every theory-relevant point appears exactly once (deduped), with provenance, and is cross-linked where needed.
-- Accessible to non-math readers via Philosophical Translations.
+This folder contains the current theory-entry controls plus older bridge notes retained for background. For the present kernel phase, do not infer the active architecture by scanning filenames that say "canonical" in isolation. Use the current entry chain below.
 
-Structure
-- `01_Statements/` — Atomic, canonical statements (organized by full names):
-  - `FoundationalTruth/` (FT), `Definition/` (DF), `Derivation/` (DR), `Corollary/` (CR)
-- `02_Concepts/` — Curated concept pages aggregating relevant statements; no chatty back-and-forth.
-- `03_Derivation/` — DAG of statements (nodes) and dependencies (edges), plus a readable derivation narrative.
-- `04_Anchors/` — Optional real-world/code references (not core theory, but linked).
-- `99_Imports/` — Provenance mappings from source materials to canonical statements.
- - `symbols/` — One file per symbol (e.g., Δ, ⥤); machine index at `symbols/index.yaml`.
+## Active entry files
 
-Meta
-- `SCHEMA.md` — Statement + concept frontmatter fields and rules.
-- `TAGS.md` — Controlled vocab (domain, layer, motif, operator, status).
-- `SYMBOLS.md` — Single source of truth for symbols; links to original Symbol_Map and extends it.
-- `INGESTION_CHECKLIST.md` — How to file new content and dedupe properly.
-- `TEMPLATES/` — Ready-to-copy templates for statements and concepts.
+```text
+CANONICAL_REFERENCE_STACK.md
+FIRST_LAYER_CANONICAL_PATH.md
+TARGET_KERNEL_ARCHITECTURE_DOCTRINE.md
+READING_THEORYOFCHANGE_MAIN.md
+```
 
-Ground Rules
-- Deduplicate: Enrich existing statements; don’t duplicate content.
-- Provenance: Every item includes source references (file:line).
-- No drift: Symbols and tags must be registered before use.
-- DAG integrity: Statements reference only defined dependencies; no cycles.
-- Reader-first: Every formal claim has a “Philosophical Translation (of formal claim)” — a plain-language restatement.
-- Obsidian linking:
-  - Use wiki links to refer to statements by path (e.g., `[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]`) or by note name where applicable.
-  - Add Obsidian tags (e.g., `#type/FT #layer/foundations #domain/ontological #concept/ontology-of-change #symbol/Delta`).
+## Current kernel bridge
 
-Maintenance
-- Backlinks and relationships (statements “Referenced By” + “Relationships”, symbols “Used In”):
-  - Run `python3 tools/update_backlinks.py`
-  - Note: Auto-generated sections are guarded by markers and will be replaced on each run:
-    - `<!-- BEGIN:AUTOGEN:REFERENCED_BY --> ... <!-- END:AUTOGEN:REFERENCED_BY -->`
-    - `<!-- BEGIN:AUTOGEN:RELATIONSHIPS --> ... <!-- END:AUTOGEN:RELATIONSHIPS -->`
-    - `<!-- BEGIN:AUTOGEN:USED_IN --> ... <!-- END:AUTOGEN:USED_IN -->`
-    Do not manually edit content between these markers.
-- Validate structure and links (frontmatter, wiki links, symbol pages, graph IDs):
-  - Run `python3 tools/validate_toc_main.py`
-- Frontmatter linking (required):
-  - concepts/parents/dependencies/successors/symbols_used must use wiki links, e.g.
-    - `concepts: ["[[02_Concepts/C-ontology-of-change]]"]`
-    - `parents: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]"]`
-    - `symbols_used: ["[[01_Statements/SYMBOLS/Delta]]"]`
+The active bridge from `_main` into code is:
+
+```text
+Boundary / Adapter
+→ CandidateSurface
+→ Continuation Identity
+→ Burden Operations
+→ RelationSurface
+→ RecursiveContinuationField
+→ CollapseCertificate
+→ CommitmentSurface
+```
+
+Older notes about layer split, shape prior, headers, or repository role may still be useful as background, but they do not override `CANONICAL_REFERENCE_STACK.md`, `TARGET_KERNEL_ARCHITECTURE_DOCTRINE.md`, or the certified `ChangeOntCode/docs/kernel_spec/` target.
+
+## Maintenance rule
+
+If an older meta file conflicts with the active entry chain, update the older file's status or contents. Do not leave competing active architectures in this folder.

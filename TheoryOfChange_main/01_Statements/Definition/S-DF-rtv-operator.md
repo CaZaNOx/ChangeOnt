@@ -4,8 +4,8 @@ type: DF
 aliases: ["FND_10.RTV"]
 title: Recursive Truth Value (RTV)
 concepts: ["[[02_Concepts/C-recursive-truth]]"]
-dependencies: ["[[01_Statements/FoundationalTruth/S-FT-continuity-noncessation]]"]
-parents: ["[[01_Statements/FoundationalTruth/S-FT-continuity-noncessation]]"]
+dependencies: ["[[01_Statements/00_Opening_Justification/008_S-FT-continuity-noncessation]]"]
+parents: ["[[01_Statements/00_Opening_Justification/008_S-FT-continuity-noncessation]]"]
 successors: ["[[01_Statements/Derivation/S-DR-breath-stabilization]]", "[[01_Statements/Definition/S-DF-rtv-fixedpoints]]", "[[01_Statements/Definition/S-DF-sigma-fluctuation]]"]
 symbols_used: ["[[01_Statements/SYMBOLS/Breath]]"]
 sources:
@@ -72,10 +72,8 @@ Stability via contraction/spectral radius on declared space.
 - [[01_Statements/Definition/S-DF-math-structures]]
 - [[01_Statements/Definition/S-DF-recursive-transformation-rule]]
 - [[01_Statements/Definition/S-DF-rtv-fixedpoints]]
-- [[01_Statements/Definition/S-DF-self-model-evolution]]
 - [[01_Statements/Definition/S-DF-sigma-fluctuation]]
 - [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
-- [[01_Statements/Definition/S-DF-subject-recursive-field]]
 - [[01_Statements/Derivation/S-DR-breath-knot-stabilization-topology]]
 - [[01_Statements/Derivation/S-DR-breath-stabilization]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
@@ -84,8 +82,8 @@ Stability via contraction/spectral radius on declared space.
 ## Relationships
 
 - Concepts: [[02_Concepts/C-recursive-truth]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-continuity-noncessation]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-continuity-noncessation]]
+- Parents: [[01_Statements/00_Opening_Justification/008_S-FT-continuity-noncessation]]
+- Dependencies: [[01_Statements/00_Opening_Justification/008_S-FT-continuity-noncessation]]
 - Successors: [[01_Statements/Derivation/S-DR-breath-stabilization]]; [[01_Statements/Definition/S-DF-rtv-fixedpoints]]; [[01_Statements/Definition/S-DF-sigma-fluctuation]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

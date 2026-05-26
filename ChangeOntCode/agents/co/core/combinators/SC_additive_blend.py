@@ -16,6 +16,6 @@ class SC_AdditiveBlend:
             return float(sum(float(v) for v in vals))
         w = list(weights)
         if len(w) != len(vals):
-            # fallback: ignore weights if mismatch
+            # conservative degradation: ignore malformed weights if mismatch
             return float(sum(float(v) for v in vals))
         return float(sum(float(v) * float(wi) for v, wi in zip(vals, w)))

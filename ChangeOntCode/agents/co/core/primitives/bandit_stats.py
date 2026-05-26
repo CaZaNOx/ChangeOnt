@@ -30,3 +30,20 @@ class BanditStats:
     def mean(self, a: int) -> float:
         n = self.N[a]
         return (self.S[a] / n) if n > 0 else 0.0
+
+    def ensure(self, n_arms: int) -> None:
+        self._ensure(n_arms)
+
+    @property
+    def counts(self):
+        return self.N
+
+    @property
+    def means(self):
+        out = []
+        for i in range(len(self.N)):
+            out.append(self.mean(i))
+        return out
+
+    def update(self, action: Optional[int], reward: Optional[float], n_arms: Optional[int] = None) -> None:
+        self.update_from_feedback(int(n_arms or max(len(self.N), 1)), action, reward)

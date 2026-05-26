@@ -1,0 +1,16 @@
+{
+  "agent": {
+    "params": {},
+    "type": "random"
+  },
+  "log_every": 1,
+  "out_dir": "/mnt/data/co_mod/ChangeOntCode/outputs/frozen_logged_empirical_mini_suite_v1/runs/latent_easy_visible_random_s0",
+  "seed": 0,
+  "spec": {
+    "name": "easy_visible",
+    "params": {
+      "max_steps": 24,
+      "seed": 0
+    }
+  }
+}

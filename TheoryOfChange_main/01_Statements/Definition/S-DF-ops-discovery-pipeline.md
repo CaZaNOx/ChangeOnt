@@ -3,7 +3,7 @@ id: stmt.df-ops-discovery-pipeline
 type: DF
 title: OPS discovery pipeline — invariant extraction + validation
 concepts: ["[[02_Concepts/C-change-fitness]]", "[[02_Concepts/C-frame-operators]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-gauge-alignment-field]]", "[[01_Statements/Definition/S-DF-memory-trace-integration]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-gauge-alignment-field]]", "[[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]"]
 parents: ["[[01_Statements/Definition/S-DF-gauge-alignment-field]]"]
 successors: []
 symbols_used: []
@@ -54,6 +54,6 @@ For each task we standardize, extract candidate invariants, stress‑test them, 
 
 - Concepts: [[02_Concepts/C-change-fitness]]; [[02_Concepts/C-frame-operators]]
 - Parents: [[01_Statements/Definition/S-DF-gauge-alignment-field]]
-- Dependencies: [[01_Statements/Definition/S-DF-gauge-alignment-field]]; [[01_Statements/Definition/S-DF-memory-trace-integration]]
+- Dependencies: [[01_Statements/Definition/S-DF-gauge-alignment-field]]; [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

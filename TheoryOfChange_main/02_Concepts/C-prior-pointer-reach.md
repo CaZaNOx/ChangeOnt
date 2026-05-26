@@ -1,73 +1,47 @@
 ---
 id: concept.prior-pointer-reach
-title: Prior, Pointer, and Reach
+title: Structural Prior Relation, Pointer, and Reach
 tags: ["concept/prior-pointer-reach", foundations, logical, ontological]
 status: evolving
 ---
-# Prior, Pointer, and Reach
-Overview:
-From Δ in the now, the subject can structurally infer an elsewhere (a not‑now) without presupposing memory or linear time. This inference appears as a pointer (⇘/↶) and induces a reach relation across change that is transitive and defines a local reach zone.
+# Structural Prior Relation, Pointer, and Reach
 
-Canonical statements (to be linked):
- - [[S-DF-pointer-structural]] (DF)
- - [[S-DF-reach-relation]] (DF)
- - [[S-CR-delta-now-implies-pointer]] (CR)
- - [[S-DF-localreach-topology]] (DF)
- - [[S-DF-locality-prior]] (DF)
- - [[S-DF-depth-reach]] (DF)
-  - [[S-DF-locality-threshold]] (DF)
+This concept page gathers the **weakest and least secure bridge cluster** in the current first layer and now makes an explicit split that earlier versions often blurred:
+- **outer route:** structural prior relation / bounded bearing / local asymmetry,
+- **inner route:** subject-local pointer once a recursive subject-field exists.
+
+The current route no longer jumps directly from immediate datum to full prior or literal pointing. It now distinguishes several weaker steps:
+1. present happening is non-flat (`contrast within now`),
+2. the live present is not fully self-exhaustive under carried change (`structural prior implication`),
+3. carried conditioning becomes a weak bounded-bearing relation,
+4. only then do we define a bounded `LocalReach` zone and a weak local asymmetry of contribution,
+5. once an inner recursive field exists, subject-local pointer can become the lived/local expression of that earlier structural asymmetry.
+
+Canonical statements:
+- [[01_Statements/02_Outer_Formation/004_S-DF-contrast-within-now]] (DF)
+- [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]] (DF — non-self-closure / structural prior relation)
+- [[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]] (DF — bounded bearing relation)
+- [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]] (DF)
+- [[01_Statements/02_Outer_Formation/008_S-DF-asymmetric-local-contribution]] (DF — weak local asymmetry, not full prior)
+- [[01_Statements/03_Inner_Development/005_S-DF-subject-recursive-field]] (DF — first place where subject-local pointer becomes licit)
+- [[01_Statements/Corollary/S-CR-delta-now-implies-pointer]] (CR — now read as an inner-leaning corollary, not as proof of literal outer pointing)
+
+Key distinctions:
+- Structural prior implication is weaker than any theory of pointer or reference.
+- Bounded bearing is weaker than metric distance or global reachability.
+- LocalReach is a bounded reachable neighborhood before stronger topology claims are imported.
+- Asymmetric local contribution is only a weak local role-asymmetry, not yet a full past.
+- Subject-local pointer belongs to the inner line because genuine pointing requires a local point of view.
+
+Critical status:
+- This remains the **least secure bridge cluster** in the current outer first layer.
+- The current route intentionally weakens these files compared with earlier versions.
+- Readers should treat the outer files as a modest first articulation of beyondness, bounded bearing, and weak local asymmetry, not as a finished derivation of time or space.
+- If later work can proceed with less than these nodes claim, it should prefer the weaker route rather than silently re-strengthening this cluster.
 
 Dependencies:
 - From: [[02_Concepts/C-ontology-of-change]]
-- To: [[02_Concepts/C-frame-operators]]
-
-Open items:
-- Formalize the local reach zone and its measurement under ε, σ(ε).
+- To: [[02_Concepts/C-identity-change]]
 
 ## Tags
 #concept/prior-pointer-reach #layer/foundations #domain/ontological #domain/logical
-
-<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
-## Relationships
-
-### Statements
-- [[01_Statements/Clarification/S-CL-act-relative-detectability]]
-- [[01_Statements/Clarification/S-CL-agent-transparency-delta]]
-- [[01_Statements/Clarification/S-CL-assumption-to-derived]]
-- [[01_Statements/Clarification/S-CL-attention-field-hierarchy]]
-- [[01_Statements/Clarification/S-CL-classical-compression]]
-- [[01_Statements/Clarification/S-CL-cross-agent-recursion-entanglement]]
-- [[01_Statements/Clarification/S-CL-godel-gap-policy]]
-- [[01_Statements/Clarification/S-CL-identity-orchestrator]]
-- [[01_Statements/Clarification/S-CL-meaning-field-gravity]]
-- [[01_Statements/Clarification/S-CL-methodological-non-stasis]]
-- [[01_Statements/Clarification/S-CL-minimal-threshold-def]]
-- [[01_Statements/Clarification/S-CL-operator-hygiene]]
-- [[01_Statements/Clarification/S-CL-path-logic-vs-markov]]
-- [[01_Statements/Clarification/S-CL-pointer-structural-not-causal]]
-- [[01_Statements/Clarification/S-CL-space-as-subject]]
-- [[01_Statements/Clarification/S-CL-time-noise-thresholds]]
-- [[01_Statements/Corollary/S-CR-delta-now-implies-pointer]]
-- [[01_Statements/Corollary/S-CR-prior-with-change]]
-- [[01_Statements/Corollary/S-CR-reactivation-of-tension]]
-- [[01_Statements/Corollary/S-CR-spiral-context-continuity]]
-- [[01_Statements/Counterfactual/S-CF-pointer-diff-equals]]
-- [[01_Statements/Definition/S-DF-actor]]
-- [[01_Statements/Definition/S-DF-boundary-persistent-nonintegration]]
-- [[01_Statements/Definition/S-DF-communication-synchronization]]
-- [[01_Statements/Definition/S-DF-depth-reach]]
-- [[01_Statements/Definition/S-DF-eventlet]]
-- [[01_Statements/Definition/S-DF-locality-prior]]
-- [[01_Statements/Definition/S-DF-locality-threshold]]
-- [[01_Statements/Definition/S-DF-localreach-topology]]
-- [[01_Statements/Definition/S-DF-memory-trace-integration]]
-- [[01_Statements/Definition/S-DF-path-eventlet-chain]]
-- [[01_Statements/Definition/S-DF-pointer-structural]]
-- [[01_Statements/Definition/S-DF-reach-relation]]
-- [[01_Statements/Definition/S-DF-recursive-transformation-rule]]
-- [[01_Statements/Derivation/S-DR-pointer-behavior-under-tx]]
-### Linked Concepts
-- [[02_Concepts/C-ontology-of-change]]
-- [[02_Concepts/C-frame-operators]]
-<!-- END:AUTOGEN:RELATIONSHIPS -->
-

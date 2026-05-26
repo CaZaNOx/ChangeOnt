@@ -29,24 +29,21 @@ References:
 
 <!-- BEGIN:AUTOGEN:USED_IN -->
 ## Used In
+- [[01_Statements/00_Opening_Justification/007_S-DR-change-cannot-begin]]
+- [[01_Statements/00_Opening_Justification/008_S-FT-continuity-noncessation]]
+- [[01_Statements/03_Inner_Development/002_S-DF-awareness]]
+- [[01_Statements/03_Inner_Development/003_S-DF-experience]]
 - [[01_Statements/Clarification/S-CL-change-not-mere-flux]]
 - [[01_Statements/Clarification/S-CL-continuity-noncessation]]
+- [[01_Statements/Clarification/S-CL-ontological-continuity-vs-continuum]]
 - [[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]
 - [[01_Statements/Corollary/S-CR-becoming-aware-entails-change]]
 - [[01_Statements/Corollary/S-CR-change-ontically-prior]]
 - [[01_Statements/Corollary/S-CR-no-null-world]]
 - [[01_Statements/Corollary/S-CR-observation-subordinate]]
-- [[01_Statements/Definition/S-DF-awareness]]
 - [[01_Statements/Definition/S-DF-core-change-self-stabilizing]]
 - [[01_Statements/Definition/S-DF-delta-field-tension]]
 - [[01_Statements/Definition/S-DF-difference-operator]]
-- [[01_Statements/Definition/S-DF-experience]]
-- [[01_Statements/Definition/S-DF-identity-through-change]]
-- [[01_Statements/Definition/S-DF-localreach-topology]]
-- [[01_Statements/Definition/S-DF-subject]]
-- [[01_Statements/Derivation/S-DR-change-cannot-begin]]
-- [[01_Statements/FoundationalTruth/S-FT-continuity-noncessation]]
-- [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
 <!-- END:AUTOGEN:USED_IN -->
 
 ## Related

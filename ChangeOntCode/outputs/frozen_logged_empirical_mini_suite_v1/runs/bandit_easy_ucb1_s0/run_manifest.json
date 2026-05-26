@@ -1,0 +1,22 @@
+{
+  "agent_name": "ucb1",
+  "agent_type": "ucb1",
+  "co_runtime_contract": null,
+  "ended_at": "2026-05-17T13:40:04.657503+00:00",
+  "environment_spec": {
+    "horizon": 24,
+    "probs": [
+      0.1,
+      0.2,
+      0.8
+    ]
+  },
+  "error": null,
+  "family": "bandit",
+  "mode": "easy",
+  "out_dir": "/mnt/data/co_mod/ChangeOntCode/outputs/frozen_logged_empirical_mini_suite_v1/runs/bandit_easy_ucb1_s0",
+  "runner": "experiments.runners.bandit_runner",
+  "seed": 0,
+  "started_at": "2026-05-17T13:40:03.952081+00:00",
+  "status": "succeeded"
+}

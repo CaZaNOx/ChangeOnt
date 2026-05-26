@@ -46,6 +46,7 @@ To earn the CO claim of empirical grounding you must release an honest run (`toy
 ## Referenced By
 - [[01_Statements/Clarification/S-CL-co-benchmark-targets]]
 - [[01_Statements/Clarification/S-CL-compute-fairness-contract]]
+- [[01_Statements/Clarification/S-CL-cross-ai-predictions]]
 - [[01_Statements/Clarification/S-CL-meta-audit-guardrails]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 

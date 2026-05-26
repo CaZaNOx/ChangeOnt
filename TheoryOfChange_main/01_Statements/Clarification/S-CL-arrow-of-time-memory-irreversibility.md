@@ -6,7 +6,7 @@ concepts:
 - '[[02_Concepts/C-phenomenology-time]]'
 dependencies:
 - '[[01_Statements/Definition/S-DF-breath-field-global-integrator]]'
-- '[[01_Statements/Definition/S-DF-memory-trace-integration]]'
+- '[[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]'
 parents:
 - '[[01_Statements/Definition/S-DF-breath-field-global-integrator]]'
 successors: []
@@ -43,6 +43,6 @@ Locates phenomenological time in memory/breath structure rather than physical la
 
 - Concepts: [[02_Concepts/C-phenomenology-time]]
 - Parents: [[01_Statements/Definition/S-DF-breath-field-global-integrator]]
-- Dependencies: [[01_Statements/Definition/S-DF-breath-field-global-integrator]]; [[01_Statements/Definition/S-DF-memory-trace-integration]]
+- Dependencies: [[01_Statements/Definition/S-DF-breath-field-global-integrator]]; [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

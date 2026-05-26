@@ -7,9 +7,9 @@ concepts:
 - '[[02_Concepts/C-recursive-truth]]'
 dependencies:
 - '[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]'
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
 parents:
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
 successors: []
 symbols_used: []
 sources:
@@ -43,7 +43,7 @@ This reframes debates about existence: the burden of proof shifts from “things
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-recursive-truth]]
-- Parents: [[01_Statements/Definition/S-DF-pointer-structural]]
-- Dependencies: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/Definition/S-DF-pointer-structural]]
+- Parents: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]
+- Dependencies: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

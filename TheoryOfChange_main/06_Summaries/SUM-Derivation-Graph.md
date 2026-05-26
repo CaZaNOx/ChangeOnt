@@ -7,7 +7,7 @@ tags: [summary, graph]
 # Derivation Graph — how to read and navigate
 
 Scope
-- Practical guide to the DAG in `03_Derivation/graph.yaml` and its companion `03_Derivation/Derivation.md`.
+- Practical guide to the DAG in `03_Derivation/graph.yaml` and its companion `../03_Derivation/Derivation.md`.
 
 Core pointers
 - Start at: Root → Immediate Datum → Continuity → Identity blocks.

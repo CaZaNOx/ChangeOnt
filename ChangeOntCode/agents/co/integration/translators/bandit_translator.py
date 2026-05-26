@@ -3,6 +3,14 @@ from __future__ import annotations
 from typing import Any, Dict, Tuple, List
 import math
 from agents.co.core.contracts.signals import normalize_scores
+from agents.co.core.contracts.path_space import normalize_fragment
+
+def _meta_priors(primitives: Dict[str, Any]) -> Dict[str, Any]:
+    mh = primitives.get("_meta_header")
+    try:
+        return mh.to_dict() if mh is not None and hasattr(mh, "to_dict") else {}
+    except Exception:
+        return {}
 
 def translate(
     observation: Dict[str, Any],
@@ -41,3 +49,63 @@ def translate(
         scores[a] = float(means[a]) + bonus
 
     return (normalize_scores(scores), mask, {"t":t, "eps":eps})
+
+
+
+def translate_feedback(
+    last_observation: Dict[str, Any],
+    feedback: Dict[str, Any],
+    header: Any,
+    primitives: Dict[str, Any],
+    co_bus: Dict[str, Any],
+    cfg: Dict[str, Any],
+) -> Dict[str, Any]:
+    obs = dict(last_observation or {})
+    fb = dict(feedback or {})
+    n_arms = int(obs.get("n_arms", 0) or 0)
+    action = int(fb.get("action", obs.get("last_action", 0) or 0)) if n_arms else int(fb.get("action", 0) or 0)
+    reward = float(fb.get("reward", 0.0) or 0.0)
+    done = bool(fb.get("done", False))
+    t = int(obs.get("t", 0) or 0)
+    branch_space = []
+    bs = primitives.get("bandit_stats")
+    if bs is not None and all(hasattr(bs, k) for k in ("ensure", "means", "counts")):
+        try:
+            bs.ensure(max(n_arms, action + 1))
+            for a in range(max(n_arms, action + 1)):
+                mean = float(bs.means[a]) if a < len(bs.means) else 0.0
+                count = int(bs.counts[a]) if a < len(bs.counts) else 0
+                branch_space.append({
+                    "candidate_ref": f"arm:{a}",
+                    "parent_ref": f"bandit:t{t}",
+                    "branch_weight": mean,
+                    "selection_bias": 1.0 / max(1, count),
+                    "constraint_status": "open",
+                })
+        except Exception:
+            pass
+    return normalize_fragment({
+        "family": "bandit",
+        "t": t + 1,
+        "path_depth": t + 1,
+        "prior_refs": [f"bandit:t{t}"],
+        "anchor_id": f"bandit:arm:{action}",
+        "realized_segment": [{
+            "from_ref": f"bandit:t{t}",
+            "to_ref": f"bandit:t{t+1}",
+            "action_ref": f"arm:{action}",
+            "order_rank": t + 1,
+            "transition_weight": reward,
+            "bend_local": abs(reward),
+            "delta_signature": {"reward": reward, "done": done},
+        }],
+        "branch_space": branch_space,
+        "feedback_fragment": {
+            "action": action,
+            "reward": reward,
+            "done": done,
+        },
+        "structural_profiles": {"reward_magnitude": abs(reward)},
+        "regime_profiles": {"done": done},
+        "meta_priors": _meta_priors(primitives),
+    }, family="bandit")

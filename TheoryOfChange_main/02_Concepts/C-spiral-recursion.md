@@ -16,7 +16,7 @@ Canonical statements:
 - [[01_Statements/Definition/S-DF-breath-field-global-integrator]]
 - [[01_Statements/Definition/S-DF-attractor-field]]
 - [[01_Statements/Definition/S-DF-delta-field-tension]]
-- [[01_Statements/Definition/S-DF-locality-prior]]
+- [[01_Statements/02_Outer_Formation/008_S-DF-asymmetric-local-contribution]]
 - [[01_Statements/Definition/S-DF-depth-reach]]
 
 Open items:

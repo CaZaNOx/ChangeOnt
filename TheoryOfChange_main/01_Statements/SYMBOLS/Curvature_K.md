@@ -21,6 +21,6 @@ Curvature derived from Γ capturing accumulated misalignment (holonomy) in the g
 
 <!-- BEGIN:AUTOGEN:USED_IN -->
 ## Used In
-- [[01_Statements/Definition/S-DF-prm-gauge]]
+
 <!-- END:AUTOGEN:USED_IN -->
 

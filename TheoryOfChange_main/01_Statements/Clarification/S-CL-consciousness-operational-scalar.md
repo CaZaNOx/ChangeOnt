@@ -4,7 +4,7 @@ type: CL
 title: Conscious access can be operationalized by a thick-present coupling scalar
 dependencies:
 - '[[01_Statements/Clarification/S-CL-consciousness-levers]]'
-- '[[01_Statements/Definition/S-DF-structure-of-experience]]'
+- '[[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]'
 concepts:
 - '[[02_Concepts/C-subject-awareness-experience]]'
 parents:
@@ -40,6 +40,6 @@ that detects when the broadcast globally couples modules, includes the self in t
 
 - Concepts: [[02_Concepts/C-subject-awareness-experience]]
 - Parents: [[01_Statements/Clarification/S-CL-consciousness-levers]]
-- Dependencies: [[01_Statements/Clarification/S-CL-consciousness-levers]]; [[01_Statements/Definition/S-DF-structure-of-experience]]
+- Dependencies: [[01_Statements/Clarification/S-CL-consciousness-levers]]; [[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

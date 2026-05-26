@@ -4,8 +4,8 @@ type: DF
 aliases: ["FND_4.Depth"]
 title: Depth — minimal reach distance to Now
 concepts: ["[[02_Concepts/C-prior-pointer-reach]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-reach-relation]]", "[[01_Statements/Definition/S-DF-locality-prior]]"]
-parents: ["[[01_Statements/Definition/S-DF-locality-prior]]"]
+dependencies: ["[[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]", "[[01_Statements/02_Outer_Formation/008_S-DF-asymmetric-local-contribution]]"]
+parents: ["[[01_Statements/02_Outer_Formation/008_S-DF-asymmetric-local-contribution]]"]
 successors: []
 symbols_used: []
 sources:
@@ -22,7 +22,7 @@ Some priors are “closer” than others — depth makes that precise without a 
 
 ## Philosophical Justification
 - [[S-DF-reach-relation]] defines adjacency; layering those adjacencies gives a neutral order without external time.
-- Locality prior ([[S-DF-locality-prior]]) demands nearby anchors get priority; depth is the constructive mechanism.
+- Asymmetric local contribution ([[S-DF-asymmetric-local-contribution]]) provides the weaker local asymmetry needed for nearby anchors to matter more directly; depth is the constructive mechanism.
 - SE/noise thresholds need a principled notion of “distance” so audits are not arbitrary.
 
 ## Derivation (Philosophical)
@@ -40,13 +40,22 @@ Some priors are “closer” than others — depth makes that precise without a 
 - suggest: [[S-DF-prm-depth-breadth-flip]]
 - suggest: [[S-CL-time-noise-thresholds]]
 
+## Explanation (informal)
+Depth turns mere reachability into an ordered neighborhood structure. It does not assume clock time; it measures how many admissible continuation steps, or how much admissible cost, separates a prior from the present.
+
+## Derivation (Formal/Logical/Mathematical)
+```text
+Depth(p; Now) := min { Length(π) | π is an admissible Reach-path from p to Now }
+Neighborhood_k(Now) := { p | Depth(p; Now) ≤ k }
+```
+If admissible path length is cost-weighted rather than hop-counted, replace `Length(π)` with the declared cost functional.
+
 ## Tags
 #type/DF #layer/foundations #domain/logical #concept/prior-pointer-reach #status/stable
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 - [[01_Statements/Clarification/S-CL-time-noise-thresholds]]
-- [[01_Statements/Definition/S-DF-locality-prior]]
 - [[01_Statements/Definition/S-DF-prm-depth-breadth-flip]]
 - [[01_Statements/Definition/S-DF-prm-temporal-ops]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
@@ -55,7 +64,7 @@ Some priors are “closer” than others — depth makes that precise without a 
 ## Relationships
 
 - Concepts: [[02_Concepts/C-prior-pointer-reach]]
-- Parents: [[01_Statements/Definition/S-DF-locality-prior]]
-- Dependencies: [[01_Statements/Definition/S-DF-reach-relation]]; [[01_Statements/Definition/S-DF-locality-prior]]
+- Parents: [[01_Statements/02_Outer_Formation/008_S-DF-asymmetric-local-contribution]]
+- Dependencies: [[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]; [[01_Statements/02_Outer_Formation/008_S-DF-asymmetric-local-contribution]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -29,6 +29,14 @@ When the system is circling, widen the search; when it flows, go deeper.
 - Couples to ELM‑EH (breadth/depth scheduling) and attention routing.
 - Avoids lock‑in and collapse by syncing policy with global integrator dynamics (breath).
 
+## Explanation (informal)
+This primitive turns trappedness and phase into a search-shape decision: go wider when local recurrence is unproductive, go deeper when structure is stable.
+
+## Derivation (Philosophical)
+- Loopiness reveals when local continuation is being recycled.
+- Breath phase reveals when the system is open to widening versus consolidating.
+- The flip primitive packages that search-shape transition.
+
 ## Derivation (Formal/Logical/Mathematical)
 ```text
 p_breadth := g(L, phase)

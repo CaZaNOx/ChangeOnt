@@ -10,7 +10,7 @@ Scope
 - From triad to reflexive loops and shared alignment.
 
 Core nodes
-- DF: [[01_Statements/Definition/S-DF-subject]], [[01_Statements/Definition/S-DF-awareness]], [[01_Statements/Definition/S-DF-experience]], [[01_Statements/Definition/S-DF-subject-recursive-field]], [[01_Statements/Definition/S-DF-self-model-evolution]], [[01_Statements/Definition/S-DF-consciousness-loop]], [[01_Statements/Definition/S-DF-intersubject-gauge]]
+- DF: [[01_Statements/03_Inner_Development/001_S-DF-subject]], [[01_Statements/03_Inner_Development/002_S-DF-awareness]], [[01_Statements/03_Inner_Development/003_S-DF-experience]], [[01_Statements/03_Inner_Development/005_S-DF-subject-recursive-field]], [[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]], [[01_Statements/Definition/S-DF-consciousness-loop]], [[01_Statements/Definition/S-DF-intersubject-gauge]]
 - CR: [[01_Statements/Corollary/S-CR-consciousness-periodicity]], [[01_Statements/Corollary/S-CR-qualia-gauge-curvature]], [[01_Statements/Corollary/S-CR-introspection-nested-loops]], [[01_Statements/Corollary/S-CR-collective-coupling-se]]
 
 Key takeaways

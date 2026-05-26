@@ -1,80 +1,28 @@
-# P8 Loopiness
+# P8 Loopiness Signal
+Current classification: **Investigatory**
 
-## Purpose
+Practical signal retained for comparison, not canonically earned as a primitive.
 
-P8 Loopiness encodes a reusable notion of **recurrence / revisitation / local return pressure**.
+Philosophy anchors:
+- Investigatory concept; no active canonical _main file required for current kernel path
+- [`../../../../TheoryOfChange_main/01_Statements/02_Outer_Formation/010_S-DF-selective-recurrence.md`](../../../../TheoryOfChange_main/01_Statements/02_Outer_Formation/010_S-DF-selective-recurrence.md)
 
-Its role is to support:
-- loop detection
-- revisit-sensitive scheduling
-- recurrence-aware control
+## Role
 
----
+P8 should be read as a **derived recurrence/closure summary signal**, not as a deepest primitive.
 
-## Primitive Role
-
-P8 is a **recurrence primitive**.
-
-It is not itself a full breadth-depth policy and not itself a complete closure mechanism.
-
-It provides reusable recurrence-related quantities.
-
----
-
-## Inputs
-
-P8 may consume:
-- local history
-- revisit counts
-- repeated transition patterns
-- cyclicity indicators
-- short trace windows
-
----
-
-## Outputs
-
-P8 may return:
-- loopiness score
+It is useful when the kernel needs a compact runtime summary of:
 - revisit pressure
-- recurrence scalar
-- scheduler hints for consuming elements
+- self-return concentration
+- local trapping risk
 
-It does not directly decide final actions.
+## Current status
 
----
+- investigatory summary signal
+- not part of the strongest canonical primitive core
 
-## State Mutation
+## What should be implemented
 
-P8 may maintain local recurrence history, but must not:
-- become task-specific
-- hide policy decisions that belong to elements or headers
-
----
-
-## Why this primitive exists
-
-If change is self-involving and local regimes may stabilize or trap under recurrence, then some primitive notion of loopiness/return is strongly motivated.
-
-P8 is the current reusable encoding of that pressure.
-
----
-
-## Forbidden
-
-P8 must not:
-- directly define full breadth-depth scheduling
-- become a task-specific loop detector
-- choose final actions
-
----
-
-## Telemetry
-
-P8 may be surfaced through consuming elements if useful, but does not require direct primitive telemetry.
-
----
-
-## Current Status
-
-P8 is a justified primitive category and should remain separate from the element that consumes it.
+If P8 remains active, the docs/code must make clear:
+- that it summarizes deeper recurrence/closure behavior
+- and whether it adds value beyond recurrence, closure, bend, and local comparability signals

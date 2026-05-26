@@ -33,7 +33,6 @@ Use ↶(x) inside subject-centered derivations and protocols.
 
 <!-- BEGIN:AUTOGEN:USED_IN -->
 ## Used In
-- [[01_Statements/Definition/S-DF-locality-prior]]
-- [[01_Statements/Definition/S-DF-pointer-structural]]
+
 <!-- END:AUTOGEN:USED_IN -->
 

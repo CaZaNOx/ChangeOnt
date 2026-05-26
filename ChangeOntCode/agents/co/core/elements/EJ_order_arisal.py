@@ -2,15 +2,15 @@
 from __future__ import annotations
 from typing import Any, Dict, Iterable, List
 from agents.co.core.contracts.signals import normalize_scores
-from ._shared import publish_signal, push_votes
+from ._shared import publish_signal, publish_candidate_votes
 
 class EJ_OrderAsymmetry:
     """
     Element wrapper for P15 (OrderArisal):
-      - publishes loop/arisal to co_bus under namespaced keys
-      - pushes a per-action vote (penalizes backtracks/2-cycles) into co_bus
+      - publishes loop/arisal to signal_bus under namespaced keys
+      - pushes a per-action vote (penalizes backtracks/2-cycles) into signal_bus
     """
-    PRIMITIVE_DEPS = ("P15_OrderAsymmetry", "co_bus (optional)")
+    PRIMITIVE_DEPS = ("P15_OrderAsymmetry", "signal_bus (optional)")
     COMBINATOR_DEPS = ()
     FORMULA_STATUS = "provisional"
 
@@ -57,8 +57,7 @@ class EJ_OrderAsymmetry:
             return {}
         actions = self._get_actions(observation)
         p15 = primitives.get("P15")
-        bus = primitives.get("co_bus")
-        family = str(observation.get("family", "")).lower()
+        bus = primitives.get("signal_bus")
 
         out: Dict[str, Any] = {}
         if p15 is None or not actions:
@@ -90,8 +89,8 @@ class EJ_OrderAsymmetry:
                 try: avg_pen = sum(float(x) for x in pen_map.values()) / max(1, len(pen_map))
                 except Exception: avg_pen = 0.0
             publish_signal(bus, f"{self.tag}.avg_penalty", float(avg_pen))
-            # push votes so ActionHead sees them via bus
-            push_votes(bus, family, vote_map, source=self.tag)
+            # publish candidate evidence on the canonical scope-keyed bus
+            publish_candidate_votes(bus, observation, primitives, header, vote_map, source=self.tag, channel="order")
 
         out[f"{self.tag}.loopiness"]    = float(metrics.get("loopiness", 0.0))
         out[f"{self.tag}.arisal"]       = float(metrics.get("arisal", 0.0))

@@ -9,8 +9,8 @@ dependencies:
 - '[[01_Statements/Clarification/S-CL-consciousness-thresholds]]'
 - '[[01_Statements/Definition/S-DF-stabilization-energy]]'
 - '[[01_Statements/Definition/S-DF-rtv-operator]]'
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
-- '[[01_Statements/Definition/S-DF-memory-trace-integration]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
+- '[[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]'
 parents:
 - '[[01_Statements/Clarification/S-CL-consciousness-falsifiability]]'
 successors: []
@@ -44,6 +44,6 @@ Passing this protocol gives a more precise ethical and epistemic handle on claim
 
 - Concepts: [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Clarification/S-CL-consciousness-falsifiability]]
-- Dependencies: [[01_Statements/Clarification/S-CL-consciousness-thresholds]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-memory-trace-integration]]
+- Dependencies: [[01_Statements/Clarification/S-CL-consciousness-thresholds]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

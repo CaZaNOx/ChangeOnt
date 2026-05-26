@@ -1,4 +1,7 @@
 # EG_DensityPrecision
+Current classification: **Provisional**
+
+Active continuous-hint element with a legitimate role, but still support-like rather than fully settled core.
 
 ## Purpose
 

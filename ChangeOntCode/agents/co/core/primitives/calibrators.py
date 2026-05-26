@@ -1,5 +1,15 @@
 # agents/co/core/primitives/calibrators.py
 from __future__ import annotations
+
+"""
+LEGACY / DISCUSSION FILE
+Not part of the canonical active runtime path.
+Kept for conceptual discussion or possible future recovery only.
+If reintroduced, it must be explicitly re-documented and rewired.
+"""
+LEGACY_DISCUSSION_ONLY = True
+NOT_IN_ACTIVE_RUNTIME = True
+
 from dataclasses import dataclass
 from typing import Tuple
 

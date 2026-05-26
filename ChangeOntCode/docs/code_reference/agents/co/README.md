@@ -71,7 +71,7 @@ Responsible for:
 Registry and factory-like metadata/config support.
 Should not drift from the active runtime path.
 
-### `combos/`
+### `archive/legacy_runtime/co_combos_legacy/`
 Combo/kernel-configuration artifacts.
 These must be clearly marked as:
 - active canonical variant definitions,

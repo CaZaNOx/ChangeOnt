@@ -1,124 +1,44 @@
 # EC_Identity
+Current classification: **Canonical**
 
-## Purpose
+Strongest current identity/fracture element on the default path.
 
-EC_Identity is the kernel’s local continuity / identity mechanism.
+## What this element is
+EC_Identity is the kernel element that evaluates continuity-through-change and its breakdown. It tracks whether an unfolding remains admissibly “the same enough” across deformation, and when fracture pressure rises.
 
-Its role is to determine whether current unfolding remains within an admitted sameness class under bounded bend difference.
-
----
-
-## Element Role
-
-EC_Identity is an **element**.
-
-It is not:
-- a primitive
-- a translator
-- a header
-- the action surface
-
-It is the mechanism of local identity judgment.
-
----
-
-## Intended Primitive Dependencies
-
-Primary intended dependencies:
-- P1_BendMetric
-
-Secondary / optional:
-- P12_ClosureQuotient
-- later modulation influences from P2/P7 if identity strictness becomes dynamically coupled
-
----
-
-## Intended Semantic Combinator Form
-
-Primary:
-- **SC_GatedThreshold**
-
-Secondary:
-- **SC_MultiplicativeCoupling** later if identity strictness is modulated
-
----
-
-## Why these belong together
-
-Identity here is not metaphysical absolute identity.
-
-It is local admitted continuity under bounded difference.
-
-That means the core law-form is threshold gating:
-
-- if bend distance remains within threshold, continuity is admitted
-- otherwise identity break pressure appears
-
-This is the correct v1 form.
-
----
-
-## Inputs
-
-EC_Identity may consume:
-- current short trace/history
-- previous trace memory
-- bend threshold / effective epsilon
-- optional later modulation inputs
-
----
-
-## Outputs
-
-Canonical outputs:
-- `signals["EC_Identity.same"]`
-- `signals["EC_Identity.last_d"]`
-
-Possible additional telemetry:
-- `bend_triggers`
-
----
-
-## State Mutation
-
-EC_Identity may mutate:
-- canonical bounded identity memory
-
-It must not mutate:
-- task translator state
-- final action state
-- header ownership
-
----
+In practical terms, it monitors:
+- continuity confidence,
+- fracture pressure,
+- admissibility loss,
+- and reopening/switching pressure.
 
 ## Why this element exists
+If identity is not primitive but derivative of admissible continuity through change, the kernel needs a mechanism that can operationalize that derivative notion. EC is that mechanism.
 
-A change-native system still needs a doctrine of when something counts as “the same enough” to preserve local structure.
+## What EC is not
+EC is not:
+- exact equality testing,
+- immutable object-substance detection,
+- or proof that all upstream identity theory is philosophically closed.
 
-EC_Identity is that doctrine in minimal v1 form.
+It is a bounded runtime realization of identity-through-change.
 
----
+## Inputs
+Typical inputs include:
+- local history and trace
+- bend/deformation summaries
+- continuity or cohort summaries from P4
+- fracture-like indicators
 
-## Forbidden
+## Outputs
+Typical outputs include:
+- continuity score/confidence
+- fracture pressure
+- admissibility-loss pressure
+- identity-related bus signals for later elements
 
-EC_Identity must not:
-- directly choose final actions
-- pretend identity is primitive static sameness
-- silently absorb closure/grouping doctrine unless documented
-- become a translator-side heuristic
+## Why the first-layer caution still matters
+Some upstream identity supports are stronger than the weak-local-prior cluster, but not all are equally frozen. EC therefore implements a serious doctrine-level idea while still inheriting some evolving philosophical supports.
 
----
-
-## Telemetry
-
-Required canonical signals:
-- `EC_Identity.same`
-- `EC_Identity.last_d`
-
----
-
-## Current Status
-
-- active and central
-- bend-threshold continuity structure binding
-- richer identity doctrine still future/provisional
+## Current status
+A legitimate and important element. It should be read as the kernel’s operational continuity/fracture mechanism, not as final proof that every upstream identity bridge is fully settled.

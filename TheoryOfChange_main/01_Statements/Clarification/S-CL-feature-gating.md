@@ -1,7 +1,7 @@
 ---
 id: stmt.cl-feature-gating
 type: CL
-title: Dynamic feature gating via MDL spawn/reap prevents classical collapse
+title: Dynamic feature gating via MDL spawn/reap prevents thin collapse / classical-degenerate simplification
 dependencies:
 - '[[01_Statements/Definition/S-DF-prm-variable-birth]]'
 - '[[01_Statements/Definition/S-DF-intersubject-gauge]]'
@@ -22,7 +22,7 @@ tags:
 - status/stable
 ---
 
-# Dynamic feature gating via MDL spawn/reap prevents classical collapse
+# Dynamic feature gating via MDL spawn/reap prevents thin collapse / classical-degenerate simplification
 
 CO’s spawn/reap mechanism (MDL-driven variable birth) toggles features on only when compressed residuals persist and economic thresholds favor the cost, and reaps them when their usage drops. Classical fixed-feature models either keep all features always on or rely on external controllers, inviting Goodhart collapse. CO keeps the choice rule internalized: HΣ (collapse official) releases births only if `HΣ` crosses pre-registered thresholds (collapse-to-classical, loop_score_ema, density agreement, drift stats, regret delta); otherwise it rejects the adaptation. This ensures the gain is rule-driven, stable, and compute-honest, as AI_15’s dynamic feature gating argument emphasizes.
 

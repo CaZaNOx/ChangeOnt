@@ -1,8 +1,11 @@
 # P1 BendMetric
+Current classification: **Canonical**
+
+Core comparison primitive on the active default path.
 
 ## Purpose
 
-P1 BendMetric encodes a minimal reusable notion of **difference in unfolding** between two traces.
+P1 BendMetric encodes a minimal reusable notion of **directional deformation burden** between two traces.
 
 Its role is to support:
 - identity testing
@@ -10,16 +13,29 @@ Its role is to support:
 - recurrence comparison
 - path-family grouping
 
-It is a primitive because some notion of bend / difference / non-equivalence is structurally unavoidable once change is treated as primitive.
+It is primitive because once change is treated as primary, some distinction between lesser and greater transformation burden is unavoidable.
+
+---
+
+## First-layer caution
+
+The present philosophical source of truth is:
+- `../../../../TheoryOfChange_main/00_Meta/FIRST_LAYER_CANONICAL_PATH.md`
+- `../../../../TheoryOfChange_main/00_Meta/CANONICAL_REFERENCE_STACK.md`
+
+For P1 this means:
+- root change is still read first as **happening / modulation / non-flat givenness**,
+- carried-conditioning and proto-retention supports remain canonical but partly evolving,
+- P1 must not be overread as if a full neutral metric background were already settled.
 
 ---
 
 ## Primitive Role
 
-P1 is a **comparison primitive**, not a full identity mechanism.
+P1 is a **comparison primitive**, but not yet a full classical metric.
 
-It does not decide what identity means globally.  
-It provides a reusable distance-like quantity that elements such as `EC_Identity` or closure mechanisms may use.
+It does not presuppose a neutral geometric background.  
+It provides a reusable distance-like quantity or burden measure that downstream identity and closure mechanisms may use.
 
 ---
 
@@ -31,95 +47,42 @@ P1 consumes:
 
 A trace is a finite ordered sequence of tokens representing a local unfolding.
 
-A token may be:
-- symbolic
-- tuple-like
-- scalar-bucketed
-- otherwise canonicalized by the caller
-
-P1 does not define the full ontology of trace tokens.  
-It defines how two already-provided traces are compared.
-
-Optional config/input:
-- `eps` for downstream threshold comparison
-- padding token if needed by implementation
-
 ---
 
 ## Outputs
 
-P1 returns a bend/difference quantity:
+P1 returns a bend/deformation quantity, for example:
 - `last_d: float`
 
-Downstream logic may also derive:
-- `identity_ok = (last_d <= eps)`
-
-But the primitive itself is fundamentally the distance provider.
+Downstream logic may derive additional decisions from it, but the primitive itself is fundamentally the burden provider.
 
 ---
 
-## State Mutation
+## Charter
 
-P1 is ideally pure:
-- no hidden global state
-- no task memory
-- no environment-specific storage
+### Domain / Codomain
 
-If implementation caches anything for efficiency, that cache must remain semantically irrelevant.
+- **Domain:** `(trace_a: Sequence[token], trace_b: Sequence[token])`
+- **Codomain:** a normalized burden / distance-like value
 
----
+### Invariants
 
-## Binding v1 Algorithm
+Binding intent for v1:
+1. zero self-burden on identical normalized traces
+2. bounded output
+3. monotone mismatch under stronger misalignment
 
-For v1, P1 uses a minimal finite-trace comparison law:
+### Notes
 
-1. If both traces are empty, return `last_d = 0.0`.
-2. If exactly one trace is empty, return `last_d = 1.0`.
-3. Let `L = max(len(trace_a), len(trace_b))`.
-4. Pad shorter trace with a canonical pad token.
-5. Compute normalized mismatch ratio over aligned positions:
-   - mismatch count divided by `L`
-6. Return the resulting value as `last_d`.
+- Symmetry may hold in the current simplified implementation, but should not be treated as the deepest ontological commitment.
+- Later stabilized regimes may approximate classical metric behavior; that is not the first meaning of bend.
 
-This is a **minimal v1 operationalization**, not a final metaphysical claim about bend.
+## Current implementation status
 
----
+Current code now implements a **bounded doctrinal realization** with:
+- weighted directional alignment over bounded traces
+- explicit insertion/deletion/substitution/transposition costs
+- preserved-vs-altered decomposition recovered from the alignment
+- backward-compatible symmetric distance for inactive callers
 
-## Why this primitive exists
-
-If change is primitive, then any local identity or closure mechanism must distinguish:
-- sufficiently similar unfoldings
-- sufficiently different unfoldings
-
-P1 is the current minimal encoding of that demand.
-
----
-
-## Forbidden
-
-P1 must not:
-- use hidden environment state
-- contain task-specific logic
-- directly choose actions
-- silently mutate kernel-global semantic state
-- become a full identity mechanism by itself
-
----
-
-## Telemetry
-
-P1 does not emit telemetry directly.
-
-Telemetry derived from P1 appears through element-level consumers, for example:
-- `EC_Identity.last_d`
-- `EC_Identity.same`
-
----
-
-## Current Status
-
-P1 v1 is acceptable as a minimal bend primitive.
-
-Future versions may replace the exact comparison law, but the architectural role stays the same:
-- P1 provides reusable bend/difference comparison
-- identity and closure mechanisms consume it
+This remains a finite kernel implementation rather than a final metaphysical completion, but it is no longer merely a thin scalar proxy.

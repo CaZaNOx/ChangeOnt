@@ -33,6 +33,22 @@ co_agents:
         bandit_stats: {}
         ngram_model: {}
 
+      groups:
+        - id: "fit_residual"
+          members: ["haq", "ghvc"]
+          operator: "gated"
+          weight: 1.00
+        - id: "identity_structure"
+          members: ["EC_Identity", "density", "change_ops"]
+          operator: "add"
+          weight: 0.90
+        - id: "bridge"
+          members: ["vote_bridge"]
+          operator: "add"
+          weight: 0.75
+      final_fusion:
+        normalize_groups: true
+        fallback_to_legacy_bus: true
       combinator:
         order: ["haq","ghvc","EC_Identity","density","change_ops","vote_bridge","action_head"]
 
@@ -66,6 +82,22 @@ co_agents:
         bandit_stats: {}
         ngram_model: {}
 
+      groups:
+        - id: "fit_residual"
+          members: ["haq", "ghvc"]
+          operator: "gated"
+          weight: 1.00
+        - id: "identity_structure"
+          members: ["EC_Identity", "density", "change_ops"]
+          operator: "add"
+          weight: 0.90
+        - id: "bridge"
+          members: ["vote_bridge"]
+          operator: "add"
+          weight: 0.75
+      final_fusion:
+        normalize_groups: true
+        fallback_to_legacy_bus: true
       combinator:
         order: ["haq","ghvc","EC_Identity","density","change_ops","vote_bridge","action_head"]
 
@@ -98,6 +130,14 @@ co_agents:
         P0: {}
         bandit_stats: {}
 
+      groups:
+        - id: "bridge"
+          members: ["vote_bridge"]
+          operator: "add"
+          weight: 0.80
+      final_fusion:
+        normalize_groups: true
+        fallback_to_legacy_bus: true
       combinator:
         order: ["haq","vote_bridge","action_head"]
 
@@ -128,6 +168,18 @@ co_agents:
         P0: {}
         bandit_stats: {}
         ngram_model: {}
+      groups:
+        - id: "ea_only"
+          members: ["haq"]
+          operator: "add"
+          weight: 1.00
+        - id: "bridge"
+          members: ["vote_bridge"]
+          operator: "add"
+          weight: 0.80
+      final_fusion:
+        normalize_groups: true
+        fallback_to_legacy_bus: true
       combinator:
         order: ["haq","vote_bridge","action_head"]
 
@@ -157,6 +209,18 @@ co_agents:
         P0: {}
         bandit_stats: {}
         ngram_model: {}
+      groups:
+        - id: "eb_only"
+          members: ["ghvc"]
+          operator: "add"
+          weight: 1.00
+        - id: "bridge"
+          members: ["vote_bridge"]
+          operator: "add"
+          weight: 0.80
+      final_fusion:
+        normalize_groups: true
+        fallback_to_legacy_bus: true
       combinator:
         order: ["ghvc","vote_bridge","action_head"]
 
@@ -186,6 +250,18 @@ co_agents:
         P0: {}
         bandit_stats: {}
         ngram_model: {}
+      groups:
+        - id: "ec_only"
+          members: ["EC_Identity"]
+          operator: "add"
+          weight: 1.00
+        - id: "bridge"
+          members: ["vote_bridge"]
+          operator: "add"
+          weight: 0.80
+      final_fusion:
+        normalize_groups: true
+        fallback_to_legacy_bus: true
       combinator:
         order: ["EC_Identity","vote_bridge","action_head"]
 
@@ -216,6 +292,18 @@ co_agents:
         P0: {}
         bandit_stats: {}
         ngram_model: {}
+      groups:
+        - id: "ea_eb_pair"
+          members: ["haq", "ghvc"]
+          operator: "gated"
+          weight: 1.00
+        - id: "bridge"
+          members: ["vote_bridge"]
+          operator: "add"
+          weight: 0.80
+      final_fusion:
+        normalize_groups: true
+        fallback_to_legacy_bus: true
       combinator:
         order: ["haq","ghvc","vote_bridge","action_head"]
 
@@ -246,6 +334,22 @@ co_agents:
         P0: {}
         bandit_stats: {}
         ngram_model: {}
+      groups:
+        - id: "fit_residual"
+          members: ["haq", "ghvc"]
+          operator: "gated"
+          weight: 1.00
+        - id: "identity_structure"
+          members: ["EC_Identity", "density", "change_ops"]
+          operator: "add"
+          weight: 0.90
+        - id: "bridge"
+          members: ["vote_bridge"]
+          operator: "add"
+          weight: 0.75
+      final_fusion:
+        normalize_groups: true
+        fallback_to_legacy_bus: true
       combinator:
         order: ["haq","ghvc","EC_Identity","density","change_ops","vote_bridge","action_head"]
 
@@ -279,6 +383,22 @@ co_agents:
         P0: {}
         bandit_stats: {}
         ngram_model: {}
+      groups:
+        - id: "fit_residual"
+          members: ["haq", "ghvc"]
+          operator: "gated"
+          weight: 1.00
+        - id: "identity_structure"
+          members: ["EC_Identity", "density", "change_ops"]
+          operator: "add"
+          weight: 0.90
+        - id: "bridge"
+          members: ["vote_bridge"]
+          operator: "add"
+          weight: 0.75
+      final_fusion:
+        normalize_groups: true
+        fallback_to_legacy_bus: true
       combinator:
         order: ["haq","ghvc","EC_Identity","density","change_ops","vote_bridge","action_head"]
 
@@ -311,5 +431,21 @@ co_agents:
         P0: {}
         bandit_stats: {}
         ngram_model: {}
+      groups:
+        - id: "fit_residual"
+          members: ["haq", "ghvc"]
+          operator: "gated"
+          weight: 1.00
+        - id: "identity_structure"
+          members: ["EC_Identity", "density", "change_ops"]
+          operator: "add"
+          weight: 0.90
+        - id: "bridge"
+          members: ["vote_bridge"]
+          operator: "add"
+          weight: 0.75
+      final_fusion:
+        normalize_groups: true
+        fallback_to_legacy_bus: true
       combinator:
         order: ["haq","ghvc","EC_Identity","density","change_ops","vote_bridge","action_head"]

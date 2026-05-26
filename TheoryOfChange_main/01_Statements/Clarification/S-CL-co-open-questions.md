@@ -4,7 +4,7 @@ type: CL
 title: "Change Ontology open questions span continuity, identity, G\xF6del holes,\
   \ and manifolds"
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 - '[[01_Statements/Clarification/S-CL-change-core-axiom]]'
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
@@ -37,6 +37,6 @@ AI_13 lists eight research drivers: (1) No-minimal-delta lemmas (prove density i
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Clarification/S-CL-change-core-axiom]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

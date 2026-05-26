@@ -4,7 +4,7 @@ type: DF
 aliases: ["AI13.SRL"]
 title: Structural Recurrence Likelihood (SRL)
 concepts: ["[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-markov-closure]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-rtv-operator]]", "[[01_Statements/Definition/S-DF-identity-through-change]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-rtv-operator]]", "[[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]"]
 parents: ["[[01_Statements/Definition/S-DF-rtv-operator]]"]
 successors: ["[[01_Statements/Derivation/S-DR-srl-vs-se-theta]]"]
 symbols_used: ["[[01_Statements/SYMBOLS/Breath]]", "[[01_Statements/SYMBOLS/Approx]]"]
@@ -56,7 +56,7 @@ Let K be a validation window. SRL(P) := (1/|K|) * |{ kâˆˆK : RTV_k(P) accepts âˆ
 
 - Concepts: [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-markov-closure]]
 - Parents: [[01_Statements/Definition/S-DF-rtv-operator]]
-- Dependencies: [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/Definition/S-DF-identity-through-change]]
+- Dependencies: [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]
 - Successors: [[01_Statements/Derivation/S-DR-srl-vs-se-theta]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

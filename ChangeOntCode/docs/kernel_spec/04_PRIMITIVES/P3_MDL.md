@@ -1,102 +1,28 @@
-# P3 MDL
+# P3 MDL / Compressibility Candidate
+Current classification: **Investigatory**
 
-## Purpose
+Candidate formalization kept for comparison rather than canonical default use.
 
-P3 MDL encodes a reusable notion of **complexity/compressibility pressure**.
+Philosophy anchors:
+- Investigatory concept; no active canonical _main file required for current kernel path
+- Investigatory concept; no active canonical _main file required for current kernel path
 
-Its role is to support:
-- birth pressure moderation
-- simplicity/complexity tradeoffs
-- compression-sensitive mechanism decisions
+## Role
 
----
+P3 is **not** the philosophical core itself. The deeper need is:
+- selective retention under admissible loss and recurrent stability.
 
-## Primitive Role
+P3 is one current candidate formalization of that need using compressibility / description-economy style scoring.
 
-P3 is a **complexity-pressure primitive**.
+## Current status
 
-It should not be interpreted as “MDL because machine learning likes MDL.”  
-Its philosophical role is broader:
+- investigatory candidate
+- not the unique or final default truth
+- should be compared against more CO-aligned alternatives such as closure/quotient stability or admissible-loss retention
 
-- if change forms local regimes and closures,
-- then some notion of compression / parsimony / descriptive economy becomes highly plausible.
+## What should be implemented
 
-P3 is the current operational encoding of that pressure.
-
----
-
-## Inputs
-
-P3 may consume:
-- residual/error proxy
-- candidate new structure count
-- compression proxy
-- model-size proxy
-- local descriptive cost proxy
-
-The calling element supplies context.
-
----
-
-## Outputs
-
-P3 returns one or more quantities such as:
-- complexity penalty
-- mdl-like gain
-- compression pressure scalar
-
-It does not itself decide births or actions.
-
----
-
-## State Mutation
-
-P3 should ideally be pure or near-pure.
-
-If it caches internal values, those must remain semantically auxiliary.
-
----
-
-## Binding v1 Interpretation
-
-In v1, P3 is allowed to be implemented using a simple penalty law such as:
-- gain-like quantity minus weighted complexity cost
-
-This is a minimal operationalization, not a claim that the final true law is classical MDL exactly.
-
----
-
-## Why this primitive exists
-
-If local regimes stabilize only under some economy of structure, then change is plausibly constrained by a pressure against arbitrary proliferations.
-
-P3 encodes that pressure in reusable form.
-
----
-
-## Forbidden
-
-P3 must not:
-- directly create prototypes
-- directly emit births
-- directly decide actions
-- silently replace full closure logic
-
-Those belong to elements/mechanisms using P3.
-
----
-
-## Telemetry
-
-P3 does not need direct primitive telemetry.
-
-Downstream element telemetry may include:
-- `EB_GHVC.mdl_gain`
-
----
-
-## Current Status
-
-P3 is kept, but should always be described as:
-- a current complexity/compressibility primitive
-- not a final proven law
+If P3 remains active, the docs/code must make clear:
+- what deeper retention-economy need it is approximating
+- what the alternative implementations are
+- whether P3 is currently default, baseline, or comparison-only

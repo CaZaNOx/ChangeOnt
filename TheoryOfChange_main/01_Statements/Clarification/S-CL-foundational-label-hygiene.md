@@ -3,7 +3,7 @@ id: stmt.cl-foundational-label-hygiene
 type: CL
 title: Foundational texts must label every operator and dependency
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 parents:
 - '[[01_Statements/Clarification/S-CL-trace-marker-integrity]]'
 successors: []
@@ -35,6 +35,6 @@ Every foundational document (FND_0…FND_6) must introduce its primitives, thres
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Clarification/S-CL-trace-marker-integrity]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

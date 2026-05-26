@@ -3,8 +3,8 @@ id: stmt.laws-as-robust-invariants
 type: CR
 title: Regularities (“laws”) as robust invariants under SRL/SE
 concepts: ["[[02_Concepts/C-identity-change]]", "[[02_Concepts/C-math-structures]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-identity-invariants]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]", "[[01_Statements/Definition/S-DF-evaluation-surface]]"]
-parents: ["[[01_Statements/Definition/S-DF-identity-invariants]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]"]
+dependencies: ["[[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]", "[[01_Statements/Definition/S-DF-evaluation-surface]]"]
+parents: ["[[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]"]
 successors: []
 symbols_used: []
 sources:
@@ -23,8 +23,8 @@ Corollary: What appear as domain “laws” are regularities that persist as hig
 ## Relationships
 
 - Concepts: [[02_Concepts/C-identity-change]]; [[02_Concepts/C-math-structures]]
-- Parents: [[01_Statements/Definition/S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
-- Dependencies: [[01_Statements/Definition/S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/Definition/S-DF-evaluation-surface]]
+- Parents: [[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
+- Dependencies: [[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/Definition/S-DF-evaluation-surface]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->

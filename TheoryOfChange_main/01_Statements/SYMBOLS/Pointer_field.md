@@ -16,7 +16,7 @@ Structural reference to earlier configuration at field level; not memory, but tr
 ```
 
 ## Example
-- Used to indicate field-level provenance in derivation traces.
+- Used to indicate field-level reference in derivation traces.
 
 ## Related
 - [[01_Statements/SYMBOLS/Pointer_local]] (↶(x))

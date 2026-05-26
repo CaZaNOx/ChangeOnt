@@ -7,9 +7,9 @@ concepts: ["[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-math-structures
 dependencies: [
   "[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]",
   "[[01_Statements/Definition/S-DF-evaluation-surface]]",
-  "[[01_Statements/Definition/S-DF-locality-prior]]"
+  "[[01_Statements/02_Outer_Formation/008_S-DF-asymmetric-local-contribution]]"
 ]
-parents: ["[[01_Statements/FoundationalTruth/S-FT-continuity-noncessation]]"]
+parents: ["[[01_Statements/00_Opening_Justification/008_S-FT-continuity-noncessation]]"]
 successors: []
 symbols_used: []
 sources:
@@ -28,7 +28,7 @@ Expectation is what reliably comes back under your way of moving — not a timel
 ## Clarifications / Links to definitions
 - [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]] provides the surrogate to probability when frames shift.
 - [[01_Statements/Definition/S-DF-evaluation-surface]] supplies the cost/likelihood field where expectation is computed.
-- [[01_Statements/Definition/S-DF-locality-prior]] constrains which neighborhoods inform the expectation.
+- [[01_Statements/02_Outer_Formation/008_S-DF-asymmetric-local-contribution]] constrains which neighborhoods inform the expectation.
 
 ## Tags
 #type/CR #layer/foundations #domain/formal #concept/recursive-truth #concept/math-structures
@@ -42,7 +42,7 @@ Expectation is what reliably comes back under your way of moving — not a timel
 ## Relationships
 
 - Concepts: [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-math-structures]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-continuity-noncessation]]
-- Dependencies: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/Definition/S-DF-evaluation-surface]]; [[01_Statements/Definition/S-DF-locality-prior]]
+- Parents: [[01_Statements/00_Opening_Justification/008_S-FT-continuity-noncessation]]
+- Dependencies: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/Definition/S-DF-evaluation-surface]]; [[01_Statements/02_Outer_Formation/008_S-DF-asymmetric-local-contribution]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

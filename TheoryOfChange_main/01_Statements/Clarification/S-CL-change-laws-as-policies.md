@@ -3,7 +3,7 @@ id: stmt.cl-change-laws-as-policies
 type: CL
 title: Physical laws are change policies (gate, align, carry, curve, grain)
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 - '[[01_Statements/Clarification/S-CL-change-core-axiom]]'
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
@@ -51,6 +51,6 @@ Physical “laws” are compact policies that bias change: Gate (causal cones / 
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Clarification/S-CL-change-core-axiom]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

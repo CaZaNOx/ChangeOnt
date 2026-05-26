@@ -29,12 +29,21 @@ Focus tightens or loosens with how surprising things are and where we are in the
 ## Explanation (informal)
 When the system hits surprises, widen density (loosen precision) to gather more context; when things are stable, tighten to refine. Do this in sync with breath to keep SE balanced.
 
+## Derivation (Philosophical)
+- Attention does not just pick content; it picks resolution.
+- Breath/global integration prevents precision from thrashing locally.
+- Therefore a primitive scheduling law for density/precision is warranted.
+
 ## Derivation (Formal/Logical/Mathematical)
 ```text
 r' := f(surprise, phase)
 if surprise high or phase=open: increase density (loosen precision)
 else: increase precision (tighten density)
 ```
+
+## Clarifications / Further Context
+- This primitive controls resolution, not truth by itself.
+- Its downstream use should remain coupled to explicit regime evidence.
 
 ## Proofs/Corollaries References
 - feeds [[S-DF-elm-eg-density-precision]] and curvature-aware schedulers ([[S-DR-bend-metric-lawvere-attractors]]).

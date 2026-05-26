@@ -9,7 +9,7 @@ concepts:
 - '[[02_Concepts/C-identity-change]]'
 dependencies:
 - '[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]'
-- '[[01_Statements/Definition/S-DF-identity-invariants]]'
+- '[[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]'
 parents:
 - '[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]'
 successors: []
@@ -39,6 +39,6 @@ Claims of “convergence” should be grounded in (i) SRL increases across breat
 
 - Concepts: [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-identity-change]]
 - Parents: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
-- Dependencies: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/Definition/S-DF-identity-invariants]]
+- Dependencies: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

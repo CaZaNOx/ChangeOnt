@@ -4,7 +4,7 @@ type: CR
 aliases: ["C24.3.Introspection"]
 title: Introspection is a higher-order consciousness loop nested within Cᴸ
 concepts: ["[[02_Concepts/C-subject-awareness-experience]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-consciousness-loop]]", "[[01_Statements/Definition/S-DF-self-model-evolution]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-consciousness-loop]]", "[[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]]"]
 parents: ["[[01_Statements/Definition/S-DF-consciousness-loop]]"]
 successors: []
 symbols_used: []
@@ -33,6 +33,6 @@ Looking at your own looking is the loop looping within itself.
 
 - Concepts: [[02_Concepts/C-subject-awareness-experience]]
 - Parents: [[01_Statements/Definition/S-DF-consciousness-loop]]
-- Dependencies: [[01_Statements/Definition/S-DF-consciousness-loop]]; [[01_Statements/Definition/S-DF-self-model-evolution]]
+- Dependencies: [[01_Statements/Definition/S-DF-consciousness-loop]]; [[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

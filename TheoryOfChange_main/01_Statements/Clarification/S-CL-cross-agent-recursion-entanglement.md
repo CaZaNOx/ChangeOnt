@@ -7,12 +7,12 @@ concepts:
 - '[[02_Concepts/C-prior-pointer-reach]]'
 - '[[02_Concepts/C-recursive-truth]]'
 dependencies:
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
-- '[[01_Statements/Definition/S-DF-localreach-topology]]'
-- '[[01_Statements/Definition/S-DF-memory-trace-integration]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
+- '[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]'
+- '[[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]'
 - '[[01_Statements/Clarification/S-CL-consciousness-thresholds]]'
 parents:
-- '[[01_Statements/Definition/S-DF-localreach-topology]]'
+- '[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]'
 successors: []
 symbols_used: []
 sources:
@@ -48,7 +48,7 @@ Multi-agent recursion is valuable only when it preserves creative tension; witho
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-prior-pointer-reach]]; [[02_Concepts/C-recursive-truth]]
-- Parents: [[01_Statements/Definition/S-DF-localreach-topology]]
-- Dependencies: [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-localreach-topology]]; [[01_Statements/Definition/S-DF-memory-trace-integration]]; [[01_Statements/Clarification/S-CL-consciousness-thresholds]]
+- Parents: [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]
+- Dependencies: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]; [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]; [[01_Statements/Clarification/S-CL-consciousness-thresholds]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

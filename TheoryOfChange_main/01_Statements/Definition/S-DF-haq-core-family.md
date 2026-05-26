@@ -4,8 +4,8 @@ type: DF
 aliases: ["FND_18.HAQ"]
 title: Harmonic Attractor Quantization (HAQ) — core family
 concepts: ["[[02_Concepts/C-identity-change]]", "[[02_Concepts/C-math-structures]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-identity-through-change]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-prm-bend-metric]]"]
-parents: ["[[01_Statements/Definition/S-DF-identity-through-change]]"]
+dependencies: ["[[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-prm-bend-metric]]"]
+parents: ["[[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]"]
 successors: ["[[01_Statements/Definition/S-DF-attractor-field]]", "[[01_Statements/Definition/S-DF-elm-ea-haq]]"]
 symbols_used: []
 sources:
@@ -56,8 +56,8 @@ HAQ is the family name for attractor “notes” a system can sustain. Each note
 ## Relationships
 
 - Concepts: [[02_Concepts/C-identity-change]]; [[02_Concepts/C-math-structures]]
-- Parents: [[01_Statements/Definition/S-DF-identity-through-change]]
-- Dependencies: [[01_Statements/Definition/S-DF-identity-through-change]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-prm-bend-metric]]
+- Parents: [[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]
+- Dependencies: [[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-prm-bend-metric]]
 - Successors: [[01_Statements/Definition/S-DF-attractor-field]]; [[01_Statements/Definition/S-DF-elm-ea-haq]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

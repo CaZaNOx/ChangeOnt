@@ -3,12 +3,12 @@ id: stmt.cl-anti-zombie-loop
 type: CL
 title: Anti-zombie constraint ties phenomenology to the thick-present tuple
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
-- '[[01_Statements/Definition/S-DF-structure-of-experience]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
+- '[[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]'
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 parents:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 successors: []
 symbols_used: []
 sources:
@@ -51,7 +51,7 @@ Zombie objections lose force when experience is tied to a thick-present tuple \(
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-structure-of-experience]]
+- Parents: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

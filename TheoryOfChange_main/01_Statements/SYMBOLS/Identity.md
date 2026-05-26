@@ -33,7 +33,8 @@ Change ontology needs identity to track persistence; ≡ sets the rules under wh
 
 <!-- BEGIN:AUTOGEN:USED_IN -->
 ## Used In
-- [[01_Statements/Definition/S-DF-identity-invariants]]
-- [[01_Statements/Definition/S-DF-identity-through-change]]
+- [[01_Statements/02_Outer_Formation/011_S-DF-invariant-regime]]
+- [[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]
+- [[01_Statements/02_Outer_Formation/019_S-DF-operative-invariant]]
 <!-- END:AUTOGEN:USED_IN -->
 

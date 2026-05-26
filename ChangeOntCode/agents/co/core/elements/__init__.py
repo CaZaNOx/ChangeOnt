@@ -1,7 +1,5 @@
 # agents/co/core/elements/__init__.py
 
-from .action_head import ActionHead
-from .E0_vote_bridge import E0_VoteBridge
 from .EA_haq import EA_HAQ
 from .EB_ghvc import EB_GHVC
 from .EC_identity import EC_Identity
@@ -14,8 +12,6 @@ from .EI_change_operators import EI_ChangeOps
 from .EJ_order_arisal import EJ_OrderAsymmetry
 
 __all__ = [
-    "ActionHead",
-    "E0_VoteBridge",
     "EA_HAQ",
     "EB_GHVC",
     "EC_Identity",

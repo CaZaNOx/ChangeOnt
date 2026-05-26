@@ -39,9 +39,7 @@ Resolution is not fixed: noise, load, and context affect what we can discriminat
 <!-- BEGIN:AUTOGEN:USED_IN -->
 ## Used In
 - [[01_Statements/Definition/S-DF-locality-threshold]]
-- [[01_Statements/Definition/S-DF-self-similarity-threshold]]
 - [[01_Statements/Definition/S-DF-sigma-fluctuation]]
-- [[01_Statements/Definition/S-DF-similarity-operator]]
 - [[01_Statements/Derivation/S-DR-rtv-collapse-threshold]]
 <!-- END:AUTOGEN:USED_IN -->
 

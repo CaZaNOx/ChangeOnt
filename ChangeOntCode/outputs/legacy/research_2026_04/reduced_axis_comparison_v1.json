@@ -1,0 +1,123 @@
+{
+  "study": "reduced_axis_comparison_v1",
+  "reduction_mode": "investigatory_7a_v1",
+  "occupancy_audit": {
+    "sample_count": 104,
+    "unique_full10_cells": 11,
+    "unique_reduced7_cells": 8,
+    "cross_family_collision_cells_full10": 1,
+    "cross_family_collision_cells_reduced7": 1
+  },
+  "bandit_hidden_structure_compare": {
+    "full10": {
+      "easy_gap": {
+        "canonical": {
+          "mean_regret": 1.65,
+          "mean_reward_rate": 0.7638888888888888
+        },
+        "hidden_low": {
+          "mean_regret": 1.65,
+          "mean_reward_rate": 0.7638888888888888
+        },
+        "hidden_high": {
+          "mean_regret": 1.65,
+          "mean_reward_rate": 0.7638888888888888
+        }
+      },
+      "hard_gap": {
+        "canonical": {
+          "mean_regret": 3.0,
+          "mean_reward_rate": 0.45833333333333337
+        },
+        "hidden_low": {
+          "mean_regret": 3.05,
+          "mean_reward_rate": 0.45833333333333337
+        },
+        "hidden_high": {
+          "mean_regret": 2.9000000000000004,
+          "mean_reward_rate": 0.45833333333333337
+        }
+      }
+    },
+    "reduced7": {
+      "easy_gap": {
+        "canonical": {
+          "mean_regret": 1.65,
+          "mean_reward_rate": 0.7638888888888888
+        },
+        "hidden_low": {
+          "mean_regret": 1.65,
+          "mean_reward_rate": 0.7638888888888888
+        },
+        "hidden_high": {
+          "mean_regret": 1.65,
+          "mean_reward_rate": 0.7638888888888888
+        }
+      },
+      "hard_gap": {
+        "canonical": {
+          "mean_regret": 3.0,
+          "mean_reward_rate": 0.45833333333333337
+        },
+        "hidden_low": {
+          "mean_regret": 3.05,
+          "mean_reward_rate": 0.45833333333333337
+        },
+        "hidden_high": {
+          "mean_regret": 2.9000000000000004,
+          "mean_reward_rate": 0.45833333333333337
+        }
+      }
+    }
+  },
+  "renewal_local_support_compare": {
+    "full10": {
+      "stable_noisy": {
+        "canonical": {
+          "mean_reward_rate": 0.21666666666666667
+        },
+        "local_support_low": {
+          "mean_reward_rate": 0.175
+        },
+        "local_support_high": {
+          "mean_reward_rate": 0.22499999999999998
+        }
+      },
+      "volatile_noisy": {
+        "canonical": {
+          "mean_reward_rate": 0.14166666666666666
+        },
+        "local_support_low": {
+          "mean_reward_rate": 0.14166666666666666
+        },
+        "local_support_high": {
+          "mean_reward_rate": 0.175
+        }
+      }
+    },
+    "reduced7": {
+      "stable_noisy": {
+        "canonical": {
+          "mean_reward_rate": 0.21666666666666667
+        },
+        "local_support_low": {
+          "mean_reward_rate": 0.175
+        },
+        "local_support_high": {
+          "mean_reward_rate": 0.22499999999999998
+        }
+      },
+      "volatile_noisy": {
+        "canonical": {
+          "mean_reward_rate": 0.14166666666666666
+        },
+        "local_support_low": {
+          "mean_reward_rate": 0.14166666666666666
+        },
+        "local_support_high": {
+          "mean_reward_rate": 0.175
+        }
+      }
+    }
+  }
+}

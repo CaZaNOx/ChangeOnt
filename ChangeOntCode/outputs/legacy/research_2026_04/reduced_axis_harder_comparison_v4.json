@@ -1,0 +1,270 @@
+{
+  "study": "reduced_axis_harder_comparison_v4",
+  "sample_count": 240,
+  "near_location_compare": {
+    "full10": {
+      "bandit_renewal": {
+        "distance": 0.114921811951495,
+        "a_variant": "bandit_hard",
+        "a_t": 1,
+        "b_variant": "renewal_stable_clean",
+        "b_t": 1
+      },
+      "bandit_maze": {
+        "distance": 0.14402969880350314,
+        "a_variant": "bandit_easy",
+        "a_t": 0,
+        "b_variant": "maze_narrow_partial_dynamic",
+        "b_t": 1
+      },
+      "renewal_maze": {
+        "distance": 0.21782577612783918,
+        "a_variant": "renewal_stable_clean",
+        "a_t": 0,
+        "b_variant": "maze_narrow_partial_dynamic",
+        "b_t": 9
+      }
+    },
+    "reduced7": {
+      "bandit_renewal": {
+        "distance": 0.09316527261616037,
+        "a_variant": "bandit_hard",
+        "a_t": 1,
+        "b_variant": "renewal_stable_clean",
+        "b_t": 1
+      },
+      "bandit_maze": {
+        "distance": 0.1251354016861856,
+        "a_variant": "bandit_easy",
+        "a_t": 0,
+        "b_variant": "maze_narrow_partial_dynamic",
+        "b_t": 1
+      },
+      "renewal_maze": {
+        "distance": 0.20559704567741277,
+        "a_variant": "renewal_stable_clean",
+        "a_t": 0,
+        "b_variant": "maze_narrow_partial_dynamic",
+        "b_t": 1
+      }
+    }
+  },
+  "bandit_hidden_compare": {
+    "full10": {
+      "easy_gap": {
+        "canonical": {
+          "mean_regret": 5.399999999999999,
+          "mean_reward_rate": 0.7083333333333334
+        },
+        "hidden_low": {
+          "mean_regret": 5.099999999999999,
+          "mean_reward_rate": 0.7083333333333334
+        },
+        "hidden_high": {
+          "mean_regret": 5.699999999999999,
+          "mean_reward_rate": 0.6666666666666666
+        }
+      },
+      "hard_gap": {
+        "canonical": {
+          "mean_regret": 3.4666666666666672,
+          "mean_reward_rate": 0.44166666666666665
+        },
+        "hidden_low": {
+          "mean_regret": 2.8666666666666676,
+          "mean_reward_rate": 0.475
+        },
+        "hidden_high": {
+          "mean_regret": 3.000000000000001,
+          "mean_reward_rate": 0.4666666666666667
+        }
+      }
+    },
+    "reduced7": {
+      "easy_gap": {
+        "canonical": {
+          "mean_regret": 5.399999999999999,
+          "mean_reward_rate": 0.7083333333333334
+        },
+        "hidden_low": {
+          "mean_regret": 5.099999999999999,
+          "mean_reward_rate": 0.7083333333333334
+        },
+        "hidden_high": {
+          "mean_regret": 5.699999999999999,
+          "mean_reward_rate": 0.6666666666666666
+        }
+      },
+      "hard_gap": {
+        "canonical": {
+          "mean_regret": 3.4666666666666672,
+          "mean_reward_rate": 0.44166666666666665
+        },
+        "hidden_low": {
+          "mean_regret": 2.8666666666666676,
+          "mean_reward_rate": 0.475
+        },
+        "hidden_high": {
+          "mean_regret": 3.000000000000001,
+          "mean_reward_rate": 0.4666666666666667
+        }
+      }
+    }
+  },
+  "renewal_local_support_compare": {
+    "full10": {
+      "stable_clean": {
+        "canonical": {
+          "mean_reward_rate": 0.20833333333333334
+        },
+        "local_support_low": {
+          "mean_reward_rate": 0.15833333333333333
+        },
+        "local_support_high": {
+          "mean_reward_rate": 0.23333333333333334
+        }
+      },
+      "stable_noisy": {
+        "canonical": {
+          "mean_reward_rate": 0.23333333333333334
+        },
+        "local_support_low": {
+          "mean_reward_rate": 0.20833333333333334
+        },
+        "local_support_high": {
+          "mean_reward_rate": 0.23333333333333334
+        }
+      },
+      "volatile_clean": {
+        "canonical": {
+          "mean_reward_rate": 0.15
+        },
+        "local_support_low": {
+          "mean_reward_rate": 0.125
+        },
+        "local_support_high": {
+          "mean_reward_rate": 0.125
+        }
+      },
+      "volatile_noisy": {
+        "canonical": {
+          "mean_reward_rate": 0.2
+        },
+        "local_support_low": {
+          "mean_reward_rate": 0.18333333333333335
+        },
+        "local_support_high": {
+          "mean_reward_rate": 0.2
+        }
+      }
+    },
+    "reduced7": {
+      "stable_clean": {
+        "canonical": {
+          "mean_reward_rate": 0.20833333333333334
+        },
+        "local_support_low": {
+          "mean_reward_rate": 0.15833333333333333
+        },
+        "local_support_high": {
+          "mean_reward_rate": 0.23333333333333334
+        }
+      },
+      "stable_noisy": {
+        "canonical": {
+          "mean_reward_rate": 0.23333333333333334
+        },
+        "local_support_low": {
+          "mean_reward_rate": 0.20833333333333334
+        },
+        "local_support_high": {
+          "mean_reward_rate": 0.23333333333333334
+        }
+      },
+      "volatile_clean": {
+        "canonical": {
+          "mean_reward_rate": 0.15
+        },
+        "local_support_low": {
+          "mean_reward_rate": 0.125
+        },
+        "local_support_high": {
+          "mean_reward_rate": 0.125
+        }
+      },
+      "volatile_noisy": {
+        "canonical": {
+          "mean_reward_rate": 0.2
+        },
+        "local_support_low": {
+          "mean_reward_rate": 0.18333333333333335
+        },
+        "local_support_high": {
+          "mean_reward_rate": 0.2
+        }
+      }
+    }
+  },
+  "maze_topology_compare": {
+    "full10": {
+      "open_visible": {
+        "canonical": {
+          "solve_rate": 1.0,
+          "mean_steps": 23.333333333333332
+        },
+        "topology_low": {
+          "solve_rate": 1.0,
+          "mean_steps": 23.333333333333332
+        },
+        "topology_high": {
+          "solve_rate": 1.0,
+          "mean_steps": 23.333333333333332
+        }
+      },
+      "narrow_partial_dynamic": {
+        "canonical": {
+          "solve_rate": 0.0,
+          "mean_steps": 40
+        },
+        "topology_low": {
+          "solve_rate": 0.0,
+          "mean_steps": 40
+        },
+        "topology_high": {
+          "solve_rate": 0.0,
+          "mean_steps": 40
+        }
+      }
+    },
+    "reduced7": {
+      "open_visible": {
+        "canonical": {
+          "solve_rate": 1.0,
+          "mean_steps": 23.333333333333332
+        },
+        "topology_low": {
+          "solve_rate": 1.0,
+          "mean_steps": 23.333333333333332
+        },
+        "topology_high": {
+          "solve_rate": 1.0,
+          "mean_steps": 23.333333333333332
+        }
+      },
+      "narrow_partial_dynamic": {
+        "canonical": {
+          "solve_rate": 0.0,
+          "mean_steps": 40
+        },
+        "topology_low": {
+          "solve_rate": 0.0,
+          "mean_steps": 40
+        },
+        "topology_high": {
+          "solve_rate": 0.0,
+          "mean_steps": 40
+        }
+      }
+    }
+  }
+}

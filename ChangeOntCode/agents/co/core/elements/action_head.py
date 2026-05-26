@@ -44,9 +44,23 @@ except Exception:
 Coord = Tuple[int, int]
 OPPOSITE = {"UP":"DOWN","DOWN":"UP","LEFT":"RIGHT","RIGHT":"LEFT"}
 
+def _header_state_get(header: Any, key: str, default: Any) -> Any:
+    state = getattr(header, "state", None)
+    if state is None:
+        return default
+    try:
+        if isinstance(state, dict):
+            return state.get(key, default)
+        return getattr(state, key)
+    except Exception:
+        return default
+
 class ActionHead:
     PRIMITIVE_DEPS = ("co_bus (optional)", "bandit_stats (optional)", "ngram_model (optional)")
-    COMBINATOR_DEPS = ()
+    CONFIG_KEYS = ("seed", "eps_on_cycle", "ngram_order", "greedy_explore_bias", "fuse_method", "fuse_tau", "prefer_bus_if_present", "use_translator", "blend_mode", "co_weight_override", "classic_planner", "groups", "final_fusion")
+    COMBINATOR_DEPS = ("SC_AdditiveBlend", "SC_GatedThreshold", "SC_WeightedSelection", "SC_OrderSensitiveSequential")
+    WEIGHT_ROLE = "group-to-continuation and classical blending"
+    COMPOSITION_ROLE = "packet -> group -> continuation fusion"
     FORMULA_STATUS = "working"
 
     def __init__(
@@ -82,6 +96,35 @@ class ActionHead:
         self._last_pos: Optional[Tuple[int,int]] = None
         self._prev_pos: Optional[Tuple[int,int]] = None  # pos at t-2
 
+
+
+    def configure(self, params: Dict[str, Any], context: Dict[str, Any]):
+        cfg = dict(params or {})
+        root = (context or {}).get("params", {}) if isinstance(context, dict) else {}
+        groups = cfg.get("groups")
+        if groups is None:
+            groups = root.get("groups")
+        if groups is None:
+            groups = (root.get("combinator", {}) or {}).get("groups") if isinstance(root.get("combinator", {}), dict) else None
+        raw_groups = list(groups) if isinstance(groups, list) else []
+        self.groups = []
+        for i, g in enumerate(raw_groups):
+            if not isinstance(g, dict):
+                continue
+            self.groups.append({
+                "id": str(g.get("id", f"group_{i}")),
+                "members": [str(m) for m in (g.get("members") or [])],
+                "operator": str(g.get("operator", g.get("fusion", "add"))),
+                "weight": float(g.get("weight", 1.0) or 1.0),
+            })
+        ff = cfg.get("final_fusion")
+        if ff is None:
+            ff = root.get("final_fusion")
+        self.final_fusion = dict(ff) if isinstance(ff, dict) else {}
+        self.final_fusion.setdefault("normalize_groups", True)
+        self.final_fusion.setdefault("fallback_to_legacy_bus", True)
+        return self
+
     def _ensure_arms(self, n: int) -> None:
         while len(self._counts) < n:
             self._counts.append(0); self._means.append(0.0)
@@ -112,6 +155,86 @@ class ActionHead:
                 agg[a] += w
         return dict(agg), len(votes)
 
+
+    def _packet_scores(self, primitives: Dict[str, Any], family: str) -> tuple[Dict[Any, float], List[Dict[str, Any]], List[Dict[str, Any]]]:
+        bus = primitives.get("co_bus", None)
+        if bus is None or not hasattr(bus, "drain_packets"):
+            return {}, [], []
+        try:
+            packets = bus.drain_packets(family)
+        except Exception:
+            packets = []
+        sem = primitives.get("_semantic", {}) or {}
+        sc_add = sem.get("SC_AdditiveBlend")
+        sc_gate = sem.get("SC_GatedThreshold")
+        sc_order = sem.get("SC_OrderSensitiveSequential")
+        group_defs = self.groups or []
+        packet_map = {str(p.get("element_id", f"pkt_{i}")): p for i, p in enumerate(packets)}
+        groups: List[Dict[str, Any]] = []
+        used = set()
+        for g in group_defs:
+            if not isinstance(g, dict):
+                continue
+            gid = str(g.get("id", f"group_{len(groups)}"))
+            members = [str(m) for m in (g.get("members") or [])]
+            operator = str(g.get("operator", g.get("fusion", "add")))
+            weight = float(g.get("weight", 1.0) or 1.0)
+            parts = []
+            member_packets = []
+            for m in members:
+                pkt = packet_map.get(m)
+                if pkt is None:
+                    continue
+                member_packets.append(pkt)
+                used.add(m)
+                surf = pkt.get("branch_vote_surface") or {}
+                conf = float(pkt.get("confidence", 1.0) or 1.0)
+                hint = float(pkt.get("weight_hint", 1.0) or 1.0)
+                if isinstance(surf, dict) and surf:
+                    parts.append((surf, conf * hint))
+            group_surface: Dict[Any, float] = {}
+            if parts:
+                if operator == "order_sensitive" and sc_order is not None and hasattr(sc_order, "combine_sequence"):
+                    group_surface = sc_order.combine_sequence(parts)
+                elif operator == "gated":
+                    base = self._fuse_safe(parts)
+                    gate_val = 1.0
+                    for pkt in member_packets:
+                        reg = pkt.get("regime_contribution") or {}
+                        if isinstance(reg, dict) and "gate" in reg:
+                            try:
+                                gate_val = min(gate_val, float(reg.get("gate", 1.0)))
+                            except Exception:
+                                pass
+                    if sc_gate is not None and hasattr(sc_gate, "gated_value"):
+                        group_surface = {k: sc_gate.gated_value(v, threshold=0.0, gate_ok=(gate_val > 0.0), off_value=0.0) for k, v in base.items()}
+                    else:
+                        group_surface = {k: gate_val * float(v) for k, v in base.items()}
+                else:
+                    group_surface = self._fuse_safe(parts)
+            groups.append({"group_id": gid, "members": members, "operator": operator, "weight": weight, "group_branch_surface": group_surface, "group_confidence": max([float(p.get("confidence", 0.0) or 0.0) for p in member_packets], default=0.0)})
+        for pid, pkt in packet_map.items():
+            if pid in used:
+                continue
+            surf = pkt.get("branch_vote_surface") or {}
+            if isinstance(surf, dict) and surf:
+                groups.append({"group_id": pid, "members": [pid], "operator": "add", "weight": float(pkt.get("weight_hint", 1.0) or 1.0), "group_branch_surface": dict(surf), "group_confidence": float(pkt.get("confidence", 0.0) or 0.0)})
+        scores: Dict[Any, float] = {}
+        for g in groups:
+            surf = g.get("group_branch_surface") or {}
+            if not surf:
+                continue
+            gw = float(g.get("weight", 1.0) or 1.0) * max(0.0, float(g.get("group_confidence", 1.0) or 1.0))
+            if sc_add is not None and hasattr(sc_add, "combine"):
+                for k, v in surf.items():
+                    scores[k] = scores.get(k, 0.0) + sc_add.combine([float(v)], weights=[gw])
+            else:
+                for k, v in surf.items():
+                    scores[k] = scores.get(k, 0.0) + gw * float(v)
+        if scores and bool(self.final_fusion.get("normalize_groups", True)):
+            scores = normalize_scores(scores)
+        return scores, packets, groups
+
     def _signal_snapshot(self, primitives: Dict[str, Any]) -> Dict[str, float]:
         bus = primitives.get("co_bus", None)
         if bus is None:
@@ -129,11 +252,30 @@ class ActionHead:
                 return {}
         return {}
 
+    def _meta_prior_weights(self, primitives: Dict[str, Any]) -> Dict[str, float]:
+        mh = primitives.get("_meta_header")
+        priors = {}
+        try:
+            priors = mh.to_dict() if mh is not None and hasattr(mh, "to_dict") else {}
+        except Exception:
+            priors = {}
+        stab = float(priors.get("stability_prior", 0.5) or 0.5)
+        chg = float(priors.get("change_prior", 1.0 - stab) or (1.0 - stab))
+        classicality = float(priors.get("classicality_prior", stab) or stab)
+        monitoring_floor = float(priors.get("monitoring_floor", 0.05) or 0.05)
+        return {
+            "stability_prior": max(0.0, min(1.0, stab)),
+            "change_prior": max(0.0, min(1.0, chg)),
+            "classicality_prior": max(0.0, min(1.0, classicality)),
+            "monitoring_floor": max(0.0, min(1.0, monitoring_floor)),
+        }
+
     def _attach_telemetry(self, out: Dict[str, Any], primitives: Dict[str, Any], header: Any,
-                          family: str, translator_mask: set, actions: list) -> Dict[str, Any]:
+                          family: str, translator_mask: set, actions: list, packets: Optional[list]=None, groups: Optional[list]=None) -> Dict[str, Any]:
         signals = self._signal_snapshot(primitives)
         out.setdefault("signals", dict(signals))
         meta = primitives.get("_meta_header")
+        out.setdefault("meta_prior_weights", self._meta_prior_weights(primitives))
         if meta is not None:
             try:
                 out.setdefault("meta_header", meta.to_dict())
@@ -143,6 +285,12 @@ class ActionHead:
                 except Exception:
                     out.setdefault("meta_header", {})
         out.setdefault("translator_mask", sorted(list(translator_mask)))
+        if packets is not None:
+            out.setdefault("contribution_packets", packets)
+            out.setdefault("packet_count", int(len(packets)))
+        if groups is not None:
+            out.setdefault("group_outputs", groups)
+            out.setdefault("group_count", int(len(groups)))
         out.setdefault("mask_mode", "blocklist")
         required = [
             "EC_Identity.same",
@@ -247,6 +395,10 @@ class ActionHead:
                 if grid is None: return True
                 try: return int(grid[r][c]) == 0
                 except Exception: return True
+            if self.classic_planner == "astar":
+                first = self._maze_astar_first_action((pr, pc), (gr, gc), grid, H, W)
+                if first is not None:
+                    return {first: 1.0}
             d0 = abs(pr-gr)+abs(pc-gc)
             scores: Dict[str, float] = {}
             for d,(dr,dc) in deltas.items():
@@ -276,6 +428,46 @@ class ActionHead:
             if d == opp: continue
             if self._maze_free(nr+dr, nc+dc, grid, H, W): deg += 1
         return deg
+
+
+    def _maze_astar_first_action(self, pos, goal, grid, H, W):
+        try:
+            import heapq
+            if not (isinstance(pos, (list, tuple)) and isinstance(goal, (list, tuple))):
+                return None
+            start = (int(pos[0]), int(pos[1]))
+            goal_t = (int(goal[0]), int(goal[1]))
+            deltas = {"UP":(-1,0),"DOWN":(1,0),"LEFT":(0,-1),"RIGHT":(0,1)}
+            def h(a,b):
+                return abs(a[0]-b[0]) + abs(a[1]-b[1])
+            openq = [(h(start, goal_t), 0, start)]
+            came = {start: (None, None)}
+            best_g = {start: 0}
+            while openq:
+                _f, g, cur = heapq.heappop(openq)
+                if cur == goal_t:
+                    break
+                for act, (dr, dc) in deltas.items():
+                    nr, nc = cur[0] + dr, cur[1] + dc
+                    if not self._maze_free(nr, nc, grid, H, W):
+                        continue
+                    ng = g + 1
+                    nxt = (nr, nc)
+                    if nxt not in best_g or ng < best_g[nxt]:
+                        best_g[nxt] = ng
+                        came[nxt] = (cur, act)
+                        heapq.heappush(openq, (ng + h(nxt, goal_t), ng, nxt))
+            if goal_t not in came:
+                return None
+            cur = goal_t
+            first = None
+            while came[cur][0] is not None:
+                prev, act = came[cur]
+                first = act
+                cur = prev
+            return first
+        except Exception:
+            return None
 
     def _fuse_safe(self, parts: List[Any]) -> Dict[Any, float]:
         form1 = []
@@ -326,8 +518,7 @@ class ActionHead:
             if self.co_weight_override is not None:
                 co_w = float(max(0.0, min(1.0, self.co_weight_override)))
             else:
-                try: co_w = float(getattr(header, "state", {}).get("co_weight", 1.0))
-                except Exception: co_w = 1.0
+                co_w = float(_header_state_get(header, "co_weight", 1.0))
             if self.blend_mode == "co_only": co_w = 1.0
             elif self.blend_mode == "classic_only": co_w = 0.0
             classic_w = 1.0 - co_w
@@ -336,6 +527,8 @@ class ActionHead:
 
             # CO path
             co_sources: List[str] = []
+            packet_scores, packets, groups = self._packet_scores(primitives, family)
+            if packet_scores: co_sources.append("packets")
             bus_scores, n_votes = ({}, 0)
             if self.prefer_bus:
                 bus_scores, n_votes = self._bus_scores(primitives, family)
@@ -359,7 +552,8 @@ class ActionHead:
 
             co_scores: Dict[Any, float] = {}
             parts: List[Any] = []
-            if bus_scores:   parts.append((bus_scores, 1.0))
+            if packet_scores: parts.append((packet_scores, 1.0))
+            elif bus_scores:   parts.append((bus_scores, 1.0))
             if trans_scores: parts.append((trans_scores, 1.0))
             if parts:
                 co_scores = self._fuse_safe(parts)
@@ -416,7 +610,7 @@ class ActionHead:
                 out.setdefault("translator_mask", sorted(list(translator_mask)))
                 out.setdefault("mask_mode", "blocklist")
                 out["action"] = chosen
-                return self._attach_telemetry(out, primitives, header, family, translator_mask, list(actions or []))
+                return self._attach_telemetry(out, primitives, header, family, translator_mask, list(actions or []), packets=packets, groups=groups)
 
             # ------------- Maze anti-osc without ties -------------
             picked_override: Optional[str] = None
@@ -496,9 +690,15 @@ class ActionHead:
                 if picked_override is not None:
                     best = picked_override
                 else:
-                    max_score = max(final_scores.values())
-                    best_actions = [a for a, v in final_scores.items() if v == max_score]
-                    best = self.rng.choice(best_actions) if len(best_actions) > 1 else best_actions[0]
+                    sem = primitives.get("_semantic", {}) or {}
+                    selector = sem.get("SC_WeightedSelection")
+                    if selector is not None and hasattr(selector, "select"):
+                        selected = selector.select(final_scores, mode="argmax")
+                        best = selected.get("choice")
+                    else:
+                        max_score = max(final_scores.values())
+                        best_actions = [a for a, v in final_scores.items() if v == max_score]
+                        best = self.rng.choice(best_actions) if len(best_actions) > 1 else best_actions[0]
 
                 # update 2-step position history
                 pos = observation.get("pos")
@@ -510,6 +710,7 @@ class ActionHead:
                     self._last_action = best
 
                 #print(f"[HEAD] choose action={best} sources={co_sources}")
+                top = sorted(final_scores.items(), key=lambda kv: kv[1], reverse=True)[:3]
                 out = {
                     "co_policy": f"{family}:blend(co={co_w:.2f})",
                     "co_bus_votes": int(n_votes),
@@ -518,6 +719,15 @@ class ActionHead:
                     "co_sources": co_sources,
                     "head_eps": float(self.eps),
                     "head_ngram_order": int(self.k),
+                    "continuation_surface": {
+                        "co_scores": dict(co_scores),
+                        "classical_scores": dict(classical),
+                        "final_scores": dict(final_scores),
+                        "meta_prior_weights": self._meta_prior_weights(primitives),
+                        "top_continuations": [{"action": a, "score": float(v)} for a, v in top],
+                        "group_ids": [g.get("group_id") for g in groups],
+                        "packet_ids": [p.get("element_id") for p in packets],
+                    },
                 }
                 return _finalize_action(best, out)
 

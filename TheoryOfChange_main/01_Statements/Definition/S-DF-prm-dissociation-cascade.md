@@ -34,11 +34,23 @@ When coordination weakens and stabilizing energy falls while diversity rises, sy
 - [[S-DF-entropy-co]]: rising Σ/σ(ε) indicates diversification/instability pressures.
 - Combining these into DC provides an early warning for identity fragmentation.
 
-## Operational sketch
+## Explanation (informal)
 - Inputs: alignment curvature/strain (Γ), stabilization energy (SE), entropy (Σ), σ(ε) dynamics.
 - Example form (domain‑specific normalization implied):
   - DC ≈ w₁·Σ ↑ + w₂·σ(ε) ↑ + w₃·Γ ↑ − w₄·SE ↓
 - Interpretation: higher DC indicates increased risk of dissociative fragmentation of identity under breath.
+
+## Derivation (Philosophical)
+- Rising entropy and sensitivity fluctuation increase diversification pressure.
+- Falling stabilization energy weakens integration.
+- Gauge misalignment makes parts stop transporting coherently together.
+- Their conjunction therefore licenses a fragmentation-risk metric.
+
+## Derivation (Formal/Logical/Mathematical)
+```text
+DC := w1·Entropy + w2·sigma(epsilon) + w3·GaugeMisalignment - w4·StabilizationEnergy
+```
+with domain-specific normalization declared explicitly.
 
 ## Clarifications / Further Context
 - PRM scope: diagnostic primitive; domain‑specific choices for weights and normalization depend on the evaluation surface and evidence algebra.

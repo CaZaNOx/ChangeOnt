@@ -55,7 +55,7 @@ A canonical pipeline must:
 
 ---
 
-### `engine.py`
+### `archive/legacy_runtime/co_core_engine_legacy.py`
 Engine-style orchestration object.
 
 #### Role

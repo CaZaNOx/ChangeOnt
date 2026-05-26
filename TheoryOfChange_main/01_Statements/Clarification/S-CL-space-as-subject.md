@@ -6,11 +6,11 @@ concepts:
 - '[[02_Concepts/C-recursive-truth]]'
 - '[[02_Concepts/C-prior-pointer-reach]]'
 dependencies:
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
-- '[[01_Statements/Definition/S-DF-localreach-topology]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
+- '[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]'
 - '[[01_Statements/Clarification/S-CL-classical-compression]]'
 parents:
-- '[[01_Statements/Definition/S-DF-subject-recursive-field]]'
+- '[[01_Statements/03_Inner_Development/005_S-DF-subject-recursive-field]]'
 successors: []
 symbols_used: []
 sources:
@@ -44,7 +44,7 @@ This justifies the demand to define “space-changing operators” and to treat 
 ## Relationships
 
 - Concepts: [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-prior-pointer-reach]]
-- Parents: [[01_Statements/Definition/S-DF-subject-recursive-field]]
-- Dependencies: [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-localreach-topology]]; [[01_Statements/Clarification/S-CL-classical-compression]]
+- Parents: [[01_Statements/03_Inner_Development/005_S-DF-subject-recursive-field]]
+- Dependencies: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]; [[01_Statements/Clarification/S-CL-classical-compression]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

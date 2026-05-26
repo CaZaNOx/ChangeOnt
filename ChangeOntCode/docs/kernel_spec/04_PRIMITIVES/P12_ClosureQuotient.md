@@ -1,4 +1,7 @@
 # P12 ClosureQuotient
+Current classification: **Provisional**
+
+Strongly motivated grouping/closure support, but still implementation-sensitive and not fully closed.
 
 ## Purpose
 

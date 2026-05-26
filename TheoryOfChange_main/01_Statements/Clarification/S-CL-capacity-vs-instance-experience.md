@@ -5,9 +5,9 @@ title: Distinguish capacity for experience from specific experiential content
 concepts:
 - '[[02_Concepts/C-subject-awareness-experience]]'
 dependencies:
-- '[[01_Statements/Definition/S-DF-structure-of-experience]]'
+- '[[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]'
 parents:
-- '[[01_Statements/Definition/S-DF-structure-of-experience]]'
+- '[[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]'
 successors: []
 symbols_used: []
 sources:
@@ -31,7 +31,7 @@ The structural capacity to experience (the unified subject/awareness/experience 
 Being able to have experiences is one thing; the particular pain/joy/sight/sound you have now is another. The ability is the stable structure; the contents are transient instances.
 
 ## Philosophical Justification
-From [[01_Statements/Definition/S-DF-structure-of-experience]], the triad is constitutive: subject, awareness, and experience co-arise as capacity. Individual qualia or contents instantiate that capacity. Conflating the two collapses persistence (capacity) with variation (content), obscuring how change can occur without annihilating the subject.
+From [[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]], the triad is constitutive: subject, awareness, and experience co-arise as capacity. Individual qualia or contents instantiate that capacity. Conflating the two collapses persistence (capacity) with variation (content), obscuring how change can occur without annihilating the subject.
 
 ## Clarifications / Further Context
 - Capacity persists through content changes; content variation does not negate the triad.
@@ -42,14 +42,14 @@ From [[01_Statements/Definition/S-DF-structure-of-experience]], the triad is con
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
-- [[01_Statements/Definition/S-DF-structure-of-experience]]
+- [[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
 - Concepts: [[02_Concepts/C-subject-awareness-experience]]
-- Parents: [[01_Statements/Definition/S-DF-structure-of-experience]]
-- Dependencies: [[01_Statements/Definition/S-DF-structure-of-experience]]
+- Parents: [[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]
+- Dependencies: [[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

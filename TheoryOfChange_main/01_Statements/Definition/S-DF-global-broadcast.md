@@ -3,7 +3,7 @@ id: stmt.df-global-broadcast
 type: DF
 title: Global broadcast — distributing the specious present across workspaces
 concepts: ["[[02_Concepts/C-ontology-of-change]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-time-kernel]]", "[[01_Statements/Definition/S-DF-subject-recursive-field]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-time-kernel]]", "[[01_Statements/03_Inner_Development/005_S-DF-subject-recursive-field]]"]
 parents: ["[[01_Statements/Definition/S-DF-time-kernel]]"]
 successors: []
 symbols_used: []
@@ -46,6 +46,6 @@ Define a broadcast operator \(\mathcal{B}:\mathcal{X}\to\mathcal{W}\) that maps 
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Definition/S-DF-time-kernel]]
-- Dependencies: [[01_Statements/Definition/S-DF-time-kernel]]; [[01_Statements/Definition/S-DF-subject-recursive-field]]
+- Dependencies: [[01_Statements/Definition/S-DF-time-kernel]]; [[01_Statements/03_Inner_Development/005_S-DF-subject-recursive-field]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

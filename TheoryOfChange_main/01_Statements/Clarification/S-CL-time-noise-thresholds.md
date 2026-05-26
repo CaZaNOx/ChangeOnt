@@ -8,7 +8,7 @@ concepts:
 - '[[02_Concepts/C-recursive-truth]]'
 dependencies:
 - '[[01_Statements/Definition/S-DF-depth-reach]]'
-- '[[01_Statements/Definition/S-DF-localreach-topology]]'
+- '[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]'
 - '[[01_Statements/Clarification/S-CL-consciousness-thresholds]]'
 - '[[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]'
 parents:
@@ -47,6 +47,6 @@ This clarifies why we do not need extra axioms for time or for seeing patterns: 
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-prior-pointer-reach]]; [[02_Concepts/C-recursive-truth]]
 - Parents: [[01_Statements/Definition/S-DF-depth-reach]]
-- Dependencies: [[01_Statements/Definition/S-DF-depth-reach]]; [[01_Statements/Definition/S-DF-localreach-topology]]; [[01_Statements/Clarification/S-CL-consciousness-thresholds]]; [[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]
+- Dependencies: [[01_Statements/Definition/S-DF-depth-reach]]; [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]; [[01_Statements/Clarification/S-CL-consciousness-thresholds]]; [[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

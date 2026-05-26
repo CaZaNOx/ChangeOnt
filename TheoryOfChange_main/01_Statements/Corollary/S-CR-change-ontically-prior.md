@@ -4,9 +4,9 @@ type: CR
 aliases: ["C0.2"]
 title: Change is ontically prior to being
 concepts: ["[[02_Concepts/C-ontology-of-change]]"]
-dependencies: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]"]
-parents: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]"]
-successors: ["[[01_Statements/Definition/S-DF-identity-invariants]]"]
+dependencies: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]"]
+parents: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]"]
+successors: ["[[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]"]
 symbols_used: ["[[01_Statements/SYMBOLS/Delta]]"]
 sources:
   - path: TheoryOfChange/02_Foundations/DerChain.md:40
@@ -58,14 +58,13 @@ Existence assertions require discriminable predicates ⇒ require Δ
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Successors: [[01_Statements/Definition/S-DF-identity-invariants]]
+- Parents: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Successors: [[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 - [[01_Statements/Corollary/S-CR-no-null-world]]
-- [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 

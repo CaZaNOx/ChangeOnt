@@ -1,68 +1,43 @@
 # Spec Gaps
 
-This file tracks known gaps between:
-- target-state docs
-- current code
-- and remaining open design choices
+This file tracks the remaining gap between the target-state docs and the current codebase.
 
-It is not a place to silently normalize drift.  
-It is a place to record it.
+## Current status
 
-## 1. Purpose
+The major **implementation blockers** that previously prevented an honest docs→code claim are now closed for the canonical runtime slice. In particular:
 
-A spec gap exists when:
-- docs say X but code does Y
-- code supports behavior not yet captured in docs
-- or an important design area remains genuinely open
+- the canonical smoke path completes cleanly
+- required artifacts and plots are produced at the smoke-validation level
+- QA/spec gates pass
+- the active runtime path is explicit and working
+- packet/group/fusion structure is real
+- path-space fragments are real internal runtime objects
+- semantic combinator support is active
+- component classification and experimental opt-in are enforced
+- a broader validation suite exists beyond smoke
 
-## 2. Gap categories
-
-### Documentation gap
-The docs are too weak to determine the intended behavior.
-
-### Implementation gap
-The intended behavior is clear, but code does not yet implement it.
-
-### Classification gap
-A component/file/path exists, but its status is unclear:
-- canonical
-- optional
-- experimental
-- legacy
+## Remaining gap types
 
 ### Open design space
-Several CO-faithful realizations remain possible and should not yet be falsely frozen as uniquely derived.
+The remaining gaps are primarily open design space or future richness questions rather than blocking implementation defects.
 
-## 3. Current high-priority gaps
+Examples:
+- how philosophically final the primitive set should be
+- whether additional structural profiles should later become primitives
+- how much further semantic combinators should absorb currently local behavior
+- how exhaustive future experiment matrices should be beyond the existing validation suite
 
-### Documentation-level
-- exact final integration of all current top-level docs with new target-state docs
-- exact YAML/config syntax details in some areas
+### Cleanup / refinement
+Further cleanup may still be desirable, especially for:
+- optional/experimental component refinement
+- deeper path-space centrality across more mechanisms
+- additional code-tree simplification of inactive paths
 
-### Implementation-level
-- manifest path resolution
-- maze CO non-termination / oscillatory failure
-- summary semantic correctness
-- header/classical blend correctness
-- primitive/translator API mismatches
-- honest parameter/config consumption
+## Practical meaning
 
-### Classification-level
-- status of several advanced elements
-- status of stale or alternate runtime paths
-- status of combo/registry/factory artifacts
+The project is now in a state where the docs meaningfully describe the implemented canonical runtime, and the remaining differences are best understood as:
+- future refinement
+- broader validation expansion
+- or open design space
 
-## 4. Legacy promotion rule
-
-Legacy material may inform target-state docs, but does not become binding unless explicitly promoted into the canonical docs.
-
-Code must not rely on legacy-only semantics without promotion.
-
-## 5. How to use this file
-
-When a gap is resolved:
-- update the canonical docs
-- update code if needed
-- remove or revise the gap entry
-
-This file should shrink over time, not become the hidden home of permanent unresolved drift.
+rather than hidden implementation drift in the active canonical slice.

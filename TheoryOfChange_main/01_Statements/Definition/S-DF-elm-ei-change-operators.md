@@ -1,54 +1,56 @@
 ---
 id: stmt.elm-ei-change-operators
 type: DF
-aliases: ["ELM.EI.ChangeOperators"]
-title: Element — EI — Change Operators (motif composition)
-concepts: ["[[02_Concepts/C-ontology-of-change]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-prm-change-ops]]", "[[01_Statements/Definition/S-DF-prm-closure-quotient]]"]
-parents: ["[[01_Statements/Definition/S-DF-prm-change-ops]]"]
+aliases:
+- ELM_EI
+- EI_ChangeOps
+title: EI — change-operator bundle over transformation space
+concepts:
+- '[[02_Concepts/C-change-trace-invariants]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-prm-changeops-core]]'
+- '[[01_Statements/Definition/S-DF-prm-closure-quotient]]'
+parents:
+- '[[01_Statements/Derivation/S-DR-kernel-elements-from-primitive-bundles]]'
 successors: []
 symbols_used: []
 sources:
-  - path: TheoryOfChange/02_Foundations/DerChain.md:5628
+- path: TheoryOfChange/02_Foundations/DerChain.md
 flags: []
-tags: [layer/operators, domain/operational, element, motifs, algebra, "type/DF", "concept/ontology-of-change"]
+tags:
+- layer/kernel
+- domain/ontological
+- type/DF
+- status/stable
 ---
-# Element — EI — Change Operators (motif composition)
+# EI — change-operator bundle over transformation space
 ## Claim (formal)
-Emit motif and composition counts using k‑gram detection and ε‑class quotients; supports OPS/J and routing.
+EI is the element-bundle that extracts and applies motif/composition structure over histories in a directional, non-static transformation space.
 
 ## Philosophical Translation (of formal claim)
-Name and build with the elemental moves of change.
+EI is not a generic second-order adaptation bucket. It is the bundle that works with change-patterns, motif reuse, and composition in a space where continuation is path-sensitive and not reducible to static point geometry.
 
 ## Philosophical Justification
-Complex structures are composed of recurring local motifs. By detecting and composing these motifs under ε‑closure, we gain a vocabulary and algebra for change that is robust to small variations. This supports analysis, control, and interpretability.
+If the kernel space is not fundamentally metric-point geometry but directional transformation space, then change-operators should be understood as operators over histories, motifs, and compositional continuation rather than over static state labels. EI is the bundle that operationalizes this in the kernel.
 
-## Derivation (Formal/Operational)
-```text
-motif_counts := detect_kgrams(x_{1..t})
-comp_counts := compose_classes(motifs, ≈_ε)
-```
+## Explanation (informal)
+EI looks at how change tends to compose, recur, and suggest possible next continuations. It therefore fits the non-metric, process-native view better than a static feature-scoring reading.
 
-## Clarifications / Further Context
-- Choice of k and closure tolerance should reflect domain invariants.
-- Outputs feed OPS/J modules for manipulation of motif classes.
-
-## Next Steps in Chain
-- Benchmark motif maps against outcomes; feed results to router and order modules.
-
-## Tags
-#type/DF #layer/operators #domain/operational #element #motifs #algebra #concept/ontology-of-change
+## Active-chain status
+**Status band:** derived-but-weaker  
+**Reason:** the narrow motif/composition reading is well supported; any broader second-order deformation reading remains to be earned separately.
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 - [[01_Statements/Definition/S-DF-prm-change-ops]]
+- [[01_Statements/Definition/S-DF-prm-changeops-core]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
-- Concepts: [[02_Concepts/C-ontology-of-change]]
-- Parents: [[01_Statements/Definition/S-DF-prm-change-ops]]
-- Dependencies: [[01_Statements/Definition/S-DF-prm-change-ops]]; [[01_Statements/Definition/S-DF-prm-closure-quotient]]
+- Concepts: [[02_Concepts/C-change-trace-invariants]]
+- Parents: [[01_Statements/Derivation/S-DR-kernel-elements-from-primitive-bundles]]
+- Dependencies: [[01_Statements/Definition/S-DF-prm-changeops-core]]; [[01_Statements/Definition/S-DF-prm-closure-quotient]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

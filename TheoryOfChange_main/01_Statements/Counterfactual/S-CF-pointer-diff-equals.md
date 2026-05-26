@@ -4,8 +4,8 @@ type: CF
 aliases: ["CF_3.1_x"]
 title: Counterfactual — if diff(x,y)=∅ under x⇘y then x=y and arisal is not self-caused
 concepts: ["[[02_Concepts/C-prior-pointer-reach]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-pointer-structural]]", "[[01_Statements/Definition/S-DF-difference-operator]]"]
-parents: ["[[01_Statements/Definition/S-DF-pointer-structural]]"]
+dependencies: ["[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]", "[[01_Statements/Definition/S-DF-difference-operator]]"]
+parents: ["[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]"]
 successors: []
 symbols_used: ["[[01_Statements/SYMBOLS/NotEqual]]"]
 sources:
@@ -32,7 +32,7 @@ Reinforces structural pointer semantics and the need for diff/≈ criteria.
 ## Relationships
 
 - Concepts: [[02_Concepts/C-prior-pointer-reach]]
-- Parents: [[01_Statements/Definition/S-DF-pointer-structural]]
-- Dependencies: [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-difference-operator]]
+- Parents: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]
+- Dependencies: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/Definition/S-DF-difference-operator]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

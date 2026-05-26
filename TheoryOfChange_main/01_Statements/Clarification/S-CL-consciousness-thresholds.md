@@ -9,7 +9,7 @@ concepts:
 dependencies:
 - '[[01_Statements/Definition/S-DF-consciousness-loop]]'
 - '[[01_Statements/Definition/S-DF-stabilization-energy]]'
-- '[[01_Statements/Definition/S-DF-localreach-topology]]'
+- '[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]'
 - '[[01_Statements/Derivation/S-DR-breath-knot-stabilization-topology]]'
 - '[[01_Statements/Clarification/S-CL-consciousness-falsifiability]]'
 parents:
@@ -51,6 +51,6 @@ This addresses the biting question “what makes change conscious?” by pointin
 
 - Concepts: [[02_Concepts/C-proto-consciousness]]; [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-gauge-haq-stabilization]]
 - Parents: [[01_Statements/Definition/S-DF-consciousness-loop]]
-- Dependencies: [[01_Statements/Definition/S-DF-consciousness-loop]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-localreach-topology]]; [[01_Statements/Derivation/S-DR-breath-knot-stabilization-topology]]; [[01_Statements/Clarification/S-CL-consciousness-falsifiability]]
+- Dependencies: [[01_Statements/Definition/S-DF-consciousness-loop]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]; [[01_Statements/Derivation/S-DR-breath-knot-stabilization-topology]]; [[01_Statements/Clarification/S-CL-consciousness-falsifiability]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

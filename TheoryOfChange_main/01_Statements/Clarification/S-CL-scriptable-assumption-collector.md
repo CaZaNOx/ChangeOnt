@@ -21,7 +21,7 @@ tags:
 
 # Scriptable collector for assumption/axiom seed lines
 
-Whenever you need to retro-fit DF/CR labels from legacy prose, run a script that scans each file for keywords `assumption`, `axiom`, `postulate`, `Now`, `recursion`, `collapse` and outputs a candidate ledger of passages needing canonicalization. Label each candidate with a DF/CR identifier and note the precise span, then validate the assumption by introducing the performative route (e.g., `DF 0.1`) or likely `CR` witness. This automates the bookkeeping mentioned around line 307 of AI_15 and keeps the label hygiene work manageable.
+Whenever you need to retro-fit DF/CR labels from inactive prose, run a script that scans each file for keywords `assumption`, `axiom`, `postulate`, `Now`, `recursion`, `collapse` and outputs a candidate ledger of passages needing canonicalization. Label each candidate with a DF/CR identifier and note the precise span, then validate the assumption by introducing the performative route (e.g., `DF 0.1`) or likely `CR` witness. This automates the bookkeeping mentioned around line 307 of AI_15 and keeps the label hygiene work manageable.
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By

@@ -23,11 +23,19 @@ Do the right things in the right order; doing them backward can undo what you ga
 ## Philosophical Justification
 Change is path‑dependent: AB may open opportunities that BA closes. Penalizing 2‑cycles/backtracks formalizes this intuition and reduces oscillations that waste effort or erase gains. Casting penalties as graded votes (co‑logic) integrates order awareness into decision aggregation.
 
-## Derivation (Formal/Operational)
+## Derivation (Philosophical)
+- Change is path-sensitive, not merely state-sensitive.
+- Loopiness and graded order logic show that sequence can alter viability.
+- EJ is the element that makes those order effects actionable.
+
+## Derivation (Formal/Logical/Mathematical)
 ```text
 penalty_map[a] := risk(returns_to_prev) + risk(undoes_gain)
 vote_map := grade_to_votes(penalty_map)
 ```
+
+## Explanation (informal)
+EJ is where sequence really matters. It exposes that A then B may be harmless while B then A may be destructive, trapped, or wasteful.
 
 ## Clarifications / Further Context
 - Calibrate penalties to avoid over‑discouraging necessary reversals (repair steps).
@@ -40,6 +48,7 @@ vote_map := grade_to_votes(penalty_map)
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
+- [[01_Statements/Definition/S-DF-candidate-surface]]
 - [[01_Statements/Definition/S-DF-prm-order-arisal]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 

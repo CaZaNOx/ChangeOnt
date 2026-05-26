@@ -6,7 +6,7 @@ concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 - '[[02_Concepts/C-subject-awareness-experience]]'
 dependencies:
-- '[[01_Statements/Definition/S-DF-memory-trace-integration]]'
+- '[[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]'
 - '[[01_Statements/Definition/S-DF-stabilization-energy]]'
 parents:
 - '[[01_Statements/Clarification/S-CL-consciousness-thresholds]]'
@@ -43,6 +43,6 @@ Time's arrow lives in the ledger of differences we keep; to reverse time we woul
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-subject-awareness-experience]]
 - Parents: [[01_Statements/Clarification/S-CL-consciousness-thresholds]]
-- Dependencies: [[01_Statements/Definition/S-DF-memory-trace-integration]]; [[01_Statements/Definition/S-DF-stabilization-energy]]
+- Dependencies: [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]; [[01_Statements/Definition/S-DF-stabilization-energy]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

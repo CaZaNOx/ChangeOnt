@@ -4,8 +4,8 @@ type: DF
 aliases: ["FND_7.Eventlet"]
 title: Eventlet — minimal discernible modulation
 concepts: ["[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-prior-pointer-reach]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-localreach-topology]]"]
-parents: ["[[01_Statements/Definition/S-DF-localreach-topology]]"]
+dependencies: ["[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]"]
+parents: ["[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]"]
 successors: ["[[01_Statements/Definition/S-DF-path-eventlet-chain]]"]
 symbols_used: []
 sources:
@@ -52,7 +52,6 @@ Given ε, eventlet e satisfies:
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 - [[01_Statements/Clarification/S-CL-interaction-points-eventlets]]
-- [[01_Statements/Definition/S-DF-localreach-topology]]
 - [[01_Statements/Definition/S-DF-path-eventlet-chain]]
 - [[01_Statements/Definition/S-DF-point-occurrence]]
 - [[01_Statements/Definition/S-DF-prm-change-ops]]
@@ -62,8 +61,8 @@ Given ε, eventlet e satisfies:
 ## Relationships
 
 - Concepts: [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-prior-pointer-reach]]
-- Parents: [[01_Statements/Definition/S-DF-localreach-topology]]
-- Dependencies: [[01_Statements/Definition/S-DF-localreach-topology]]
+- Parents: [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]
+- Dependencies: [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]
 - Successors: [[01_Statements/Definition/S-DF-path-eventlet-chain]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -3,9 +3,9 @@ type: FT|DF|DR|CR|CF|AS|CL
 aliases: ["FT x.y"]
 title: <short title>
 concepts: [<concept-slug>, ...]
-dependencies: ["[[01_Statements/...]]"]          # logical prerequisites
-parents: ["[[01_Statements/...]]"]               # immediate logical parents
-successors: ["[[01_Statements/...]]"]            # children, if any
+dependencies: ["`01_Statements/...`"]          # logical prerequisites
+parents: ["`01_Statements/...`"]               # immediate logical parents
+successors: ["`01_Statements/...`"]            # children, if any
 symbols_used: ["[[01_Statements/SYMBOLS/Delta]]"] # [] if none
 sources:
   - path: <file:line>

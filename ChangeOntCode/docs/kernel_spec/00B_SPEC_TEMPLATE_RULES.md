@@ -91,7 +91,7 @@ A unit must not be silently promoted into a higher-level role.
 Examples:
 - a primitive must not quietly become an element
 - a header must not quietly become ontology
-- ActionHead must not quietly become a semantic mechanism
+- CommitmentSurface must not quietly become a hidden policy mechanism
 - a translator must not quietly become ontology logic
 
 If such a change is intended, it must be explicit in docs.

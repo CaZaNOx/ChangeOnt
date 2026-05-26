@@ -7,7 +7,7 @@ concepts:
 - '[[02_Concepts/C-recursive-truth]]'
 dependencies:
 - '[[01_Statements/Definition/S-DF-stabilization-energy]]'
-- '[[01_Statements/Definition/S-DF-reach-relation]]'
+- '[[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]'
 parents:
 - '[[01_Statements/Definition/S-DF-stabilization-energy]]'
 successors: []
@@ -43,6 +43,6 @@ This removes the temptation to introduce e.g., energy, tension, or numeric thres
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-recursive-truth]]
 - Parents: [[01_Statements/Definition/S-DF-stabilization-energy]]
-- Dependencies: [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-reach-relation]]
+- Dependencies: [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -1,0 +1,16 @@
+{
+  "seed": 0,
+  "out_dir": "outputs/frozen_empirical_sanity_smoke_v1/latent_easy_seed0/random",
+  "spec": {
+    "name": "easy_visible",
+    "params": {
+      "seed": 0,
+      "max_steps": 20
+    }
+  },
+  "agent": {
+    "type": "random",
+    "params": {}
+  },
+  "log_every": 5
+}

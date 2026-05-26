@@ -4,7 +4,7 @@
 
 ## Purpose
 
-`combos/` contains combo/kernel-configuration artifacts.
+`archive/legacy_runtime/co_combos_legacy/` contains combo/kernel-configuration artifacts.
 
 These represent grouped kernel variant definitions or older combination artifacts.
 
@@ -38,7 +38,7 @@ Every combo artifact should be documented as one of:
 
 Combo files must not silently compete with the active canonical config path.
 
-If `experiments/configs/co_agents/...` is the canonical active variant definition path, then `combos/` must either:
+If `experiments/configs/co_agents/...` is the canonical active variant definition path, then `archive/legacy_runtime/co_combos_legacy/` must either:
 - be aligned and documented,
 - or be marked historical/experimental.
 

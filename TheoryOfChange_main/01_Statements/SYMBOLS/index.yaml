@@ -82,3 +82,9 @@ symbols:
     scope: structural
     notes: identity/equivalence relation
     related: ["≠"]
+
+  - sym: "d"
+    name: derived comparability distance
+    scope: strengthened local comparability
+    notes: shorthand for an earned local burden/comparability measure; not a primitive background metric
+    related: ["τ", "≈", "θ"]

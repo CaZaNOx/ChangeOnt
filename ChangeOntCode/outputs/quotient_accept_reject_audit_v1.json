@@ -1,0 +1,414 @@
+{
+  "accepted_profiles_total": 605,
+  "accepted_singletons_in_trace_sample": 495,
+  "audit_findings": [
+    {
+      "evidence": "605 accepted profiles observed across 144 full-current diagnostic steps; rejected reasons are counted as {}.",
+      "finding": "Quotient accept/reject reasons are now visible at relation telemetry and row-trace level.",
+      "id": "QAR1_PROVENANCE_NOW_VISIBLE",
+      "next_action": "Keep this logging; use it during real-trace false/missed quotient calibration.",
+      "severity": "resolved-watchpoint"
+    },
+    {
+      "evidence": "duplicate_signature_bug_count=0.",
+      "finding": "No obvious duplicate-profile signature with quotient_share_count=1 was found in the capped diagnostic.",
+      "id": "QAR2_NO_DUPLICATE_SIGNATURE_MISSED_QUOTIENT_FOUND",
+      "next_action": "If this becomes nonzero, fix quotient grouping before any calibration.",
+      "severity": "passed-check"
+    },
+    {
+      "evidence": "accepted_singletons_in_trace_sample=495; possible_calibration_site_count=82.",
+      "finding": "Most accepted profiles are singleton residual profiles rather than multi-member quotient buckets. This is conservative but means quotienting is mostly a trace annotation outside the few matched-profile cases.",
+      "id": "QAR3_CONSERVATIVE_SINGLETONS_DOMINATE",
+      "next_action": "Do not loosen quotienting yet; first design false-quotient/missed-quotient microcases and compare to state-abstraction/bisimulation analogues.",
+      "severity": "medium"
+    }
+  ],
+  "claim_boundary": "Quotient accept/reject audit only. It checks provenance visibility and obvious first-pass quotient pathologies. It is not a final quotient law, not state abstraction/bisimulation evidence, not benchmark evidence, and not a CO proof.",
+  "data_source": "outputs/current_kernel_diagnostic_map_v1/steps.jsonl",
+  "duplicate_signature_bug_candidates": [],
+  "duplicate_signature_bug_count": 0,
+  "full_current_steps": 144,
+  "possible_calibration_site_count": 82,
+  "possible_calibration_sites_sample": [
+    {
+      "family": "bandit",
+      "groups": {
+        "commitment_revisit/burden/carry/action_trace": [
+          "0",
+          "1"
+        ]
+      },
+      "mode": "easy_public_bandit",
+      "run_id": "bandit__easy_public_bandit__full_current__s0",
+      "t": 10
+    },
+    {
+      "family": "bandit",
+      "groups": {
+        "commitment_revisit/burden/carry/action_trace": [
+          "0",
+          "1",
+          "2"
+        ]
+      },
+      "mode": "easy_public_bandit",
+      "run_id": "bandit__easy_public_bandit__full_current__s0",
+      "t": 11
+    },
+    {
+      "family": "bandit",
+      "groups": {
+        "commitment_revisit/burden/carry/action_trace": [
+          "0",
+          "1",
+          "2"
+        ]
+      },
+      "mode": "easy_public_bandit",
+      "run_id": "bandit__easy_public_bandit__full_current__s0",
+      "t": 12
+    },
+    {
+      "family": "bandit",
+      "groups": {
+        "commitment_revisit/burden/carry/action_trace": [
+          "0",
+          "1",
+          "2"
+        ]
+      },
+      "mode": "easy_public_bandit",
+      "run_id": "bandit__easy_public_bandit__full_current__s0",
+      "t": 13
+    },
+    {
+      "family": "bandit",
+      "groups": {
+        "commitment_revisit/burden/carry/action_trace": [
+          "0",
+          "1",
+          "2"
+        ]
+      },
+      "mode": "easy_public_bandit",
+      "run_id": "bandit__easy_public_bandit__full_current__s0",
+      "t": 14
+    },
+    {
+      "family": "bandit",
+      "groups": {
+        "commitment_revisit/burden/carry/action_trace": [
+          "0",
+          "1",
+          "2"
+        ]
+      },
+      "mode": "easy_public_bandit",
+      "run_id": "bandit__easy_public_bandit__full_current__s0",
+      "t": 15
+    },
+    {
+      "family": "renewal",
+      "groups": {
+        "context_entropy/uncertainty/carry/sequence_context": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "prediction_miss_burden/burden/carry/sequence_history": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "mode": "noisy_renewal",
+      "run_id": "renewal__noisy_renewal__full_current__s0",
+      "t": 0
+    },
+    {
+      "family": "renewal",
+      "groups": {
+        "context_entropy/uncertainty/carry/sequence_context": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "prediction_miss_burden/burden/carry/sequence_history": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "mode": "noisy_renewal",
+      "run_id": "renewal__noisy_renewal__full_current__s0",
+      "t": 1
+    },
+    {
+      "family": "renewal",
+      "groups": {
+        "prediction_miss_burden/burden/carry/sequence_history": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "mode": "noisy_renewal",
+      "run_id": "renewal__noisy_renewal__full_current__s0",
+      "t": 2
+    },
+    {
+      "family": "renewal",
+      "groups": {
+        "context_entropy/uncertainty/carry/sequence_context": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "prediction_miss_burden/burden/carry/sequence_history": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "mode": "noisy_renewal",
+      "run_id": "renewal__noisy_renewal__full_current__s0",
+      "t": 3
+    },
+    {
+      "family": "renewal",
+      "groups": {
+        "context_entropy/uncertainty/carry/sequence_context": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "prediction_miss_burden/burden/carry/sequence_history": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "mode": "noisy_renewal",
+      "run_id": "renewal__noisy_renewal__full_current__s0",
+      "t": 4
+    },
+    {
+      "family": "renewal",
+      "groups": {
+        "context_entropy/uncertainty/carry/sequence_context": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "prediction_miss_burden/burden/carry/sequence_history": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "mode": "noisy_renewal",
+      "run_id": "renewal__noisy_renewal__full_current__s0",
+      "t": 5
+    },
+    {
+      "family": "renewal",
+      "groups": {
+        "prediction_miss_burden/burden/carry/sequence_history": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "mode": "noisy_renewal",
+      "run_id": "renewal__noisy_renewal__full_current__s0",
+      "t": 6
+    },
+    {
+      "family": "renewal",
+      "groups": {
+        "context_entropy/uncertainty/carry/sequence_context": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "prediction_miss_burden/burden/carry/sequence_history": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "mode": "noisy_renewal",
+      "run_id": "renewal__noisy_renewal__full_current__s0",
+      "t": 7
+    },
+    {
+      "family": "renewal",
+      "groups": {
+        "context_entropy/uncertainty/carry/sequence_context": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "prediction_miss_burden/burden/carry/sequence_history": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "mode": "noisy_renewal",
+      "run_id": "renewal__noisy_renewal__full_current__s0",
+      "t": 8
+    },
+    {
+      "family": "renewal",
+      "groups": {
+        "prediction_miss_burden/burden/carry/sequence_history": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ]
+      },
+      "mode": "noisy_renewal",
+      "run_id": "renewal__noisy_renewal__full_current__s0",
+      "t": 9
+    }
+  ],
+  "recommendation": "Quotienting is now auditable and no obvious duplicate-signature bug was found. Keep it conservative for Pass 1; postpone tolerance loosening until real-trace false/missed quotient cases are designed.",
+  "rejected_reasons_total": {},
+  "study": "quotient_accept_reject_audit_v1",
+  "task_summary": [
+    {
+      "accepted_profiles": 48,
+      "family": "bandit",
+      "mode": "easy_public_bandit",
+      "quotient_rows": 0,
+      "rejected_profiles": {},
+      "relation_types": {
+        "decision_slot_competition": 96
+      },
+      "steps": 16,
+      "steps_with_multi_member_bucket": 0
+    },
+    {
+      "accepted_profiles": 52,
+      "family": "latent_mechanism",
+      "mode": "easy_visible",
+      "quotient_rows": 30,
+      "rejected_profiles": {},
+      "relation_types": {
+        "decision_slot_competition": 154,
+        "equivalence": 24,
+        "relief": 22,
+        "shared_evidence": 15
+      },
+      "steps": 14,
+      "steps_with_multi_member_bucket": 12
+    },
+    {
+      "accepted_profiles": 55,
+      "family": "latent_mechanism",
+      "mode": "hidden_depth2",
+      "quotient_rows": 24,
+      "rejected_profiles": {},
+      "relation_types": {
+        "decision_slot_competition": 148,
+        "equivalence": 15,
+        "relief": 25,
+        "shared_evidence": 13
+      },
+      "steps": 16,
+      "steps_with_multi_member_bucket": 10
+    },
+    {
+      "accepted_profiles": 120,
+      "family": "maintenance_replacement",
+      "mode": "bandit_like",
+      "quotient_rows": 48,
+      "rejected_profiles": {},
+      "relation_types": {
+        "cancellation": 72,
+        "decision_slot_competition": 480,
+        "equivalence": 24,
+        "relief": 48
+      },
+      "steps": 24,
+      "steps_with_multi_member_bucket": 24
+    },
+    {
+      "accepted_profiles": 120,
+      "family": "maintenance_replacement",
+      "mode": "middle",
+      "quotient_rows": 0,
+      "rejected_profiles": {},
+      "relation_types": {
+        "buffering": 24,
+        "cancellation": 48,
+        "decision_slot_competition": 480,
+        "relief": 24,
+        "shared_evidence": 24
+      },
+      "steps": 24,
+      "steps_with_multi_member_bucket": 0
+    },
+    {
+      "accepted_profiles": 120,
+      "family": "maintenance_replacement",
+      "mode": "renewal_like",
+      "quotient_rows": 0,
+      "rejected_profiles": {},
+      "relation_types": {
+        "buffering": 24,
+        "cancellation": 48,
+        "decision_slot_competition": 480,
+        "relief": 24,
+        "shared_evidence": 6
+      },
+      "steps": 24,
+      "steps_with_multi_member_bucket": 0
+    },
+    {
+      "accepted_profiles": 26,
+      "family": "maze",
+      "mode": "static_visible_5x5",
+      "quotient_rows": 8,
+      "rejected_profiles": {},
+      "relation_types": {
+        "decision_slot_competition": 52,
+        "equivalence": 4,
+        "relief": 18
+      },
+      "steps": 10,
+      "steps_with_multi_member_bucket": 4
+    },
+    {
+      "accepted_profiles": 64,
+      "family": "renewal",
+      "mode": "noisy_renewal",
+      "quotient_rows": 0,
+      "rejected_profiles": {},
+      "relation_types": {
+        "decision_slot_competition": 192
+      },
+      "steps": 16,
+      "steps_with_multi_member_bucket": 0
+    }
+  ]
+}

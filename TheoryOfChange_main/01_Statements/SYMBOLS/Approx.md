@@ -33,11 +33,8 @@ Pragmatic equivalence is vital: reasoning, measurement, and identity under chang
 
 <!-- BEGIN:AUTOGEN:USED_IN -->
 ## Used In
+- [[01_Statements/02_Outer_Formation/025_S-DF-self-similarity-threshold]]
 - [[01_Statements/Definition/S-DF-change-fitness]]
-- [[01_Statements/Definition/S-DF-identity-invariants]]
-- [[01_Statements/Definition/S-DF-identity-through-change]]
-- [[01_Statements/Definition/S-DF-self-similarity-threshold]]
-- [[01_Statements/Definition/S-DF-similarity-operator]]
 - [[01_Statements/Definition/S-DF-stabilization-energy]]
 - [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
 - [[01_Statements/Derivation/S-DR-srl-vs-se-theta]]

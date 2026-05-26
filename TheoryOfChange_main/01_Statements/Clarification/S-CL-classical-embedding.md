@@ -3,7 +3,7 @@ id: stmt.cl-classical-embedding
 type: CL
 title: "Classical embedding lemma \u2014 CO config that replicates any classical baseline"
 dependencies:
-- '[[01_Statements/Definition/S-DF-identity-invariants]]'
+- '[[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]'
 - '[[01_Statements/Definition/S-DF-gauge-alignment-field]]'
 parents:
 - '[[01_Statements/Clarification/S-CL-change-core-axiom]]'
@@ -49,6 +49,6 @@ For any fixed classical baseline with budget B there exists a CO configuration (
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Clarification/S-CL-change-core-axiom]]
-- Dependencies: [[01_Statements/Definition/S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-gauge-alignment-field]]
+- Dependencies: [[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-gauge-alignment-field]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

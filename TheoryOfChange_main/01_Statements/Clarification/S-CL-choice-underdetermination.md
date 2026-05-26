@@ -6,7 +6,7 @@ concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 - '[[02_Concepts/C-recursive-truth]]'
 dependencies:
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
 - '[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]'
 parents:
 - '[[01_Statements/Clarification/S-CL-prediction-precedence]]'
@@ -43,6 +43,6 @@ By locating the underdetermined regions, we can expose the real “free will” 
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-recursive-truth]]
 - Parents: [[01_Statements/Clarification/S-CL-prediction-precedence]]
-- Dependencies: [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
+- Dependencies: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

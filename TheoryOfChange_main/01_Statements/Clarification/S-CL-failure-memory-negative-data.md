@@ -3,10 +3,10 @@ id: stmt.cl-failure-memory-negative-data
 type: CL
 title: Failure memory treats past chats as negative data
 dependencies:
-- '[[01_Statements/Definition/S-DF-memory-trace-integration]]'
+- '[[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]'
 - '[[01_Statements/Clarification/S-CL-trace-marker-integrity]]'
 parents:
-- '[[01_Statements/Definition/S-DF-memory-trace-integration]]'
+- '[[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]'
 successors: []
 concepts:
 - '[[02_Concepts/C-phenomenology-time]]'
@@ -34,7 +34,7 @@ The failure memory block must store prior AI chats as _negative data_ that infor
 ## Relationships
 
 - Concepts: [[02_Concepts/C-phenomenology-time]]
-- Parents: [[01_Statements/Definition/S-DF-memory-trace-integration]]
-- Dependencies: [[01_Statements/Definition/S-DF-memory-trace-integration]]; [[01_Statements/Clarification/S-CL-trace-marker-integrity]]
+- Parents: [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]
+- Dependencies: [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]; [[01_Statements/Clarification/S-CL-trace-marker-integrity]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

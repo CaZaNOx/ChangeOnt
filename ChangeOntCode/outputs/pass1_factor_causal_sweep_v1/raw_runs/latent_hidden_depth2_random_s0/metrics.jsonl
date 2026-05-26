@@ -1,0 +1,9 @@
+{"record_type": "header", "runner": "latent_mechanism", "family": "latent_mechanism", "seed": 0, "spec_name": "hidden_depth2", "spec_params": {"max_steps": 8, "seed": 0}, "agent": "random", "out_dir": "/mnt/data/co_factor/ChangeOnt_pass1_all_problem_stoa_comparison_2026-05-25/ChangeOntCode/outputs/pass1_factor_causal_sweep_v1/raw_runs/latent_hidden_depth2_random_s0", "co_runtime_contract": null}
+{"metric": "step", "t": 0, "action": "DOWN", "reward": -1.0, "door_open": false, "progress_obs": null, "last_event": "move"}
+{"metric": "step", "t": 1, "action": "UP", "reward": -1.0, "door_open": false, "progress_obs": null, "last_event": "move"}
+{"metric": "step", "t": 2, "action": "UP", "reward": -1.0, "door_open": false, "progress_obs": null, "last_event": "move"}
+{"metric": "step", "t": 3, "action": "UP", "reward": -1.0, "door_open": false, "progress_obs": null, "last_event": "move"}
+{"metric": "step", "t": 4, "action": "DOWN", "reward": -1.0, "door_open": false, "progress_obs": null, "last_event": "move"}
+{"metric": "step", "t": 5, "action": "RIGHT", "reward": -1.0, "door_open": false, "progress_obs": null, "last_event": "move"}
+{"metric": "step", "t": 6, "action": "UP", "reward": -1.0, "door_open": false, "progress_obs": null, "last_event": "move"}
+{"metric": "step", "t": 7, "action": "RIGHT", "reward": -1.0, "door_open": false, "progress_obs": null, "last_event": "move"}

@@ -7,8 +7,8 @@ concepts:
 dependencies:
 - '[[01_Statements/Definition/S-DF-eventlet]]'
 - '[[01_Statements/Definition/S-DF-path-eventlet-chain]]'
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
-- '[[01_Statements/Definition/S-DF-reach-relation]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
+- '[[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]'
 parents:
 - '[[01_Statements/Definition/S-DF-eventlet]]'
 - '[[01_Statements/Definition/S-DF-path-eventlet-chain]]'
@@ -37,7 +37,7 @@ Clarifies that “vectors hitting prior vectors” are modeled as eventlets alon
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Definition/S-DF-eventlet]]; [[01_Statements/Definition/S-DF-path-eventlet-chain]]
-- Dependencies: [[01_Statements/Definition/S-DF-eventlet]]; [[01_Statements/Definition/S-DF-path-eventlet-chain]]; [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-reach-relation]]
+- Dependencies: [[01_Statements/Definition/S-DF-eventlet]]; [[01_Statements/Definition/S-DF-path-eventlet-chain]]; [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->

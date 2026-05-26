@@ -3,7 +3,7 @@ id: stmt.cl-co-axiom-stack
 type: CL
 title: "Minimal CO axiom stack (CO-1..CO-3) grounds attractor and G\xF6del claims"
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 - '[[01_Statements/Clarification/S-CL-change-core-axiom]]'
 - '[[01_Statements/Clarification/S-CL-change-continuity-logic]]'
 concepts:
@@ -39,6 +39,6 @@ AI_13 recommends locking Change Ontology’s foundations with a short axiom list
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Clarification/S-CL-change-core-axiom]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]; [[01_Statements/Clarification/S-CL-change-continuity-logic]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]; [[01_Statements/Clarification/S-CL-change-continuity-logic]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

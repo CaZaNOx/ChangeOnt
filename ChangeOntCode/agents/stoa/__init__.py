@@ -1,4 +1,4 @@
-﻿# agents/stoa/__init__.py
+# agents/stoa/__init__.py
 # Keep package import robust: only export names that exist in agent_fsm.
 try:
     from .renewal.agent_fsm import BFSAgent, UCB1Agent  # legacy; may not exist

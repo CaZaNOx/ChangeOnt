@@ -10,6 +10,7 @@ class CoVoteBus:
     """
     def __init__(self) -> None:
         self._store: Dict[str, List[Dict[str, Any]]] = {}
+        self._packets: Dict[str, List[Dict[str, Any]]] = {}
         self._signals: Dict[str, float] = {}
 
     def push(
@@ -43,6 +44,21 @@ class CoVoteBus:
 
     def size(self, family: str) -> int:
         return len(self._store.get(family, []))
+
+
+    def push_packet(self, family: str, packet: Dict[str, Any]) -> None:
+        fam = str(family)
+        self._packets.setdefault(fam, []).append(dict(packet))
+
+    def drain_packets(self, family: str) -> List[Dict[str, Any]]:
+        fam = str(family)
+        lst = self._packets.get(fam, [])
+        self._packets[fam] = []
+        return lst
+
+    def peek_packets(self, family: str) -> List[Dict[str, Any]]:
+        return list(self._packets.get(str(family), []))
+
 
     # ----- scalar signals (separate from votes) -----
     def set(self, key: str, value: float) -> None:

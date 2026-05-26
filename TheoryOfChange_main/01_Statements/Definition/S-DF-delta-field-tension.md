@@ -4,8 +4,8 @@ type: DF
 aliases: ["FND_8.DeltaTension"]
 title: Δ-field tension — modulation pressure
 concepts: ["[[02_Concepts/C-identity-change]]", "[[02_Concepts/C-recursive-truth]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-identity-through-change]]", "[[01_Statements/Definition/S-DF-rtv-operator]]"]
-parents: ["[[01_Statements/Definition/S-DF-identity-through-change]]"]
+dependencies: ["[[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]", "[[01_Statements/Definition/S-DF-rtv-operator]]"]
+parents: ["[[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]"]
 successors: ["[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-entropy-co]]"]
 symbols_used: ["[[01_Statements/SYMBOLS/Delta]]"]
 sources:
@@ -54,15 +54,15 @@ Collapse risk when Tension > SE_buffer(RTV window).
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
-- [[01_Statements/Definition/S-DF-identity-through-change]]
+- [[01_Statements/Definition/S-DF-prm-arisal-tension]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
 - Concepts: [[02_Concepts/C-identity-change]]; [[02_Concepts/C-recursive-truth]]
-- Parents: [[01_Statements/Definition/S-DF-identity-through-change]]
-- Dependencies: [[01_Statements/Definition/S-DF-identity-through-change]]; [[01_Statements/Definition/S-DF-rtv-operator]]
+- Parents: [[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]
+- Dependencies: [[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]; [[01_Statements/Definition/S-DF-rtv-operator]]
 - Successors: [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-entropy-co]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -5,10 +5,10 @@ aliases: ["FND_26.GodelLimits", "Gödel self-containment limits"]
 title: Gödel limits — no complete and consistent self-containment of the generator
 concepts: ["[[02_Concepts/C-godel-holes]]", "[[02_Concepts/C-math-structures]]"]
 dependencies: [
-  "[[01_Statements/Definition/S-DF-self-model-evolution]]",
+  "[[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]]",
   "[[01_Statements/Definition/S-DF-consciousness-loop]]",
   "[[01_Statements/Definition/S-DF-intersubject-gauge]]",
-  "[[01_Statements/Definition/S-DF-pointer-structural]]"
+  "[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]"
 ]
 parents: ["[[01_Statements/Definition/S-DF-godel-hole-pointer]]", "[[01_Statements/Definition/S-DF-cross-audit-markov-gh-tx]]"]
 successors: ["[[01_Statements/Corollary/S-CR-necessary-openness]]", "[[01_Statements/Corollary/S-CR-exploration-floor]]", "[[01_Statements/Corollary/S-CR-external-asymmetry-prevents-closure]]"]
@@ -48,7 +48,7 @@ No map can carry all of the territory that draws it. The very engine that drives
 
 - Concepts: [[02_Concepts/C-godel-holes]]; [[02_Concepts/C-math-structures]]
 - Parents: [[01_Statements/Definition/S-DF-godel-hole-pointer]]; [[01_Statements/Definition/S-DF-cross-audit-markov-gh-tx]]
-- Dependencies: [[01_Statements/Definition/S-DF-self-model-evolution]]; [[01_Statements/Definition/S-DF-consciousness-loop]]; [[01_Statements/Definition/S-DF-intersubject-gauge]]; [[01_Statements/Definition/S-DF-pointer-structural]]
+- Dependencies: [[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]]; [[01_Statements/Definition/S-DF-consciousness-loop]]; [[01_Statements/Definition/S-DF-intersubject-gauge]]; [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]
 - Successors: [[01_Statements/Corollary/S-CR-necessary-openness]]; [[01_Statements/Corollary/S-CR-exploration-floor]]; [[01_Statements/Corollary/S-CR-external-asymmetry-prevents-closure]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

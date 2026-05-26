@@ -1,20 +1,17 @@
-# C_classic_ops.py
-from typing import Iterable
-
 class C_ClassicOps:
-    """Classical arithmetic helpers."""
-    @staticmethod
-    def add(xs: Iterable[float]) -> float:
-        s = 0.0
-        for x in xs:
-            try: s += float(x)
-            except Exception: continue
-        return s
+    """Retired guard: non-CO operations are not part of the CO kernel.
+
+    Keep this class only to make accidental imports fail explicitly. External
+    baselines belong in experiment/study code, never as an in-kernel rescue path.
+    """
+
+    def __init__(self, *args, **kwargs):
+        raise RuntimeError("C_ClassicOps is retired from the certified CO runtime")
 
     @staticmethod
-    def mul(xs: Iterable[float]) -> float:
-        p = 1.0
-        for x in xs:
-            try: p *= float(x)
-            except Exception: continue
-        return p
+    def add(xs):
+        raise RuntimeError("C_ClassicOps is retired from the certified CO runtime")
+
+    @staticmethod
+    def mul(xs):
+        raise RuntimeError("C_ClassicOps is retired from the certified CO runtime")

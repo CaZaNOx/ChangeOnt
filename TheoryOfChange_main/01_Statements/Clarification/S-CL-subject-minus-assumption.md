@@ -3,7 +3,7 @@ id: stmt.cl-subject-minus-assumption
 type: CL
 title: Derive the subject from change, not assume it
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 parents: []
 successors: []
 symbols_used: []
@@ -32,6 +32,6 @@ The "subject" must appear as a derived quotient/residue from the immediate datum
 ## Relationships
 
 - Concepts: [[02_Concepts/C-identity-change]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

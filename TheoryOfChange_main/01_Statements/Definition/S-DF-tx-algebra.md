@@ -4,7 +4,7 @@ type: DF
 aliases: ["FND_6.TxAlg"]
 title: Algebra of frame operators (Tx)
 concepts: ["[[02_Concepts/C-frame-operators]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-tx-operator]]", "[[01_Statements/Definition/S-DF-localreach-topology]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-tx-operator]]", "[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]"]
 parents: ["[[01_Statements/Definition/S-DF-tx-operator]]"]
 successors: ["[[01_Statements/Derivation/S-DR-dimension-variation]]", "[[01_Statements/Definition/S-DF-cross-audit-markov-gh-tx]]"]
 symbols_used: []
@@ -59,7 +59,7 @@ I(x,F)=(x,F).
 
 - Concepts: [[02_Concepts/C-frame-operators]]
 - Parents: [[01_Statements/Definition/S-DF-tx-operator]]
-- Dependencies: [[01_Statements/Definition/S-DF-tx-operator]]; [[01_Statements/Definition/S-DF-localreach-topology]]
+- Dependencies: [[01_Statements/Definition/S-DF-tx-operator]]; [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]
 - Successors: [[01_Statements/Derivation/S-DR-dimension-variation]]; [[01_Statements/Definition/S-DF-cross-audit-markov-gh-tx]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

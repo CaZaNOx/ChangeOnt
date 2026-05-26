@@ -4,8 +4,8 @@ type: DF
 aliases: ["GH.Pointer"]
 title: Gödel hole — open pointer marking representational boundary
 concepts: ["[[02_Concepts/C-godel-holes]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-pointer-structural]]", "[[01_Statements/Definition/S-DF-tx-operator]]"]
-parents: ["[[01_Statements/Definition/S-DF-pointer-structural]]"]
+dependencies: ["[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]", "[[01_Statements/Definition/S-DF-tx-operator]]"]
+parents: ["[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]"]
 successors: ["[[01_Statements/Definition/S-DF-godel-hole-tracking-protocol]]", "[[01_Statements/Definition/S-DF-across-scales-godel-structure]]", "[[01_Statements/Definition/S-DF-godel-limits-self-containment]]"]
 symbols_used: []
 sources:
@@ -44,8 +44,8 @@ Sometimes the chain must reach beyond what it can currently express. We mark suc
 ## Relationships
 
 - Concepts: [[02_Concepts/C-godel-holes]]
-- Parents: [[01_Statements/Definition/S-DF-pointer-structural]]
-- Dependencies: [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-tx-operator]]
+- Parents: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]
+- Dependencies: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/Definition/S-DF-tx-operator]]
 - Successors: [[01_Statements/Definition/S-DF-godel-hole-tracking-protocol]]; [[01_Statements/Definition/S-DF-across-scales-godel-structure]]; [[01_Statements/Definition/S-DF-godel-limits-self-containment]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 from dataclasses import dataclass
 import random
 from typing import Optional

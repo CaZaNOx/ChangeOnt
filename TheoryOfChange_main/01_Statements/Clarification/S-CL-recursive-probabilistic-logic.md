@@ -9,8 +9,8 @@ concepts:
 dependencies:
 - '[[01_Statements/Definition/S-DF-stabilization-energy]]'
 - '[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]'
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
-- '[[01_Statements/Definition/S-DF-localreach-topology]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
+- '[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]'
 - '[[01_Statements/Clarification/S-CL-probabilistic-language-srl]]'
 parents:
 - '[[01_Statements/Definition/S-DF-stabilization-energy]]'
@@ -55,6 +55,6 @@ We can name this schema Recursive Probabilistic Coherence (RPC) logic. It gives 
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-math-structures]]
 - Parents: [[01_Statements/Definition/S-DF-stabilization-energy]]
-- Dependencies: [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-localreach-topology]]; [[01_Statements/Clarification/S-CL-probabilistic-language-srl]]
+- Dependencies: [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]; [[01_Statements/Clarification/S-CL-probabilistic-language-srl]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -1,5 +1,5 @@
 ---
-id: stmt.cl-godel-hole-legacy
+id: stmt.cl-godel-hole-inactive
 type: CL
 title: "Only surviving constraints reveal the prior layer after a G\xF6del jump"
 dependencies:

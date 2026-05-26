@@ -10,7 +10,7 @@ def learn_prototypes(history: Sequence[Any], k: int, eps: float, base_metric: st
     """
     Very small unsupervised prototype learner:
       - extract k-grams
-      - greedy medoid clustering under edit/overlap distance with threshold eps*k
+      - local medoid clustering under edit/overlap distance with threshold eps*k
     """
     grams = _kgrams(history, k)
     if not grams:

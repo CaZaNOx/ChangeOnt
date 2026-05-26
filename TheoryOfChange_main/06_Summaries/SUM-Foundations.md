@@ -10,9 +10,9 @@ Scope
 - Minimal stance → Immediate Datum (Δ ≠ ∅) → core early corollaries.
 
 Core nodes
-- FT: [[01_Statements/FoundationalTruth/S-FT-root-minimal-stance]], [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
+- FT: [[01_Statements/00_Opening_Justification/001_S-FT-root-minimal-stance]], [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
 - CR: [[01_Statements/Corollary/S-CR-no-null-world]], [[01_Statements/Corollary/S-CR-change-ontically-prior]], [[01_Statements/Corollary/S-CR-observation-subordinate]]
-- DF: [[01_Statements/Definition/S-DF-performative-contradiction]]
+- DF: [[01_Statements/00_Opening_Justification/002_S-DF-performative-contradiction]]
 
 Key takeaways
 - Denying change performs change (performative contradiction).

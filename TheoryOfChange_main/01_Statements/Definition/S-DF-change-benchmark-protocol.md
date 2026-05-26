@@ -38,9 +38,9 @@ Test what matters in change: recurrence, robustness, and where fixed‑space mod
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
-- [[01_Statements/Clarification/S-CL-driff-guarded-lln]]
 - [[01_Statements/Clarification/S-CL-drift-guarded-lln]]
 - [[01_Statements/Clarification/S-CL-evaluation-rigor]]
+- [[01_Statements/Definition/S-DF-hdr-meta]]
 - [[01_Statements/Derivation/S-DR-benchmark-scores]]
 - [[01_Statements/Derivation/S-DR-predictive-statement-nonclassical]]
 <!-- END:AUTOGEN:REFERENCED_BY -->

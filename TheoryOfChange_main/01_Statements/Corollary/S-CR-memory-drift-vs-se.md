@@ -5,11 +5,11 @@ aliases: ["CR_Memory.Drift.SE"]
 title: Memory drift increases as SE decreases (and with higher σ(ε))
 concepts: ["[[02_Concepts/C-recursive-truth]]"]
 dependencies: [
-  "[[01_Statements/Definition/S-DF-memory-trace-integration]]",
+  "[[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]",
   "[[01_Statements/Definition/S-DF-stabilization-energy]]",
   "[[01_Statements/Definition/S-DF-sigma-fluctuation]]"
 ]
-parents: ["[[01_Statements/Definition/S-DF-memory-trace-integration]]"]
+parents: ["[[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]"]
 successors: []
 symbols_used: []
 sources:
@@ -39,7 +39,7 @@ Therefore, lower SE and higher σ(ε) jointly increase drift of memory traces an
 ## Relationships
 
 - Concepts: [[02_Concepts/C-recursive-truth]]
-- Parents: [[01_Statements/Definition/S-DF-memory-trace-integration]]
-- Dependencies: [[01_Statements/Definition/S-DF-memory-trace-integration]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-sigma-fluctuation]]
+- Parents: [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]
+- Dependencies: [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-sigma-fluctuation]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

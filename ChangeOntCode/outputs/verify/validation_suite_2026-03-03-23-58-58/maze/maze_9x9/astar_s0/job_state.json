@@ -1,0 +1,12 @@
+{
+  "agent_tag": "astar",
+  "ended_at": "2026-03-03T22:58:59.855970+00:00",
+  "error": null,
+  "family": "maze",
+  "mode": "maze_9x9",
+  "out_dir": "outputs/verify/validation_suite_2026-03-03-23-58-58/maze/maze_9x9/astar_s0",
+  "runner": "experiments.runners.maze_runner",
+  "seed": 0,
+  "started_at": "2026-03-03T22:58:59.634065+00:00",
+  "status": "succeeded"
+}

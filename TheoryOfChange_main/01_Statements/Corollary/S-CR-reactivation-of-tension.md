@@ -5,10 +5,10 @@ aliases: ["C17.1.Reactivation"]
 title: Reactivation of stored tension enables cross-experience integration
 concepts: ["[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-prior-pointer-reach]]"]
 dependencies: [
-  "[[01_Statements/Definition/S-DF-memory-trace-integration]]",
+  "[[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]",
   "[[01_Statements/Definition/S-DF-attention-focus]]"
 ]
-parents: ["[[01_Statements/Definition/S-DF-memory-trace-integration]]"]
+parents: ["[[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]"]
 successors: []
 symbols_used: []
 sources:
@@ -28,14 +28,14 @@ Keeping a live thread of difference lets you stitch moments together.
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
-
+- [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
 - Concepts: [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-prior-pointer-reach]]
-- Parents: [[01_Statements/Definition/S-DF-memory-trace-integration]]
-- Dependencies: [[01_Statements/Definition/S-DF-memory-trace-integration]]; [[01_Statements/Definition/S-DF-attention-focus]]
+- Parents: [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]
+- Dependencies: [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]; [[01_Statements/Definition/S-DF-attention-focus]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

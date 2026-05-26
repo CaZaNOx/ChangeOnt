@@ -23,11 +23,19 @@ Open the funnel when you’re circling; drill when you’re flowing.
 ## Philosophical Justification
 Search must negotiate exploration vs. exploitation. Loopiness indicates getting stuck in short cycles; then widening the search helps escape. When trajectories flow with low loopiness, deepening along the current manifold is efficient. Breath phase modulates willingness to switch, smoothing policy oscillations.
 
-## Derivation (Formal/Operational)
+## Derivation (Philosophical)
+- Loopiness reveals when local continuation is circling.
+- Temporal and regime cues reveal whether widening is warranted now or later.
+- EH bundles those signals into a breadth/depth policy rather than leaving search shape implicit.
+
+## Derivation (Formal/Logical/Mathematical)
 ```text
 p_breadth := h(loopiness_t, phase_t)
 ```
 with leak/hysteresis to avoid oscillation.
+
+## Explanation (informal)
+EH decides how widely or narrowly to search given the current trappedness and regime posture. It is the exploration-shape element.
 
 ## Clarifications / Further Context
 - Align with precision scheduling (EG) and order asymmetry (EJ) to avoid harmful backtracks.
@@ -42,7 +50,6 @@ with leak/hysteresis to avoid oscillation.
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 - [[01_Statements/Definition/S-DF-prm-depth-breadth-flip]]
-- [[01_Statements/Definition/S-DF-prm-loopiness]]
 - [[01_Statements/Definition/S-DF-prm-temporal-ops]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 

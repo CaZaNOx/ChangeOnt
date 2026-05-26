@@ -8,10 +8,10 @@ concepts:
 - '[[02_Concepts/C-subject-awareness-experience]]'
 - '[[02_Concepts/C-proto-consciousness]]'
 dependencies:
-- '[[01_Statements/Definition/S-DF-self-model-evolution]]'
-- '[[01_Statements/Definition/S-DF-subject-recursive-field]]'
+- '[[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]]'
+- '[[01_Statements/03_Inner_Development/005_S-DF-subject-recursive-field]]'
 parents:
-- '[[01_Statements/Definition/S-DF-self-model-evolution]]'
+- '[[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]]'
 successors: []
 symbols_used: []
 sources:
@@ -47,7 +47,7 @@ These are phenomenological/behavioral signs consistent with self‑model evoluti
 ## Relationships
 
 - Concepts: [[02_Concepts/C-subject-awareness-experience]]; [[02_Concepts/C-proto-consciousness]]
-- Parents: [[01_Statements/Definition/S-DF-self-model-evolution]]
-- Dependencies: [[01_Statements/Definition/S-DF-self-model-evolution]]; [[01_Statements/Definition/S-DF-subject-recursive-field]]
+- Parents: [[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]]
+- Dependencies: [[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]]; [[01_Statements/03_Inner_Development/005_S-DF-subject-recursive-field]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

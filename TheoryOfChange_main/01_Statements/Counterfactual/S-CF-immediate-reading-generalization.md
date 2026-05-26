@@ -4,8 +4,8 @@ type: CF
 aliases: ["CF_0.2_1", "CF_0.2_2"]
 title: Counterfactual — reading-now case and generalization to Immediate Datum
 concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-performative-contradiction]]"]
-dependencies: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]", "[[01_Statements/Definition/S-DF-performative-contradiction]]"]
-parents: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]"]
+dependencies: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]", "[[01_Statements/00_Opening_Justification/002_S-DF-performative-contradiction]]"]
+parents: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]"]
 successors: []
 symbols_used: []
 sources:
@@ -32,7 +32,7 @@ This justifies the shift from a content‑specific assertion to a content‑inde
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-performative-contradiction]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-performative-contradiction]]
+- Parents: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/00_Opening_Justification/002_S-DF-performative-contradiction]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

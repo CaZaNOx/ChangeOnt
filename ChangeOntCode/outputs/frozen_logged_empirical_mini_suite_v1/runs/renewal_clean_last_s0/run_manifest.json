@@ -1,0 +1,21 @@
+{
+  "agent_name": "last",
+  "agent_type": "last",
+  "co_runtime_contract": null,
+  "ended_at": "2026-05-17T13:40:13.278360+00:00",
+  "environment_spec": {
+    "A": 4,
+    "L_win": 3,
+    "T_max": 24,
+    "p_noise": 0.0,
+    "p_ren": 0.02
+  },
+  "error": null,
+  "family": "renewal",
+  "mode": "last",
+  "out_dir": "/mnt/data/co_mod/ChangeOntCode/outputs/frozen_logged_empirical_mini_suite_v1/runs/renewal_clean_last_s0",
+  "runner": "experiments.runners.renewal_runner",
+  "seed": 0,
+  "started_at": "2026-05-17T13:40:12.584621+00:00",
+  "status": "succeeded"
+}

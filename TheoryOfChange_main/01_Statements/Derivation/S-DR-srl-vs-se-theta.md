@@ -4,7 +4,7 @@ type: DR
 aliases: ["AI13.SRLxSE"]
 title: Relating SRL to SE and θ
 concepts: ["[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-identity-change]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-self-similarity-threshold]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/02_Outer_Formation/025_S-DF-self-similarity-threshold]]"]
 parents: ["[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]"]
 successors: []
 symbols_used: ["[[01_Statements/SYMBOLS/Approx]]"]
@@ -36,6 +36,6 @@ Recurrence is easier to achieve when “what counts as the same” is robust and
 
 - Concepts: [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-identity-change]]
 - Parents: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
-- Dependencies: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-self-similarity-threshold]]
+- Dependencies: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/02_Outer_Formation/025_S-DF-self-similarity-threshold]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -47,6 +47,16 @@ If the exact law is not yet frozen, say so.
 ### 5. Outputs
 State what signals, votes, counters, or other outputs the element may produce.
 
+Outputs MUST be described in **typed-role** terms where applicable (goal-state doctrine):
+- persistence / attractor shaping
+- fracture / rupture shaping
+- salience / gradient shaping
+- branch/topology proposals
+- ordering constraints
+- precision/attention allocation
+- gauge/transport warp
+- legality/masks
+
 ### 6. State Mutation
 State what local or canonical state the element may mutate.
 
@@ -54,6 +64,16 @@ This must be explicit.
 
 ### 7. Why this element exists
 State the philosophical/architectural reason the primitive bundle forms a meaningful mechanism.
+
+This is not optional: CO is a truth-claim framework, so every element must have a **forced conceptual role**.
+
+### 7b. Element Charter (required)
+Each element spec MUST include an **Element Charter** section with:
+- **Domain**: which standard packet fields it consumes
+- **Codomain**: what it emits (typed roles + signals)
+- **Invariants**: monotonicity, neutrality conditions, saturation behavior
+- **Falsifiers**: minimal tests that would reveal misimplementation
+- **Interaction expectations**: how it should interact with at least EA/EC/EB (where relevant)
 
 ### 8. Forbidden
 State what the element must not do.
@@ -95,7 +115,7 @@ An element spec is wrong if it:
 - hides primitive dependencies
 - acts like the element is itself a primitive
 - silently invents task-specific rules
-- directly collapses into ActionHead behavior
+- directly collapses into CommitmentSurface / readout behavior
 
 ---
 

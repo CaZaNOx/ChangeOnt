@@ -126,6 +126,26 @@ class EB_GHVC:
             p9_proposal = out_prop
             p9_delta_mdl = float(delta_mdl)
 
+        # --- CO goal-state alignment (M3 precursor): EB must be generative & auditable ---
+        # Do not mutate environment topology here; instead record proposals/events into a shared buffer.
+        try:
+            proposals = primitives.setdefault("_branch_proposals", [])
+            if isinstance(proposals, list) and (birth_suggest or p9_proposal):
+                proposals.append({
+                    "t": t,
+                    "family": str(observation.get("family", "")),
+                    "pressure": float(pressure),
+                    "mdl_gain": float(mdl_gain),
+                    "birth_suggest": int(birth_suggest),
+                    "born": bool(born),
+                    "p9_proposal": p9_proposal,
+                    "p9_delta_mdl": float(p9_delta_mdl),
+                    "p9_accepted": bool(p9_accepted),
+                    "source": "EB_GHVC",
+                })
+        except Exception:
+            pass
+
         return {
             "born_variable": born,
             "birth_suggest": birth_suggest,
@@ -223,7 +243,7 @@ class EB_GHVC:
         out["birth_count"] = int(birth_count)
         if out.get("born_variable"):
             out["birth_suggest"] = 1
-        bus = primitives.get("co_bus")
+        bus = primitives.get("signal_bus")
         publish_signal(bus, "EB_GHVC.pressure",  out.get("pressure", 0.0))
         publish_signal(bus, "EB_GHVC.mdl_gain",  out.get("mdl_gain", 0.0))
         publish_signal(bus, "EB_GHVC.birth_suggest", float(out.get("birth_suggest", 0)))
@@ -241,7 +261,7 @@ class EB_GHVC:
     def step(self, observation: Dict[str, Any], primitives: Dict[str, Any], header: Any, feedback: Dict[str, Any] | None) -> Dict[str, Any]:
         if self._last_out is None:
             return self.update(observation, primitives, header, feedback)
-        bus = primitives.get("co_bus")
+        bus = primitives.get("signal_bus")
         publish_signal(bus, "EB_GHVC.pressure",  self._last_out.get("pressure", 0.0))
         publish_signal(bus, "EB_GHVC.mdl_gain",  self._last_out.get("mdl_gain", 0.0))
         publish_signal(bus, "EB_GHVC.birth_suggest", float(self._last_out.get("birth_suggest", 0)))

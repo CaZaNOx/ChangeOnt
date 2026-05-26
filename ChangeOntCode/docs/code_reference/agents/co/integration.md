@@ -51,7 +51,7 @@ Encapsulates loading behavior instead of scattering it.
 
 ---
 
-### `runner_shim.py`
+### `archive/legacy_unused/co_runner_shim_legacy.py`
 #### Role
 Runner-side bridge/shim into CO execution.
 
@@ -60,7 +60,7 @@ Potential integration support when runners need a narrow interfacing surface.
 
 ---
 
-### `suite_hooks.py`
+### `archive/legacy_runtime/co_suite_hooks_legacy.py`
 #### Role
 Suite-side integration hooks.
 

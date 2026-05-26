@@ -7,7 +7,7 @@ concepts:
 - '[[02_Concepts/C-recursive-truth]]'
 dependencies:
 - '[[01_Statements/Definition/S-DF-stabilization-energy]]'
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
 - '[[01_Statements/Clarification/S-CL-space-as-subject]]'
 parents:
 - '[[01_Statements/Definition/S-DF-stabilization-energy]]'
@@ -44,6 +44,6 @@ This satisfies the Spiral5 request for empirical–structural predictions that c
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-recursive-truth]]
 - Parents: [[01_Statements/Definition/S-DF-stabilization-energy]]
-- Dependencies: [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Clarification/S-CL-space-as-subject]]
+- Dependencies: [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/Clarification/S-CL-space-as-subject]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -1,0 +1,161 @@
+{
+  "study": "predictive_placement_maze_action_topology_v2",
+  "family": "maze",
+  "axis": "action_topology",
+  "results": {
+    "visible_static": {
+      "canonical": {
+        "solve_rate": 1.0,
+        "mean_steps_solved": 16,
+        "seed0_actions": [
+          "DOWN",
+          "RIGHT",
+          "RIGHT",
+          "RIGHT",
+          "DOWN",
+          "RIGHT",
+          "RIGHT",
+          "RIGHT",
+          "DOWN",
+          "LEFT",
+          "DOWN",
+          "DOWN",
+          "RIGHT",
+          "DOWN"
+        ],
+        "mean_controls": {
+          "rival_breadth": 0.173204265625,
+          "path_sensitivity": 0.11270168750000001,
+          "local_authority": 0.20448298437499998
+        }
+      },
+      "topology_low": {
+        "solve_rate": 1.0,
+        "mean_steps_solved": 15,
+        "seed0_actions": [
+          "DOWN",
+          "RIGHT",
+          "RIGHT",
+          "RIGHT",
+          "DOWN",
+          "RIGHT",
+          "RIGHT",
+          "RIGHT",
+          "DOWN",
+          "LEFT",
+          "DOWN",
+          "DOWN",
+          "RIGHT",
+          "DOWN"
+        ],
+        "mean_controls": {
+          "rival_breadth": 0.12,
+          "path_sensitivity": 0.0,
+          "local_authority": 0.0
+        }
+      },
+      "topology_high": {
+        "solve_rate": 1.0,
+        "mean_steps_solved": 16,
+        "seed0_actions": [
+          "DOWN",
+          "RIGHT",
+          "RIGHT",
+          "RIGHT",
+          "DOWN",
+          "RIGHT",
+          "RIGHT",
+          "RIGHT",
+          "DOWN",
+          "LEFT",
+          "DOWN",
+          "DOWN",
+          "RIGHT",
+          "DOWN"
+        ],
+        "mean_controls": {
+          "rival_breadth": 0.205,
+          "path_sensitivity": 0.06,
+          "local_authority": 0.0
+        }
+      }
+    },
+    "partial_dynamic": {
+      "canonical": {
+        "solve_rate": 1.0,
+        "mean_steps_solved": 19,
+        "seed0_actions": [
+          "DOWN",
+          "RIGHT",
+          "RIGHT",
+          "RIGHT",
+          "DOWN",
+          "RIGHT",
+          "RIGHT",
+          "RIGHT",
+          "DOWN",
+          "LEFT",
+          "DOWN",
+          "DOWN",
+          "RIGHT",
+          "DOWN"
+        ],
+        "mean_controls": {
+          "rival_breadth": 0.19045478947368422,
+          "path_sensitivity": 0.11453094736842105,
+          "local_authority": 0.14456306578947367
+        }
+      },
+      "topology_low": {
+        "solve_rate": 1.0,
+        "mean_steps_solved": 19,
+        "seed0_actions": [
+          "DOWN",
+          "RIGHT",
+          "RIGHT",
+          "RIGHT",
+          "DOWN",
+          "RIGHT",
+          "RIGHT",
+          "RIGHT",
+          "DOWN",
+          "LEFT",
+          "DOWN",
+          "DOWN",
+          "RIGHT",
+          "DOWN"
+        ],
+        "mean_controls": {
+          "rival_breadth": 0.12,
+          "path_sensitivity": 0.0,
+          "local_authority": 0.0
+        }
+      },
+      "topology_high": {
+        "solve_rate": 1.0,
+        "mean_steps_solved": 19,
+        "seed0_actions": [
+          "DOWN",
+          "RIGHT",
+          "RIGHT",
+          "RIGHT",
+          "DOWN",
+          "RIGHT",
+          "RIGHT",
+          "RIGHT",
+          "DOWN",
+          "LEFT",
+          "DOWN",
+          "DOWN",
+          "RIGHT",
+          "DOWN"
+        ],
+        "mean_controls": {
+          "rival_breadth": 0.205,
+          "path_sensitivity": 0.06,
+          "local_authority": 0.0
+        }
+      }
+    }
+  }
+}

@@ -3,12 +3,12 @@ id: stmt.cl-change-intellect-upgrade
 type: CL
 title: Raise classical IQ proxies and change-intellect by closing specific gaps
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 - '[[02_Concepts/C-change-fitness]]'
 parents:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 successors: []
 symbols_used: []
 sources:
@@ -49,7 +49,7 @@ Two upgrade tracks: (1) Classical IQ proxies: focus on speed/precision, short-ho
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-change-fitness]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
+- Parents: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -24,7 +24,7 @@ tags:
 
 # Measure wisdom by collapse anticipation, audit, and transmission resilience
 
-Change-ontological “wisdom” is not comfort, consensus, or lasting legacy—it is the ability to predict collapse or instability before it arrives, relentlessly audit hidden assumptions, and produce insights that survive recursive interrogation and real-world transmission. Use structural metrics such as accuracy of collapse forecasts, frequency of self-correction, transmission efficiency, and resilience under adversarial review to rate ideas and agents. This fitness view of wisdom, drawn from AI_13 lines 6805‑6960, keeps “wisdom” tied to recursive truth, not mythologized charisma.
+Change-ontological “wisdom” is not comfort, consensus, or lasting inactive—it is the ability to predict collapse or instability before it arrives, relentlessly audit hidden assumptions, and produce insights that survive recursive interrogation and real-world transmission. Use structural metrics such as accuracy of collapse forecasts, frequency of self-correction, transmission efficiency, and resilience under adversarial review to rate ideas and agents. This fitness view of wisdom, drawn from AI_13 lines 6805‑6960, keeps “wisdom” tied to recursive truth, not mythologized charisma.
 
 ## Next Steps in Chain
 - suggest: define and track collapse-forecast accuracy, self-correction frequency, transmission resilience in audit tools.

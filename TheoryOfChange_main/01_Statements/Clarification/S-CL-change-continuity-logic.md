@@ -3,7 +3,7 @@ id: stmt.cl-change-continuity-logic
 type: CL
 title: Continuity follows only with explicit No-Leap and No-Restart axiom
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 - '[[01_Statements/Clarification/S-CL-change-core-axiom]]'
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
@@ -42,6 +42,6 @@ AI_13’s “peace treaty” shows how to make the logical structure explicit: W
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Clarification/S-CL-change-core-axiom]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -1,70 +1,41 @@
 # P2 Gauge
+Current classification: **Canonical**
+
+Core alignment/transport primitive on the active default path.
 
 ## Purpose
 
-P2 Gauge encodes a reusable notion of **modulation of change by change**.
+P2 Gauge encodes a reusable notion of **transport / alignment of local comparison structure**.
 
 Its role is to support:
 - adaptive weighting
-- internal re-scaling
-- control-sensitive semantic modulation
-- regulation of how strongly other quantities matter
+- cross-context coherence
+- local frame alignment
+- lawful modulation of how strongly other quantities matter
+
+---
+
+## First-layer caution
+
+The current first-layer theory keeps locality/prior/reach intentionally **weak and local**.
+
+So P2 should be read as:
+- a bounded transport/alignment primitive
+- not proof that full global geometric locality is already philosophically closed
+
+Use alongside:
+- `../../../../TheoryOfChange_main/00_Meta/FIRST_LAYER_CANONICAL_PATH.md`
+- `../../../../TheoryOfChange_main/00_Meta/CANONICAL_REFERENCE_STACK.md`
 
 ---
 
 ## Primitive Role
 
-P2 is a **modulation primitive**.
+P2 is a **modulation-and-alignment primitive**.
 
-It is not itself a full header, and it is not itself a full decision policy.
+It is not itself a header, and it is not itself a full decision policy.
 
-It exists because if change is primitive and self-involving, then some reusable notion of:
-- amplification
-- attenuation
-- re-weighting
-- regulation
-
-is strongly motivated.
-
----
-
-## Inputs
-
-P2 may consume:
-- scalar quantities from primitives/elements
-- recent history summaries
-- local stability indicators
-- configurable gain parameters
-
-The exact calling element defines the context.
-
-P2 itself must remain task-agnostic.
-
----
-
-## Outputs
-
-P2 returns one or more gauge-modulated values, such as:
-- adjusted scalar
-- gain multiplier
-- attenuation factor
-- modulation weight
-
-It does not emit final actions.
-
----
-
-## State Mutation
-
-P2 may maintain local primitive state if needed, for example:
-- running average
-- internal modulation baseline
-- bounded gain state
-
-But it must not:
-- mutate environment-specific state
-- become a hidden header
-- silently store task-specific memory
+It exists because if change is primitive and comparison is local, then some reusable notion of transport/alignment across changing contexts is strongly motivated.
 
 ---
 
@@ -73,39 +44,22 @@ But it must not:
 P2 is currently a **valid primitive role**, but its exact final law is not yet frozen.
 
 This means:
-- the architectural role is binding
-- the exact formula is not yet fully binding
-
-Current implementation may therefore remain minimal or partial.
+- the architectural/ontological role is binding
+- the exact formula remains open
 
 ---
 
-## Why this primitive exists
+## Notes
 
-From a change-first perspective, it is plausible that change does not merely propagate; it also modulates the significance of its own local expressions.
+- Gauge should first be understood as coherence-preserving transport/alignment.
+- Full connection/curvature language is a later mathematical strengthening, not the primitive content itself.
 
-P2 is the reusable encoding of that pressure.
+## Current implementation status
 
----
+Current code now implements a **bounded transport/alignment realization** centered on:
+- substrate-aware frame extraction
+- predicted-frame transport from prior frame plus drift/bias
+- coherence computed from transport residual and local regime signals
+- stateful gain and local modulation derived from transport quality
 
-## Forbidden
-
-P2 must not:
-- become a task-specific heuristic
-- directly choose actions
-- silently duplicate header logic
-- contain translator logic
-
----
-
-## Telemetry
-
-P2 does not require direct telemetry of its own.
-
-If exposed, telemetry should appear through the element using it, not as standalone task-facing policy output.
-
----
-
-## Current Status
-
-P2 is retained as a justified primitive category, even if its exact formula remains under investigation.
+This remains a finite kernel realization rather than a final geometric theory, but it now instantiates the doctrinal role directly rather than only hinting at it.

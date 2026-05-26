@@ -5,7 +5,7 @@ title: Classical fixed-state tools cannot model emergent structure
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 - '[[01_Statements/Definition/S-DF-prm-variable-birth]]'
 - '[[01_Statements/Definition/S-DF-tx-operator]]'
 parents:
@@ -49,6 +49,6 @@ Markov chains and related classical models presuppose a fixed state space and ca
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Clarification/S-CL-change-core-axiom]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-prm-variable-birth]]; [[01_Statements/Definition/S-DF-tx-operator]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-prm-variable-birth]]; [[01_Statements/Definition/S-DF-tx-operator]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

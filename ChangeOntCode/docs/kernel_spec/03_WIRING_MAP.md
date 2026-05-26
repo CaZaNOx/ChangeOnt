@@ -1,77 +1,37 @@
-# Wiring Map
+# Canonical Wiring Map
 
-This file shows the target-state wiring of the kernel and harness boundaries.
+The active runtime path is:
 
-## 1. High-level wiring
+```text
+Boundary / Adapter
+→ CandidateSurface
+→ Continuation Identity Construction
+→ Burden Interpretation / Operation Typing
+→ RelationSurface
+→ RecursiveContinuationField
+→ CollapseCertificate
+→ CommitmentSurface / Readout
+→ Native Action
+```
 
-### Environment side
-Environment provides task-local state, legality, and feedback.
+Every evidence-bearing runtime path must preserve this sequence. Missing or malformed required structure is a contract failure, not permission to invent a native action.
 
-### Runner side
-Runner owns family-local execution loop.
+## Boundary
 
-### Adapter side
-Adapter bridges runner execution and CO kernel entry/update paths.
+Exposes public observations, legal candidate expressions, public effects, masks, and task anchors. It must not rank actions by hidden value or use family-specific policy logic.
 
-### Translator side
-Translator maps:
-- task-local input → path-space update
-- continuation surface → concrete task action
-- feedback → path-space update
+## CandidateSurface
 
-### Kernel side
-Kernel operates on:
-- path-space fragment
-- headers/meta-header
-- primitives
-- elements
-- groups
-- final fusion
+Publishes candidate rows as a thin intake surface. It must not finalize branch identity or select committed actions.
 
----
+## Continuation identity
 
-## 2. Canonical CO wiring
+Derives continuation identifiers from pressure/burden/effect signatures. Action labels are last-resort interface expressions, not branch identity.
 
-1. meta-header supplies prior regime frame
-2. translator produces path-space update
-3. path-space fragment is assembled
-4. header evaluates local runtime regime
-5. primitives read the fragment
-6. elements emit typed contribution packets
-7. packets fuse into group outputs
-8. groups fuse with:
-   - header
-   - meta-header
-   - classical/STOA continuation stream
-9. final continuation surface is produced
-10. translator maps continuation surface to task action
-11. runner executes action
-12. feedback is translated back into kernel update form
+## Burden and relation path
 
-## 3. Internal representation placement
+Branch-internal public effects become burden operations. Cross-branch public effects become derived relations. Both must survive into RCF and certificate traces.
 
-The path-space fragment is internal to the kernel.
+## RCF and collapse
 
-The translator is the boundary where:
-- task-local structure enters
-- and task-local action form exits
-
-## 4. Classical stream placement
-
-The classical/STOA continuation stream is part of the final fusion stage.
-
-It must be explicit, not hidden in undocumented shortcuts.
-
-## 5. Important wiring rule
-
-The bus or continuation surface is richer than the final task action.
-
-The kernel should not be forced to think natively in final task actions.
-
-## 6. Misalignment examples
-
-The wiring is misaligned if:
-- translators are bypassed
-- the bus is treated as the final task-action bus
-- classical influence is hidden rather than explicit
-- there are competing active kernel paths with no documented status
+RCF updates field state. CollapseCertificate checks whether collapse is earned. CommitmentSurface expresses the earned collapse as native action.

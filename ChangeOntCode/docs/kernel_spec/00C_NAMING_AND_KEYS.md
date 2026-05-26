@@ -15,7 +15,7 @@ A semantic unit should have:
 - one canonical role
 - one canonical key/location where applicable
 
-Aliases may exist temporarily in legacy code, but the docs must define the target canonical form.
+Aliases may exist temporarily in inactive code, but the docs must define the target canonical form.
 
 ---
 
@@ -117,13 +117,13 @@ Canonical semantic ownership stays with the `signals[...]` dict.
 
 ---
 
-## Temporary Legacy Rule
+## Temporary inactive Rule
 
-Legacy or implementation-mess names may still exist in code temporarily.
+inactive or implementation-mess names may still exist in code temporarily.
 
 When they do:
 - docs define the target canonical form
-- legacy names are treated as migration debt
+- inactive names are treated as migration debt
 - new docs must not re-legitimize old inconsistent aliases
 
 ---

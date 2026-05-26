@@ -40,7 +40,7 @@ Each core letter/operator (A–H) can act meta-recursively on any CO element X (
 - E→X (Multi-scale patterns on X): expose nested structure within X.
 - F→X (Directional cost on X): encode anisotropic bend costs for X.
 - G→X (Probabilistic layer on X): wrap X in probabilistic spreads if churn dominates.
-- H→X (Classical collapse on X): force X to its crisp limit when conditions trigger.
+- H→X (Thin collapse / classical-degenerate simplification on X): force X to its crisp limit when conditions trigger.
 
 ## Tags
 #type/CL #layer/operators #domain/formal #concept/ontology-of-change #concept/spiral-recursion

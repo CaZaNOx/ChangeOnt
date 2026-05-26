@@ -80,3 +80,7 @@ The experimental doctrine must also support:
 - adding new primitives
 - adding new elements
 - and bringing them into the same investigatory harness without drift
+
+## Binding companion
+
+The runnable minimum experiment surface is frozen in `09_ACCEPTANCE/EXPERIMENT_DOCTRINE_BINDING.md`.

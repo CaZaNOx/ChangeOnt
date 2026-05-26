@@ -7,7 +7,7 @@ concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 dependencies:
 - '[[01_Statements/Definition/S-DF-prm-closure-quotient]]'
-- '[[01_Statements/Definition/S-DF-identity-invariants]]'
+- '[[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]'
 - '[[01_Statements/Definition/S-DF-prm-gauge]]'
 parents:
 - '[[01_Statements/Definition/S-DF-prm-closure-quotient]]'
@@ -50,6 +50,6 @@ Segmentation is goal-conditioned quotienting: a class is the set of shapes/paths
 
 - Concepts: [[02_Concepts/C-identity-change]]; [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Definition/S-DF-prm-closure-quotient]]
-- Dependencies: [[01_Statements/Definition/S-DF-prm-closure-quotient]]; [[01_Statements/Definition/S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-prm-gauge]]
+- Dependencies: [[01_Statements/Definition/S-DF-prm-closure-quotient]]; [[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-prm-gauge]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

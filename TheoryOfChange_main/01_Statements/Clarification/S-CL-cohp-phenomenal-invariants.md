@@ -3,8 +3,8 @@ id: stmt.cl-cohp-phenomenal-invariants
 type: CL
 title: CO-HP defines consciousness via gauge-fixed PAL invariants
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
-- '[[01_Statements/Definition/S-DF-structure-of-experience]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
+- '[[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]'
 - '[[01_Statements/Clarification/S-CL-change-core-axiom]]'
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
@@ -42,6 +42,6 @@ The CO-HP proposal anchors the closed perception–action–learning loop via a 
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-subject-awareness-experience]]
 - Parents: [[01_Statements/Clarification/S-CL-change-core-axiom]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-structure-of-experience]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

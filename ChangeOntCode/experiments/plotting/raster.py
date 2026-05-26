@@ -46,17 +46,17 @@ def bar_chart_png(
     labs, vals = zip(*cleaned)
     width = max(6, len(labs) * 0.5)
     fig, ax = plt.subplots(figsize=(width, 4), dpi=160)
-    fig.patch.set_facecolor("#0d1521")
-    ax.set_facecolor("#111b2f")
+    fig.patch.set_facecolor("white")
+    ax.set_facecolor("white")
     colors = _assign_colors(len(vals))
-    bars = ax.bar(range(len(vals)), vals, color=colors, edgecolor="#0b1a33", linewidth=1.25)
+    bars = ax.bar(range(len(vals)), vals, color=colors, edgecolor="#d0d7de", linewidth=0.8)
     ax.set_xticks(range(len(labs)))
     ax.set_xticklabels(labs, rotation=45, ha="right")
     ax.set_ylabel(ylabel)
     ax.set_title(title)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
-    ax.yaxis.grid(True, linestyle="--", color="#2f3a52", alpha=0.7)
+    ax.yaxis.grid(True, linestyle=":", color="#c7ced8", alpha=0.8)
     for rect in bars:
         h = rect.get_height()
         ax.text(
@@ -66,10 +66,10 @@ def bar_chart_png(
             ha="center",
             va="bottom",
             fontsize=8,
-            color="#ffffff",
+            color="#222222",
         )
     fig.tight_layout()
-    fig.savefig(out_path)
+    fig.savefig(out_path, facecolor="white", bbox_inches="tight")
     plt.close(fig)
 
 
@@ -97,18 +97,18 @@ def line_chart_png(
     max_len = max(len(v) for _, v in data)
     width = max(6, min(12, max_len * 0.25))
     fig, ax = plt.subplots(figsize=(width, 4), dpi=160)
-    fig.patch.set_facecolor("#0d1521")
-    ax.set_facecolor("#0f1725")
+    fig.patch.set_facecolor("white")
+    ax.set_facecolor("white")
     colors = _assign_colors(len(data))
     for idx, (label, values) in enumerate(data):
         xs = list(range(len(values)))
-        ax.plot(xs, values, label=label, linewidth=2.5, color=colors[idx])
-        ax.scatter(xs, values, s=16, color=colors[idx])
+        ax.plot(xs, values, label=label, linewidth=1.5, color=colors[idx])
+        ax.scatter(xs, values, s=10, color=colors[idx])
     ax.set_title(title)
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
-    ax.grid(True, linestyle=":", color="#2f3a52", alpha=0.75)
+    ax.grid(True, linestyle=":", color="#c7ced8", alpha=0.8)
     ax.legend(frameon=False, fontsize="small")
     fig.tight_layout()
-    fig.savefig(out_path)
+    fig.savefig(out_path, facecolor="white", bbox_inches="tight")
     plt.close(fig)

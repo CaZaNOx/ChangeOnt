@@ -27,12 +27,15 @@ Structure should be added only when the existing representation is insufficient 
 - Holonomy (nontrivial loops) signals coordinate insufficiency; pressure flags persistent mismatch; MDL_gain quantifies whether added structure pays for itself.
 - Requiring all three prevents overfitting (no birth without pressure), prevents ad hoc patches (holonomy grounds need), and enforces parsimony (MDL gain > 0).
 
-## Derivation (Formal/Operational)
+## Derivation (Formal/Logical/Mathematical)
 ```text
 trigger = (pressure_t > τ_pressure) ∧ (MDL_gain_t > 0)
 born_variable := trigger ? 1 : 0
 ```
 with telemetry: mdl_gain, pressure.
+
+## Explanation (informal)
+EB is the disciplined growth element. It is where the system says: the current representation is under pressure, the mismatch is persistent, and a new variable would actually buy explanatory economy rather than merely add clutter.
 
 ## Clarifications / Further Context
 - Guard against birth cascades by hysteresis on τ_pressure and minimum evaluation windows.

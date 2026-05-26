@@ -5,13 +5,13 @@ aliases: []
 title: Actor — selective recursion with memory
 concepts: ["[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-subject-awareness-experience]]", "[[02_Concepts/C-prior-pointer-reach]]"]
 dependencies: [
-  "[[01_Statements/Definition/S-DF-pointer-structural]]",
-  "[[01_Statements/Definition/S-DF-memory-trace-integration]]",
-  "[[01_Statements/Definition/S-DF-localreach-topology]]",
-  "[[01_Statements/Definition/S-DF-subject-arisal-ground]]"
+  "[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]",
+  "[[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]",
+  "[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]",
+  "[[01_Statements/03_Inner_Development/006_S-DF-subject-arisal-ground]]"
 ]
-parents: ["[[01_Statements/Definition/S-DF-subject-recursive-field]]"]
-successors: ["[[01_Statements/Definition/S-DF-action-selection]]", "[[01_Statements/Definition/S-DF-communication-synchronization]]", "[[01_Statements/Clarification/S-CL-identity-orchestrator]]"]
+parents: ["[[01_Statements/03_Inner_Development/005_S-DF-subject-recursive-field]]"]
+successors: ["[[01_Statements/Definition/S-DF-action-selection]]", "[[01_Statements/04_Inner_Public_Continuation/014_S-DF-communication-synchronization]]", "[[01_Statements/Clarification/S-CL-identity-orchestrator]]"]
 symbols_used: []
 sources:
   - path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_2_Avenai_RecursiveChat.md:734
@@ -74,8 +74,8 @@ Actor(S) :=
 ## Relationships
 
 - Concepts: [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-subject-awareness-experience]]; [[02_Concepts/C-prior-pointer-reach]]
-- Parents: [[01_Statements/Definition/S-DF-subject-recursive-field]]
-- Dependencies: [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-memory-trace-integration]]; [[01_Statements/Definition/S-DF-localreach-topology]]; [[01_Statements/Definition/S-DF-subject-arisal-ground]]
-- Successors: [[01_Statements/Definition/S-DF-action-selection]]; [[01_Statements/Definition/S-DF-communication-synchronization]]; [[01_Statements/Clarification/S-CL-identity-orchestrator]]
+- Parents: [[01_Statements/03_Inner_Development/005_S-DF-subject-recursive-field]]
+- Dependencies: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]; [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]; [[01_Statements/03_Inner_Development/006_S-DF-subject-arisal-ground]]
+- Successors: [[01_Statements/Definition/S-DF-action-selection]]; [[01_Statements/04_Inner_Public_Continuation/014_S-DF-communication-synchronization]]; [[01_Statements/Clarification/S-CL-identity-orchestrator]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

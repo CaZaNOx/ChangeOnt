@@ -1,3 +1,5 @@
+"""Instantiate the canonical CO core from config while preserving fail-closed runtime contracts."""
+
 # agents/co/integration/core_builder.py
 from __future__ import annotations
 from typing import Any, Dict, List
@@ -5,42 +7,41 @@ from pathlib import Path
 
 # Core & combinators
 from agents.co.core.pipeline import COAgentCore
-from agents.co.headers.meta_header import MetaHeader
+from agents.co.placement.meta_prior import MetaHeader
 from agents.co.core.combinators import (
     SC_AdditiveBlend,
     SC_MultiplicativeCoupling,
     SC_GatedThreshold,
-    SC_WeightedSelection,
 )
 
 # Registry loader (already used by suite hooks)
 from agents.co.integration.loader import load_registry, resolve_classes
+from agents.co.core.contracts.placement_contract import build_runtime_contract
 
 # Default registry & combos locations
 DEFAULT_REG_PATH = Path("agents/co/registries/registry.yaml")
 
-# Safe import of pipeline combinator with fallback
-try:
-    from agents.co.core.combinators.C_pipeline import C_Pipeline
-except Exception:
-    class C_Pipeline:  # type: ignore
-        def __init__(self, order: List[str] | None = None): self.order = order or []
-        def run(self, elements, primitives, header, observation, feedback) -> Dict[str, Any]:
-            out: Dict[str, Any] = {}
-            for e in elements:
-                for fn in ("update", "step", "metrics"):
-                    if hasattr(e, fn):
-                        try:
-                            res = getattr(e, fn)(
-                                observation, primitives, header, feedback
-                            ) if fn in ("update", "step") else getattr(e, fn)()
-                            if isinstance(res, dict): out.update(res)
-                        except Exception:
-                            out[e.__class__.__name__] = "failed"
-            return out
 
+def _apply_configure(inst: Any, params: Dict[str, Any], context: Dict[str, Any]) -> Any:
+    if inst is None:
+        return inst
+    if hasattr(inst, "configure") and callable(getattr(inst, "configure")):
+        try:
+            configured = inst.configure(dict(params or {}), dict(context or {}))
+            if configured is not None:
+                return configured
+        except TypeError:
+            try:
+                configured = inst.configure(dict(params or {}))
+                if configured is not None:
+                    return configured
+            except Exception:
+                return inst
+        except Exception:
+            return inst
+    return inst
 
-# ... (keep your current imports and C_Pipeline fallback)
+from agents.co.core.combinators.C_pipeline import C_Pipeline
 
 def _instantiate_components(params: Dict[str, Any], classes: Dict[str, Dict[str, Any]]) -> tuple[Any, Dict[str, Any], List[Any], Dict[str, Any], Any]:
     # -------- Header (unchanged) --------
@@ -87,7 +88,7 @@ def _instantiate_components(params: Dict[str, Any], classes: Dict[str, Dict[str,
             if cls is None: continue
             kwargs = dict(cfg) if isinstance(cfg, dict) else {}
             kwargs.pop("enabled", None)
-            primitives[name] = _init_primitive(cls, kwargs)
+            primitives[name] = _apply_configure(_init_primitive(cls, kwargs), kwargs, {"component": name, "kind": "primitive"})
     else:
         for name in ("visit_tracker", "bandit_stats", "ngram_model"):
             cls = prim_classes.get(name)
@@ -95,44 +96,53 @@ def _instantiate_components(params: Dict[str, Any], classes: Dict[str, Dict[str,
                 primitives[name] = cls()
 
     # Ensure canonical primitives exist when classes are available
-    if "co_bus" not in primitives:
-        cls = prim_classes.get("co_bus")
+    if "signal_bus" not in primitives:
+        cls = prim_classes.get("signal_bus")
         if cls:
-            primitives["co_bus"] = _init_primitive(cls, {})
+            primitives["signal_bus"] = _apply_configure(_init_primitive(cls, {}), {}, {"component": "signal_bus", "kind": "primitive"})
+    if "kernel_substrate" not in primitives:
+        cls = prim_classes.get("kernel_substrate")
+        if cls:
+            primitives["kernel_substrate"] = _apply_configure(_init_primitive(cls, {}), {}, {"component": "kernel_substrate", "kind": "substrate"})
+    if "operative_relevance" not in primitives:
+        cls = prim_classes.get("operative_relevance")
+        if cls:
+            primitives["operative_relevance"] = _apply_configure(_init_primitive(cls, {}), {}, {"component": "operative_relevance", "kind": "primitive"})
     if "P1" not in primitives:
         cls = prim_classes.get("P1")
         if cls:
-            primitives["P1"] = _init_primitive(cls, {})
+            primitives["P1"] = _apply_configure(_init_primitive(cls, {}), {}, {"component": "P1", "kind": "primitive"})
     if "P2" not in primitives:
         cls = prim_classes.get("P2")
         if cls:
-            primitives["P2"] = _init_primitive(cls, {})
-    if "P3" not in primitives:
-        cls = prim_classes.get("P3")
+            primitives["P2"] = _apply_configure(_init_primitive(cls, {}), {}, {"component": "P2", "kind": "primitive"})
+    if "P4" not in primitives:
+        cls = prim_classes.get("P4")
         if cls:
-            primitives["P3"] = _init_primitive(cls, {})
+            primitives["P4"] = _apply_configure(_init_primitive(cls, {"epsilon": 0.2, "window": 5}), {"epsilon": 0.2, "window": 5}, {"component": "P4", "kind": "primitive"})
+    if "P16" not in primitives:
+        cls = prim_classes.get("P16")
+        if cls:
+            primitives["P16"] = _apply_configure(_init_primitive(cls, {}), {}, {"component": "P16", "kind": "primitive"})
     if "p10" not in primitives:
         cls = prim_classes.get("p10")
         if cls:
-            primitives["p10"] = _init_primitive(cls, {})
+            primitives["p10"] = _apply_configure(_init_primitive(cls, {}), {}, {"component": "p10", "kind": "primitive"})
     if "p12" not in primitives:
         cls = prim_classes.get("p12")
         if cls:
-            primitives["p12"] = _init_primitive(cls, {})
+            primitives["p12"] = _apply_configure(_init_primitive(cls, {}), {}, {"component": "p12", "kind": "primitive"})
     if "id_mem" not in primitives:
         cls = prim_classes.get("id_mem")
         if cls:
-            primitives["id_mem"] = _init_primitive(cls, {})
+            primitives["id_mem"] = _apply_configure(_init_primitive(cls, {}), {}, {"component": "id_mem", "kind": "primitive"})
     if "birth_count" not in primitives:
         primitives["birth_count"] = 0
 
-    # Ensure additional v1 primitives if available (used by active elements)
+    # Keep exploratory primitives opt-in. Canonical configs should enumerate
+    # only what they actually mean to use rather than silently widening the
+    # kernel.
     # NOTE: P9 (VariableBirth) remains optional and should only be enabled explicitly.
-    for key in ("P5", "P7", "P8", "P11", "P13", "P14"):
-        if key not in primitives:
-            cls = prim_classes.get(key)
-            if cls:
-                primitives[key] = _init_primitive(cls, {})
 
     # -------- Elements (now with explicit reordering) --------
     el_cfg_map = dict(params.get("elements", {}))   # preserves insertion order from YAML loader
@@ -151,11 +161,11 @@ def _instantiate_components(params: Dict[str, Any], classes: Dict[str, Dict[str,
         ordered.extend([n for n in names if n not in set(ordered)])
         names = ordered
 
-    # Ensure action_head is last
-    if "action_head" in names:
-        names = [n for n in names if n != "action_head"] + ["action_head"]
-    elif "action_head" in el_cfg_map:
-        names.append("action_head")
+    # Ensure commitment_surface is last
+    if "commitment_surface" in names:
+        names = [n for n in names if n != "commitment_surface"] + ["commitment_surface"]
+    elif "commitment_surface" in el_cfg_map:
+        names.append("commitment_surface")
 
     elements: List[Any] = []
     for name in names:
@@ -181,6 +191,7 @@ def _instantiate_components(params: Dict[str, Any], classes: Dict[str, Dict[str,
         except TypeError as e:
             raise TypeError(f"Element '{name}' could not be constructed with kwargs={valid_kwargs} (raw={kwargs}): {e}") from e
 
+        inst = _apply_configure(inst, kwargs, {"component": name, "kind": "element"})
         elements.append(inst)
 
     # -------- Combinators (runtime + semantic) --------
@@ -193,7 +204,6 @@ def _instantiate_components(params: Dict[str, Any], classes: Dict[str, Dict[str,
         "SC_AdditiveBlend": SC_AdditiveBlend,
         "SC_MultiplicativeCoupling": SC_MultiplicativeCoupling,
         "SC_GatedThreshold": SC_GatedThreshold,
-        "SC_WeightedSelection": SC_WeightedSelection,
     }
     # Optional semantic combinator remapping for experiment doctrine
     overrides = params.get("semantic_overrides", params.get("semantic_combinators", {})) or {}
@@ -205,13 +215,6 @@ def _instantiate_components(params: Dict[str, Any], classes: Dict[str, Dict[str,
     primitives["_semantic"] = semantic
 
     combinators: Dict[str, Any] = {"pipeline": pipeline, "semantic": semantic}
-
-    gate_cls = comb_classes.get("gate")
-    if gate_cls:
-        try:
-            combinators["gate"] = gate_cls()
-        except Exception:
-            pass
 
     return header, primitives, elements, combinators, semantic
 
@@ -225,31 +228,107 @@ def _build_meta_header(params: Dict[str, Any]) -> MetaHeader:
     return MetaHeader(priors=priors, family=family)
 
 
+
+
+def _normalize_combo(cfg: Dict[str, Any]) -> Dict[str, Any]:
+    """Translate the canonical combo YAML shape into build_co_core params.
+
+    Supported canonical YAML keys:
+      - header: {type, params}
+      - elements: list[{class,key,params}]
+      - primitives: mapping{name: {class, params}}
+      - combinators: {pipeline:{params}, ...}
+    """
+    out: Dict[str, Any] = {}
+    if not isinstance(cfg, dict):
+        return out
+    if 'math_policy' in cfg:
+        out['math_policy'] = cfg.get('math_policy')
+    if 'name' in cfg:
+        out['name'] = cfg.get('name')
+    h = cfg.get('header', {}) or {}
+    if isinstance(h, dict):
+        hp = dict(h.get('params', {}) or {})
+        htype = h.get('type', h.get('mode'))
+        if htype is not None:
+            hp['type'] = htype
+        out['header'] = hp
+    elems = cfg.get('elements', []) or []
+    if isinstance(elems, list):
+        emap: Dict[str, Any] = {}
+        order: List[str] = []
+        alias = {
+            'A':'haq','B':'ghvc','C':'EC_Identity','D':'ED_GaugeWarp','E':'EE_Compressibility',
+            'F':'EF_Router','G':'density','H':'EH_BreadthDepth','I':'change_ops',
+            'HEAD':'commitment_surface','candidate_surface':'candidate_surface','candidate_surface':'candidate_surface','commitment_surface':'commitment_surface'
+        }
+        for item in elems:
+            if not isinstance(item, dict):
+                continue
+            key = str(item.get('key') or item.get('name') or '').strip()
+            norm = alias.get(key, key)
+            if not norm:
+                cls = str(item.get('class') or '')
+                tail = cls.split(':')[0].split('.')[-1]
+                norm = alias.get(tail, tail)
+            params = dict(item.get('params', {}) or {})
+            params.setdefault('enabled', True)
+            emap[norm] = params
+            order.append(norm)
+        out['elements'] = emap
+        out.setdefault('combinator', {})['order'] = order
+    prims = cfg.get('primitives', {}) or {}
+    if isinstance(prims, dict):
+        pmap: Dict[str, Any] = {}
+        for name, item in prims.items():
+            if isinstance(item, dict):
+                pmap[name] = dict(item.get('params', {}) or {})
+            else:
+                pmap[name] = {}
+        out['primitives'] = pmap
+    comb = cfg.get('combinators', {}) or {}
+    if isinstance(comb, dict):
+        c = out.setdefault('combinator', {})
+        pipe = comb.get('pipeline', {}) or {}
+        if isinstance(pipe, dict):
+            params = pipe.get('params', {}) or {}
+            if isinstance(params, dict) and 'order' in params:
+                c['order'] = list(params.get('order', []) or [])
+    return out
+
 def build_co_core(params: Dict[str, Any] | None = None) -> COAgentCore:
     """
     Construct a CO core from params + registry.
 
     Params shape (examples):
-      math_policy: "co" | "classical" | "auto"
+      math_policy: "co"
       header:      { type: "SSI" }         # or { mode: "SSI" }
       elements:
         haq:        { enabled: true, history_len: 64, ema_alpha: 0.2 }
         ghvc:       { enabled: true, mdl_lambda: 1.0, cooldown: 5, birth_threshold: 2.0 }
         density:    { enabled: true, rounding: 2 }
         change_ops: { enabled: true, k: 4, mdL_select: true }
-        # You can also specify: elements: { order: ["vote_bridge","haq","change_ops","action_head"] }
-        action_head:{ enabled: true, visit_horizon: 256, c_explore: 1.0, ngram_order: 2 }  # <- last
+        # Optional canonical order still keeps CommitmentSurface final.
+        commitment_surface:{ enabled: true }  # readout surface; pipeline enforces final execution
       primitives:
         visit_tracker: {}
         bandit_stats: {}
         ngram_model: {}
-        co_bus: {}             # optional; guaranteed even if omitted
+        signal_bus: {}             # optional; guaranteed even if omitted
       combinator:
         order: []    # optional explicit element order for the pipeline combinator
       name: "CO_core"
     """
     cfg = dict(params or {})
+    combo_path = cfg.get("combo_path") or cfg.get("combo")
+    if combo_path:
+        cp = Path(str(combo_path))
+        if cp.exists():
+            import yaml  # type: ignore
+            raw = yaml.safe_load(cp.read_text(encoding="utf-8")) or {}
+            cfg = {**_normalize_combo(raw), **{k: v for k, v in cfg.items() if k not in {"combo_path", "combo"}}}
     math_policy = str(cfg.get("math_policy", "co"))
+    runtime_contract = build_runtime_contract(cfg)
 
     # Load registry & resolve classes
     reg = load_registry(DEFAULT_REG_PATH)
@@ -267,7 +346,9 @@ def build_co_core(params: Dict[str, Any] | None = None) -> COAgentCore:
         math_policy=math_policy,
         name=str(cfg.get("name", "CO_core")),
         meta_header=_build_meta_header(cfg),
+        runtime_contract=runtime_contract,
     )
     # expose meta header for telemetry without conflating with internal header
     primitives["_meta_header"] = core.meta_header
+    primitives["_runtime_contract"] = core.export_runtime_contract()
     return core

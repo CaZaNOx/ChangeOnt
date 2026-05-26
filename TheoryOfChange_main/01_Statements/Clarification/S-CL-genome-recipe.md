@@ -7,7 +7,7 @@ concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 dependencies:
 - '[[01_Statements/Clarification/S-CL-classical-compression]]'
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
 parents:
 - '[[01_Statements/Clarification/S-CL-classical-compression]]'
 successors: []
@@ -43,6 +43,6 @@ This reframes biology (and change modeling) as tracking context-dependent recipe
 
 - Concepts: [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Clarification/S-CL-classical-compression]]
-- Dependencies: [[01_Statements/Clarification/S-CL-classical-compression]]; [[01_Statements/Definition/S-DF-pointer-structural]]
+- Dependencies: [[01_Statements/Clarification/S-CL-classical-compression]]; [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

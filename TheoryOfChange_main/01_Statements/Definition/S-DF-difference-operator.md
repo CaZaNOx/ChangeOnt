@@ -4,8 +4,8 @@ type: DF
 aliases: ["FND_0.Diff"]
 title: Difference operator diff(x,y) — discriminability predicate
 concepts: ["[[02_Concepts/C-ontology-of-change]]"]
-dependencies: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]", "[[01_Statements/Definition/S-DF-identity-through-change]]", "[[01_Statements/Definition/S-DF-similarity-operator]]"]
-parents: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]"]
+dependencies: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]", "[[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]", "[[01_Statements/02_Outer_Formation/023_S-DF-similarity-operator]]"]
+parents: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]"]
 successors: []
 symbols_used: ["[[01_Statements/SYMBOLS/NotEqual]]", "[[01_Statements/SYMBOLS/Delta]]"]
 sources:
@@ -39,7 +39,7 @@ To say two things differ is to say change presents them as not the same in a way
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-identity-through-change]]; [[01_Statements/Definition/S-DF-similarity-operator]]
+- Parents: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]; [[01_Statements/02_Outer_Formation/023_S-DF-similarity-operator]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -1,7 +1,7 @@
-﻿# FILE: experiments/runners/renewal_runner.py
+# FILE: experiments/runners/renewal_runner.py
 from __future__ import annotations
 
-import argparse, json, random, shutil, time
+import argparse, json, os, random, shutil, time
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -60,6 +60,10 @@ def _write_run_manifest(path: Path, payload: Dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
 
+
+def _strict_errors() -> bool:
+    return str(os.environ.get("CO_STRICT_ERRORS", "")).strip() == "1"
+
 def run(config_path: Optional[str]) -> dict:
     cfg: Dict[str, Any] = {
         "seed": 7,
@@ -113,6 +117,7 @@ def run(config_path: Optional[str]) -> dict:
     started_at = _iso_now()
     status = "failed"
     error: Optional[str] = None
+    co_runtime_contract: Optional[Dict[str, Any]] = None
 
     for p in (metrics_path, budget_path):
         if p.exists():
@@ -174,7 +179,8 @@ def run(config_path: Optional[str]) -> dict:
             if not HAS_CO:
                 raise RuntimeError("agent=co requested but agents.co.adapters.renewal_adapter is not importable")
             core = build_co_core(params)
-            agent = COAdapterRenewal(core=core, name=(aname or "CO_full"))
+            co_runtime_contract = core.export_runtime_contract()
+            agent = COAdapterRenewal(core=core, name=(aname or "CO_canonical_core"))
 
         # budget row (one-time)
         write_budget_csv(budget_path, [{"params_bits": 0, "flops_per_step": 0, "memory_bytes": 0}])
@@ -189,6 +195,7 @@ def run(config_path: Optional[str]) -> dict:
             "agent": agent_tag,
             "out_dir": str(out_dir),
             "float32": True,
+            "co_runtime_contract": co_runtime_contract if mode == "co" else None,
         })
 
         # --- single series logging ---
@@ -199,7 +206,9 @@ def run(config_path: Optional[str]) -> dict:
                 try:
                     sel = agent.select({"family": "renewal", "obs": int(obs), "t": t, "A": A, "L_win": L})  # type: ignore[attr-defined]
                 except Exception:
-                    pass
+                    if _strict_errors():
+                        raise
+                    sel = None
                 if isinstance(sel, dict) and "action" in sel:
                     act = sel["action"]
                 else:
@@ -208,7 +217,7 @@ def run(config_path: Optional[str]) -> dict:
                 # -- CO debug
                 co_policy    = (sel.get("co_policy") if isinstance(sel, dict) else None) or "n/a"
                 co_weight    = (float(sel.get("co_weight", 1.0)) if isinstance(sel, dict) else 1.0)
-                co_bus_votes = (int(sel.get("co_bus_votes", 0)) if isinstance(sel, dict) else 0)
+                signal_bus_votes = (int(sel.get("signal_bus_votes", 0)) if isinstance(sel, dict) else 0)
 
                 write_metric_line(
                     metrics_path,
@@ -217,7 +226,7 @@ def run(config_path: Optional[str]) -> dict:
                         "t": t,
                         "co_policy": co_policy,
                         "co_weight": co_weight,
-                        "co_bus_votes": co_bus_votes,
+                        "signal_bus_votes": signal_bus_votes,
                         "agent": agent_tag,
                         **({
                             k: sel[k] for k in (
@@ -227,6 +236,14 @@ def run(config_path: Optional[str]) -> dict:
                                 "debug_header_updates","translator_mask_mode",
                                 "translator_mask_blocked","translator_mask_size","translator_mask_blocks_all",
                                 "signals","header_update_count","header_update_source","mask_mode","translator_mask",
+
+                                "canonical_commitment_mode","canonical_commitment_reason",
+                                "certificate_aware_stable_continuation_applied",
+                                "certificate_aware_reopen_or_sample_applied",
+                                "candidate_final_scores","candidate_obs_scores",
+                                "canonical_commitment_assessment",
+                                "commit_readiness","evidence_margin","evidence_support",
+                                "co_sources","co_evidence_valid_for_step",
                             ) if isinstance(sel, dict) and k in sel
                         }),
                     },
@@ -249,7 +266,8 @@ def run(config_path: Optional[str]) -> dict:
                 try:
                     agent.update({"observation": int(obs), "reward": float(r), "done": bool(done), "action": int(act)})  # type: ignore[attr-defined]
                 except Exception:
-                    pass
+                    if _strict_errors():
+                        raise
 
             write_metric_line(metrics_path, {"t": int(t), "cum_reward": float(cum)})
             if done:
@@ -285,6 +303,7 @@ def run(config_path: Optional[str]) -> dict:
                 "ended_at": _iso_now(),
                 "status": status,
                 "error": error,
+                "co_runtime_contract": co_runtime_contract,
             },
         )
 

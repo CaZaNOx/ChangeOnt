@@ -4,8 +4,8 @@ type: DF
 aliases: ["FND_12.Entropy"]
 title: Entropy (Σ) in Change Ontology
 concepts: ["[[02_Concepts/C-entropy]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-identity-through-change]]", "[[01_Statements/Definition/S-DF-rtv-operator]]"]
-parents: ["[[01_Statements/Definition/S-DF-identity-through-change]]"]
+dependencies: ["[[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]", "[[01_Statements/Definition/S-DF-rtv-operator]]"]
+parents: ["[[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]"]
 successors: ["[[01_Statements/Derivation/S-DR-entropy-vs-se]]"]
 symbols_used: []
 sources:
@@ -63,8 +63,8 @@ with p_i derived from reach-weighted likelihoods respecting invariants.
 ## Relationships
 
 - Concepts: [[02_Concepts/C-entropy]]
-- Parents: [[01_Statements/Definition/S-DF-identity-through-change]]
-- Dependencies: [[01_Statements/Definition/S-DF-identity-through-change]]; [[01_Statements/Definition/S-DF-rtv-operator]]
+- Parents: [[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]
+- Dependencies: [[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]; [[01_Statements/Definition/S-DF-rtv-operator]]
 - Successors: [[01_Statements/Derivation/S-DR-entropy-vs-se]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

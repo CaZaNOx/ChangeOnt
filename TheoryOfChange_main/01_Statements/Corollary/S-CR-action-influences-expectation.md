@@ -30,6 +30,7 @@ What you do next changes what will likely happen and what you’ll come to expec
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 - [[01_Statements/Definition/S-DF-action-selection]]
+- [[01_Statements/Definition/S-DF-commitment-surface]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->

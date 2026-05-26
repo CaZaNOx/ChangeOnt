@@ -3,7 +3,7 @@ id: stmt.df-loopiness
 type: DF
 title: Loopiness L — cycle evidence for scheduler gating
 concepts: ["[[02_Concepts/C-spiral-recursion]]", "[[02_Concepts/C-ontology-of-change]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-breath-field-global-integrator]]", "[[01_Statements/Definition/S-DF-memory-trace-integration]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-breath-field-global-integrator]]", "[[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]"]
 parents: ["[[01_Statements/Definition/S-DF-breath-field-global-integrator]]"]
 successors: ["[[01_Statements/Definition/S-DF-prm-depth-breadth-flip]]"]
 symbols_used: []
@@ -36,7 +36,7 @@ Use L to weight BFS vs. DFS in BDSCHED:
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
-- [[01_Statements/Definition/S-DF-breath-field-global-integrator]]
+
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
@@ -44,7 +44,7 @@ Use L to weight BFS vs. DFS in BDSCHED:
 
 - Concepts: [[02_Concepts/C-spiral-recursion]]; [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Definition/S-DF-breath-field-global-integrator]]
-- Dependencies: [[01_Statements/Definition/S-DF-breath-field-global-integrator]]; [[01_Statements/Definition/S-DF-memory-trace-integration]]
+- Dependencies: [[01_Statements/Definition/S-DF-breath-field-global-integrator]]; [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]
 - Successors: [[01_Statements/Definition/S-DF-prm-depth-breadth-flip]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

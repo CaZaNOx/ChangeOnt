@@ -3,8 +3,8 @@ id: stmt.identity-phase-resonance
 type: CR
 title: Identity as cross‑phase resonance under recursive change
 concepts: ["[[02_Concepts/C-subject-awareness-experience]]", "[[02_Concepts/C-identity-change]]", "[[02_Concepts/C-recursive-truth]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-identity-invariants]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-rtv-operator]]"]
-parents: ["[[01_Statements/Definition/S-DF-identity-invariants]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-rtv-operator]]"]
+dependencies: ["[[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-rtv-operator]]"]
+parents: ["[[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-rtv-operator]]"]
 successors: []
 symbols_used: []
 sources:
@@ -26,8 +26,8 @@ Philosophical translation
 ## Relationships
 
 - Concepts: [[02_Concepts/C-subject-awareness-experience]]; [[02_Concepts/C-identity-change]]; [[02_Concepts/C-recursive-truth]]
-- Parents: [[01_Statements/Definition/S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-rtv-operator]]
-- Dependencies: [[01_Statements/Definition/S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-rtv-operator]]
+- Parents: [[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-rtv-operator]]
+- Dependencies: [[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-rtv-operator]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->

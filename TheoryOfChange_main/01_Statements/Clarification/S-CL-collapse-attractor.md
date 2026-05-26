@@ -6,7 +6,7 @@ concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 - '[[02_Concepts/C-recursive-truth]]'
 dependencies:
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
 - '[[01_Statements/Definition/S-DF-stabilization-energy]]'
 - '[[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]'
 parents:
@@ -49,6 +49,6 @@ This ensures that change-first recursion always begins with collapse and never w
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-recursive-truth]]
 - Parents: [[01_Statements/Definition/S-DF-stabilization-energy]]
-- Dependencies: [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]
+- Dependencies: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -27,7 +27,6 @@ Dependencies:
 - [[01_Statements/Clarification/S-CL-recursive-dimension-scope]]
 - [[01_Statements/Definition/S-DF-boundary-persistent-nonintegration]]
 - [[01_Statements/Definition/S-DF-dimension-change]]
-- [[01_Statements/Definition/S-DF-metric-space-emergent]]
 - [[01_Statements/Derivation/S-DR-dimension-variation]]
 ### Linked Concepts
 - [[02_Concepts/C-prior-pointer-reach]]

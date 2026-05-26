@@ -4,9 +4,9 @@ type: CL
 title: Convert every assumption claim into a DS-derived fact
 dependencies:
 - '[[01_Statements/Clarification/S-CL-foundational-label-hygiene]]'
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 parents:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 successors:
 - '[[01_Statements/Clarification/S-CL-foundational-label-hygiene]]'
 concepts:
@@ -36,8 +36,8 @@ Whenever the prose says "assumption" or "postulate" about change or existence, r
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-prior-pointer-reach]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Dependencies: [[01_Statements/Clarification/S-CL-foundational-label-hygiene]]; [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
+- Parents: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/Clarification/S-CL-foundational-label-hygiene]]; [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
 - Successors: [[01_Statements/Clarification/S-CL-foundational-label-hygiene]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

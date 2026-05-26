@@ -1,0 +1,9 @@
+{
+  "started_at": "2026-05-25T13:46:44.115530+00:00",
+  "finished_at": "2026-05-25T13:46:44.230068+00:00",
+  "status": "ok",
+  "error": null,
+  "seed": 0,
+  "spec_name": "hidden_depth2",
+  "agent": "co:co_no_scheduler"
+}

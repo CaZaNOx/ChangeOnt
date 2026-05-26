@@ -4,7 +4,7 @@ type: DR
 aliases: ["FND_6.PointerTx"]
 title: Pointer behavior under frame shifts (Tx)
 concepts: ["[[02_Concepts/C-frame-operators]]", "[[02_Concepts/C-prior-pointer-reach]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-tx-operator]]", "[[01_Statements/Definition/S-DF-pointer-structural]]", "[[01_Statements/Definition/S-DF-reach-relation]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-tx-operator]]", "[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]", "[[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]"]
 parents: ["[[01_Statements/Definition/S-DF-tx-operator]]"]
 successors: []
 symbols_used: ["[[01_Statements/SYMBOLS/Pointer_meta]]"]
@@ -37,6 +37,6 @@ When the frame changes, pointers shouldn’t break — they should be carried fo
 
 - Concepts: [[02_Concepts/C-frame-operators]]; [[02_Concepts/C-prior-pointer-reach]]
 - Parents: [[01_Statements/Definition/S-DF-tx-operator]]
-- Dependencies: [[01_Statements/Definition/S-DF-tx-operator]]; [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-reach-relation]]
+- Dependencies: [[01_Statements/Definition/S-DF-tx-operator]]; [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

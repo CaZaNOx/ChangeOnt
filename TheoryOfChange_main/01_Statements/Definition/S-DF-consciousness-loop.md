@@ -5,11 +5,11 @@ aliases: ["FND_24.ConsciousnessLoop", "Cᴸ"]
 title: Consciousness Loop — reflexive integration of prediction and perception
 concepts: ["[[02_Concepts/C-subject-awareness-experience]]"]
 dependencies: [
-  "[[01_Statements/Definition/S-DF-self-model-evolution]]",
+  "[[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]]",
   "[[01_Statements/Definition/S-DF-rtv-operator]]",
   "[[01_Statements/Definition/S-DF-stabilization-energy]]"
 ]
-parents: ["[[01_Statements/Definition/S-DF-self-model-evolution]]"]
+parents: ["[[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]]"]
 successors: ["[[01_Statements/Definition/S-DF-intersubject-gauge]]", "[[01_Statements/Definition/S-DF-godel-limits-self-containment]]"]
 symbols_used: []
 sources:
@@ -38,21 +38,21 @@ Consciousness is not added on top of change; it is change synchronizing with its
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
+- [[01_Statements/04_Inner_Public_Continuation/014_S-DF-communication-synchronization]]
 - [[01_Statements/Clarification/S-CL-consciousness-falsifiability]]
 - [[01_Statements/Clarification/S-CL-consciousness-thresholds]]
 - [[01_Statements/Clarification/S-CL-proto-conscious-min-criteria]]
 - [[01_Statements/Corollary/S-CR-consciousness-periodicity]]
 - [[01_Statements/Corollary/S-CR-introspection-nested-loops]]
 - [[01_Statements/Corollary/S-CR-qualia-gauge-curvature]]
-- [[01_Statements/Definition/S-DF-self-model-evolution]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
 - Concepts: [[02_Concepts/C-subject-awareness-experience]]
-- Parents: [[01_Statements/Definition/S-DF-self-model-evolution]]
-- Dependencies: [[01_Statements/Definition/S-DF-self-model-evolution]]; [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/Definition/S-DF-stabilization-energy]]
+- Parents: [[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]]
+- Dependencies: [[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]]; [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/Definition/S-DF-stabilization-energy]]
 - Successors: [[01_Statements/Definition/S-DF-intersubject-gauge]]; [[01_Statements/Definition/S-DF-godel-limits-self-containment]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

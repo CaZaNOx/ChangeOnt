@@ -4,7 +4,7 @@ type: CL
 title: Modeling experience as a manifold pays off only with operational grip
 dependencies:
 - '[[01_Statements/Clarification/S-CL-change-core-axiom]]'
-- '[[01_Statements/Definition/S-DF-structure-of-experience]]'
+- '[[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]'
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 - '[[02_Concepts/C-math-structures]]'
@@ -37,6 +37,6 @@ Lines 18960‑18994 spell out why the manifold framing matters: it gives local c
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-math-structures]]
 - Parents: [[01_Statements/Clarification/S-CL-change-core-axiom]]
-- Dependencies: [[01_Statements/Clarification/S-CL-change-core-axiom]]; [[01_Statements/Definition/S-DF-structure-of-experience]]
+- Dependencies: [[01_Statements/Clarification/S-CL-change-core-axiom]]; [[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

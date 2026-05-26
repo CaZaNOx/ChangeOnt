@@ -4,9 +4,9 @@ type: DF
 aliases: ["FND_13.Structures"]
 title: Math structures for CO — selection principles
 concepts: ["[[02_Concepts/C-math-structures]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-localreach-topology]]", "[[01_Statements/Definition/S-DF-tx-operator]]", "[[01_Statements/Definition/S-DF-identity-invariants]]", "[[01_Statements/Definition/S-DF-rtv-operator]]"]
-parents: ["[[01_Statements/Definition/S-DF-localreach-topology]]"]
-successors: ["[[01_Statements/Derivation/S-DR-math-structures-closure]]", "[[01_Statements/Definition/S-DF-gauge-alignment-field]]", "[[01_Statements/Definition/S-DF-metric-space-emergent]]"]
+dependencies: ["[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]", "[[01_Statements/Definition/S-DF-tx-operator]]", "[[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]", "[[01_Statements/Definition/S-DF-rtv-operator]]"]
+parents: ["[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]"]
+successors: ["[[01_Statements/Derivation/S-DR-math-structures-closure]]", "[[01_Statements/Definition/S-DF-gauge-alignment-field]]", "[[01_Statements/Definition/S-DF-metric-like-comparability-strengthening]]"]
 symbols_used: []
 sources:
   - path: TheoryOfChange/02_Foundations/FND_13_MathStructures.md:1
@@ -34,7 +34,7 @@ Instead of assuming Euclidean or Boolean defaults, we select algebra/topology/lo
 - Prefer minimal C that still supports required operators (Sim, Eval, Gauge).
 
 ## Proofs/Corollaries References
-- corollary: informs [[S-DF-gauge-alignment-field]] (alignment fields), [[S-DF-metric-space-emergent]] (derived metrics).
+- corollary: informs [[S-DF-gauge-alignment-field]] (alignment fields), [[S-DF-metric-like-comparability-strengthening]] (derived metrics).
 
 ## Clarifications / Further Context
 - Candidate structures: quantales for Eval, pseudometrics from Sim, sheaves over LocalReach for gluing invariants.
@@ -42,7 +42,7 @@ Instead of assuming Euclidean or Boolean defaults, we select algebra/topology/lo
 
 ## Next Steps in Chain
 - suggest: [[S-DF-gauge-alignment-field]]
-- suggest: [[S-DF-metric-space-emergent]]
+- suggest: [[S-DF-metric-like-comparability-strengthening]]
 - suggest: [[S-DR-math-structures-closure]]
 
 ## Tags
@@ -57,8 +57,8 @@ Instead of assuming Euclidean or Boolean defaults, we select algebra/topology/lo
 ## Relationships
 
 - Concepts: [[02_Concepts/C-math-structures]]
-- Parents: [[01_Statements/Definition/S-DF-localreach-topology]]
-- Dependencies: [[01_Statements/Definition/S-DF-localreach-topology]]; [[01_Statements/Definition/S-DF-tx-operator]]; [[01_Statements/Definition/S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-rtv-operator]]
-- Successors: [[01_Statements/Derivation/S-DR-math-structures-closure]]; [[01_Statements/Definition/S-DF-gauge-alignment-field]]; [[01_Statements/Definition/S-DF-metric-space-emergent]]
+- Parents: [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]
+- Dependencies: [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]; [[01_Statements/Definition/S-DF-tx-operator]]; [[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-rtv-operator]]
+- Successors: [[01_Statements/Derivation/S-DR-math-structures-closure]]; [[01_Statements/Definition/S-DF-gauge-alignment-field]]; [[01_Statements/Definition/S-DF-metric-like-comparability-strengthening]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

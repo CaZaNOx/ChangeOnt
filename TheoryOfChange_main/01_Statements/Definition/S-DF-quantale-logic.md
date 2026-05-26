@@ -43,7 +43,6 @@ We need math that can add up and compose "how true" in structured ways.
 - [[01_Statements/Corollary/S-CR-boolean-as-collapse]]
 - [[01_Statements/Corollary/S-CR-proof-as-reachability]]
 - [[01_Statements/Definition/S-DF-co-logic-graded-order]]
-- [[01_Statements/Definition/S-DF-elm-ef-router]]
 - [[01_Statements/Definition/S-DF-prm-residuation]]
 - [[01_Statements/Derivation/S-DR-quantale-boolean-flattening-proof]]
 - [[01_Statements/Derivation/S-DR-quantale-evidence-composition]]

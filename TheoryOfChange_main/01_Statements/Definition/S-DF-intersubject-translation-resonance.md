@@ -3,7 +3,7 @@ id: stmt.intersubject-translation-resonance
 type: DF
 title: Intersubject Translation Resonance — depth of alignment across subjects
 concepts: ["[[02_Concepts/C-intersubject-gauge]]", "[[02_Concepts/C-subject-awareness-experience]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-intersubject-gauge]]", "[[01_Statements/Definition/S-DF-identity-invariants]]", "[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-intersubject-gauge]]", "[[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]", "[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]"]
 parents: ["[[01_Statements/Definition/S-DF-intersubject-gauge]]"]
 successors: []
 symbols_used: []
@@ -31,7 +31,7 @@ Operational Notes
 
 - Concepts: [[02_Concepts/C-intersubject-gauge]]; [[02_Concepts/C-subject-awareness-experience]]
 - Parents: [[01_Statements/Definition/S-DF-intersubject-gauge]]
-- Dependencies: [[01_Statements/Definition/S-DF-intersubject-gauge]]; [[01_Statements/Definition/S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
+- Dependencies: [[01_Statements/Definition/S-DF-intersubject-gauge]]; [[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->

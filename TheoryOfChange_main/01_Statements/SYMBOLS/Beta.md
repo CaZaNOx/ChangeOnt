@@ -15,6 +15,6 @@ Rate parameter for memory update/decay (e.g., EMA); higher β → faster forgett
 
 <!-- BEGIN:AUTOGEN:USED_IN -->
 ## Used In
-
+- [[01_Statements/Definition/S-DF-prm-bend-metric]]
 <!-- END:AUTOGEN:USED_IN -->
 

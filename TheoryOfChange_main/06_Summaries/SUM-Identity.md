@@ -10,7 +10,7 @@ Scope
 - Persistence as metastable self‑similarity; robustness and variety.
 
 Core nodes
-- DF: [[01_Statements/Definition/S-DF-identity-through-change]], [[01_Statements/Definition/S-DF-similarity-operator]], [[01_Statements/Definition/S-DF-self-similarity-threshold]], [[01_Statements/Definition/S-DF-stabilization-energy]], [[01_Statements/Definition/S-DF-entropy-co]], [[01_Statements/Definition/S-DF-identity-invariants]]
+- DF: [[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]], [[01_Statements/02_Outer_Formation/023_S-DF-similarity-operator]], [[01_Statements/02_Outer_Formation/025_S-DF-self-similarity-threshold]], [[01_Statements/Definition/S-DF-stabilization-energy]], [[01_Statements/Definition/S-DF-entropy-co]], [[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]
 - DR: [[01_Statements/Derivation/S-DR-entropy-vs-se]], [[01_Statements/Derivation/S-DR-srl-vs-se-theta]]
 
 Key takeaways

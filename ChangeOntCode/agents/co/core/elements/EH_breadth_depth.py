@@ -9,8 +9,8 @@ class EH_BreadthDepth:
     Schedule exploration breadth vs. depth from 'loopiness' and header dyn.
     """
     PRIMITIVE_DEPS = ("P8_Loopiness",)
-    COMBINATOR_FORM = "SC_WeightedSelection (+ optional SC_GatedThreshold)"
-    COMBINATOR_DEPS = ("SC_WeightedSelection",)
+    COMBINATOR_FORM = "local bounded breadth-depth blend"
+    COMBINATOR_DEPS = ()
     FORMULA_STATUS = "provisional"
 
     def __init__(self):
@@ -34,32 +34,35 @@ class EH_BreadthDepth:
         elif path is not None:
             L = loopiness(path)
 
+        debt = 0.0
+        rigidity = 0.0
+        bus = primitives.get("signal_bus")
+        try:
+            if bus is not None and hasattr(bus, "signals"):
+                sig = dict(bus.signals() or {})
+                debt = float(sig.get("EC_Identity.adaptation_debt", 0.0) or 0.0)
+                rigidity = float(sig.get("EC_Identity.rigidity_pressure", 0.0) or 0.0)
+        except Exception:
+            debt = 0.0
+            rigidity = 0.0
+        breadth_drive = max(float(L), 0.85 * float(debt) + 0.15 * float(rigidity))
+
         mix_mode = self.params["mix_mode"]
         if mix_mode == "fixed":
             p = float(self.params["fixed_p"])
         else:
-            p_loop = suggest_p_breadth(L, self.params["depth_hint"])
+            p_loop = suggest_p_breadth(breadth_drive, self.params["depth_hint"])
             if mix_mode == "loop_only":
                 p = p_loop
             else:  # dyn_blend
-                sem = get_semantic(primitives)
-                sc_sel = sem.get("SC_WeightedSelection")
-                if sc_sel is None:
-                    # fallback to base blend if semantic combinator missing
-                    p = (1 - hs.dyn) * 0.5 * p_loop + (hs.dyn) * p_loop
-                else:
-                    candidates = {"breadth": float(p_loop), "depth": float(1.0 - p_loop)}
-                    weights = {"breadth": float(hs.dyn), "depth": float(1.0 - float(hs.dyn))}
-                    sel = sc_sel.select(candidates, weights=weights, mode="blend")
-                    try:
-                        p = float(sel.get("score", p_loop))
-                    except Exception:
-                        p = p_loop
+                # Local bounded blend only; this investigatory element does
+                # not depend on a separate weighted-selection readout.
+                p = (1 - hs.dyn) * 0.5 * p_loop + (hs.dyn) * p_loop
 
         p = max(0.1, min(0.9, p))
         hs.p_breadth = p
         self.last_p = p
-        return {"p_breadth": float(p), "loopiness": float(L)}
+        return {"p_breadth": float(p), "loopiness": float(L), "adaptation_debt": float(debt), "breadth_drive": float(breadth_drive)}
 
     def update(self, observation: Dict[str, Any], primitives: Dict[str, Any], header: Any, feedback: Dict[str, Any] | None):
         hs = getattr(header, "state", header)

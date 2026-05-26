@@ -4,8 +4,8 @@ type: CR
 aliases: ["C0.3"]
 title: Observation is subordinate to change
 concepts: ["[[02_Concepts/C-ontology-of-change]]"]
-dependencies: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]"]
-parents: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]"]
+dependencies: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]"]
+parents: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]"]
 successors: []
 symbols_used: ["[[01_Statements/SYMBOLS/Delta]]"]
 sources:
@@ -55,8 +55,8 @@ Observe(S, X) ⇒ Δ(S, X)
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
+- Parents: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->

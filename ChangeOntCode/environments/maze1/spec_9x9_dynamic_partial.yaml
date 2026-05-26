@@ -1,0 +1,12 @@
+# Experimental dynamic/partial maze specification for fair discovered-map comparisons.
+# Not yet canonical suite coverage; added to restore the missing regime machinery.
+name: maze1
+params:
+  width: 9
+  height: 9
+  seed: 0
+  partial_observability: true
+  view_radius: 1
+  dynamic_walls: true
+  wall_flip_prob: 0.12
+  max_flips_per_step: 1

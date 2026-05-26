@@ -3,12 +3,12 @@ id: stmt.cl-change-ontology-entailment
 type: CL
 title: Sketch an a priori entailment from change ontology to phenomenology
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
-- '[[01_Statements/Definition/S-DF-identity-through-change]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
+- '[[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]'
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 parents:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 successors: []
 symbols_used: []
 sources:
@@ -50,7 +50,7 @@ An a priori entailment from CO to phenomenology requires explicit formal machine
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-identity-through-change]]
+- Parents: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

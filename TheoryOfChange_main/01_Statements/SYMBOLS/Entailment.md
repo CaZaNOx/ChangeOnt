@@ -27,9 +27,8 @@ References:
 
 <!-- BEGIN:AUTOGEN:USED_IN -->
 ## Used In
+- [[01_Statements/00_Opening_Justification/002_S-DF-performative-contradiction]]
 - [[01_Statements/Corollary/S-CR-delta-now-implies-pointer]]
-- [[01_Statements/Definition/S-DF-performative-contradiction]]
-- [[01_Statements/Definition/S-DF-reach-relation]]
 - [[01_Statements/Derivation/S-DR-quantale-residuation-implication]]
 <!-- END:AUTOGEN:USED_IN -->
 

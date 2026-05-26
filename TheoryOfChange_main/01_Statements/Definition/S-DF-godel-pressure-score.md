@@ -3,8 +3,8 @@ id: stmt.df-godel-pressure-score
 type: DF
 title: Gödel pressure score — self-model discrepancy and complexity
 concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-godel-holes]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-self-model-evolution]]", "[[01_Statements/Definition/S-DF-godel-hole-pointer]]"]
-parents: ["[[01_Statements/Definition/S-DF-self-model-evolution]]"]
+dependencies: ["[[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]]", "[[01_Statements/Definition/S-DF-godel-hole-pointer]]"]
+parents: ["[[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]]"]
 successors: []
 symbols_used: []
 sources:
@@ -43,7 +43,7 @@ When what happens and what you think will happen diverge in complex ways, pressu
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-godel-holes]]
-- Parents: [[01_Statements/Definition/S-DF-self-model-evolution]]
-- Dependencies: [[01_Statements/Definition/S-DF-self-model-evolution]]; [[01_Statements/Definition/S-DF-godel-hole-pointer]]
+- Parents: [[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]]
+- Dependencies: [[01_Statements/03_Inner_Development/009_S-DF-recurrent-self-related-mapping.md]]; [[01_Statements/Definition/S-DF-godel-hole-pointer]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

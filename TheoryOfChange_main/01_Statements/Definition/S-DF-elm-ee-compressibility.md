@@ -23,11 +23,19 @@ If it compresses, it likely endures.
 ## Philosophical Justification
 Persistent patterns are compressible: they repeat structure in ways concise descriptions can capture. LZ/MDL proxies provide an operational signal of regularity and thus robustness to noise/drift. Temporal smoothing (EMA) avoids chasing transient coincidences and respects breath pacing.
 
-## Derivation (Formal/Operational)
+## Derivation (Philosophical)
+- Compressibility becomes relevant only once recurring structure exists.
+- The kernel needs a way to use that economy signal as a live indicator of robustness.
+- EE is the bundled element for that predictive role.
+
+## Derivation (Formal/Logical/Mathematical)
 ```text
 lz_count_t := LZ(x_{1..t})
 robustness_pred := EMA(robustness_pred, f(lz_count_t))
 ```
+
+## Explanation (informal)
+EE turns compressibility into a live robustness predictor. It asks whether a structure is merely present or also economical enough to deserve stronger confidence.
 
 ## Clarifications / Further Context
 - Compressibility is one lens; combine with identity/SE for balanced robustness assessment.
@@ -42,7 +50,6 @@ robustness_pred := EMA(robustness_pred, f(lz_count_t))
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
-- [[01_Statements/Definition/S-DF-elm-ef-router]]
 - [[01_Statements/Definition/S-DF-prm-temporal-ops]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 

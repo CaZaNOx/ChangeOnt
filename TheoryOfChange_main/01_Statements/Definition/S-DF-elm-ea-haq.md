@@ -23,12 +23,21 @@ Carry forward what you’ve learned about how things hold together, so costs ref
 ## Philosophical Justification
 Raw instantaneous costs are myopic when structures breathe and stabilize over cycles. The gauge connection Γ captures learned transport; when holonomy defect rises, it indicates loss of coherence. Updating a warp parameter α via EMA of the defect honors recency while protecting against noise (σ(ε)). Warping costs by α biases selection toward paths consistent with the learned gauge, which operationalizes “coherence has credit.” Breath cycles bound adaptation rate so HAQ neither freezes (rigidity) nor thrashes (instability).
 
-## Derivation (Formal/Operational)
+## Derivation (Philosophical)
+- Bend makes deviation measurable.
+- Gauge carries learned alignment structure.
+- Temporal ops prevent overreaction to single shocks.
+- Bundling them yields history-adaptive gauge warp rather than static cost shaping.
+
+## Derivation (Formal/Logical/Mathematical)
 ```text
 α_{t+1} = (1 – β)·α_t + β·holonomy_error_t
 warped_costs = costs + g(α_t, Γ)
 ```
 where β is a forgetting/adaptation rate, and g encodes the gauge‑consistent penalty/bonus. Stability requires α within leak‑bounded ranges (see η in gauge alignment updates).
+
+## Explanation (informal)
+HAQ is the kernel's learned coherence credit. It remembers where transport and cost have been reliable, then warps later evaluation toward those more coherent continuations without freezing exploration.
 
 ## Clarifications / Further Context
 - Too large α hardens preferences and risks local minima; too small α underweights learned coherence.
@@ -44,6 +53,7 @@ where β is a forgetting/adaptation rate, and g encodes the gauge‑consistent p
 ## Referenced By
 - [[01_Statements/Definition/S-DF-haq-core-family]]
 - [[01_Statements/Definition/S-DF-prm-gauge]]
+- [[01_Statements/Derivation/S-DR-kernel-elements-from-primitive-bundles]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->

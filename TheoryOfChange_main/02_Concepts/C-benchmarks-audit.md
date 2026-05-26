@@ -32,6 +32,5 @@ Open items:
 - [[01_Statements/Clarification/S-CL-gate-budget-honesty]]
 - [[01_Statements/Clarification/S-CL-meta-audit-guardrails]]
 - [[01_Statements/Clarification/S-CL-operational-primitives-falsifiability]]
-- [[01_Statements/Definition/S-DF-j-criterion]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

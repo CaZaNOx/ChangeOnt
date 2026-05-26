@@ -66,12 +66,12 @@ class EF_Router:
         if math_ctx is not None:
             try:
                 if hdr.dyn < 0.2:
-                    math_ctx.path_algebra = "classical"
-                    math_ctx.number_arith = "classic"
+                    math_ctx.path_algebra = "thin"
+                    math_ctx.number_arith = "standard"
                     math_ctx.logic = "boolean"
                 elif hdr.dyn < 0.7:
                     math_ctx.path_algebra = "minplus"
-                    math_ctx.number_arith = "classic"
+                    math_ctx.number_arith = "standard"
                     math_ctx.logic = "boolean"
                 else:
                     math_ctx.path_algebra = "minplus"

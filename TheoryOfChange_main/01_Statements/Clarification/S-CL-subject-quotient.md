@@ -6,11 +6,11 @@ concepts:
 - '[[02_Concepts/C-subject-awareness-experience]]'
 - '[[02_Concepts/C-recursive-truth]]'
 dependencies:
-- '[[01_Statements/Definition/S-DF-memory-minimal-witness]]'
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
-- '[[01_Statements/Definition/S-DF-localreach-topology]]'
+- '[[01_Statements/03_Inner_Development/007_S-DF-memory-minimal-witness]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
+- '[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]'
 parents:
-- '[[01_Statements/Definition/S-DF-subject-recursive-field]]'
+- '[[01_Statements/03_Inner_Development/005_S-DF-subject-recursive-field]]'
 successors: []
 symbols_used: []
 sources:
@@ -44,7 +44,7 @@ This reinterpretation keeps the subject tethered to observable edges (contrast/t
 ## Relationships
 
 - Concepts: [[02_Concepts/C-subject-awareness-experience]]; [[02_Concepts/C-recursive-truth]]
-- Parents: [[01_Statements/Definition/S-DF-subject-recursive-field]]
-- Dependencies: [[01_Statements/Definition/S-DF-memory-minimal-witness]]; [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-localreach-topology]]
+- Parents: [[01_Statements/03_Inner_Development/005_S-DF-subject-recursive-field]]
+- Dependencies: [[01_Statements/03_Inner_Development/007_S-DF-memory-minimal-witness]]; [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

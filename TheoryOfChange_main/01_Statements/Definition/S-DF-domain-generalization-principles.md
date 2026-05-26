@@ -4,8 +4,8 @@ type: DF
 aliases: ["AI13.DomainGen"]
 title: Generalization principles across domains
 concepts: ["[[02_Concepts/C-ontology-of-change]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-identity-through-change]]", "[[01_Statements/Definition/S-DF-tx-operator]]", "[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]"]
-parents: ["[[01_Statements/Definition/S-DF-identity-through-change]]"]
+dependencies: ["[[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]", "[[01_Statements/Definition/S-DF-tx-operator]]", "[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]"]
+parents: ["[[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]"]
 successors: ["[[01_Statements/Corollary/S-CR-qm-no-privileged-substrate]]", "[[01_Statements/Corollary/S-CR-complexity-no-fundamental-simplicity]]"]
 symbols_used: []
 sources:
@@ -56,8 +56,8 @@ These principles are necessary to avoid unjustified universality claims and main
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
-- Parents: [[01_Statements/Definition/S-DF-identity-through-change]]
-- Dependencies: [[01_Statements/Definition/S-DF-identity-through-change]]; [[01_Statements/Definition/S-DF-tx-operator]]; [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
+- Parents: [[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]
+- Dependencies: [[01_Statements/02_Outer_Formation/016_S-DF-identity-through-change]]; [[01_Statements/Definition/S-DF-tx-operator]]; [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
 - Successors: [[01_Statements/Corollary/S-CR-qm-no-privileged-substrate]]; [[01_Statements/Corollary/S-CR-complexity-no-fundamental-simplicity]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

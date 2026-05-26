@@ -4,8 +4,8 @@ type: CF
 aliases: ["CF_0.3_1"]
 title: Counterfactual — a subject with no current experience
 concepts: ["[[02_Concepts/C-subject-awareness-experience]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-subject]]", "[[01_Statements/Definition/S-DF-awareness]]", "[[01_Statements/Definition/S-DF-experience]]"]
-parents: ["[[01_Statements/Definition/S-DF-subject]]"]
+dependencies: ["[[01_Statements/03_Inner_Development/001_S-DF-subject]]", "[[01_Statements/03_Inner_Development/002_S-DF-awareness]]", "[[01_Statements/03_Inner_Development/003_S-DF-experience]]"]
+parents: ["[[01_Statements/03_Inner_Development/001_S-DF-subject]]"]
 successors: []
 symbols_used: []
 sources:
@@ -32,7 +32,7 @@ Clarifies the triad: definitions are co‑referential and evaluated at Now; “s
 ## Relationships
 
 - Concepts: [[02_Concepts/C-subject-awareness-experience]]
-- Parents: [[01_Statements/Definition/S-DF-subject]]
-- Dependencies: [[01_Statements/Definition/S-DF-subject]]; [[01_Statements/Definition/S-DF-awareness]]; [[01_Statements/Definition/S-DF-experience]]
+- Parents: [[01_Statements/03_Inner_Development/001_S-DF-subject]]
+- Dependencies: [[01_Statements/03_Inner_Development/001_S-DF-subject]]; [[01_Statements/03_Inner_Development/002_S-DF-awareness]]; [[01_Statements/03_Inner_Development/003_S-DF-experience]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

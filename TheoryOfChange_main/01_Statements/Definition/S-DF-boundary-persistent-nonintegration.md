@@ -4,8 +4,8 @@ type: DF
 aliases: ["FND_11.Boundary"]
 title: Boundary — persistent non-integration
 concepts: ["[[02_Concepts/C-dimension]]", "[[02_Concepts/C-prior-pointer-reach]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-localreach-topology]]"]
-parents: ["[[01_Statements/Definition/S-DF-localreach-topology]]"]
+dependencies: ["[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]"]
+parents: ["[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]"]
 successors: []
 symbols_used: ["[[01_Statements/SYMBOLS/Boundary]]"]
 sources:
@@ -29,7 +29,7 @@ Boundary marks persistent non‑integration zones in LocalReach; ∂ and ⊗ sig
 ## Relationships
 
 - Concepts: [[02_Concepts/C-dimension]]; [[02_Concepts/C-prior-pointer-reach]]
-- Parents: [[01_Statements/Definition/S-DF-localreach-topology]]
-- Dependencies: [[01_Statements/Definition/S-DF-localreach-topology]]
+- Parents: [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]
+- Dependencies: [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

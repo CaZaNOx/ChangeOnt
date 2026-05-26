@@ -61,6 +61,8 @@ Record(a) updates Eval for next breath.
 - [[01_Statements/Corollary/S-CR-action-influences-expectation]]
 - [[01_Statements/Definition/S-DF-actor]]
 - [[01_Statements/Definition/S-DF-attention-focus]]
+- [[01_Statements/Definition/S-DF-commitment-surface]]
+- [[01_Statements/Definition/S-DF-candidate-surface]]
 - [[01_Statements/Definition/S-DF-evaluation-surface]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 

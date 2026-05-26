@@ -27,6 +27,7 @@ Table (core)
 | ⊕      | Join (min)                   | logic/quantale     |  |
 | θ      | Threshold                    | validation        |  |
 | τ      | Bend/Effort                  | metric/energy     |  |
+| d      | Derived comparability distance | strengthened local comparability | shorthand only after comparability is earned; not a primitive background metric |
 | ∂      | Local differential           | analysis          |  |
 | ≈      | Approximate similarity       | structural        |  |
 | ≠, ≡   | Difference / identity        | structural        |  |

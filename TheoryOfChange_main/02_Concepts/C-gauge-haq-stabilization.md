@@ -25,7 +25,6 @@ Open items:
 ### Statements
 - [[01_Statements/Clarification/S-CL-consciousness-thresholds]]
 - [[01_Statements/Clarification/S-CL-gauge-note-classical]]
-- [[01_Statements/Clarification/S-CL-process-philosophy-difference]]
 - [[01_Statements/Definition/S-DF-prm-dissociation-cascade]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -1,11 +1,15 @@
-# C_math_policy.py
 class C_MathPolicy:
+    """Canonical math-policy tag.
+
+    The evidence-bearing runtime does not route to a non-CO policy. External
+    baselines must be run outside the CO kernel.
     """
-    Record math policy selection (classical vs CO). This combinator is a tag holder
-    that can later be queried by elements to adjust arithmetic behavior.
-    """
+
     def __init__(self, policy: str = "co"):
-        self.policy = policy
+        policy = str(policy or "co").lower()
+        if policy != "co":
+            raise ValueError("Certified CO runtime permits only math_policy='co'")
+        self.policy = "co"
 
     def selected(self) -> str:
-        return self.policy
+        return "co"

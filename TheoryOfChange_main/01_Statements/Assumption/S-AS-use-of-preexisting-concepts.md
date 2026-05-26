@@ -5,7 +5,7 @@ aliases: ["AS_0.0_LanguageLogic"]
 title: Assumption — provisional use of pre-existing concepts (logic, language) until derived
 concepts: ["[[02_Concepts/C-ontology-of-change]]"]
 dependencies: []
-parents: ["[[01_Statements/FoundationalTruth/S-FT-root-minimal-stance]]"]
+parents: ["[[01_Statements/00_Opening_Justification/001_S-FT-root-minimal-stance]]"]
 successors: ["[[01_Statements/Definition/S-DF-co-logic-graded-order]]", "[[01_Statements/Definition/S-DF-quantale-logic]]"]
 symbols_used: []
 sources:
@@ -35,7 +35,7 @@ This assumption is replaced in part by [[01_Statements/Definition/S-DF-co-logic-
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-root-minimal-stance]]
+- Parents: [[01_Statements/00_Opening_Justification/001_S-FT-root-minimal-stance]]
 - Successors: [[01_Statements/Definition/S-DF-co-logic-graded-order]]; [[01_Statements/Definition/S-DF-quantale-logic]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

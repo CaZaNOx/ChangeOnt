@@ -4,9 +4,9 @@ type: DF
 aliases: ["FND_0.Arisal"]
 title: Arisal — change-led becoming-present
 concepts: ["[[02_Concepts/C-ontology-of-change]]"]
-dependencies: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]"]
-parents: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]"]
-successors: ["[[01_Statements/Definition/S-DF-point-occurrence]]", "[[01_Statements/Definition/S-DF-subject-arisal-ground]]"]
+dependencies: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]"]
+parents: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]"]
+successors: ["[[01_Statements/Definition/S-DF-point-occurrence]]", "[[01_Statements/03_Inner_Development/006_S-DF-subject-arisal-ground]]"]
 symbols_used: []
 sources:
   - path: TheoryOfChange/02_Foundations/FND_0_Phil-ImmediateDatum.md:1200
@@ -61,8 +61,8 @@ Arisal names the basic move where change instantiates a new configuration. Later
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Successors: [[01_Statements/Definition/S-DF-point-occurrence]]; [[01_Statements/Definition/S-DF-subject-arisal-ground]]
+- Parents: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Successors: [[01_Statements/Definition/S-DF-point-occurrence]]; [[01_Statements/03_Inner_Development/006_S-DF-subject-arisal-ground]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

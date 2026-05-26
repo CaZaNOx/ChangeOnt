@@ -7,7 +7,7 @@ concepts:
 - '[[02_Concepts/C-phenomenology-time]]'
 dependencies:
 - '[[01_Statements/Definition/S-DF-ops-discovery-pipeline]]'
-- '[[01_Statements/Definition/S-DF-loopiness]]'
+- '[[01_Statements/Definition/S-DF-prm-loopiness]]'
 parents: []
 successors: []
 symbols_used: []
@@ -34,6 +34,6 @@ When OPS detects options that are symmetric (ΔΦ̂ and risk̂ within ε_tie) th
 ## Relationships
 
 - Concepts: [[02_Concepts/C-change-fitness]]; [[02_Concepts/C-phenomenology-time]]
-- Dependencies: [[01_Statements/Definition/S-DF-ops-discovery-pipeline]]; [[01_Statements/Definition/S-DF-loopiness]]
+- Dependencies: [[01_Statements/Definition/S-DF-ops-discovery-pipeline]]; [[01_Statements/Definition/S-DF-prm-loopiness]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

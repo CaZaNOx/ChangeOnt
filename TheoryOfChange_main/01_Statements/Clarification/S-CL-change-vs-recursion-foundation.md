@@ -7,10 +7,10 @@ title: Change is foundational; recursion emerges within change
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 - '[[01_Statements/Definition/S-DF-path-eventlet-chain]]'
 parents:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 successors: []
 symbols_used: []
 sources:
@@ -38,7 +38,7 @@ Where “recursion as first principle” appears rhetorically, this ontology tre
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-path-eventlet-chain]]
+- Parents: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-path-eventlet-chain]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

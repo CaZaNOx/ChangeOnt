@@ -125,7 +125,7 @@ class OrderArisal:
             if inv is not None and a == inv:
                 back = 1.0
 
-            # fallback for bandit-like: A,B then choosing A again (switch-back)
+            # bounded substitute for bandit-like: A,B then choosing A again (switch-back)
             if back == 0.0 and family in ("bandit", "renewal") and prev is not None and last is not None:
                 if a == prev and a != last:
                     back = 0.7

@@ -1,4 +1,7 @@
 # EH_BreadthDepth
+Current classification: **Investigatory**
+
+Exploration-style bundle retained for testing rather than canonical doctrine.
 
 ## Purpose
 

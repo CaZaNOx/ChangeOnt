@@ -27,7 +27,7 @@ If registry and builder disagree on key names or semantics, that is a real misal
 
 ---
 
-### `factories.py`
+### `archive/legacy_runtime/co_registry_factories_legacy.py`
 #### Role
 Factory support for registry-driven object construction.
 

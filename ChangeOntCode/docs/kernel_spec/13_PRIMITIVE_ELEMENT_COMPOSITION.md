@@ -1,118 +1,60 @@
-# docs/kernel_spec/13_PRIMITIVE_ELEMENT_COMPOSITION.md
-
 # Primitive and Element Composition
 
 ## Status
-- **Binding**: primitives are reusable basis terms; relation form matters
-- **Recommended starting point**: explicit primitive use, combinators, transforms, and weights inside element definitions
-- **Open design space**: exact config syntax and exact transform library
-
----
+- **Binding**: primitives are reusable CO basis terms
+- **Binding**: elements are doctrine-level compositions over those basis terms
+- **Binding**: weights, transforms, and configure-time parameters are part of the mechanism, not decoration
 
 ## 1. Principle
 
-Primitives are not full mechanisms by themselves.
+Primitives are reusable structural lenses.
+Elements combine them into doctrine-level behavior.
 
-Primitives are reusable basis terms or structural lenses.
+Not every execution-relevant philosophical principle becomes a primitive. Some principles belong to:
+- runtime invariants / update discipline
+- the kernel substrate / field state
+- support surfaces
+Only those that need reusable kernel-resolution handles should be packaged as primitives.
 
-Elements are mechanism forms built by composing primitives under:
-- relation forms,
-- transforms,
-- weights,
-- and element-specific semantics.
+A meaningful element difference may come from:
+- primitive choice
+- primitive weighting
+- transform law
+- thresholding/gating
+- memory/update law
+- output publication strategy
 
----
+This is why `ea1`, `ea2`, etc. must be able to differ honestly at runtime.
 
-## 2. Primitive reuse
+## 2. Runtime liveness rule
 
-**Binding**
+If docs claim a primitive weight, transform, or threshold is configurable, the runtime must honor it.
 
-The same primitive may appear in multiple elements.
+A config parameter that never reaches the live instance is a spec violation.
 
-Its role in those elements may differ because:
-- the combinator differs,
-- the transform differs,
-- the weight differs,
-- the target interpretation differs.
+## 3. Contribution rule
 
-Example:
-- `P1` in one element need not mean exactly what `P1` means in another.
+In active v1, elements contribute through one or more of:
+- returned metrics
+- published bus signals
+- optional direct votes
 
----
+Not every element must do all three.
+But the docs must state which channel is authoritative for that element.
 
-## 3. Relation form matters
+## 4. Family-neutrality rule
 
-**Binding**
+Primitive/element meaning must be family-neutral.
+Families differ only in:
+- what they can honestly expose in the standard packet
+- how a continuation surface is collapsed into native action space
 
-Primitive meaning in an element is not exhausted by bare inclusion.
+If an element only works in one family because another family failed to expose the same visible structure in standard form, that is an integration bug, not an ontology truth.
 
-Meaningful differences include:
-- additive use,
-- subtractive use,
-- multiplicative use,
-- divisive use,
-- thresholded use,
-- gated use,
-- nonlinear or transformed use,
-- order-sensitive use.
+## 5. Misalignment examples
 
-This is a core part of CO and must not be reduced to “primitive present = same mechanism”.
-
----
-
-## 4. Weights are first-class
-
-**Binding**
-
-Weights are not mere engineering clutter.
-
-Weights are part of the mechanism definition.
-
-They may exist at multiple layers:
-- primitive contribution weight inside an element,
-- element contribution weight inside a group,
-- group contribution weight in final fusion.
-
----
-
-## 5. Recommended element definition shape
-
-**Recommended starting point**
-
-Each element definition should specify:
-
-- element identity
-- purpose
-- primitives used
-- primitive transforms
-- primitive combinators
-- primitive weights
-- local element parameters
-- expected output packet types
-
----
-
-## 6. Group composition
-
-**Binding**
-
-Elements may be grouped into higher-order structures.
-
-Examples:
-- `EA + EB`
-- `EA - EB`
-- weighted mixtures
-- gated mixtures
-- order-sensitive mixtures
-
-This composition is a distinct layer from primitive→element composition.
-
----
-
-## 7. Misalignment examples
-
-Code is misaligned with this spec if:
-- element semantics are hardcoded but weights/combinators are decorative,
-- the same primitive cannot be meaningfully reused across elements,
-- group composition is only an ad hoc special case,
-- or config claims to vary primitive/combinator/weight choices that runtime ignores.
+Misalignment exists if:
+- weights/combinators are documented but ignored at runtime
+- element semantics are actually hidden in family translators
+- one family receives richer standard packet structure only because the adapter was written more carefully
+- variant configs differ in YAML but not in live behavior

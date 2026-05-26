@@ -4,7 +4,7 @@ type: DF
 aliases: ["FND_21.Attention"]
 title: Attention / Focus mechanism
 concepts: ["[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-identity-change]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-rtv-operator]]", "[[01_Statements/Definition/S-DF-identity-invariants]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-rtv-operator]]", "[[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]"]
 parents: ["[[01_Statements/Definition/S-DF-rtv-operator]]"]
 successors: ["[[01_Statements/Definition/S-DF-action-selection]]"]
 symbols_used: []
@@ -36,7 +36,7 @@ Attention is the knob that decides which parts of the reach graph get airtime. B
 ## Derivation (Formal/Logical/Mathematical)
 ```text
 Given LocalReach R and invariants I,
-Attention := argmax_W Validate(W; ε(I), RTV_budget)
+Attention := select W under Validate(W; ε(I), RTV_budget), where selection is constrained by continuation relevance rather than an unrestricted numeric argmax
 ```
 
 ## Proofs/Corollaries References
@@ -68,7 +68,7 @@ Attention := argmax_W Validate(W; ε(I), RTV_budget)
 
 - Concepts: [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-identity-change]]
 - Parents: [[01_Statements/Definition/S-DF-rtv-operator]]
-- Dependencies: [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/Definition/S-DF-identity-invariants]]
+- Dependencies: [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]
 - Successors: [[01_Statements/Definition/S-DF-action-selection]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

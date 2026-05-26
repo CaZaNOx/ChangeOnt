@@ -34,7 +34,7 @@ Operational policy over the CO “letters” adjusts gauge, novelty, identity, p
 - Drift density D high: increase gauge learning rate η (A), raise salience decay λ (prevents ruts), cap basin depth ρ_max (avoid lock-in).
 - Loopiness L high, drift D low: favor A + C (identity lock-in); if stochastic churn dominates (high noise N with stable aggregates), add G (probabilistic layer).
 - Novelty spikes (S): lower novelty threshold ν (B) and raise parsimony penalty ψ after spikes subside (new variables must earn their keep).
-- Classical slice: when signals are stationary/low D and stable, allow H (classical collapse) to reduce complexity.
+- Classical slice: when signals are stationary/low D and stable, allow H (thin collapse / classical-degenerate simplification) to reduce complexity.
 - Monitoring: log spiral index Σ; if ρ rises while variance collapses (rut warning), increase λ or widen τ to force exploration.
 
 ## Tags

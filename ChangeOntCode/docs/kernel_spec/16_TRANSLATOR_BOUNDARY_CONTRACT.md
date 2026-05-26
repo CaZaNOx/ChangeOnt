@@ -1,81 +1,34 @@
-# docs/kernel_spec/16_TRANSLATOR_BOUNDARY_CONTRACT.md
 
 # Translator Boundary Contract
 
-## Status
-- **Binding**: translators are first-class boundary operators
-- **Recommended starting point**: translators map task-local input into path-space updates and path-space continuation surfaces into task actions
-- **Open design space**: exact translator helper structure and family-specific optimization details
+## Purpose
 
----
+The translator exposes the public lawful problem specification in a generic form the kernel can consume.
+It does **not** solve the problem and it does **not** derive the shape prior.
 
-## 1. Principle
+## The translator may provide only public/parity-honest information
+Allowed examples:
+- start state / task anchor / win condition
+- legal actions
+- prohibited actions
+- public transition rules
+- public exceptions
+- public rewards/costs if the environment exposes them
+- visible updates after each step
 
-Translators are not trivial formatting helpers.
+The translator may use only information that a parity-honest STOA baseline could also receive
+from the same environment.
 
-Translators are the boundary operators between:
-- problem-local task structures,
-- and the CO kernel’s problem-agnostic internal representation.
+## The translator may not provide
+Forbidden examples:
+- best-next-step hints
+- shortest-path rankings
+- arm rankings
+- hidden simulator internals unavailable to baselines
+- family-private strategy labels disguised as public fields
+- near-final policy advice under the name of translation
 
----
-
-## 2. Input-side translator role
-
-**Binding**
-
-Translators must convert task-local observations/feedback into CO-facing updates to the path-space fragment.
-
-This includes translating task-local structures into kernel-relevant forms such as:
-- realized transitions,
-- branch-space candidates,
-- constraints,
-- structural shifts,
-- stabilization/destabilization signals,
-- closure/opening shifts,
-- confidence or precision relevant signals.
-
----
-
-## 3. Output-side translator role
-
-**Binding**
-
-Translators must convert the CO-internal continuation surface into a concrete task action.
-
-This is where task-local legality and action semantics are applied.
-
-Examples:
-- maze action index or move direction,
-- bandit arm choice,
-- renewal symbol/action class.
-
----
-
-## 4. Feedback translation rule
-
-**Binding**
-
-Translators must also translate environment feedback back into CO-relevant update structure.
-
-The kernel should not rely only on raw reward or raw next-state payloads.
-
----
-
-## 5. Bus rule
-
-**Binding**
-
-The bus or fused continuation surface is richer than the final task action.
-
-Translators are the legitimate collapse point into concrete task action space.
-
-The kernel must not be forced to think natively in final task action tokens.
-
----
-
-## 6. Misalignment examples
-
-Code is misaligned with this spec if:
-- translators only pass flat state features through unchanged,
-- the kernel is forced to emit final task actions as its deepest native output,
-- or feedback is not translated back into kernel-relevant structural update form.
+## Relationship to shape derivation
+The translator is not the regime-analysis layer.
+It publishes the lawful/public problem facts; the placement layer separately derives the
+six-question shape prior from those public facts and the visible stream.

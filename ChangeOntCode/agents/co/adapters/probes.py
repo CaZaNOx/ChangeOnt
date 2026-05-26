@@ -1,3 +1,5 @@
+"""Small probe fixtures used by adapter/runtime diagnostics."""
+
 # agents/co/adapters/probes.py
 from typing import Dict, List, Any
 import math

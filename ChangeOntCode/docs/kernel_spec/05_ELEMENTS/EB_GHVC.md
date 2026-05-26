@@ -1,4 +1,7 @@
 # EB_GHVC
+Current classification: **Provisional**
+
+Active birth/admission element, but still philosophically less settled than the strongest core.
 
 ## Purpose
 
@@ -63,7 +66,7 @@ Some internal scoring may still be additive, but the element’s defining featur
 
 EB_GHVC may consume:
 - residual/probe-derived pressure
-- feedback-derived pressure fallback
+- feedback-derived pressure proxy
 - complexity / MDL-related quantity
 - optional budget/admission constraints
 
@@ -137,3 +140,40 @@ Required canonical signals:
 - role binding
 - threshold/admission structure binding
 - exact score formula still provisional
+
+---
+
+## Element Charter
+
+### Domain
+Consumes (standard packet):
+- `residuals`, `probes` (structural mismatch diagnostics)
+- `feedback.reward` (diagnostic/proxy pressure only; not a rescue selector)
+- `t` (time for cooldown)
+- optional `budget` object
+
+### Codomain
+Emits typed roles:
+- **branch/birth proposal** (primary)
+
+Canonical signals:
+- `EB_GHVC.pressure`
+- `EB_GHVC.mdl_gain`
+- `EB_GHVC.birth_suggest`
+
+And an auditable proposal stream in `primitives['_branch_proposals']`.
+
+### Invariants
+- **No free birth**: if `pressure < birth_threshold` then `birth_suggest` must be 0.
+- **No negative justification**: if `mdl_gain <= 0` then `birth_suggest` must be 0.
+- **Cooldown**: births cannot happen more frequently than `cooldown` steps (unless cooldown disabled).
+- **Auditability**: every suggested birth must be recorded in `_branch_proposals` (no silent births).
+
+### Falsifiers
+- births occur under low pressure or non-positive mdl_gain.
+- births occur repeatedly despite cooldown.
+- EB produces only scalar “pressure” with no proposal/audit trail.
+
+### Interaction expectations
+- With **EC**: high fracture pressure should increase plausibility of birth; high continuity should suppress it.
+- With **EA**: sustained EA pressure without stable identity may support birth gating, but EA must not directly trigger births.

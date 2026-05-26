@@ -1,0 +1,50 @@
+{"record_type": "header", "runner": "bandit", "family": "bandit", "mode": "easy", "seed": 0, "env": {"probs": [0.1, 0.2, 0.8], "horizon": 24}, "agent": "ucb1", "out_dir": "/mnt/data/co_mod/ChangeOntCode/outputs/frozen_logged_empirical_mini_suite_v1/runs/bandit_easy_ucb1_s0", "co_runtime_contract": null}
+{"metric": "cumulative_regret", "t": 1, "value": 0.7000000000000001}
+{"metric": "arm_pull", "t": 1, "arm": 0, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 2, "value": 1.3000000000000003}
+{"metric": "arm_pull", "t": 2, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 3, "value": 1.3000000000000003}
+{"metric": "arm_pull", "t": 3, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 4, "value": 1.3000000000000003}
+{"metric": "arm_pull", "t": 4, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 5, "value": 1.3000000000000003}
+{"metric": "arm_pull", "t": 5, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 6, "value": 1.3000000000000003}
+{"metric": "arm_pull", "t": 6, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 7, "value": 1.3000000000000003}
+{"metric": "arm_pull", "t": 7, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 8, "value": 1.3000000000000003}
+{"metric": "arm_pull", "t": 8, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 9, "value": 2.0000000000000004}
+{"metric": "arm_pull", "t": 9, "arm": 0, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 10, "value": 2.6000000000000005}
+{"metric": "arm_pull", "t": 10, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 11, "value": 2.6000000000000005}
+{"metric": "arm_pull", "t": 11, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 12, "value": 2.6000000000000005}
+{"metric": "arm_pull", "t": 12, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 13, "value": 2.6000000000000005}
+{"metric": "arm_pull", "t": 13, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 14, "value": 2.6000000000000005}
+{"metric": "arm_pull", "t": 14, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 15, "value": 2.6000000000000005}
+{"metric": "arm_pull", "t": 15, "arm": 2, "reward": 1.0}
+{"metric": "cumulative_regret", "t": 16, "value": 3.3000000000000007}
+{"metric": "arm_pull", "t": 16, "arm": 0, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 17, "value": 3.900000000000001}
+{"metric": "arm_pull", "t": 17, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 18, "value": 3.900000000000001}
+{"metric": "arm_pull", "t": 18, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 19, "value": 3.900000000000001}
+{"metric": "arm_pull", "t": 19, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 20, "value": 3.900000000000001}
+{"metric": "arm_pull", "t": 20, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 21, "value": 4.6000000000000005}
+{"metric": "arm_pull", "t": 21, "arm": 0, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 22, "value": 5.200000000000001}
+{"metric": "arm_pull", "t": 22, "arm": 1, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 23, "value": 5.200000000000001}
+{"metric": "arm_pull", "t": 23, "arm": 2, "reward": 0.0}
+{"metric": "cumulative_regret", "t": 24, "value": 5.200000000000001}
+{"metric": "arm_pull", "t": 24, "arm": 2, "reward": 1.0}
+{"metric": "pulls_summary", "t": 24, "pulls": [4, 4, 16], "best_arm": 2}

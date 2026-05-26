@@ -4,9 +4,9 @@ type: DF
 aliases: ["FND_8.Path"]
 title: Path — recursive chain of eventlets
 concepts: ["[[02_Concepts/C-prior-pointer-reach]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-eventlet]]", "[[01_Statements/Definition/S-DF-reach-relation]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-eventlet]]", "[[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]"]
 parents: ["[[01_Statements/Definition/S-DF-eventlet]]"]
-successors: ["[[01_Statements/Definition/S-DF-locality-prior]]", "[[01_Statements/Corollary/S-CR-prior-with-change]]"]
+successors: ["[[01_Statements/02_Outer_Formation/008_S-DF-asymmetric-local-contribution]]", "[[01_Statements/Corollary/S-CR-prior-with-change]]"]
 symbols_used: []
 sources:
   - path: TheoryOfChange/02_Foundations/DerChain.md:692
@@ -46,7 +46,7 @@ depth(x,y) := min n over Path(x,y).
 - Non-uniqueness: multiple minimal paths may exist; tie-breaking depends on evaluation surfaces later.
 
 ## Next Steps in Chain
-- suggest: [[S-DF-locality-prior]]
+- suggest: [[S-DF-asymmetric-local-contribution]]
 - suggest: [[S-CR-prior-with-change]]
 
 ## Tags
@@ -55,8 +55,6 @@ depth(x,y) := min n over Path(x,y).
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 - [[01_Statements/Definition/S-DF-eventlet]]
-- [[01_Statements/Definition/S-DF-prm-change-ops]]
-- [[01_Statements/Definition/S-DF-reach-relation]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
@@ -64,7 +62,7 @@ depth(x,y) := min n over Path(x,y).
 
 - Concepts: [[02_Concepts/C-prior-pointer-reach]]
 - Parents: [[01_Statements/Definition/S-DF-eventlet]]
-- Dependencies: [[01_Statements/Definition/S-DF-eventlet]]; [[01_Statements/Definition/S-DF-reach-relation]]
-- Successors: [[01_Statements/Definition/S-DF-locality-prior]]; [[01_Statements/Corollary/S-CR-prior-with-change]]
+- Dependencies: [[01_Statements/Definition/S-DF-eventlet]]; [[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]
+- Successors: [[01_Statements/02_Outer_Formation/008_S-DF-asymmetric-local-contribution]]; [[01_Statements/Corollary/S-CR-prior-with-change]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

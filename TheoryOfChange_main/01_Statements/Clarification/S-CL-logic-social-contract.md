@@ -7,7 +7,7 @@ concepts:
 - '[[02_Concepts/C-recursive-truth]]'
 dependencies:
 - '[[01_Statements/Clarification/S-CL-collapse-attractor]]'
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
 parents:
 - '[[01_Statements/Clarification/S-CL-collapse-attractor]]'
 successors: []
@@ -43,6 +43,6 @@ This view keeps the theory from claiming universal logic while still building st
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-recursive-truth]]
 - Parents: [[01_Statements/Clarification/S-CL-collapse-attractor]]
-- Dependencies: [[01_Statements/Clarification/S-CL-collapse-attractor]]; [[01_Statements/Definition/S-DF-pointer-structural]]
+- Dependencies: [[01_Statements/Clarification/S-CL-collapse-attractor]]; [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

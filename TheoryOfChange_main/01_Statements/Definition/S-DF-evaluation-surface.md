@@ -4,7 +4,7 @@ type: DF
 aliases: ["FND_20.EvalSurface"]
 title: Cost algebra / evaluation surface
 concepts: ["[[02_Concepts/C-math-structures]]", "[[02_Concepts/C-recursive-truth]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-rtv-operator]]", "[[01_Statements/Definition/S-DF-identity-invariants]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-rtv-operator]]", "[[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]"]
 parents: ["[[01_Statements/Definition/S-DF-rtv-operator]]"]
 successors: ["[[01_Statements/Definition/S-DF-action-selection]]", "[[01_Statements/Definition/S-DF-j-criterion]]", "[[01_Statements/Derivation/S-DR-quantale-residuation-implication]]"]
 symbols_used: []
@@ -56,8 +56,6 @@ Breath maps Eval into feasible step sizes per cycle.
 - [[01_Statements/Corollary/S-CR-criticism-increases-srl-se]]
 - [[01_Statements/Corollary/S-CR-laws-as-robust-invariants]]
 - [[01_Statements/Definition/S-DF-action-selection]]
-- [[01_Statements/Definition/S-DF-j-criterion]]
-- [[01_Statements/Definition/S-DF-metric-space-emergent]]
 - [[01_Statements/Definition/S-DF-spread-arithmetic]]
 - [[01_Statements/Derivation/S-DR-quantale-boolean-flattening-proof]]
 - [[01_Statements/Derivation/S-DR-quantale-evidence-composition]]
@@ -69,7 +67,7 @@ Breath maps Eval into feasible step sizes per cycle.
 
 - Concepts: [[02_Concepts/C-math-structures]]; [[02_Concepts/C-recursive-truth]]
 - Parents: [[01_Statements/Definition/S-DF-rtv-operator]]
-- Dependencies: [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/Definition/S-DF-identity-invariants]]
+- Dependencies: [[01_Statements/Definition/S-DF-rtv-operator]]; [[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]
 - Successors: [[01_Statements/Definition/S-DF-action-selection]]; [[01_Statements/Definition/S-DF-j-criterion]]; [[01_Statements/Derivation/S-DR-quantale-residuation-implication]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

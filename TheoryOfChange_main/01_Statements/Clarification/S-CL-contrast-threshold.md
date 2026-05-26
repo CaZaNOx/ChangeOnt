@@ -6,10 +6,10 @@ concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 - '[[02_Concepts/C-recursive-truth]]'
 dependencies:
-- '[[01_Statements/Definition/S-DF-memory-minimal-witness]]'
+- '[[01_Statements/03_Inner_Development/007_S-DF-memory-minimal-witness]]'
 - '[[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]'
 parents:
-- '[[01_Statements/Definition/S-DF-memory-minimal-witness]]'
+- '[[01_Statements/03_Inner_Development/007_S-DF-memory-minimal-witness]]'
 successors: []
 symbols_used: []
 sources:
@@ -43,7 +43,7 @@ This answer addresses the modest test requested in AI₆ (define the contrast st
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-recursive-truth]]
-- Parents: [[01_Statements/Definition/S-DF-memory-minimal-witness]]
-- Dependencies: [[01_Statements/Definition/S-DF-memory-minimal-witness]]; [[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]
+- Parents: [[01_Statements/03_Inner_Development/007_S-DF-memory-minimal-witness]]
+- Dependencies: [[01_Statements/03_Inner_Development/007_S-DF-memory-minimal-witness]]; [[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -1,0 +1,138 @@
+[
+  {
+    "agent": "random",
+    "co_runtime_contract": null,
+    "door_reframes": 0,
+    "family": "latent_mechanism",
+    "mean_reward": -1.0,
+    "mechanism_depth": 1,
+    "seed": 0,
+    "spec": "easy_visible_max20",
+    "spec_name": "easy_visible",
+    "steps": 20,
+    "success": 0,
+    "wrong_count": 0
+  },
+  {
+    "agent": "heuristic",
+    "co_runtime_contract": null,
+    "door_reframes": 0,
+    "family": "latent_mechanism",
+    "mean_reward": -1.7600000000000002,
+    "mechanism_depth": 1,
+    "seed": 0,
+    "spec": "easy_visible_max20",
+    "spec_name": "easy_visible",
+    "steps": 20,
+    "success": 0,
+    "wrong_count": 19
+  },
+  {
+    "agent": "co",
+    "co_runtime_contract": {
+      "direct_controls": {
+        "axes": {
+          "collapse_admissibility": 0.625,
+          "local_authority": 0.605,
+          "nonlocal_authority": 0.30999999999999994,
+          "path_sensitivity": 0.32,
+          "revision_permissibility": 0.40499999999999997,
+          "rival_breadth": 0.33499999999999996,
+          "support_carry_forward": 0.6099999999999999
+        },
+        "notes": "Direct runtime controls projected from the 6-question canonical shape prior.",
+        "schema": "co_direct_controls_v2",
+        "source": "shape_prior6_direct_projection",
+        "status": "active_canonical_projection"
+      },
+      "problem_contract": {
+        "actions": {
+          "count": 0,
+          "labels": [],
+          "native_type": "unknown"
+        },
+        "decision_scope": "",
+        "hard_constraints": [],
+        "mutable_factors": [],
+        "notes": "",
+        "observability_profile": {
+          "constraints": "unknown",
+          "outcome": "unknown",
+          "state": "unknown"
+        },
+        "observation_channels": [],
+        "regime_anchors": [],
+        "reversibility_profile": {
+          "action_reversibility": "unknown",
+          "commitment_cost": "unknown",
+          "notes": ""
+        },
+        "schema": "co_problem_contract_v1",
+        "soft_costs": [],
+        "source": "declared",
+        "status": "declared",
+        "task_anchor": {
+          "kind": "unknown",
+          "notes": "",
+          "provided_externally": true
+        },
+        "timescale_profile": {
+          "drift": "unknown",
+          "horizon_fixity": "unknown",
+          "notes": ""
+        }
+      },
+      "shape_prior6": {
+        "axes": {
+          "consequence_span": 0.25,
+          "hidden_decisiveness": 0.5,
+          "local_cue_reliability": 0.5,
+          "reshapeability": 0.25,
+          "revision_cost": 0.5,
+          "topology_constraint": 0.25
+        },
+        "notes": "Derived from the six canonical generic regime questions using public problem specification fields only.",
+        "raw_axes_before_quantization": {
+          "consequence_span": 0.35000000000000003,
+          "hidden_decisiveness": 0.5,
+          "local_cue_reliability": 0.47750000000000004,
+          "reshapeability": 0.325,
+          "revision_cost": 0.45,
+          "topology_constraint": 0.325
+        },
+        "schema": "co_shape_prior6_v2",
+        "score_values": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "source": "problem_contract_questionnaire",
+        "status": "derived_from_public_problem_contract"
+      },
+      "study_overrides": {
+        "kernel_posture": {
+          "authority": "study_override",
+          "axes": {},
+          "enabled": false,
+          "name": "",
+          "notes": "",
+          "schema": "co_kernel_posture_study_v1",
+          "status": "study_only"
+        },
+        "schema": "co_study_overrides_v2"
+      }
+    },
+    "door_reframes": 1,
+    "family": "latent_mechanism",
+    "mean_reward": 0.26249999999999996,
+    "mechanism_depth": 1,
+    "seed": 0,
+    "spec": "easy_visible_max20",
+    "spec_name": "easy_visible",
+    "steps": 16,
+    "success": 1,
+    "wrong_count": 1
+  }
+]

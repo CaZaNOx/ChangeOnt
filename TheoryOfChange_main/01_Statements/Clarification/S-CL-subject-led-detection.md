@@ -6,7 +6,7 @@ concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 - '[[02_Concepts/C-spiral-recursion]]'
 dependencies:
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
 - '[[01_Statements/Definition/S-DF-gauge-alignment-field]]'
 parents: []
 successors: []
@@ -34,6 +34,6 @@ To operationalize non-classical metrics you must teach the subject (human or age
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-spiral-recursion]]
-- Dependencies: [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-gauge-alignment-field]]
+- Dependencies: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/Definition/S-DF-gauge-alignment-field]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

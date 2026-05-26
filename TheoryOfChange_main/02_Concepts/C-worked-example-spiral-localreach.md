@@ -17,7 +17,7 @@ Implication
 - Spiral adjacency provides contextual continuity: validation and identity checks can reference prior arms without long jumps.
 
 Links
-- [[01_Statements/Definition/S-DF-localreach-topology]]; [[01_Statements/Definition/S-DF-depth-reach]]; [[01_Statements/Definition/S-DF-breath-field-global-integrator]]; [[01_Statements/Corollary/S-CR-spiral-context-continuity]]
+- [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]; [[01_Statements/Definition/S-DF-depth-reach]]; [[01_Statements/Definition/S-DF-breath-field-global-integrator]]; [[01_Statements/Corollary/S-CR-spiral-context-continuity]]
 
 Note
 - This is illustrative; continuous variants follow by taking finer lattices/metrics.

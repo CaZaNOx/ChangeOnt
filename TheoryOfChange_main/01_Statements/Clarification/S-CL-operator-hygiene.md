@@ -6,11 +6,11 @@ concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 - '[[02_Concepts/C-prior-pointer-reach]]'
 dependencies:
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
-- '[[01_Statements/Definition/S-DF-reach-relation]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
+- '[[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]'
 - '[[01_Statements/Definition/S-DF-stabilization-energy]]'
 parents:
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
 successors: []
 symbols_used: []
 sources:
@@ -44,7 +44,7 @@ This hygiene prevents simulation narratives from sneaking in disguised as defini
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-prior-pointer-reach]]
-- Parents: [[01_Statements/Definition/S-DF-pointer-structural]]
-- Dependencies: [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-reach-relation]]; [[01_Statements/Definition/S-DF-stabilization-energy]]
+- Parents: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]
+- Dependencies: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]; [[01_Statements/Definition/S-DF-stabilization-energy]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -118,6 +118,23 @@ This distinction is mandatory.
 
 If a primitive is a canonical shared store primitive, the spec must explicitly state:
 - what it stores
+
+---
+
+## Charter Requirement
+
+Every primitive spec must include a **Charter** section that declares:
+
+- Domain / Codomain
+- Invariants (bounds, monotonicity, neutrality)
+- Falsifier signature
+- Link to executable law tests (when the primitive is core)
+
+Executable law tests live under `docs/kernel_spec/09_ACCEPTANCE/` and are run via:
+
+```bash
+python -m agents.co.tests.law_invariants
+```
 - why it is canonical
 - what must not be duplicated elsewhere
 

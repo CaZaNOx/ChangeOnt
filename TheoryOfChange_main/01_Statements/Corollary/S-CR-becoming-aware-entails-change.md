@@ -5,12 +5,12 @@ aliases: ["FT 0.6_1"]
 title: Becoming aware entails change (Δ)
 concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-subject-awareness-experience]]"]
 dependencies: [
-  "[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]",
-  "[[01_Statements/Definition/S-DF-awareness]]",
-  "[[01_Statements/Definition/S-DF-experience]]",
+  "[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]",
+  "[[01_Statements/03_Inner_Development/002_S-DF-awareness]]",
+  "[[01_Statements/03_Inner_Development/003_S-DF-experience]]",
   "[[01_Statements/Corollary/S-CR-observation-subordinate]]"
 ]
-parents: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]"]
+parents: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]"]
 successors: []
 symbols_used: ["[[01_Statements/SYMBOLS/Delta]]"]
 sources:
@@ -68,7 +68,7 @@ Awareness(S, X, t) ⇒ Δ_state(S, t)
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-subject-awareness-experience]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-awareness]]; [[01_Statements/Definition/S-DF-experience]]; [[01_Statements/Corollary/S-CR-observation-subordinate]]
+- Parents: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/03_Inner_Development/002_S-DF-awareness]]; [[01_Statements/03_Inner_Development/003_S-DF-experience]]; [[01_Statements/Corollary/S-CR-observation-subordinate]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

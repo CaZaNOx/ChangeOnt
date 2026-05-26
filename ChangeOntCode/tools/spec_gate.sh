@@ -13,7 +13,11 @@ fail() {
 pass() { echo "PASS: $1"; }
 
 # 1) Static grep gates
-GREP_MATCHES="$(rg -n 'primitives\["P10"\]|primitives\["P12"\]|identity_mem|update_from_primitives' ChangeOntCode/agents/co || true)"
+if command -v rg >/dev/null 2>&1; then
+  GREP_MATCHES="$(rg -n 'primitives\["P10"\]|primitives\["P12"\]|identity_mem|update_from_primitives' ChangeOntCode/agents/co || true)"
+else
+  GREP_MATCHES="$(grep -RInE 'primitives\["P10"\]|primitives\["P12"\]|identity_mem|update_from_primitives' ChangeOntCode/agents/co || true)"
+fi
 if [ -n "$GREP_MATCHES" ]; then
   fail "static_grep" "Disallowed symbols found in kernel code."
   echo "$GREP_MATCHES"

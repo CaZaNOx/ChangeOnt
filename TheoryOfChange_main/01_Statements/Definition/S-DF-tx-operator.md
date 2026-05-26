@@ -4,8 +4,8 @@ type: DF
 aliases: ["FND_6.Tx"]
 title: Transformation Operator (Tx) — frame-level change
 concepts: ["[[02_Concepts/C-frame-operators]]"]
-dependencies: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]", "[[01_Statements/Definition/S-DF-pointer-structural]]", "[[01_Statements/Definition/S-DF-reach-relation]]"]
-parents: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]"]
+dependencies: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]", "[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]", "[[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]"]
+parents: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]"]
 successors: ["[[01_Statements/Definition/S-DF-tx-algebra]]", "[[01_Statements/Derivation/S-DR-pointer-behavior-under-tx]]", "[[01_Statements/Corollary/S-CR-nonclosure-under-tx]]"]
 symbols_used: []
 sources:
@@ -76,8 +76,8 @@ Define a domain guard: Tx is admissible only if reachability in F and F' overlap
 ## Relationships
 
 - Concepts: [[02_Concepts/C-frame-operators]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-reach-relation]]
+- Parents: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]
 - Successors: [[01_Statements/Definition/S-DF-tx-algebra]]; [[01_Statements/Derivation/S-DR-pointer-behavior-under-tx]]; [[01_Statements/Corollary/S-CR-nonclosure-under-tx]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

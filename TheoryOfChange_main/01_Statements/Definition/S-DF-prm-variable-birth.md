@@ -25,12 +25,21 @@ New degrees of freedom emerge when the system can explain more with less by addi
 - [[S-DF-structural-recurrence-likelihood]]: recurrence structure shows whether pattern is coherent enough to justify extending it.
 - [[S-DF-prm-mdl-compressibility]]: birth only when compression improves (error_drop − λ·params > 0) to avoid gratuitous complexity.
 
+## Explanation (informal)
+Variable birth is the stronger growth move: it says the current representational room is too small, and a new axis is now justified by persistent pressure and genuine payoff.
+
 ## Clarifications / Further Context
 - Couples novelty pressure with conservative model selection (avoid overfitting; reward compressibility).
 - Downstream: identity maintenance under new coordinates (quotients/closure).
 - Use hysteresis on pressure/MDL thresholds to prevent birth thrash.
 
-## Derivation (Formal/Operational)
+## Derivation (Philosophical)
+- Persistent structural pressure shows the current basis is insufficient.
+- Recurrence coherence keeps growth from being random.
+- Compressibility stops the system from adding empty machinery.
+- Therefore a disciplined variable-birth primitive is legitimate.
+
+## Derivation (Formal/Logical/Mathematical)
 ```text
 trigger = (pressure > τ_p) ∧ (MDL_gain = error_drop − λ·params > 0) ∧ SRL coherence
 born_variable := trigger ? 1 : 0
@@ -49,6 +58,8 @@ born_variable := trigger ? 1 : 0
 ## Referenced By
 - [[01_Statements/Clarification/S-CL-feature-gating]]
 - [[01_Statements/Definition/S-DF-elm-eb-ghvc]]
+- [[01_Statements/Definition/S-DF-prm-arisal-tension]]
+- [[01_Statements/Definition/S-DF-prm-mdl-compressibility]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->

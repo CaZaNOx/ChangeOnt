@@ -23,7 +23,7 @@ tags:
 
 # Δt gauge adapts time-step under calm vs burst regimes
 
-Instead of committing to a global Δt, CO uses a Δt gauge that shrinks during bursts (collapse warnings, high loop_score) and grows during calm phases, all gated by headers/regret triggers. Compute cost becomes `∑_t 1/Δt_t`, letting CO reduce total steps for the same error budget relative to any fixed-Δt classical integrator. The gauge is event-driven and tied to the same collapse/loop/hysteresis machinery that prevents classical collapse—when the gauge is left free to tune, CO maintains precision without oversampling. This formalizes the streaming dynamics example from AI_15.
+Instead of committing to a global Δt, CO uses a Δt gauge that shrinks during bursts (collapse warnings, high loop_score) and grows during calm phases, all gated by headers/regret triggers. Compute cost becomes `∑_t 1/Δt_t`, letting CO reduce total steps for the same error budget relative to any fixed-Δt classical integrator. The gauge is event-driven and tied to the same collapse/loop/hysteresis machinery that prevents thin collapse / classical-degenerate simplification—when the gauge is left free to tune, CO maintains precision without oversampling. This formalizes the streaming dynamics example from AI_15.
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By

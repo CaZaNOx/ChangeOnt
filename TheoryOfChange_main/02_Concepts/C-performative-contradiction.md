@@ -26,9 +26,9 @@ Open items:
 ## Relationships
 
 ### Statements
+- [[01_Statements/00_Opening_Justification/002A_S-CL-why-performative-instability-matters-at-opening]]
+- [[01_Statements/00_Opening_Justification/002_S-DF-performative-contradiction]]
 - [[01_Statements/Counterfactual/S-CF-immediate-reading-generalization]]
-- [[01_Statements/Definition/S-DF-performative-contradiction]]
-- [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
 ### Linked Concepts
 - [[02_Concepts/C-ontology-of-change]]
 - [[02_Concepts/C-subject-awareness-experience]]

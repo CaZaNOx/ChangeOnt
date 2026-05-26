@@ -3,8 +3,8 @@ id: stmt.dr-core-from-immediate-datum
 type: DR
 title: From Immediate Datum to tolerance, gauge, attractors, and classical limit
 concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-math-structures]]"]
-dependencies: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]", "[[01_Statements/Definition/S-DF-arisal]]", "[[01_Statements/Definition/S-DF-prm-bend-metric]]", "[[01_Statements/Definition/S-DF-prm-closure-quotient]]", "[[01_Statements/Definition/S-DF-prm-gauge]]", "[[01_Statements/Derivation/S-DR-quantale-boolean-flattening-proof]]"]
-parents: ["[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]"]
+dependencies: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]", "[[01_Statements/Definition/S-DF-arisal]]", "[[01_Statements/Definition/S-DF-prm-bend-metric]]", "[[01_Statements/Definition/S-DF-prm-closure-quotient]]", "[[01_Statements/Definition/S-DF-prm-gauge]]", "[[01_Statements/Derivation/S-DR-quantale-boolean-flattening-proof]]"]
+parents: ["[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]"]
 successors: ["[[01_Statements/Clarification/S-CL-classical-limit-falsifier]]"]
 symbols_used: ["[[01_Statements/SYMBOLS/Tau]]"]
 sources:
@@ -40,8 +40,8 @@ Because we can only sense imperfectly, we need a graded sameness (tolerance) and
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-math-structures]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-arisal]]; [[01_Statements/Definition/S-DF-prm-bend-metric]]; [[01_Statements/Definition/S-DF-prm-closure-quotient]]; [[01_Statements/Definition/S-DF-prm-gauge]]; [[01_Statements/Derivation/S-DR-quantale-boolean-flattening-proof]]
+- Parents: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/Definition/S-DF-arisal]]; [[01_Statements/Definition/S-DF-prm-bend-metric]]; [[01_Statements/Definition/S-DF-prm-closure-quotient]]; [[01_Statements/Definition/S-DF-prm-gauge]]; [[01_Statements/Derivation/S-DR-quantale-boolean-flattening-proof]]
 - Successors: [[01_Statements/Clarification/S-CL-classical-limit-falsifier]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

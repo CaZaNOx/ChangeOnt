@@ -25,11 +25,19 @@ The same steps in a different order can help or hurt — we must care about sequ
 - [[S-DF-prm-loopiness]] flags short cycles; order penalties discourage unproductive 2-cycles.
 - [[S-DF-co-logic-graded-order]] provides graded truth/validation; embedding order penalties there makes sequencing effects explicit and composable.
 
+## Explanation (informal)
+This primitive compresses the fact that sequence matters: repeated bad ordering patterns should leave a measurable penalty trace in the field.
+
 ## Clarifications / Further Context
 - Feeds EJ (Order Asymmetry) and counters pathological backtracks.
 - Declare which actions are order-sensitive and the window over which penalties apply.
 
-## Derivation (Formal/Operational)
+## Derivation (Philosophical)
+- Loopiness reveals stalled recurrence.
+- Graded order logic reveals that sequence alters viability.
+- Therefore an order-sensitive penalty primitive is warranted as the compact handle over these effects.
+
+## Derivation (Formal/Logical/Mathematical)
 ```text
 penalty(A,B) applied if sequence deviates (e.g., BA after AB) or loops with no gain;
 aggregate into co-logic score for action selection.
@@ -44,6 +52,7 @@ aggregate into co-logic score for action selection.
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 - [[01_Statements/Definition/S-DF-elm-ej-order-asymmetry]]
+- [[01_Statements/Definition/S-DF-prm-arisal-tension]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->

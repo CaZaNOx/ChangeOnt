@@ -4,8 +4,8 @@ type: DF
 aliases: ["FND_3.CoreChange"]
 title: Core Change — self-stabilizing change
 concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-identity-change]]"]
-dependencies: ["[[01_Statements/FoundationalTruth/S-FT-continuity-noncessation]]"]
-parents: ["[[01_Statements/FoundationalTruth/S-FT-continuity-noncessation]]"]
+dependencies: ["[[01_Statements/00_Opening_Justification/008_S-FT-continuity-noncessation]]"]
+parents: ["[[01_Statements/00_Opening_Justification/008_S-FT-continuity-noncessation]]"]
 successors: []
 symbols_used: ["[[01_Statements/SYMBOLS/Delta]]"]
 sources:
@@ -32,7 +32,7 @@ Stability is how change behaves when it reinforces a configuration; it’s still
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-identity-change]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-continuity-noncessation]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-continuity-noncessation]]
+- Parents: [[01_Statements/00_Opening_Justification/008_S-FT-continuity-noncessation]]
+- Dependencies: [[01_Statements/00_Opening_Justification/008_S-FT-continuity-noncessation]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

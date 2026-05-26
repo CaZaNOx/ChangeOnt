@@ -4,15 +4,14 @@ adapters:
   maze:    "agents.co.adapters.maze_adapter:COAdapterMaze"
   bandit:  "agents.co.adapters.bandit_adapter:COAdapterBandit"
   renewal: "agents.co.adapters.renewal_adapter:COAdapterRenewal"
+  maintenance_replacement: "agents.co.adapters.maintenance_replacement_adapter:COAdapterMaintenanceReplacement"
 
 headers:
-  CS:  "agents.co.headers.H_CS:HeaderCS"
-  ID:  "agents.co.headers.H_ID:HeaderID"
   SSI: "agents.co.headers.H_SSI:HeaderSSI"
 
 elements:
-  action_head:           agents.co.core.elements.action_head:ActionHead
-  vote_bridge:           agents.co.core.elements.E0_vote_bridge:E0_VoteBridge
+  commitment_surface:     agents.co.runtime.surfaces.commitment_surface:CommitmentSurface
+  candidate_surface:      agents.co.runtime.surfaces.candidate_surface:CandidateEvidenceSurface
   haq:                   agents.co.core.elements.EA_haq:EA_HAQ
   ghvc:                  agents.co.core.elements.EB_ghvc:EB_GHVC
   density:               agents.co.core.elements.EG_density_precision:EG_Density
@@ -25,31 +24,32 @@ elements:
   EJ_OrderAsymmetry: agents.co.core.elements.EJ_order_arisal:EJ_OrderAsymmetry
 
 translators:
-  maze:    "agents.co.integration.translators.maze_translator:translate"
-  bandit:  "agents.co.integration.translators.bandit_translator:translate"
-  renewal: "agents.co.integration.translators.renewal_translator:translate"
+  maze:    "agents.co.boundary.observation_mapper:translate_observation"
+  bandit:  "agents.co.boundary.observation_mapper:translate_observation"
+  renewal: "agents.co.boundary.observation_mapper:translate_observation"
+  latent_mechanism: "agents.co.boundary.observation_mapper:translate_observation"
+  maintenance_replacement: "agents.co.boundary.observation_mapper:translate_observation"
 
 combinators:
-  C_Fuse:         agents.co.core.combinators.C_fuse:C_Fuse
   C_Pipeline:     agents.co.core.combinators.C_pipeline:C_Pipeline
-  C_Gate:         agents.co.core.combinators.C_gate:C_Gate
-  C_MathPolicy:   agents.co.core.combinators.C_math_policy:C_MathPolicy
-  C_ClassicOps:   agents.co.core.combinators.C_classic_ops:C_ClassicOps
   C_CoOps:        agents.co.core.combinators.C_co_ops:C_CoOps
-  C_TransformChain: agents.co.core.combinators.C_transform_chain:C_TransformChain   # <-- add this
-
+  C_TransformChain: agents.co.core.combinators.C_transform_chain:C_TransformChain
 
 primitives:
-  calibrators:   "agents.co.core.primitives.calibrators"
-  co_bus:        "agents.co.core.primitives.co_bus:CoVoteBus"
-  budget:        "agents.co.core.primitives.budget"
+
+  calibrators:   "agents.co.runtime.support.calibrators"
+  signal_bus:        "agents.co.runtime.support.signal_bus:KernelSignalBus"
+  kernel_substrate: "agents.co.core.primitives.kernel_substrate:BoundedLocalUnfoldingSubstrate"
+  operative_relevance: "agents.co.core.primitives.operative_relevance:OperativeRelevanceController"
+  budget:        "agents.co.runtime.support.budget"
   identity:      "agents.co.core.primitives.identity"
-  visit_tracker: "agents.co.core.primitives.visit_tracker:VisitTracker"
-  bandit_stats:  "agents.co.core.primitives.bandit_stats:BanditStats"
-  ngram_model:   "agents.co.core.primitives.ngram_model:NGramModel"
+  visit_tracker: "agents.co.runtime.support.visit_tracker:VisitTracker"
+  bandit_stats:  "agents.co.runtime.support.bandit_stats:BanditStats"
+  ngram_model:   "agents.co.runtime.support.ngram_model:NGramModel"
   P0: "agents.co.core.primitives.P0_arisal_tension:ArisalTension"
   P1:  "agents.co.core.primitives.P1_bend_metric"
   P2:  "agents.co.core.primitives.P2_gauge"
+  # investigatory candidates below must not be silently defaulted
   P3:  "agents.co.core.primitives.P3_mdl"
   P4:  "agents.co.core.primitives.P4_reid_kernel:ReIDKernel"
   P5:  "agents.co.core.primitives.P5_temporal_ops:TemporalOps"
@@ -64,6 +64,7 @@ primitives:
   P13: "agents.co.core.primitives.P13_creative_option_birth:CreativeOptionBirth"
   P14: "agents.co.core.primitives.P14_depth_breadth_flip:DepthBreadthFlip"
   P15: "agents.co.core.primitives.P15_order_asymetry:OrderArisal"
+  P16: "agents.co.core.primitives.P16_remaining_burden:RemainingTransformationBurden"
 
 
 operators:

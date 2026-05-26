@@ -7,11 +7,11 @@ concepts:
 - '[[02_Concepts/C-recursive-truth]]'
 - '[[02_Concepts/C-prior-pointer-reach]]'
 dependencies:
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
-- '[[01_Statements/Definition/S-DF-localreach-topology]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
+- '[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]'
 - '[[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]'
 parents:
-- '[[01_Statements/Definition/S-DF-pointer-structural]]'
+- '[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]'
 successors: []
 symbols_used: []
 sources:
@@ -46,7 +46,7 @@ This supports the live challenge to derive measurement and logic purely from Cha
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-prior-pointer-reach]]
-- Parents: [[01_Statements/Definition/S-DF-pointer-structural]]
-- Dependencies: [[01_Statements/Definition/S-DF-pointer-structural]]; [[01_Statements/Definition/S-DF-localreach-topology]]; [[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]
+- Parents: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]
+- Dependencies: [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]; [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]; [[01_Statements/Clarification/S-CL-operational-change-minimal-axiom]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

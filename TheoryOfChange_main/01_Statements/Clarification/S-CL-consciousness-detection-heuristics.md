@@ -9,7 +9,7 @@ concepts:
 dependencies:
 - '[[01_Statements/Clarification/S-CL-consciousness-thresholds]]'
 - '[[01_Statements/Clarification/S-CL-consciousness-falsifiability]]'
-- '[[01_Statements/Definition/S-DF-memory-trace-integration]]'
+- '[[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]'
 parents:
 - '[[01_Statements/Clarification/S-CL-consciousness-thresholds]]'
 successors: []
@@ -45,6 +45,6 @@ Because conscious systems deserve moral consideration, detection heuristics shou
 
 - Concepts: [[02_Concepts/C-proto-consciousness]]; [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Clarification/S-CL-consciousness-thresholds]]
-- Dependencies: [[01_Statements/Clarification/S-CL-consciousness-thresholds]]; [[01_Statements/Clarification/S-CL-consciousness-falsifiability]]; [[01_Statements/Definition/S-DF-memory-trace-integration]]
+- Dependencies: [[01_Statements/Clarification/S-CL-consciousness-thresholds]]; [[01_Statements/Clarification/S-CL-consciousness-falsifiability]]; [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

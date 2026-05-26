@@ -1,48 +1,49 @@
 ---
 id: stmt.elm-ec-identity
 type: DF
-aliases: ["ELM.EC.Identity"]
-title: Element — EC — Identity (closure and tracking)
-concepts: ["[[02_Concepts/C-identity-change]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-prm-reid-kernel]]", "[[01_Statements/Definition/S-DF-prm-closure-quotient]]", "[[01_Statements/Definition/S-DF-identity-through-change]]"]
-parents: ["[[01_Statements/Definition/S-DF-identity-through-change]]"]
-successors: ["[[01_Statements/Definition/S-DF-ops-j4a-reid-closure]]"]
-symbols_used: ["[[01_Statements/SYMBOLS/Gamma]]", "[[01_Statements/SYMBOLS/Epsilon]]"]
+aliases:
+- ELM_EC
+- EC_Identity
+title: EC — continuity, fracture, and admissibility loss
+concepts:
+- '[[02_Concepts/C-identity-change]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-prm-reid-kernel]]'
+- '[[01_Statements/Definition/S-DF-prm-bend-metric]]'
+- '[[01_Statements/Definition/S-DF-prm-closure-quotient]]'
+parents:
+- '[[01_Statements/Derivation/S-DR-kernel-elements-from-primitive-bundles]]'
+successors: []
+symbols_used: []
 sources:
-  - path: TheoryOfChange/02_Foundations/DerChain.md:5616
+- path: TheoryOfChange/02_Foundations/DerChain.md
 flags: []
-tags: [layer/operators, domain/operational, element, identity, closure, "type/DF", "concept/identity-change", "symbol/Gamma", "symbol/Epsilon"]
+tags:
+- layer/kernel
+- domain/ontological
+- type/DF
+- status/stable
 ---
-# Element — EC — Identity (closure and tracking)
+# EC — continuity, fracture, and admissibility loss
 ## Claim (formal)
-Maintain identity_ok by applying ReID kernel under ε‑closure; emit last_distance and eps_used to support stable class operations.
+EC is the element that evaluates and propagates continuity-through-change, fracture pressure, and admissibility loss over a directional non-metric deformation field.
 
 ## Philosophical Translation (of formal claim)
-Keep track of what stays the same, even when it changes a bit.
+EC is not merely a sameness classifier. It is the element that tracks whether continuity remains admissible under bend, how fracture is increasing, and when identity pressure should shift or reopen.
 
 ## Philosophical Justification
-Identity is an auditable claim under declared similarity and closure. ReID kernels evaluate cross‑time sameness under gauge transport; ε‑closure collapses near‑duplicates into classes, ensuring operations act on kinds rather than fragile instances. This makes identity persistence explicit and inspectable across gaps, aligning with identity‑through‑change.
+Once ReID is grounded in admissible continuity rather than exact point identity, an identity element must do more than threshold same/not-same. It must monitor continuity confidence, fracture pressure, and loss of admissibility under directional deformation burden. Because the underlying space is not fundamentally a static metric background, EC is best understood as operating over continuity and fracture in a non-metric field rather than over static positions.
 
-## Derivation (Formal/Operational)
-```text
-identity_ok := K_reid(x_t, x_s; Γ, ε) ≥ θ over window K
-class := [x]_≈ε      # quotient under ε-identity
-```
-Outputs include last_distance and eps_used to explain decisions.
+## Explanation (informal)
+EC judges whether a process still hangs together under change. It also registers when that hanging-together is failing, becoming brittle, or carrying adaptation debt.
 
-## Clarifications / Further Context
-- Identity criteria and ε must be declared per domain and tracked over time.
-- Couples to closure/OPS for stable manipulation of identity classes.
-
-## Next Steps in Chain
-- suggest: [[S-DF-ops-j4a-reid-closure]]
-
-## Tags
-#type/DF #layer/operators #domain/operational #element #identity #closure #concept/identity-change #symbol/Gamma #symbol/Epsilon
+## Active-chain status
+**Status band:** derived-but-weaker  
+**Reason:** EC is one of the stronger earned elements, but its exact final telemetry bundle is still runtime-shaped.
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
-- [[01_Statements/Definition/S-DF-prm-closure-quotient]]
+- [[01_Statements/Definition/S-DF-candidate-surface]]
 - [[01_Statements/Definition/S-DF-prm-reid-kernel]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
@@ -50,8 +51,7 @@ Outputs include last_distance and eps_used to explain decisions.
 ## Relationships
 
 - Concepts: [[02_Concepts/C-identity-change]]
-- Parents: [[01_Statements/Definition/S-DF-identity-through-change]]
-- Dependencies: [[01_Statements/Definition/S-DF-prm-reid-kernel]]; [[01_Statements/Definition/S-DF-prm-closure-quotient]]; [[01_Statements/Definition/S-DF-identity-through-change]]
-- Successors: [[01_Statements/Definition/S-DF-ops-j4a-reid-closure]]
+- Parents: [[01_Statements/Derivation/S-DR-kernel-elements-from-primitive-bundles]]
+- Dependencies: [[01_Statements/Definition/S-DF-prm-reid-kernel]]; [[01_Statements/Definition/S-DF-prm-bend-metric]]; [[01_Statements/Definition/S-DF-prm-closure-quotient]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

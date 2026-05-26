@@ -23,11 +23,19 @@ Even without the full system, you can lean the landscape toward coherence.
 ## Philosophical Justification
 When the learned connection Γ and bend τ reveal systematic mismatch, a lightweight warp can stabilize dynamics by penalizing incoherent moves and rewarding coherent ones. This is a pragmatic control layer: it nudges choices toward gauge‑consistent regions without requiring full HAQ infrastructure.
 
-## Derivation (Formal/Operational)
+## Derivation (Philosophical)
+- Gauge determines how comparisons travel.
+- Some situations require immediate stabilizing warp even before rich HAQ history exists.
+- ED isolates that gauge-warp role as its own element.
+
+## Derivation (Formal/Logical/Mathematical)
 ```text
 stabilization_score := h(Γ, τ)
 warped_costs := costs + λ_warp · (−stabilization_score)
 ```
+
+## Explanation (informal)
+ED is the non-HAQ gauge stabilizer: a way of warping the field to maintain coherent transport even when long adaptive history is weak or unavailable.
 
 ## Clarifications / Further Context
 - ED should be conservative to avoid hiding model errors; report its influence.
@@ -41,7 +49,7 @@ warped_costs := costs + λ_warp · (−stabilization_score)
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
-- [[01_Statements/Definition/S-DF-prm-gauge]]
+
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->

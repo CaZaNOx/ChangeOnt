@@ -117,7 +117,7 @@ Supports closure-sensitive and stabilization-sensitive mechanisms.
 
 ---
 
-### `P15_order_asymetry.py`
+### `P15_order_asymmetry.py`
 #### Meaning
 Directional / order-sensitive structure; irreversibility/path dependence.
 

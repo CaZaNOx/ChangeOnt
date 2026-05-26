@@ -23,7 +23,7 @@ Local effort/bend measure (e.g., in PRM Bend), often defined as a gauge‑norm d
 - [[01_Statements/Clarification/S-CL-letter-regime-policy]]
 - [[01_Statements/Definition/S-DF-elm-ed-gauge-warp]]
 - [[01_Statements/Definition/S-DF-ops-j4b-counterfactual-bend]]
-- [[01_Statements/Definition/S-DF-prm-bend-metric]]
 - [[01_Statements/Derivation/S-DR-core-from-immediate-datum]]
+- [[01_Statements/Derivation/S-DR-kernel-geometric-primitives-from-localized-comparability]]
 <!-- END:AUTOGEN:USED_IN -->
 

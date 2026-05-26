@@ -3,7 +3,7 @@ id: stmt.cl-co-differential-assumptions
 type: CL
 title: CO relaxes classical differential assumptions via nonsmooth flows
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 - '[[01_Statements/Clarification/S-CL-change-continuity-logic]]'
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
@@ -48,6 +48,6 @@ AI_13 addresses the concern about importing classical smooth dynamical assumptio
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-math-structures]]
 - Parents: [[01_Statements/Clarification/S-CL-change-continuity-logic]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-continuity-logic]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-continuity-logic]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

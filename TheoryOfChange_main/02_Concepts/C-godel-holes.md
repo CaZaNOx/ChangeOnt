@@ -41,7 +41,7 @@ Open items:
 - [[01_Statements/Clarification/S-CL-godel-hole-attractor-limits]]
 - [[01_Statements/Clarification/S-CL-godel-hole-boundary-lens]]
 - [[01_Statements/Clarification/S-CL-godel-hole-classification]]
-- [[01_Statements/Clarification/S-CL-godel-hole-legacy]]
+- [[01_Statements/Clarification/S-CL-godel-hole-inactive]]
 - [[01_Statements/Clarification/S-CL-godel-hole-meta-advantage]]
 - [[01_Statements/Clarification/S-CL-godel-hole-metrics]]
 - [[01_Statements/Clarification/S-CL-godel-hole-practice]]

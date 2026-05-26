@@ -1,0 +1,27 @@
+
+name: CO_canonical_core
+math_policy: co
+header:
+  type: SSI
+  params: { alpha: 0.2, eps_init: 1.0 }
+elements:
+  - { key: "A", class: "agents.co.core.elements.EA_haq:EA_HAQ", params: { } }
+  - { key: "C", class: "agents.co.core.elements.EC_identity:EC_Identity", params: { } }
+  - { key: "G", class: "agents.co.core.elements.EG_density_precision:EG_Density", params: { rounding: 2 } }
+  - { key: "I", class: "agents.co.core.elements.EI_change_operators:EI_ChangeOps", params: { k: 4, mdl_select: false } }
+  - { key: "candidate_surface", class: "agents.co.runtime.surfaces.candidate_surface:CandidateEvidenceSurface", params: { } }
+  - { key: "commitment_surface", class: "agents.co.runtime.surfaces.commitment_surface:CommitmentSurface", params: { prefer_bus_if_present: true, co_weight_override: null } }
+primitives:
+  signal_bus: { class: "signal_bus", params: { } }
+  kernel_substrate: { class: "kernel_substrate", params: { } }
+  P0: { class: "P0", params: { } }
+  P1: { class: "P1", params: { } }
+  P2: { class: "P2", params: { } }
+  P4: { class: "P4", params: { epsilon: 0.2, window: 5 } }
+  P7: { class: "P7", params: { } }
+  P16: { class: "P16", params: { } }
+  p10: { class: "p10", params: { } }
+  p12: { class: "p12", params: { } }
+  id_mem: { class: "id_mem", params: { } }
+  bandit_stats: { class: "bandit_stats", params: { } }
+  ngram_model: { class: "ngram_model", params: { } }

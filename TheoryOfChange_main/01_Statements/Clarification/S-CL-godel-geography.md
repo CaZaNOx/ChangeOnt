@@ -3,7 +3,7 @@ id: stmt.cl-godel-geography
 type: CL
 title: "G\xF6del-thick reality has heavy-tailed hole geography and depth metrics"
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 - '[[01_Statements/Clarification/S-CL-change-core-axiom]]'
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
@@ -53,6 +53,6 @@ Reality is Gödel-thick: workable regions interlaced with heavy-tailed hole dist
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-godel-holes]]; [[02_Concepts/C-change-fitness]]
 - Parents: [[01_Statements/Clarification/S-CL-change-core-axiom]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

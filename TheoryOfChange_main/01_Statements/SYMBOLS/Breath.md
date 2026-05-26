@@ -33,6 +33,9 @@ Truth/validation under change needs iteration; single-pass evaluation is brittle
 
 <!-- BEGIN:AUTOGEN:USED_IN -->
 ## Used In
+- [[01_Statements/03_Inner_Development/005_S-DF-subject-recursive-field]]
+- [[01_Statements/03_Inner_Development/006_S-DF-subject-arisal-ground]]
+- [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]
 - [[01_Statements/Clarification/S-CL-representation-scope-rhythm-vs-geometry]]
 - [[01_Statements/Corollary/S-CR-multi-axis-attention-pain-proximity]]
 - [[01_Statements/Corollary/S-CR-stability-duality-via-attractors]]
@@ -41,7 +44,6 @@ Truth/validation under change needs iteration; single-pass evaluation is brittle
 - [[01_Statements/Definition/S-DF-rtv-fixedpoints]]
 - [[01_Statements/Definition/S-DF-rtv-operator]]
 - [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
-- [[01_Statements/Definition/S-DF-subject-recursive-field]]
 - [[01_Statements/Derivation/S-DR-breath-knot-stabilization-topology]]
 - [[01_Statements/Derivation/S-DR-breath-stabilization]]
 - [[01_Statements/Derivation/S-DR-gh-review-loop]]

@@ -1,9 +1,10 @@
 # agents/co/core/elements/_shared.py
 from __future__ import annotations
 from typing import Any
+from agents.co.runtime.support.scope_keys import resolve_decision_scope
 
 def publish_signal(bus: Any, key: str, value: float) -> None:
-    """Best-effort scalar publish into co_bus; tolerates dict/attr/method styles."""
+    """Best-effort scalar publish into signal_bus; tolerates dict/attr/method styles."""
     if bus is None:
         return
     try:
@@ -22,15 +23,14 @@ def publish_signal(bus: Any, key: str, value: float) -> None:
     except Exception:
         pass
 
-def push_votes(bus: Any, family: str, votes: dict[str, float], source: str) -> None:
-    """Best-effort vote publish to co_bus if it supports .push(family, action,...)."""
-    if bus is None:
+def publish_candidate_votes(bus: Any, observation: dict, primitives: dict, header: Any, votes: dict[str, float], source: str, channel: str = "base") -> None:
+    """Best-effort candidate publication to KernelSignalBus using canonical scope resolution."""
+    if bus is None or not hasattr(bus, "publish"):
         return
-    if not hasattr(bus, "push"):
-        return
+    scope_key = resolve_decision_scope(observation, primitives, header)
     for a, w in votes.items():
         try:
-            bus.push(family, a, weight=float(w), source=source)
+            bus.publish(scope_key=scope_key, action=a, weight=float(w), channel=channel, source=source)
         except Exception:
             continue
 

@@ -40,14 +40,12 @@ Attention and instruments have limits. A theory of change must model when change
 
 <!-- BEGIN:AUTOGEN:USED_IN -->
 ## Used In
-- [[01_Statements/Definition/S-DF-elm-ec-identity]]
+- [[01_Statements/02_Outer_Formation/023_S-DF-similarity-operator]]
+- [[01_Statements/02_Outer_Formation/024_S-DF-identity-admissibility]]
 - [[01_Statements/Definition/S-DF-locality-threshold]]
 - [[01_Statements/Definition/S-DF-ops-j2-quotient-classes]]
 - [[01_Statements/Definition/S-DF-prm-closure-quotient]]
-- [[01_Statements/Definition/S-DF-prm-reid-kernel]]
-- [[01_Statements/Definition/S-DF-self-similarity-threshold]]
 - [[01_Statements/Definition/S-DF-sigma-fluctuation]]
-- [[01_Statements/Definition/S-DF-similarity-operator]]
 - [[01_Statements/Derivation/S-DR-rtv-collapse-threshold]]
 <!-- END:AUTOGEN:USED_IN -->
 

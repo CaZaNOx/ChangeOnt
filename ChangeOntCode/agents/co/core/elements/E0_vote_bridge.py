@@ -50,7 +50,12 @@ def _maze_votes(obs: Dict[str, Any]) -> List[Dict[str, Any]]:
         votes.append({"action": d, "weight": w, "source": "vote_bridge/maze"})
     return votes
 
+from ._shared import publish_packet
+
 class E0_VoteBridge:
+    WEIGHT_ROLE = "family continuation bridge"
+    COMPOSITION_ROLE = "task-local to branch-vote bridge"
+    CONFIG_KEYS = ()
     PRIMITIVE_DEPS = ("bandit_stats (optional)", "co_bus (optional)")
     COMBINATOR_DEPS = ()
     FORMULA_STATUS = "working"
@@ -82,6 +87,17 @@ class E0_VoteBridge:
             except Exception:
                 size = 0
 
+            vote_surface = {v["action"]: float(v["weight"]) for v in votes if v.get("action") is not None}
+            publish_packet(bus, fam, {
+                "element_id": "E0_VoteBridge",
+                "scope_ref": "family",
+                "contribution_kind": "continuation",
+                "confidence": 1.0 if vote_surface else 0.0,
+                "diagnostics": {"published": int(len(votes)), "bus_size": int(size)},
+                "branch_vote_surface": vote_surface,
+                "weight_hint": 1.0,
+                "bus_updates": {"vote_count": int(len(votes))},
+            })
             return {"vote_bridge_published": int(len(votes)), "vote_bridge_bus_size": int(size)}
         except Exception:
             return {}

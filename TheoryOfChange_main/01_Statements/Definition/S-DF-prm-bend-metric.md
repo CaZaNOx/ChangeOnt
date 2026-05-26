@@ -1,80 +1,88 @@
 ---
 id: stmt.prm-bend-metric
 type: DF
-aliases: ["PRM_1.Bend"]
-title: Primitive — Bend metric (local deviation from self-continuation)
-concepts: ["[[02_Concepts/C-ontology-of-change]]", "[[02_Concepts/C-math-structures]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-localreach-topology]]", "[[01_Statements/Definition/S-DF-metric-space-emergent]]", "[[01_Statements/Definition/S-DF-gauge-alignment-field]]"]
-parents: ["[[01_Statements/Definition/S-DF-gauge-alignment-field]]"]
-successors: ["[[01_Statements/Derivation/S-DR-bend-metric-lawvere-attractors]]", "[[01_Statements/Definition/S-DF-ops-j1-bend-substitution]]"]
-symbols_used: ["[[01_Statements/SYMBOLS/Tau]]", "[[01_Statements/SYMBOLS/Gamma]]"]
+aliases:
+- PRM_1
+- BendMetric
+- P1
+title: Bend metric as directional deformation burden
+concepts:
+- '[[02_Concepts/C-change-trace-invariants]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-metric-like-comparability-strengthening]]'
+- '[[01_Statements/02_Outer_Formation/009_S-DF-bounded-local-hold]]'
+parents:
+- '[[01_Statements/Definition/S-DF-metric-like-comparability-strengthening]]'
+successors:
+- '[[01_Statements/Definition/S-DF-prm-reid-kernel]]'
+- '[[01_Statements/Definition/S-DF-prm-gauge]]'
+symbols_used:
+- '[[01_Statements/SYMBOLS/Beta]]'
+- '[[01_Statements/SYMBOLS/Distance]]'
 sources:
-  - path: TheoryOfChange/02_Foundations/DerChain.md:5416
+- path: TheoryOfChange/02_Foundations/DerChain.md
 flags: []
-tags: [layer/formal, domain/operational, stable, primitive, metric, energy, "type/DF", "concept/ontology-of-change", "concept/math-structures", "symbol/Tau", "symbol/Gamma"]
+tags:
+- layer/kernel
+- domain/ontological
+- type/DF
+- status/stable
+- strand/ontological
 ---
-# Primitive — Bend metric (local deviation from self-continuation)
+# Bend metric as directional deformation burden
 ## Claim (formal)
-The bend τ of a segment quantifies deviation from its gauge‑aligned continuation. Given predicted continuation p(x) and realized y, τ := ‖y − p(x)‖_Γ. Lower τ indicates coherent self‑continuation; higher τ indicates effort/curvature.
+Bend is the primitive deformation burden between local continuations within a metric-like comparability field. It is not deviation inside a pre-given neutral geometry, but the directional cost or burden of transforming one continuation into another.
 
 ## Philosophical Translation (of formal claim)
-“Effort” is how much a trajectory must bend away from what it would have done to remain itself.
+If change is primary, then difference is first something like deformation burden, not neutral geometric spacing. Bend measures how much a continuation must be altered to become another, and this burden may be directional.
 
 ## Philosophical Justification
-- [[S-DF-gauge-alignment-field]] defines the “straight ahead” direction in the present gauge frame.
-- [[S-DF-localreach-topology]] and [[S-DF-metric-space-emergent]] provide a distance notion; applying it to predicted vs. realized motion yields τ.
-- Quantifying bend supplies a cost term for stabilization and routing; without it, effort/curvature is only qualitative.
+[[01_Statements/Definition/S-DF-metric-like-comparability-strengthening]] only earns a comparability/cost field, not a finished classical metric background. Therefore bend should not be defined as deviation inside pre-given geometry. Instead it is the primary deformation burden tracked within that comparison field: how much must be changed, redirected, or reconfigured for one local continuation to become another.
 
 ## Explanation (informal)
-Imagine where the pattern would go if it stayed aligned with its internal gauge. Measure how far the actual step diverges. That number is the bend — a proxy for how much SE is spent steering or being perturbed.
+Bend is the first serious distance-like primitive for the kernel. But it is distance-like only because transformation costs can be compared; it remains grounded in deformation burden, not in a static point-space.
 
 ## Derivation (Philosophical)
-- Define predicted continuation p(x) via gauge flow.
-- Use emergent metric ‖·‖_Γ to compare p(x) to y.
-- Path bend is the monoidal sum of segment bends, giving cumulative deviation cost.
+- From local comparability/cost, some transformations are easier and others harder.
+- This burden can be read as bend: the amount of reconfiguration needed to map one continuation into another.
+- Because change is non-reversible in general, bend may be directional and need not inherit full metric symmetry.
 
 ## Derivation (Formal/Logical/Mathematical)
 ```text
-τ(x→y) := || y - p(x) ||_Γ
-τ_path := ⊕_i τ(e_i→e_{i+1})
+bend(x→y) := directional deformation burden of transforming continuation x into continuation y within the local comparability field.
 ```
 
-## Proofs/Corollaries References
-- corollary: used in [[S-DR-bend-metric-lawvere-attractors]] and [[S-DF-ops-j1-bend-substitution]].
-
 ## Clarifications / Further Context
-- Γ encodes gauge warp; choose a norm consistent with [[S-DF-metric-space-emergent]].
-- High τ signals identity strain; may trigger gauge updates or SE accounting.
+- This file should be read as a **kernel-resolution primitive handle**, not as one of the earliest ontological distinctions after change.
+- Later stabilized regimes may approximate symmetric metric behavior.
+- ReID and gauge may use bend, but bend is conceptually prior to those refinements.
+- Bend is more primitive than exact identity because it already operates over tolerated deformation.
 
-## Next Steps in Chain
-- suggest: [[S-DR-bend-metric-lawvere-attractors]]
-- suggest: [[S-DF-ops-j1-bend-substitution]]
-
-## Tags
-#type/DF #layer/formal #domain/operational #concept/ontology-of-change #concept/math-structures #symbol/Tau #symbol/Gamma #status/stable
+## Active-chain status
+**Status band:** strongly-derived  
+**Reason:** once local comparability is admitted, the primitive distinction between lesser and greater deformation burden is unavoidable for a change-first kernel.
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
 - [[01_Statements/Definition/S-DF-elm-ea-haq]]
 - [[01_Statements/Definition/S-DF-elm-eb-ghvc]]
 - [[01_Statements/Definition/S-DF-elm-ed-gauge-warp]]
-- [[01_Statements/Definition/S-DF-elm-ef-router]]
-- [[01_Statements/Definition/S-DF-gauge-alignment-field]]
 - [[01_Statements/Definition/S-DF-haq-core-family]]
-- [[01_Statements/Definition/S-DF-metric-space-emergent]]
+- [[01_Statements/Definition/S-DF-metric-like-comparability-strengthening]]
 - [[01_Statements/Definition/S-DF-ops-j1-bend-substitution]]
 - [[01_Statements/Definition/S-DF-ops-j4b-counterfactual-bend]]
 - [[01_Statements/Definition/S-DF-prm-gauge]]
 - [[01_Statements/Derivation/S-DR-bend-metric-lawvere-attractors]]
 - [[01_Statements/Derivation/S-DR-core-from-immediate-datum]]
+- [[01_Statements/Derivation/S-DR-kernel-geometric-primitives-from-localized-comparability]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
-- Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-math-structures]]
-- Parents: [[01_Statements/Definition/S-DF-gauge-alignment-field]]
-- Dependencies: [[01_Statements/Definition/S-DF-localreach-topology]]; [[01_Statements/Definition/S-DF-metric-space-emergent]]; [[01_Statements/Definition/S-DF-gauge-alignment-field]]
-- Successors: [[01_Statements/Derivation/S-DR-bend-metric-lawvere-attractors]]; [[01_Statements/Definition/S-DF-ops-j1-bend-substitution]]
+- Concepts: [[02_Concepts/C-change-trace-invariants]]
+- Parents: [[01_Statements/Definition/S-DF-metric-like-comparability-strengthening]]
+- Dependencies: [[01_Statements/Definition/S-DF-metric-like-comparability-strengthening]]; [[01_Statements/02_Outer_Formation/009_S-DF-bounded-local-hold]]
+- Successors: [[01_Statements/Definition/S-DF-prm-reid-kernel]]; [[01_Statements/Definition/S-DF-prm-gauge]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

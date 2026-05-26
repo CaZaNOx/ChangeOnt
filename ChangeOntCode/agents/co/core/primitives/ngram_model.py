@@ -34,3 +34,25 @@ class NGramModel:
             if v > bestv:
                 best = a; bestv = v
         return best
+
+    def ensure(self, A: int) -> None:
+        A = int(A)
+        if A <= self.A:
+            return
+        oldA = self.A
+        self.A = A
+        for key, row in list(self.counts.items()):
+            if len(row) < A:
+                row.extend([0] * (A - len(row)))
+
+    def predict_proba(self):
+        if self.k == 0 or len(self.ctx) < self.k:
+            return [1.0 / max(1, self.A)] * max(1, self.A)
+        row = list(self.counts[tuple(self.ctx)])
+        total = float(sum(row))
+        if total <= 0.0:
+            return [1.0 / max(1, self.A)] * max(1, self.A)
+        return [float(v) / total for v in row]
+
+    def update_from_feedback(self, obs_symbol: Optional[int]) -> None:
+        self.on_feedback(obs_symbol)

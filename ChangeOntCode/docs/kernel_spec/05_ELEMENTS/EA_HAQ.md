@@ -1,126 +1,64 @@
 # EA_HAQ
+Current classification: **Provisional**
 
-## Purpose
+Meaningful active element on the default path, but still depends on evolving upstream theory anchors.
 
-EA_HAQ is the kernel’s history-adaptive modulation mechanism.
+## What this element is
+EA_HAQ is the kernel’s history-adaptive gauge modulation element. Its role is to modulate continuation preference by combining:
+- present change pressure,
+- gauge adaptation,
+- bounded history,
+- and local defect/warp signals.
 
-Its role is to let recent change-history affect the current force of interpretation rather than treating every moment as equally context-free.
-
----
-
-## Element Role
-
-EA_HAQ is an **element**.
-
-It is not:
-- a primitive
-- a translator
-- a header
-- the final action surface
-
-It is a semantically meaningful mechanism built from lower-level ingredients.
-
----
-
-## Intended Primitive Dependencies
-
-Primary intended dependencies:
-- P2_Gauge
-
-Secondary / possible later dependencies:
-- P7_Precision
-- bounded history support
-
-Current implementation may still operationalize parts of this minimally.
-
----
-
-## Intended Semantic Combinator Form
-
-Primary:
-- **SC_MultiplicativeCoupling**
-
-Secondary:
-- **SC_AdditiveBlend**
-
----
-
-## Why these belong together
-
-EA_HAQ exists because history should not merely sit beside the present as another additive fact.
-
-Rather, recent history should **modulate** the effective force of current interpretation.
-
-That is why the primary intended law-form is multiplicative coupling:
-- history-sensitive quantity changes the effective force of another quantity
-
-Additive accumulation may still appear inside a local score, but modulation is the more important doctrine.
-
----
-
-## Inputs
-
-EA_HAQ may consume:
-- recent history / trace information
-- bounded local state
-- primitive-derived modulation quantities
-
----
-
-## Outputs
-
-EA_HAQ may produce:
-- `signals["EA_HAQ.novelty"]`
-- other modulation-facing internal values if explicitly documented later
-
-EA_HAQ should not directly choose final task actions.
-
----
-
-## State Mutation
-
-EA_HAQ may maintain:
-- local bounded history state
-- local EMA-like modulation state
-
-It must not mutate:
-- header ownership
-- translator logic
-- final action selection
-
----
+It is not just “novelty detection.” It is the element that asks whether the local field should be read as needing stronger adaptation, stronger warping, or stronger caution.
 
 ## Why this element exists
+A change-first kernel cannot treat all local deviations as equal. Some deviations indicate:
+- harmless fluctuation,
+- some indicate build-up of deformation pressure,
+- some indicate that the current local gauge is itself misfitted.
 
-A purely pointwise kernel would miss an important change-native fact:
+EA_HAQ exists to coordinate those factors into one modulation surface.
 
-what is happening now is not semantically independent of how change has recently been unfolding.
+## What EA_HAQ is not
+EA_HAQ is not:
+- a primitive,
+- the final action chooser,
+- or a hidden family-specific solver.
 
-EA_HAQ is the current minimal mechanism for that idea.
+It is a doctrine-level modulation element built from lower-level signals.
 
----
+## Intended upstream support
+Primary:
+- P2 Gauge
 
-## Forbidden
+Secondary/supporting:
+- P1 BendMetric or equivalent surprise source
+- P5 TemporalOps or equivalent history shaping
+- bounded visible history support from the translated packet
 
-EA_HAQ must not:
-- directly choose final actions
-- silently absorb translator logic
-- pretend to be just a primitive
-- redefine header responsibilities
+## Inputs
+Typical packet inputs include:
+- `history`
+- `trace`
+- `signals.z_PE`
+- `signals.z_gain`
+- `signals.var_resid`
+- gauge state from P2
 
----
+## Outputs
+Typical bus outputs include:
+- `EA_HAQ.novelty`
+- `EA_HAQ.holonomy_defect`
+- `EA_HAQ.gauge_gain`
+- `EA_HAQ.modulated_pe`
+- `EA_HAQ.modulated_gain`
+- `EA_HAQ.warp_strength`
 
-## Telemetry
+The element should affect later continuation preference, but it should not directly choose the final task action.
 
-Canonical telemetry may include:
-- `signals["EA_HAQ.novelty"]`
+## Why the doc stresses this
+Earlier versions of the project let HAQ collapse into “one novelty scalar.” That underdescribed its role. The current description is meant to preserve the stronger idea: HAQ is a change-sensitive modulation surface, not a log of surprise.
 
-This signal is useful, but the deeper role of EA_HAQ is modulation, not merely novelty logging.
-
----
-
-## Current Status
-
-- architecturally justified and active
-- role binding
-- exact formula still provisional
+## Current status
+Real runtime component with a meaningful role. Still depends on some evolving upstream theory anchors, but content-wise the element is clear enough to explain and implement honestly.

@@ -5,7 +5,7 @@ aliases: ["AS_0.0_Minimality"]
 title: Assumption — introduce definitions only when logically minimal and forced
 concepts: ["[[02_Concepts/C-ontology-of-change]]"]
 dependencies: ["[[01_Statements/Definition/S-DF-bootstrapping-constraint]]"]
-parents: ["[[01_Statements/FoundationalTruth/S-FT-root-minimal-stance]]"]
+parents: ["[[01_Statements/00_Opening_Justification/001_S-FT-root-minimal-stance]]"]
 successors: []
 symbols_used: []
 sources:
@@ -35,7 +35,7 @@ See [[01_Statements/Definition/S-DF-bootstrapping-constraint]].
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
-- Parents: [[01_Statements/FoundationalTruth/S-FT-root-minimal-stance]]
+- Parents: [[01_Statements/00_Opening_Justification/001_S-FT-root-minimal-stance]]
 - Dependencies: [[01_Statements/Definition/S-DF-bootstrapping-constraint]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

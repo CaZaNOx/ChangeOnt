@@ -1,100 +1,47 @@
 # P10 ChangeOpsCore
+Current classification: **Provisional**
 
-## Purpose
+Architecturally justified shared persistence surface, but more runtime-support than settled ontological core.
 
-P10 ChangeOpsCore is the canonical reusable store for **prototype-like local structural units** produced by kernel mechanisms such as birth.
-
-It supports:
-- prototype storage
-- prototype counting
-- downstream closure/grouping
-- minimal structural persistence across steps
-
----
-
-## Primitive Role
-
-P10 is a **state-support primitive**.
-
-It is not itself the birth mechanism.  
-It is the reusable place where newly admitted structural units are stored.
-
-This is why P10 may look implementation-shaped: its role is to provide canonical persistence for mechanism outputs that must live somewhere shared and reusable.
-
----
-
-## Inputs
-
-P10 may consume:
-- accepted birth payloads
-- trace-derived prototype candidates
-- merge/split commands from consuming mechanisms
-- canonical prototype tokens/vectors
-
----
-
-## Outputs
-
-P10 provides:
-- prototype store
-- prototype count
-- append/merge/split support
-- stable shared location for downstream consumers
-
----
-
-## State Mutation
-
-P10 is stateful by design.
-
-Canonical location:
-- the kernel primitive registry entry for P10
-
-Canonical internal concept:
-- one shared prototype store
-- not duplicated in multiple elements
-
----
-
-## Binding Rule
-
-All prototype-like persistent structural units must live in the canonical P10 store.
-
-Elements must not maintain alternative hidden prototype stores.
-
----
+## What this primitive is
+P10 is the canonical shared persistence surface for reusable local structural units discovered by change-sensitive mechanisms. In plainer terms: when the kernel admits a prototype-like local pattern that must survive across steps and be shared across mechanisms, P10 is the place where it lives.
 
 ## Why this primitive exists
+If change can yield reusable motifs, prototypes, or locally stable structural units, the runtime needs one canonical place to keep them. Otherwise:
+- each element grows its own hidden store,
+- the same structure is duplicated under different names,
+- and the architecture loses both transparency and parity.
 
-If change can locally produce reusable structure-like units, those units need a canonical shared persistence surface.
+P10 exists to prevent that fragmentation.
 
-P10 is that surface.
+## What P10 is not
+P10 is not:
+- the birth mechanism itself,
+- the merge decision itself,
+- an element,
+- or an action policy.
 
----
+It is the shared persistence substrate for the outputs of those mechanisms.
 
-## Forbidden
+## Inputs and outputs
+**Inputs:**
+- accepted birth payloads,
+- trace-derived prototype candidates,
+- merge/split commands from consuming mechanisms.
 
-P10 must not:
-- directly decide births
-- directly choose actions
-- become a hidden element
-- be duplicated under alternative semantic stores
+**Outputs:**
+- canonical prototype store,
+- prototype count,
+- append/merge/split operations,
+- stable shared access surface for downstream users.
 
----
+## Invariants
+1. **Single canonical store:** prototype-like persistent units must not be silently duplicated across hidden element-local stores.
+2. **Mutation transparency:** additions, merges, and splits should be attributable to explicit mechanism outputs.
+3. **Reuse over reinvention:** downstream consumers should read from the shared store rather than recreating equivalent hidden versions.
 
-## Telemetry
+## Why this matters philosophically
+P10 is not itself a deep ontological primitive. It is a runtime primitive in the engineering sense: the minimum shared persistence surface needed if later change-derived structures are to be real for the kernel rather than fleeting one-step conveniences.
 
-P10 itself does not need standalone primitive telemetry.
-
-Derived telemetry may include:
-- `prototype_count`
-- related birth/merge/split counters from consuming elements
-
----
-
-## Current Status
-
-P10 is retained, though the name may later be refined.
-
-Its architectural role is valid and should stay:
-- canonical shared prototype/state-support primitive
+## Current implementation status
+Architecturally justified and worth keeping. The name may later be refined, but the role is valid.

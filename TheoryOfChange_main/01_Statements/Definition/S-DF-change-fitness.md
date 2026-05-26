@@ -4,7 +4,7 @@ type: DF
 aliases: ["AI13.Fitness"]
 title: Change-based fitness (CBF)
 concepts: ["[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-identity-change]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/Definition/S-DF-self-similarity-threshold]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]", "[[01_Statements/Definition/S-DF-stabilization-energy]]", "[[01_Statements/02_Outer_Formation/025_S-DF-self-similarity-threshold]]"]
 parents: ["[[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]"]
 successors: ["[[01_Statements/Derivation/S-DR-fitness-vs-srl-se]]"]
 symbols_used: ["[[01_Statements/SYMBOLS/Approx]]"]
@@ -44,6 +44,7 @@ CBF(P) := w1*SRL(P) + w2*Stab(P; SE,θ) - w3*GH_backlog(P) + w4*Tx_success(P)
 ## Referenced By
 - [[01_Statements/Clarification/S-CL-change-instrumentation-scripts]]
 - [[01_Statements/Clarification/S-CL-co-benchmark-targets]]
+- [[01_Statements/Definition/S-DF-prm-arisal-tension]]
 - [[01_Statements/Derivation/S-DR-fitness-vs-srl-se]]
 <!-- END:AUTOGEN:REFERENCED_BY -->
 
@@ -52,7 +53,7 @@ CBF(P) := w1*SRL(P) + w2*Stab(P; SE,θ) - w3*GH_backlog(P) + w4*Tx_success(P)
 
 - Concepts: [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-identity-change]]
 - Parents: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]
-- Dependencies: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/Definition/S-DF-self-similarity-threshold]]
+- Dependencies: [[01_Statements/Definition/S-DF-structural-recurrence-likelihood]]; [[01_Statements/Definition/S-DF-stabilization-energy]]; [[01_Statements/02_Outer_Formation/025_S-DF-self-similarity-threshold]]
 - Successors: [[01_Statements/Derivation/S-DR-fitness-vs-srl-se]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

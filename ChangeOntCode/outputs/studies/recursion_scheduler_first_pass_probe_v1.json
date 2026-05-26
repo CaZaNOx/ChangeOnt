@@ -1,0 +1,163 @@
+{
+  "cases": 4,
+  "cases_detail": [
+    {
+      "case": "dense_equivalent_contracts",
+      "schedules": {
+        "a": {
+          "branch_id": "a",
+          "budget": 0,
+          "demand": 0.0,
+          "equivalent_density": 1.0,
+          "mode": "quotient_contract",
+          "non_equivalent_density": 0.0,
+          "quotient_pressure": 0.771375,
+          "reasons": [
+            "equivalent_region_contracts"
+          ],
+          "sparse_high_consequence_pressure": 0.102714,
+          "unresolved_relation_pressure": 0.0096
+        },
+        "b": {
+          "branch_id": "b",
+          "budget": 0,
+          "demand": 0.0,
+          "equivalent_density": 1.0,
+          "mode": "quotient_contract",
+          "non_equivalent_density": 0.0,
+          "quotient_pressure": 0.771375,
+          "reasons": [
+            "equivalent_region_contracts"
+          ],
+          "sparse_high_consequence_pressure": 0.10812,
+          "unresolved_relation_pressure": 0.0096
+        },
+        "c": {
+          "branch_id": "c",
+          "budget": 0,
+          "demand": 0.0,
+          "equivalent_density": 1.0,
+          "mode": "quotient_contract",
+          "non_equivalent_density": 0.0,
+          "quotient_pressure": 0.771375,
+          "reasons": [
+            "equivalent_region_contracts"
+          ],
+          "sparse_high_consequence_pressure": 0.10541700000000001,
+          "unresolved_relation_pressure": 0.0096
+        }
+      }
+    },
+    {
+      "case": "dense_non_equivalent_requests",
+      "schedules": {
+        "a": {
+          "branch_id": "a",
+          "budget": 1,
+          "demand": 0.45707616768000003,
+          "equivalent_density": 0.0,
+          "mode": "preserve_grey_monitor",
+          "non_equivalent_density": 0.5,
+          "quotient_pressure": 0.0,
+          "reasons": [
+            "dense_non_equivalent_region",
+            "relation_may_change_next_layer_status"
+          ],
+          "sparse_high_consequence_pressure": 0.086496,
+          "unresolved_relation_pressure": 0.3224
+        },
+        "b": {
+          "branch_id": "b",
+          "budget": 1,
+          "demand": 0.44083022064000005,
+          "equivalent_density": 0.0,
+          "mode": "preserve_grey_monitor",
+          "non_equivalent_density": 0.5,
+          "quotient_pressure": 0.0,
+          "reasons": [
+            "dense_non_equivalent_region"
+          ],
+          "sparse_high_consequence_pressure": 0.083793,
+          "unresolved_relation_pressure": 0.3
+        },
+        "c": {
+          "branch_id": "c",
+          "budget": 1,
+          "demand": 0.44434852320000007,
+          "equivalent_density": 0.0,
+          "mode": "preserve_grey_monitor",
+          "non_equivalent_density": 0.5,
+          "quotient_pressure": 0.0,
+          "reasons": [
+            "dense_non_equivalent_region",
+            "relation_may_change_next_layer_status"
+          ],
+          "sparse_high_consequence_pressure": 0.08109,
+          "unresolved_relation_pressure": 0.32
+        }
+      }
+    },
+    {
+      "case": "sparse_high_consequence_requests",
+      "schedules": {
+        "a": {
+          "branch_id": "a",
+          "budget": 1,
+          "demand": 0.5012836060800001,
+          "equivalent_density": 0.0,
+          "mode": "preserve_grey_monitor",
+          "non_equivalent_density": 0.0,
+          "quotient_pressure": 0.0,
+          "reasons": [
+            "sparse_high_consequence_unresolved",
+            "hiddenness_above_gauge_tolerance",
+            "threshold_phase_shift_pressure"
+          ],
+          "sparse_high_consequence_pressure": 0.517174,
+          "unresolved_relation_pressure": 0.0408
+        }
+      }
+    },
+    {
+      "case": "weak_competition_only_low",
+      "schedules": {
+        "a": {
+          "branch_id": "a",
+          "budget": 0,
+          "demand": 0.06102516672,
+          "equivalent_density": 0.0,
+          "mode": "no_recursion_demand",
+          "non_equivalent_density": 0.0,
+          "quotient_pressure": 0.0,
+          "reasons": [
+            "weak_competition_logged_only"
+          ],
+          "sparse_high_consequence_pressure": 0.07568399999999999,
+          "unresolved_relation_pressure": 0.0096
+        },
+        "b": {
+          "branch_id": "b",
+          "budget": 0,
+          "demand": 0.06102516672,
+          "equivalent_density": 0.0,
+          "mode": "no_recursion_demand",
+          "non_equivalent_density": 0.0,
+          "quotient_pressure": 0.0,
+          "reasons": [
+            "weak_competition_logged_only"
+          ],
+          "sparse_high_consequence_pressure": 0.07568399999999999,
+          "unresolved_relation_pressure": 0.0096
+        }
+      }
+    }
+  ],
+  "claim_boundary": "first-pass structural microprobe only; not empirical proof and not algorithmic novelty evidence",
+  "max_demand_by_case": {
+    "dense_equivalent_contracts": 0.0,
+    "dense_non_equivalent_requests": 0.45707616768000003,
+    "sparse_high_consequence_requests": 0.5012836060800001,
+    "weak_competition_only_low": 0.06102516672
+  },
+  "study": "recursion_scheduler_first_pass_probe_v1"
+}

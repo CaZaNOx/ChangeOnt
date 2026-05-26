@@ -3,9 +3,9 @@ id: stmt.cl-co-minimal-framework
 type: CL
 title: Minimal CO framework for consciousness joins change axioms and predictions
 dependencies:
-- '[[01_Statements/FoundationalTruth/S-FT-immediate-datum]]'
+- '[[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]'
 - '[[01_Statements/Clarification/S-CL-change-core-axiom]]'
-- '[[01_Statements/Definition/S-DF-structure-of-experience]]'
+- '[[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]'
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 parents:
@@ -49,6 +49,6 @@ The summary (lines 19713‑19792) sets out a concrete blueprint: Change Ontology
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]
 - Parents: [[01_Statements/Clarification/S-CL-change-core-axiom]]
-- Dependencies: [[01_Statements/FoundationalTruth/S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]; [[01_Statements/Definition/S-DF-structure-of-experience]]
+- Dependencies: [[01_Statements/00_Opening_Justification/006_S-FT-immediate-datum]]; [[01_Statements/Clarification/S-CL-change-core-axiom]]; [[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

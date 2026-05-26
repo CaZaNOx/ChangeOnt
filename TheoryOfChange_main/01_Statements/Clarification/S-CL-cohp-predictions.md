@@ -4,7 +4,7 @@ type: CL
 title: CO-HP yields concrete predictions linking invariants to data
 dependencies:
 - '[[01_Statements/Clarification/S-CL-cohp-phenomenal-invariants]]'
-- '[[01_Statements/Definition/S-DF-structure-of-experience]]'
+- '[[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]'
 concepts:
 - '[[02_Concepts/C-ontology-of-change]]'
 - '[[02_Concepts/C-subject-awareness-experience]]'
@@ -37,6 +37,6 @@ AI_13 enumerates falsifiable predictions: (1) presence \(P\) tracks level of con
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-subject-awareness-experience]]
 - Parents: [[01_Statements/Clarification/S-CL-cohp-phenomenal-invariants]]
-- Dependencies: [[01_Statements/Clarification/S-CL-cohp-phenomenal-invariants]]; [[01_Statements/Definition/S-DF-structure-of-experience]]
+- Dependencies: [[01_Statements/Clarification/S-CL-cohp-phenomenal-invariants]]; [[01_Statements/03_Inner_Development/004_S-DF-structure-of-experience]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

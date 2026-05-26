@@ -1,57 +1,65 @@
 ---
 id: stmt.prm-gauge
 type: DF
-aliases: ["PRM_2.Gauge"]
-title: Primitive — Gauge (history-adaptive alignment transport)
-concepts: ["[[02_Concepts/C-math-structures]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-gauge-alignment-field]]", "[[01_Statements/Definition/S-DF-metric-space-emergent]]", "[[01_Statements/Definition/S-DF-prm-bend-metric]]"]
-parents: ["[[01_Statements/Definition/S-DF-gauge-alignment-field]]"]
-successors: ["[[01_Statements/Definition/S-DF-elm-ed-gauge-warp]]", "[[01_Statements/Definition/S-DF-elm-ea-haq]]"]
-symbols_used: ["[[01_Statements/SYMBOLS/Gamma]]", "[[01_Statements/SYMBOLS/Curvature_K]]"]
+aliases:
+- PRM_2
+- Gauge
+- P2
+title: Gauge as transport and alignment over local comparison frames
+concepts:
+- '[[02_Concepts/C-change-trace-invariants]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-prm-bend-metric]]'
+- '[[01_Statements/02_Outer_Formation/009_S-DF-bounded-local-hold]]'
+parents:
+- '[[01_Statements/Definition/S-DF-prm-bend-metric]]'
+successors:
+- '[[01_Statements/Definition/S-DF-elm-ea-haq]]'
+symbols_used: []
 sources:
-  - path: TheoryOfChange/02_Foundations/DerChain.md:2498
-  - path: TheoryOfChange/02_Foundations/DerChain.md:5442
+- path: TheoryOfChange/02_Foundations/DerChain.md
 flags: []
-tags: [layer/formal, domain/operational, stable, primitive, alignment, field, "type/DF", "concept/math-structures", "symbol/Gamma", "symbol/Curvature_K"]
+tags:
+- layer/kernel
+- domain/ontological
+- type/DF
+- status/stable
+- strand/ontological
 ---
-# Primitive — Gauge (history-adaptive alignment transport)
+# Gauge as transport and alignment over local comparison frames
 ## Claim (formal)
-Choose a connection Γ minimizing local tension mismatch Δτ across neighbors, yielding transport that preserves learned coherence and induces an emergent metric; track curvature K as coherence signal.
+Gauge is the primitive transport/alignment mechanism that carries local comparison and bend judgments across changing local frames of unfolding.
 
 ## Philosophical Translation (of formal claim)
-Coherence comes from learning how to carry comparisons from place to place without tearing the pattern.
+Once comparison is local and bend is directional, we need a way to preserve coherence when moving across contexts. Gauge is that transport/alignment role before any stronger geometric formalism is imposed.
 
 ## Philosophical Justification
-- [[S-DF-gauge-alignment-field]] defines alignment needs; [[S-DF-metric-space-emergent]] supplies distance; [[S-DF-prm-bend-metric]] gives cost of deviation.
-- Selecting Γ to minimize bend mismatch aligns transports with lived coherence, reducing SE expenditure and stabilizing identity under change.
-- Curvature K flags where transports disagree, guiding updates and HAQ warp.
+In a non-metric, locally framed change-space, comparison is made from situated local frames rather than from one neutral global coordinate system. Once bend is admitted as directional deformation burden, a kernel must still compare or transport these judgments across differing local contexts. Gauge is the primitive mechanism that aligns or transports local comparison structures so later modulation and warping remain coherent.
 
 ## Explanation (informal)
-Gauge is the rule for moving references around without them drifting apart. By adapting Γ from observed bends, we keep our comparisons meaningful even as frames shift.
+Gauge is not first a heavy differential-geometric commitment. It is the simpler necessity that local comparison judgments need coherent transport when contexts change.
 
 ## Derivation (Philosophical)
-- Define Δτ across adjacent transports; choose Γ* = argmin Δτ subject to LocalReach constraints.
-- Update Γ over breath windows using curvature feedback to avoid thrash.
+- Bend is directional and local.
+- Local frames of unfolding need not line up automatically.
+- Therefore some alignment/transport relation is needed before higher-order regulation can stay coherent across contexts.
+- Gauge names that primitive transport/alignment role.
 
 ## Derivation (Formal/Logical/Mathematical)
 ```text
-Γ* := argmin_Γ ∑_{(i,j)∈LocalReach} ||τ_Γ(i→j) - τ_target||^2
-K := dΓ + Γ∧Γ   // curvature as coherence diagnostic
+gauge transports or aligns local comparability/bend structures across changing local frames.
+Connection/curvature style realizations are later formal strengthenings, not primitive content.
 ```
 
-## Proofs/Corollaries References
-- corollary: supports [[S-DF-elm-ed-gauge-warp]], [[S-DF-elm-ea-haq]].
-
 ## Clarifications / Further Context
-- History-adaptive: update Γ with EMA/leak to balance stability vs responsiveness.
-- Gauge choice must remain compatible with declared invariants/Sim.
+- This file should be read as a **kernel-resolution primitive handle**, not as one of the earliest ontological distinctions after change.
+- Gauge is conceptually prior to full connection/curvature language.
+- It should not be treated as mere decorative mathematics.
+- EA/HAQ is one downstream modulation element that uses this transport/alignment role.
 
-## Next Steps in Chain
-- suggest: [[S-DF-elm-ed-gauge-warp]]
-- suggest: [[S-DF-elm-ea-haq]]
-
-## Tags
-#type/DF #layer/formal #domain/operational #primitive #alignment #field #concept/math-structures #symbol/Gamma #symbol/Curvature_K #status/stable
+## Active-chain status
+**Status band:** derived-but-weaker  
+**Reason:** the need for transport/alignment across local comparison frames is real, but the exact final formal law remains less settled than bend itself.
 
 <!-- BEGIN:AUTOGEN:REFERENCED_BY -->
 ## Referenced By
@@ -65,9 +73,9 @@ K := dΓ + Γ∧Γ   // curvature as coherence diagnostic
 <!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
 ## Relationships
 
-- Concepts: [[02_Concepts/C-math-structures]]
-- Parents: [[01_Statements/Definition/S-DF-gauge-alignment-field]]
-- Dependencies: [[01_Statements/Definition/S-DF-gauge-alignment-field]]; [[01_Statements/Definition/S-DF-metric-space-emergent]]; [[01_Statements/Definition/S-DF-prm-bend-metric]]
-- Successors: [[01_Statements/Definition/S-DF-elm-ed-gauge-warp]]; [[01_Statements/Definition/S-DF-elm-ea-haq]]
+- Concepts: [[02_Concepts/C-change-trace-invariants]]
+- Parents: [[01_Statements/Definition/S-DF-prm-bend-metric]]
+- Dependencies: [[01_Statements/Definition/S-DF-prm-bend-metric]]; [[01_Statements/02_Outer_Formation/009_S-DF-bounded-local-hold]]
+- Successors: [[01_Statements/Definition/S-DF-elm-ea-haq]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

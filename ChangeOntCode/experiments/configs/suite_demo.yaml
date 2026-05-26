@@ -1,5 +1,5 @@
 # Reduced demo runner config
-out_root: outputs/verify/demo_suite
+out_root: run_artifacts/verify/demo_suite
 inject_co: true
 co_manifest: co_agents/co_agents_demo.yaml
 max_workers: 2

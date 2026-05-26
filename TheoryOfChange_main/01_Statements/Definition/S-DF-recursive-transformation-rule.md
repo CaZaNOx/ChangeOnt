@@ -3,8 +3,8 @@ id: stmt.recursive-transformation-rule
 type: DF
 title: Recursive transformation rule — relational differential across steps
 concepts: ["[[02_Concepts/C-recursive-truth]]", "[[02_Concepts/C-prior-pointer-reach]]"]
-dependencies: ["[[01_Statements/Definition/S-DF-reach-relation]]", "[[01_Statements/Definition/S-DF-rtv-operator]]"]
-parents: ["[[01_Statements/Definition/S-DF-reach-relation]]"]
+dependencies: ["[[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]", "[[01_Statements/Definition/S-DF-rtv-operator]]"]
+parents: ["[[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]"]
 successors: []
 symbols_used: []
 sources:
@@ -36,7 +36,7 @@ Across checks, relations update by a rule that respects what the system can actu
 ## Relationships
 
 - Concepts: [[02_Concepts/C-recursive-truth]]; [[02_Concepts/C-prior-pointer-reach]]
-- Parents: [[01_Statements/Definition/S-DF-reach-relation]]
-- Dependencies: [[01_Statements/Definition/S-DF-reach-relation]]; [[01_Statements/Definition/S-DF-rtv-operator]]
+- Parents: [[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]
+- Dependencies: [[01_Statements/02_Outer_Formation/006_S-DF-reach-relation]]; [[01_Statements/Definition/S-DF-rtv-operator]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

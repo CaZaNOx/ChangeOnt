@@ -3,7 +3,7 @@ id: stmt.cl-invariance-as-derivative
 type: CL
 title: Treat invariance as derivative of change, not its primitive
 dependencies:
-- '[[01_Statements/Definition/S-DF-identity-invariants]]'
+- '[[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]'
 - '[[01_Statements/Definition/S-DF-change-fitness]]'
 parents: []
 successors: []
@@ -34,6 +34,6 @@ The CO core treats invariance as emerging from quotients over observable change 
 ## Relationships
 
 - Concepts: [[02_Concepts/C-ontology-of-change]]; [[02_Concepts/C-identity-change]]
-- Dependencies: [[01_Statements/Definition/S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-change-fitness]]
+- Dependencies: [[01_Statements/02_Outer_Formation/027_S-DF-identity-invariants]]; [[01_Statements/Definition/S-DF-change-fitness]]
 <!-- END:AUTOGEN:RELATIONSHIPS -->
 

@@ -1,7 +1,7 @@
-﻿# PATH: experiments/runners/bandit_runner.py
+# PATH: experiments/runners/bandit_runner.py
 from __future__ import annotations
 
-import argparse, json
+import argparse, json, os
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -72,11 +72,16 @@ def _write_run_manifest(path: Path, payload: Dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
 
+def _strict_errors() -> bool:
+    return str(os.environ.get("CO_STRICT_ERRORS", "")).strip() == "1"
+
+
 def _write_progress(out_dir: Path, t: int) -> None:
     try:
         (out_dir / "progress.json").write_text(json.dumps({"t": t}), encoding="utf-8")
-    except Exception:
-        pass
+    except Exception as exc:
+        if _strict_errors():
+            raise
 
 def main() -> None:
     ap = argparse.ArgumentParser(description="Bandit runner (UCB1 / ε-greedy / KL-UCB / TS / CO)")
@@ -98,6 +103,7 @@ def main() -> None:
     started_at = _iso_now()
     status = "failed"
     error: Optional[str] = None
+    co_runtime_contract: Optional[Dict[str, Any]] = None
 
     for p in (metrics_path, budget_path):
         if p.exists(): p.unlink()
@@ -127,6 +133,7 @@ def main() -> None:
             if not HAS_CO:
                 raise RuntimeError("CO adapter not available: agents.co.adapters.bandit_adapter")
             core = build_co_core(aparams)
+            co_runtime_contract = core.export_runtime_contract()
             agent = COAdapterBandit(core=core, name=(aname or "CO"), n_arms=env.n_arms)
         else:
             raise ValueError(f"unknown agent type: {atype}")
@@ -140,6 +147,7 @@ def main() -> None:
             "env": {"probs": cfg.probs, "horizon": int(cfg.horizon)},
             "agent": agent_tag,
             "out_dir": str(out_dir),
+            "co_runtime_contract": co_runtime_contract if atype == "co" else None,
         })
 
         best_mean = max(cfg.probs)
@@ -159,12 +167,13 @@ def main() -> None:
                 try:
                     sel = agent.select(obs)  # adapter may return int or {"action": int}
                 except Exception:
-                    pass
+                    if _strict_errors():
+                        raise
 
                 # -- CO debug
                 co_policy    = (sel.get("co_policy") if isinstance(sel, dict) else None) or "n/a"
                 co_weight    = (float(sel.get("co_weight", 1.0)) if isinstance(sel, dict) else 1.0)
-                co_bus_votes = (int(sel.get("co_bus_votes", 0)) if isinstance(sel, dict) else 0)
+                signal_bus_votes = (int(sel.get("signal_bus_votes", 0)) if isinstance(sel, dict) else 0)
 
                 write_metric_line(
                     metrics_path,
@@ -173,7 +182,7 @@ def main() -> None:
                         "t": t,
                         "co_policy": co_policy,
                         "co_weight": co_weight,
-                        "co_bus_votes": co_bus_votes,
+                        "signal_bus_votes": signal_bus_votes,
                         "agent": agent_tag,
                         **({
                             k: sel[k] for k in (
@@ -183,6 +192,14 @@ def main() -> None:
                                 "debug_header_updates","translator_mask_mode",
                                 "translator_mask_blocked","translator_mask_size","translator_mask_blocks_all",
                                 "signals","header_update_count","header_update_source","mask_mode","translator_mask",
+
+                                "canonical_commitment_mode","canonical_commitment_reason",
+                                "certificate_aware_stable_continuation_applied",
+                                "certificate_aware_reopen_or_sample_applied",
+                                "candidate_final_scores","candidate_obs_scores",
+                                "canonical_commitment_assessment",
+                                "commit_readiness","evidence_margin","evidence_support",
+                                "co_sources","co_evidence_valid_for_step",
                             ) if isinstance(sel, dict) and k in sel
                         }),
                     },
@@ -199,7 +216,8 @@ def main() -> None:
                 try:
                     agent.update({"action": a, "reward": float(r), "done": bool(done)})
                 except Exception:
-                    pass
+                    if _strict_errors():
+                        raise
 
             else:
                 # ---- STOA path (native APIs) ----
@@ -249,7 +267,8 @@ def main() -> None:
             from experiments.plotting.plotting import save_quick_plot
             save_quick_plot(metrics_path, plot_path, title=f"Bandit {agent_tag.upper()}")
         except Exception:
-            pass
+            if _strict_errors():
+                raise
         status = "succeeded"
     except Exception as exc:
         error = f"{type(exc).__name__}: {exc}"
@@ -270,6 +289,7 @@ def main() -> None:
                 "ended_at": _iso_now(),
                 "status": status,
                 "error": error,
+                "co_runtime_contract": co_runtime_contract,
             },
         )
 

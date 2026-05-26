@@ -1,103 +1,110 @@
-# docs/kernel_spec/17_COMPONENT_CLASSIFICATION.md
+# 17. Component Classification
 
-# Component Classification
+Status: canonical classification aid for active kernel docs.  
+Last consolidated: 2026-05-06.
 
-## Status
-- **Binding**: components must be classified as core / optional / experimental / legacy
-- **Recommended starting point**: classification below
-- **Open design space**: exact promotion criteria for some optional mechanisms
+This file prevents category collapse. It says what kind of thing a component is; it is not the primary explanation of what the component means.
 
----
+## Classification legend
 
-## 1. Principle
+```text
+core primitive / operation:
+  minimal operation-type required by the current CO kernel target.
 
-The codebase must not treat all components as equally canonical if they are not equally supported, wired, and stable.
+mechanism bundle:
+  a coordinated runtime mechanism built from several primitives/operations.
 
-Every major kernel component should be classified.
+runtime surface:
+  implementation carrier or interface where primitives/elements are applied.
 
----
+boundary / translator:
+  problem-specific public-structure exposure, not kernel policy.
 
-## 2. Core canonical kernel
+support / telemetry:
+  logging, carrier, or diagnostic infrastructure.
 
-**Recommended starting point**
+investigatory:
+  retained for comparison or future work, not active evidence-bearing doctrine.
 
-The core canonical kernel should include:
+inactive / deprecated alias:
+  historical name/path not authoritative for active target.
+```
 
-- path-space fragment representation
-- meta-header
-- header
-- primitive layer
-- `EA_HAQ`
-- `EB_GHVC`
-- `EC_Identity`
-- one density/precision mechanism
-- contribution bridge / vote bridge
-- final continuation fusion head
-- translator boundary layer
+## Core primitives / operations
 
----
+| Item | Classification | Active role |
+|---|---|---|
+| P1 Bend / BendMetric | core primitive / operation | local deformation of continuation possibility; pressure direction/shape. |
+| P2 Gauge | core primitive / operation | local comparison/tolerance regime for burden, quotient, hiddenness, collapse. |
+| P4 ReID / Identity-through-change | core primitive / operation | branch continuity through changing expressions. |
+| P5 Temporal Retention | core primitive / operation | carried trace/state across loops and transformations. |
+| P10 ChangeOpsCore / EI ChangeOps | core operation bundle | carry, amplify, expose, buffer, mask, relieve, cancel, transfer, transform. |
+| P12 Closure / Quotient | core primitive / operation | identify loss of continuation-relevant difference; prevent false grey/path explosion. |
+| P16 Remaining Transformation Burden | core primitive / operation | continuation-relevant de-centering / anchored operative tension. |
+| Thin Collapse | core operation | legitimate compression of live structure into row, scalar, branch, certificate, or action. |
 
-## 3. Canonical optional extensions
+## Provisional or investigatory primitives/elements
 
-**Recommended starting point**
+| Item | Classification | Note |
+|---|---|---|
+| EA_HAQ / adaptive quotienting | provisional | active tolerance idea; exact law and calibration still open. |
+| ED_GaugeWarp | provisional | useful gauge modulation concept; needs formula grounding. |
+| EG_DensityPrecision | provisional | support for discrimination/precision; not deepest core. |
+| P7 Precision | provisional | active discrimination support, not full active primitive. |
+| P3 MDL / EE_Compressibility | investigatory | may support collapse/retention analysis later; not canonical evidence path. |
+| P8 Loopiness | investigatory | useful recurrence/cycle signal, not core unless behaviorally required. |
+| P9 VariableBirth / creative option birth | investigatory | future continuation-generation work; not current kernel proof path. |
+| P11 Residuation | investigatory | promising formalization of remaining burden; not final algebra. |
+| EF_Router | investigatory | comparison/control path, not core ontology. |
+| EH_BreadthDepth | investigatory | exploration-style bundle, not current canonical kernel. |
+| EJ_OrderAsymmetry | investigatory/provisional | asymmetry is foundational, but EJ as a separate element is not yet required. |
 
-These may be supported as canonical optional extensions:
+## Mechanism bundles
 
-- `EE_Compressibility`
-- `EF_Router`
-- `EH_BreadthDepth`
-- `EI_ChangeOps`
-- `EJ_OrderAsymmetry`
+| Component | Classification | Note |
+|---|---|---|
+| RecursiveContinuationField | mechanism bundle | coordinates burden/debt, relations, grey, quotient, recursion, viability, collapse readiness. Not a primitive. |
+| CollapseCertificate | mechanism/readout gate | structured earned-collapse check. Not merely a score. |
+| ContinuationState | runtime state mechanism | carries branch/viability history; not a deep primitive. |
 
-Note:
-- asymmetry itself is foundational,
-- but a separate explicit `EJ` element may still be optional.
+## Runtime surfaces
 
----
+| Component | Classification | Active role |
+|---|---|---|
+| CandidateSurface | runtime surface | kernel intake; publishes candidate expressions/rows without making actions into branches. |
+| RelationSurface | runtime surface | derives branch-internal operations and cross-branch relations from public effects. |
+| CommitmentSurface | runtime surface / readout | expresses earned collapse as native action; no non-CO rescue selector. |
+| Problem contracts | boundary data structure | declarative family-to-kernel public problem contract under `agents/co/core/contracts/`. |
+| Signal bus / telemetry helpers | support / telemetry | runtime support only; not action selection and not ontology mechanism. |
 
-## 4. Experimental
+## Boundary / translator components
 
-**Recommended starting point**
+Adapters, observation mappers, action mappers, and problem contracts expose public problem structure. They may publish public facts and public_effects but must not publish policy advice, optimal action, hidden state strategy, or classical rescue.
 
-Experimental components include:
-- mechanisms not yet fully integrated into the active runtime,
-- mechanisms with incomplete contracts,
-- or mechanisms whose role is still under active design.
+## Non-active residues
 
-Example:
-- `ED_GaugeWarp` unless and until fully integrated cleanly.
+Names or paths that do not have docs, active code, and diagnostics in the current loop are not evidence-bearing components. If such a path is retained for comparison or migration, it must be documented as support-only, investigatory, or invalid for evidence-bearing runs before use.
 
----
+## Promotion rule
 
-## 5. Legacy / inactive
+A component may be promoted only when:
 
-**Binding**
+```text
+the conceptual need is clear;
+the canonical doc states its role;
+the runtime carrier is active;
+diagnostics show it changes behavior for the documented reason;
+it does not leak policy, fallback, or undocumented scoring.
+```
 
-Historical code or older architecture paths that are not the canonical active runtime must be marked:
-- legacy,
-- inactive,
-- or archival.
+## Demotion rule
 
-They must not compete as coequal runtime truths.
+A component must be marked provisional, investigatory, inactive, or support-only when:
 
----
-
-## 6. Promotion rule
-
-**Binding**
-
-A component should only be promoted toward core or canonical optional when:
-- its role is clearly documented,
-- its runtime path is active and honest,
-- its interface contract is explicit,
-- its config surface is real rather than decorative,
-- and its contribution can be investigated honestly in the suite.
-
----
-
-## 7. Misalignment examples
-
-Code is misaligned with this spec if:
-- experimental components masquerade as stable core runtime,
-- legacy paths remain undocumented as legacy,
-- or unsupported mechanisms remain in baseline configs as if fully canonical.
+```text
+it is not required by the current kernel target;
+it exists only as migration residue and is not required by the current target;
+it cannot yet be distinguished behaviorally from known/classical machinery;
+it lacks formula or trace grounding;
+it belongs to future consciousness/math work rather than the current kernel.
+```

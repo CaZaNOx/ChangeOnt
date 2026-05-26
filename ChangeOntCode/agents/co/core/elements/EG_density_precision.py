@@ -2,7 +2,7 @@
 from __future__ import annotations
 from typing import Any, Dict, Set, Tuple, Optional
 from ..primitives.P7_precision import P7_Precision, precision_schedule
-from ..primitives.visit_tracker import VisitTracker
+from agents.co.runtime.support.visit_tracker import VisitTracker
 from ._shared import publish_signal, get_semantic
 
 class EG_Density:
@@ -10,7 +10,7 @@ class EG_Density:
     Precision / density control.
     - Maintains a simple per-episode visit-density for maze-like envs (self-contained).
     - Sets header_state.r_prime via precision_schedule (mode: fixed|coarse|adaptive).
-    - Publishes EG_DensityPrecision.visit_density on co_bus for translators.
+    - Publishes EG_DensityPrecision.visit_density on signal_bus for translators.
     """
     PRIMITIVE_DEPS = ("P7_Precision", "visit_tracker (local visit density)")
     COMBINATOR_FORM = "SC_AdditiveBlend (+ optional SC_MultiplicativeCoupling)"
@@ -28,6 +28,8 @@ class EG_Density:
         self.params = params or {}
         self.params.setdefault("mode", "adaptive")
         self.params.setdefault("r_static", 1)
+        if "rounding" in self.params and "r_static" not in self.params:
+            self.params["r_static"] = int(self.params.get("rounding", 1))
         return self
 
     def fit(self, stream_or_env_view=None):
@@ -51,7 +53,7 @@ class EG_Density:
                 return float(vt.density())
             except Exception:
                 pass
-            # fallback to local counters if tracker is missing/broken
+            # conservative local substitute to local counters if tracker is missing/broken
             self._visits += 1
             self._seen.add(key)
         if self._visits <= 0:
@@ -87,7 +89,7 @@ class EG_Density:
         if sc_add is None:
             raise RuntimeError("EG_DensityPrecision requires semantic combinator SC_AdditiveBlend.")
         density_hint = sc_add.combine([vd])
-        bus = primitives.get("co_bus")
+        bus = primitives.get("signal_bus")
         publish_signal(bus, "EG_DensityPrecision.visit_density", float(density_hint))
 
         return {"r_prime": int(self.last_r), "visit_density": float(density_hint)}

@@ -1,0 +1,38 @@
+[
+  {
+    "module": "agents.co.tests.shape_prior6_contract_invariants",
+    "status": "PASS"
+  },
+  {
+    "module": "agents.co.tests.shape_prior6_active_path_invariants",
+    "status": "PASS"
+  },
+  {
+    "module": "agents.co.tests.runtime_contract_invariants",
+    "status": "PASS"
+  },
+  {
+    "module": "agents.co.tests.problem_contract_invariants",
+    "status": "PASS"
+  },
+  {
+    "module": "agents.co.tests.maintenance_replacement_family_invariants",
+    "status": "PASS"
+  },
+  {
+    "module": "agents.co.tests.maintenance_replacement_runtime_wiring_invariants",
+    "status": "PASS"
+  },
+  {
+    "module": "agents.co.tests.maintenance_replacement_stoa_baseline_invariants",
+    "status": "PASS"
+  },
+  {
+    "module": "agents.co.tests.commitment_surface_readout_invariants",
+    "status": "PASS"
+  },
+  {
+    "module": "agents.co.tests.smoke_co_runner",
+    "status": "PASS"
+  }
+]

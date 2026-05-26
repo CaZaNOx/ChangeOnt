@@ -1,0 +1,277 @@
+{
+  "all_cases": [
+    {
+      "case": "ambiguous_hiddenness_vs_concentrated_degradation",
+      "coarseness_by_domain": {
+        "burden:degradation": 0.467589757028125,
+        "burden:hiddenness": 0.369309757028125
+      },
+      "coarseness_radius": 0.450101077734375,
+      "relation_surface_telemetry": {
+        "accepted_public_effects": 4,
+        "branch_internal_hiddenness_pressure_total": 1.0,
+        "branch_internal_operation_rows": 4,
+        "branch_internal_resolver_support_total": 0.92,
+        "branch_internal_unresolved_pressure_total": 0.6568,
+        "branches_derived": 4,
+        "candidate_rows": 4,
+        "identity_source_counts": {
+          "public_effects": 4
+        },
+        "operation_carry": 3,
+        "operation_relieve": 1,
+        "quotient_bucket_sizes": [
+          2
+        ],
+        "quotient_buckets_with_multiple_members": 1,
+        "quotient_derivation_basis": "public_residual_profile",
+        "quotient_profile_summaries": [
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::hiddenness:carry:public_domain:medium:none:unknown:uncoupled::expr::hidden_a",
+            "entries": [
+              "hiddenness/burden/carry/public_domain/medium/none/unknown/uncoupled"
+            ],
+            "reason": "accepted",
+            "signature": "hiddenness/burden/carry/public_domain/medium/none/unknown/uncoupled"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::hiddenness:carry:public_domain:medium:none:unknown:uncoupled::expr::hidden_b",
+            "entries": [
+              "hiddenness/burden/carry/public_domain/medium/none/unknown/uncoupled"
+            ],
+            "reason": "accepted",
+            "signature": "hiddenness/burden/carry/public_domain/medium/none/unknown/uncoupled"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::degradation:relieve:public_domain:critical:none:unknown:uncoupled::expr::degrade_resolve",
+            "entries": [
+              "degradation/burden/relief/public_domain/critical/none/unknown/uncoupled"
+            ],
+            "reason": "accepted",
+            "signature": "degradation/burden/relief/public_domain/critical/none/unknown/uncoupled"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::degradation:carry:public_domain:low:none:unknown:uncoupled::expr::degrade_minor",
+            "entries": [
+              "degradation/burden/carry/public_domain/low/none/unknown/uncoupled"
+            ],
+            "reason": "accepted",
+            "signature": "degradation/burden/carry/public_domain/low/none/unknown/uncoupled"
+          }
+        ],
+        "quotient_profiles_accepted": 4,
+        "quotient_profiles_rejected": {},
+        "quotient_profiles_total": 4,
+        "quotient_relations_derived": 1,
+        "relation_equivalence": 1,
+        "relation_field_ambiguous_count": 3,
+        "relation_field_avg_concentration": 0.5,
+        "relation_field_avg_domain_ambiguity": 0.29,
+        "relation_field_domains": 2,
+        "relation_field_function_like_count": 1,
+        "relation_field_function_like_threshold": 0.708,
+        "relation_field_profiles": 4,
+        "relation_relief": 3,
+        "relations_by_type": {
+          "equivalence": 1,
+          "relief": 3
+        },
+        "relations_total": 4,
+        "rows_with_public_effects": 4,
+        "rows_with_relations": 4
+      },
+      "rows": [
+        {
+          "action": "hidden_a",
+          "ambiguity": 0.5,
+          "concentration": 0.5,
+          "domain": "burden:hiddenness",
+          "domain_coarseness": 0.369309757028125,
+          "function_like": false
+        },
+        {
+          "action": "hidden_b",
+          "ambiguity": 0.5,
+          "concentration": 0.5,
+          "domain": "burden:hiddenness",
+          "domain_coarseness": 0.369309757028125,
+          "function_like": false
+        },
+        {
+          "action": "degrade_resolve",
+          "ambiguity": 0.07999999999999996,
+          "concentration": 0.92,
+          "domain": "burden:degradation",
+          "domain_coarseness": 0.467589757028125,
+          "function_like": true
+        },
+        {
+          "action": "degrade_minor",
+          "ambiguity": 0.92,
+          "concentration": 0.08,
+          "domain": "burden:degradation",
+          "domain_coarseness": 0.467589757028125,
+          "function_like": false
+        }
+      ],
+      "update_evidence": {
+        "admissibility_evidence_present": false,
+        "admissibility_pressure_observed": 0.0,
+        "avg_burden_trend": 0.0,
+        "avg_field_debt": 0.1875,
+        "avg_grey_pressure": 0.0,
+        "avg_hiddenness_pressure": 0.25,
+        "avg_recursion_demand": 0.0,
+        "candidate_rows": 4,
+        "carry_ops_count": 3,
+        "coarseness_by_domain_deltas": {
+          "burden:degradation": 0.017488679293749976,
+          "burden:hiddenness": -0.08079132070625
+        },
+        "coarseness_by_domain_targets": {
+          "burden:degradation": 0.5125606466406251,
+          "burden:hiddenness": 0.16156064664062506
+        },
+        "coarseness_domain_count": 2,
+        "exposure_evidence_present": true,
+        "exposure_support_observed": 0.12650000000000003,
+        "operation_counts": {
+          "carry": 3,
+          "relieve": 1
+        },
+        "relation_density_observed": 0.48333333333333334,
+        "relation_field_ambiguity_observed": 0.29,
+        "relation_field_concentration_observed": 0.5,
+        "relation_field_function_like_ratio": 0.25,
+        "relations_total": 4,
+        "resolver_ops_count": 1,
+        "resolver_support_observed": 0.23,
+        "reward_seen_but_ignored": false,
+        "transform_redirect_observed": 0.0,
+        "transform_transfer_ops_count": 0
+      }
+    },
+    {
+      "case": "single_public_domain_fallback",
+      "coarseness_by_domain": {
+        "burden:target": 0.575391474663
+      },
+      "coarseness_radius": 0.596220129125,
+      "relation_surface_telemetry": {
+        "accepted_public_effects": 2,
+        "branch_internal_hiddenness_pressure_total": 0.0,
+        "branch_internal_operation_rows": 2,
+        "branch_internal_resolver_support_total": 0.0,
+        "branch_internal_unresolved_pressure_total": 0.46,
+        "branches_derived": 2,
+        "candidate_rows": 2,
+        "identity_source_counts": {
+          "public_effects": 2
+        },
+        "operation_carry": 2,
+        "quotient_bucket_sizes": [],
+        "quotient_buckets_with_multiple_members": 0,
+        "quotient_derivation_basis": "public_residual_profile",
+        "quotient_profile_summaries": [
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::target:carry:public_domain:critical:none:unknown:uncoupled::expr::target_dom",
+            "entries": [
+              "target/burden/carry/public_domain/critical/none/unknown/uncoupled"
+            ],
+            "reason": "accepted",
+            "signature": "target/burden/carry/public_domain/critical/none/unknown/uncoupled"
+          },
+          {
+            "accepted": true,
+            "basis": "public_residual_profile",
+            "branch_id": "pressure::target:carry:public_domain:none:none:unknown:uncoupled::expr::target_minor",
+            "entries": [
+              "target/burden/carry/public_domain/none/none/unknown/uncoupled"
+            ],
+            "reason": "accepted",
+            "signature": "target/burden/carry/public_domain/none/none/unknown/uncoupled"
+          }
+        ],
+        "quotient_profiles_accepted": 2,
+        "quotient_profiles_rejected": {},
+        "quotient_profiles_total": 2,
+        "quotient_relations_derived": 0,
+        "relation_field_ambiguous_count": 1,
+        "relation_field_avg_concentration": 0.5,
+        "relation_field_avg_domain_ambiguity": 0.020000000000000018,
+        "relation_field_domains": 1,
+        "relation_field_function_like_count": 1,
+        "relation_field_function_like_threshold": 0.708,
+        "relation_field_profiles": 2,
+        "relations_by_type": {},
+        "relations_total": 0,
+        "rows_with_public_effects": 2,
+        "rows_with_relations": 0
+      },
+      "rows": [
+        {
+          "action": "target_dom",
+          "ambiguity": 0.020000000000000018,
+          "concentration": 0.98,
+          "domain": "burden:target",
+          "domain_coarseness": 0.575391474663,
+          "function_like": true
+        },
+        {
+          "action": "target_minor",
+          "ambiguity": 0.98,
+          "concentration": 0.02,
+          "domain": "burden:target",
+          "domain_coarseness": 0.575391474663,
+          "function_like": false
+        }
+      ],
+      "update_evidence": {
+        "admissibility_evidence_present": false,
+        "admissibility_pressure_observed": 0.0,
+        "avg_burden_trend": 0.0,
+        "avg_field_debt": 0.23,
+        "avg_grey_pressure": 0.0,
+        "avg_hiddenness_pressure": 0.0,
+        "avg_recursion_demand": 0.0,
+        "candidate_rows": 2,
+        "carry_ops_count": 2,
+        "coarseness_by_domain_deltas": {
+          "burden:target": -0.020828654461999996
+        },
+        "coarseness_by_domain_targets": {
+          "burden:target": 0.521832077475
+        },
+        "coarseness_domain_count": 1,
+        "exposure_evidence_present": false,
+        "exposure_support_observed": 0.0,
+        "operation_counts": {
+          "carry": 2
+        },
+        "relation_density_observed": 0.0,
+        "relation_field_ambiguity_observed": 0.175,
+        "relation_field_concentration_observed": 0.5,
+        "relation_field_function_like_ratio": 0.5,
+        "relations_total": 0,
+        "resolver_ops_count": 0,
+        "resolver_support_observed": 0.0,
+        "reward_seen_but_ignored": false,
+        "transform_redirect_observed": 0.0,
+        "transform_transfer_ops_count": 0
+      }
+    }
+  ],
+  "cases": 2,
+  "domain_divergence_observed": true,
+  "study": "domain_relative_coarseness_field_probe_v1"
+}

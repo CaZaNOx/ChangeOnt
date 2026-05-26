@@ -1,0 +1,58 @@
+{
+  "agent": {
+    "name": "CO_canonical_core",
+    "params": {
+      "combinator": {
+        "order": [
+          "haq",
+          "EC_Identity",
+          "density",
+          "change_ops",
+          "candidate_surface",
+          "commitment_surface"
+        ]
+      },
+      "elements": {
+        "EC_Identity": {
+          "enabled": true
+        },
+        "candidate_surface": {
+          "enabled": true
+        },
+        "change_ops": {
+          "enabled": true
+        },
+        "commitment_surface": {
+          "enabled": true
+        },
+        "density": {
+          "enabled": true
+        },
+        "haq": {
+          "enabled": true
+        }
+      },
+      "header": {
+        "mode": "SSI"
+      },
+      "primitives": {
+        "bandit_stats": {},
+        "kernel_substrate": {},
+        "ngram_model": {},
+        "operative_relevance": {},
+        "signal_bus": {}
+      }
+    },
+    "type": "co"
+  },
+  "log_every": 1,
+  "out_dir": "/mnt/data/co_benchmark_work/ChangeOnt_kernel_pass1_closure_candidate_2026-05-22/ChangeOntCode/outputs/pass1_all_problem_stoa_comparison_v1/raw_runs/latent_easy_visible_CO_canonical_core_s0",
+  "seed": 0,
+  "spec": {
+    "name": "easy_visible",
+    "params": {
+      "max_steps": 64,
+      "seed": 0
+    }
+  }
+}

@@ -1,0 +1,439 @@
+{
+  "aggregate": {
+    "candidate_rows": 20,
+    "cases": 5,
+    "commitment_action_changed_cases": 0,
+    "commitment_mode_changed_cases": 0,
+    "field_delta_positive_cases": 5,
+    "non_rival_relations": 16,
+    "relations_by_type": {
+      "cancellation": 3,
+      "decision_slot_competition": 64,
+      "equivalence": 4,
+      "relief": 8,
+      "shared_evidence": 1
+    },
+    "relations_total": 80
+  },
+  "cases": [
+    {
+      "branch_internal_hiddenness_pressure_total": 3.0,
+      "branch_internal_operation_rows": 3,
+      "branch_internal_resolver_support_total": 3.0,
+      "branch_internal_unresolved_pressure_total": 1.8599999999999999,
+      "candidate_rows": 3,
+      "commitment_action_changed": false,
+      "commitment_mode_changed": false,
+      "commitment_off_action": 0,
+      "commitment_off_mode": "reopen_or_sample",
+      "commitment_on_action": 0,
+      "commitment_on_mode": "reopen_or_sample",
+      "family": "bandit_initial",
+      "field_delta_by_action": {
+        "0": {
+          "collapse_certificate_blocker_pressure": 0.197928236908816,
+          "collapse_certificate_recursion_demand": 0.053720000000000045,
+          "collapse_certificate_score": 0.009586382100274626,
+          "field_collapse_readiness": 0.04397818282072559,
+          "field_debt": 0.19580148068009995,
+          "field_grey_pressure": 0.42,
+          "field_recursion_budget": 0.051329368216287585,
+          "field_viability": 0.0667085562542561,
+          "quotient_resolved_rival_count": 0.0,
+          "quotient_share_count": 0.0,
+          "unresolved_rival_count": 0.0
+        },
+        "1": {
+          "collapse_certificate_blocker_pressure": 0.197928236908816,
+          "collapse_certificate_recursion_demand": 0.053720000000000045,
+          "collapse_certificate_score": 0.009586382100274626,
+          "field_collapse_readiness": 0.04397818282072559,
+          "field_debt": 0.19580148068009995,
+          "field_grey_pressure": 0.42,
+          "field_recursion_budget": 0.051329368216287585,
+          "field_viability": 0.0667085562542561,
+          "quotient_resolved_rival_count": 0.0,
+          "quotient_share_count": 0.0,
+          "unresolved_rival_count": 0.0
+        },
+        "2": {
+          "collapse_certificate_blocker_pressure": 0.197928236908816,
+          "collapse_certificate_recursion_demand": 0.053720000000000045,
+          "collapse_certificate_score": 0.009586382100274626,
+          "field_collapse_readiness": 0.04397818282072559,
+          "field_debt": 0.19580148068009995,
+          "field_grey_pressure": 0.42,
+          "field_recursion_budget": 0.051329368216287585,
+          "field_viability": 0.0667085562542561,
+          "quotient_resolved_rival_count": 0.0,
+          "quotient_share_count": 0.0,
+          "unresolved_rival_count": 0.0
+        }
+      },
+      "field_delta_l1": 3.1171566209413806,
+      "field_delta_max": 0.42,
+      "identity_source_counts": {
+        "public_effects": 3
+      },
+      "non_rival_relations": 0,
+      "relations_by_type": {
+        "decision_slot_competition": 6
+      },
+      "relations_total": 6,
+      "rows_with_public_effects": 3,
+      "rows_with_relations": 3,
+      "structural_relations": 0,
+      "weak_decision_competition_relations": 6
+    },
+    {
+      "branch_internal_hiddenness_pressure_total": 0.22000000000000003,
+      "branch_internal_operation_rows": 5,
+      "branch_internal_resolver_support_total": 1.13,
+      "branch_internal_unresolved_pressure_total": 0.426085,
+      "candidate_rows": 5,
+      "commitment_action_changed": false,
+      "commitment_mode_changed": false,
+      "commitment_off_action": "INSPECT",
+      "commitment_off_mode": "stable_continuation",
+      "commitment_on_action": "INSPECT",
+      "commitment_on_mode": "stable_continuation",
+      "family": "maintenance_partial_midhealth",
+      "field_delta_by_action": {
+        "INSPECT": {
+          "collapse_certificate_blocker_pressure": 0.0035771353745946838,
+          "collapse_certificate_recursion_demand": 0.0921827526432625,
+          "collapse_certificate_score": 0.007807573312002158,
+          "field_collapse_readiness": 0.004176310468769762,
+          "field_debt": 0.0,
+          "field_grey_pressure": 0.019872974303303804,
+          "field_recursion_budget": 0.0921827526432625,
+          "field_viability": 0.0005437329943251967,
+          "quotient_resolved_rival_count": 0.0,
+          "quotient_share_count": 0.0,
+          "unresolved_rival_count": 0.0
+        },
+        "REPAIR": {
+          "collapse_certificate_blocker_pressure": 0.0024237466798560734,
+          "collapse_certificate_recursion_demand": 0.07549918042239287,
+          "collapse_certificate_score": 0.076583367970401,
+          "field_collapse_readiness": 0.0013228263100003024,
+          "field_debt": 0.01514841674910046,
+          "field_grey_pressure": 0.0,
+          "field_recursion_budget": 0.07549918042239287,
+          "field_viability": 0.013957229153919726,
+          "quotient_resolved_rival_count": 0.0,
+          "quotient_share_count": 0.0,
+          "unresolved_rival_count": 0.0
+        },
+        "REPLACE": {
+          "collapse_certificate_blocker_pressure": 0.0023965835573325524,
+          "collapse_certificate_recursion_demand": 0.06932380594012463,
+          "collapse_certificate_score": 0.08396224121530205,
+          "field_collapse_readiness": 0.023230406807075388,
+          "field_debt": 0.014978647233328451,
+          "field_grey_pressure": 0.0,
+          "field_recursion_budget": 0.06932380594012463,
+          "field_viability": 0.05436143534133109,
+          "quotient_resolved_rival_count": 0.0,
+          "quotient_share_count": 0.0,
+          "unresolved_rival_count": 0.0
+        },
+        "RUN": {
+          "collapse_certificate_blocker_pressure": 0.06295281128326981,
+          "collapse_certificate_recursion_demand": 0.18202550887099656,
+          "collapse_certificate_score": 0.03644101514405235,
+          "field_collapse_readiness": 0.053928466848332524,
+          "field_debt": 0.06414495319541635,
+          "field_grey_pressure": 0.12160899317779543,
+          "field_recursion_budget": 0.18202550887099656,
+          "field_viability": 0.031943238174229505,
+          "quotient_resolved_rival_count": 0.0,
+          "quotient_share_count": 0.0,
+          "unresolved_rival_count": 0.0
+        },
+        "WAIT": {
+          "collapse_certificate_blocker_pressure": 0.00014605657614291147,
+          "collapse_certificate_recursion_demand": 0.0484381899307193,
+          "collapse_certificate_score": 0.0004797932605200561,
+          "field_collapse_readiness": 0.0009800901573798482,
+          "field_debt": 0.0037392028135510152,
+          "field_grey_pressure": 0.004135161257283748,
+          "field_recursion_budget": 0.0484381899307193,
+          "field_viability": 0.0027113530894519178,
+          "quotient_resolved_rival_count": 0.0,
+          "quotient_share_count": 0.0,
+          "unresolved_rival_count": 0.0
+        }
+      },
+      "field_delta_l1": 1.64249263806306,
+      "field_delta_max": 0.18202550887099656,
+      "identity_source_counts": {
+        "public_effects": 5
+      },
+      "non_rival_relations": 6,
+      "relations_by_type": {
+        "cancellation": 3,
+        "decision_slot_competition": 20,
+        "relief": 2,
+        "shared_evidence": 1
+      },
+      "relations_total": 26,
+      "rows_with_public_effects": 5,
+      "rows_with_relations": 5,
+      "structural_relations": 6,
+      "weak_decision_competition_relations": 20
+    },
+    {
+      "branch_internal_hiddenness_pressure_total": 0.0,
+      "branch_internal_operation_rows": 4,
+      "branch_internal_resolver_support_total": 1.0,
+      "branch_internal_unresolved_pressure_total": 1.3800000000000001,
+      "candidate_rows": 4,
+      "commitment_action_changed": false,
+      "commitment_mode_changed": false,
+      "commitment_off_action": "RIGHT",
+      "commitment_off_mode": "dominance",
+      "commitment_on_action": "RIGHT",
+      "commitment_on_mode": "dominance",
+      "family": "maze_visible_local",
+      "field_delta_by_action": {
+        "DOWN": {
+          "collapse_certificate_blocker_pressure": 0.010835715317408685,
+          "collapse_certificate_recursion_demand": 0.024030170066087764,
+          "collapse_certificate_score": 0.026102951787477013,
+          "field_collapse_readiness": 0.0013840691428214646,
+          "field_debt": 0.04712573372136003,
+          "field_grey_pressure": 0.018308877344394913,
+          "field_recursion_budget": 0.05741194553496674,
+          "field_viability": 0.011466682655618732,
+          "quotient_resolved_rival_count": 4.0,
+          "quotient_share_count": 2.0,
+          "unresolved_rival_count": 0.0
+        },
+        "LEFT": {
+          "collapse_certificate_blocker_pressure": 0.010835715317408685,
+          "collapse_certificate_recursion_demand": 0.024030170066087764,
+          "collapse_certificate_score": 0.026102951787477013,
+          "field_collapse_readiness": 0.0013840691428214646,
+          "field_debt": 0.04712573372136003,
+          "field_grey_pressure": 0.018308877344394913,
+          "field_recursion_budget": 0.05741194553496674,
+          "field_viability": 0.011466682655618732,
+          "quotient_resolved_rival_count": 4.0,
+          "quotient_share_count": 2.0,
+          "unresolved_rival_count": 0.0
+        },
+        "RIGHT": {
+          "collapse_certificate_blocker_pressure": 0.02717816062875725,
+          "collapse_certificate_recursion_demand": 0.09318707656922987,
+          "collapse_certificate_score": 0.07199841638193905,
+          "field_collapse_readiness": 0.04259801612431069,
+          "field_debt": 0.16986350392973282,
+          "field_grey_pressure": 0.0,
+          "field_recursion_budget": 0.11434224207780945,
+          "field_viability": 0.003024853574480346,
+          "quotient_resolved_rival_count": 0.0,
+          "quotient_share_count": 0.0,
+          "unresolved_rival_count": 0.0
+        },
+        "UP": {
+          "collapse_certificate_blocker_pressure": 0.010835715317408685,
+          "collapse_certificate_recursion_demand": 0.024030170066087764,
+          "collapse_certificate_score": 0.026102951787477013,
+          "field_collapse_readiness": 0.0013840691428214646,
+          "field_debt": 0.04712573372136003,
+          "field_grey_pressure": 0.018308877344394913,
+          "field_recursion_budget": 0.05741194553496674,
+          "field_viability": 0.011466682655618732,
+          "quotient_resolved_rival_count": 4.0,
+          "quotient_share_count": 2.0,
+          "unresolved_rival_count": 0.0
+        }
+      },
+      "field_delta_l1": 19.112190705996667,
+      "field_delta_max": 4.0,
+      "identity_source_counts": {
+        "public_effects": 4
+      },
+      "non_rival_relations": 6,
+      "relations_by_type": {
+        "decision_slot_competition": 12,
+        "equivalence": 3,
+        "relief": 3
+      },
+      "relations_total": 18,
+      "rows_with_public_effects": 4,
+      "rows_with_relations": 4,
+      "structural_relations": 6,
+      "weak_decision_competition_relations": 12
+    },
+    {
+      "branch_internal_hiddenness_pressure_total": 3.0,
+      "branch_internal_operation_rows": 5,
+      "branch_internal_resolver_support_total": 1.0,
+      "branch_internal_unresolved_pressure_total": 2.412,
+      "candidate_rows": 5,
+      "commitment_action_changed": false,
+      "commitment_mode_changed": false,
+      "commitment_off_action": "RIGHT",
+      "commitment_off_mode": "dominance",
+      "commitment_on_action": "RIGHT",
+      "commitment_on_mode": "dominance",
+      "family": "latent_mechanism_visible",
+      "field_delta_by_action": {
+        "DOWN": {
+          "collapse_certificate_blocker_pressure": 0.17613638607701823,
+          "collapse_certificate_recursion_demand": 0.14284894197216833,
+          "collapse_certificate_score": 0.10595526457356508,
+          "field_collapse_readiness": 0.15596322922266714,
+          "field_debt": 0.26006599393820673,
+          "field_grey_pressure": 0.28069903914947314,
+          "field_recursion_budget": 0.14284894197216833,
+          "field_viability": 0.08516067182190692,
+          "quotient_resolved_rival_count": 0.0,
+          "quotient_share_count": 0.0,
+          "unresolved_rival_count": 0.0
+        },
+        "INTERACT": {
+          "collapse_certificate_blocker_pressure": 0.14429268944126514,
+          "collapse_certificate_recursion_demand": 0.07449289842917933,
+          "collapse_certificate_score": 0.06822938360797987,
+          "field_collapse_readiness": 0.09618525522201601,
+          "field_debt": 0.09332930900790717,
+          "field_grey_pressure": 0.252,
+          "field_recursion_budget": 0.058492898429179346,
+          "field_viability": 0.0498295369494971,
+          "quotient_resolved_rival_count": 0.0,
+          "quotient_share_count": 0.0,
+          "unresolved_rival_count": 0.0
+        },
+        "LEFT": {
+          "collapse_certificate_blocker_pressure": 0.1664712080337255,
+          "collapse_certificate_recursion_demand": 0.0917408056121186,
+          "collapse_certificate_score": 0.06384285601591355,
+          "field_collapse_readiness": 0.13195050484430149,
+          "field_debt": 0.2582755263793584,
+          "field_grey_pressure": 0.22859513229460082,
+          "field_recursion_budget": 0.0917408056121186,
+          "field_viability": 0.06929307924899816,
+          "quotient_resolved_rival_count": 2.0,
+          "quotient_share_count": 1.0,
+          "unresolved_rival_count": 0.0
+        },
+        "RIGHT": {
+          "collapse_certificate_blocker_pressure": 0.151771690343382,
+          "collapse_certificate_recursion_demand": 0.1542105791196981,
+          "collapse_certificate_score": 0.0409355693072907,
+          "field_collapse_readiness": 0.07243130656785585,
+          "field_debt": 0.14007306464613764,
+          "field_grey_pressure": 0.252,
+          "field_recursion_budget": 0.1542105791196981,
+          "field_viability": 0.04788321120872163,
+          "quotient_resolved_rival_count": 0.0,
+          "quotient_share_count": 0.0,
+          "unresolved_rival_count": 0.0
+        },
+        "UP": {
+          "collapse_certificate_blocker_pressure": 0.1664712080337255,
+          "collapse_certificate_recursion_demand": 0.0917408056121186,
+          "collapse_certificate_score": 0.06384285601591355,
+          "field_collapse_readiness": 0.13195050484430149,
+          "field_debt": 0.2582755263793584,
+          "field_grey_pressure": 0.22859513229460082,
+          "field_recursion_budget": 0.0917408056121186,
+          "field_viability": 0.06929307924899816,
+          "quotient_resolved_rival_count": 2.0,
+          "quotient_share_count": 1.0,
+          "unresolved_rival_count": 0.0
+        }
+      },
+      "field_delta_l1": 11.403866276209257,
+      "field_delta_max": 2.0,
+      "identity_source_counts": {
+        "public_effects": 5
+      },
+      "non_rival_relations": 4,
+      "relations_by_type": {
+        "decision_slot_competition": 20,
+        "equivalence": 1,
+        "relief": 3
+      },
+      "relations_total": 24,
+      "rows_with_public_effects": 5,
+      "rows_with_relations": 5,
+      "structural_relations": 4,
+      "weak_decision_competition_relations": 20
+    },
+    {
+      "branch_internal_hiddenness_pressure_total": 3.0,
+      "branch_internal_operation_rows": 3,
+      "branch_internal_resolver_support_total": 2.8,
+      "branch_internal_unresolved_pressure_total": 1.8599999999999999,
+      "candidate_rows": 3,
+      "commitment_action_changed": false,
+      "commitment_mode_changed": false,
+      "commitment_off_action": 0,
+      "commitment_off_mode": "reopen_or_sample",
+      "commitment_on_action": 0,
+      "commitment_on_mode": "reopen_or_sample",
+      "family": "renewal_initial",
+      "field_delta_by_action": {
+        "0": {
+          "collapse_certificate_blocker_pressure": 0.1937924435615217,
+          "collapse_certificate_recursion_demand": 0.05876600118728159,
+          "collapse_certificate_score": 0.011400053952025868,
+          "field_collapse_readiness": 0.04572870893098535,
+          "field_debt": 0.149536105592844,
+          "field_grey_pressure": 0.42,
+          "field_recursion_budget": 0.05876600118728159,
+          "field_viability": 0.05777711229506824,
+          "quotient_resolved_rival_count": 0.0,
+          "quotient_share_count": 0.0,
+          "unresolved_rival_count": 0.0
+        },
+        "1": {
+          "collapse_certificate_blocker_pressure": 0.1937924435615217,
+          "collapse_certificate_recursion_demand": 0.05876600118728159,
+          "collapse_certificate_score": 0.011400053952025868,
+          "field_collapse_readiness": 0.04572870893098535,
+          "field_debt": 0.149536105592844,
+          "field_grey_pressure": 0.42,
+          "field_recursion_budget": 0.05876600118728159,
+          "field_viability": 0.05777711229506824,
+          "quotient_resolved_rival_count": 0.0,
+          "quotient_share_count": 0.0,
+          "unresolved_rival_count": 0.0
+        },
+        "2": {
+          "collapse_certificate_blocker_pressure": 0.1937924435615217,
+          "collapse_certificate_recursion_demand": 0.05876600118728159,
+          "collapse_certificate_score": 0.011400053952025868,
+          "field_collapse_readiness": 0.04572870893098535,
+          "field_debt": 0.149536105592844,
+          "field_grey_pressure": 0.42,
+          "field_recursion_budget": 0.05876600118728159,
+          "field_viability": 0.05777711229506824,
+          "quotient_resolved_rival_count": 0.0,
+          "quotient_share_count": 0.0,
+          "unresolved_rival_count": 0.0
+        }
+      },
+      "field_delta_l1": 2.987299280121025,
+      "field_delta_max": 0.42,
+      "identity_source_counts": {
+        "public_effects": 3
+      },
+      "non_rival_relations": 0,
+      "relations_by_type": {
+        "decision_slot_competition": 6
+      },
+      "relations_total": 6,
+      "rows_with_public_effects": 3,
+      "rows_with_relations": 3,
+      "structural_relations": 0,
+      "weak_decision_competition_relations": 6
+    }
+  ],
+  "claim_boundary": "coverage/field-effect diagnostic only; not reward evidence and not full collapse-certificate validation",
+  "diagnostic_scope": "relation_path_trace_v1"
+}

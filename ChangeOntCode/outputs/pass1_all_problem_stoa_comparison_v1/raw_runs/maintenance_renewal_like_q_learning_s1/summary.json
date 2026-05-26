@@ -1,0 +1,11 @@
+{
+  "agent": "q_learning",
+  "family": "maintenance_replacement",
+  "final_health_true": 1,
+  "horizon": 100,
+  "observation_mode": "hidden",
+  "regime": "renewal_like",
+  "seed": 1,
+  "steps": 100,
+  "total_reward": 9.650000000000002
+}

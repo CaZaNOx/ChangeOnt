@@ -1,0 +1,15 @@
+{"family_done": "bandit", "status": "executed"}
+{"family_done": "renewal", "status": "executed"}
+{"family_done": "maze", "status": "executed"}
+{"family_done": "latent_mechanism", "status": "executed"}
+{"family_done": "maintenance_replacement", "status": "executed"}
+{
+  "families": {
+    "bandit": "executed",
+    "latent_mechanism": "executed",
+    "maintenance_replacement": "executed",
+    "maze": "executed",
+    "renewal": "executed"
+  },
+  "wrote": "outputs/bridge_signal_trace_v1.json"
+}

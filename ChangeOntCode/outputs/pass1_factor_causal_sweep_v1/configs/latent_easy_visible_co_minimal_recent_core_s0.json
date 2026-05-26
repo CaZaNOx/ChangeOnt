@@ -1,0 +1,62 @@
+{
+  "agent": {
+    "name": "co_minimal_recent_core",
+    "params": {
+      "combinator": {
+        "order": [
+          "haq",
+          "EC_Identity",
+          "density",
+          "change_ops",
+          "candidate_surface",
+          "commitment_surface"
+        ]
+      },
+      "elements": {
+        "EC_Identity": {
+          "enabled": true
+        },
+        "candidate_surface": {
+          "dynamic_shape_enabled": false,
+          "enabled": true,
+          "quotient_enabled": false,
+          "recursion_scheduler_enabled": false,
+          "sequence_composition_enabled": false
+        },
+        "change_ops": {
+          "enabled": true
+        },
+        "commitment_surface": {
+          "enabled": true
+        },
+        "density": {
+          "enabled": true
+        },
+        "haq": {
+          "enabled": true
+        }
+      },
+      "header": {
+        "mode": "SSI"
+      },
+      "primitives": {
+        "bandit_stats": {},
+        "kernel_substrate": {},
+        "ngram_model": {},
+        "operative_relevance": {},
+        "signal_bus": {}
+      }
+    },
+    "type": "co"
+  },
+  "log_every": 1,
+  "out_dir": "/mnt/data/co_factor/ChangeOnt_pass1_all_problem_stoa_comparison_2026-05-25/ChangeOntCode/outputs/pass1_factor_causal_sweep_v1/raw_runs/latent_easy_visible_co_minimal_recent_core_s0",
+  "seed": 0,
+  "spec": {
+    "name": "easy_visible",
+    "params": {
+      "max_steps": 8,
+      "seed": 0
+    }
+  }
+}

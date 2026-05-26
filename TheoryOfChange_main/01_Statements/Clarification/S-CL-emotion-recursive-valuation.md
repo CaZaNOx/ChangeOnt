@@ -1,0 +1,48 @@
+---
+id: stmt.cl-emotion-recursive
+type: CL
+aliases:
+- CL_Emotion.RecursiveValuation
+title: Emotion as recursive valuation of change (phenomenological scope)
+concepts:
+- '[[02_Concepts/C-subject-awareness-experience]]'
+dependencies:
+- '[[01_Statements/Definition/S-DF-evaluation-surface]]'
+- '[[01_Statements/Definition/S-DF-attention-focus]]'
+parents:
+- '[[01_Statements/Definition/S-DF-evaluation-surface]]'
+successors: []
+symbols_used: []
+sources:
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats_slim/AI_2_Avenai_RecursiveChat.md:941
+flags: []
+tags:
+- clarification
+- emotion
+- phenomenology
+- type/CL
+- status/stable
+---
+
+# Emotion as recursive valuation of change (phenomenological scope)
+## Content
+Emotion is treated as recursive valuation across internalized models (how change matters), not as qualia claims. Full phenomenology would require tensioned goals/experience loops; this clarification constrains usage to structural valuation.
+
+## Clarifications / Further Context
+- Bridge to experiential quality: when using emotion language, map experiential aspects to structural correlates — e.g., local curvature/strain in the alignment (gauge) field and stability budgets (SE). See [[01_Statements/Corollary/S-CR-qualia-gauge-curvature]] and [[01_Statements/Definition/S-DF-stabilization-energy]].
+- Scope guardrail: avoid asserting qualia as primitives; instead, tie talk of “feel” to measured changes in RTV budgets, SE thresholds, and gauge curvature.
+- Temporary segmentation: it is acceptable to segment “feeling” from consciousness operationally until a bridge is derived; maintain explicit abstention on experiential claims in the meantime.
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+- [[01_Statements/Clarification/S-CL-pattern-vs-experience]]
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-subject-awareness-experience]]
+- Parents: [[01_Statements/Definition/S-DF-evaluation-surface]]
+- Dependencies: [[01_Statements/Definition/S-DF-evaluation-surface]]; [[01_Statements/Definition/S-DF-attention-focus]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+

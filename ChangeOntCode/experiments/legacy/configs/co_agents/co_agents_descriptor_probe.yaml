@@ -1,0 +1,75 @@
+# Example CO manifest for descriptor-law investigation.
+# This does not make the runtime law true. It only makes the declared
+# descriptor, posture, and prediction explicit and loggable.
+apply_to_all_families: true
+apply_to_all_modes: true
+
+co_agents:
+  - type: "co"
+    name: "CO_descriptor_probe"
+    params:
+      header: { mode: "SSI" }
+      descriptor_hypothesis:
+        target_scope: "hypothesis_over_anchor"
+        axes:
+          evidence_discriminability: 0.35
+          persistence_reliability: 0.80
+          revision_cost: 0.75
+          deformation_rate: 0.10
+        notes: "Example only: confusable but mostly stationary anchor-given setting."
+      kernel_posture:
+        name: "late_hardening_high_reopen"
+        axes:
+          hardening_bias: 0.30
+          reopen_bias: 0.80
+          persistence_depth: 0.45
+          contradiction_tolerance: 0.35
+          collapse_readiness: 0.20
+      prediction_protocol:
+        base_problem:
+          name: "P1_confusable_stationary"
+          notes: "Example base problem label only."
+        predicted_ordering_before: ["CO_descriptor_probe", "CO_canonical_core"]
+        deformation:
+          name: "increase_evidence_clarity"
+          notes: "Example deformation label only."
+          expected_descriptor_shift:
+            axes:
+              evidence_discriminability: 0.70
+              deformation_rate: 0.10
+        predicted_ordering_after: ["CO_canonical_core", "CO_descriptor_probe"]
+        falsifier: "No ordering reversal under the declared deformation."
+      elements:
+        haq:         { enabled: true,  history_len: 64, ema_alpha: 0.2 }
+        EC_Identity: { enabled: true }
+        density:     { enabled: true,  rounding: 2 }
+        change_ops:  { enabled: true,  k: 4, mdl_select: false }
+        candidate_surface: { enabled: true }
+        commitment_surface:
+          enabled: true
+          prefer_bus_if_present: true
+          use_translator: true
+          blend_mode: "co_only"
+          use_classical_proposal: false
+          allow_classical_fallback: false
+          allow_policy_rescue: false
+          co_weight_override: null
+          eps_on_cycle: 0.10
+          ngram_order: 2
+          greedy_explore_bias: 0.10
+      primitives:
+        signal_bus: {}
+        kernel_substrate: {}
+        P0: {}
+        P1: {}
+        P2: {}
+        P4: { epsilon: 0.2, window: 5 }
+        P7: {}
+        P16: {}
+        p10: {}
+        p12: {}
+        id_mem: {}
+        bandit_stats: {}
+        ngram_model: {}
+      combinator:
+        order: ["haq","EC_Identity","density","change_ops","candidate_surface","commitment_surface"]

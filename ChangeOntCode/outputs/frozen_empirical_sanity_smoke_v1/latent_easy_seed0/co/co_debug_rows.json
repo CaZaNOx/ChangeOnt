@@ -1,0 +1,114 @@
+[
+  {
+    "t": 0,
+    "action": "RIGHT",
+    "co_policy": "kernel:commit",
+    "co_weight": 1.0,
+    "signal_bus_votes": 12
+  },
+  {
+    "t": 1,
+    "action": "INTERACT",
+    "co_policy": "kernel:commit",
+    "co_weight": 1.0,
+    "signal_bus_votes": 20
+  },
+  {
+    "t": 2,
+    "action": "RIGHT",
+    "co_policy": "kernel:commit",
+    "co_weight": 1.0,
+    "signal_bus_votes": 20
+  },
+  {
+    "t": 3,
+    "action": "LEFT",
+    "co_policy": "kernel:commit",
+    "co_weight": 1.0,
+    "signal_bus_votes": 12
+  },
+  {
+    "t": 4,
+    "action": "RIGHT",
+    "co_policy": "kernel:commit",
+    "co_weight": 1.0,
+    "signal_bus_votes": 20
+  },
+  {
+    "t": 5,
+    "action": "LEFT",
+    "co_policy": "kernel:commit",
+    "co_weight": 1.0,
+    "signal_bus_votes": 12
+  },
+  {
+    "t": 6,
+    "action": "UP",
+    "co_policy": "kernel:commit",
+    "co_weight": 1.0,
+    "signal_bus_votes": 20
+  },
+  {
+    "t": 7,
+    "action": "UP",
+    "co_policy": "kernel:commit",
+    "co_weight": 1.0,
+    "signal_bus_votes": 16
+  },
+  {
+    "t": 8,
+    "action": "INTERACT",
+    "co_policy": "kernel:commit",
+    "co_weight": 1.0,
+    "signal_bus_votes": 16
+  },
+  {
+    "t": 9,
+    "action": "RIGHT",
+    "co_policy": "kernel:commit",
+    "co_weight": 1.0,
+    "signal_bus_votes": 16
+  },
+  {
+    "t": 10,
+    "action": "DOWN",
+    "co_policy": "kernel:commit",
+    "co_weight": 1.0,
+    "signal_bus_votes": 8
+  },
+  {
+    "t": 11,
+    "action": "DOWN",
+    "co_policy": "kernel:commit",
+    "co_weight": 1.0,
+    "signal_bus_votes": 12
+  },
+  {
+    "t": 12,
+    "action": "RIGHT",
+    "co_policy": "kernel:commit",
+    "co_weight": 1.0,
+    "signal_bus_votes": 16
+  },
+  {
+    "t": 13,
+    "action": "RIGHT",
+    "co_policy": "kernel:commit",
+    "co_weight": 1.0,
+    "signal_bus_votes": 8
+  },
+  {
+    "t": 14,
+    "action": "RIGHT",
+    "co_policy": "kernel:commit",
+    "co_weight": 1.0,
+    "signal_bus_votes": 16
+  },
+  {
+    "t": 15,
+    "action": "RIGHT",
+    "co_policy": "kernel:commit",
+    "co_weight": 1.0,
+    "signal_bus_votes": 16
+  }
+]

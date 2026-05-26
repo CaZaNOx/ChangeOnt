@@ -1,0 +1,32 @@
+{
+  "agent": {
+    "params": {},
+    "type": "phase"
+  },
+  "env": {
+    "kind": "renewal",
+    "params": {
+      "A": 4,
+      "L_win": 3,
+      "T_max": 24,
+      "p_noise": 0.0,
+      "p_ren": 0.02
+    }
+  },
+  "job": {
+    "family": "renewal",
+    "mode": "clean",
+    "out_dir": "/mnt/data/co_mod/ChangeOntCode/outputs/frozen_logged_empirical_mini_suite_v1/runs/renewal_clean_phase_s0",
+    "seed": 0
+  },
+  "logging": {
+    "write_budget": true,
+    "write_metrics": true,
+    "write_plot": false
+  },
+  "run": {
+    "episodes": null,
+    "horizon": null,
+    "steps": 24
+  }
+}

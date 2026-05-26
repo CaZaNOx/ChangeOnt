@@ -1,0 +1,68 @@
+{
+  "agent": {
+    "name": "co_readout_resolver_conservative",
+    "params": {
+      "combinator": {
+        "order": [
+          "haq",
+          "EC_Identity",
+          "density",
+          "change_ops",
+          "candidate_surface",
+          "commitment_surface"
+        ]
+      },
+      "elements": {
+        "EC_Identity": {
+          "enabled": true
+        },
+        "candidate_surface": {
+          "enabled": true
+        },
+        "change_ops": {
+          "enabled": true
+        },
+        "commitment_surface": {
+          "commitment_formula_params": {
+            "preblocking_carrier_pressure_base": 0.78,
+            "preblocking_carrier_pressure_floor": 0.5,
+            "preblocking_resolver_support_base": 0.16,
+            "preblocking_resolver_support_floor": 0.14,
+            "preblocking_score_margin_base": 0.075,
+            "preblocking_support_margin_base": 0.145,
+            "resolver_support_scaled_base": 0.11,
+            "resolver_support_threshold": 0.11
+          },
+          "enabled": true
+        },
+        "density": {
+          "enabled": true
+        },
+        "haq": {
+          "enabled": true
+        }
+      },
+      "header": {
+        "mode": "SSI"
+      },
+      "primitives": {
+        "bandit_stats": {},
+        "kernel_substrate": {},
+        "ngram_model": {},
+        "operative_relevance": {},
+        "signal_bus": {}
+      }
+    },
+    "type": "co"
+  },
+  "log_every": 1,
+  "out_dir": "/mnt/data/co_factor/ChangeOnt_pass1_all_problem_stoa_comparison_2026-05-25/ChangeOntCode/outputs/pass1_factor_causal_sweep_v1/raw_runs/latent_hidden_depth2_co_readout_resolver_conservative_s0",
+  "seed": 0,
+  "spec": {
+    "name": "hidden_depth2",
+    "params": {
+      "max_steps": 8,
+      "seed": 0
+    }
+  }
+}

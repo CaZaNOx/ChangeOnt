@@ -1,0 +1,40 @@
+---
+id: stmt.cl-failure-memory-negative-data
+type: CL
+title: Failure memory treats past chats as negative data
+dependencies:
+- '[[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]'
+- '[[01_Statements/Clarification/S-CL-trace-marker-integrity]]'
+parents:
+- '[[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]'
+successors: []
+concepts:
+- '[[02_Concepts/C-phenomenology-time]]'
+symbols_used: []
+sources:
+- path: TheoryOfChange/00_Meta/AI_RecursiveChats/AI_15_Spiral7.md:416-444
+flags: []
+tags:
+- memory
+- robustness
+- type/CL
+- status/stable
+---
+
+# Failure memory treats past chats as negative data
+
+The failure memory block must store prior AI chats as _negative data_ that informs robustness tests: every recorded failure becomes a template for what to avoid rather than a source of stylistic imitation. The failure memory should be quarantined (no direct reuse) and actively contrasted with current traces so that the agent learns what not to repeat when building new `DF/CR` anchors. This acts as a drift guard and prevents replaying collapsed or low-Δ sequences.
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-phenomenology-time]]
+- Parents: [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]
+- Dependencies: [[01_Statements/03_Inner_Development/008_S-DF-memory-trace-integration]]; [[01_Statements/Clarification/S-CL-trace-marker-integrity]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+

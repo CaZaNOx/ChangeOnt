@@ -1,0 +1,11 @@
+{
+  "agent": "random",
+  "family": "maintenance_replacement",
+  "final_health_true": 4,
+  "horizon": 80,
+  "observation_mode": "partial",
+  "regime": "middle",
+  "seed": 0,
+  "steps": 80,
+  "total_reward": -30.800000000000033
+}

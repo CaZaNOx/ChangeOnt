@@ -1,0 +1,41 @@
+---
+id: stmt.locality-threshold
+type: DF
+aliases: ["FND_10.LocalityThreshold"]
+title: Locality / Threshold — bounded recursion condition
+concepts: ["[[02_Concepts/C-prior-pointer-reach]]", "[[02_Concepts/C-recursive-truth]]"]
+dependencies: ["[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]", "[[01_Statements/Definition/S-DF-sigma-fluctuation]]", "[[01_Statements/02_Outer_Formation/023_S-DF-similarity-operator]]"]
+parents: ["[[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]"]
+successors: []
+symbols_used: ["[[01_Statements/SYMBOLS/Epsilon]]", "[[01_Statements/SYMBOLS/Sigma_epsilon]]"]
+sources:
+  - path: TheoryOfChange/02_Foundations/DerChain.md:834
+flags: []
+tags: [layer/foundations, domain/logical, foundations, "type/DF", "concept/prior-pointer-reach", "concept/recursive-truth", "symbol/Epsilon", "symbol/Sigma_epsilon", status/stable]
+---
+# Locality / Threshold — bounded recursion condition
+## Claim (formal)
+Bounded recursion holds when validation and identity checks are confined to LocalReach neighborhoods defined by ε and stable under σ(ε); outside these bounds, collapse or GH logging is required.
+
+## Philosophical Translation (of formal claim)
+We only recurse safely where we can actually discriminate and stitch change; beyond that, we stop or extend structure.
+
+## Philosophical Justification
+Recursive truth and identity checks rely on stable neighborhoods (see [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]). If σ(ε) swamps discrimination, Sim and reach lose reliability; bounded recursion prevents overclaiming and routes failure to collapse handling instead of silent drift.
+
+## Tags
+#type/DF #layer/foundations #domain/logical #concept/prior-pointer-reach #concept/recursive-truth #symbol/Epsilon #symbol/Sigma_epsilon
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-prior-pointer-reach]]; [[02_Concepts/C-recursive-truth]]
+- Parents: [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]
+- Dependencies: [[01_Statements/02_Outer_Formation/007_S-DF-localreach-zone]]; [[01_Statements/Definition/S-DF-sigma-fluctuation]]; [[01_Statements/02_Outer_Formation/023_S-DF-similarity-operator]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+

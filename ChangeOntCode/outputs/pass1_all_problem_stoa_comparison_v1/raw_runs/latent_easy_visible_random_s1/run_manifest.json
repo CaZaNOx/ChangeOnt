@@ -1,0 +1,9 @@
+{
+  "started_at": "2026-05-25T13:20:09.057034+00:00",
+  "finished_at": "2026-05-25T13:20:09.082051+00:00",
+  "status": "ok",
+  "error": null,
+  "seed": 1,
+  "spec_name": "easy_visible",
+  "agent": "random"
+}

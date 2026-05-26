@@ -1,0 +1,17 @@
+{
+  "name": "ChangeOnt - WebOnly",
+  "build": { "dockerfile": "Dockerfile" },
+  "remoteUser": "vscode",
+  "workspaceFolder": "/workspaces/ChangeOnt",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/ChangeOnt,type=bind,consistency=cached",
+  "runArgs": [
+    "--cap-drop=ALL",
+    "--cap-add=NET_ADMIN",
+    "--security-opt=no-new-privileges",
+    "--pids-limit=768",
+    "--memory=6g",
+    "--cpus=4"
+  ],
+  "postStartCommand": "/usr/local/bin/webonly-firewall.sh && /usr/local/bin/ai_bootstrap.sh",
+  "customizations": { "vscode": { "settings": { "remote.autoForwardPorts": false } } }
+}

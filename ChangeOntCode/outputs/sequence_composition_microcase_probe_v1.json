@@ -1,0 +1,65 @@
+{
+  "all_passed": true,
+  "case_results": [
+    {
+      "disabled": false,
+      "expected_active": true,
+      "first_phase": "expose",
+      "id": "SC1_EXPOSE_TO_RELIEVE",
+      "observed_active": true,
+      "passed": true,
+      "second_phase": "stabilize",
+      "support": 0.26528404660815724,
+      "transition": "expose_to_stabilize"
+    },
+    {
+      "disabled": false,
+      "expected_active": true,
+      "first_phase": "relieve",
+      "id": "SC2_RELIEVE_TO_STABILIZE",
+      "observed_active": true,
+      "passed": true,
+      "second_phase": "stabilize",
+      "support": 0.23904797953300463,
+      "transition": "relieve_to_stabilize"
+    },
+    {
+      "disabled": true,
+      "expected_active": false,
+      "first_phase": "disabled",
+      "id": "SC3_DISABLED_ABLATION",
+      "observed_active": false,
+      "passed": true,
+      "second_phase": "disabled",
+      "support": 0.0,
+      "transition": ""
+    },
+    {
+      "disabled": false,
+      "expected_active": false,
+      "first_phase": "expose",
+      "id": "SC4_NONPUBLIC_REJECTED",
+      "observed_active": false,
+      "passed": true,
+      "second_phase": "stabilize",
+      "support": 0.0,
+      "transition": ""
+    },
+    {
+      "disabled": false,
+      "expected_active": false,
+      "first_phase": "expose",
+      "id": "SC5_INCOMPATIBLE_DOMAIN_REJECTED",
+      "observed_active": false,
+      "passed": true,
+      "second_phase": "stabilize",
+      "support": 0.0,
+      "transition": ""
+    }
+  ],
+  "cases": 5,
+  "claim_boundary": "Sequence-composition microcase probe only. It is not a benchmark, not CO proof, and not a license for family-specific or native-action sequence templates.",
+  "failed": 0,
+  "passed": 5,
+  "study": "sequence_composition_microcase_probe_v1"
+}

@@ -1,0 +1,16 @@
+{
+  "agent": {
+    "params": {},
+    "type": "heuristic"
+  },
+  "log_every": 1,
+  "out_dir": "/mnt/data/co_factor/ChangeOnt_pass1_all_problem_stoa_comparison_2026-05-25/ChangeOntCode/outputs/pass1_factor_causal_sweep_v1/raw_runs/latent_easy_visible_heuristic_s0",
+  "seed": 0,
+  "spec": {
+    "name": "easy_visible",
+    "params": {
+      "max_steps": 8,
+      "seed": 0
+    }
+  }
+}

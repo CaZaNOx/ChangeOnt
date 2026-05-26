@@ -1,0 +1,11 @@
+{
+  "agent": "finite_horizon_dp",
+  "family": "maintenance_replacement",
+  "final_health_true": 4,
+  "horizon": 60,
+  "observation_mode": "direct",
+  "regime": "bandit_like",
+  "seed": 2,
+  "steps": 60,
+  "total_reward": 60.0
+}

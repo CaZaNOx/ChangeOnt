@@ -1,0 +1,1735 @@
+{
+  "cases": {
+    "bandit_like": {
+      "action_rates": {
+        "RUN": 1.0
+      },
+      "action_rates_when_true_health_le_half": {},
+      "chosen_rank1_rates": {
+        "commitment_dominance": 1.0,
+        "published_local_support": 1.0,
+        "published_preventive_support": 1.0
+      },
+      "commitment_mode_rates": {
+        "dominance": 1.0
+      },
+      "high_burden_examples": [
+        {
+          "action": "RUN",
+          "chosen_commitment": {
+            "burden": 0.006395021719800005,
+            "continuation_score": 0.6326124662771943,
+            "dominance_score": 0.7930647357188507,
+            "sampling_score": 0.08982909900707872,
+            "uncertainty": 0.05
+          },
+          "chosen_publication": {
+            "burden_pressure": 0.009800000000000007,
+            "burden_relief": 0.248004464,
+            "decision_state": 0.44715243727028137,
+            "fracture_state": 0.006302639000000007,
+            "local_support": 0.84596,
+            "preventive_support": 0.08277067260652118,
+            "stability_under_change": 0.7850943151516945
+          },
+          "controls": {
+            "collapse_admissibility": 0.5,
+            "evidence_gate": 0.5,
+            "fracture_tolerance": 0.5,
+            "local_authority": 0.5,
+            "nonlocal_authority": 0.5,
+            "path_sensitivity": 0.5,
+            "revision_permissibility": 0.5,
+            "rival_breadth": 0.5,
+            "support_carry_forward": 0.5
+          },
+          "mode": "dominance",
+          "seed": 0,
+          "stage_winners": {
+            "commitment_top_continuation": {
+              "action": "RUN",
+              "value": 0.6326124662771943
+            },
+            "commitment_top_dominance": {
+              "action": "RUN",
+              "value": 0.7930647357188507
+            },
+            "commitment_top_sampling": {
+              "action": "REPAIR",
+              "value": 0.12800277922317316
+            },
+            "published_top_burden_pressure": {
+              "action": "REPLACE",
+              "value": 0.3047
+            },
+            "published_top_burden_relief": {
+              "action": "RUN",
+              "value": 0.248004464
+            },
+            "published_top_decision_state": {
+              "action": "RUN",
+              "value": 0.44715243727028137
+            },
+            "published_top_local_support": {
+              "action": "RUN",
+              "value": 0.84596
+            },
+            "published_top_preventive_support": {
+              "action": "RUN",
+              "value": 0.08277067260652118
+            }
+          },
+          "t": 0,
+          "top_published_rows_by_decision": [
+            {
+              "action": "RUN",
+              "burden_accumulation": 0.006825395850000005,
+              "burden_pressure": 0.009800000000000007,
+              "burden_relief": 0.248004464,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.009593650423000004,
+              "continuation_viability": 0.9021134561542401,
+              "decision_state": 0.44715243727028137,
+              "fracture_state": 0.006302639000000007,
+              "local_support": 0.84596,
+              "preventive_support": 0.08277067260652118,
+              "stability_under_change": 0.7850943151516945,
+              "support_mass": 0.7142584960000001
+            },
+            {
+              "action": "WAIT",
+              "burden_accumulation": 0.048342843075,
+              "burden_pressure": 0.06970000000000001,
+              "burden_relief": 0.188104464,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.025370280368500003,
+              "continuation_viability": 0.77845068840928,
+              "decision_state": 0.33071799591435924,
+              "fracture_state": 0.043485620500000016,
+              "local_support": 0.213,
+              "preventive_support": 0.053262021909645754,
+              "stability_under_change": 0.6406420175585933,
+              "support_mass": 0.3699312
+            },
+            {
+              "action": "INSPECT",
+              "burden_accumulation": 0.0761211342654,
+              "burden_pressure": 0.11367440000000001,
+              "burden_relief": 0.144130064,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.035926031020852005,
+              "continuation_viability": 0.7697929915708698,
+              "decision_state": 0.33068760670664743,
+              "fracture_state": 0.05277662843600002,
+              "local_support": 0.213256,
+              "preventive_support": 0.043521674106838396,
+              "stability_under_change": 0.6536936114076362,
+              "support_mass": 0.36999837439999994
+            },
+            {
+              "action": "REPAIR",
+              "burden_accumulation": 0.1881160052754,
+              "burden_pressure": 0.2767,
+              "burden_relief": 0.0,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.07848408200465201,
+              "continuation_viability": 0.7267919851418138,
+              "decision_state": 0.24481083248055074,
+              "fracture_state": 0.14730670183600006,
+              "local_support": 0.213,
+              "preventive_support": 0.0,
+              "stability_under_change": 0.5376259848906408,
+              "support_mass": 0.3699312
+            }
+          ],
+          "true_health_norm_before": 1.0
+        },
+        {
+          "action": "RUN",
+          "chosen_commitment": {
+            "burden": 0.017144931392612885,
+            "continuation_score": 0.7187448465545284,
+            "dominance_score": 1.2875616512568253,
+            "sampling_score": -0.05917359785360359,
+            "uncertainty": 0.05
+          },
+          "chosen_publication": {
+            "burden_pressure": 0.009800000000000007,
+            "burden_relief": 0.248004464,
+            "decision_state": 0.5668456314266174,
+            "fracture_state": 0.02115870623126584,
+            "local_support": 0.90596,
+            "preventive_support": 0.06376985427784831,
+            "stability_under_change": 0.8060951324288297
+          },
+          "controls": {
+            "collapse_admissibility": 0.8800000000000001,
+            "evidence_gate": 0.8250916394768194,
+            "fracture_tolerance": 0.23703142161029422,
+            "local_authority": 0.8600000000000001,
+            "nonlocal_authority": 0.28,
+            "path_sensitivity": 0.35,
+            "revision_permissibility": 0.15500000000000003,
+            "rival_breadth": 0.23,
+            "support_carry_forward": 0.895
+          },
+          "mode": "dominance",
+          "seed": 0,
+          "stage_winners": {
+            "commitment_top_continuation": {
+              "action": "RUN",
+              "value": 0.7187448465545284
+            },
+            "commitment_top_dominance": {
+              "action": "RUN",
+              "value": 1.2875616512568253
+            },
+            "commitment_top_sampling": {
+              "action": "REPLACE",
+              "value": 0.01895550806924679
+            },
+            "published_top_burden_pressure": {
+              "action": "REPLACE",
+              "value": 0.3047
+            },
+            "published_top_burden_relief": {
+              "action": "RUN",
+              "value": 0.248004464
+            },
+            "published_top_decision_state": {
+              "action": "RUN",
+              "value": 0.5668456314266174
+            },
+            "published_top_local_support": {
+              "action": "RUN",
+              "value": 0.90596
+            },
+            "published_top_preventive_support": {
+              "action": "RUN",
+              "value": 0.06376985427784831
+            }
+          },
+          "t": 1,
+          "top_published_rows_by_decision": [
+            {
+              "action": "RUN",
+              "burden_accumulation": 0.007761328085569752,
+              "burden_pressure": 0.009800000000000007,
+              "burden_relief": 0.248004464,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.01169637817891337,
+              "continuation_viability": 0.9207857292185067,
+              "decision_state": 0.5668456314266174,
+              "fracture_state": 0.02115870623126584,
+              "local_support": 0.90596,
+              "preventive_support": 0.06376985427784831,
+              "stability_under_change": 0.8060951324288297,
+              "support_mass": 0.866914496
+            },
+            {
+              "action": "INSPECT",
+              "burden_accumulation": 0.07601423891972488,
+              "burden_pressure": 0.11367440000000001,
+              "burden_relief": 0.144130064,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.035885410789495455,
+              "continuation_viability": 0.7699211519639779,
+              "decision_state": 0.3541820250033685,
+              "fracture_state": 0.051079876917347326,
+              "local_support": 0.213256,
+              "preventive_support": 0.028760510975582278,
+              "stability_under_change": 0.6364589784313823,
+              "support_mass": 0.36999837439999994
+            },
+            {
+              "action": "WAIT",
+              "burden_accumulation": 0.04825476601185677,
+              "burden_pressure": 0.06970000000000001,
+              "burden_relief": 0.188104464,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.025336811084505577,
+              "continuation_viability": 0.7785562869361845,
+              "decision_state": 0.3539535945348552,
+              "fracture_state": 0.04208757187867885,
+              "local_support": 0.213,
+              "preventive_support": 0.035197243606798156,
+              "stability_under_change": 0.6223391382843637,
+              "support_mass": 0.3699312
+            },
+            {
+              "action": "REPAIR",
+              "burden_accumulation": 0.18781764592051783,
+              "burden_pressure": 0.2767,
+              "burden_relief": 0.0,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.07837070544979678,
+              "continuation_viability": 0.7271496981176938,
+              "decision_state": 0.27581787662517765,
+              "fracture_state": 0.14257083906009257,
+              "local_support": 0.213,
+              "preventive_support": 0.0,
+              "stability_under_change": 0.524590391931917,
+              "support_mass": 0.3699312
+            }
+          ],
+          "true_health_norm_before": 1.0
+        },
+        {
+          "action": "RUN",
+          "chosen_commitment": {
+            "burden": 0.017239447248267332,
+            "continuation_score": 0.7239934762460081,
+            "dominance_score": 1.2981332612571135,
+            "sampling_score": -0.05941283898425431,
+            "uncertainty": 0.05
+          },
+          "chosen_publication": {
+            "burden_pressure": 0.009800000000000007,
+            "burden_relief": 0.248004464,
+            "decision_state": 0.5706305919847071,
+            "fracture_state": 0.021249693693961718,
+            "local_support": 0.90596,
+            "preventive_support": 0.06376985427784831,
+            "stability_under_change": 0.8085837963358615
+          },
+          "controls": {
+            "collapse_admissibility": 0.8800000000000001,
+            "evidence_gate": 0.8382018368271835,
+            "fracture_tolerance": 0.2165261964942783,
+            "local_authority": 0.8600000000000001,
+            "nonlocal_authority": 0.28,
+            "path_sensitivity": 0.35,
+            "revision_permissibility": 0.15500000000000003,
+            "rival_breadth": 0.23,
+            "support_carry_forward": 0.895
+          },
+          "mode": "dominance",
+          "seed": 0,
+          "stage_winners": {
+            "commitment_top_continuation": {
+              "action": "RUN",
+              "value": 0.7239934762460081
+            },
+            "commitment_top_dominance": {
+              "action": "RUN",
+              "value": 1.2981332612571135
+            },
+            "commitment_top_sampling": {
+              "action": "REPLACE",
+              "value": 0.018712114801115412
+            },
+            "published_top_burden_pressure": {
+              "action": "REPLACE",
+              "value": 0.3047
+            },
+            "published_top_burden_relief": {
+              "action": "RUN",
+              "value": 0.248004464
+            },
+            "published_top_decision_state": {
+              "action": "RUN",
+              "value": 0.5706305919847071
+            },
+            "published_top_local_support": {
+              "action": "RUN",
+              "value": 0.90596
+            },
+            "published_top_preventive_support": {
+              "action": "RUN",
+              "value": 0.06376985427784831
+            }
+          },
+          "t": 2,
+          "top_published_rows_by_decision": [
+            {
+              "action": "RUN",
+              "burden_accumulation": 0.008309900992350046,
+              "burden_pressure": 0.009800000000000007,
+              "burden_relief": 0.248004464,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.011181765136416234,
+              "continuation_viability": 0.931817139863653,
+              "decision_state": 0.5706305919847071,
+              "fracture_state": 0.021249693693961718,
+              "local_support": 0.90596,
+              "preventive_support": 0.06376985427784831,
+              "stability_under_change": 0.8085837963358615,
+              "support_mass": 0.866914496
+            },
+            {
+              "action": "INSPECT",
+              "burden_accumulation": 0.07596607792228066,
+              "burden_pressure": 0.11367440000000001,
+              "burden_relief": 0.144130064,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.03586710961046665,
+              "continuation_viability": 0.7699788937891803,
+              "decision_state": 0.35477222780516515,
+              "fracture_state": 0.051299532521273596,
+              "local_support": 0.213256,
+              "preventive_support": 0.028760510975582278,
+              "stability_under_change": 0.6364738777744102,
+              "support_mass": 0.36999837439999994
+            },
+            {
+              "action": "WAIT",
+              "burden_accumulation": 0.04821508346827973,
+              "burden_pressure": 0.06970000000000001,
+              "burden_relief": 0.188104464,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.0253217317179463,
+              "continuation_viability": 0.7786038636604304,
+              "decision_state": 0.3545410432745761,
+              "fracture_state": 0.042268558434965194,
+              "local_support": 0.213,
+              "preventive_support": 0.035197243606798156,
+              "stability_under_change": 0.6223514146876851,
+              "support_mass": 0.3699312
+            },
+            {
+              "action": "REPAIR",
+              "burden_accumulation": 0.18768322206850457,
+              "burden_pressure": 0.2767,
+              "burden_relief": 0.0,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.07831962438603174,
+              "continuation_viability": 0.7273108633546677,
+              "decision_state": 0.2762196910269625,
+              "fracture_state": 0.14318392753340062,
+              "local_support": 0.213,
+              "preventive_support": 0.0,
+              "stability_under_change": 0.5246319780117031,
+              "support_mass": 0.3699312
+            }
+          ],
+          "true_health_norm_before": 1.0
+        },
+        {
+          "action": "RUN",
+          "chosen_commitment": {
+            "burden": 0.017253280878068725,
+            "continuation_score": 0.7270815188198974,
+            "dominance_score": 1.3043652131213612,
+            "sampling_score": -0.059550848206727514,
+            "uncertainty": 0.05
+          },
+          "chosen_publication": {
+            "burden_pressure": 0.009800000000000007,
+            "burden_relief": 0.248004464,
+            "decision_state": 0.5728474030327784,
+            "fracture_state": 0.021245582821077715,
+            "local_support": 0.90596,
+            "preventive_support": 0.06376985427784831,
+            "stability_under_change": 0.8100289387967265
+          },
+          "controls": {
+            "collapse_admissibility": 0.8800000000000001,
+            "evidence_gate": 0.8465934157417357,
+            "fracture_tolerance": 0.21366993859530292,
+            "local_authority": 0.8600000000000001,
+            "nonlocal_authority": 0.28,
+            "path_sensitivity": 0.35,
+            "revision_permissibility": 0.15500000000000003,
+            "rival_breadth": 0.23,
+            "support_carry_forward": 0.895
+          },
+          "mode": "dominance",
+          "seed": 0,
+          "stage_winners": {
+            "commitment_top_continuation": {
+              "action": "RUN",
+              "value": 0.7270815188198974
+            },
+            "commitment_top_dominance": {
+              "action": "RUN",
+              "value": 1.3043652131213612
+            },
+            "commitment_top_sampling": {
+              "action": "REPLACE",
+              "value": 0.018566199908394875
+            },
+            "published_top_burden_pressure": {
+              "action": "REPLACE",
+              "value": 0.3047
+            },
+            "published_top_burden_relief": {
+              "action": "RUN",
+              "value": 0.248004464
+            },
+            "published_top_decision_state": {
+              "action": "RUN",
+              "value": 0.5728474030327784
+            },
+            "published_top_local_support": {
+              "action": "RUN",
+              "value": 0.90596
+            },
+            "published_top_preventive_support": {
+              "action": "RUN",
+              "value": 0.06376985427784831
+            }
+          },
+          "t": 3,
+          "top_published_rows_by_decision": [
+            {
+              "action": "RUN",
+              "burden_accumulation": 0.008627814293290926,
+              "burden_pressure": 0.009800000000000007,
+              "burden_relief": 0.248004464,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.01087200759320686,
+              "continuation_viability": 0.938217010571289,
+              "decision_state": 0.5728474030327784,
+              "fracture_state": 0.021245582821077715,
+              "local_support": 0.90596,
+              "preventive_support": 0.06376985427784831,
+              "stability_under_change": 0.8100289387967265,
+              "support_mass": 0.866914496
+            },
+            {
+              "action": "INSPECT",
+              "burden_accumulation": 0.07593751932020944,
+              "burden_pressure": 0.11367440000000001,
+              "burden_relief": 0.144130064,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.03585625734167959,
+              "continuation_viability": 0.7700131336491569,
+              "decision_state": 0.3551658222604838,
+              "fracture_state": 0.05128960833788342,
+              "local_support": 0.213256,
+              "preventive_support": 0.028760510975582278,
+              "stability_under_change": 0.6364827128158597,
+              "support_mass": 0.36999837439999994
+            },
+            {
+              "action": "WAIT",
+              "burden_accumulation": 0.04819155243629679,
+              "burden_pressure": 0.06970000000000001,
+              "burden_relief": 0.188104464,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.025312789925792778,
+              "continuation_viability": 0.7786320757990426,
+              "decision_state": 0.3549259853681592,
+              "fracture_state": 0.042260381344357736,
+              "local_support": 0.213,
+              "preventive_support": 0.035197243606798156,
+              "stability_under_change": 0.6223586943732381,
+              "support_mass": 0.3699312
+            },
+            {
+              "action": "REPAIR",
+              "burden_accumulation": 0.18760351115091045,
+              "burden_pressure": 0.2767,
+              "burden_relief": 0.0,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.07828933423734598,
+              "continuation_viability": 0.7274064314308017,
+              "decision_state": 0.2765870975658089,
+              "fracture_state": 0.14315622779647266,
+              "local_support": 0.213,
+              "preventive_support": 0.0,
+              "stability_under_change": 0.5246566378062949,
+              "support_mass": 0.3699312
+            }
+          ],
+          "true_health_norm_before": 1.0
+        }
+      ],
+      "low_health_count": 0,
+      "mean_chosen_commitment": {
+        "burden": 0.016878917938168238,
+        "continuation_score": 0.7285575279844899,
+        "dominance_score": 1.2994201226318391,
+        "sampling_score": -0.05516982985914384,
+        "uncertainty": 0.05
+      },
+      "mean_chosen_publication": {
+        "burden_accumulation": null,
+        "burden_pressure": 0.009800000000000007,
+        "burden_relief": 0.248004464,
+        "burden_trend": null,
+        "continuation_instability": null,
+        "continuation_viability": null,
+        "decision_state": 0.5735024760620512,
+        "fracture_state": 0.020706561752362466,
+        "local_support": 0.904085,
+        "preventive_support": 0.06436362985061934,
+        "stability_under_change": 0.8107446872613574,
+        "support_mass": null
+      },
+      "mean_controls": {
+        "collapse_admissibility": 0.8681250000000001,
+        "evidence_gate": 0.8714690333520099,
+        "fracture_tolerance": 0.21945028463482577,
+        "local_authority": 0.8487500000000001,
+        "nonlocal_authority": 0.28687500000000005,
+        "path_sensitivity": 0.3546875,
+        "revision_permissibility": 0.16578125000000002,
+        "rival_breadth": 0.2384375,
+        "support_carry_forward": 0.88265625
+      },
+      "n_steps": 32
+    },
+    "middle": {
+      "action_rates": {
+        "REPAIR": 0.03125,
+        "RUN": 0.96875
+      },
+      "action_rates_when_true_health_le_half": {
+        "REPAIR": 0.08333333333333333,
+        "RUN": 0.9166666666666666
+      },
+      "chosen_rank1_rates": {
+        "commitment_dominance": 1.0,
+        "published_local_support": 1.0,
+        "published_preventive_support": 0.71875
+      },
+      "commitment_mode_rates": {
+        "dominance": 1.0
+      },
+      "high_burden_examples": [
+        {
+          "action": "RUN",
+          "chosen_commitment": {
+            "burden": 0.10535112974721682,
+            "continuation_score": 0.5126120858015366,
+            "dominance_score": 0.7509259873739176,
+            "sampling_score": 0.04063293711036662,
+            "uncertainty": 0.218
+          },
+          "chosen_publication": {
+            "burden_pressure": 0.17381711809215347,
+            "burden_relief": 0.0,
+            "decision_state": 0.32985276841222977,
+            "fracture_state": 0.11178665308376355,
+            "local_support": 0.5303,
+            "preventive_support": 0.0,
+            "stability_under_change": 0.6169237923183352
+          },
+          "controls": {
+            "collapse_admissibility": 0.7000000000000002,
+            "evidence_gate": 0.7001300485620804,
+            "fracture_tolerance": 0.388147348737586,
+            "local_authority": 0.6950000000000001,
+            "nonlocal_authority": 0.38,
+            "path_sensitivity": 0.46,
+            "revision_permissibility": 0.38500000000000006,
+            "rival_breadth": 0.36,
+            "support_carry_forward": 0.6500000000000001
+          },
+          "mode": "dominance",
+          "seed": 0,
+          "stage_winners": {
+            "commitment_top_continuation": {
+              "action": "RUN",
+              "value": 0.5126120858015366
+            },
+            "commitment_top_dominance": {
+              "action": "RUN",
+              "value": 0.7509259873739176
+            },
+            "commitment_top_sampling": {
+              "action": "REPLACE",
+              "value": 0.09824273504905631
+            },
+            "published_top_burden_pressure": {
+              "action": "RUN",
+              "value": 0.17381711809215347
+            },
+            "published_top_burden_relief": {
+              "action": "REPAIR",
+              "value": 0.04088778575003664
+            },
+            "published_top_decision_state": {
+              "action": "RUN",
+              "value": 0.32985276841222977
+            },
+            "published_top_local_support": {
+              "action": "RUN",
+              "value": 0.5303
+            },
+            "published_top_preventive_support": {
+              "action": "REPAIR",
+              "value": 0.007843394469506522
+            }
+          },
+          "t": 26,
+          "top_published_rows_by_decision": [
+            {
+              "action": "RUN",
+              "burden_accumulation": 0.10628685597097295,
+              "burden_pressure": 0.17381711809215347,
+              "burden_relief": 0.0,
+              "burden_trend": 0.054750873259009104,
+              "continuation_instability": 0.08419900529985941,
+              "continuation_viability": 0.8031384783565944,
+              "decision_state": 0.32985276841222977,
+              "fracture_state": 0.11178665308376355,
+              "local_support": 0.5303,
+              "preventive_support": 0.0,
+              "stability_under_change": 0.6169237923183352,
+              "support_mass": 0.5381656799999999
+            },
+            {
+              "action": "INSPECT",
+              "burden_accumulation": 0.08314185764549599,
+              "burden_pressure": 0.1236936,
+              "burden_relief": 0.018096185750036645,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.06211390590528848,
+              "continuation_viability": 0.7449470166767601,
+              "decision_state": 0.3276708034592702,
+              "fracture_state": 0.0593010082652809,
+              "local_support": 0.281064,
+              "preventive_support": 0.004231422209485982,
+              "stability_under_change": 0.6179600790250115,
+              "support_mass": 0.3644055936
+            },
+            {
+              "action": "REPAIR",
+              "burden_accumulation": 0.1095555130422477,
+              "burden_pressure": 0.100902,
+              "burden_relief": 0.04088778575003664,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.07215109495605412,
+              "continuation_viability": 0.740152204394211,
+              "decision_state": 0.3082261843150684,
+              "fracture_state": 0.07347884453690055,
+              "local_support": 0.38898,
+              "preventive_support": 0.007843394469506522,
+              "stability_under_change": 0.5574907822895605,
+              "support_mass": 0.405972752
+            },
+            {
+              "action": "WAIT",
+              "burden_accumulation": 0.08790975067063203,
+              "burden_pressure": 0.12885200000000002,
+              "burden_relief": 0.012937785750036623,
+              "burden_trend": 9.494553599997957e-05,
+              "continuation_instability": 0.06394563622175731,
+              "continuation_viability": 0.7346311355626555,
+              "decision_state": 0.30039013585897795,
+              "fracture_state": 0.07059335328175162,
+              "local_support": 0.18948,
+              "preventive_support": 0.0028643815921405784,
+              "stability_under_change": 0.5847960221645446,
+              "support_mass": 0.34037395200000004
+            }
+          ],
+          "true_health_norm_before": 0.5
+        },
+        {
+          "action": "RUN",
+          "chosen_commitment": {
+            "burden": 0.10543143076843316,
+            "continuation_score": 0.5077194008203552,
+            "dominance_score": 0.7402598936380164,
+            "sampling_score": 0.041439542423725585,
+            "uncertainty": 0.218
+          },
+          "chosen_publication": {
+            "burden_pressure": 0.17381711809215347,
+            "burden_relief": 0.0,
+            "decision_state": 0.3244427595024317,
+            "fracture_state": 0.11264609913790774,
+            "local_support": 0.5303,
+            "preventive_support": 0.0,
+            "stability_under_change": 0.6153047192408343
+          },
+          "controls": {
+            "collapse_admissibility": 0.7000000000000002,
+            "evidence_gate": 0.6243346291510593,
+            "fracture_tolerance": 0.3928697176368184,
+            "local_authority": 0.6950000000000001,
+            "nonlocal_authority": 0.38,
+            "path_sensitivity": 0.46,
+            "revision_permissibility": 0.38500000000000006,
+            "rival_breadth": 0.36,
+            "support_carry_forward": 0.6500000000000001
+          },
+          "mode": "dominance",
+          "seed": 0,
+          "stage_winners": {
+            "commitment_top_continuation": {
+              "action": "RUN",
+              "value": 0.5077194008203552
+            },
+            "commitment_top_dominance": {
+              "action": "RUN",
+              "value": 0.7402598936380164
+            },
+            "commitment_top_sampling": {
+              "action": "REPLACE",
+              "value": 0.09935265022245425
+            },
+            "published_top_burden_pressure": {
+              "action": "RUN",
+              "value": 0.17381711809215347
+            },
+            "published_top_burden_relief": {
+              "action": "REPAIR",
+              "value": 0.04088778575003664
+            },
+            "published_top_decision_state": {
+              "action": "INSPECT",
+              "value": 0.3252276837479534
+            },
+            "published_top_local_support": {
+              "action": "RUN",
+              "value": 0.5303
+            },
+            "published_top_preventive_support": {
+              "action": "REPAIR",
+              "value": 0.007843394469506522
+            }
+          },
+          "t": 27,
+          "top_published_rows_by_decision": [
+            {
+              "action": "INSPECT",
+              "burden_accumulation": 0.0831577512541263,
+              "burden_pressure": 0.1236936,
+              "burden_relief": 0.018096185750036645,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.06214961354601127,
+              "continuation_viability": 0.744924401131253,
+              "decision_state": 0.3252276837479534,
+              "fracture_state": 0.05975693047204182,
+              "local_support": 0.281064,
+              "preventive_support": 0.004231422209485982,
+              "stability_under_change": 0.6179508186881132,
+              "support_mass": 0.3644055936
+            },
+            {
+              "action": "RUN",
+              "burden_accumulation": 0.1125449944680752,
+              "burden_pressure": 0.17381711809215347,
+              "burden_relief": 0.0,
+              "burden_trend": 0.031755506490225294,
+              "continuation_instability": 0.08109636877175196,
+              "continuation_viability": 0.7940867080798952,
+              "decision_state": 0.3244427595024317,
+              "fracture_state": 0.11264609913790774,
+              "local_support": 0.5303,
+              "preventive_support": 0.0,
+              "stability_under_change": 0.6153047192408343,
+              "support_mass": 0.5381656799999999
+            },
+            {
+              "action": "REPAIR",
+              "burden_accumulation": 0.09363425906111239,
+              "burden_pressure": 0.100902,
+              "burden_relief": 0.04088778575003664,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.06610101844322272,
+              "continuation_viability": 0.7480402747737217,
+              "decision_state": 0.3077206046210097,
+              "fracture_state": 0.07404376978744003,
+              "local_support": 0.38898,
+              "preventive_support": 0.007843394469506522,
+              "stability_under_change": 0.5599521669545926,
+              "support_mass": 0.405972752
+            },
+            {
+              "action": "WAIT",
+              "burden_accumulation": 0.08793993331690753,
+              "burden_pressure": 0.12885200000000002,
+              "burden_relief": 0.012937785750036623,
+              "burden_trend": 5.506841088000203e-05,
+              "continuation_instability": 0.06398784864289919,
+              "continuation_viability": 0.7345861922634147,
+              "decision_state": 0.2981485982350814,
+              "fracture_state": 0.07113609409430056,
+              "local_support": 0.18948,
+              "preventive_support": 0.0028643815921405784,
+              "stability_under_change": 0.5847810691481746,
+              "support_mass": 0.34037395200000004
+            }
+          ],
+          "true_health_norm_before": 0.5
+        },
+        {
+          "action": "RUN",
+          "chosen_commitment": {
+            "burden": 0.10510632942564416,
+            "continuation_score": 0.5061960709931493,
+            "dominance_score": 0.7384519275411093,
+            "sampling_score": 0.0413379517741373,
+            "uncertainty": 0.218
+          },
+          "chosen_publication": {
+            "burden_pressure": 0.17381711809215347,
+            "burden_relief": 0.0,
+            "decision_state": 0.32350440381375756,
+            "fracture_state": 0.1126286396552139,
+            "local_support": 0.5303,
+            "preventive_support": 0.0,
+            "stability_under_change": 0.6143810945084226
+          },
+          "controls": {
+            "collapse_admissibility": 0.7000000000000002,
+            "evidence_gate": 0.6251813818714183,
+            "fracture_tolerance": 0.3930655801482627,
+            "local_authority": 0.6950000000000001,
+            "nonlocal_authority": 0.38,
+            "path_sensitivity": 0.46,
+            "revision_permissibility": 0.38500000000000006,
+            "rival_breadth": 0.36,
+            "support_carry_forward": 0.6500000000000001
+          },
+          "mode": "dominance",
+          "seed": 0,
+          "stage_winners": {
+            "commitment_top_continuation": {
+              "action": "RUN",
+              "value": 0.5061960709931493
+            },
+            "commitment_top_dominance": {
+              "action": "RUN",
+              "value": 0.7384519275411093
+            },
+            "commitment_top_sampling": {
+              "action": "REPLACE",
+              "value": 0.0990036934643181
+            },
+            "published_top_burden_pressure": {
+              "action": "RUN",
+              "value": 0.17381711809215347
+            },
+            "published_top_burden_relief": {
+              "action": "REPAIR",
+              "value": 0.04088778575003664
+            },
+            "published_top_decision_state": {
+              "action": "INSPECT",
+              "value": 0.32524756709170444
+            },
+            "published_top_local_support": {
+              "action": "RUN",
+              "value": 0.5303
+            },
+            "published_top_preventive_support": {
+              "action": "REPAIR",
+              "value": 0.007843394469506522
+            }
+          },
+          "t": 28,
+          "top_published_rows_by_decision": [
+            {
+              "action": "INSPECT",
+              "burden_accumulation": 0.08316638604285267,
+              "burden_pressure": 0.1236936,
+              "burden_relief": 0.018096185750036645,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.06213934496857323,
+              "continuation_viability": 0.7449156745708813,
+              "decision_state": 0.32524756709170444,
+              "fracture_state": 0.059747668499355706,
+              "local_support": 0.281064,
+              "preventive_support": 0.004231422209485982,
+              "stability_under_change": 0.617950131074124,
+              "support_mass": 0.3644055936
+            },
+            {
+              "action": "RUN",
+              "burden_accumulation": 0.11617361484898475,
+              "burden_pressure": 0.17381711809215347,
+              "burden_relief": 0.0,
+              "burden_trend": 0.018418193764330598,
+              "continuation_instability": 0.07919329751430178,
+              "continuation_viability": 0.7888503749739603,
+              "decision_state": 0.32350440381375756,
+              "fracture_state": 0.1126286396552139,
+              "local_support": 0.5303,
+              "preventive_support": 0.0,
+              "stability_under_change": 0.6143810945084226,
+              "support_mass": 0.5381656799999999
+            },
+            {
+              "action": "REPAIR",
+              "burden_accumulation": 0.08439920874208369,
+              "burden_pressure": 0.100902,
+              "burden_relief": 0.04088778575003664,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.06259169932199181,
+              "continuation_viability": 0.7526162224345914,
+              "decision_state": 0.3089516194034148,
+              "fracture_state": 0.07403229343870639,
+              "local_support": 0.38898,
+              "preventive_support": 0.007843394469506522,
+              "stability_under_change": 0.5613799937345316,
+              "support_mass": 0.405972752
+            },
+            {
+              "action": "WAIT",
+              "burden_accumulation": 0.08795674463415261,
+              "burden_pressure": 0.12885200000000002,
+              "burden_relief": 0.012937785750036623,
+              "burden_trend": 3.193967831043032e-05,
+              "continuation_instability": 0.063971657251303,
+              "continuation_viability": 0.7345658072269841,
+              "decision_state": 0.29816485169864687,
+              "fracture_state": 0.07112506841819413,
+              "local_support": 0.18948,
+              "preventive_support": 0.0028643815921405784,
+              "stability_under_change": 0.5847785274071514,
+              "support_mass": 0.34037395200000004
+            }
+          ],
+          "true_health_norm_before": 0.5
+        },
+        {
+          "action": "RUN",
+          "chosen_commitment": {
+            "burden": 0.10502253047217781,
+            "continuation_score": 0.5084835663864448,
+            "dominance_score": 0.7435710924721818,
+            "sampling_score": 0.04086166123108356,
+            "uncertainty": 0.218
+          },
+          "chosen_publication": {
+            "burden_pressure": 0.17381711809215347,
+            "burden_relief": 0.0,
+            "decision_state": 0.3262166730285895,
+            "fracture_state": 0.1122087450729085,
+            "local_support": 0.5303,
+            "preventive_support": 0.0,
+            "stability_under_change": 0.6151530087584981
+          },
+          "controls": {
+            "collapse_admissibility": 0.7000000000000002,
+            "evidence_gate": 0.6656684290867347,
+            "fracture_tolerance": 0.38930319212933867,
+            "local_authority": 0.6950000000000001,
+            "nonlocal_authority": 0.38,
+            "path_sensitivity": 0.46,
+            "revision_permissibility": 0.38500000000000006,
+            "rival_breadth": 0.36,
+            "support_carry_forward": 0.6500000000000001
+          },
+          "mode": "dominance",
+          "seed": 0,
+          "stage_winners": {
+            "commitment_top_continuation": {
+              "action": "RUN",
+              "value": 0.5084835663864448
+            },
+            "commitment_top_dominance": {
+              "action": "RUN",
+              "value": 0.7435710924721818
+            },
+            "commitment_top_sampling": {
+              "action": "REPLACE",
+              "value": 0.09814727558480467
+            },
+            "published_top_burden_pressure": {
+              "action": "RUN",
+              "value": 0.17381711809215347
+            },
+            "published_top_burden_relief": {
+              "action": "REPAIR",
+              "value": 0.04088778575003664
+            },
+            "published_top_decision_state": {
+              "action": "INSPECT",
+              "value": 0.3265511339116533
+            },
+            "published_top_local_support": {
+              "action": "RUN",
+              "value": 0.5303
+            },
+            "published_top_preventive_support": {
+              "action": "REPAIR",
+              "value": 0.007843394469506522
+            }
+          },
+          "t": 30,
+          "top_published_rows_by_decision": [
+            {
+              "action": "INSPECT",
+              "burden_accumulation": 0.08316010860378995,
+              "burden_pressure": 0.1236936,
+              "burden_relief": 0.018096185750036645,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.06212084126944018,
+              "continuation_viability": 0.7449251349944962,
+              "decision_state": 0.3265511339116533,
+              "fracture_state": 0.059524921226681016,
+              "local_support": 0.281064,
+              "preventive_support": 0.004231422209485982,
+              "stability_under_change": 0.6179544328112152,
+              "support_mass": 0.3644055936
+            },
+            {
+              "action": "RUN",
+              "burden_accumulation": 0.1122439543332694,
+              "burden_pressure": 0.17381711809215347,
+              "burden_relief": 0.0,
+              "burden_trend": 0.03252536147444106,
+              "continuation_instability": 0.08013547697429399,
+              "continuation_viability": 0.7928729921797538,
+              "decision_state": 0.3262166730285895,
+              "fracture_state": 0.1122087450729085,
+              "local_support": 0.5303,
+              "preventive_support": 0.0,
+              "stability_under_change": 0.6151530087584981,
+              "support_mass": 0.5381656799999999
+            },
+            {
+              "action": "REPAIR",
+              "burden_accumulation": 0.08667901853127324,
+              "burden_pressure": 0.100902,
+              "burden_relief": 0.04088778575003664,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.06345802704188383,
+              "continuation_viability": 0.7497422456375838,
+              "decision_state": 0.3096914632222613,
+              "fracture_state": 0.07375629118008266,
+              "local_support": 0.38898,
+              "preventive_support": 0.007843394469506522,
+              "stability_under_change": 0.5606437595128029,
+              "support_mass": 0.405972752
+            },
+            {
+              "action": "WAIT",
+              "burden_accumulation": 0.0879552579784667,
+              "burden_pressure": 0.12885200000000002,
+              "burden_relief": 0.012937785750036623,
+              "burden_trend": 1.0744507783627677e-05,
+              "continuation_instability": 0.06394525351889128,
+              "continuation_viability": 0.7345679970298573,
+              "decision_state": 0.29935515167220106,
+              "fracture_state": 0.07085990468198702,
+              "local_support": 0.18948,
+              "preventive_support": 0.0028643815921405784,
+              "stability_under_change": 0.5847821776116728,
+              "support_mass": 0.34037395200000004
+            }
+          ],
+          "true_health_norm_before": 0.5
+        }
+      ],
+      "low_health_count": 12,
+      "mean_chosen_commitment": {
+        "burden": 0.07482946106144121,
+        "continuation_score": 0.5688593945900071,
+        "dominance_score": 0.8473872914619512,
+        "sampling_score": 0.028231422583328208,
+        "uncertainty": 0.218
+      },
+      "mean_chosen_publication": {
+        "burden_accumulation": null,
+        "burden_pressure": 0.108434709297046,
+        "burden_relief": 0.10480398738529015,
+        "burden_trend": null,
+        "continuation_instability": null,
+        "continuation_viability": null,
+        "decision_state": 0.3850361310581093,
+        "fracture_state": 0.08042914264396349,
+        "local_support": 0.6963450000000001,
+        "preventive_support": 0.028712700578622883,
+        "stability_under_change": 0.6795970025226011,
+        "support_mass": null
+      },
+      "mean_controls": {
+        "collapse_admissibility": 0.6937500000000002,
+        "evidence_gate": 0.6422833230248777,
+        "fracture_tolerance": 0.39442046484037974,
+        "local_authority": 0.68890625,
+        "nonlocal_authority": 0.38375,
+        "path_sensitivity": 0.46125,
+        "revision_permissibility": 0.38859375000000007,
+        "rival_breadth": 0.364375,
+        "support_carry_forward": 0.6453125000000002
+      },
+      "n_steps": 32
+    },
+    "renewal_like": {
+      "action_rates": {
+        "INSPECT": 0.125,
+        "REPAIR": 0.09375,
+        "REPLACE": 0.09375,
+        "RUN": 0.65625,
+        "WAIT": 0.03125
+      },
+      "action_rates_when_true_health_le_half": {
+        "REPAIR": 1.0
+      },
+      "chosen_rank1_rates": {
+        "commitment_dominance": 0.75,
+        "published_local_support": 0.65625,
+        "published_preventive_support": 0.6875
+      },
+      "commitment_mode_rates": {
+        "dominance": 0.09375,
+        "reopen_or_sample": 0.375,
+        "stable_continuation": 0.53125
+      },
+      "high_burden_examples": [
+        {
+          "action": "RUN",
+          "chosen_commitment": {
+            "burden": 0.2777969144942327,
+            "continuation_score": 0.07064071946289954,
+            "dominance_score": 0.11211552785742177,
+            "sampling_score": 0.40126231575929144,
+            "uncertainty": 0.85
+          },
+          "chosen_publication": {
+            "burden_pressure": 0.5440543962902984,
+            "burden_relief": 0.0,
+            "decision_state": 0.15953480759193878,
+            "fracture_state": 0.2808673147386529,
+            "local_support": 0.35940000000000005,
+            "preventive_support": 0.0,
+            "stability_under_change": 0.3348826239301898
+          },
+          "controls": {
+            "collapse_admissibility": 0.5,
+            "evidence_gate": 0.5,
+            "fracture_tolerance": 0.5,
+            "local_authority": 0.5,
+            "nonlocal_authority": 0.5,
+            "path_sensitivity": 0.5,
+            "revision_permissibility": 0.5,
+            "rival_breadth": 0.5,
+            "support_carry_forward": 0.5
+          },
+          "mode": "reopen_or_sample",
+          "seed": 0,
+          "stage_winners": {
+            "commitment_top_continuation": {
+              "action": "INSPECT",
+              "value": 0.3458527827557056
+            },
+            "commitment_top_dominance": {
+              "action": "INSPECT",
+              "value": 0.43037980681745136
+            },
+            "commitment_top_sampling": {
+              "action": "RUN",
+              "value": 0.40126231575929144
+            },
+            "published_top_burden_pressure": {
+              "action": "RUN",
+              "value": 0.5440543962902984
+            },
+            "published_top_burden_relief": {
+              "action": "REPAIR",
+              "value": 0.2635072611806268
+            },
+            "published_top_decision_state": {
+              "action": "INSPECT",
+              "value": 0.26912371268061663
+            },
+            "published_top_local_support": {
+              "action": "INSPECT",
+              "value": 0.51988
+            },
+            "published_top_preventive_support": {
+              "action": "REPAIR",
+              "value": 0.04047128889036295
+            }
+          },
+          "t": 0,
+          "top_published_rows_by_decision": [
+            {
+              "action": "INSPECT",
+              "burden_accumulation": 0.24334829295944962,
+              "burden_pressure": 0.36301200000000006,
+              "burden_relief": 0.07579526118062674,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.21147235132459086,
+              "continuation_viability": 0.6058420106171506,
+              "decision_state": 0.26912371268061663,
+              "fracture_state": 0.1702739530629973,
+              "local_support": 0.51988,
+              "preventive_support": 0.013924600267842478,
+              "stability_under_change": 0.4694633993182496,
+              "support_mass": 0.349338688
+            },
+            {
+              "action": "REPAIR",
+              "burden_accumulation": 0.12354767467500001,
+              "burden_pressure": 0.1753,
+              "burden_relief": 0.2635072611806268,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.1659481163765,
+              "continuation_viability": 0.62127639217632,
+              "decision_state": 0.24763926822913426,
+              "fracture_state": 0.12245116450000003,
+              "local_support": 0.277,
+              "preventive_support": 0.04047128889036295,
+              "stability_under_change": 0.4206319374248395,
+              "support_mass": 0.2753648
+            },
+            {
+              "action": "WAIT",
+              "burden_accumulation": 0.17053160917500004,
+              "burden_pressure": 0.24930000000000002,
+              "burden_relief": 0.18950726118062677,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.18380201148650002,
+              "continuation_viability": 0.59328677897312,
+              "decision_state": 0.23809934191932786,
+              "fracture_state": 0.13967739450000008,
+              "local_support": 0.117,
+              "preventive_support": 0.03471297015197284,
+              "stability_under_change": 0.43799192960786426,
+              "support_mass": 0.2333808
+            },
+            {
+              "action": "REPLACE",
+              "burden_accumulation": 0.15415610899499999,
+              "burden_pressure": 0.21882000000000001,
+              "burden_relief": 0.21998726118062678,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.1775793214181,
+              "continuation_viability": 0.596244082228928,
+              "decision_state": 0.19984624157599515,
+              "fracture_state": 0.15242739330000005,
+              "local_support": 0.12179999999999999,
+              "preventive_support": 0.03094443532382667,
+              "stability_under_change": 0.3642516211460983,
+              "support_mass": 0.23464032
+            }
+          ],
+          "true_health_norm_before": 1.0
+        },
+        {
+          "action": "REPLACE",
+          "chosen_commitment": {
+            "burden": 0.2390394220415185,
+            "continuation_score": 0.059957965320186775,
+            "dominance_score": 0.051028653481812895,
+            "sampling_score": 0.46528292634690627,
+            "uncertainty": 0.95
+          },
+          "chosen_publication": {
+            "burden_pressure": 0.4073,
+            "burden_relief": 0.0,
+            "decision_state": 0.14129986766611727,
+            "fracture_state": 0.24884872019682752,
+            "local_support": 0.08700000000000001,
+            "preventive_support": 0.0,
+            "stability_under_change": 0.31233758889529273
+          },
+          "controls": {
+            "collapse_admissibility": 0.56,
+            "evidence_gate": 0.16719349665275687,
+            "fracture_tolerance": 0.5833994616712488,
+            "local_authority": 0.5650000000000001,
+            "nonlocal_authority": 0.595,
+            "path_sensitivity": 0.65,
+            "revision_permissibility": 0.61,
+            "rival_breadth": 0.51,
+            "support_carry_forward": 0.4600000000000001
+          },
+          "mode": "reopen_or_sample",
+          "seed": 0,
+          "stage_winners": {
+            "commitment_top_continuation": {
+              "action": "INSPECT",
+              "value": 0.41354048138518285
+            },
+            "commitment_top_dominance": {
+              "action": "INSPECT",
+              "value": 0.4925336225311726
+            },
+            "commitment_top_sampling": {
+              "action": "REPLACE",
+              "value": 0.46528292634690627
+            },
+            "published_top_burden_pressure": {
+              "action": "REPLACE",
+              "value": 0.4073
+            },
+            "published_top_burden_relief": {
+              "action": "INSPECT",
+              "value": 0.164939
+            },
+            "published_top_decision_state": {
+              "action": "INSPECT",
+              "value": 0.32295746878084347
+            },
+            "published_top_local_support": {
+              "action": "RUN",
+              "value": 0.6488
+            },
+            "published_top_preventive_support": {
+              "action": "INSPECT",
+              "value": 0.03744110736391213
+            }
+          },
+          "t": 18,
+          "top_published_rows_by_decision": [
+            {
+              "action": "INSPECT",
+              "burden_accumulation": 0.11236310599346572,
+              "burden_pressure": 0.16999999999999998,
+              "burden_relief": 0.164939,
+              "burden_trend": 0.01709625299830056,
+              "continuation_instability": 0.1583806525211161,
+              "continuation_viability": 0.6626039780306991,
+              "decision_state": 0.32295746878084347,
+              "fracture_state": 0.1032822906102778,
+              "local_support": 0.5626599999999999,
+              "preventive_support": 0.03744110736391213,
+              "stability_under_change": 0.5338762452933329,
+              "support_mass": 0.381934416
+            },
+            {
+              "action": "RUN",
+              "burden_accumulation": 0.12140290685080207,
+              "burden_pressure": 0.179,
+              "burden_relief": 0.155939,
+              "burden_trend": 0.024378688377492616,
+              "continuation_instability": 0.1662954399884261,
+              "continuation_viability": 0.7045800253056946,
+              "decision_state": 0.2750661027493013,
+              "fracture_state": 0.1439609061292601,
+              "local_support": 0.6488,
+              "preventive_support": 0.03616767619501235,
+              "stability_under_change": 0.5164362680642428,
+              "support_mass": 0.51516688
+            },
+            {
+              "action": "WAIT",
+              "burden_accumulation": 0.17249745525568233,
+              "burden_pressure": 0.2623,
+              "burden_relief": 0.07263900000000001,
+              "burden_trend": 0.02864252746930522,
+              "continuation_instability": 0.18628362311925178,
+              "continuation_viability": 0.5963425503074806,
+              "decision_state": 0.23141880108473153,
+              "fracture_state": 0.15451651177071563,
+              "local_support": 0.08700000000000001,
+              "preventive_support": 0.01582312117785982,
+              "stability_under_change": 0.43294089298756433,
+              "support_mass": 0.21158880000000002
+            },
+            {
+              "action": "REPAIR",
+              "burden_accumulation": 0.2531019548280717,
+              "burden_pressure": 0.37854999999999994,
+              "burden_relief": 0.0,
+              "burden_trend": 0.027561403662372252,
+              "continuation_instability": 0.2159502662029389,
+              "continuation_viability": 0.5669458572246439,
+              "decision_state": 0.16351206754724185,
+              "fracture_state": 0.22937777286880673,
+              "local_support": 0.0945,
+              "preventive_support": 0.0,
+              "stability_under_change": 0.356648281145069,
+              "support_mass": 0.22680680000000003
+            }
+          ],
+          "true_health_norm_before": 1.0
+        },
+        {
+          "action": "REPLACE",
+          "chosen_commitment": {
+            "burden": 0.23886775926811987,
+            "continuation_score": 0.060617621644700345,
+            "dominance_score": 0.051955747956649444,
+            "sampling_score": 0.46472309202028506,
+            "uncertainty": 0.95
+          },
+          "chosen_publication": {
+            "burden_pressure": 0.4073,
+            "burden_relief": 0.0,
+            "decision_state": 0.14164419424032437,
+            "fracture_state": 0.24847597017148879,
+            "local_support": 0.08700000000000001,
+            "preventive_support": 0.0,
+            "stability_under_change": 0.31251920573159964
+          },
+          "controls": {
+            "collapse_admissibility": 0.56,
+            "evidence_gate": 0.18110106032238038,
+            "fracture_tolerance": 0.5831526393900116,
+            "local_authority": 0.5650000000000001,
+            "nonlocal_authority": 0.595,
+            "path_sensitivity": 0.65,
+            "revision_permissibility": 0.61,
+            "rival_breadth": 0.51,
+            "support_carry_forward": 0.4600000000000001
+          },
+          "mode": "reopen_or_sample",
+          "seed": 0,
+          "stage_winners": {
+            "commitment_top_continuation": {
+              "action": "INSPECT",
+              "value": 0.41384817012838465
+            },
+            "commitment_top_dominance": {
+              "action": "INSPECT",
+              "value": 0.4934959221950813
+            },
+            "commitment_top_sampling": {
+              "action": "REPLACE",
+              "value": 0.46472309202028506
+            },
+            "published_top_burden_pressure": {
+              "action": "REPLACE",
+              "value": 0.4073
+            },
+            "published_top_burden_relief": {
+              "action": "INSPECT",
+              "value": 0.164939
+            },
+            "published_top_decision_state": {
+              "action": "INSPECT",
+              "value": 0.32324786624620244
+            },
+            "published_top_local_support": {
+              "action": "RUN",
+              "value": 0.6488
+            },
+            "published_top_preventive_support": {
+              "action": "INSPECT",
+              "value": 0.03744110736391213
+            }
+          },
+          "t": 27,
+          "top_published_rows_by_decision": [
+            {
+              "action": "INSPECT",
+              "burden_accumulation": 0.11233028399714745,
+              "burden_pressure": 0.16999999999999998,
+              "burden_relief": 0.164939,
+              "burden_trend": 0.017128598963426847,
+              "continuation_instability": 0.15837134640328449,
+              "continuation_viability": 0.6626307925386715,
+              "decision_state": 0.32324786624620244,
+              "fracture_state": 0.1031275842633391,
+              "local_support": 0.5626599999999999,
+              "preventive_support": 0.03744110736391213,
+              "stability_under_change": 0.5338832612192267,
+              "support_mass": 0.381934416
+            },
+            {
+              "action": "RUN",
+              "burden_accumulation": 0.12144789516535326,
+              "burden_pressure": 0.179,
+              "burden_relief": 0.155939,
+              "burden_trend": 0.02444199215870302,
+              "continuation_instability": 0.16670440839174896,
+              "continuation_viability": 0.70530834272226,
+              "decision_state": 0.275608081486261,
+              "fracture_state": 0.14374526736139737,
+              "local_support": 0.6488,
+              "preventive_support": 0.03616767619501235,
+              "stability_under_change": 0.5165474216874884,
+              "support_mass": 0.51516688
+            },
+            {
+              "action": "WAIT",
+              "burden_accumulation": 0.1722833789714096,
+              "burden_pressure": 0.2623,
+              "burden_relief": 0.07263900000000001,
+              "burden_trend": 0.027870190681725804,
+              "continuation_instability": 0.18543393483430853,
+              "continuation_viability": 0.5948107924421063,
+              "decision_state": 0.23132916410803012,
+              "fracture_state": 0.15428506178121104,
+              "local_support": 0.08700000000000001,
+              "preventive_support": 0.01582312117785982,
+              "stability_under_change": 0.43270586885137513,
+              "support_mass": 0.21158880000000002
+            },
+            {
+              "action": "REPAIR",
+              "burden_accumulation": 0.2530578549760989,
+              "burden_pressure": 0.37854999999999994,
+              "burden_relief": 0.0,
+              "burden_trend": 0.027531410463032535,
+              "continuation_instability": 0.21593787660590333,
+              "continuation_viability": 0.5670122388260618,
+              "decision_state": 0.1637079855270587,
+              "fracture_state": 0.22903418833848901,
+              "local_support": 0.0945,
+              "preventive_support": 0.0,
+              "stability_under_change": 0.3566643718490252,
+              "support_mass": 0.22680680000000003
+            }
+          ],
+          "true_health_norm_before": 1.0
+        },
+        {
+          "action": "REPLACE",
+          "chosen_commitment": {
+            "burden": 0.2195843541480216,
+            "continuation_score": 0.09636017278475212,
+            "dominance_score": 0.09488653023764511,
+            "sampling_score": 0.38884245908286497,
+            "uncertainty": 0.74
+          },
+          "chosen_publication": {
+            "burden_pressure": 0.38336000000000003,
+            "burden_relief": 0.0,
+            "decision_state": 0.15900275099282582,
+            "fracture_state": 0.22965796789487003,
+            "local_support": 0.1164,
+            "preventive_support": 0.0,
+            "stability_under_change": 0.359984649883317
+          },
+          "controls": {
+            "collapse_admissibility": 0.56,
+            "evidence_gate": 0.23641314223191254,
+            "fracture_tolerance": 0.5818025993442959,
+            "local_authority": 0.5650000000000001,
+            "nonlocal_authority": 0.595,
+            "path_sensitivity": 0.65,
+            "revision_permissibility": 0.61,
+            "rival_breadth": 0.51,
+            "support_carry_forward": 0.4600000000000001
+          },
+          "mode": "reopen_or_sample",
+          "seed": 0,
+          "stage_winners": {
+            "commitment_top_continuation": {
+              "action": "INSPECT",
+              "value": 0.42850333667783347
+            },
+            "commitment_top_dominance": {
+              "action": "RUN",
+              "value": 0.5375152046608986
+            },
+            "commitment_top_sampling": {
+              "action": "REPLACE",
+              "value": 0.38884245908286497
+            },
+            "published_top_burden_pressure": {
+              "action": "REPLACE",
+              "value": 0.38336000000000003
+            },
+            "published_top_burden_relief": {
+              "action": "INSPECT",
+              "value": 0.15971615085714289
+            },
+            "published_top_decision_state": {
+              "action": "INSPECT",
+              "value": 0.327362833468625
+            },
+            "published_top_local_support": {
+              "action": "RUN",
+              "value": 0.6846285714285715
+            },
+            "published_top_preventive_support": {
+              "action": "RUN",
+              "value": 0.04310515858824041
+            }
+          },
+          "t": 7,
+          "top_published_rows_by_decision": [
+            {
+              "action": "INSPECT",
+              "burden_accumulation": 0.10626974078316409,
+              "burden_pressure": 0.15503565714285714,
+              "burden_relief": 0.15971615085714289,
+              "burden_trend": 0.0008109205196563107,
+              "continuation_instability": 0.12898585713340194,
+              "continuation_viability": 0.6875435732280077,
+              "decision_state": 0.327362833468625,
+              "fracture_state": 0.09185016938651792,
+              "local_support": 0.4896434285714286,
+              "preventive_support": 0.04105172850720338,
+              "stability_under_change": 0.5619614873153013,
+              "support_mass": 0.3616172928
+            },
+            {
+              "action": "RUN",
+              "burden_accumulation": 0.11475241789582893,
+              "burden_pressure": 0.15799999999999997,
+              "burden_relief": 0.15675180800000005,
+              "burden_trend": 0.0,
+              "continuation_instability": 0.13350007913595957,
+              "continuation_viability": 0.7507402076474011,
+              "decision_state": 0.29370752742171663,
+              "fracture_state": 0.12958775408866471,
+              "local_support": 0.6846285714285715,
+              "preventive_support": 0.04310515858824041,
+              "stability_under_change": 0.5722404656731725,
+              "support_mass": 0.5836163200000001
+            },
+            {
+              "action": "WAIT",
+              "burden_accumulation": 0.1560624049411776,
+              "burden_pressure": 0.23836000000000002,
+              "burden_relief": 0.076391808,
+              "burden_trend": 0.025126401905807977,
+              "continuation_instability": 0.15117712551370183,
+              "continuation_viability": 0.6361958586796208,
+              "decision_state": 0.24773669542382293,
+              "fracture_state": 0.13625589275560174,
+              "local_support": 0.1164,
+              "preventive_support": 0.019067716535480606,
+              "stability_under_change": 0.4803010835707109,
+              "support_mass": 0.24853536
+            },
+            {
+              "action": "REPAIR",
+              "burden_accumulation": 0.23311834971706458,
+              "burden_pressure": 0.35536,
+              "burden_relief": 0.0,
+              "burden_trend": 0.038289636888048095,
+              "continuation_instability": 0.181458095086802,
+              "continuation_viability": 0.6067459893255769,
+              "decision_state": 0.1850976175962267,
+              "fracture_state": 0.206060101941768,
+              "local_support": 0.1164,
+              "preventive_support": 0.0,
+              "stability_under_change": 0.3998779286412107,
+              "support_mass": 0.24853536
+            }
+          ],
+          "true_health_norm_before": 0.75
+        }
+      ],
+      "low_health_count": 1,
+      "mean_chosen_commitment": {
+        "burden": 0.13020281091910516,
+        "continuation_score": 0.38338586886462767,
+        "dominance_score": 0.4729118269632681,
+        "sampling_score": 0.2819733617501957,
+        "uncertainty": 0.5872499999999999
+      },
+      "mean_chosen_publication": {
+        "burden_accumulation": null,
+        "burden_pressure": 0.20222844988407182,
+        "burden_relief": 0.1192897577618946,
+        "burden_trend": null,
+        "continuation_instability": null,
+        "continuation_viability": null,
+        "decision_state": 0.2848632816782835,
+        "fracture_state": 0.1316216494181826,
+        "local_support": 0.5489025000000001,
+        "preventive_support": 0.03655199300430981,
+        "stability_under_change": 0.5479252820738405,
+        "support_mass": null
+      },
+      "mean_controls": {
+        "collapse_admissibility": 0.5581250000000001,
+        "evidence_gate": 0.28010403759866004,
+        "fracture_tolerance": 0.5801338861080905,
+        "local_authority": 0.56296875,
+        "nonlocal_authority": 0.59203125,
+        "path_sensitivity": 0.6453125000000001,
+        "revision_permissibility": 0.6065625,
+        "rival_breadth": 0.5096875,
+        "support_carry_forward": 0.46125000000000005
+      },
+      "n_steps": 32
+    }
+  },
+  "headline": [
+    "Middle direct controls are locally permissive: high local_authority/collapse/support_carry_forward and lower nonlocal/path/revision pressure than renewal_like.",
+    "Middle chosen RUN remains high-viability: mean continuation_viability is high and continuation_instability/burden_trend are low even at true health <= 0.5.",
+    "Preventive support remains too small: middle preventive support is near zero even when RUN is the highest burden candidate.",
+    "Renewal_like works better mainly because hiddenness/active drift/high commitment cost project to stronger nonlocal/path/revision controls and higher uncertainty/sampling pressure."
+  ],
+  "input": "outputs/bridge_signal_trace_v1_maintenance_only_after_continuation_state_v1.json",
+  "status": "diagnostic_no_runtime_patch",
+  "study": "continuation_bridge_localization_check_v1"
+}

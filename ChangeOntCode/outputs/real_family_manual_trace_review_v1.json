@@ -1,0 +1,2468 @@
+{
+  "cases": [
+    {
+      "candidate_count": 3,
+      "candidate_summaries": [
+        {
+          "candidate": "0",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.2,
+          "contradiction_hint": 0.0,
+          "goal_relation": 0.5,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.0,
+          "uncertainty_hint": 1.0,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "1",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.2,
+          "contradiction_hint": 0.0,
+          "goal_relation": 0.5,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.0,
+          "uncertainty_hint": 1.0,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "2",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.2,
+          "contradiction_hint": 0.0,
+          "goal_relation": 0.5,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.0,
+          "uncertainty_hint": 1.0,
+          "weak_slot_only": false
+        }
+      ],
+      "certificate_aware_reopen_or_sample_applied": false,
+      "certificate_aware_stable_continuation_applied": false,
+      "direct_controls_used": {
+        "collapse_admissibility": 0.45,
+        "evidence_gate": 0.6,
+        "fracture_tolerance": 0.45,
+        "local_authority": 0.35,
+        "nonlocal_authority": 0.75,
+        "path_sensitivity": 0.75,
+        "revision_permissibility": 0.65,
+        "rival_breadth": 0.65,
+        "support_carry_forward": 0.55
+      },
+      "family": "bandit",
+      "name": "bandit_initial_no_history",
+      "notes": [],
+      "public_observation_excerpt": {
+        "family": "bandit",
+        "n_arms": 3,
+        "t": 0
+      },
+      "relation_telemetry": {
+        "branch_internal_operation_rows": 3,
+        "relations_by_type": {
+          "decision_slot_competition": 6
+        },
+        "relations_total": 6,
+        "rows_with_public_effects": 3,
+        "structural_relations": 0
+      },
+      "selected_action": 0,
+      "selected_assessment": {
+        "burden": 0.138831,
+        "carrier_only_pressure": 1.0,
+        "certificate_blocks_dominance": 1.0,
+        "certificate_gate_open": 0.0,
+        "collapse_blocked": 0.213494,
+        "collapse_certificate_blocker_pressure": 0.213494,
+        "collapse_certificate_recursion_demand": 0.549428,
+        "continuation_score": 0.178318,
+        "dominance_score": 0.116458,
+        "resolver_support": 1.0,
+        "sampling_score": 0.685002,
+        "stability": 0.239257,
+        "support": 0.196727
+      },
+      "selected_mode": "reopen_or_sample",
+      "selected_ops": [
+        "carry",
+        "decision_slot",
+        "reduce"
+      ],
+      "selected_reason": "no_dominance_and_unresolved_sampling_or_revision_pressure",
+      "watchpoints": []
+    },
+    {
+      "candidate_count": 3,
+      "candidate_summaries": [
+        {
+          "candidate": "0",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.771429,
+          "contradiction_hint": 0.142857,
+          "goal_relation": 0.4,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 4,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.714286,
+          "uncertainty_hint": 0.285714,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "1",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.466667,
+          "contradiction_hint": 0.0,
+          "goal_relation": 0.7,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 4,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.333333,
+          "uncertainty_hint": 0.666667,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "2",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.2,
+          "contradiction_hint": 0.0,
+          "goal_relation": 0.5,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.0,
+          "uncertainty_hint": 1.0,
+          "weak_slot_only": false
+        }
+      ],
+      "certificate_aware_reopen_or_sample_applied": false,
+      "certificate_aware_stable_continuation_applied": false,
+      "direct_controls_used": {
+        "collapse_admissibility": 0.45,
+        "evidence_gate": 0.6,
+        "fracture_tolerance": 0.45,
+        "local_authority": 0.35,
+        "nonlocal_authority": 0.75,
+        "path_sensitivity": 0.75,
+        "revision_permissibility": 0.65,
+        "rival_breadth": 0.65,
+        "support_carry_forward": 0.55
+      },
+      "family": "bandit",
+      "name": "bandit_sparse_asymmetric_history",
+      "notes": [],
+      "public_observation_excerpt": {
+        "family": "bandit",
+        "n_arms": 3,
+        "t": 6
+      },
+      "relation_telemetry": {
+        "branch_internal_operation_rows": 3,
+        "relations_by_type": {
+          "decision_slot_competition": 6
+        },
+        "relations_total": 6,
+        "rows_with_public_effects": 3,
+        "structural_relations": 0
+      },
+      "selected_action": 2,
+      "selected_assessment": {
+        "burden": 0.103001,
+        "carrier_only_pressure": 1.0,
+        "certificate_blocks_dominance": 1.0,
+        "certificate_gate_open": 0.0,
+        "collapse_blocked": 0.212977,
+        "collapse_certificate_blocker_pressure": 0.212977,
+        "collapse_certificate_recursion_demand": 0.545362,
+        "continuation_score": 0.1478,
+        "dominance_score": 0.086641,
+        "resolver_support": 1.0,
+        "sampling_score": 0.66849,
+        "stability": 0.265832,
+        "support": 0.147855
+      },
+      "selected_mode": "reopen_or_sample",
+      "selected_ops": [
+        "carry",
+        "decision_slot",
+        "reduce"
+      ],
+      "selected_reason": "no_dominance_and_unresolved_sampling_or_revision_pressure",
+      "watchpoints": []
+    },
+    {
+      "candidate_count": 3,
+      "candidate_summaries": [
+        {
+          "candidate": "0",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.8,
+          "contradiction_hint": 0.0,
+          "goal_relation": 0.6,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 4,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.75,
+          "uncertainty_hint": 0.25,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "1",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.8,
+          "contradiction_hint": 0.0,
+          "goal_relation": 0.55,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 4,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.75,
+          "uncertainty_hint": 0.25,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "2",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.8,
+          "contradiction_hint": 0.0,
+          "goal_relation": 0.5,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 4,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.75,
+          "uncertainty_hint": 0.25,
+          "weak_slot_only": false
+        }
+      ],
+      "certificate_aware_reopen_or_sample_applied": false,
+      "certificate_aware_stable_continuation_applied": false,
+      "direct_controls_used": {
+        "collapse_admissibility": 0.45,
+        "evidence_gate": 0.6,
+        "fracture_tolerance": 0.45,
+        "local_authority": 0.35,
+        "nonlocal_authority": 0.75,
+        "path_sensitivity": 0.75,
+        "revision_permissibility": 0.65,
+        "rival_breadth": 0.65,
+        "support_carry_forward": 0.55
+      },
+      "family": "bandit",
+      "name": "bandit_covered_close_means",
+      "notes": [],
+      "public_observation_excerpt": {
+        "family": "bandit",
+        "n_arms": 3,
+        "t": 6
+      },
+      "relation_telemetry": {
+        "branch_internal_operation_rows": 3,
+        "relations_by_type": {
+          "decision_slot_competition": 6
+        },
+        "relations_total": 6,
+        "rows_with_public_effects": 3,
+        "structural_relations": 0
+      },
+      "selected_action": 0,
+      "selected_assessment": {
+        "burden": 0.032015,
+        "carrier_only_pressure": 0.583333,
+        "certificate_blocks_dominance": 0.0,
+        "certificate_gate_open": 0.58207,
+        "collapse_blocked": 0.073702,
+        "collapse_certificate_blocker_pressure": 0.073702,
+        "collapse_certificate_recursion_demand": 0.174277,
+        "continuation_score": 0.60967,
+        "dominance_score": 0.687348,
+        "resolver_support": 0.25,
+        "sampling_score": 0.238262,
+        "stability": 0.566423,
+        "support": 0.689768
+      },
+      "selected_mode": "stable_continuation",
+      "selected_ops": [
+        "carry",
+        "decision_slot",
+        "reduce"
+      ],
+      "selected_reason": "least_burden_stable_continuation_after_non_dominance",
+      "watchpoints": []
+    },
+    {
+      "candidate_count": 4,
+      "candidate_summaries": [
+        {
+          "candidate": "0",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.0,
+          "contradiction_hint": 0.2,
+          "goal_relation": 0.25,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.2,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 5,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.0,
+          "uncertainty_hint": 1.0,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "1",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.0,
+          "contradiction_hint": 0.2,
+          "goal_relation": 0.25,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.2,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 5,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.0,
+          "uncertainty_hint": 1.0,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "2",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.0,
+          "contradiction_hint": 0.2,
+          "goal_relation": 0.25,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.2,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 5,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.0,
+          "uncertainty_hint": 1.0,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "3",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.0,
+          "contradiction_hint": 0.2,
+          "goal_relation": 0.25,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.2,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 5,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.0,
+          "uncertainty_hint": 1.0,
+          "weak_slot_only": false
+        }
+      ],
+      "certificate_aware_reopen_or_sample_applied": false,
+      "certificate_aware_stable_continuation_applied": false,
+      "direct_controls_used": {
+        "collapse_admissibility": 0.45,
+        "evidence_gate": 0.6,
+        "fracture_tolerance": 0.45,
+        "local_authority": 0.35,
+        "nonlocal_authority": 0.75,
+        "path_sensitivity": 0.75,
+        "revision_permissibility": 0.65,
+        "rival_breadth": 0.65,
+        "support_carry_forward": 0.55
+      },
+      "family": "renewal",
+      "name": "renewal_initial_no_history",
+      "notes": [],
+      "public_observation_excerpt": {
+        "A": 4,
+        "obs": 0
+      },
+      "relation_telemetry": {
+        "branch_internal_operation_rows": 4,
+        "relations_by_type": {
+          "decision_slot_competition": 12
+        },
+        "relations_total": 12,
+        "rows_with_public_effects": 4,
+        "structural_relations": 0
+      },
+      "selected_action": 0,
+      "selected_assessment": {
+        "burden": 0.190823,
+        "carrier_only_pressure": 1.0,
+        "certificate_blocks_dominance": 1.0,
+        "certificate_gate_open": 0.0,
+        "collapse_blocked": 0.216831,
+        "collapse_certificate_blocker_pressure": 0.216831,
+        "collapse_certificate_recursion_demand": 0.557853,
+        "continuation_score": 0.139379,
+        "dominance_score": 0.094044,
+        "resolver_support": 0.95,
+        "sampling_score": 0.679431,
+        "stability": 0.242477,
+        "support": 0.229013
+      },
+      "selected_mode": "reopen_or_sample",
+      "selected_ops": [
+        "carry",
+        "decision_slot",
+        "reduce"
+      ],
+      "selected_reason": "no_dominance_and_unresolved_sampling_or_revision_pressure",
+      "watchpoints": []
+    },
+    {
+      "candidate_count": 4,
+      "candidate_summaries": [
+        {
+          "candidate": "0",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.245428,
+          "contradiction_hint": 0.047094,
+          "goal_relation": 0.6575,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.047094,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 4,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.278571,
+          "uncertainty_hint": 0.244286,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "1",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.202146,
+          "contradiction_hint": 0.133344,
+          "goal_relation": 0.2575,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.133344,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 4,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.328571,
+          "uncertainty_hint": 0.184286,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "2",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.130508,
+          "contradiction_hint": 0.124094,
+          "goal_relation": 0.0975,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.124094,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 4,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.278571,
+          "uncertainty_hint": 0.244286,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "3",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.130508,
+          "contradiction_hint": 0.124094,
+          "goal_relation": 0.0975,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.124094,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 4,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.278571,
+          "uncertainty_hint": 0.244286,
+          "weak_slot_only": false
+        }
+      ],
+      "certificate_aware_reopen_or_sample_applied": false,
+      "certificate_aware_stable_continuation_applied": false,
+      "direct_controls_used": {
+        "collapse_admissibility": 0.45,
+        "evidence_gate": 0.6,
+        "fracture_tolerance": 0.45,
+        "local_authority": 0.35,
+        "nonlocal_authority": 0.75,
+        "path_sensitivity": 0.75,
+        "revision_permissibility": 0.65,
+        "rival_breadth": 0.65,
+        "support_carry_forward": 0.55
+      },
+      "family": "renewal",
+      "name": "renewal_repeating_context",
+      "notes": [],
+      "public_observation_excerpt": {
+        "A": 4,
+        "obs": 1
+      },
+      "relation_telemetry": {
+        "branch_internal_operation_rows": 4,
+        "relations_by_type": {
+          "decision_slot_competition": 12
+        },
+        "relations_total": 12,
+        "rows_with_public_effects": 4,
+        "structural_relations": 0
+      },
+      "selected_action": 0,
+      "selected_assessment": {
+        "burden": 0.060024,
+        "carrier_only_pressure": 0.291379,
+        "certificate_blocks_dominance": 0.0,
+        "certificate_gate_open": 0.611122,
+        "collapse_blocked": 0.057067,
+        "collapse_certificate_blocker_pressure": 0.057067,
+        "collapse_certificate_recursion_demand": 0.162162,
+        "continuation_score": 0.488472,
+        "dominance_score": 0.507271,
+        "resolver_support": 0.743143,
+        "sampling_score": 0.266429,
+        "stability": 0.441044,
+        "support": 0.503284
+      },
+      "selected_mode": "stable_continuation",
+      "selected_ops": [
+        "carry",
+        "decision_slot",
+        "reduce"
+      ],
+      "selected_reason": "least_burden_stable_continuation_after_non_dominance",
+      "watchpoints": []
+    },
+    {
+      "candidate_count": 4,
+      "candidate_summaries": [
+        {
+          "candidate": "0",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.156271,
+          "contradiction_hint": 0.280381,
+          "goal_relation": 0.4415,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.280381,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 4,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.21,
+          "uncertainty_hint": 0.238,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "1",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.118318,
+          "contradiction_hint": 0.378556,
+          "goal_relation": 0.2035,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.378556,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 4,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.21,
+          "uncertainty_hint": 0.238,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "2",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.131713,
+          "contradiction_hint": 0.293906,
+          "goal_relation": 0.2875,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.293906,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 4,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.21,
+          "uncertainty_hint": 0.238,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "3",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.096631,
+          "contradiction_hint": 0.434656,
+          "goal_relation": 0.0675,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.434656,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 4,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.21,
+          "uncertainty_hint": 0.238,
+          "weak_slot_only": false
+        }
+      ],
+      "certificate_aware_reopen_or_sample_applied": false,
+      "certificate_aware_stable_continuation_applied": false,
+      "direct_controls_used": {
+        "collapse_admissibility": 0.45,
+        "evidence_gate": 0.6,
+        "fracture_tolerance": 0.45,
+        "local_authority": 0.35,
+        "nonlocal_authority": 0.75,
+        "path_sensitivity": 0.75,
+        "revision_permissibility": 0.65,
+        "rival_breadth": 0.65,
+        "support_carry_forward": 0.55
+      },
+      "family": "renewal",
+      "name": "renewal_diffuse_miss_history",
+      "notes": [],
+      "public_observation_excerpt": {
+        "A": 4,
+        "obs": 2
+      },
+      "relation_telemetry": {
+        "branch_internal_operation_rows": 4,
+        "relations_by_type": {
+          "decision_slot_competition": 12
+        },
+        "relations_total": 12,
+        "rows_with_public_effects": 4,
+        "structural_relations": 0
+      },
+      "selected_action": 0,
+      "selected_assessment": {
+        "burden": 0.123214,
+        "carrier_only_pressure": 0.518381,
+        "certificate_blocks_dominance": 0.0,
+        "certificate_gate_open": 0.588845,
+        "collapse_blocked": 0.063724,
+        "collapse_certificate_blocker_pressure": 0.063724,
+        "collapse_certificate_recursion_demand": 0.171452,
+        "continuation_score": 0.411498,
+        "dominance_score": 0.425805,
+        "resolver_support": 0.7472,
+        "sampling_score": 0.294038,
+        "stability": 0.428443,
+        "support": 0.463273
+      },
+      "selected_mode": "stable_continuation",
+      "selected_ops": [
+        "carry",
+        "decision_slot",
+        "reduce"
+      ],
+      "selected_reason": "least_burden_stable_continuation_after_non_dominance",
+      "watchpoints": []
+    },
+    {
+      "candidate_count": 4,
+      "candidate_summaries": [
+        {
+          "candidate": "UP",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 1.0,
+          "goal_relation": -1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.0,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "DOWN",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 1.0,
+          "goal_relation": -1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.0,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "LEFT",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 1.0,
+          "goal_relation": -1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.0,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "RIGHT",
+          "carrier_ops": [],
+          "continuity_support": 1.0,
+          "contradiction_hint": 0.0,
+          "goal_relation": 1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.0,
+          "weak_slot_only": false
+        }
+      ],
+      "certificate_aware_reopen_or_sample_applied": false,
+      "certificate_aware_stable_continuation_applied": false,
+      "direct_controls_used": {
+        "collapse_admissibility": 0.45,
+        "evidence_gate": 0.6,
+        "fracture_tolerance": 0.45,
+        "local_authority": 0.35,
+        "nonlocal_authority": 0.75,
+        "path_sensitivity": 0.75,
+        "revision_permissibility": 0.65,
+        "rival_breadth": 0.65,
+        "support_carry_forward": 0.55
+      },
+      "family": "maze",
+      "name": "maze_visible_open_corridor",
+      "notes": [],
+      "public_observation_excerpt": {
+        "goal": [
+          1,
+          3
+        ],
+        "grid": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "height": 3,
+        "pos": [
+          1,
+          1
+        ],
+        "width": 4
+      },
+      "relation_telemetry": {
+        "branch_internal_operation_rows": 4,
+        "relations_by_type": {
+          "decision_slot_competition": 12,
+          "equivalence": 3,
+          "relief": 3
+        },
+        "relations_total": 18,
+        "rows_with_public_effects": 4,
+        "structural_relations": 6
+      },
+      "selected_action": "RIGHT",
+      "selected_assessment": {
+        "burden": 0.0,
+        "carrier_only_pressure": 0.0,
+        "certificate_blocks_dominance": 0.0,
+        "certificate_gate_open": 1.0,
+        "collapse_blocked": 0.0,
+        "collapse_certificate_blocker_pressure": 0.0,
+        "collapse_certificate_recursion_demand": 0.047788,
+        "continuation_score": 0.793812,
+        "dominance_score": 0.937181,
+        "resolver_support": 1.0,
+        "sampling_score": 0.110723,
+        "stability": 0.716512,
+        "support": 0.904228
+      },
+      "selected_mode": "dominance",
+      "selected_ops": [
+        "decision_slot",
+        "reduce"
+      ],
+      "selected_reason": "one_candidate_dominates_support_burden_stability",
+      "watchpoints": []
+    },
+    {
+      "candidate_count": 3,
+      "candidate_summaries": [
+        {
+          "candidate": "UP",
+          "carrier_ops": [],
+          "continuity_support": 1.0,
+          "contradiction_hint": 0.0,
+          "goal_relation": 1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.0,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "DOWN",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 1.0,
+          "goal_relation": -1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.0,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "LEFT",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 1.0,
+          "goal_relation": -1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.0,
+          "weak_slot_only": false
+        }
+      ],
+      "certificate_aware_reopen_or_sample_applied": false,
+      "certificate_aware_stable_continuation_applied": false,
+      "direct_controls_used": {
+        "collapse_admissibility": 0.45,
+        "evidence_gate": 0.6,
+        "fracture_tolerance": 0.45,
+        "local_authority": 0.35,
+        "nonlocal_authority": 0.75,
+        "path_sensitivity": 0.75,
+        "revision_permissibility": 0.65,
+        "rival_breadth": 0.65,
+        "support_carry_forward": 0.55
+      },
+      "family": "maze",
+      "name": "maze_visible_wall_constraint",
+      "notes": [],
+      "public_observation_excerpt": {
+        "goal": [
+          0,
+          2
+        ],
+        "grid": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "height": 3,
+        "pos": [
+          1,
+          1
+        ],
+        "width": 3
+      },
+      "relation_telemetry": {
+        "branch_internal_operation_rows": 3,
+        "relations_by_type": {
+          "decision_slot_competition": 6,
+          "equivalence": 1,
+          "relief": 2
+        },
+        "relations_total": 9,
+        "rows_with_public_effects": 3,
+        "structural_relations": 3
+      },
+      "selected_action": "UP",
+      "selected_assessment": {
+        "burden": 0.0,
+        "carrier_only_pressure": 0.0,
+        "certificate_blocks_dominance": 0.0,
+        "certificate_gate_open": 1.0,
+        "collapse_blocked": 0.0,
+        "collapse_certificate_blocker_pressure": 0.0,
+        "collapse_certificate_recursion_demand": 0.034754,
+        "continuation_score": 0.788592,
+        "dominance_score": 0.929366,
+        "resolver_support": 1.0,
+        "sampling_score": 0.109435,
+        "stability": 0.710187,
+        "support": 0.895554
+      },
+      "selected_mode": "dominance",
+      "selected_ops": [
+        "decision_slot",
+        "reduce"
+      ],
+      "selected_reason": "one_candidate_dominates_support_burden_stability",
+      "watchpoints": []
+    },
+    {
+      "candidate_count": 2,
+      "candidate_summaries": [
+        {
+          "candidate": "DOWN",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 1.0,
+          "goal_relation": -1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reveal"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [
+            "reveal"
+          ],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.166667,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "LEFT",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 1.0,
+          "goal_relation": -1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reveal"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [
+            "reveal"
+          ],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.166667,
+          "weak_slot_only": false
+        }
+      ],
+      "certificate_aware_reopen_or_sample_applied": false,
+      "certificate_aware_stable_continuation_applied": false,
+      "direct_controls_used": {
+        "collapse_admissibility": 0.45,
+        "evidence_gate": 0.6,
+        "fracture_tolerance": 0.45,
+        "local_authority": 0.35,
+        "nonlocal_authority": 0.75,
+        "path_sensitivity": 0.75,
+        "revision_permissibility": 0.65,
+        "rival_breadth": 0.65,
+        "support_carry_forward": 0.55
+      },
+      "family": "maze",
+      "name": "maze_partial_unknown_topology",
+      "notes": [],
+      "public_observation_excerpt": {
+        "goal": [
+          1,
+          3
+        ],
+        "grid": [
+          [
+            0,
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "height": 3,
+        "partial_observability": true,
+        "pos": [
+          1,
+          1
+        ],
+        "width": 4
+      },
+      "relation_telemetry": {
+        "branch_internal_operation_rows": 2,
+        "relations_by_type": {
+          "decision_slot_competition": 2,
+          "equivalence": 1,
+          "shared_evidence": 4
+        },
+        "relations_total": 7,
+        "rows_with_public_effects": 2,
+        "structural_relations": 5
+      },
+      "selected_action": "DOWN",
+      "selected_assessment": {
+        "burden": 0.228097,
+        "carrier_only_pressure": 1.0,
+        "certificate_blocks_dominance": 0.0,
+        "certificate_gate_open": 0.691004,
+        "collapse_blocked": 0.067522,
+        "collapse_certificate_blocker_pressure": 0.067522,
+        "collapse_certificate_recursion_demand": 0.128851,
+        "continuation_score": 0.250751,
+        "dominance_score": 0.271035,
+        "resolver_support": 0.166667,
+        "sampling_score": 0.293678,
+        "stability": 0.432831,
+        "support": 0.387046
+      },
+      "selected_mode": "reopen_or_sample",
+      "selected_ops": [
+        "carry",
+        "decision_slot",
+        "reveal"
+      ],
+      "selected_reason": "no_dominance_and_unresolved_sampling_or_revision_pressure",
+      "watchpoints": []
+    },
+    {
+      "candidate_count": 5,
+      "candidate_summaries": [
+        {
+          "candidate": "RUN",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.38944,
+          "contradiction_hint": 0.25466,
+          "goal_relation": 0.445,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [],
+          "support_depth": 0.762,
+          "uncertainty_hint": 0.22,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "INSPECT",
+          "carrier_ops": [],
+          "continuity_support": 0.318325,
+          "contradiction_hint": 0.15,
+          "goal_relation": 0.149,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "decision_slot",
+            "reveal"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [
+            "reveal"
+          ],
+          "support_depth": 0.41,
+          "uncertainty_hint": 0.22,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "REPAIR",
+          "carrier_ops": [],
+          "continuity_support": 0.45,
+          "contradiction_hint": 0.0,
+          "goal_relation": 0.3,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.575,
+          "uncertainty_hint": 0.22,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "REPLACE",
+          "carrier_ops": [],
+          "continuity_support": 0.3375,
+          "contradiction_hint": 0.0,
+          "goal_relation": 0.075,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "decision_slot",
+            "reset"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [
+            "reset"
+          ],
+          "support_depth": 0.575,
+          "uncertainty_hint": 0.22,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "WAIT",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.24,
+          "contradiction_hint": 0.2,
+          "goal_relation": 0.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [],
+          "support_depth": 0.25,
+          "uncertainty_hint": 0.22,
+          "weak_slot_only": false
+        }
+      ],
+      "certificate_aware_reopen_or_sample_applied": false,
+      "certificate_aware_stable_continuation_applied": false,
+      "direct_controls_used": {
+        "collapse_admissibility": 0.45,
+        "evidence_gate": 0.6,
+        "fracture_tolerance": 0.45,
+        "local_authority": 0.35,
+        "nonlocal_authority": 0.75,
+        "path_sensitivity": 0.75,
+        "revision_permissibility": 0.65,
+        "rival_breadth": 0.65,
+        "support_carry_forward": 0.55
+      },
+      "family": "maintenance",
+      "name": "maintenance_partial_midhealth",
+      "notes": [],
+      "public_observation_excerpt": {
+        "degradation_prob_public": 0.2,
+        "failure_penalty_public": 8.0,
+        "health_observed": true,
+        "max_health": 4,
+        "observation_noise_public": 0.2,
+        "observe_health_mode": "partial",
+        "observed_health": 2,
+        "repair_cost_public": 0.8,
+        "replace_cost_public": 2.0,
+        "wait_recovery_prob_public": 0.0
+      },
+      "relation_telemetry": {
+        "branch_internal_operation_rows": 5,
+        "relations_by_type": {
+          "cancellation": 3,
+          "decision_slot_competition": 20,
+          "relief": 2,
+          "shared_evidence": 1
+        },
+        "relations_total": 26,
+        "rows_with_public_effects": 5,
+        "structural_relations": 6
+      },
+      "selected_action": "INSPECT",
+      "selected_assessment": {
+        "burden": 0.063071,
+        "carrier_only_pressure": 0.0,
+        "certificate_blocks_dominance": 0.0,
+        "certificate_gate_open": 0.839157,
+        "collapse_blocked": 0.012686,
+        "collapse_certificate_blocker_pressure": 0.012686,
+        "collapse_certificate_recursion_demand": 0.067072,
+        "continuation_score": 0.472555,
+        "dominance_score": 0.483083,
+        "resolver_support": 0.22,
+        "sampling_score": 0.286784,
+        "stability": 0.437449,
+        "support": 0.459086
+      },
+      "selected_mode": "stable_continuation",
+      "selected_ops": [
+        "decision_slot",
+        "reveal"
+      ],
+      "selected_reason": "least_burden_stable_continuation_after_non_dominance",
+      "watchpoints": []
+    },
+    {
+      "candidate_count": 5,
+      "candidate_summaries": [
+        {
+          "candidate": "RUN",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.0,
+          "contradiction_hint": 1.0,
+          "goal_relation": 0.3075,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [],
+          "support_depth": 0.51,
+          "uncertainty_hint": 0.85,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "INSPECT",
+          "carrier_ops": [],
+          "continuity_support": 0.29565,
+          "contradiction_hint": 0.55,
+          "goal_relation": 0.714,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "decision_slot",
+            "reveal"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [
+            "reveal"
+          ],
+          "support_depth": 0.725,
+          "uncertainty_hint": 0.85,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "REPAIR",
+          "carrier_ops": [],
+          "continuity_support": 0.45,
+          "contradiction_hint": 0.0,
+          "goal_relation": 0.3,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.575,
+          "uncertainty_hint": 0.85,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "REPLACE",
+          "carrier_ops": [],
+          "continuity_support": 0.4,
+          "contradiction_hint": 0.0,
+          "goal_relation": 0.2,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "decision_slot",
+            "reset"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [
+            "reset"
+          ],
+          "support_depth": 0.575,
+          "uncertainty_hint": 0.85,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "WAIT",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.09,
+          "contradiction_hint": 0.7,
+          "goal_relation": 0.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [],
+          "support_depth": 0.25,
+          "uncertainty_hint": 0.85,
+          "weak_slot_only": false
+        }
+      ],
+      "certificate_aware_reopen_or_sample_applied": true,
+      "certificate_aware_stable_continuation_applied": false,
+      "direct_controls_used": {
+        "collapse_admissibility": 0.45,
+        "evidence_gate": 0.6,
+        "fracture_tolerance": 0.45,
+        "local_authority": 0.35,
+        "nonlocal_authority": 0.75,
+        "path_sensitivity": 0.75,
+        "revision_permissibility": 0.65,
+        "rival_breadth": 0.65,
+        "support_carry_forward": 0.55
+      },
+      "family": "maintenance",
+      "name": "maintenance_hidden_high_degradation",
+      "notes": [
+        "resolver_aware_reopen_or_sample_applied"
+      ],
+      "public_observation_excerpt": {
+        "degradation_prob_public": 0.7,
+        "failure_penalty_public": 8.0,
+        "health_observed": false,
+        "max_health": 4,
+        "observation_noise_public": 0.7,
+        "observe_health_mode": "hidden",
+        "observed_health": null,
+        "repair_cost_public": 0.8,
+        "replace_cost_public": 2.0,
+        "wait_recovery_prob_public": 0.0
+      },
+      "relation_telemetry": {
+        "branch_internal_operation_rows": 5,
+        "relations_by_type": {
+          "cancellation": 3,
+          "decision_slot_competition": 20,
+          "relief": 2,
+          "shared_evidence": 1
+        },
+        "relations_total": 26,
+        "rows_with_public_effects": 5,
+        "structural_relations": 6
+      },
+      "selected_action": "INSPECT",
+      "selected_assessment": {
+        "burden": 0.177494,
+        "carrier_only_pressure": 0.0,
+        "certificate_blocks_dominance": 0.0,
+        "certificate_gate_open": 0.528296,
+        "collapse_blocked": 0.044694,
+        "collapse_certificate_blocker_pressure": 0.044694,
+        "collapse_certificate_recursion_demand": 0.1967,
+        "continuation_score": 0.33258,
+        "dominance_score": 0.365173,
+        "resolver_support": 0.85,
+        "sampling_score": 0.602618,
+        "stability": 0.343656,
+        "support": 0.487339
+      },
+      "selected_mode": "reopen_or_sample",
+      "selected_ops": [
+        "decision_slot",
+        "reveal"
+      ],
+      "selected_reason": "certificate_aware_resolver_reopen_or_sample_after_non_dominance",
+      "watchpoints": []
+    },
+    {
+      "candidate_count": 5,
+      "candidate_summaries": [
+        {
+          "candidate": "RUN",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.0,
+          "contradiction_hint": 1.0,
+          "goal_relation": 0.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [],
+          "support_depth": 0.83,
+          "uncertainty_hint": 0.05,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "INSPECT",
+          "carrier_ops": [],
+          "continuity_support": 0.258825,
+          "contradiction_hint": 0.15,
+          "goal_relation": 0.009,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "decision_slot",
+            "reveal"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [
+            "reveal"
+          ],
+          "support_depth": 0.325,
+          "uncertainty_hint": 0.05,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "REPAIR",
+          "carrier_ops": [],
+          "continuity_support": 0.7,
+          "contradiction_hint": 0.0,
+          "goal_relation": 0.8,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 0.8,
+          "uncertainty_hint": 0.05,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "REPLACE",
+          "carrier_ops": [],
+          "continuity_support": 0.58125,
+          "contradiction_hint": 0.0,
+          "goal_relation": 0.5625,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "decision_slot",
+            "reset"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [
+            "reset"
+          ],
+          "support_depth": 0.8,
+          "uncertainty_hint": 0.05,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "WAIT",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.165,
+          "contradiction_hint": 0.45,
+          "goal_relation": 0.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [],
+          "support_depth": 0.25,
+          "uncertainty_hint": 0.05,
+          "weak_slot_only": false
+        }
+      ],
+      "certificate_aware_reopen_or_sample_applied": false,
+      "certificate_aware_stable_continuation_applied": false,
+      "direct_controls_used": {
+        "collapse_admissibility": 0.45,
+        "evidence_gate": 0.6,
+        "fracture_tolerance": 0.45,
+        "local_authority": 0.35,
+        "nonlocal_authority": 0.75,
+        "path_sensitivity": 0.75,
+        "revision_permissibility": 0.65,
+        "rival_breadth": 0.65,
+        "support_carry_forward": 0.55
+      },
+      "family": "maintenance",
+      "name": "maintenance_direct_low_health",
+      "notes": [],
+      "public_observation_excerpt": {
+        "degradation_prob_public": 0.45,
+        "failure_penalty_public": 8.0,
+        "health_observed": true,
+        "max_health": 4,
+        "observation_noise_public": 0.1,
+        "observe_health_mode": "direct",
+        "observed_health": 0,
+        "repair_cost_public": 0.8,
+        "replace_cost_public": 2.0,
+        "wait_recovery_prob_public": 0.0
+      },
+      "relation_telemetry": {
+        "branch_internal_operation_rows": 5,
+        "relations_by_type": {
+          "cancellation": 3,
+          "decision_slot_competition": 20,
+          "relief": 2
+        },
+        "relations_total": 25,
+        "rows_with_public_effects": 5,
+        "structural_relations": 5
+      },
+      "selected_action": "REPAIR",
+      "selected_assessment": {
+        "burden": 0.045995,
+        "carrier_only_pressure": 0.0,
+        "certificate_blocks_dominance": 0.0,
+        "certificate_gate_open": 1.0,
+        "collapse_blocked": 0.002649,
+        "collapse_certificate_blocker_pressure": 0.002649,
+        "collapse_certificate_recursion_demand": 0.047341,
+        "continuation_score": 0.623888,
+        "dominance_score": 0.692683,
+        "resolver_support": 1.0,
+        "sampling_score": 0.181318,
+        "stability": 0.556314,
+        "support": 0.665281
+      },
+      "selected_mode": "stable_continuation",
+      "selected_ops": [
+        "decision_slot",
+        "reduce"
+      ],
+      "selected_reason": "least_burden_stable_continuation_after_non_dominance",
+      "watchpoints": []
+    },
+    {
+      "candidate_count": 5,
+      "candidate_summaries": [
+        {
+          "candidate": "UP",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 0.0,
+          "goal_relation": -1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.2,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "DOWN",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 0.0,
+          "goal_relation": -0.7,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.2,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "LEFT",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 0.0,
+          "goal_relation": -1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.2,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "RIGHT",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 1.0,
+          "contradiction_hint": 0.0,
+          "goal_relation": 1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.2,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "INTERACT",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.05,
+          "contradiction_hint": 0.25,
+          "goal_relation": 0.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.2,
+          "weak_slot_only": false
+        }
+      ],
+      "certificate_aware_reopen_or_sample_applied": false,
+      "certificate_aware_stable_continuation_applied": false,
+      "direct_controls_used": {
+        "collapse_admissibility": 0.45,
+        "evidence_gate": 0.6,
+        "fracture_tolerance": 0.45,
+        "local_authority": 0.35,
+        "nonlocal_authority": 0.75,
+        "path_sensitivity": 0.75,
+        "revision_permissibility": 0.65,
+        "rival_breadth": 0.65,
+        "support_carry_forward": 0.55
+      },
+      "family": "latent_mechanism",
+      "name": "latent_visible_switch_nearby",
+      "notes": [],
+      "public_observation_excerpt": {
+        "decoys": [
+          [
+            1,
+            0
+          ]
+        ],
+        "door": [
+          1,
+          1
+        ],
+        "door_open": false,
+        "goal": [
+          2,
+          2
+        ],
+        "hiddenness": 0.2,
+        "legal_actions": [
+          "UP",
+          "DOWN",
+          "LEFT",
+          "RIGHT",
+          "INTERACT"
+        ],
+        "local_deceptiveness": 0.0,
+        "pos": [
+          0,
+          0
+        ],
+        "rewrite_harshness": 0.4,
+        "switches": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "relation_telemetry": {
+        "branch_internal_operation_rows": 5,
+        "relations_by_type": {
+          "decision_slot_competition": 20,
+          "equivalence": 1,
+          "relief": 3
+        },
+        "relations_total": 24,
+        "rows_with_public_effects": 5,
+        "structural_relations": 4
+      },
+      "selected_action": "RIGHT",
+      "selected_assessment": {
+        "burden": 0.030187,
+        "carrier_only_pressure": 0.4,
+        "certificate_blocks_dominance": 0.0,
+        "certificate_gate_open": 1.0,
+        "collapse_blocked": 0.103868,
+        "collapse_certificate_blocker_pressure": 0.103868,
+        "collapse_certificate_recursion_demand": 0.302468,
+        "continuation_score": 0.695376,
+        "dominance_score": 0.802984,
+        "resolver_support": 1.0,
+        "sampling_score": 0.253049,
+        "stability": 0.627523,
+        "support": 0.808958
+      },
+      "selected_mode": "dominance",
+      "selected_ops": [
+        "carry",
+        "decision_slot",
+        "reduce"
+      ],
+      "selected_reason": "one_candidate_dominates_support_burden_stability",
+      "watchpoints": []
+    },
+    {
+      "candidate_count": 5,
+      "candidate_summaries": [
+        {
+          "candidate": "UP",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 0.0,
+          "goal_relation": -1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.8,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "DOWN",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 0.0,
+          "goal_relation": -0.7,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.8,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "LEFT",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 0.0,
+          "goal_relation": -1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.8,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "RIGHT",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 1.0,
+          "contradiction_hint": 0.0,
+          "goal_relation": 1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot",
+            "reduce"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [
+            "reduce"
+          ],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.8,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "INTERACT",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.05,
+          "contradiction_hint": 0.25,
+          "goal_relation": 0.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 2,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.8,
+          "weak_slot_only": false
+        }
+      ],
+      "certificate_aware_reopen_or_sample_applied": false,
+      "certificate_aware_stable_continuation_applied": false,
+      "direct_controls_used": {
+        "collapse_admissibility": 0.45,
+        "evidence_gate": 0.6,
+        "fracture_tolerance": 0.45,
+        "local_authority": 0.35,
+        "nonlocal_authority": 0.75,
+        "path_sensitivity": 0.75,
+        "revision_permissibility": 0.65,
+        "rival_breadth": 0.65,
+        "support_carry_forward": 0.55
+      },
+      "family": "latent_mechanism",
+      "name": "latent_hidden_deceptive_start",
+      "notes": [],
+      "public_observation_excerpt": {
+        "decoys": [
+          [
+            1,
+            0
+          ]
+        ],
+        "door": [
+          1,
+          1
+        ],
+        "door_open": false,
+        "goal": [
+          2,
+          2
+        ],
+        "hiddenness": 0.8,
+        "legal_actions": [
+          "UP",
+          "DOWN",
+          "LEFT",
+          "RIGHT",
+          "INTERACT"
+        ],
+        "local_deceptiveness": 0.7,
+        "pos": [
+          0,
+          0
+        ],
+        "rewrite_harshness": 0.4,
+        "switches": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "relation_telemetry": {
+        "branch_internal_operation_rows": 5,
+        "relations_by_type": {
+          "decision_slot_competition": 20,
+          "equivalence": 1,
+          "relief": 3
+        },
+        "relations_total": 24,
+        "rows_with_public_effects": 5,
+        "structural_relations": 4
+      },
+      "selected_action": "INTERACT",
+      "selected_assessment": {
+        "burden": 0.189969,
+        "carrier_only_pressure": 0.8,
+        "certificate_blocks_dominance": 1.0,
+        "certificate_gate_open": 0.0,
+        "collapse_blocked": 0.295739,
+        "collapse_certificate_blocker_pressure": 0.295739,
+        "collapse_certificate_recursion_demand": 0.551356,
+        "continuation_score": 0.066885,
+        "dominance_score": 0.019431,
+        "resolver_support": 0.0,
+        "sampling_score": 0.624015,
+        "stability": 0.277317,
+        "support": 0.170472
+      },
+      "selected_mode": "reopen_or_sample",
+      "selected_ops": [
+        "carry",
+        "decision_slot"
+      ],
+      "selected_reason": "no_dominance_and_unresolved_sampling_or_revision_pressure",
+      "watchpoints": []
+    },
+    {
+      "candidate_count": 5,
+      "candidate_summaries": [
+        {
+          "candidate": "UP",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 0.0,
+          "goal_relation": -1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.6,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "DOWN",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 0.0,
+          "goal_relation": -0.7,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.6,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "LEFT",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 0.0,
+          "goal_relation": -1.0,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.6,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "RIGHT",
+          "carrier_ops": [
+            "carry"
+          ],
+          "continuity_support": 0.5,
+          "contradiction_hint": 0.0,
+          "goal_relation": -0.7,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "carry",
+            "decision_slot"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.6,
+          "weak_slot_only": false
+        },
+        {
+          "candidate": "INTERACT",
+          "carrier_ops": [],
+          "continuity_support": 0.6,
+          "contradiction_hint": 0.0,
+          "goal_relation": 0.45,
+          "leakage_terms_found": [],
+          "legal": true,
+          "obstruction_hint": 0.0,
+          "ops": [
+            "decision_slot",
+            "reveal",
+            "transform"
+          ],
+          "public_effect_count": 3,
+          "resolver_ops": [
+            "reveal"
+          ],
+          "support_depth": 1.0,
+          "uncertainty_hint": 0.6,
+          "weak_slot_only": false
+        }
+      ],
+      "certificate_aware_reopen_or_sample_applied": true,
+      "certificate_aware_stable_continuation_applied": false,
+      "direct_controls_used": {
+        "collapse_admissibility": 0.45,
+        "evidence_gate": 0.6,
+        "fracture_tolerance": 0.45,
+        "local_authority": 0.35,
+        "nonlocal_authority": 0.75,
+        "path_sensitivity": 0.75,
+        "revision_permissibility": 0.65,
+        "rival_breadth": 0.65,
+        "support_carry_forward": 0.55
+      },
+      "family": "latent_mechanism",
+      "name": "latent_at_switch",
+      "notes": [
+        "resolver_aware_reopen_or_sample_applied"
+      ],
+      "public_observation_excerpt": {
+        "decoys": [
+          [
+            1,
+            0
+          ]
+        ],
+        "door": [
+          1,
+          1
+        ],
+        "door_open": false,
+        "goal": [
+          2,
+          2
+        ],
+        "hiddenness": 0.6,
+        "legal_actions": [
+          "UP",
+          "DOWN",
+          "LEFT",
+          "RIGHT",
+          "INTERACT"
+        ],
+        "local_deceptiveness": 0.3,
+        "pos": [
+          0,
+          1
+        ],
+        "rewrite_harshness": 0.4,
+        "switches": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "relation_telemetry": {
+        "branch_internal_operation_rows": 5,
+        "relations_by_type": {
+          "decision_slot_competition": 20,
+          "equivalence": 2,
+          "shared_evidence": 4
+        },
+        "relations_total": 26,
+        "rows_with_public_effects": 5,
+        "structural_relations": 6
+      },
+      "selected_action": "INTERACT",
+      "selected_assessment": {
+        "burden": 0.082546,
+        "carrier_only_pressure": 0.06,
+        "certificate_blocks_dominance": 0.0,
+        "certificate_gate_open": 0.244139,
+        "collapse_blocked": 0.062804,
+        "collapse_certificate_blocker_pressure": 0.062804,
+        "collapse_certificate_recursion_demand": 0.315194,
+        "continuation_score": 0.268669,
+        "dominance_score": 0.272683,
+        "resolver_support": 0.6,
+        "sampling_score": 0.493277,
+        "stability": 0.379506,
+        "support": 0.318939
+      },
+      "selected_mode": "reopen_or_sample",
+      "selected_ops": [
+        "decision_slot",
+        "reveal",
+        "transform"
+      ],
+      "selected_reason": "certificate_aware_resolver_reopen_or_sample_after_non_dominance",
+      "watchpoints": []
+    }
+  ],
+  "claim_boundary": "manual structural trace review only; not reward evidence, tuning evidence, or novelty proof",
+  "study": "real_family_manual_trace_review_v1",
+  "summary": {
+    "cases": 15,
+    "cases_by_family": {
+      "bandit": 3,
+      "latent_mechanism": 3,
+      "maintenance": 3,
+      "maze": 3,
+      "renewal": 3
+    },
+    "certificate_aware_reopen_cases": 2,
+    "certificate_aware_stable_cases": 0,
+    "families_with_relation_telemetry": {
+      "bandit": 3,
+      "latent_mechanism": 3,
+      "maintenance": 3,
+      "maze": 3,
+      "renewal": 3
+    },
+    "families_with_structural_cross_branch_relations": {
+      "latent_mechanism": 3,
+      "maintenance": 3,
+      "maze": 3
+    },
+    "selected_modes": {
+      "dominance": 3,
+      "reopen_or_sample": 7,
+      "stable_continuation": 5
+    },
+    "watchpoints_by_type": {}
+  }
+}

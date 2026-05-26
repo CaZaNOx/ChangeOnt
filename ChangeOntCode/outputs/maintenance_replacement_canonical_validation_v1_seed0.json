@@ -1,0 +1,2495 @@
+{
+  "non_claims": [
+    "This study does not prove CO generality.",
+    "Wrong-shape overrides are study interventions; the normal active path remains problem_contract-derived shape_prior6.",
+    "finite_horizon_dp is skipped outside direct public health observation to avoid oracle access.",
+    "Reward changes are interpreted together with action-distribution changes to avoid benchmark theater."
+  ],
+  "sections": {
+    "baseline_comparison": {
+      "aggregate": [
+        {
+          "action_counts_total": {
+            "INSPECT": 0,
+            "REPAIR": 2,
+            "REPLACE": 0,
+            "RUN": 58,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.03333333333333333,
+            "REPLACE": 0.0,
+            "RUN": 0.9666666666666667,
+            "WAIT": 0.0
+          },
+          "agent": "finite_horizon_dp",
+          "max_total_reward": 55.0,
+          "mean_total_reward": 55.0,
+          "min_total_reward": 55.0,
+          "n": 1,
+          "regime": "bandit_like",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 0,
+            "REPAIR": 0,
+            "REPLACE": 2,
+            "RUN": 58,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0,
+            "REPLACE": 0.03333333333333333,
+            "RUN": 0.9666666666666667,
+            "WAIT": 0.0
+          },
+          "agent": "q_learning",
+          "max_total_reward": 51.5,
+          "mean_total_reward": 51.5,
+          "min_total_reward": 51.5,
+          "n": 1,
+          "regime": "bandit_like",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 10,
+            "REPAIR": 12,
+            "REPLACE": 12,
+            "RUN": 12,
+            "WAIT": 14
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.16666666666666666,
+            "REPAIR": 0.2,
+            "REPLACE": 0.2,
+            "RUN": 0.2,
+            "WAIT": 0.23333333333333334
+          },
+          "agent": "random",
+          "max_total_reward": -43.70000000000001,
+          "mean_total_reward": -43.70000000000001,
+          "min_total_reward": -43.70000000000001,
+          "n": 1,
+          "regime": "bandit_like",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 0,
+            "REPAIR": 1,
+            "REPLACE": 0,
+            "RUN": 59,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.016666666666666666,
+            "REPLACE": 0.0,
+            "RUN": 0.9833333333333333,
+            "WAIT": 0.0
+          },
+          "agent": "threshold",
+          "max_total_reward": 56.25,
+          "mean_total_reward": 56.25,
+          "min_total_reward": 56.25,
+          "n": 1,
+          "regime": "bandit_like",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 0,
+            "REPAIR": 2,
+            "REPLACE": 0,
+            "RUN": 58,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.03333333333333333,
+            "REPLACE": 0.0,
+            "RUN": 0.9666666666666667,
+            "WAIT": 0.0
+          },
+          "agent": "threshold_opt",
+          "max_total_reward": 55.0,
+          "mean_total_reward": 55.0,
+          "min_total_reward": 55.0,
+          "n": 1,
+          "regime": "bandit_like",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 1,
+            "REPAIR": 5,
+            "REPLACE": 3,
+            "RUN": 71,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0125,
+            "REPAIR": 0.0625,
+            "REPLACE": 0.0375,
+            "RUN": 0.8875,
+            "WAIT": 0.0
+          },
+          "agent": "q_learning",
+          "max_total_reward": 51.400000000000006,
+          "mean_total_reward": 51.400000000000006,
+          "min_total_reward": 51.400000000000006,
+          "n": 1,
+          "regime": "middle",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 11,
+            "REPAIR": 17,
+            "REPLACE": 15,
+            "RUN": 15,
+            "WAIT": 22
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.1375,
+            "REPAIR": 0.2125,
+            "REPLACE": 0.1875,
+            "RUN": 0.1875,
+            "WAIT": 0.275
+          },
+          "agent": "random",
+          "max_total_reward": -30.800000000000033,
+          "mean_total_reward": -30.800000000000033,
+          "min_total_reward": -30.800000000000033,
+          "n": 1,
+          "regime": "middle",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 0,
+            "REPAIR": 8,
+            "REPLACE": 0,
+            "RUN": 72,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.1,
+            "REPLACE": 0.0,
+            "RUN": 0.9,
+            "WAIT": 0.0
+          },
+          "agent": "threshold",
+          "max_total_reward": 61.350000000000016,
+          "mean_total_reward": 61.350000000000016,
+          "min_total_reward": 61.350000000000016,
+          "n": 1,
+          "regime": "middle",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 0,
+            "REPAIR": 8,
+            "REPLACE": 0,
+            "RUN": 72,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.1,
+            "REPLACE": 0.0,
+            "RUN": 0.9,
+            "WAIT": 0.0
+          },
+          "agent": "threshold_opt",
+          "max_total_reward": 61.350000000000016,
+          "mean_total_reward": 61.350000000000016,
+          "min_total_reward": 61.350000000000016,
+          "n": 1,
+          "regime": "middle",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 33,
+            "REPAIR": 7,
+            "REPLACE": 0,
+            "RUN": 50,
+            "WAIT": 10
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.33,
+            "REPAIR": 0.07,
+            "REPLACE": 0.0,
+            "RUN": 0.5,
+            "WAIT": 0.1
+          },
+          "agent": "q_learning",
+          "max_total_reward": 23.89999999999999,
+          "mean_total_reward": 23.89999999999999,
+          "min_total_reward": 23.89999999999999,
+          "n": 1,
+          "regime": "renewal_like",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 17,
+            "REPAIR": 20,
+            "REPLACE": 17,
+            "RUN": 20,
+            "WAIT": 26
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.17,
+            "REPAIR": 0.2,
+            "REPLACE": 0.17,
+            "RUN": 0.2,
+            "WAIT": 0.26
+          },
+          "agent": "random",
+          "max_total_reward": -43.04999999999997,
+          "mean_total_reward": -43.04999999999997,
+          "min_total_reward": -43.04999999999997,
+          "n": 1,
+          "regime": "renewal_like",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 1,
+            "REPAIR": 0,
+            "REPLACE": 0,
+            "RUN": 99,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.01,
+            "REPAIR": 0.0,
+            "REPLACE": 0.0,
+            "RUN": 0.99,
+            "WAIT": 0.0
+          },
+          "agent": "threshold",
+          "max_total_reward": -22.35,
+          "mean_total_reward": -22.35,
+          "min_total_reward": -22.35,
+          "n": 1,
+          "regime": "renewal_like",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 1,
+            "REPAIR": 0,
+            "REPLACE": 0,
+            "RUN": 99,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.01,
+            "REPAIR": 0.0,
+            "REPLACE": 0.0,
+            "RUN": 0.99,
+            "WAIT": 0.0
+          },
+          "agent": "threshold_opt",
+          "max_total_reward": -22.35,
+          "mean_total_reward": -22.35,
+          "min_total_reward": -22.35,
+          "n": 1,
+          "regime": "renewal_like",
+          "std_total_reward": 0.0
+        }
+      ],
+      "rows": [
+        {
+          "action_counts": {
+            "INSPECT": 10,
+            "REPAIR": 12,
+            "REPLACE": 12,
+            "RUN": 12,
+            "WAIT": 14
+          },
+          "action_rates": {
+            "INSPECT": 0.16666666666666666,
+            "REPAIR": 0.2,
+            "REPLACE": 0.2,
+            "RUN": 0.2,
+            "WAIT": 0.23333333333333334
+          },
+          "agent": "random",
+          "family": "maintenance_replacement",
+          "final_health_true": 4,
+          "horizon": 60,
+          "metrics": {},
+          "observation_mode": "direct",
+          "regime": "bandit_like",
+          "seed": 0,
+          "shape_label": null,
+          "steps": 60,
+          "total_reward": -43.70000000000001
+        },
+        {
+          "action_counts": {
+            "INSPECT": 0,
+            "REPAIR": 1,
+            "REPLACE": 0,
+            "RUN": 59,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.016666666666666666,
+            "REPLACE": 0.0,
+            "RUN": 0.9833333333333333,
+            "WAIT": 0.0
+          },
+          "agent": "threshold",
+          "family": "maintenance_replacement",
+          "final_health_true": 4,
+          "horizon": 60,
+          "metrics": {},
+          "observation_mode": "direct",
+          "regime": "bandit_like",
+          "seed": 0,
+          "shape_label": null,
+          "steps": 60,
+          "total_reward": 56.25
+        },
+        {
+          "action_counts": {
+            "INSPECT": 0,
+            "REPAIR": 2,
+            "REPLACE": 0,
+            "RUN": 58,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.03333333333333333,
+            "REPLACE": 0.0,
+            "RUN": 0.9666666666666667,
+            "WAIT": 0.0
+          },
+          "agent": "threshold_opt",
+          "family": "maintenance_replacement",
+          "final_health_true": 4,
+          "horizon": 60,
+          "metrics": {},
+          "observation_mode": "direct",
+          "regime": "bandit_like",
+          "seed": 0,
+          "shape_label": null,
+          "steps": 60,
+          "total_reward": 55.0
+        },
+        {
+          "action_counts": {
+            "INSPECT": 0,
+            "REPAIR": 0,
+            "REPLACE": 2,
+            "RUN": 58,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0,
+            "REPLACE": 0.03333333333333333,
+            "RUN": 0.9666666666666667,
+            "WAIT": 0.0
+          },
+          "agent": "q_learning",
+          "family": "maintenance_replacement",
+          "final_health_true": 4,
+          "horizon": 60,
+          "metrics": {},
+          "observation_mode": "direct",
+          "regime": "bandit_like",
+          "seed": 0,
+          "shape_label": null,
+          "steps": 60,
+          "total_reward": 51.5
+        },
+        {
+          "action_counts": {
+            "INSPECT": 0,
+            "REPAIR": 2,
+            "REPLACE": 0,
+            "RUN": 58,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.03333333333333333,
+            "REPLACE": 0.0,
+            "RUN": 0.9666666666666667,
+            "WAIT": 0.0
+          },
+          "agent": "finite_horizon_dp",
+          "family": "maintenance_replacement",
+          "final_health_true": 4,
+          "horizon": 60,
+          "metrics": {},
+          "observation_mode": "direct",
+          "regime": "bandit_like",
+          "seed": 0,
+          "shape_label": null,
+          "steps": 60,
+          "total_reward": 55.0
+        },
+        {
+          "action_counts": {
+            "INSPECT": 11,
+            "REPAIR": 17,
+            "REPLACE": 15,
+            "RUN": 15,
+            "WAIT": 22
+          },
+          "action_rates": {
+            "INSPECT": 0.1375,
+            "REPAIR": 0.2125,
+            "REPLACE": 0.1875,
+            "RUN": 0.1875,
+            "WAIT": 0.275
+          },
+          "agent": "random",
+          "family": "maintenance_replacement",
+          "final_health_true": 4,
+          "horizon": 80,
+          "metrics": {},
+          "observation_mode": "partial",
+          "regime": "middle",
+          "seed": 0,
+          "shape_label": null,
+          "steps": 80,
+          "total_reward": -30.800000000000033
+        },
+        {
+          "action_counts": {
+            "INSPECT": 0,
+            "REPAIR": 8,
+            "REPLACE": 0,
+            "RUN": 72,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.1,
+            "REPLACE": 0.0,
+            "RUN": 0.9,
+            "WAIT": 0.0
+          },
+          "agent": "threshold",
+          "family": "maintenance_replacement",
+          "final_health_true": 3,
+          "horizon": 80,
+          "metrics": {},
+          "observation_mode": "partial",
+          "regime": "middle",
+          "seed": 0,
+          "shape_label": null,
+          "steps": 80,
+          "total_reward": 61.350000000000016
+        },
+        {
+          "action_counts": {
+            "INSPECT": 0,
+            "REPAIR": 8,
+            "REPLACE": 0,
+            "RUN": 72,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.1,
+            "REPLACE": 0.0,
+            "RUN": 0.9,
+            "WAIT": 0.0
+          },
+          "agent": "threshold_opt",
+          "family": "maintenance_replacement",
+          "final_health_true": 3,
+          "horizon": 80,
+          "metrics": {},
+          "observation_mode": "partial",
+          "regime": "middle",
+          "seed": 0,
+          "shape_label": null,
+          "steps": 80,
+          "total_reward": 61.350000000000016
+        },
+        {
+          "action_counts": {
+            "INSPECT": 1,
+            "REPAIR": 5,
+            "REPLACE": 3,
+            "RUN": 71,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0125,
+            "REPAIR": 0.0625,
+            "REPLACE": 0.0375,
+            "RUN": 0.8875,
+            "WAIT": 0.0
+          },
+          "agent": "q_learning",
+          "family": "maintenance_replacement",
+          "final_health_true": 3,
+          "horizon": 80,
+          "metrics": {},
+          "observation_mode": "partial",
+          "regime": "middle",
+          "seed": 0,
+          "shape_label": null,
+          "steps": 80,
+          "total_reward": 51.400000000000006
+        },
+        {
+          "action_counts": {
+            "INSPECT": 17,
+            "REPAIR": 20,
+            "REPLACE": 17,
+            "RUN": 20,
+            "WAIT": 26
+          },
+          "action_rates": {
+            "INSPECT": 0.17,
+            "REPAIR": 0.2,
+            "REPLACE": 0.17,
+            "RUN": 0.2,
+            "WAIT": 0.26
+          },
+          "agent": "random",
+          "family": "maintenance_replacement",
+          "final_health_true": 4,
+          "horizon": 100,
+          "metrics": {},
+          "observation_mode": "hidden",
+          "regime": "renewal_like",
+          "seed": 0,
+          "shape_label": null,
+          "steps": 100,
+          "total_reward": -43.04999999999997
+        },
+        {
+          "action_counts": {
+            "INSPECT": 1,
+            "REPAIR": 0,
+            "REPLACE": 0,
+            "RUN": 99,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.01,
+            "REPAIR": 0.0,
+            "REPLACE": 0.0,
+            "RUN": 0.99,
+            "WAIT": 0.0
+          },
+          "agent": "threshold",
+          "family": "maintenance_replacement",
+          "final_health_true": 3,
+          "horizon": 100,
+          "metrics": {},
+          "observation_mode": "hidden",
+          "regime": "renewal_like",
+          "seed": 0,
+          "shape_label": null,
+          "steps": 100,
+          "total_reward": -22.35
+        },
+        {
+          "action_counts": {
+            "INSPECT": 1,
+            "REPAIR": 0,
+            "REPLACE": 0,
+            "RUN": 99,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.01,
+            "REPAIR": 0.0,
+            "REPLACE": 0.0,
+            "RUN": 0.99,
+            "WAIT": 0.0
+          },
+          "agent": "threshold_opt",
+          "family": "maintenance_replacement",
+          "final_health_true": 3,
+          "horizon": 100,
+          "metrics": {},
+          "observation_mode": "hidden",
+          "regime": "renewal_like",
+          "seed": 0,
+          "shape_label": null,
+          "steps": 100,
+          "total_reward": -22.35
+        },
+        {
+          "action_counts": {
+            "INSPECT": 33,
+            "REPAIR": 7,
+            "REPLACE": 0,
+            "RUN": 50,
+            "WAIT": 10
+          },
+          "action_rates": {
+            "INSPECT": 0.33,
+            "REPAIR": 0.07,
+            "REPLACE": 0.0,
+            "RUN": 0.5,
+            "WAIT": 0.1
+          },
+          "agent": "q_learning",
+          "family": "maintenance_replacement",
+          "final_health_true": 2,
+          "horizon": 100,
+          "metrics": {},
+          "observation_mode": "hidden",
+          "regime": "renewal_like",
+          "seed": 0,
+          "shape_label": null,
+          "steps": 100,
+          "total_reward": 23.89999999999999
+        }
+      ],
+      "skips": [
+        {
+          "agent": "finite_horizon_dp",
+          "reason": "finite_horizon_dp is parity-valid only when health is publicly direct-observed",
+          "regime": "middle",
+          "section": "baseline_comparison"
+        },
+        {
+          "agent": "finite_horizon_dp",
+          "reason": "finite_horizon_dp is parity-valid only when health is publicly direct-observed",
+          "regime": "renewal_like",
+          "section": "baseline_comparison"
+        }
+      ]
+    },
+    "failure_classification": {
+      "global_read": [
+        "Wrong-shape interventions weakly affect action distribution in: bandit_like, middle",
+        "Native CO remains below best public baseline in: bandit_like, middle"
+      ],
+      "method": "heuristic_failure_classification_from_reward_spread_action_distribution_and_baseline_gap",
+      "per_regime": {
+        "bandit_like": {
+          "best_public_baseline": "threshold",
+          "best_public_baseline_mean_reward": 56.25,
+          "best_shape_label": "native",
+          "best_shape_mean_reward": 49.25,
+          "flags": [
+            "shape_controls_have_low_observed_effect",
+            "native_co_below_best_public_baseline",
+            "action_distribution_weakly_sensitive_to_shape"
+          ],
+          "l1_action_distance_to_native": {
+            "bandit_like": 0.0,
+            "middle": 0.0,
+            "native": 0.0,
+            "neutral": 0.0,
+            "renewal_like": 0.0
+          },
+          "likely_bucket": "controls_or_readout_are_insensitive",
+          "max_l1_action_distance_to_native": 0.0,
+          "native_mean_reward": 49.25,
+          "native_minus_best_public_baseline": -7.0,
+          "native_shape_rank": 1,
+          "shape_reward_spread": 0.0
+        },
+        "middle": {
+          "best_public_baseline": "threshold",
+          "best_public_baseline_mean_reward": 61.350000000000016,
+          "best_shape_label": "native",
+          "best_shape_mean_reward": 42.25000000000001,
+          "flags": [
+            "shape_controls_have_low_observed_effect",
+            "native_co_below_best_public_baseline",
+            "action_distribution_weakly_sensitive_to_shape",
+            "native_co_overruns_relative_to_degradation_regime"
+          ],
+          "l1_action_distance_to_native": {
+            "bandit_like": 0.0,
+            "middle": 0.0,
+            "native": 0.0,
+            "neutral": 0.0,
+            "renewal_like": 0.0
+          },
+          "likely_bucket": "controls_or_readout_are_insensitive",
+          "max_l1_action_distance_to_native": 0.0,
+          "native_mean_reward": 42.25000000000001,
+          "native_minus_best_public_baseline": -19.10000000000001,
+          "native_shape_rank": 1,
+          "shape_reward_spread": 0.0
+        },
+        "renewal_like": {
+          "best_public_baseline": "q_learning",
+          "best_public_baseline_mean_reward": 23.89999999999999,
+          "best_shape_label": "native",
+          "best_shape_mean_reward": 30.09999999999999,
+          "flags": [],
+          "l1_action_distance_to_native": {
+            "bandit_like": 0.86,
+            "middle": 0.28,
+            "native": 0.0,
+            "neutral": 0.0,
+            "renewal_like": 0.0
+          },
+          "likely_bucket": "no_clear_failure_from_this_small_validation",
+          "max_l1_action_distance_to_native": 0.86,
+          "native_mean_reward": 30.09999999999999,
+          "native_minus_best_public_baseline": 6.199999999999999,
+          "native_shape_rank": 1,
+          "shape_reward_spread": 52.44999999999999
+        }
+      }
+    },
+    "shape_derivation": [
+      {
+        "direct_controls": {
+          "axes": {
+            "collapse_admissibility": 0.8800000000000001,
+            "local_authority": 0.8600000000000001,
+            "nonlocal_authority": 0.28,
+            "path_sensitivity": 0.35,
+            "revision_permissibility": 0.15500000000000003,
+            "rival_breadth": 0.23,
+            "support_carry_forward": 0.895
+          },
+          "notes": "Direct runtime controls projected from the 6-question canonical shape prior.",
+          "schema": "co_direct_controls_v2",
+          "source": "shape_prior6_direct_projection",
+          "status": "active_canonical_projection"
+        },
+        "observation_mode": "direct",
+        "problem_contract": {
+          "actions": {
+            "count": 5,
+            "labels": [
+              "RUN",
+              "INSPECT",
+              "REPAIR",
+              "REPLACE",
+              "WAIT"
+            ],
+            "native_type": "discrete_control"
+          },
+          "decision_scope": "anchor",
+          "hard_constraints": [
+            "finite_health_state",
+            "legal_action_set"
+          ],
+          "mutable_factors": [
+            "low_rate_health_degradation"
+          ],
+          "notes": "maintenance/replacement MDP public contract; no true hidden health or optimal policy exposed",
+          "observability_profile": {
+            "constraints": "direct",
+            "outcome": "direct",
+            "state": "direct"
+          },
+          "observation_channels": [
+            "observed_health",
+            "public_costs",
+            "action_feedback",
+            "history"
+          ],
+          "regime_anchors": [
+            "machine_identity",
+            "health_state",
+            "maintenance_action_identities"
+          ],
+          "reversibility_profile": {
+            "action_reversibility": "partly_reversible",
+            "commitment_cost": "low",
+            "notes": "running can create deferred repair/failure burden; repair/replacement can partially reset"
+          },
+          "soft_costs": [
+            "repair_cost",
+            "replace_cost",
+            "inspect_cost",
+            "failure_penalty"
+          ],
+          "source": "maintenance_replacement_adapter",
+          "status": "declared",
+          "task_anchor": {
+            "kind": "reward_maximization",
+            "notes": "maximize uptime/reward net of maintenance and failure costs",
+            "provided_externally": true
+          },
+          "timescale_profile": {
+            "drift": "fixed",
+            "horizon_fixity": "fixed",
+            "notes": "health evolves under public degradation/repair dynamics"
+          }
+        },
+        "regime": "bandit_like",
+        "shape_prior6": {
+          "axes": {
+            "consequence_span": 0.5,
+            "hidden_decisiveness": 0.0,
+            "local_cue_reliability": 1.0,
+            "reshapeability": 0.0,
+            "revision_cost": 0.25,
+            "topology_constraint": 0.5
+          },
+          "notes": "Derived from the six canonical generic regime questions using public problem specification fields only.",
+          "raw_axes_before_quantization": {
+            "consequence_span": 0.46599999999999997,
+            "hidden_decisiveness": 0.0,
+            "local_cue_reliability": 0.95,
+            "reshapeability": 0.12000000000000001,
+            "revision_cost": 0.35750000000000004,
+            "topology_constraint": 0.54375
+          },
+          "schema": "co_shape_prior6_v2",
+          "score_values": [
+            0.0,
+            0.25,
+            0.5,
+            0.75,
+            1.0
+          ],
+          "source": "problem_contract_questionnaire",
+          "status": "derived_from_public_problem_contract"
+        }
+      },
+      {
+        "direct_controls": {
+          "axes": {
+            "collapse_admissibility": 0.7000000000000002,
+            "local_authority": 0.6950000000000001,
+            "nonlocal_authority": 0.38,
+            "path_sensitivity": 0.46,
+            "revision_permissibility": 0.38500000000000006,
+            "rival_breadth": 0.36,
+            "support_carry_forward": 0.6500000000000001
+          },
+          "notes": "Direct runtime controls projected from the 6-question canonical shape prior.",
+          "schema": "co_direct_controls_v2",
+          "source": "shape_prior6_direct_projection",
+          "status": "active_canonical_projection"
+        },
+        "observation_mode": "partial",
+        "problem_contract": {
+          "actions": {
+            "count": 5,
+            "labels": [
+              "RUN",
+              "INSPECT",
+              "REPAIR",
+              "REPLACE",
+              "WAIT"
+            ],
+            "native_type": "discrete_control"
+          },
+          "decision_scope": "anchor",
+          "hard_constraints": [
+            "finite_health_state",
+            "legal_action_set"
+          ],
+          "mutable_factors": [
+            "health_degradation",
+            "repair_or_replacement_resets_state",
+            "inspection_changes_information"
+          ],
+          "notes": "maintenance/replacement MDP public contract; no true hidden health or optimal policy exposed",
+          "observability_profile": {
+            "constraints": "direct",
+            "outcome": "direct",
+            "state": "partial"
+          },
+          "observation_channels": [
+            "observed_health",
+            "public_costs",
+            "action_feedback",
+            "history"
+          ],
+          "regime_anchors": [
+            "machine_identity",
+            "health_state",
+            "maintenance_action_identities"
+          ],
+          "reversibility_profile": {
+            "action_reversibility": "partly_reversible",
+            "commitment_cost": "medium",
+            "notes": "running can create deferred repair/failure burden; repair/replacement can partially reset"
+          },
+          "soft_costs": [
+            "repair_cost",
+            "replace_cost",
+            "inspect_cost",
+            "failure_penalty"
+          ],
+          "source": "maintenance_replacement_adapter",
+          "status": "declared",
+          "task_anchor": {
+            "kind": "reward_maximization",
+            "notes": "maximize uptime/reward net of maintenance and failure costs",
+            "provided_externally": true
+          },
+          "timescale_profile": {
+            "drift": "slow",
+            "horizon_fixity": "fixed",
+            "notes": "health evolves under public degradation/repair dynamics"
+          }
+        },
+        "regime": "middle",
+        "shape_prior6": {
+          "axes": {
+            "consequence_span": 0.5,
+            "hidden_decisiveness": 0.0,
+            "local_cue_reliability": 0.75,
+            "reshapeability": 0.5,
+            "revision_cost": 0.5,
+            "topology_constraint": 0.5
+          },
+          "notes": "Derived from the six canonical generic regime questions using public problem specification fields only.",
+          "raw_axes_before_quantization": {
+            "consequence_span": 0.624,
+            "hidden_decisiveness": 0.105,
+            "local_cue_reliability": 0.8125000000000001,
+            "reshapeability": 0.38499999999999995,
+            "revision_cost": 0.55,
+            "topology_constraint": 0.54375
+          },
+          "schema": "co_shape_prior6_v2",
+          "score_values": [
+            0.0,
+            0.25,
+            0.5,
+            0.75,
+            1.0
+          ],
+          "source": "problem_contract_questionnaire",
+          "status": "derived_from_public_problem_contract"
+        }
+      },
+      {
+        "direct_controls": {
+          "axes": {
+            "collapse_admissibility": 0.56,
+            "local_authority": 0.5650000000000001,
+            "nonlocal_authority": 0.595,
+            "path_sensitivity": 0.65,
+            "revision_permissibility": 0.61,
+            "rival_breadth": 0.51,
+            "support_carry_forward": 0.4600000000000001
+          },
+          "notes": "Direct runtime controls projected from the 6-question canonical shape prior.",
+          "schema": "co_direct_controls_v2",
+          "source": "shape_prior6_direct_projection",
+          "status": "active_canonical_projection"
+        },
+        "observation_mode": "hidden",
+        "problem_contract": {
+          "actions": {
+            "count": 5,
+            "labels": [
+              "RUN",
+              "INSPECT",
+              "REPAIR",
+              "REPLACE",
+              "WAIT"
+            ],
+            "native_type": "discrete_control"
+          },
+          "decision_scope": "anchor",
+          "hard_constraints": [
+            "finite_health_state",
+            "legal_action_set"
+          ],
+          "mutable_factors": [
+            "health_degradation",
+            "repair_or_replacement_resets_state",
+            "inspection_changes_information"
+          ],
+          "notes": "maintenance/replacement MDP public contract; no true hidden health or optimal policy exposed",
+          "observability_profile": {
+            "constraints": "direct",
+            "outcome": "direct",
+            "state": "indirect"
+          },
+          "observation_channels": [
+            "observed_health",
+            "public_costs",
+            "action_feedback",
+            "history"
+          ],
+          "regime_anchors": [
+            "machine_identity",
+            "health_state",
+            "maintenance_action_identities"
+          ],
+          "reversibility_profile": {
+            "action_reversibility": "partly_reversible",
+            "commitment_cost": "high",
+            "notes": "running can create deferred repair/failure burden; repair/replacement can partially reset"
+          },
+          "soft_costs": [
+            "repair_cost",
+            "replace_cost",
+            "inspect_cost",
+            "failure_penalty"
+          ],
+          "source": "maintenance_replacement_adapter",
+          "status": "declared",
+          "task_anchor": {
+            "kind": "reward_maximization",
+            "notes": "maximize uptime/reward net of maintenance and failure costs",
+            "provided_externally": true
+          },
+          "timescale_profile": {
+            "drift": "active",
+            "horizon_fixity": "fixed",
+            "notes": "health evolves under public degradation/repair dynamics"
+          }
+        },
+        "regime": "renewal_like",
+        "shape_prior6": {
+          "axes": {
+            "consequence_span": 0.75,
+            "hidden_decisiveness": 0.25,
+            "local_cue_reliability": 0.75,
+            "reshapeability": 0.75,
+            "revision_cost": 0.75,
+            "topology_constraint": 0.5
+          },
+          "notes": "Derived from the six canonical generic regime questions using public problem specification fields only.",
+          "raw_axes_before_quantization": {
+            "consequence_span": 0.722,
+            "hidden_decisiveness": 0.21,
+            "local_cue_reliability": 0.725,
+            "reshapeability": 0.655,
+            "revision_cost": 0.7425,
+            "topology_constraint": 0.54375
+          },
+          "schema": "co_shape_prior6_v2",
+          "score_values": [
+            0.0,
+            0.25,
+            0.5,
+            0.75,
+            1.0
+          ],
+          "source": "problem_contract_questionnaire",
+          "status": "derived_from_public_problem_contract"
+        }
+      }
+    ],
+    "wrong_shape_tests": {
+      "aggregate": [
+        {
+          "action_counts_total": {
+            "INSPECT": 0,
+            "REPAIR": 0,
+            "REPLACE": 0,
+            "RUN": 60,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0,
+            "REPLACE": 0.0,
+            "RUN": 1.0,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "max_total_reward": 49.25,
+          "mean_total_reward": 49.25,
+          "metrics_mean": {
+            "mean_co_weight": 0.6621128068731247,
+            "mean_collapse_admissibility": 0.8800000000000001,
+            "mean_commit_readiness": 0.4191698379687321,
+            "mean_evidence_gate": 0.8712491509805848,
+            "mean_evidence_margin": 0.19942584424079696,
+            "mean_evidence_support": 0.6185542314969253,
+            "mean_fracture_tolerance": 0.22262958688015427,
+            "mean_local_authority": 0.8600000000000001,
+            "mean_nonlocal_authority": 0.28,
+            "mean_path_sensitivity": 0.35,
+            "mean_retention_depth": 0.7808095020258596,
+            "mean_revision_permissibility": 0.15500000000000003,
+            "mean_rival_breadth": 0.23,
+            "mean_support_carry_forward": 0.895,
+            "mean_support_evidence": 0.872650456095877,
+            "shape_override_packet_seen": 1.0
+          },
+          "min_total_reward": 49.25,
+          "n": 1,
+          "regime": "bandit_like",
+          "shape_label": "bandit_like",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 0,
+            "REPAIR": 0,
+            "REPLACE": 0,
+            "RUN": 60,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0,
+            "REPLACE": 0.0,
+            "RUN": 1.0,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "max_total_reward": 49.25,
+          "mean_total_reward": 49.25,
+          "metrics_mean": {
+            "mean_co_weight": 0.7215143092246457,
+            "mean_collapse_admissibility": 0.7000000000000002,
+            "mean_commit_readiness": 0.32301274231585125,
+            "mean_evidence_gate": 0.7387180619409004,
+            "mean_evidence_margin": 0.124435306404927,
+            "mean_evidence_support": 0.49399784986478706,
+            "mean_fracture_tolerance": 0.40055147827476756,
+            "mean_local_authority": 0.6950000000000001,
+            "mean_nonlocal_authority": 0.38,
+            "mean_path_sensitivity": 0.46,
+            "mean_retention_depth": 0.6360038099616833,
+            "mean_revision_permissibility": 0.38500000000000006,
+            "mean_rival_breadth": 0.36,
+            "mean_support_carry_forward": 0.6500000000000001,
+            "mean_support_evidence": 0.7849004560958771,
+            "shape_override_packet_seen": 1.0
+          },
+          "min_total_reward": 49.25,
+          "n": 1,
+          "regime": "bandit_like",
+          "shape_label": "middle",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 0,
+            "REPAIR": 0,
+            "REPLACE": 0,
+            "RUN": 60,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0,
+            "REPLACE": 0.0,
+            "RUN": 1.0,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "max_total_reward": 49.25,
+          "mean_total_reward": 49.25,
+          "metrics_mean": {
+            "mean_co_weight": 0.6621128068731247,
+            "mean_collapse_admissibility": 0.8800000000000001,
+            "mean_commit_readiness": 0.4191698379687321,
+            "mean_evidence_gate": 0.8712491509805848,
+            "mean_evidence_margin": 0.19942584424079696,
+            "mean_evidence_support": 0.6185542314969253,
+            "mean_fracture_tolerance": 0.22262958688015427,
+            "mean_local_authority": 0.8600000000000001,
+            "mean_nonlocal_authority": 0.28,
+            "mean_path_sensitivity": 0.35,
+            "mean_retention_depth": 0.7808095020258596,
+            "mean_revision_permissibility": 0.15500000000000003,
+            "mean_rival_breadth": 0.23,
+            "mean_support_carry_forward": 0.895,
+            "mean_support_evidence": 0.872650456095877,
+            "shape_override_packet_seen": 0.0
+          },
+          "min_total_reward": 49.25,
+          "n": 1,
+          "regime": "bandit_like",
+          "shape_label": "native",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 0,
+            "REPAIR": 0,
+            "REPLACE": 0,
+            "RUN": 60,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0,
+            "REPLACE": 0.0,
+            "RUN": 1.0,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "max_total_reward": 49.25,
+          "mean_total_reward": 49.25,
+          "metrics_mean": {
+            "mean_co_weight": 0.7599442522134603,
+            "mean_collapse_admissibility": 0.5400000000000001,
+            "mean_commit_readiness": 0.24245615634907985,
+            "mean_evidence_gate": 0.5496724981500556,
+            "mean_evidence_margin": 0.058055193302185365,
+            "mean_evidence_support": 0.38530593408254277,
+            "mean_fracture_tolerance": 0.5196059054654719,
+            "mean_local_authority": 0.5,
+            "mean_nonlocal_authority": 0.49999999999999994,
+            "mean_path_sensitivity": 0.5,
+            "mean_retention_depth": 0.5352919209427999,
+            "mean_revision_permissibility": 0.5,
+            "mean_rival_breadth": 0.49999999999999994,
+            "mean_support_carry_forward": 0.5,
+            "mean_support_evidence": 0.707400456095877,
+            "shape_override_packet_seen": 1.0
+          },
+          "min_total_reward": 49.25,
+          "n": 1,
+          "regime": "bandit_like",
+          "shape_label": "neutral",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 0,
+            "REPAIR": 0,
+            "REPLACE": 0,
+            "RUN": 60,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0,
+            "REPLACE": 0.0,
+            "RUN": 1.0,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "max_total_reward": 49.25,
+          "mean_total_reward": 49.25,
+          "metrics_mean": {
+            "mean_co_weight": 0.7759619014423884,
+            "mean_collapse_admissibility": 0.56,
+            "mean_commit_readiness": 0.24459978268566812,
+            "mean_evidence_gate": 0.5546112104815407,
+            "mean_evidence_margin": 0.05380097858158804,
+            "mean_evidence_support": 0.3935582707379788,
+            "mean_fracture_tolerance": 0.5872434491747046,
+            "mean_local_authority": 0.5650000000000001,
+            "mean_nonlocal_authority": 0.595,
+            "mean_path_sensitivity": 0.65,
+            "mean_retention_depth": 0.5329214438710975,
+            "mean_revision_permissibility": 0.61,
+            "mean_rival_breadth": 0.51,
+            "mean_support_carry_forward": 0.4600000000000001,
+            "mean_support_evidence": 0.716400456095877,
+            "shape_override_packet_seen": 1.0
+          },
+          "min_total_reward": 49.25,
+          "n": 1,
+          "regime": "bandit_like",
+          "shape_label": "renewal_like",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 0,
+            "REPAIR": 5,
+            "REPLACE": 0,
+            "RUN": 75,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0625,
+            "REPLACE": 0.0,
+            "RUN": 0.9375,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "max_total_reward": 42.25000000000001,
+          "mean_total_reward": 42.25000000000001,
+          "metrics_mean": {
+            "mean_co_weight": 0.6755743713987727,
+            "mean_collapse_admissibility": 0.8800000000000001,
+            "mean_commit_readiness": 0.3163379633351759,
+            "mean_evidence_gate": 0.8013120612190346,
+            "mean_evidence_margin": 0.0942929509505007,
+            "mean_evidence_support": 0.49315603068672936,
+            "mean_fracture_tolerance": 0.22263041523105465,
+            "mean_local_authority": 0.8600000000000001,
+            "mean_nonlocal_authority": 0.28,
+            "mean_path_sensitivity": 0.35,
+            "mean_retention_depth": 0.7808085057613303,
+            "mean_revision_permissibility": 0.15500000000000003,
+            "mean_rival_breadth": 0.23,
+            "mean_support_carry_forward": 0.895,
+            "mean_support_evidence": 0.8034746727929353,
+            "shape_override_packet_seen": 1.0
+          },
+          "min_total_reward": 42.25000000000001,
+          "n": 1,
+          "regime": "middle",
+          "shape_label": "bandit_like",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 0,
+            "REPAIR": 5,
+            "REPLACE": 0,
+            "RUN": 75,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0625,
+            "REPLACE": 0.0,
+            "RUN": 0.9375,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "max_total_reward": 42.25000000000001,
+          "mean_total_reward": 42.25000000000001,
+          "metrics_mean": {
+            "mean_co_weight": 0.7309513170345878,
+            "mean_collapse_admissibility": 0.7000000000000002,
+            "mean_commit_readiness": 0.24365462651015116,
+            "mean_evidence_gate": 0.654689877710396,
+            "mean_evidence_margin": 0.04173793961260959,
+            "mean_evidence_support": 0.39690758463811915,
+            "mean_fracture_tolerance": 0.40055231695495236,
+            "mean_local_authority": 0.6950000000000001,
+            "mean_nonlocal_authority": 0.38,
+            "mean_path_sensitivity": 0.46,
+            "mean_retention_depth": 0.6360027681164238,
+            "mean_revision_permissibility": 0.38500000000000006,
+            "mean_rival_breadth": 0.36,
+            "mean_support_carry_forward": 0.6500000000000001,
+            "mean_support_evidence": 0.7157246727929353,
+            "shape_override_packet_seen": 1.0
+          },
+          "min_total_reward": 42.25000000000001,
+          "n": 1,
+          "regime": "middle",
+          "shape_label": "middle",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 0,
+            "REPAIR": 5,
+            "REPLACE": 0,
+            "RUN": 75,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0625,
+            "REPLACE": 0.0,
+            "RUN": 0.9375,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "max_total_reward": 42.25000000000001,
+          "mean_total_reward": 42.25000000000001,
+          "metrics_mean": {
+            "mean_co_weight": 0.7309513170345878,
+            "mean_collapse_admissibility": 0.7000000000000002,
+            "mean_commit_readiness": 0.24365462651015116,
+            "mean_evidence_gate": 0.654689877710396,
+            "mean_evidence_margin": 0.04173793961260959,
+            "mean_evidence_support": 0.39690758463811915,
+            "mean_fracture_tolerance": 0.40055231695495236,
+            "mean_local_authority": 0.6950000000000001,
+            "mean_nonlocal_authority": 0.38,
+            "mean_path_sensitivity": 0.46,
+            "mean_retention_depth": 0.6360027681164238,
+            "mean_revision_permissibility": 0.38500000000000006,
+            "mean_rival_breadth": 0.36,
+            "mean_support_carry_forward": 0.6500000000000001,
+            "mean_support_evidence": 0.7157246727929353,
+            "shape_override_packet_seen": 0.0
+          },
+          "min_total_reward": 42.25000000000001,
+          "n": 1,
+          "regime": "middle",
+          "shape_label": "native",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 0,
+            "REPAIR": 5,
+            "REPLACE": 0,
+            "RUN": 75,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0625,
+            "REPLACE": 0.0,
+            "RUN": 0.9375,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "max_total_reward": 42.25000000000001,
+          "mean_total_reward": 42.25000000000001,
+          "metrics_mean": {
+            "mean_co_weight": 0.7674168216673841,
+            "mean_collapse_admissibility": 0.5400000000000001,
+            "mean_commit_readiness": 0.19269961089113294,
+            "mean_evidence_gate": 0.4432066468233441,
+            "mean_evidence_margin": 0.015429100213194887,
+            "mean_evidence_support": 0.313986592104295,
+            "mean_fracture_tolerance": 0.5196067518684011,
+            "mean_local_authority": 0.5,
+            "mean_nonlocal_authority": 0.49999999999999994,
+            "mean_path_sensitivity": 0.5,
+            "mean_retention_depth": 0.5352908511909709,
+            "mean_revision_permissibility": 0.5,
+            "mean_rival_breadth": 0.49999999999999994,
+            "mean_support_carry_forward": 0.5,
+            "mean_support_evidence": 0.6382246727929352,
+            "shape_override_packet_seen": 1.0
+          },
+          "min_total_reward": 42.25000000000001,
+          "n": 1,
+          "regime": "middle",
+          "shape_label": "neutral",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 0,
+            "REPAIR": 5,
+            "REPLACE": 0,
+            "RUN": 75,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0625,
+            "REPLACE": 0.0,
+            "RUN": 0.9375,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "max_total_reward": 42.25000000000001,
+          "mean_total_reward": 42.25000000000001,
+          "metrics_mean": {
+            "mean_co_weight": 0.7836796811847878,
+            "mean_collapse_admissibility": 0.56,
+            "mean_commit_readiness": 0.1981961074608547,
+            "mean_evidence_gate": 0.4459713404290598,
+            "mean_evidence_margin": 0.01624000001330729,
+            "mean_evidence_support": 0.3225486612377697,
+            "mean_fracture_tolerance": 0.5872442933388625,
+            "mean_local_authority": 0.5650000000000001,
+            "mean_nonlocal_authority": 0.595,
+            "mean_path_sensitivity": 0.65,
+            "mean_retention_depth": 0.5329203666775166,
+            "mean_revision_permissibility": 0.61,
+            "mean_rival_breadth": 0.51,
+            "mean_support_carry_forward": 0.4600000000000001,
+            "mean_support_evidence": 0.6472246727929353,
+            "shape_override_packet_seen": 1.0
+          },
+          "min_total_reward": 42.25000000000001,
+          "n": 1,
+          "regime": "middle",
+          "shape_label": "renewal_like",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 1,
+            "REPAIR": 0,
+            "REPLACE": 0,
+            "RUN": 99,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.01,
+            "REPAIR": 0.0,
+            "REPLACE": 0.0,
+            "RUN": 0.99,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "max_total_reward": -22.35,
+          "mean_total_reward": -22.35,
+          "metrics_mean": {
+            "mean_co_weight": 0.6749725376128911,
+            "mean_collapse_admissibility": 0.8800000000000001,
+            "mean_commit_readiness": 0.2258067628132312,
+            "mean_evidence_gate": 0.6133156510403983,
+            "mean_evidence_margin": 0.027041350830749454,
+            "mean_evidence_support": 0.36920219858446773,
+            "mean_fracture_tolerance": 0.22263091224159484,
+            "mean_local_authority": 0.8600000000000001,
+            "mean_nonlocal_authority": 0.28,
+            "mean_path_sensitivity": 0.35,
+            "mean_retention_depth": 0.7808079080026126,
+            "mean_revision_permissibility": 0.15500000000000003,
+            "mean_rival_breadth": 0.23,
+            "mean_support_carry_forward": 0.895,
+            "mean_support_evidence": 0.6175245373375501,
+            "shape_override_packet_seen": 1.0
+          },
+          "min_total_reward": -22.35,
+          "n": 1,
+          "regime": "renewal_like",
+          "shape_label": "bandit_like",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 20,
+            "REPAIR": 14,
+            "REPLACE": 0,
+            "RUN": 66,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.2,
+            "REPAIR": 0.14,
+            "REPLACE": 0.0,
+            "RUN": 0.66,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "max_total_reward": 19.65,
+          "mean_total_reward": 19.65,
+          "metrics_mean": {
+            "mean_co_weight": 0.7368049798721636,
+            "mean_collapse_admissibility": 0.7000000000000002,
+            "mean_commit_readiness": 0.2104541849177714,
+            "mean_evidence_gate": 0.5672069106883019,
+            "mean_evidence_margin": 0.03319204998771279,
+            "mean_evidence_support": 0.33152718541132753,
+            "mean_fracture_tolerance": 0.40055282016306326,
+            "mean_local_authority": 0.6950000000000001,
+            "mean_nonlocal_authority": 0.38,
+            "mean_path_sensitivity": 0.46,
+            "mean_retention_depth": 0.636002143009268,
+            "mean_revision_permissibility": 0.38500000000000006,
+            "mean_rival_breadth": 0.36,
+            "mean_support_carry_forward": 0.6500000000000001,
+            "mean_support_evidence": 0.6437045279625502,
+            "shape_override_packet_seen": 1.0
+          },
+          "min_total_reward": 19.65,
+          "n": 1,
+          "regime": "renewal_like",
+          "shape_label": "middle",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 34,
+            "REPAIR": 10,
+            "REPLACE": 0,
+            "RUN": 56,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.34,
+            "REPAIR": 0.1,
+            "REPLACE": 0.0,
+            "RUN": 0.56,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "max_total_reward": 30.09999999999999,
+          "mean_total_reward": 30.09999999999999,
+          "metrics_mean": {
+            "mean_co_weight": 0.7939443645820283,
+            "mean_collapse_admissibility": 0.56,
+            "mean_commit_readiness": 0.18445691747799345,
+            "mean_evidence_gate": 0.39165223425527756,
+            "mean_evidence_margin": 0.02389158174658998,
+            "mean_evidence_support": 0.2908154919299312,
+            "mean_fracture_tolerance": 0.5872447998373573,
+            "mean_local_authority": 0.5650000000000001,
+            "mean_nonlocal_authority": 0.595,
+            "mean_path_sensitivity": 0.65,
+            "mean_retention_depth": 0.5329197203613681,
+            "mean_revision_permissibility": 0.61,
+            "mean_rival_breadth": 0.51,
+            "mean_support_carry_forward": 0.4600000000000001,
+            "mean_support_evidence": 0.6126370467125501,
+            "shape_override_packet_seen": 0.0
+          },
+          "min_total_reward": 30.09999999999999,
+          "n": 1,
+          "regime": "renewal_like",
+          "shape_label": "native",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 34,
+            "REPAIR": 10,
+            "REPLACE": 0,
+            "RUN": 56,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.34,
+            "REPAIR": 0.1,
+            "REPLACE": 0.0,
+            "RUN": 0.56,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "max_total_reward": 30.09999999999999,
+          "mean_total_reward": 30.09999999999999,
+          "metrics_mean": {
+            "mean_co_weight": 0.7774405850341105,
+            "mean_collapse_admissibility": 0.5400000000000001,
+            "mean_commit_readiness": 0.17789844197716556,
+            "mean_evidence_gate": 0.3883647853668292,
+            "mean_evidence_margin": 0.022790854888473506,
+            "mean_evidence_support": 0.2794910771038664,
+            "mean_fracture_tolerance": 0.5196072597101586,
+            "mean_local_authority": 0.5,
+            "mean_nonlocal_authority": 0.49999999999999994,
+            "mean_path_sensitivity": 0.5,
+            "mean_retention_depth": 0.5352902093398735,
+            "mean_revision_permissibility": 0.5,
+            "mean_rival_breadth": 0.49999999999999994,
+            "mean_support_carry_forward": 0.5,
+            "mean_support_evidence": 0.6025911185875501,
+            "shape_override_packet_seen": 1.0
+          },
+          "min_total_reward": 30.09999999999999,
+          "n": 1,
+          "regime": "renewal_like",
+          "shape_label": "neutral",
+          "std_total_reward": 0.0
+        },
+        {
+          "action_counts_total": {
+            "INSPECT": 34,
+            "REPAIR": 10,
+            "REPLACE": 0,
+            "RUN": 56,
+            "WAIT": 0
+          },
+          "action_rates_meaned_by_step": {
+            "INSPECT": 0.34,
+            "REPAIR": 0.1,
+            "REPLACE": 0.0,
+            "RUN": 0.56,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "max_total_reward": 30.09999999999999,
+          "mean_total_reward": 30.09999999999999,
+          "metrics_mean": {
+            "mean_co_weight": 0.7939443645820283,
+            "mean_collapse_admissibility": 0.56,
+            "mean_commit_readiness": 0.18445691747799345,
+            "mean_evidence_gate": 0.39165223425527756,
+            "mean_evidence_margin": 0.02389158174658998,
+            "mean_evidence_support": 0.2908154919299312,
+            "mean_fracture_tolerance": 0.5872447998373573,
+            "mean_local_authority": 0.5650000000000001,
+            "mean_nonlocal_authority": 0.595,
+            "mean_path_sensitivity": 0.65,
+            "mean_retention_depth": 0.5329197203613681,
+            "mean_revision_permissibility": 0.61,
+            "mean_rival_breadth": 0.51,
+            "mean_support_carry_forward": 0.4600000000000001,
+            "mean_support_evidence": 0.6126370467125501,
+            "shape_override_packet_seen": 1.0
+          },
+          "min_total_reward": 30.09999999999999,
+          "n": 1,
+          "regime": "renewal_like",
+          "shape_label": "renewal_like",
+          "std_total_reward": 0.0
+        }
+      ],
+      "rows": [
+        {
+          "action_counts": {
+            "INSPECT": 0,
+            "REPAIR": 0,
+            "REPLACE": 0,
+            "RUN": 60,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0,
+            "REPLACE": 0.0,
+            "RUN": 1.0,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "family": "maintenance_replacement",
+          "final_health_true": 2,
+          "horizon": 60,
+          "metrics": {
+            "mean_co_weight": 0.6621128068731247,
+            "mean_collapse_admissibility": 0.8800000000000001,
+            "mean_commit_readiness": 0.4191698379687321,
+            "mean_evidence_gate": 0.8712491509805848,
+            "mean_evidence_margin": 0.19942584424079696,
+            "mean_evidence_support": 0.6185542314969253,
+            "mean_fracture_tolerance": 0.22262958688015427,
+            "mean_local_authority": 0.8600000000000001,
+            "mean_nonlocal_authority": 0.28,
+            "mean_path_sensitivity": 0.35,
+            "mean_retention_depth": 0.7808095020258596,
+            "mean_revision_permissibility": 0.15500000000000003,
+            "mean_rival_breadth": 0.23,
+            "mean_support_carry_forward": 0.895,
+            "mean_support_evidence": 0.872650456095877,
+            "shape_override_packet_seen": false
+          },
+          "observation_mode": "direct",
+          "regime": "bandit_like",
+          "seed": 0,
+          "shape_label": "native",
+          "steps": 60,
+          "total_reward": 49.25
+        },
+        {
+          "action_counts": {
+            "INSPECT": 0,
+            "REPAIR": 0,
+            "REPLACE": 0,
+            "RUN": 60,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0,
+            "REPLACE": 0.0,
+            "RUN": 1.0,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "family": "maintenance_replacement",
+          "final_health_true": 2,
+          "horizon": 60,
+          "metrics": {
+            "mean_co_weight": 0.6621128068731247,
+            "mean_collapse_admissibility": 0.8800000000000001,
+            "mean_commit_readiness": 0.4191698379687321,
+            "mean_evidence_gate": 0.8712491509805848,
+            "mean_evidence_margin": 0.19942584424079696,
+            "mean_evidence_support": 0.6185542314969253,
+            "mean_fracture_tolerance": 0.22262958688015427,
+            "mean_local_authority": 0.8600000000000001,
+            "mean_nonlocal_authority": 0.28,
+            "mean_path_sensitivity": 0.35,
+            "mean_retention_depth": 0.7808095020258596,
+            "mean_revision_permissibility": 0.15500000000000003,
+            "mean_rival_breadth": 0.23,
+            "mean_support_carry_forward": 0.895,
+            "mean_support_evidence": 0.872650456095877,
+            "shape_override_packet_seen": true
+          },
+          "observation_mode": "direct",
+          "regime": "bandit_like",
+          "seed": 0,
+          "shape_label": "bandit_like",
+          "steps": 60,
+          "total_reward": 49.25
+        },
+        {
+          "action_counts": {
+            "INSPECT": 0,
+            "REPAIR": 0,
+            "REPLACE": 0,
+            "RUN": 60,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0,
+            "REPLACE": 0.0,
+            "RUN": 1.0,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "family": "maintenance_replacement",
+          "final_health_true": 2,
+          "horizon": 60,
+          "metrics": {
+            "mean_co_weight": 0.7215143092246457,
+            "mean_collapse_admissibility": 0.7000000000000002,
+            "mean_commit_readiness": 0.32301274231585125,
+            "mean_evidence_gate": 0.7387180619409004,
+            "mean_evidence_margin": 0.124435306404927,
+            "mean_evidence_support": 0.49399784986478706,
+            "mean_fracture_tolerance": 0.40055147827476756,
+            "mean_local_authority": 0.6950000000000001,
+            "mean_nonlocal_authority": 0.38,
+            "mean_path_sensitivity": 0.46,
+            "mean_retention_depth": 0.6360038099616833,
+            "mean_revision_permissibility": 0.38500000000000006,
+            "mean_rival_breadth": 0.36,
+            "mean_support_carry_forward": 0.6500000000000001,
+            "mean_support_evidence": 0.7849004560958771,
+            "shape_override_packet_seen": true
+          },
+          "observation_mode": "direct",
+          "regime": "bandit_like",
+          "seed": 0,
+          "shape_label": "middle",
+          "steps": 60,
+          "total_reward": 49.25
+        },
+        {
+          "action_counts": {
+            "INSPECT": 0,
+            "REPAIR": 0,
+            "REPLACE": 0,
+            "RUN": 60,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0,
+            "REPLACE": 0.0,
+            "RUN": 1.0,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "family": "maintenance_replacement",
+          "final_health_true": 2,
+          "horizon": 60,
+          "metrics": {
+            "mean_co_weight": 0.7759619014423884,
+            "mean_collapse_admissibility": 0.56,
+            "mean_commit_readiness": 0.24459978268566812,
+            "mean_evidence_gate": 0.5546112104815407,
+            "mean_evidence_margin": 0.05380097858158804,
+            "mean_evidence_support": 0.3935582707379788,
+            "mean_fracture_tolerance": 0.5872434491747046,
+            "mean_local_authority": 0.5650000000000001,
+            "mean_nonlocal_authority": 0.595,
+            "mean_path_sensitivity": 0.65,
+            "mean_retention_depth": 0.5329214438710975,
+            "mean_revision_permissibility": 0.61,
+            "mean_rival_breadth": 0.51,
+            "mean_support_carry_forward": 0.4600000000000001,
+            "mean_support_evidence": 0.716400456095877,
+            "shape_override_packet_seen": true
+          },
+          "observation_mode": "direct",
+          "regime": "bandit_like",
+          "seed": 0,
+          "shape_label": "renewal_like",
+          "steps": 60,
+          "total_reward": 49.25
+        },
+        {
+          "action_counts": {
+            "INSPECT": 0,
+            "REPAIR": 0,
+            "REPLACE": 0,
+            "RUN": 60,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0,
+            "REPLACE": 0.0,
+            "RUN": 1.0,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "family": "maintenance_replacement",
+          "final_health_true": 2,
+          "horizon": 60,
+          "metrics": {
+            "mean_co_weight": 0.7599442522134603,
+            "mean_collapse_admissibility": 0.5400000000000001,
+            "mean_commit_readiness": 0.24245615634907985,
+            "mean_evidence_gate": 0.5496724981500556,
+            "mean_evidence_margin": 0.058055193302185365,
+            "mean_evidence_support": 0.38530593408254277,
+            "mean_fracture_tolerance": 0.5196059054654719,
+            "mean_local_authority": 0.5,
+            "mean_nonlocal_authority": 0.49999999999999994,
+            "mean_path_sensitivity": 0.5,
+            "mean_retention_depth": 0.5352919209427999,
+            "mean_revision_permissibility": 0.5,
+            "mean_rival_breadth": 0.49999999999999994,
+            "mean_support_carry_forward": 0.5,
+            "mean_support_evidence": 0.707400456095877,
+            "shape_override_packet_seen": true
+          },
+          "observation_mode": "direct",
+          "regime": "bandit_like",
+          "seed": 0,
+          "shape_label": "neutral",
+          "steps": 60,
+          "total_reward": 49.25
+        },
+        {
+          "action_counts": {
+            "INSPECT": 0,
+            "REPAIR": 5,
+            "REPLACE": 0,
+            "RUN": 75,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0625,
+            "REPLACE": 0.0,
+            "RUN": 0.9375,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "family": "maintenance_replacement",
+          "final_health_true": 2,
+          "horizon": 80,
+          "metrics": {
+            "mean_co_weight": 0.7309513170345878,
+            "mean_collapse_admissibility": 0.7000000000000002,
+            "mean_commit_readiness": 0.24365462651015116,
+            "mean_evidence_gate": 0.654689877710396,
+            "mean_evidence_margin": 0.04173793961260959,
+            "mean_evidence_support": 0.39690758463811915,
+            "mean_fracture_tolerance": 0.40055231695495236,
+            "mean_local_authority": 0.6950000000000001,
+            "mean_nonlocal_authority": 0.38,
+            "mean_path_sensitivity": 0.46,
+            "mean_retention_depth": 0.6360027681164238,
+            "mean_revision_permissibility": 0.38500000000000006,
+            "mean_rival_breadth": 0.36,
+            "mean_support_carry_forward": 0.6500000000000001,
+            "mean_support_evidence": 0.7157246727929353,
+            "shape_override_packet_seen": false
+          },
+          "observation_mode": "partial",
+          "regime": "middle",
+          "seed": 0,
+          "shape_label": "native",
+          "steps": 80,
+          "total_reward": 42.25000000000001
+        },
+        {
+          "action_counts": {
+            "INSPECT": 0,
+            "REPAIR": 5,
+            "REPLACE": 0,
+            "RUN": 75,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0625,
+            "REPLACE": 0.0,
+            "RUN": 0.9375,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "family": "maintenance_replacement",
+          "final_health_true": 2,
+          "horizon": 80,
+          "metrics": {
+            "mean_co_weight": 0.6755743713987727,
+            "mean_collapse_admissibility": 0.8800000000000001,
+            "mean_commit_readiness": 0.3163379633351759,
+            "mean_evidence_gate": 0.8013120612190346,
+            "mean_evidence_margin": 0.0942929509505007,
+            "mean_evidence_support": 0.49315603068672936,
+            "mean_fracture_tolerance": 0.22263041523105465,
+            "mean_local_authority": 0.8600000000000001,
+            "mean_nonlocal_authority": 0.28,
+            "mean_path_sensitivity": 0.35,
+            "mean_retention_depth": 0.7808085057613303,
+            "mean_revision_permissibility": 0.15500000000000003,
+            "mean_rival_breadth": 0.23,
+            "mean_support_carry_forward": 0.895,
+            "mean_support_evidence": 0.8034746727929353,
+            "shape_override_packet_seen": true
+          },
+          "observation_mode": "partial",
+          "regime": "middle",
+          "seed": 0,
+          "shape_label": "bandit_like",
+          "steps": 80,
+          "total_reward": 42.25000000000001
+        },
+        {
+          "action_counts": {
+            "INSPECT": 0,
+            "REPAIR": 5,
+            "REPLACE": 0,
+            "RUN": 75,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0625,
+            "REPLACE": 0.0,
+            "RUN": 0.9375,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "family": "maintenance_replacement",
+          "final_health_true": 2,
+          "horizon": 80,
+          "metrics": {
+            "mean_co_weight": 0.7309513170345878,
+            "mean_collapse_admissibility": 0.7000000000000002,
+            "mean_commit_readiness": 0.24365462651015116,
+            "mean_evidence_gate": 0.654689877710396,
+            "mean_evidence_margin": 0.04173793961260959,
+            "mean_evidence_support": 0.39690758463811915,
+            "mean_fracture_tolerance": 0.40055231695495236,
+            "mean_local_authority": 0.6950000000000001,
+            "mean_nonlocal_authority": 0.38,
+            "mean_path_sensitivity": 0.46,
+            "mean_retention_depth": 0.6360027681164238,
+            "mean_revision_permissibility": 0.38500000000000006,
+            "mean_rival_breadth": 0.36,
+            "mean_support_carry_forward": 0.6500000000000001,
+            "mean_support_evidence": 0.7157246727929353,
+            "shape_override_packet_seen": true
+          },
+          "observation_mode": "partial",
+          "regime": "middle",
+          "seed": 0,
+          "shape_label": "middle",
+          "steps": 80,
+          "total_reward": 42.25000000000001
+        },
+        {
+          "action_counts": {
+            "INSPECT": 0,
+            "REPAIR": 5,
+            "REPLACE": 0,
+            "RUN": 75,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0625,
+            "REPLACE": 0.0,
+            "RUN": 0.9375,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "family": "maintenance_replacement",
+          "final_health_true": 2,
+          "horizon": 80,
+          "metrics": {
+            "mean_co_weight": 0.7836796811847878,
+            "mean_collapse_admissibility": 0.56,
+            "mean_commit_readiness": 0.1981961074608547,
+            "mean_evidence_gate": 0.4459713404290598,
+            "mean_evidence_margin": 0.01624000001330729,
+            "mean_evidence_support": 0.3225486612377697,
+            "mean_fracture_tolerance": 0.5872442933388625,
+            "mean_local_authority": 0.5650000000000001,
+            "mean_nonlocal_authority": 0.595,
+            "mean_path_sensitivity": 0.65,
+            "mean_retention_depth": 0.5329203666775166,
+            "mean_revision_permissibility": 0.61,
+            "mean_rival_breadth": 0.51,
+            "mean_support_carry_forward": 0.4600000000000001,
+            "mean_support_evidence": 0.6472246727929353,
+            "shape_override_packet_seen": true
+          },
+          "observation_mode": "partial",
+          "regime": "middle",
+          "seed": 0,
+          "shape_label": "renewal_like",
+          "steps": 80,
+          "total_reward": 42.25000000000001
+        },
+        {
+          "action_counts": {
+            "INSPECT": 0,
+            "REPAIR": 5,
+            "REPLACE": 0,
+            "RUN": 75,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.0,
+            "REPAIR": 0.0625,
+            "REPLACE": 0.0,
+            "RUN": 0.9375,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "family": "maintenance_replacement",
+          "final_health_true": 2,
+          "horizon": 80,
+          "metrics": {
+            "mean_co_weight": 0.7674168216673841,
+            "mean_collapse_admissibility": 0.5400000000000001,
+            "mean_commit_readiness": 0.19269961089113294,
+            "mean_evidence_gate": 0.4432066468233441,
+            "mean_evidence_margin": 0.015429100213194887,
+            "mean_evidence_support": 0.313986592104295,
+            "mean_fracture_tolerance": 0.5196067518684011,
+            "mean_local_authority": 0.5,
+            "mean_nonlocal_authority": 0.49999999999999994,
+            "mean_path_sensitivity": 0.5,
+            "mean_retention_depth": 0.5352908511909709,
+            "mean_revision_permissibility": 0.5,
+            "mean_rival_breadth": 0.49999999999999994,
+            "mean_support_carry_forward": 0.5,
+            "mean_support_evidence": 0.6382246727929352,
+            "shape_override_packet_seen": true
+          },
+          "observation_mode": "partial",
+          "regime": "middle",
+          "seed": 0,
+          "shape_label": "neutral",
+          "steps": 80,
+          "total_reward": 42.25000000000001
+        },
+        {
+          "action_counts": {
+            "INSPECT": 34,
+            "REPAIR": 10,
+            "REPLACE": 0,
+            "RUN": 56,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.34,
+            "REPAIR": 0.1,
+            "REPLACE": 0.0,
+            "RUN": 0.56,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "family": "maintenance_replacement",
+          "final_health_true": 2,
+          "horizon": 100,
+          "metrics": {
+            "mean_co_weight": 0.7939443645820283,
+            "mean_collapse_admissibility": 0.56,
+            "mean_commit_readiness": 0.18445691747799345,
+            "mean_evidence_gate": 0.39165223425527756,
+            "mean_evidence_margin": 0.02389158174658998,
+            "mean_evidence_support": 0.2908154919299312,
+            "mean_fracture_tolerance": 0.5872447998373573,
+            "mean_local_authority": 0.5650000000000001,
+            "mean_nonlocal_authority": 0.595,
+            "mean_path_sensitivity": 0.65,
+            "mean_retention_depth": 0.5329197203613681,
+            "mean_revision_permissibility": 0.61,
+            "mean_rival_breadth": 0.51,
+            "mean_support_carry_forward": 0.4600000000000001,
+            "mean_support_evidence": 0.6126370467125501,
+            "shape_override_packet_seen": false
+          },
+          "observation_mode": "hidden",
+          "regime": "renewal_like",
+          "seed": 0,
+          "shape_label": "native",
+          "steps": 100,
+          "total_reward": 30.09999999999999
+        },
+        {
+          "action_counts": {
+            "INSPECT": 1,
+            "REPAIR": 0,
+            "REPLACE": 0,
+            "RUN": 99,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.01,
+            "REPAIR": 0.0,
+            "REPLACE": 0.0,
+            "RUN": 0.99,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "family": "maintenance_replacement",
+          "final_health_true": 3,
+          "horizon": 100,
+          "metrics": {
+            "mean_co_weight": 0.6749725376128911,
+            "mean_collapse_admissibility": 0.8800000000000001,
+            "mean_commit_readiness": 0.2258067628132312,
+            "mean_evidence_gate": 0.6133156510403983,
+            "mean_evidence_margin": 0.027041350830749454,
+            "mean_evidence_support": 0.36920219858446773,
+            "mean_fracture_tolerance": 0.22263091224159484,
+            "mean_local_authority": 0.8600000000000001,
+            "mean_nonlocal_authority": 0.28,
+            "mean_path_sensitivity": 0.35,
+            "mean_retention_depth": 0.7808079080026126,
+            "mean_revision_permissibility": 0.15500000000000003,
+            "mean_rival_breadth": 0.23,
+            "mean_support_carry_forward": 0.895,
+            "mean_support_evidence": 0.6175245373375501,
+            "shape_override_packet_seen": true
+          },
+          "observation_mode": "hidden",
+          "regime": "renewal_like",
+          "seed": 0,
+          "shape_label": "bandit_like",
+          "steps": 100,
+          "total_reward": -22.35
+        },
+        {
+          "action_counts": {
+            "INSPECT": 20,
+            "REPAIR": 14,
+            "REPLACE": 0,
+            "RUN": 66,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.2,
+            "REPAIR": 0.14,
+            "REPLACE": 0.0,
+            "RUN": 0.66,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "family": "maintenance_replacement",
+          "final_health_true": 4,
+          "horizon": 100,
+          "metrics": {
+            "mean_co_weight": 0.7368049798721636,
+            "mean_collapse_admissibility": 0.7000000000000002,
+            "mean_commit_readiness": 0.2104541849177714,
+            "mean_evidence_gate": 0.5672069106883019,
+            "mean_evidence_margin": 0.03319204998771279,
+            "mean_evidence_support": 0.33152718541132753,
+            "mean_fracture_tolerance": 0.40055282016306326,
+            "mean_local_authority": 0.6950000000000001,
+            "mean_nonlocal_authority": 0.38,
+            "mean_path_sensitivity": 0.46,
+            "mean_retention_depth": 0.636002143009268,
+            "mean_revision_permissibility": 0.38500000000000006,
+            "mean_rival_breadth": 0.36,
+            "mean_support_carry_forward": 0.6500000000000001,
+            "mean_support_evidence": 0.6437045279625502,
+            "shape_override_packet_seen": true
+          },
+          "observation_mode": "hidden",
+          "regime": "renewal_like",
+          "seed": 0,
+          "shape_label": "middle",
+          "steps": 100,
+          "total_reward": 19.65
+        },
+        {
+          "action_counts": {
+            "INSPECT": 34,
+            "REPAIR": 10,
+            "REPLACE": 0,
+            "RUN": 56,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.34,
+            "REPAIR": 0.1,
+            "REPLACE": 0.0,
+            "RUN": 0.56,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "family": "maintenance_replacement",
+          "final_health_true": 2,
+          "horizon": 100,
+          "metrics": {
+            "mean_co_weight": 0.7939443645820283,
+            "mean_collapse_admissibility": 0.56,
+            "mean_commit_readiness": 0.18445691747799345,
+            "mean_evidence_gate": 0.39165223425527756,
+            "mean_evidence_margin": 0.02389158174658998,
+            "mean_evidence_support": 0.2908154919299312,
+            "mean_fracture_tolerance": 0.5872447998373573,
+            "mean_local_authority": 0.5650000000000001,
+            "mean_nonlocal_authority": 0.595,
+            "mean_path_sensitivity": 0.65,
+            "mean_retention_depth": 0.5329197203613681,
+            "mean_revision_permissibility": 0.61,
+            "mean_rival_breadth": 0.51,
+            "mean_support_carry_forward": 0.4600000000000001,
+            "mean_support_evidence": 0.6126370467125501,
+            "shape_override_packet_seen": true
+          },
+          "observation_mode": "hidden",
+          "regime": "renewal_like",
+          "seed": 0,
+          "shape_label": "renewal_like",
+          "steps": 100,
+          "total_reward": 30.09999999999999
+        },
+        {
+          "action_counts": {
+            "INSPECT": 34,
+            "REPAIR": 10,
+            "REPLACE": 0,
+            "RUN": 56,
+            "WAIT": 0
+          },
+          "action_rates": {
+            "INSPECT": 0.34,
+            "REPAIR": 0.1,
+            "REPLACE": 0.0,
+            "RUN": 0.56,
+            "WAIT": 0.0
+          },
+          "agent": "co",
+          "family": "maintenance_replacement",
+          "final_health_true": 2,
+          "horizon": 100,
+          "metrics": {
+            "mean_co_weight": 0.7774405850341105,
+            "mean_collapse_admissibility": 0.5400000000000001,
+            "mean_commit_readiness": 0.17789844197716556,
+            "mean_evidence_gate": 0.3883647853668292,
+            "mean_evidence_margin": 0.022790854888473506,
+            "mean_evidence_support": 0.2794910771038664,
+            "mean_fracture_tolerance": 0.5196072597101586,
+            "mean_local_authority": 0.5,
+            "mean_nonlocal_authority": 0.49999999999999994,
+            "mean_path_sensitivity": 0.5,
+            "mean_retention_depth": 0.5352902093398735,
+            "mean_revision_permissibility": 0.5,
+            "mean_rival_breadth": 0.49999999999999994,
+            "mean_support_carry_forward": 0.5,
+            "mean_support_evidence": 0.6025911185875501,
+            "shape_override_packet_seen": true
+          },
+          "observation_mode": "hidden",
+          "regime": "renewal_like",
+          "seed": 0,
+          "shape_label": "neutral",
+          "steps": 100,
+          "total_reward": 30.09999999999999
+        }
+      ],
+      "shape_library": {
+        "bandit_like": {
+          "axes": {
+            "consequence_span": 0.5,
+            "hidden_decisiveness": 0.0,
+            "local_cue_reliability": 1.0,
+            "reshapeability": 0.0,
+            "revision_cost": 0.25,
+            "topology_constraint": 0.5
+          },
+          "notes": "Derived from the six canonical generic regime questions using public problem specification fields only.",
+          "raw_axes_before_quantization": {
+            "consequence_span": 0.46599999999999997,
+            "hidden_decisiveness": 0.0,
+            "local_cue_reliability": 0.95,
+            "reshapeability": 0.12000000000000001,
+            "revision_cost": 0.35750000000000004,
+            "topology_constraint": 0.54375
+          },
+          "schema": "co_shape_prior6_v2",
+          "score_values": [
+            0.0,
+            0.25,
+            0.5,
+            0.75,
+            1.0
+          ],
+          "source": "problem_contract_questionnaire",
+          "status": "derived_from_public_problem_contract"
+        },
+        "middle": {
+          "axes": {
+            "consequence_span": 0.5,
+            "hidden_decisiveness": 0.0,
+            "local_cue_reliability": 0.75,
+            "reshapeability": 0.5,
+            "revision_cost": 0.5,
+            "topology_constraint": 0.5
+          },
+          "notes": "Derived from the six canonical generic regime questions using public problem specification fields only.",
+          "raw_axes_before_quantization": {
+            "consequence_span": 0.624,
+            "hidden_decisiveness": 0.105,
+            "local_cue_reliability": 0.8125000000000001,
+            "reshapeability": 0.38499999999999995,
+            "revision_cost": 0.55,
+            "topology_constraint": 0.54375
+          },
+          "schema": "co_shape_prior6_v2",
+          "score_values": [
+            0.0,
+            0.25,
+            0.5,
+            0.75,
+            1.0
+          ],
+          "source": "problem_contract_questionnaire",
+          "status": "derived_from_public_problem_contract"
+        },
+        "neutral": {
+          "axes": {
+            "consequence_span": 0.5,
+            "hidden_decisiveness": 0.5,
+            "local_cue_reliability": 0.5,
+            "reshapeability": 0.5,
+            "revision_cost": 0.5,
+            "topology_constraint": 0.5
+          },
+          "notes": "Neutral five-point six-question shape used only for wrong-shape validation.",
+          "schema": "co_shape_prior6_v2",
+          "source": "study_neutral_override",
+          "status": "study_override"
+        },
+        "renewal_like": {
+          "axes": {
+            "consequence_span": 0.75,
+            "hidden_decisiveness": 0.25,
+            "local_cue_reliability": 0.75,
+            "reshapeability": 0.75,
+            "revision_cost": 0.75,
+            "topology_constraint": 0.5
+          },
+          "notes": "Derived from the six canonical generic regime questions using public problem specification fields only.",
+          "raw_axes_before_quantization": {
+            "consequence_span": 0.722,
+            "hidden_decisiveness": 0.21,
+            "local_cue_reliability": 0.725,
+            "reshapeability": 0.655,
+            "revision_cost": 0.7425,
+            "topology_constraint": 0.54375
+          },
+          "schema": "co_shape_prior6_v2",
+          "score_values": [
+            0.0,
+            0.25,
+            0.5,
+            0.75,
+            1.0
+          ],
+          "source": "problem_contract_questionnaire",
+          "status": "derived_from_public_problem_contract"
+        }
+      }
+    }
+  },
+  "seeds": [
+    0
+  ],
+  "status": "diagnostic_validation_not_general_success_claim",
+  "study": "maintenance_replacement_canonical_validation_v1"
+}

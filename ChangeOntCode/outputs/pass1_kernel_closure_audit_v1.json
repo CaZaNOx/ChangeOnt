@@ -1,0 +1,554 @@
+{
+  "ablation_sensitivity": {
+    "by_ablation": {
+      "minimal_recent_core": {
+        "comparisons": 8,
+        "dynamic_step_delta": -124,
+        "families_with_action_diff": 4,
+        "metric_abs_delta_sum": 29.6,
+        "prefix_action_differences": 32,
+        "sequence_active_step_delta": -74
+      },
+      "no_quotient": {
+        "comparisons": 8,
+        "dynamic_step_delta": 2,
+        "families_with_action_diff": 2,
+        "metric_abs_delta_sum": 23.0,
+        "prefix_action_differences": 22,
+        "sequence_active_step_delta": 0
+      },
+      "no_scheduler": {
+        "comparisons": 8,
+        "dynamic_step_delta": 0,
+        "families_with_action_diff": 2,
+        "metric_abs_delta_sum": 5.6,
+        "prefix_action_differences": 17,
+        "sequence_active_step_delta": -2
+      },
+      "no_sequence": {
+        "comparisons": 8,
+        "dynamic_step_delta": 2,
+        "families_with_action_diff": 1,
+        "metric_abs_delta_sum": 2.0,
+        "prefix_action_differences": 5,
+        "sequence_active_step_delta": -74
+      },
+      "static_shape": {
+        "comparisons": 8,
+        "dynamic_step_delta": -124,
+        "families_with_action_diff": 4,
+        "metric_abs_delta_sum": 9.6,
+        "prefix_action_differences": 28,
+        "sequence_active_step_delta": -4
+      }
+    },
+    "by_family_mode": {
+      "bandit::easy_public_bandit": {
+        "ablation_diff_cases": 3,
+        "comparisons": 5,
+        "prefix_action_differences": 21
+      },
+      "latent_mechanism::easy_visible": {
+        "ablation_diff_cases": 3,
+        "comparisons": 5,
+        "prefix_action_differences": 32
+      },
+      "latent_mechanism::hidden_depth2": {
+        "ablation_diff_cases": 4,
+        "comparisons": 5,
+        "prefix_action_differences": 39
+      },
+      "maintenance_replacement::bandit_like": {
+        "ablation_diff_cases": 0,
+        "comparisons": 5,
+        "prefix_action_differences": 0
+      },
+      "maintenance_replacement::middle": {
+        "ablation_diff_cases": 0,
+        "comparisons": 5,
+        "prefix_action_differences": 0
+      },
+      "maintenance_replacement::renewal_like": {
+        "ablation_diff_cases": 0,
+        "comparisons": 5,
+        "prefix_action_differences": 0
+      },
+      "maze::static_visible_5x5": {
+        "ablation_diff_cases": 2,
+        "comparisons": 5,
+        "prefix_action_differences": 10
+      },
+      "renewal::noisy_renewal": {
+        "ablation_diff_cases": 1,
+        "comparisons": 5,
+        "prefix_action_differences": 2
+      }
+    }
+  },
+  "adapter_boundary_snapshot": {
+    "certificate_gating_summary": {
+      "blocked_top_continuation_with_unblocked_alt_bypassed_by_prior_mode": 1,
+      "cases": 311,
+      "certificate_aware_reopen_or_sample_applied_cases": 74,
+      "certificate_aware_stable_continuation_applied_cases": 12,
+      "modes": {
+        "dominance": 26,
+        "reopen_or_sample": 112,
+        "stable_continuation": 173
+      },
+      "notes_by_type": {
+        "blocked_sampling_selection_has_public_resolver_effect": 24,
+        "blocked_top_continuation_bypassed_by_prior_readout_mode": 1,
+        "certificate_aware_reopen_or_sample_applied": 74,
+        "certificate_aware_stable_continuation_applied": 12,
+        "reopen_or_sample_selected_blocked_without_unblocked_resolver_alternative": 12
+      },
+      "reopen_or_sample_selected_blocked_cases": 36,
+      "reopen_or_sample_selected_blocked_despite_unblocked_resolver_watchpoints": 0,
+      "reopen_or_sample_selected_blocked_with_resolver_effect": 24,
+      "reopen_or_sample_selected_blocked_without_unblocked_resolver_note": 12,
+      "sources": {
+        "latent_public_observation_sweep": 90,
+        "maintenance_public_observation_sweep": 216,
+        "standard_trace_sample": 5
+      },
+      "stable_selected_blocked_with_unblocked_alternative_without_switch": 0,
+      "watchpoints_by_type": {}
+    },
+    "formula_sensitivity_summary": {
+      "cases": 311,
+      "notable_case_count": 12,
+      "profiles": {
+        "baseline": {
+          "actions": {
+            "0": 2,
+            "DOWN": 18,
+            "INSPECT": 110,
+            "INTERACT": 30,
+            "REPAIR": 39,
+            "REPLACE": 24,
+            "RIGHT": 14,
+            "RUN": 44,
+            "UP": 30
+          },
+          "certificate_aware_reopen_cases": 74,
+          "certificate_aware_stable_cases": 12,
+          "modes": {
+            "dominance": 26,
+            "reopen_or_sample": 112,
+            "stable_continuation": 173
+          }
+        },
+        "flat_blocker_terms": {
+          "action_changes": 6,
+          "actions": {
+            "0": 2,
+            "DOWN": 12,
+            "INSPECT": 110,
+            "INTERACT": 36,
+            "REPAIR": 39,
+            "REPLACE": 24,
+            "RIGHT": 14,
+            "RUN": 44,
+            "UP": 30
+          },
+          "certificate_aware_reopen_changes": 0,
+          "certificate_aware_stable_changes": 6,
+          "mode_changes": 0,
+          "modes": {
+            "dominance": 26,
+            "reopen_or_sample": 112,
+            "stable_continuation": 173
+          },
+          "reason_changes": 6
+        },
+        "high_resolver_threshold": {
+          "action_changes": 0,
+          "actions": {
+            "0": 2,
+            "DOWN": 18,
+            "INSPECT": 110,
+            "INTERACT": 30,
+            "REPAIR": 39,
+            "REPLACE": 24,
+            "RIGHT": 14,
+            "RUN": 44,
+            "UP": 30
+          },
+          "certificate_aware_reopen_changes": 0,
+          "certificate_aware_stable_changes": 0,
+          "mode_changes": 0,
+          "modes": {
+            "dominance": 26,
+            "reopen_or_sample": 112,
+            "stable_continuation": 173
+          },
+          "reason_changes": 0
+        },
+        "low_resolver_threshold": {
+          "action_changes": 0,
+          "actions": {
+            "0": 2,
+            "DOWN": 18,
+            "INSPECT": 110,
+            "INTERACT": 30,
+            "REPAIR": 39,
+            "REPLACE": 24,
+            "RIGHT": 14,
+            "RUN": 44,
+            "UP": 30
+          },
+          "certificate_aware_reopen_changes": 0,
+          "certificate_aware_stable_changes": 0,
+          "mode_changes": 0,
+          "modes": {
+            "dominance": 26,
+            "reopen_or_sample": 112,
+            "stable_continuation": 173
+          },
+          "reason_changes": 0
+        },
+        "permissive_comparability_wide_margins": {
+          "action_changes": 0,
+          "actions": {
+            "0": 2,
+            "DOWN": 18,
+            "INSPECT": 110,
+            "INTERACT": 30,
+            "REPAIR": 39,
+            "REPLACE": 24,
+            "RIGHT": 14,
+            "RUN": 44,
+            "UP": 30
+          },
+          "certificate_aware_reopen_changes": 0,
+          "certificate_aware_stable_changes": 0,
+          "mode_changes": 0,
+          "modes": {
+            "dominance": 26,
+            "reopen_or_sample": 112,
+            "stable_continuation": 173
+          },
+          "reason_changes": 0
+        },
+        "resolver_adequacy_unscaled_floor_only": {
+          "action_changes": 0,
+          "actions": {
+            "0": 2,
+            "DOWN": 18,
+            "INSPECT": 110,
+            "INTERACT": 30,
+            "REPAIR": 39,
+            "REPLACE": 24,
+            "RIGHT": 14,
+            "RUN": 44,
+            "UP": 30
+          },
+          "certificate_aware_reopen_changes": 0,
+          "certificate_aware_stable_changes": 0,
+          "mode_changes": 0,
+          "modes": {
+            "dominance": 26,
+            "reopen_or_sample": 112,
+            "stable_continuation": 173
+          },
+          "reason_changes": 0
+        },
+        "resolver_threshold_nearly_disabled": {
+          "action_changes": 0,
+          "actions": {
+            "0": 2,
+            "DOWN": 18,
+            "INSPECT": 110,
+            "INTERACT": 30,
+            "REPAIR": 39,
+            "REPLACE": 24,
+            "RIGHT": 14,
+            "RUN": 44,
+            "UP": 30
+          },
+          "certificate_aware_reopen_changes": 0,
+          "certificate_aware_stable_changes": 0,
+          "mode_changes": 0,
+          "modes": {
+            "dominance": 26,
+            "reopen_or_sample": 112,
+            "stable_continuation": 173
+          },
+          "reason_changes": 0
+        },
+        "strict_comparability_narrow_margins": {
+          "action_changes": 0,
+          "actions": {
+            "0": 2,
+            "DOWN": 18,
+            "INSPECT": 110,
+            "INTERACT": 30,
+            "REPAIR": 39,
+            "REPLACE": 24,
+            "RIGHT": 14,
+            "RUN": 44,
+            "UP": 30
+          },
+          "certificate_aware_reopen_changes": 0,
+          "certificate_aware_stable_changes": 0,
+          "mode_changes": 0,
+          "modes": {
+            "dominance": 26,
+            "reopen_or_sample": 112,
+            "stable_continuation": 173
+          },
+          "reason_changes": 0
+        },
+        "strict_resolver_adequacy_scaling": {
+          "action_changes": 0,
+          "actions": {
+            "0": 2,
+            "DOWN": 18,
+            "INSPECT": 110,
+            "INTERACT": 30,
+            "REPAIR": 39,
+            "REPLACE": 24,
+            "RIGHT": 14,
+            "RUN": 44,
+            "UP": 30
+          },
+          "certificate_aware_reopen_changes": 0,
+          "certificate_aware_stable_changes": 0,
+          "mode_changes": 0,
+          "modes": {
+            "dominance": 26,
+            "reopen_or_sample": 112,
+            "stable_continuation": 173
+          },
+          "reason_changes": 0
+        },
+        "zero_comparability_margins": {
+          "action_changes": 12,
+          "actions": {
+            "0": 2,
+            "DOWN": 6,
+            "INSPECT": 110,
+            "INTERACT": 42,
+            "REPAIR": 39,
+            "REPLACE": 24,
+            "RIGHT": 14,
+            "RUN": 44,
+            "UP": 30
+          },
+          "certificate_aware_reopen_changes": 0,
+          "certificate_aware_stable_changes": 12,
+          "mode_changes": 0,
+          "modes": {
+            "dominance": 26,
+            "reopen_or_sample": 112,
+            "stable_continuation": 173
+          },
+          "reason_changes": 12
+        }
+      },
+      "sources": {
+        "latent_public_observation_sweep": 90,
+        "maintenance_public_observation_sweep": 216,
+        "standard_trace_sample": 5
+      }
+    },
+    "public_effect_coverage": {
+      "candidate_rows": 20,
+      "cases": 5,
+      "relations_total": 80,
+      "rows_with_public_effects": 20
+    },
+    "structural_ablation_summary": {
+      "branch_internal_only_unique_scope": {
+        "action_changes": 73,
+        "certificate_aware_reopen_changes": 27,
+        "certificate_aware_stable_changes": 12,
+        "mode_changes": 29,
+        "positive_branch_internal_delta_cases": 0,
+        "positive_structural_relation_delta_cases": 309,
+        "reason_changes": 59,
+        "selected_blocked_changes": 18
+      },
+      "carrier_only_no_resolver": {
+        "action_changes": 146,
+        "certificate_aware_reopen_changes": 74,
+        "certificate_aware_stable_changes": 12,
+        "mode_changes": 20,
+        "positive_branch_internal_delta_cases": 254,
+        "positive_structural_relation_delta_cases": 309,
+        "reason_changes": 101,
+        "selected_blocked_changes": 61
+      },
+      "no_public_effects": {
+        "action_changes": 119,
+        "certificate_aware_reopen_changes": 74,
+        "certificate_aware_stable_changes": 12,
+        "mode_changes": 42,
+        "positive_branch_internal_delta_cases": 311,
+        "positive_structural_relation_delta_cases": 309,
+        "reason_changes": 116,
+        "selected_blocked_changes": 36
+      },
+      "no_resolver_ops": {
+        "action_changes": 146,
+        "certificate_aware_reopen_changes": 74,
+        "certificate_aware_stable_changes": 12,
+        "mode_changes": 20,
+        "positive_branch_internal_delta_cases": 254,
+        "positive_structural_relation_delta_cases": 309,
+        "reason_changes": 101,
+        "selected_blocked_changes": 61
+      },
+      "no_weak_competition": {
+        "action_changes": 0,
+        "certificate_aware_reopen_changes": 0,
+        "certificate_aware_stable_changes": 0,
+        "mode_changes": 0,
+        "positive_branch_internal_delta_cases": 0,
+        "positive_structural_relation_delta_cases": 0,
+        "reason_changes": 0,
+        "selected_blocked_changes": 0
+      },
+      "weak_competition_only": {
+        "action_changes": 119,
+        "certificate_aware_reopen_changes": 74,
+        "certificate_aware_stable_changes": 12,
+        "mode_changes": 42,
+        "positive_branch_internal_delta_cases": 311,
+        "positive_structural_relation_delta_cases": 309,
+        "reason_changes": 116,
+        "selected_blocked_changes": 36
+      }
+    }
+  },
+  "blocking_watchpoints": [
+    {
+      "evidence": "architecture_acceptance_audit_v1 status=ACCEPTANCE_WATCHPOINTS_REMAIN",
+      "id": "P1A_RELEASE_NOT_READY_ARCHITECTURE_WATCHPOINTS",
+      "interpretation": "The closure candidate is not architecture-accepted; Pass-1 can proceed only as a diagnostic/research state.",
+      "severity": "blocking-for-release"
+    },
+    {
+      "evidence": "structural_trace_validation_v1 status=PASS_WITH_WATCHPOINTS; cases_with_watchpoints=1",
+      "id": "P1A_STRUCTURAL_TRACE_WATCHPOINTS_REMAIN",
+      "interpretation": "Structural trace validation is not clean enough for public strong claims.",
+      "severity": "blocking-for-release"
+    },
+    {
+      "evidence": "sequence_field_rows=511; sequence_active_rows=176; no_sequence action-diff cases=1",
+      "id": "P1A_SEQUENCE_PRESENT_EFFECT_UNPROVEN",
+      "interpretation": "Sequence composition exists and is telemetry-visible, but current capped diagnostics show limited action-level causal effect.",
+      "severity": "major-pass1-watchpoint"
+    },
+    {
+      "evidence": "maintenance insensitive=10; sensitive=0",
+      "id": "P1A_MAINTENANCE_INSENSITIVITY_UNRESOLVED",
+      "interpretation": "Maintenance middle/renewal-like remain insensitive under recent-mechanism ablations; do not patch maintenance specifically.",
+      "severity": "major-pass1-watchpoint"
+    },
+    {
+      "evidence": "carrier_with_resolver_alt_steps=104; carrier_with_resolver_no_shape_trigger_steps=98; support/stability share=0.949325684325217",
+      "id": "P1A_READOUT_SWAMPING_REMAINS",
+      "interpretation": "Support/stability/field dominance still risks collapsing CO structure into ordinary scoring-like readout.",
+      "severity": "major-pass1-watchpoint"
+    },
+    {
+      "evidence": "duplicate_signature_bug_count=0; possible_calibration_site_count=82; accepted_singletons=495",
+      "id": "P1A_QUOTIENT_CONSERVATIVE_CALIBRATION_OPEN",
+      "interpretation": "No obvious duplicate-signature bug found, but quotienting is mostly conservative/singleton and needs false/missed quotient calibration.",
+      "severity": "medium-watchpoint"
+    },
+    {
+      "evidence": "adapter structural ablations are behavior-causal, but formulas and translator richness remain possible hidden-shaping risks.",
+      "id": "P1A_ADAPTER_BOUNDARY_AND_FORMULA_GROUNDING_STILL_REQUIRED",
+      "interpretation": "Before public release, adapter-boundary adversarial tests and formula/coefficient grounding must be strengthened.",
+      "severity": "major-pass1-watchpoint"
+    }
+  ],
+  "claim_boundary": "Freeze/evaluation audit only. It does not add a kernel mechanism, does not tune performance, does not constitute benchmark evidence, and does not prove CO's usefulness or novelty.",
+  "diagnostic_map": {
+    "runs_attempted": 48,
+    "runs_failed": 0,
+    "runs_succeeded": 48,
+    "tasks": [
+      {
+        "family": "bandit",
+        "mode": "easy_public_bandit"
+      },
+      {
+        "family": "renewal",
+        "mode": "noisy_renewal"
+      },
+      {
+        "family": "maze",
+        "mode": "static_visible_5x5"
+      },
+      {
+        "family": "latent_mechanism",
+        "mode": "easy_visible"
+      },
+      {
+        "family": "latent_mechanism",
+        "mode": "hidden_depth2"
+      },
+      {
+        "family": "maintenance_replacement",
+        "mode": "bandit_like"
+      },
+      {
+        "family": "maintenance_replacement",
+        "mode": "middle"
+      },
+      {
+        "family": "maintenance_replacement",
+        "mode": "renewal_like"
+      }
+    ],
+    "variants": [
+      "full_current",
+      "minimal_recent_core",
+      "no_quotient",
+      "no_scheduler",
+      "no_sequence",
+      "static_shape"
+    ]
+  },
+  "mechanism_visibility": {
+    "avg_dynamic_shape_applied_steps": 15.5,
+    "avg_quotient_rows": 0.7678571428571428,
+    "avg_recursion_scheduler_demand": 0.1351679560768734,
+    "avg_sequence_active_steps": 9.25,
+    "avg_sequence_rows": 1.3168402777777777,
+    "full_current_runs": 8,
+    "runs_with_dynamic_shape": 8,
+    "runs_with_quotient_rows": 4,
+    "runs_with_sequence_steps": 7
+  },
+  "next_actions": [
+    "Do not add robot/sim yet as evidence. First resolve/characterize sequence-readout consumption and maintenance/readout insensitivity.",
+    "Run broader multi-seed/current-family diagnostics after freezing mechanism set, including no_sequence, no_scheduler, no_quotient, static_shape and minimal_recent_core.",
+    "Add adapter-boundary adversarial tests: thin translator, remove public effects, perturb irrelevant labels, and compare rich vs minimal public effects.",
+    "Add coefficient sensitivity around readout/sequence consumption, not just resolver thresholds; classify coefficients as derived/provisional/empirical.",
+    "Decide whether remaining readout swamping is a bug, an expected limitation, or evidence that CO currently degenerates into scoring in some regimes.",
+    "Only after that, design small robot/sim tasks as stress tests for dynamic admissibility, exposure, affordance, and sequence continuation."
+  ],
+  "presence": {
+    "candidate_surface": true,
+    "collapse_certificate": true,
+    "commitment_surface": true,
+    "dynamic_shape_field": true,
+    "quotient_equivalence": true,
+    "recursion_scheduler": true,
+    "relation_surface": true,
+    "sequence_composition": true
+  },
+  "study": "pass1_kernel_closure_audit_v1",
+  "verdict": {
+    "pass1_kernel_closure_candidate": true,
+    "pass1_kernel_mechanism_set_present": true,
+    "publication_ready": false,
+    "recommended_state": "freeze rough kernel for evaluation; do not add new mechanisms unless necessity gate passes",
+    "release_ready": false
+  }
+}

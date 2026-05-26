@@ -1,0 +1,54 @@
+{
+  "claim_boundary": "Frozen logged empirical mini-suite only: checks execution, logging, explicit public baselines, and structural telemetry preservation. It is not benchmark evidence, not tuning evidence, not CO proof, and not an RCF novelty claim.",
+  "co_manifest": "experiments/configs/co_agents/co_agents_canonical_core.yaml",
+  "co_manifest_sha256": "caded7b2ad23e91df56268bf65db7a980814dfaa6672b1a6a2836d22a8b543a6",
+  "constants_frozen_before_run": true,
+  "families": {
+    "bandit": {
+      "baselines": [
+        "ucb1",
+        "kl_ucb"
+      ],
+      "co": "CO_canonical_core"
+    },
+    "latent_mechanism": {
+      "baselines": [
+        "random",
+        "heuristic"
+      ],
+      "co": "CO_canonical_core"
+    },
+    "maintenance_replacement": {
+      "baselines": [
+        "random",
+        "threshold",
+        "threshold_opt",
+        "finite_horizon_dp_direct_only",
+        "q_learning"
+      ],
+      "co": "CO_canonical_core"
+    },
+    "maze": {
+      "baselines": [
+        "bfs",
+        "astar"
+      ],
+      "co": "CO_canonical_core"
+    },
+    "renewal": {
+      "baselines": [
+        "last",
+        "phase",
+        "vom"
+      ],
+      "co": "CO_canonical_core"
+    }
+  },
+  "formula_ledger": "FORMULA_COEFFICIENT_LEDGER_2026-05-16.md",
+  "formula_ledger_sha256": "dc7257c197c6ffd6e59f81ce133b3db2c38d1be53b628e9bfb2a22c67b2687f7",
+  "no_tuning_after_results": true,
+  "started_at": "2026-05-17T13:40:02.230583+00:00",
+  "structural_baseline_freeze": "STRUCTURAL_BASELINE_FREEZE_2026-05-16.md",
+  "structural_baseline_freeze_sha256": "bfcbaea34622b33d050caeb1c6b8fc05503f38714e673abaf442a9fe592c9c29",
+  "study": "frozen_logged_empirical_mini_suite_v1"
+}

@@ -1,0 +1,147 @@
+{
+  "agents.co.tests.adapter_public_effect_relation_coverage": {
+    "duration": "2s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.burden_relation_microdiagnostics": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.candidate_surface_publication_invariants": {
+    "duration": "2s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.canonical_manifest_invariants": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.canonical_structure_docs_invariants": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": true
+  },
+  "agents.co.tests.certified_runtime_alignment_invariants": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.code_vs_docs_pipeline_compliance_invariants": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.collapse_certificate_readout_invariants": {
+    "duration": "2s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.commitment_surface_readout_invariants": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.commitment_surface_relation_awareness_diagnostics": {
+    "duration": "2s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.continuation_state_invariants": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.family_packet_alignment_invariants": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.forbidden_shared_family_branching_invariants": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.kernel_structure_carrier_alignment_invariants": {
+    "duration": "2s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.maintenance_replacement_family_invariants": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.maintenance_replacement_runtime_wiring_invariants": {
+    "duration": "2s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.maintenance_replacement_stoa_baseline_invariants": {
+    "duration": "2s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.no_classical_fallback_fail_closed_invariants": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.problem_contract_invariants": {
+    "duration": "2s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.recursive_continuation_field_invariants": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "agents.co.tests.recursive_continuation_field_relation_support_invariants": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": true
+  },
+  "agents.co.tests.relation_path_trace_diagnostics": {
+    "duration": "2s",
+    "exit_code": 0,
+    "rerun": true
+  },
+  "agents.co.tests.relation_surface_public_effect_invariants": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": true
+  },
+  "agents.co.tests.runtime_contract_invariants": {
+    "duration": "2s",
+    "exit_code": 0,
+    "rerun": true
+  },
+  "agents.co.tests.shape_prior6_active_path_invariants": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": true
+  },
+  "agents.co.tests.shape_prior6_contract_invariants": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": true
+  },
+  "agents.co.tests.smoke_co_runner": {
+    "duration": "2s",
+    "exit_code": 0,
+    "rerun": true
+  },
+  "agents.co.tests.structural_trace_validation_invariants": {
+    "duration": "1s",
+    "exit_code": 0,
+    "rerun": true
+  },
+  "agents.co.tests.structure_dependency_invariants": {
+    "duration": "2s",
+    "exit_code": 0,
+    "rerun": true
+  }
+}

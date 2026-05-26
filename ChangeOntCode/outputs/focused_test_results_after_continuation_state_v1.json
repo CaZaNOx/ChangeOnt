@@ -1,0 +1,50 @@
+{
+  "modules": [
+    {
+      "module": "agents.co.tests.continuation_state_invariants",
+      "status": "pass"
+    },
+    {
+      "module": "agents.co.tests.candidate_surface_publication_invariants",
+      "status": "pass"
+    },
+    {
+      "module": "agents.co.tests.commitment_surface_readout_invariants",
+      "status": "pass"
+    },
+    {
+      "module": "agents.co.tests.shape_prior6_contract_invariants",
+      "status": "pass"
+    },
+    {
+      "module": "agents.co.tests.shape_prior6_active_path_invariants",
+      "status": "pass"
+    },
+    {
+      "module": "agents.co.tests.runtime_contract_invariants",
+      "status": "pass"
+    },
+    {
+      "module": "agents.co.tests.problem_contract_invariants",
+      "status": "pass"
+    },
+    {
+      "module": "agents.co.tests.maintenance_replacement_family_invariants",
+      "status": "pass"
+    },
+    {
+      "module": "agents.co.tests.maintenance_replacement_runtime_wiring_invariants",
+      "status": "pass"
+    },
+    {
+      "module": "agents.co.tests.maintenance_replacement_stoa_baseline_invariants",
+      "status": "pass"
+    },
+    {
+      "module": "agents.co.tests.smoke_co_runner",
+      "status": "pass"
+    }
+  ],
+  "note": "Modules were run with per-command timeouts in the container after ContinuationState v1 changes.",
+  "status": "passed"
+}

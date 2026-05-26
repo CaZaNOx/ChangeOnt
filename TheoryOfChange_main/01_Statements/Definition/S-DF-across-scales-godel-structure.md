@@ -1,0 +1,45 @@
+---
+id: stmt.across-scales-godel-structure
+type: DF
+aliases: ["AI13.AcrossScales"]
+title: Across scales — Gödel structure of gaps and shape
+concepts: ["[[02_Concepts/C-godel-holes]]", "[[02_Concepts/C-ontology-of-change]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-godel-hole-pointer]]", "[[01_Statements/Definition/S-DF-tx-operator]]"]
+parents: ["[[01_Statements/Definition/S-DF-godel-hole-pointer]]"]
+successors: []
+symbols_used: []
+sources:
+  - path: TheoryOfChange/00_Meta/AI_Summaries/AI_13_THEORY_ONLY.md:33
+flags: []
+tags: [layer/foundations, domain/logical, stable, "type/DF", "concept/godel-holes", "concept/ontology-of-change"]
+---
+# Across scales — Gödel structure of gaps and shape
+## Claim (formal)
+Gaps (GH) are not mere holes in an otherwise smooth space; their distribution shapes the space’s possible transformations. Across scales, GH patterns constrain where Tx must act.
+
+## Philosophical Translation (of formal claim)
+The shape of what we can’t yet express tells us how the space itself is formed and where it must change.
+
+## Clarifications / Further Context
+- Encourages mapping GH incidence across scales as a structural diagnostic.
+- Multi-scale GH maps guide Tx design and prioritization.
+
+## Next Steps in Chain
+- suggest: use GH maps to plan Tx extensions and audit priorities.
+
+## Tags
+#type/DF #layer/foundations #domain/logical #concept/godel-holes #concept/ontology-of-change #status/stable
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+- [[01_Statements/Definition/S-DF-godel-hole-pointer]]
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-godel-holes]]; [[02_Concepts/C-ontology-of-change]]
+- Parents: [[01_Statements/Definition/S-DF-godel-hole-pointer]]
+- Dependencies: [[01_Statements/Definition/S-DF-godel-hole-pointer]]; [[01_Statements/Definition/S-DF-tx-operator]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+

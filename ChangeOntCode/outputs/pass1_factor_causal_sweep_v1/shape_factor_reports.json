@@ -1,0 +1,965 @@
+{
+  "canonical_derived_shape_reports": [
+    {
+      "direct_controls": {
+        "axes": {
+          "collapse_admissibility": 0.7450000000000001,
+          "local_authority": 0.7050000000000001,
+          "nonlocal_authority": 0.355,
+          "path_sensitivity": 0.33999999999999997,
+          "revision_permissibility": 0.28500000000000003,
+          "rival_breadth": 0.29500000000000004,
+          "support_carry_forward": 0.7150000000000001
+        },
+        "notes": "Direct runtime controls projected from the 6-question canonical shape prior.",
+        "schema": "co_direct_controls_v2",
+        "source": "shape_prior6_direct_projection",
+        "status": "active_canonical_projection"
+      },
+      "family": "bandit",
+      "mode": "easy_public_bandit",
+      "problem_contract": {
+        "actions": {
+          "count": 3,
+          "labels": [
+            "arm_0",
+            "arm_1",
+            "arm_2"
+          ],
+          "native_type": "discrete"
+        },
+        "hard_constraints": [],
+        "mutable_factors": [
+          "candidate_goal_relation"
+        ],
+        "notes": "Bandit family emits declarative action/reward structure only; strategy must remain kernel-side.",
+        "observability_profile": {
+          "constraints": "unknown",
+          "outcome": "direct",
+          "state": "partial"
+        },
+        "observation_channels": [
+          "action_identity",
+          "reward_feedback",
+          "trace_history"
+        ],
+        "regime_anchors": [
+          "action_identities",
+          "action_space_cardinality"
+        ],
+        "reversibility_profile": {
+          "action_reversibility": "reversible",
+          "commitment_cost": "medium",
+          "notes": "actions are repeatable but mistaken hardening can be costly in regret"
+        },
+        "soft_costs": [],
+        "source": "adapter_visible_family_facts",
+        "status": "adapter_emitted",
+        "task_anchor": {
+          "kind": "reward_maximization",
+          "notes": "maximize externally returned reward",
+          "provided_externally": true
+        },
+        "timescale_profile": {
+          "drift": "unknown",
+          "horizon_fixity": "fixed",
+          "notes": "arm identities fixed on active horizon; latent reward relation may or may not drift"
+        }
+      },
+      "shape_prior6": {
+        "axes": {
+          "consequence_span": 0.5,
+          "hidden_decisiveness": 0.25,
+          "local_cue_reliability": 0.75,
+          "reshapeability": 0.25,
+          "revision_cost": 0.25,
+          "topology_constraint": 0.25
+        },
+        "notes": "Derived from the six canonical generic regime questions using public problem specification fields only.",
+        "raw_axes_before_quantization": {
+          "consequence_span": 0.474,
+          "hidden_decisiveness": 0.20500000000000002,
+          "local_cue_reliability": 0.8375000000000001,
+          "reshapeability": 0.3225,
+          "revision_cost": 0.29250000000000004,
+          "topology_constraint": 0.23125
+        },
+        "schema": "co_shape_prior6_v2",
+        "score_values": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "source": "problem_contract_questionnaire",
+        "status": "derived_from_public_problem_contract"
+      }
+    },
+    {
+      "direct_controls": {
+        "axes": {
+          "collapse_admissibility": 0.845,
+          "local_authority": 0.8600000000000001,
+          "nonlocal_authority": 0.24000000000000002,
+          "path_sensitivity": 0.26,
+          "revision_permissibility": 0.24000000000000002,
+          "rival_breadth": 0.21500000000000002,
+          "support_carry_forward": 0.78
+        },
+        "notes": "Direct runtime controls projected from the 6-question canonical shape prior.",
+        "schema": "co_direct_controls_v2",
+        "source": "shape_prior6_direct_projection",
+        "status": "active_canonical_projection"
+      },
+      "family": "renewal",
+      "mode": "noisy_renewal",
+      "problem_contract": {
+        "actions": {
+          "count": 4,
+          "labels": [
+            "sym_0",
+            "sym_1",
+            "sym_2",
+            "sym_3"
+          ],
+          "native_type": "discrete"
+        },
+        "hard_constraints": [],
+        "mutable_factors": [
+          "symbol_transition_relation",
+          "reward_alignment_relation"
+        ],
+        "notes": "Renewal family emits visible sequence and reward history only; no family-local periodicity or policy labels.",
+        "observability_profile": {
+          "constraints": "unknown",
+          "outcome": "direct",
+          "state": "direct"
+        },
+        "observation_channels": [
+          "symbol_observation",
+          "reward_feedback",
+          "trace_history"
+        ],
+        "regime_anchors": [
+          "alphabet_cardinality",
+          "action_space_cardinality"
+        ],
+        "reversibility_profile": {
+          "action_reversibility": "reversible",
+          "commitment_cost": "medium",
+          "notes": "wrong local hardening can be revised but incurs miss cost"
+        },
+        "soft_costs": [],
+        "source": "adapter_visible_family_facts",
+        "status": "adapter_emitted",
+        "task_anchor": {
+          "kind": "predictive_reward_alignment",
+          "notes": "align actions with reward-bearing sequence structure",
+          "provided_externally": true
+        },
+        "timescale_profile": {
+          "drift": "unknown",
+          "horizon_fixity": "mixed",
+          "notes": "alphabet is fixed; useful transition relations may vary over the active horizon"
+        }
+      },
+      "shape_prior6": {
+        "axes": {
+          "consequence_span": 0.25,
+          "hidden_decisiveness": 0.0,
+          "local_cue_reliability": 1.0,
+          "reshapeability": 0.5,
+          "revision_cost": 0.25,
+          "topology_constraint": 0.25
+        },
+        "notes": "Derived from the six canonical generic regime questions using public problem specification fields only.",
+        "raw_axes_before_quantization": {
+          "consequence_span": 0.36000000000000004,
+          "hidden_decisiveness": 0.1,
+          "local_cue_reliability": 0.9000000000000001,
+          "reshapeability": 0.5,
+          "revision_cost": 0.29250000000000004,
+          "topology_constraint": 0.2
+        },
+        "schema": "co_shape_prior6_v2",
+        "score_values": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "source": "problem_contract_questionnaire",
+        "status": "derived_from_public_problem_contract"
+      }
+    },
+    {
+      "direct_controls": {
+        "axes": {
+          "collapse_admissibility": 0.81,
+          "local_authority": 0.8250000000000001,
+          "nonlocal_authority": 0.33,
+          "path_sensitivity": 0.43000000000000005,
+          "revision_permissibility": 0.30000000000000004,
+          "rival_breadth": 0.28,
+          "support_carry_forward": 0.7850000000000001
+        },
+        "notes": "Direct runtime controls projected from the 6-question canonical shape prior.",
+        "schema": "co_direct_controls_v2",
+        "source": "shape_prior6_direct_projection",
+        "status": "active_canonical_projection"
+      },
+      "family": "maze",
+      "mode": "static_visible_5x5",
+      "problem_contract": {
+        "actions": {
+          "count": 4,
+          "labels": [
+            "UP",
+            "DOWN",
+            "LEFT",
+            "RIGHT"
+          ],
+          "native_type": "discrete"
+        },
+        "hard_constraints": [
+          "illegal_move_blocked"
+        ],
+        "mutable_factors": [
+          "local_path_progress_relation"
+        ],
+        "notes": "Maze family emits visible legality and goal geometry, not search strategy.",
+        "observability_profile": {
+          "constraints": "direct",
+          "outcome": "direct",
+          "state": "direct"
+        },
+        "observation_channels": [
+          "visible_position",
+          "visible_goal",
+          "legality_geometry",
+          "trace_history"
+        ],
+        "regime_anchors": [
+          "legal_move_system"
+        ],
+        "reversibility_profile": {
+          "action_reversibility": "partly_reversible",
+          "commitment_cost": "medium",
+          "notes": "wrong turns can often be undone but with path cost"
+        },
+        "soft_costs": [],
+        "source": "adapter_visible_family_facts",
+        "status": "adapter_emitted",
+        "task_anchor": {
+          "kind": "goal_reach",
+          "notes": "reach the externally supplied goal under visible legality constraints",
+          "provided_externally": true
+        },
+        "timescale_profile": {
+          "drift": "slow",
+          "horizon_fixity": "fixed",
+          "notes": "geometry treated as fixed on the local decision horizon"
+        }
+      },
+      "shape_prior6": {
+        "axes": {
+          "consequence_span": 0.5,
+          "hidden_decisiveness": 0.0,
+          "local_cue_reliability": 1.0,
+          "reshapeability": 0.25,
+          "revision_cost": 0.5,
+          "topology_constraint": 0.5
+        },
+        "notes": "Derived from the six canonical generic regime questions using public problem specification fields only.",
+        "raw_axes_before_quantization": {
+          "consequence_span": 0.519,
+          "hidden_decisiveness": 0.0,
+          "local_cue_reliability": 0.9000000000000001,
+          "reshapeability": 0.21000000000000002,
+          "revision_cost": 0.45,
+          "topology_constraint": 0.42500000000000004
+        },
+        "schema": "co_shape_prior6_v2",
+        "score_values": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "source": "problem_contract_questionnaire",
+        "status": "derived_from_public_problem_contract"
+      }
+    },
+    {
+      "direct_controls": {
+        "axes": {
+          "collapse_admissibility": 0.7000000000000002,
+          "local_authority": 0.6950000000000001,
+          "nonlocal_authority": 0.38,
+          "path_sensitivity": 0.46,
+          "revision_permissibility": 0.38500000000000006,
+          "rival_breadth": 0.36,
+          "support_carry_forward": 0.6500000000000001
+        },
+        "notes": "Direct runtime controls projected from the 6-question canonical shape prior.",
+        "schema": "co_direct_controls_v2",
+        "source": "shape_prior6_direct_projection",
+        "status": "active_canonical_projection"
+      },
+      "family": "latent_mechanism",
+      "mode": "easy_visible",
+      "problem_contract": {
+        "actions": {
+          "count": 5,
+          "labels": [
+            "UP",
+            "DOWN",
+            "LEFT",
+            "RIGHT",
+            "INTERACT"
+          ],
+          "native_type": "discrete"
+        },
+        "hard_constraints": [
+          "wall_blocked",
+          "door_blocked_when_closed"
+        ],
+        "mutable_factors": [
+          "door_passability",
+          "switch_relevance"
+        ],
+        "notes": "Latent mechanism family: same visible object may lawfully change meaning after interaction history.",
+        "observability_profile": {
+          "constraints": "direct",
+          "outcome": "direct",
+          "state": "partial"
+        },
+        "observation_channels": [
+          "visible_geometry",
+          "door_state",
+          "switch_locations",
+          "recent_path",
+          "mechanism_observables"
+        ],
+        "regime_anchors": [
+          "door_mechanism",
+          "interaction_history"
+        ],
+        "reversibility_profile": {
+          "action_reversibility": "partly_reversible",
+          "commitment_cost": "medium_to_high",
+          "notes": "wrong interaction can reset or delay mechanism progress"
+        },
+        "soft_costs": [
+          "step_cost",
+          "wrong_interaction_cost"
+        ],
+        "source": "adapter_visible_family_facts",
+        "status": "adapter_emitted",
+        "task_anchor": {
+          "kind": "goal_reach_under_latent_mechanism",
+          "notes": "reach the visible goal while latent mechanism state changes object meaning",
+          "provided_externally": true
+        },
+        "timescale_profile": {
+          "drift": "none",
+          "horizon_fixity": "fixed",
+          "notes": "semantic rewrite is endogenous, induced by interaction history"
+        }
+      },
+      "shape_prior6": {
+        "axes": {
+          "consequence_span": 0.5,
+          "hidden_decisiveness": 0.0,
+          "local_cue_reliability": 0.75,
+          "reshapeability": 0.5,
+          "revision_cost": 0.5,
+          "topology_constraint": 0.5
+        },
+        "notes": "Derived from the six canonical generic regime questions using public problem specification fields only.",
+        "raw_axes_before_quantization": {
+          "consequence_span": 0.5940000000000001,
+          "hidden_decisiveness": 0.105,
+          "local_cue_reliability": 0.8125000000000001,
+          "reshapeability": 0.41000000000000003,
+          "revision_cost": 0.5,
+          "topology_constraint": 0.54375
+        },
+        "schema": "co_shape_prior6_v2",
+        "score_values": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "source": "problem_contract_questionnaire",
+        "status": "derived_from_public_problem_contract"
+      }
+    },
+    {
+      "direct_controls": {
+        "axes": {
+          "collapse_admissibility": 0.7000000000000002,
+          "local_authority": 0.6950000000000001,
+          "nonlocal_authority": 0.38,
+          "path_sensitivity": 0.46,
+          "revision_permissibility": 0.38500000000000006,
+          "rival_breadth": 0.36,
+          "support_carry_forward": 0.6500000000000001
+        },
+        "notes": "Direct runtime controls projected from the 6-question canonical shape prior.",
+        "schema": "co_direct_controls_v2",
+        "source": "shape_prior6_direct_projection",
+        "status": "active_canonical_projection"
+      },
+      "family": "latent_mechanism",
+      "mode": "hidden_depth2",
+      "problem_contract": {
+        "actions": {
+          "count": 5,
+          "labels": [
+            "UP",
+            "DOWN",
+            "LEFT",
+            "RIGHT",
+            "INTERACT"
+          ],
+          "native_type": "discrete"
+        },
+        "hard_constraints": [
+          "wall_blocked",
+          "door_blocked_when_closed"
+        ],
+        "mutable_factors": [
+          "door_passability",
+          "switch_relevance"
+        ],
+        "notes": "Latent mechanism family: same visible object may lawfully change meaning after interaction history.",
+        "observability_profile": {
+          "constraints": "direct",
+          "outcome": "direct",
+          "state": "partial"
+        },
+        "observation_channels": [
+          "visible_geometry",
+          "door_state",
+          "switch_locations",
+          "recent_path",
+          "mechanism_observables"
+        ],
+        "regime_anchors": [
+          "door_mechanism",
+          "interaction_history"
+        ],
+        "reversibility_profile": {
+          "action_reversibility": "partly_reversible",
+          "commitment_cost": "medium_to_high",
+          "notes": "wrong interaction can reset or delay mechanism progress"
+        },
+        "soft_costs": [
+          "step_cost",
+          "wrong_interaction_cost"
+        ],
+        "source": "adapter_visible_family_facts",
+        "status": "adapter_emitted",
+        "task_anchor": {
+          "kind": "goal_reach_under_latent_mechanism",
+          "notes": "reach the visible goal while latent mechanism state changes object meaning",
+          "provided_externally": true
+        },
+        "timescale_profile": {
+          "drift": "none",
+          "horizon_fixity": "fixed",
+          "notes": "semantic rewrite is endogenous, induced by interaction history"
+        }
+      },
+      "shape_prior6": {
+        "axes": {
+          "consequence_span": 0.5,
+          "hidden_decisiveness": 0.0,
+          "local_cue_reliability": 0.75,
+          "reshapeability": 0.5,
+          "revision_cost": 0.5,
+          "topology_constraint": 0.5
+        },
+        "notes": "Derived from the six canonical generic regime questions using public problem specification fields only.",
+        "raw_axes_before_quantization": {
+          "consequence_span": 0.5940000000000001,
+          "hidden_decisiveness": 0.105,
+          "local_cue_reliability": 0.8125000000000001,
+          "reshapeability": 0.41000000000000003,
+          "revision_cost": 0.5,
+          "topology_constraint": 0.54375
+        },
+        "schema": "co_shape_prior6_v2",
+        "score_values": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "source": "problem_contract_questionnaire",
+        "status": "derived_from_public_problem_contract"
+      }
+    },
+    {
+      "direct_controls": {
+        "axes": {
+          "collapse_admissibility": 0.8800000000000001,
+          "local_authority": 0.8600000000000001,
+          "nonlocal_authority": 0.28,
+          "path_sensitivity": 0.35,
+          "revision_permissibility": 0.15500000000000003,
+          "rival_breadth": 0.23,
+          "support_carry_forward": 0.895
+        },
+        "notes": "Direct runtime controls projected from the 6-question canonical shape prior.",
+        "schema": "co_direct_controls_v2",
+        "source": "shape_prior6_direct_projection",
+        "status": "active_canonical_projection"
+      },
+      "family": "maintenance_replacement",
+      "mode": "bandit_like",
+      "problem_contract": {
+        "actions": {
+          "count": 5,
+          "labels": [
+            "RUN",
+            "INSPECT",
+            "REPAIR",
+            "REPLACE",
+            "WAIT"
+          ],
+          "native_type": "discrete_control"
+        },
+        "decision_scope": "anchor",
+        "hard_constraints": [
+          "finite_health_state",
+          "legal_action_set"
+        ],
+        "mutable_factors": [
+          "low_rate_health_degradation"
+        ],
+        "notes": "maintenance/replacement MDP public contract; no true hidden health or optimal policy exposed",
+        "observability_profile": {
+          "constraints": "direct",
+          "outcome": "direct",
+          "state": "direct"
+        },
+        "observation_channels": [
+          "observed_health",
+          "public_costs",
+          "action_feedback",
+          "history"
+        ],
+        "regime_anchors": [
+          "machine_identity",
+          "health_state",
+          "maintenance_action_identities"
+        ],
+        "reversibility_profile": {
+          "action_reversibility": "partly_reversible",
+          "commitment_cost": "low",
+          "notes": "running can create deferred repair/failure burden; repair/replacement can partially reset"
+        },
+        "soft_costs": [
+          "repair_cost",
+          "replace_cost",
+          "inspect_cost",
+          "failure_penalty"
+        ],
+        "source": "maintenance_replacement_adapter",
+        "status": "declared",
+        "task_anchor": {
+          "kind": "reward_maximization",
+          "notes": "maximize uptime/reward net of maintenance and failure costs",
+          "provided_externally": true
+        },
+        "timescale_profile": {
+          "drift": "fixed",
+          "horizon_fixity": "fixed",
+          "notes": "health evolves under public degradation/repair dynamics"
+        }
+      },
+      "shape_prior6": {
+        "axes": {
+          "consequence_span": 0.5,
+          "hidden_decisiveness": 0.0,
+          "local_cue_reliability": 1.0,
+          "reshapeability": 0.0,
+          "revision_cost": 0.25,
+          "topology_constraint": 0.5
+        },
+        "notes": "Derived from the six canonical generic regime questions using public problem specification fields only.",
+        "raw_axes_before_quantization": {
+          "consequence_span": 0.46599999999999997,
+          "hidden_decisiveness": 0.0,
+          "local_cue_reliability": 0.95,
+          "reshapeability": 0.12000000000000001,
+          "revision_cost": 0.35750000000000004,
+          "topology_constraint": 0.54375
+        },
+        "schema": "co_shape_prior6_v2",
+        "score_values": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "source": "problem_contract_questionnaire",
+        "status": "derived_from_public_problem_contract"
+      }
+    },
+    {
+      "direct_controls": {
+        "axes": {
+          "collapse_admissibility": 0.7000000000000002,
+          "local_authority": 0.6950000000000001,
+          "nonlocal_authority": 0.38,
+          "path_sensitivity": 0.46,
+          "revision_permissibility": 0.38500000000000006,
+          "rival_breadth": 0.36,
+          "support_carry_forward": 0.6500000000000001
+        },
+        "notes": "Direct runtime controls projected from the 6-question canonical shape prior.",
+        "schema": "co_direct_controls_v2",
+        "source": "shape_prior6_direct_projection",
+        "status": "active_canonical_projection"
+      },
+      "family": "maintenance_replacement",
+      "mode": "middle",
+      "problem_contract": {
+        "actions": {
+          "count": 5,
+          "labels": [
+            "RUN",
+            "INSPECT",
+            "REPAIR",
+            "REPLACE",
+            "WAIT"
+          ],
+          "native_type": "discrete_control"
+        },
+        "decision_scope": "anchor",
+        "hard_constraints": [
+          "finite_health_state",
+          "legal_action_set"
+        ],
+        "mutable_factors": [
+          "health_degradation",
+          "repair_or_replacement_resets_state",
+          "inspection_changes_information"
+        ],
+        "notes": "maintenance/replacement MDP public contract; no true hidden health or optimal policy exposed",
+        "observability_profile": {
+          "constraints": "direct",
+          "outcome": "direct",
+          "state": "partial"
+        },
+        "observation_channels": [
+          "observed_health",
+          "public_costs",
+          "action_feedback",
+          "history"
+        ],
+        "regime_anchors": [
+          "machine_identity",
+          "health_state",
+          "maintenance_action_identities"
+        ],
+        "reversibility_profile": {
+          "action_reversibility": "partly_reversible",
+          "commitment_cost": "medium",
+          "notes": "running can create deferred repair/failure burden; repair/replacement can partially reset"
+        },
+        "soft_costs": [
+          "repair_cost",
+          "replace_cost",
+          "inspect_cost",
+          "failure_penalty"
+        ],
+        "source": "maintenance_replacement_adapter",
+        "status": "declared",
+        "task_anchor": {
+          "kind": "reward_maximization",
+          "notes": "maximize uptime/reward net of maintenance and failure costs",
+          "provided_externally": true
+        },
+        "timescale_profile": {
+          "drift": "slow",
+          "horizon_fixity": "fixed",
+          "notes": "health evolves under public degradation/repair dynamics"
+        }
+      },
+      "shape_prior6": {
+        "axes": {
+          "consequence_span": 0.5,
+          "hidden_decisiveness": 0.0,
+          "local_cue_reliability": 0.75,
+          "reshapeability": 0.5,
+          "revision_cost": 0.5,
+          "topology_constraint": 0.5
+        },
+        "notes": "Derived from the six canonical generic regime questions using public problem specification fields only.",
+        "raw_axes_before_quantization": {
+          "consequence_span": 0.624,
+          "hidden_decisiveness": 0.105,
+          "local_cue_reliability": 0.8125000000000001,
+          "reshapeability": 0.38499999999999995,
+          "revision_cost": 0.55,
+          "topology_constraint": 0.54375
+        },
+        "schema": "co_shape_prior6_v2",
+        "score_values": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "source": "problem_contract_questionnaire",
+        "status": "derived_from_public_problem_contract"
+      }
+    },
+    {
+      "direct_controls": {
+        "axes": {
+          "collapse_admissibility": 0.56,
+          "local_authority": 0.5650000000000001,
+          "nonlocal_authority": 0.595,
+          "path_sensitivity": 0.65,
+          "revision_permissibility": 0.61,
+          "rival_breadth": 0.51,
+          "support_carry_forward": 0.4600000000000001
+        },
+        "notes": "Direct runtime controls projected from the 6-question canonical shape prior.",
+        "schema": "co_direct_controls_v2",
+        "source": "shape_prior6_direct_projection",
+        "status": "active_canonical_projection"
+      },
+      "family": "maintenance_replacement",
+      "mode": "renewal_like",
+      "problem_contract": {
+        "actions": {
+          "count": 5,
+          "labels": [
+            "RUN",
+            "INSPECT",
+            "REPAIR",
+            "REPLACE",
+            "WAIT"
+          ],
+          "native_type": "discrete_control"
+        },
+        "decision_scope": "anchor",
+        "hard_constraints": [
+          "finite_health_state",
+          "legal_action_set"
+        ],
+        "mutable_factors": [
+          "health_degradation",
+          "repair_or_replacement_resets_state",
+          "inspection_changes_information"
+        ],
+        "notes": "maintenance/replacement MDP public contract; no true hidden health or optimal policy exposed",
+        "observability_profile": {
+          "constraints": "direct",
+          "outcome": "direct",
+          "state": "indirect"
+        },
+        "observation_channels": [
+          "observed_health",
+          "public_costs",
+          "action_feedback",
+          "history"
+        ],
+        "regime_anchors": [
+          "machine_identity",
+          "health_state",
+          "maintenance_action_identities"
+        ],
+        "reversibility_profile": {
+          "action_reversibility": "partly_reversible",
+          "commitment_cost": "high",
+          "notes": "running can create deferred repair/failure burden; repair/replacement can partially reset"
+        },
+        "soft_costs": [
+          "repair_cost",
+          "replace_cost",
+          "inspect_cost",
+          "failure_penalty"
+        ],
+        "source": "maintenance_replacement_adapter",
+        "status": "declared",
+        "task_anchor": {
+          "kind": "reward_maximization",
+          "notes": "maximize uptime/reward net of maintenance and failure costs",
+          "provided_externally": true
+        },
+        "timescale_profile": {
+          "drift": "active",
+          "horizon_fixity": "fixed",
+          "notes": "health evolves under public degradation/repair dynamics"
+        }
+      },
+      "shape_prior6": {
+        "axes": {
+          "consequence_span": 0.75,
+          "hidden_decisiveness": 0.25,
+          "local_cue_reliability": 0.75,
+          "reshapeability": 0.75,
+          "revision_cost": 0.75,
+          "topology_constraint": 0.5
+        },
+        "notes": "Derived from the six canonical generic regime questions using public problem specification fields only.",
+        "raw_axes_before_quantization": {
+          "consequence_span": 0.722,
+          "hidden_decisiveness": 0.21,
+          "local_cue_reliability": 0.725,
+          "reshapeability": 0.655,
+          "revision_cost": 0.7425,
+          "topology_constraint": 0.54375
+        },
+        "schema": "co_shape_prior6_v2",
+        "score_values": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "source": "problem_contract_questionnaire",
+        "status": "derived_from_public_problem_contract"
+      }
+    }
+  ],
+  "claim_boundary": "counterfactual shapes are study-only; canonical shape still derives from public problem contracts",
+  "counterfactual_shape_reports": [
+    {
+      "direct_controls": {
+        "axes": {
+          "collapse_admissibility": 0.5400000000000001,
+          "local_authority": 0.5,
+          "nonlocal_authority": 0.49999999999999994,
+          "path_sensitivity": 0.5,
+          "revision_permissibility": 0.5,
+          "rival_breadth": 0.49999999999999994,
+          "support_carry_forward": 0.5
+        },
+        "notes": "Direct runtime controls projected from the 6-question canonical shape prior.",
+        "schema": "co_direct_controls_v2",
+        "source": "shape_prior6_direct_projection",
+        "status": "active_canonical_projection"
+      },
+      "shape_prior6": {
+        "axes": {
+          "consequence_span": 0.5,
+          "hidden_decisiveness": 0.5,
+          "local_cue_reliability": 0.5,
+          "reshapeability": 0.5,
+          "revision_cost": 0.5,
+          "topology_constraint": 0.5
+        },
+        "source": "pass1_factor_counterfactual_shape_override",
+        "status": "study_only"
+      },
+      "variant": "shape_flat_mid"
+    },
+    {
+      "direct_controls": {
+        "axes": {
+          "collapse_admissibility": 0.94,
+          "local_authority": 0.94,
+          "nonlocal_authority": 0.085,
+          "path_sensitivity": 0.09,
+          "revision_permissibility": 0.06,
+          "rival_breadth": 0.12000000000000001,
+          "support_carry_forward": 0.925
+        },
+        "notes": "Direct runtime controls projected from the 6-question canonical shape prior.",
+        "schema": "co_direct_controls_v2",
+        "source": "shape_prior6_direct_projection",
+        "status": "active_canonical_projection"
+      },
+      "shape_prior6": {
+        "axes": {
+          "consequence_span": 0.0,
+          "hidden_decisiveness": 0.0,
+          "local_cue_reliability": 1.0,
+          "reshapeability": 0.25,
+          "revision_cost": 0.0,
+          "topology_constraint": 0.25
+        },
+        "source": "pass1_factor_counterfactual_shape_override",
+        "status": "study_only"
+      },
+      "variant": "shape_local_fast"
+    },
+    {
+      "direct_controls": {
+        "axes": {
+          "collapse_admissibility": 0.23000000000000004,
+          "local_authority": 0.18,
+          "nonlocal_authority": 0.8799999999999999,
+          "path_sensitivity": 0.8499999999999999,
+          "revision_permissibility": 0.915,
+          "rival_breadth": 0.7799999999999999,
+          "support_carry_forward": 0.135
+        },
+        "notes": "Direct runtime controls projected from the 6-question canonical shape prior.",
+        "schema": "co_direct_controls_v2",
+        "source": "shape_prior6_direct_projection",
+        "status": "active_canonical_projection"
+      },
+      "shape_prior6": {
+        "axes": {
+          "consequence_span": 1.0,
+          "hidden_decisiveness": 1.0,
+          "local_cue_reliability": 0.25,
+          "reshapeability": 0.75,
+          "revision_cost": 1.0,
+          "topology_constraint": 0.5
+        },
+        "source": "pass1_factor_counterfactual_shape_override",
+        "status": "study_only"
+      },
+      "variant": "shape_hidden_long"
+    },
+    {
+      "direct_controls": {
+        "axes": {
+          "collapse_admissibility": 0.5950000000000001,
+          "local_authority": 0.5700000000000001,
+          "nonlocal_authority": 0.575,
+          "path_sensitivity": 0.7000000000000001,
+          "revision_permissibility": 0.475,
+          "rival_breadth": 0.555,
+          "support_carry_forward": 0.64
+        },
+        "notes": "Direct runtime controls projected from the 6-question canonical shape prior.",
+        "schema": "co_direct_controls_v2",
+        "source": "shape_prior6_direct_projection",
+        "status": "active_canonical_projection"
+      },
+      "shape_prior6": {
+        "axes": {
+          "consequence_span": 0.75,
+          "hidden_decisiveness": 0.5,
+          "local_cue_reliability": 0.75,
+          "reshapeability": 0.0,
+          "revision_cost": 0.75,
+          "topology_constraint": 1.0
+        },
+        "source": "pass1_factor_counterfactual_shape_override",
+        "status": "study_only"
+      },
+      "variant": "shape_rigid_topology"
+    }
+  ]
+}

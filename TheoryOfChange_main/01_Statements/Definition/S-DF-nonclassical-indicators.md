@@ -1,0 +1,54 @@
+---
+id: stmt.nonclassical-indicators
+type: DF
+aliases: ["AI13.Indicators"]
+title: Non-classical indicators — structure-changing signals
+concepts: ["[[02_Concepts/C-markov-closure]]"]
+dependencies: ["[[01_Statements/Definition/S-DF-tx-operator]]", "[[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]"]
+parents: ["[[01_Statements/Definition/S-DF-tx-operator]]"]
+successors: ["[[01_Statements/Definition/S-DF-cross-audit-markov-gh-tx]]", "[[01_Statements/Definition/S-DF-extended-audit-indicators]]"]
+symbols_used: []
+sources:
+  - path: TheoryOfChange/00_Meta/AI_Summaries/AI_13_THEORY_ONLY.md:1
+flags: []
+tags: [layer/validation, domain/logical, stable, "type/DF", "concept/markov-closure"]
+---
+# Non-classical indicators — structure-changing signals
+## Claim (formal)
+Indicators that signal departure from fixed-space models include: detected frame shifts (Tx), variable creation, boundary/subject deformation, nonlocal relationality, and emergence of new attractors.
+
+## Philosophical Translation (of formal claim)
+Clues that the “space itself” is changing show up as structural events, not just weird data; we should look for them on purpose.
+
+## Philosophical Justification
+- [[S-DF-tx-operator]]: Tx marks frame shifts; seeing them implies fixed-space closure is broken.
+- [[S-DF-pointer-structural]]: structural pointers changing or multiplying indicate altered reach structure.
+- Variable birth, boundary deformation, and novel attractors are observable signals that assumptions of Markov closure may fail; tracking them enables timely audits.
+
+## Clarifications / Further Context
+- These indicators trigger cross-audit: extend the model (Tx) or log GH if representation is insufficient.
+- Should be paired with operational hooks ([[S-DF-extended-audit-indicators]]) to avoid purely notional lists.
+
+## Next Steps in Chain
+- suggest: [[S-DF-cross-audit-markov-gh-tx]]
+- suggest: [[S-DF-extended-audit-indicators]]
+
+## Tags
+#type/DF #layer/validation #domain/logical #concept/markov-closure #status/stable
+
+<!-- BEGIN:AUTOGEN:REFERENCED_BY -->
+## Referenced By
+- [[01_Statements/Clarification/S-CL-early-warning-coherence-collapse]]
+- [[01_Statements/Definition/S-DF-change-benchmark-protocol]]
+- [[01_Statements/Definition/S-DF-extended-audit-indicators]]
+<!-- END:AUTOGEN:REFERENCED_BY -->
+
+<!-- BEGIN:AUTOGEN:RELATIONSHIPS -->
+## Relationships
+
+- Concepts: [[02_Concepts/C-markov-closure]]
+- Parents: [[01_Statements/Definition/S-DF-tx-operator]]
+- Dependencies: [[01_Statements/Definition/S-DF-tx-operator]]; [[01_Statements/02_Outer_Formation/005_S-DF-structural-prior-implication]]
+- Successors: [[01_Statements/Definition/S-DF-cross-audit-markov-gh-tx]]; [[01_Statements/Definition/S-DF-extended-audit-indicators]]
+<!-- END:AUTOGEN:RELATIONSHIPS -->
+

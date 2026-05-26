@@ -1,0 +1,20 @@
+Relation-support patch verification — 2026-05-05
+
+Run context: isolated module runs from ChangeOntCode with python -m agents.co.tests.<module>.
+A single long combined shell loop timed out while sequencing modules, so modules were verified in isolated runs instead.
+
+PASS agents.co.tests.recursive_continuation_field_relation_support_invariants
+PASS agents.co.tests.recursive_continuation_field_invariants
+PASS agents.co.tests.continuation_state_invariants
+PASS agents.co.tests.candidate_surface_publication_invariants
+PASS agents.co.tests.commitment_surface_readout_invariants
+PASS agents.co.tests.shape_prior6_contract_invariants
+PASS agents.co.tests.shape_prior6_active_path_invariants
+PASS agents.co.tests.runtime_contract_invariants
+PASS agents.co.tests.problem_contract_invariants
+PASS agents.co.tests.maintenance_replacement_family_invariants
+PASS agents.co.tests.maintenance_replacement_runtime_wiring_invariants
+PASS agents.co.tests.maintenance_replacement_stoa_baseline_invariants
+PASS agents.co.tests.smoke_co_runner
+
+No broad benchmark success claim is implied by these passes.

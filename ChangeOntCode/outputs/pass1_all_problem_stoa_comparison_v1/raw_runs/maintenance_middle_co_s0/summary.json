@@ -1,0 +1,11 @@
+{
+  "agent": "co",
+  "family": "maintenance_replacement",
+  "final_health_true": 2,
+  "horizon": 80,
+  "observation_mode": "partial",
+  "regime": "middle",
+  "seed": 0,
+  "steps": 80,
+  "total_reward": 10.55000000000001
+}

@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use ChangeOnt, please cite this project."
+title: "ChangeOnt: A Change-First Ontology for Learning & Control"
+authors:
+  - family-names: "ChangeOnt Team"
+    given-names: "CO"
+version: "0.1.0"
+date-released: "2025-09-01"
+license: "MIT"
+repository-code: "https://github.com/CaZaNOx/ChangeOnt"

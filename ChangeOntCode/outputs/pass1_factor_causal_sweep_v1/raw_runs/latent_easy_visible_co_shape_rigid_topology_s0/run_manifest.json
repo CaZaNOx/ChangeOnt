@@ -1,0 +1,9 @@
+{
+  "started_at": "2026-05-25T13:46:43.437061+00:00",
+  "finished_at": "2026-05-25T13:46:43.548113+00:00",
+  "status": "ok",
+  "error": null,
+  "seed": 0,
+  "spec_name": "easy_visible",
+  "agent": "co:co_shape_rigid_topology"
+}

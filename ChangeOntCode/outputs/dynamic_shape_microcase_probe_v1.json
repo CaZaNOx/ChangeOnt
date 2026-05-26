@@ -1,0 +1,73 @@
+{
+  "cases": [
+    {
+      "case": "repeated_carrier_burden",
+      "error": "",
+      "passed": true
+    },
+    {
+      "case": "successful_exposure",
+      "error": "",
+      "passed": true
+    },
+    {
+      "case": "failed_exposure",
+      "error": "",
+      "passed": true
+    },
+    {
+      "case": "topology_discovery",
+      "error": "",
+      "passed": true
+    },
+    {
+      "case": "stable_low_coupling_coarsening",
+      "error": "",
+      "passed": true
+    },
+    {
+      "case": "high_coupling_projection_consumption",
+      "error": "",
+      "passed": true
+    },
+    {
+      "case": "resolver_requires_public_relation",
+      "error": "",
+      "passed": true
+    },
+    {
+      "case": "transform_transfer_nonresolver",
+      "error": "",
+      "passed": true
+    },
+    {
+      "case": "revision_success",
+      "error": "",
+      "passed": true
+    },
+    {
+      "case": "failed_revision",
+      "error": "",
+      "passed": true
+    },
+    {
+      "case": "reward_alone_no_update",
+      "error": "",
+      "passed": true
+    },
+    {
+      "case": "shape_ablation_visible",
+      "error": "",
+      "passed": true
+    }
+  ],
+  "study": "dynamic_shape_microcase_probe_v1",
+  "summary": {
+    "all_passed": true,
+    "cases": 12,
+    "claim_boundary": "structural microcases only; not empirical performance evidence",
+    "failed": 0,
+    "passed": 12,
+    "study": "dynamic_shape_microcase_probe_v1"
+  }
+}

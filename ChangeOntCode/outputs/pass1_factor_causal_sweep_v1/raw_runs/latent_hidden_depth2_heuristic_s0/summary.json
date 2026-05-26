@@ -1,0 +1,11 @@
+{
+  "spec_name": "hidden_depth2",
+  "agent": "heuristic",
+  "steps": 8,
+  "mean_reward": -1.35,
+  "success": 0,
+  "door_reframes": 0,
+  "wrong_count": 7,
+  "mechanism_depth": 2,
+  "co_runtime_contract": null
+}

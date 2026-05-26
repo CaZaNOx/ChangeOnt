@@ -1,0 +1,11 @@
+{
+  "spec_name": "easy_visible",
+  "agent": "heuristic",
+  "steps": 24,
+  "mean_reward": -1.7666666666666664,
+  "success": 0,
+  "door_reframes": 0,
+  "wrong_count": 23,
+  "mechanism_depth": 1,
+  "co_runtime_contract": null
+}
